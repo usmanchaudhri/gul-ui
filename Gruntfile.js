@@ -399,7 +399,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:nameless-harbor-5555.git',   
+          remote: 'git@heroku.com:gul-ui.git',   
           branch: 'master',
           tag: pkg.version
         }
