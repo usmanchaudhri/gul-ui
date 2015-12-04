@@ -1,0 +1,26 @@
+
+		<h2 latestDiv>Latest <span style="color:black;">Designs</span></h2>
+<span ng-repeat="x in designerProducts">		
+		<div class="imageDiv" ng-repeat = "a in x.products">
+		
+			
+			
+					<img bn-lazy-src= "{{'https://content.dropboxapi.com/1/files/auto/gul/product/images/' + a.imagePath + '?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne'}}"   >
+    				<div class="imageText">
+   						<span class="proDes">
+   						
+    						<a href="#">{{a.name}}</a> <br />
+   						</span>
+   						<span class="proDes">
+    						 <a ng-href="designerDetail.html"  ><i>by {{a.shop.name}}</i></a>
+    						 
+   						</span>
+   						
+   							
+   							
+   							<input type="submit" value="BUY" class="buyBtn" />
+   						
+   					</div>
+    		
+		</div>
+</span>

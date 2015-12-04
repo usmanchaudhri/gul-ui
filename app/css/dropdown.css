@@ -1,0 +1,171 @@
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
+	margin-left: -1px;
+	-webkit-border-radius: 0 6px 6px 6px;
+	-moz-border-radius: 0 6px 6px;
+	border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu>a:after {
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+	border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+	float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
+	
+}
+.dropdown-menu { 
+	min-width: 200px;
+}
+.imageDiv{
+	position: relative;
+	float: left;
+	margin-left: 0px;
+	margin-top: 0PX;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	width: 33.3333%;
+	height: 300px;
+	
+}
+.imageText{ 
+	position: relative; 
+	bottom: 0px; 
+	left: 0; 
+	width: 96%;
+	height: 50px;
+	background-color: #727272; 
+	padding-top: 5px;
+   	
+}
+.imageText a{
+	color: #FFFFFF;
+	text-decoration: none;
+    
+}
+.imageText a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.proDes{
+	line-height: 10px;
+	color: #fff;
+	font-size: 9px;
+	margin-left: 15px;
+}
+
+.proAuth{
+	line-height: 10px;
+	color: #fff;
+	font-size: 8px;
+	margin-left: 15px;
+}
+.offerText{
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	color: #e86903;
+	margin-left: 10px;
+	
+}
+.buyBtn{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding: 1px 10px 0;
+	border: 0;
+	color: #e86903;
+	border-radius: 0;
+	font: 13px/17px 'helveticaneue-bold', sans-serif;
+	text-transform: uppercase;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.38);
+	box-shadow: 0 1px 3px rgba(0,0,0,.38);
+}
+.main-nav > ul {
+	list-style: none;
+	margin: 0 26%;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+img[ bn-lazy-src ] {
+	background-image: url('../images/ajax-loader.gif') ;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 96%;
+	height: 300px;
+}
+
+
+#desDetail{
+	width: 954px;
+	height: auto;
+	margin: auto;
+	margin-top: 15px;
+}        
+        
+#desImage{
+	position: relative;
+	width: 150px;
+	height: 180px;
+	background: url('../images/Sania.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	float: left;
+}
+#desInfo{
+	width: auto;
+	position: relative;
+	float: left;
+	margin-left: 20px;
+}
+.navbar-collapse.collapse {
+	display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+	float: left !important;
+}
+
+.navbar-nav.navbar-center:last-child {
+	margin-right: -15px !important;
+}
+#designerContainer{
+	margin-bottom: 100px;
+	margin-top: 50px;	
+}
