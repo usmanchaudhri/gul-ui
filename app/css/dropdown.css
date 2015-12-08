@@ -1,71 +1,19 @@
-
-.dropdown-submenu {
-	position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -6px;
-	margin-left: -1px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	-moz-border-radius: 0 6px 6px;
-	border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
-
-.dropdown-submenu>a:after {
-	display: block;
-	content: " ";
-	float: right;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
-	margin-top: 5px;
-	margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
-	border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-	float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-	left: -100%;
-	margin-left: 10px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	-moz-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
-	
-}
-.dropdown-menu { 
-	min-width: 200px;
-}
-.imageDiv{
+/*.imageDiv{
 	position: relative;
 	float: left;
 	margin-left: 0px;
 	margin-top: 0PX;
 	margin-right: 5px;
 	margin-bottom: 10px;
-	width: 33.3333%;
+	width: 250px;
 	height: 300px;
 	
-}
+}*/
 .imageText{ 
 	position: relative; 
 	bottom: 0px; 
 	left: 0; 
-	width: 96%;
+	width: 100%;
 	height: 50px;
 	background-color: #727272; 
 	padding-top: 5px;
@@ -81,7 +29,7 @@
 	text-decoration: none;
 }
 .proDes{
-	line-height: 10px;
+	line-height: 0px;
 	color: #fff;
 	font-size: 9px;
 	margin-left: 15px;
@@ -91,20 +39,20 @@
 	line-height: 10px;
 	color: #fff;
 	font-size: 8px;
-	margin-left: 15px;
+	margin-left: 0px;
 }
 .offerText{
 	width: 100%;
-	height: auto;
+	height: auto;ma
 	font-size: 20px;
 	color: #e86903;
-	margin-left: 10px;
+	margin-left: 0px;
 	
 }
 .buyBtn{
 	float: right;
 	margin-right: 10px;
-	margin-top: 10px;
+	margin-top: 5px;
 	padding: 1px 10px 0;
 	border: 0;
 	color: #e86903;
@@ -127,7 +75,7 @@ img[ bn-lazy-src ] {
 	background-image: url('../images/ajax-loader.gif') ;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 96%;
+	width: 100%;
 	height: 300px;
 }
 
@@ -135,7 +83,6 @@ img[ bn-lazy-src ] {
 #desDetail{
 	width: 954px;
 	height: auto;
-	margin: auto;
 	margin-top: 15px;
 }        
         
@@ -152,7 +99,7 @@ img[ bn-lazy-src ] {
 	width: auto;
 	position: relative;
 	float: left;
-	margin-left: 20px;
+	margin-left: 25px;
 }
 .navbar-collapse.collapse {
 	display: block!important;
@@ -168,4 +115,12 @@ img[ bn-lazy-src ] {
 #designerContainer{
 	margin-bottom: 100px;
 	margin-top: 50px;	
+}
+
+.nav ul{
+	border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+.proDes p {
+    margin: 0px 15px 7px;
 }
