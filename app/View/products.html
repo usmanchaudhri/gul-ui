@@ -1,11 +1,11 @@
 
 <h2 latestDiv>Latest <span style="color:black;">Designs</span></h2>
 <div class="row info-boxes">
-	<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat = "a in product">
+	<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat = "a in product | startFrom:currentPage*pageSize | limitTo:pageSize">
 		
 			
-				
-		<img bn-lazy-src= "{{'https://content.dropboxapi.com/1/files/auto/gul/product/images/' + a.imagePath + '?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne'}}"   >
+		<a ng-href="View/productDetailPage.html#?pro_id={{a.id}}">		
+		<img bn-lazy-src= "{{'https://content.dropboxapi.com/1/files/auto/gul/product/images/' + a.imagePath + '?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne'}}"   ></a>
 		<div class="imageText">
    					
 			<span class="proDes">
@@ -29,3 +29,9 @@
     		
 	</div>
 </div>
+<ul class="pagination">
+				        <li><button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><</button></li>
+				        <li>{{currentPage+1}}/{{numberOfPages()}}</li>
+				        <li><button ng-disabled="currentPage >= product.length/pageSize - 1" ng-click="currentPage=currentPage+1">></button></li>
+				    </ul>   
+ 
