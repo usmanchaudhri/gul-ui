@@ -8,16 +8,20 @@
 						$scope.size = response1.data.length;    	
 					});
 			});
-		$scope.currentPage = 0;
-		$scope.pageSize = 5;
-		$scope.numberOfPages=function(){
-			return Math.ceil($scope.size/$scope.pageSize);
-		}
-	});
-        
-app.filter('startFrom', function() {
-		return function(input, start) {
-			start = +start;
-			return input.slice(start);
-		}
+		$scope.currentPage = 1;
+		$scope.pageSize = 9;
+		$scope.pageChangeHandler = function(num) {
+			console.log('meals page changed to ' + num);
+		};
+		
+		
+		$scope.load = function() {
+ 
+			$('.carousel .item').each(function(e) {
+					var bg_ = 'url(' + $(this).find('>img').attr('src') + ')';
+					$(this).find('>img').hide();
+					$(this).css('background-image', bg_);
+				});
+		};
+		$scope.load();
 	});

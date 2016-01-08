@@ -1,11 +1,15 @@
- app.controller('Ctrl1', function($scope,$http,$q,$timeout,$location) {
-        
-		$scope.target = $location.search().target;
+ app.controller('Ctrl1', function($scope,$http,$q,$timeout,$location,$routeParams) {
+     
+		//	$scope.target = $location.search().target;
 		$http.get("url.properties")
 		.then(function(response) {
-				$http.get(response.data.shopUrl + '/' + $scope.target)
+				$scope.fixPath = response.data.fixImagePath;
+				$scope.token = response.data.token;
+				$scope.shop_id = $routeParams.shopId;
+		
+				$http.get(response.data.shopUrl +'/'+ $scope.shop_id)
 				.then(function(response1){
-						$scope.designerProducts = response1;
+						$scope.designerProducts = response1.data;
     	
 					});
 			});

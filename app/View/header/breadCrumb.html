@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row" ng-controller="BreadcrumbCtrl">
+		<div class="col-sm-10">
+			<!--<ul id="home" bread-crumbs></ul>-->
+			<div id="breadcrumbs">
+				<span ng-if="breadcrumbs.get().length > 1">
+					<ol>
+						<li ng-repeat="breadcrumb in breadcrumbs.get() track by breadcrumb.path" ng-class="{ active: $last }">
+							<a ng-if="!$last" ng-href="#{{ breadcrumb.path }}" ng-bind="breadcrumb.label"></a>
+							<img ng-if="!$last" src="images/right.png" style="margin-left: 5px ; margin-bottom: 0px;
+							margin-top:-2px;"/>
+							<span ng-if="$last" ng-bind="breadcrumb.label"></span>
+						</li>
+					</ol>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

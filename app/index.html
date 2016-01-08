@@ -5,56 +5,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Gulgs</title>
-	
 		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/dropdown.css">
-		
-		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/scripts.js"></script>
 	</head>
 	<body>
 		<div class="wrapper" ng-app="myApp" >
-	
 			<!--Navigation Bar-->
 			<nav class="navbar">
 				<div class="container">
-					<strong class="navbar-brand"><a href="#">Gul</a></strong>
-					<a class="btn-menu visible-xs" href="#">menu</a>
-					<a class="cart" href="#"><img src="images/ico-01.png" alt="image"></a>
-
-					<div class="testing">
-						<div class="main-nav" ng-controller="MenuCtrl"  ng-include src="'view/menuBar.html'" ></div>
-					</div>
+					<strong class="navbar-brand"><a href="#a">Gul</a></strong>
+					<a class="btn-menu visible-xs" href="#a">menu</a>
+					<a class="cart" href="#cart/"><img src="images/ico-01.png" alt="image"></a>
+					<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
 				</div><!--/ End of container -->
-			</nav><!-- /navbar navbar-fixed-top -->
-			<!--End of Navigation Bar-->
-	
-			<!--Slider-->
-			<div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
-		
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img src="images/img-01.jpg" alt="image">
-					</div>
-					<div class="item">
-						<img src="images/img-01.jpg" alt="image">
-					</div>
-				</div>
-	 
-				<div class="carousel-nav">
-					<a class="left carousel-control" href="#carousel-01" role="button" data-slide="prev">
-						<span class="sr-only">Previous</span></a>
-					<a class="right carousel-control" href="#carousel-01" role="button" data-slide="next">
-						<span class="sr-only">Next</span></a>
-				</div>
-			</div><!-- /carousel-01 -->
-			<!--End of Slider-->
-	
-			<!-- show products -->
-			<div class="container" ng-view></div>
-			<!-- / container -->
+			</nav>
+			
+			<div  ng-include src="'view/header/breadCrumb.html'" ></div>
+			<div ng-view autoscroll="true"></div>
+
 
 			<!--Footer-->
 			<footer id="footer">
@@ -62,7 +32,7 @@
 					<div class="row">
 						<div class="col-sm-7 col-sm-push-3 col-xs-12 col-xs-push-0">
 							<div class="subscribe">
-								<form action="#">
+								<form action="#a">
 									<label for="lbl-01">E-mail<span>*</span></label>
 									<div class="form-group">
 										<input id="lbl-01" class="form-control" type="email">
@@ -74,17 +44,17 @@
 						<div class="col-sm-3 col-sm-pull-7 col-xs-6 col-xs-pull-0">
 							<h4>HELP</h4>
 							<ul class="list">
-								<li><a href="#">ABOUT</a></li>
-								<li><a href="#">TERMS &amp; PRIVACY</a></li>
-								<li><a href="#">PRIVACY POLICY</a></li>
-								<li><a href="#">CONTACT US</a></li>
+								<li><a href="#a">ABOUT</a></li>
+								<li><a href="#a">TERMS &amp; PRIVACY</a></li>
+								<li><a href="#a">PRIVACY POLICY</a></li>
+								<li><a href="#a">CONTACT US</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-2 col-xs-6">
 							<h5>Invite Friends</h5>
 							<ul class="social">
-								<li><a href="#"><img src="images/ico-facebook.png" alt="image"></a></li>
-								<li><a href="#"><img src="images/ico-twitter.png" alt="image"></a></li>
+								<li><a href="#a"><img src="images/ico-facebook.png" alt="image"></a></li>
+								<li><a href="#a"><img src="images/ico-twitter.png" alt="image"></a></li>
 							</ul>
 						</div>
 					</div><!-- /row -->
@@ -93,6 +63,12 @@
 			<!--End of Footer-->
 	
 			<!-- javascript -->
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="js/scripts.js"></script>
+			<script src="js/spiner.js"></script>
+			<script src="js/carousel.js"></script>		
+			<script src="js/bootstrap.js"></script>
+			
 			<script src="bower_components/angular/angular.js"></script>
 			<script src="bower_components/angular-route/angular-route.js"></script>
 			<script src="bower_components/angular-resource/angular-resource.min.js"></script>
@@ -100,15 +76,16 @@
 			<script src="bower_components/angular-html5-storage/dist/angular-html5-storage.min.js"></script>
 			<script src="bower_components/restangular/dist/restangular.min.js"></script>
 			<script src="bower_components/lodash/lodash.min.js"></script>
-			
+			<script src="js/ng-breadcrumbs.js"></script>
 			<script src="Controller/myApp.js"></script>
+			<script src="Controller/dirPagination.js"></script>
 			<script src="Controller/productCtrl.js" ></script>
-			<script src="js/ui-bootstrap-tpls.js"></script>
 			<script src="Controller/menuCtrl.js"></script>
 			<script src="Controller/designerCtrl.js"></script>
+			<script src="Controller/singleProductCtrl.js"></script>
+			<script src="Controller/singleCategoryCtrl.js"></script>
+			<script src="Controller/breadCrumbsCtrl.js"></script>
 			<script src="js/directive.js"></script>
-			
-	
 		</div><!-- /wrapper -->
 	</body>
 </html>

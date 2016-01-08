@@ -1,4 +1,5 @@
-app.controller('MenuCtrl', function($scope, $q, $http, $timeout) {
+app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
+	 $scope.breadcrumbs = breadcrumbs;
 		$http.get("url.properties")
 		.then(function(response) {
 				var promise1 = $http({method: 'GET', url: response.data.categoryUrl, cache: 'true'});

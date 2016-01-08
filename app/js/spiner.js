@@ -1,23 +1,6 @@
-app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
-   
-		     $scope.pro_id = $routeParams.proId;
-		$http.get("url.properties")
-		.then(function(response) {
-			$scope.fixPath = response.data.fixImagePath;
-			$scope.token = response.data.token;
-			
-				$http.get(response.data.productUrl + '/' + $scope.pro_id)
-				.then(function(response1){
-						$scope.productDetail = response1.data;
-    	
-					});
-			});
-			
-			
-			
-			
-			        $scope.load = function() {
-  $('.spinner .btn:first-of-type').on('click', function() {
+$(function(){
+
+    $('.spinner .btn:first-of-type').on('click', function() {
       var btn = $(this);
       var input = btn.closest('#one').find('input');
       if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
@@ -36,7 +19,10 @@ app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$rou
       }
     });
 
- $('.spinner .btn:first-of-type').on('click', function() {
+})
+$(function(){
+
+    $('.spinner .btn:first-of-type').on('click', function() {
       var btn = $(this);
       var input = btn.closest('#two').find('input');
       if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
@@ -54,12 +40,12 @@ app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$rou
         btn.prev("disabled", true);
       }
     });
+
+})
+
+
 
 jQuery("#my_styles .btn").click(function(){
     jQuery("#my_styles .btn").removeClass('active');
     jQuery(this).toggleClass('active'); 
 });
-   };
- $scope.load();
-	});
-        

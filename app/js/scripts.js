@@ -39,4 +39,9 @@ $(document).ready(function(){
 			$(this).parent('a').closest('li').siblings('.active').removeClass('active').children('ul').slideUp(300);
 		}
 	});
+/*$("input[name='demo_vertical']").TouchSpin({
+      verticalbuttons: true
+    });
+*/
 });
+
