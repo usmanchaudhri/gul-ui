@@ -4,7 +4,7 @@
 	</div>
 	<div class="row" >
 		<div class="col-sm-5 " >
-			<img  class="img-responsive" ng-src="{{fixPath + productDetail.imageInfo.imagePath + token}}" alt="img" id="indisize" /> 
+			<img  class="img-responsive" ng-src="{{fixPath+productDetail.imageInfo.imagePath + token}}" alt="img" id="indisize" /> 
 			<div class="col-sm-12 col-xs-12" id="marg">
 				<div class="row">
 					<div class="col-sm-3"></div>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="col-sm-5 " id="indisize1">
 				  
-			<p style="font-size: 16px;margin-top: 3px;margin-bottom: 10px;">
+			<p style="font-size: 16px;margin-top: 3px;margin-bottom: 10px; line-height: 14px;">
 				<strong>{{productDetail.name}} </strong>- {{productDetail.shortDesc}}</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by {{productDetail.shop.name}}<br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
 			<h3>
@@ -61,7 +61,7 @@
 			</div >
           
 			<div class=" mainBox buttonBox">
-				<a ng-href="#cart"><img src="images/button copy.PNG"/></a>
+				<a ng-href="" ng-click="storeProductsInCookie(productDetail.pricingProduct.storedValue,productDetail.name,prodSize)"><img src="images/button copy.PNG"/></a>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			</div>
           

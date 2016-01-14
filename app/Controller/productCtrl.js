@@ -1,7 +1,10 @@
- app.controller('productCtrl', function($scope,$http) {
-        
+ app.controller('productCtrl', function($scope,$http,$cookieStore) {
+		$scope.isNumber = angular.isNumber;
 		$http.get("url.properties")
 		.then(function(response) {
+			$scope.fixPath = response.data.fixImagePath;
+			$scope.token = response.data.token;
+				
 				$http.get(response.data.productUrl)
 				.then(function(response1){
 						$scope.product = response1.data;
@@ -13,7 +16,9 @@
 		$scope.pageChangeHandler = function(num) {
 			console.log('meals page changed to ' + num);
 		};
-		
+	
+
+
 		
 		$scope.load = function() {
  

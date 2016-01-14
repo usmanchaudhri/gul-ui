@@ -44,6 +44,8 @@ input[type="submit"]::-moz-focus-inner {
 a{
 	transition: all .3s;
 	-webkit-transition: all .3s;
+	background-color: transparent !important;
+	color: #D25E00;
 }
 a:focus,
 button:focus,
@@ -595,7 +597,7 @@ body {
 	clear: both;
 	font-weight: normal;
 	line-height: 1.428571429;
-	color: #333333;
+	color: #c3c1c1;
 	white-space: normal;
 }
 .megamenu> li ul > li > a:hover,
@@ -626,8 +628,8 @@ body {
 		margin-left: 0 ;
 		margin-right: 0 ;
 	}
-	.megamenu> li {
-		margin-bottom: 30px;
+	.megamenu> li > a:hover {
+		text-decoration: underline !important;
 	}
 	.megamenu> li:last-child {
 		margin-bottom: 0;
@@ -713,14 +715,14 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		top: 0;
 		bottom: 0;
 		right: -250px;
-		/*width: 250px;*/
+		width: 250px;
 		z-index: 100;
 		overflow-y: auto;
 		transition: all .3s;
 		-webkit-transition: all .3s;
 	}
 	.menu-opened .main-nav { 
-		right: 4%;}
+		right: 0;}
 	.menu-opened .wrapper { 
 		left: -250px;}
 	.main-nav > ul {
@@ -728,8 +730,8 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		padding: 10px;
 		text-align: left !important;
 		margin-right: 100px !important;
-	        width: 100% !important;
-	       }
+	    width: 100% !important;
+	}
 	.main-nav > ul > li {
 		display: block;
 		margin: 0;
@@ -741,11 +743,17 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		position: relative;}
 	.main-nav > ul > li > ul {
 		position: static;
-		width: auto;
+		/*width: auto;*/
 		padding: 5px 0;
 	}
 	.main-nav > ul > li > ul ul a { 
-		padding-left: 30px;}
+		padding-left: 10px;}
+	
+	.main-nav > ul > li > ul ul a:hover{
+		cursor: pointer;
+		text-decoration: underline !important;
+		
+	}	
 	.main-nav .opener {
 		display: block;
 		position: absolute;
@@ -759,7 +767,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		transition: all .3s;
 		-webkit-transition: all .3s;
 	}
-	.main-nav .opener:before {
+	.main-nav  .opener:before  {
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -770,6 +778,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		content: "";
 		transition: all .3s;
 		-webkit-transition: all .3s;
+		
 	}
 	.main-nav .active .opener:before {
 		-ms-transform: rotate(90deg);
@@ -841,8 +850,6 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	
 	}
 
-//////
-/////
 #width{
 	
 	height: 1000px;
@@ -945,7 +952,7 @@ img {
 }
 
 .active{
-        /* background:#aaaea6;*/
+         
     }
  button.btn:active,button.btn.active{
      background:#D25E00;
@@ -963,10 +970,13 @@ img {
     margin-bottom: 0;
 }
 
+#imagediv{
+	margin-bottom: 30px;
+}
 #indisize{
 	height: 441px;
 	width: 472px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 #indisize1{
 	height: 441px;
@@ -1027,28 +1037,29 @@ img {
 }
 
 #breadcrumbs{
-	margin-top: 20px;
-	padding-bottom: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	
 }
 #breadcrumbs ol{
 	display: inline-flex;
     list-style: none;
     font-size: 12px;
+    padding: 0px;
     
 }
 
 #breadcrumbs ol li{
-	margin-left: 10px;
-}
-.nav > li > a{
-	padding-bottom: 0px;
-}
-
-#imagediv{
-	margin-bottom: 30px;
+	margin-right: 10px;
+	font-size: 11px;
+    font-weight: 600;
+    color: #BAB4AF;
 }
 
-
+#breadcrumbs ol li a{
+	text-decoration: none;
+	color: #BAB4AF;
+}
 .show-dropdown{
 	display: block;
 	height: auto;
@@ -1281,3 +1292,22 @@ width:99% !important;
 	box-shadow: none;
 }
 /*End of Menu Slider*/
+
+
+/*Pagination*/
+.pagination > .active > a{
+	background-color: #D25E00 !important;
+    border-color: #D25E00 !important;
+    color: white !important;
+}
+
+.pagination > li > a{
+	color: #D25E00 !important;
+}
+
+/*End Of Pagination*/
+.nav > li > a{
+	
+	padding: 0px;
+padding-top: 10px;
+}

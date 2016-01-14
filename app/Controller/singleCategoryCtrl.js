@@ -13,7 +13,7 @@ app.controller('singleCatCtrl', function($scope,$http,$q,$timeout,$location,$rou
 					});
 			});
 		$scope.currentPage = 1;
-		$scope.pageSize = 3;
+		$scope.pageSize = 9;
 		$scope.pageChangeHandler = function(num) {
 			console.log('meals page changed to ' + num);
 		};

@@ -20,6 +20,7 @@ angular
                 if (this.breadcrumbs.hasOwnProperty(index)) {
                   var breadcrumb = this.breadcrumbs[index];
                   if (breadcrumb.label === key) {
+                  	alert(label);
                     breadcrumb.label = this.options[key];
                   }
                 }

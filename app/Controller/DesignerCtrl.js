@@ -7,7 +7,7 @@
 				$scope.token = response.data.token;
 				$scope.shop_id = $routeParams.shopId;
 		
-				$http.get(response.data.shopUrl +'/'+ $scope.shop_id)
+				$http.get(response.data.shopUrl +'/'+ $scope.shop_id + '/designers')
 				.then(function(response1){
 						$scope.designerProducts = response1.data;
     	
