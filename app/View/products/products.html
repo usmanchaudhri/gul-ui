@@ -17,34 +17,35 @@
 <div class="container">
 	<h2 latestDiv>Latest <span style="color:black;">Designs</span></h2>
 	<div class="row info-boxes">
-		<div class="col-sm-4 col-xs-6 show-image" id="imagediv" dir-paginate="a in product | filter:q | itemsPerPage: pageSize track by $index" current-page="currentPage">
+		<div class="col-sm-4 col-xs-6 show-image" id="imagediv" endless-scroll="a in items track by $index" >
 			<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
 			<div class="col-sm-12 col-xs-12 image-button" >
-				<div class="col-sm-2 col-xs-1"></div>
-				  	<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
-					<a ><input type="button" value="S" ng-click="storeProductsInCookie(a.id,prodPrice,'S',1)" /></a>
-					<a ><input type="button" value="M" ng-click="storeProductsInCookie(a.id,prodPrice,'M',1)" /></a>
-					<a ><input type="button" value="L" ng-click="storeProductsInCookie(a.id,prodPrice,'L',1)" /></a>
-					<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a.id,prodPrice,'XL',1)" /></a>
-				</div>
+				<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
+				<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
+				<a ><input type="button" value="S" ng-click="storeProductsInCookie(a.id,prodPrice,'S',1)" /></a>
+				<a ><input type="button" value="M" ng-click="storeProductsInCookie(a.id,prodPrice,'M',1)" /></a>
+				<a ><input type="button" value="L" ng-click="storeProductsInCookie(a.id,prodPrice,'L',1)" /></a>
+				<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a.id,prodPrice,'XL',1)" /></a>
+			</div>
 			<div class="imageText">
 				<span class="proDes">
 					<p>
-					<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
-					<span ng-init="prodQty = 1"></span>
-					<span ng-init="prodName = a.name"></span>
+						<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
+						<span ng-init="prodQty = 1"></span>
+						<span ng-init="prodName = a.name"></span>
 					
 						<strong>{{a.name}}</strong>
 						- {{a.shortDesc | limitTo: 30}}
 					</p>
 				</span>
-				<span class="proDes" ng-show="isNumber(a.shop.id)">
+				<span class="proDes" ng-if="isNumber(a.shop.id)">
 					<small>	 <a ng-href="#shop/{{a.shop.id}}"  ><i>by {{a.shop.name}}</i></a></small>
 					
     						 
 				</span>
 				<span class="proDes" ng-show="!isNumber(a.shop.id)">
-					<small>	 <a ng-href="#shop/{{a.shop}}"  ><i>by {{a.shop}}</i></a></small>
+				
+					<small>	 <a ng-href="#shop/{{getShop(a.shop)}}"  ><i>by {{a.shop}}</i></a></small>
     						 
 				</span>
 				
@@ -52,9 +53,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="other-controller">
-		<div class="text-center">
-			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html" ></dir-pagination-controls>
-		</div>
+	<!--<div class="other-controller">
+	<div class="text-center">
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html" ></dir-pagination-controls>
 	</div>
+	</div>-->
 </div>

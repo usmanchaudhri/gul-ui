@@ -6,9 +6,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Gulgs</title>
 		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/dropdown.css">
+		<link rel="stylesheet" href="css/chat.css">
+		
 		<link rel="stylesheet" href="css/angular-bootstrap-lightbox.css">
 		
 	</head>
@@ -17,11 +21,11 @@
 			<!--Navigation Bar-->
 			<nav class="navbar">
 				<div class="container">
-					<strong class="navbar-brand"><a href="#a">Gul</a></strong>
+					<strong class="navbar-brand"><a href="#chat">Gul</a></strong>
 					<a class="btn-menu visible-xs" href="#a">menu</a>
 					
 						
-						<a class="cart" href="#upload"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>
+					<a class="cart" href="#upload"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>
 						
 					
 					
@@ -76,6 +80,7 @@
 			<script src="js/spiner.js"></script>
 			<script src="js/carousel.js"></script>		
 			<script src="js/bootstrap.js"></script>
+		
 			
 			
 			
@@ -99,15 +104,20 @@
 			<script src="Controller/allShopCtrl.js"></script>
 			<script src="Controller/cartCtrl.js"></script>
 			<script src="js/directive.js"></script>
-			<script src="Controller/thumbCtrl.js"></script>
+			<script src="Controller/imgViewCtrl.js"></script>
 			<script src="Controller/lightboxCtrl.js"></script>
 			<script src="Controller/ng-file-upload.js" ></script>
 			<script src="Controller/ng-file-upload-shim.js" ></script>
 			<script src="Controller/uploadCtrl.js" ></script>
+			<script src="js/services.js"></script>
+			<script src="Controller/chatCtrl.js" ></script>
+			<script src="js/ng-img-crop.js"></script>
+			<script src="js/jquery-ui.min.js"></script>
 			
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.js"></script>
 			<script src="js/angular-bootstrap-lightbox.js"></script>
 			<script src="js/jquery.js"></script>
+			<script src="js/angular-endless-scroll.min.js" ></script>
 			
 		</div><!-- /wrapper -->
 	</body>

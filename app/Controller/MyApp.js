@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ngRoute','angularUtils.directives.dirPagination','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox']);
+var app = angular.module('myApp',['ngRoute','angularUtils.directives.dirPagination','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','dc.endlessScroll','ngImgCrop']);
 
 app.config(['$routeProvider', function($routeProvider) 
 		{ $routeProvider .when('/', { 
@@ -35,14 +35,35 @@ app.config(['$routeProvider', function($routeProvider)
 					controller: 'payCtrl',
 					label:'PAYMENT'
 				}).when('/upload', {
-					templateUrl: 'view/upload/thumbnail-gallery.html', 
+					templateUrl: 'view/upload/uploadImages.html', 
 					controller: 'uploadCtrl',
 					label:'UPLOAD'
 				}).when('/cart/payment/shipping', {
 					templateUrl: 'view/shoppingCart/shipping.html', 
 					controller: 'shipCtrl',
-					label:'SHIPPMENT'})
+					label:'SHIPPMENT'
+				}).when('/chat', {
+					templateUrl: 'view/chatting/chatting.html', 
+					controller: 'chatCtrl',
+					label:'CHAT'})
 					
 			.otherwise({ redirectTo: '/' });
 	 
 		}]);
+app.directive('progressbar', [function() {
+    return {
+        restrict: 'A',
+        scope: {
+            'progress': '=progressbar'
+        },
+        controller: function($scope, $element, $attrs) {
+            $element.progressbar({
+                value: $scope.progress
+            })
+
+            $scope.$watch(function() {
+                $element.progressbar({value: $scope.progress})
+            })
+        }
+    }
+}])

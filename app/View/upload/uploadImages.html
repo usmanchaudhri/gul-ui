@@ -1,0 +1,35 @@
+<div class="container" ng-controller="uploadCtrl">
+	<div class="row">
+		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles">
+			<div  href="#" class="upload-container-img">
+				<img class="img-responsive" ngf-src="file.url">
+				
+				<!--<img class="img-responsive" ngf-src="imageUrl">-->
+				Progress: {{progressArr[$index].imgProgress}}
+				
+			</div>
+			
+			<div  ng-controller="imgViewCtrl" style="height: 45px;" >
+				<table>
+					<tr class="upload-img-icons">
+						<td><a ng-click="openLightboxModal(this.file)" ><img class="img-responsive" src="images/Zoom_in.png" alt=""></a></td>
+						<td><a ng-click="openLightboxCrop(this.file,$index)"><img class="img-responsive" src="images/Edit-icon.png" alt=""></a></td>
+						<td><a><img class="img-responsive" src="images/cross-512.png" ng-click="removeImage($index)" alt=""></a></td>
+					</tr>
+					
+				</table>
+			</div>
+			<div progressbar="progressArr[$index].imgProgress"></div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
+			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" multiple />
+		</div>
+	</div>
+	<hr>
+	<button type="button" class="btn btn-secondary " ng-click="upload()">UPLOAD</button>	
+	<!-- Footer -->
+	<footer>
+		<div class="row">
+		</div>
+	</footer>
+</div>

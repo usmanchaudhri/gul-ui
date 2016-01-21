@@ -323,12 +323,22 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
      * @name     openModal
      * @memberOf bootstrapLightbox.Lightbox
      */
-    Lightbox.openModal = function (newImages, newIndex, modalParams) {
-      Lightbox.images = newImages;
-      Lightbox.setImage(newIndex);
-
+    Lightbox.openModal = function (newImages, newIndex,decision,imageIndex, modalParams) {
+   		Lightbox.images = newImages;
+    	Lightbox.setImage(newIndex);
+		Lightbox.imageIndex = imageIndex;
+		Lightbox.imageName = newImages[0].name;
       // store the modal instance so we can close it manually if we need to
+      
+      if(decision == 1){
+	  	Lightbox.templateUrl = 'view/upload/cropImage.html';
+	  }else if(decision == 2){
+	  	Lightbox.templateUrl = 'view/upload/lightbox-temp.html';
+	  }else if(decision == 2){
+	  	Lightbox.templateUrl = 'view/upload/zoomImageTemp';
+	  }
       Lightbox.modalInstance = $uibModal.open(angular.extend({
+        
         'templateUrl': Lightbox.templateUrl,
         'controller': ['$scope', function ($scope) {
           // $scope is the modal scope, a child of $rootScope

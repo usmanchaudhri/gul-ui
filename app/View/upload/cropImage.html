@@ -1,0 +1,20 @@
+
+<div ng-controller="imgViewCtrl" >
+	<div ng-model="enableCrop" ng-init="enableCrop=true"  class="cropArea" ng-class="{'big':size=='big', 'medium':size=='medium', 'small':size=='small'}">
+		<img-crop image="imageDataURI=Lightbox.imageUrl" result-image="resImageDataURI" change-on-fly="true" area-type="square"></img-crop>
+	</div>
+
+	<div style="text-align:center">
+		<button ng-click="$dismiss()">Crop</button>
+		<button ng-click="closeLight()">SAVE</button>
+		<h3>Result</h3>
+		<div>
+			<img ng-src="{{resImageDataURI}}" />
+		</div>
+    
+	</div>
+</div>
+
+
+
+
