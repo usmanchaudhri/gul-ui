@@ -19,7 +19,7 @@
 	font-style: normal;
 }
 body{
-	font: 9px/9px Arial, Helvetica, sans-serif;
+	font: 9px/9px  Helvetica,Arial,sans-serif;
 	color: #050505;
 	min-width: 300px;
 }
@@ -56,7 +56,7 @@ select:focus{
 .wrapper {
 	position: relative;
 	overflow: hidden;
-	padding-top: 185px;
+	padding-top: 100px;
 }
 h2 {
 	font: bold 22px/26px Arial, Helvetica, sans-serif;
@@ -119,9 +119,9 @@ h2 span {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 50px;
+	top: 24px;
 	margin: 0;
-	padding: 9px 0;
+	padding-top: 15px;
 	border: 0;
 	background: #fff;
 	z-index: 100;
@@ -227,7 +227,7 @@ h2 span {
 	display: none;}
 /* carousel */
 .carousel { 
-	margin: 0 0 51px;}
+	margin: 0 0 20px;}
 .carousel .item {
 	min-height: 399px;
 	background-position: 50% 50%;
@@ -350,7 +350,7 @@ h2 span {
 /* footer */
 #footer {
 	margin-top: 130px;	
-	padding: 28px 0;
+	padding: 8px;
 	border-top: 1px solid #ddd;
 }
 #footer .container-fluid { 
@@ -366,6 +366,8 @@ h2 span {
 	padding: 0;
 	font-family: 'corbel-regular', sans-serif;
 	text-transform: uppercase;
+	line-height: 17px;
+    font-size: 13px;
 }
 #footer .list a { 
 	color: #050505;}
@@ -554,6 +556,8 @@ body {
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
+	font-size: 14px;  /*Uzair: menu-font*/
+	font-weight: 500;
 }	
 
 
@@ -1040,6 +1044,7 @@ button.btn:active,button.btn.active{
 #breadcrumbs{
 	margin-top: 30px;
 	margin-bottom: 30px;
+	padding-left: 10px;
 	
 }
 #breadcrumbs ol{
@@ -1469,7 +1474,13 @@ html{
 
 }
 
+.product-title{
+	font-size: 14px;
+}
 
+.designerpage-image{
+	padding-left: 18px;
+}
 
 @media (max-width: 300px){
 	.image-button input{
@@ -1477,8 +1488,14 @@ html{
 	}
 }
 .cropArea {
-	background: #E4E4E4;
 	overflow: hidden;
-	width: 500px;
-	height: 350px;
+	
+}
+
+@media (min-width: 768px){
+	.modal-dialog {
+    
+    margin: 155px auto !important;
+    
+    }
 }
