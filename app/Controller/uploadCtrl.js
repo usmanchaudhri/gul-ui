@@ -2,6 +2,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout', function($scope, Up
 			$scope.name = 'World';
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
+			$scope.showProgress = false;
 			$scope.$on('cropImage', function (event, arg) { 
 					$scope.imageUrl =  arg.img;
 					
@@ -56,6 +57,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout', function($scope, Up
 				return new Array(num);   
 			}
 			$scope.upload=function(){
+				$scope.showProgress = true;
 				var count = -1;
 				angular.forEach($scope.allFiles, function(value, key){
         count ++;
@@ -74,9 +76,6 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout', function($scope, Up
 						$scope.upload = Upload.upload({
 								url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
 								data: {file: $scope.one._file}
-							
-							
-							
 							});
 
 						$scope.upload.then(function (response) {

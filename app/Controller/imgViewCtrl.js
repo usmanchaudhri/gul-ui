@@ -1,15 +1,12 @@
-/*
-app.config(function (LightboxProvider) {
-		// set a custom template
-		LightboxProvider.templateUrl = 'view/upload/cropImage.html';
-	});
-*/
 app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 		$scope.images = [];
 		$scope.imageUrl = '';
-		$scope.openLightboxModal = function (img) {
-			$scope.images.push(img);
-			Lightbox.openModal($scope.images, 0,2);
+		$scope.openLightboxModal = function (img,imgIndex) {
+			angular.forEach($scope.allFiles, function(value, key){
+			$scope.images.push(value);	
+			});
+			
+			Lightbox.openModal($scope.images, imgIndex,2);
 			//console.log("CLose");
 		};
 		$scope.openLightboxCrop = function (img,indexN) {
@@ -19,16 +16,24 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 			$scope.indexNum = indexN;
 		};
 		
-		$scope.size='small';
+		$scope.openZoomModal = function (img,indexNo) {
+   			console.log("Zoom Index num: " + indexNo);
+			$scope.images.push(img);
+			Lightbox.openModal($scope.images,0 ,3,indexNo);
+			$scope.indexNum = indexNo;
+  		};
+  
+		
+		
 		$scope.type='circle';
 		$scope.imageDataURI='';
 		$scope.resImageDataURI='';
 		$scope.indexNum='';
 		$scope.resImgFormat='image/png';
 		$scope.resImgQuality=1;
-		$scope.selMinSize=100;
+		$scope.selMinSize=200;
 		$scope.resImgSize=200;
-		//$scope.aspectRatio=1.2;
+		
 		$scope.onChange=function($dataURI) {
 			console.log('onChange fired');
 			console.log('Res CHANGE', $dataURI);
@@ -49,9 +54,10 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 				
 			});
 		
-		$scope.closeLight = function(result){
+		$scope.closeLight = function(){
+			console.log("Checkingnn");
 			var cropResult = {
-			img: $scope.resImageDataURI,
+			img: $scope.cropImage,
 			imgIndex: Lightbox.imageIndex,
 			imgName: Lightbox.imageName
 		};

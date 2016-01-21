@@ -334,8 +334,8 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
 	  	Lightbox.templateUrl = 'view/upload/cropImage.html';
 	  }else if(decision == 2){
 	  	Lightbox.templateUrl = 'view/upload/lightbox-temp.html';
-	  }else if(decision == 2){
-	  	Lightbox.templateUrl = 'view/upload/zoomImageTemp';
+	  }else if(decision == 3){
+	  	Lightbox.templateUrl = 'view/upload/zoomImageTemp.html';
 	  }
       Lightbox.modalInstance = $uibModal.open(angular.extend({
         

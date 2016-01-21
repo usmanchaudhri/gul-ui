@@ -1,15 +1,18 @@
 
-<head>
-    <link href="css/panzoomwidget.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-</head>
-
-<div class="modal-body" ng-controller="panzoomCtrl">
-    <div style="position:relative" >
-        <panzoomwidget panzoom-id="PanZoom" style="position:absolute;top:10px;left:10px;z-index:1"></panzoomwidget>
-        <panzoom id="PanZoom" config="panzoomConfig" class="lightbox-image-container" model="panzoomModel" style="width:99%; height: 400px;">
-            <img lightbox-src="{{Lightbox.imageUrl}}" style="-webkit-user-drag: element;" />
-        </panzoom>
-    </div>
+<div class="modal-body" ng-controller="imgViewCtrl">
+  
+	<div style="position:relative" >
+		<image-cropper image="{{Lightbox.imageUrl}}"
+			dest-width="640"
+			dest-height="480"
+			show-controls="true"
+    		cropped-image="cropImage"
+    		
+    		init="1"
+    		 >
+		</image-cropper>
+        
+	</div>
+	<button ng-click="closeLight()">Crop</button>
 </div>
 
