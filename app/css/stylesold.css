@@ -19,7 +19,7 @@
 	font-style: normal;
 }
 body{
-	font: 9px/9px  Helvetica,Arial,sans-serif;
+	font: 9px/9px Arial, Helvetica, sans-serif;
 	color: #050505;
 	min-width: 300px;
 }
@@ -56,7 +56,7 @@ select:focus{
 .wrapper {
 	position: relative;
 	overflow: hidden;
-	padding-top: 100px;
+	padding-top: 185px;
 }
 h2 {
 	font: bold 22px/26px Arial, Helvetica, sans-serif;
@@ -119,9 +119,9 @@ h2 span {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 24px;
+	top: 50px;
 	margin: 0;
-	padding-top: 15px;
+	padding: 9px 0;
 	border: 0;
 	background: #fff;
 	z-index: 100;
@@ -227,7 +227,7 @@ h2 span {
 	display: none;}
 /* carousel */
 .carousel { 
-	margin: 0 0 20px;}
+	margin: 0 0 51px;}
 .carousel .item {
 	min-height: 399px;
 	background-position: 50% 50%;
@@ -349,8 +349,8 @@ h2 span {
 }
 /* footer */
 #footer {
-	margin-top: 130px;	
-	padding: 8px;
+	margin-top:130px;	
+	padding: 28px 0;
 	border-top: 1px solid #ddd;
 }
 #footer .container-fluid { 
@@ -366,8 +366,6 @@ h2 span {
 	padding: 0;
 	font-family: 'corbel-regular', sans-serif;
 	text-transform: uppercase;
-	line-height: 17px;
-    font-size: 13px;
 }
 #footer .list a { 
 	color: #050505;}
@@ -556,8 +554,6 @@ body {
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
-	font-size: 14px;  /*Uzair: menu-font*/
-	font-weight: 500;
 }	
 
 
@@ -586,8 +582,7 @@ body {
 }
 .megamenu{
 	padding: 20px 0px;
-	width: 100%;
-	log
+	width: 100%;log
 }
 .megamenu> li > ul {
 	padding: 0;
@@ -735,7 +730,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		padding: 10px;
 		text-align: left !important;
 		margin-right: 100px !important;
-		width: 100% !important;
+	    width: 100% !important;
 	}
 	.main-nav > ul > li {
 		display: block;
@@ -849,11 +844,11 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 }
 
 #menu-container{
-	width: 450px;
-	text-align: center;
-	margin: auto;
+  		width: 450px;
+  		text-align: center;
+  		margin: auto;
 	
-}
+	}
 
 #width{
 	
@@ -873,54 +868,54 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 
 
 .fa {
-	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: inherit;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	color: #D25E00;
-	-moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    color: #D25E00;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
 
 
 .spinner input {
-	text-align: right;
+  text-align: right;
 }
 
 .input-group-btn-vertical {
-	position: relative;
-	white-space: nowrap;
-	width: 2%;
-	vertical-align: middle;
-	display: table-cell;
+  position: relative;
+  white-space: nowrap;
+  width: 2%;
+  vertical-align: middle;
+  display: table-cell;
 }
 
 .input-group-btn-vertical > .btn {
-	display: block;
-	float: none;
-	width: 100%;
-	max-width: 100%;
-	padding: 6px;
-	margin-left: 0px;
-	position: relative;
-	border-radius: 0;
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 6px;
+  margin-left: 0px;
+  position: relative;
+  border-radius: 0;
 }
 
 .input-group-btn-vertical > .btn:first-child {
-	border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .input-group-btn-vertical > .btn:last-child {
-	margin-top: -2px;
-	border-bottom-right-radius: 4px;
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
 }
 
 .input-group-btn-vertical i {
-	position: absolute;
-	top: 0;
-	left: 4px;
+  position: absolute;
+  top: 0;
+  left: 4px;
 }
 .clr{
 	
@@ -931,7 +926,7 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 
 
 img {
-	border: 0;
+    border: 0;
 }
 #marg{
 	
@@ -939,40 +934,40 @@ img {
 }
 
 .btn-group-sm>.btn, .btn-sm {
-	padding: 2px 20px 2px 20px;
-	font-size: 15px;
-	line-height: 1.5;
-	border-radius: 25px;
-	margin-left: -2px;
-	background-color: #D25E00;
+    padding: 2px 20px 2px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+   border-radius: 25px;
+    margin-left: -2px;
+    background-color: #D25E00;
 }
 .jumbotron {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	margin-bottom: 30px;
-	color: inherit;
-	height: 200px;
-	width: auto;
-	background-color: rgba(238, 238, 238, 0.08);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    height: 200px;
+    width: auto;
+    background-color: rgba(238, 238, 238, 0.08);
 }
 
 .active{
          
-}
-button.btn:active,button.btn.active{
-	background: #D25E00;
-}
+    }
+ button.btn:active,button.btn.active{
+     background:#D25E00;
+ }
  
-.margtop{
-	margin-top: 20px;
-}
+ .margtop{
+ 	margin-top: 20px;
+ }
  
-.input-group .form-control {
-	position: relative;
-	z-index: 2;
-	float: left;
-	width: 100%;
-	margin-bottom: 0;
+ .input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 #imagediv{
@@ -1003,13 +998,13 @@ button.btn:active,button.btn.active{
 
 
 .buttonBox {
-	position: absolute;
-	bottom: 0;
-	left: 7px;
+    position: absolute;
+    bottom:0;
+    left:7px;
     
 }
 .buttonBox img{
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .spinner{
@@ -1044,22 +1039,21 @@ button.btn:active,button.btn.active{
 #breadcrumbs{
 	margin-top: 30px;
 	margin-bottom: 30px;
-	padding-left: 10px;
 	
 }
 #breadcrumbs ol{
 	display: inline-flex;
-	list-style: none;
-	font-size: 12px;
-	padding: 0px;
+    list-style: none;
+    font-size: 12px;
+    padding: 0px;
     
 }
 
 #breadcrumbs ol li{
 	margin-right: 10px;
 	font-size: 11px;
-	font-weight: 600;
-	color: #BAB4AF;
+    font-weight: 600;
+    color: #BAB4AF;
 }
 
 #breadcrumbs ol li a{
@@ -1073,7 +1067,7 @@ button.btn:active,button.btn.active{
 
 .cart-headings{
 	padding-top: 20px;
-	margin-bottom: 10px;
+	margin-bottom:10px;
 }
 
 .cart-headings p{
@@ -1091,7 +1085,7 @@ button.btn:active,button.btn.active{
 
 .cart-payment{
 	font-size: 13px;
-	color: gray;
+	color:gray;
 	padding-top: 20px;
 	line-height: 6px;
 }
@@ -1119,120 +1113,120 @@ button.btn:active,button.btn.active{
 
 /*Payment&shipping Form*/
 html{
-	background-color: #f3f3f3;
+    background-color: #f3f3f3;
 }
 
 .main-content{
-	width: auto;
+   width: auto;
 }
 
 .payment-container{
 	background-color: #d2d2d2;
-	padding-top: 65px;
-	padding-bottom: 65px;
+	padding-top:65px;
+	padding-bottom:65px;
 }
 .payment-fields{
 	box-sizing: border-box;
-	max-width: 685px;
-	margin: 0 auto;
-	margin-bottom: 25px;
-	padding: 30px 65px;
-	background-color: #ffffff;
-	text-align: left;
+    max-width: 685px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 30px 65px;
+	background-color:  #ffffff;
+    text-align: left;
 	font-size: 12px;
 }
 
 .form-labels-on-top .form-row{
-	text-align: left;
-	max-width: 100%;
-	margin: 20px auto 0;
+    text-align: left;
+    max-width: 100%;
+    margin: 20px auto 0;
 }
 
 .form-labels-on-top .form-title-row{
-	margin: 0 auto 40px;
+    margin: 0 auto 40px;
 }
 
 .form-labels-on-top h1{
-	display: inline-block;
-	box-sizing: border-box;
-	font-size: 20px;
-	padding: 0 0 12px 0;
-	margin: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 0 0 12px 0;
+    margin: 0;
     
 }
 
 .cus-span, .form-labels-on-top .form-row > label span{
-	display: block;
-	box-sizing: border-box;
-	color: #5f5f5f;
-	width: 100%;
-	padding: 0 0 10px;
+    display: block;
+    box-sizing: border-box;
+    color:  #5f5f5f;
+    width: 100%;
+    padding: 0 0 10px;
     
 }
 
 
 
 .form-labels-on-top input{
-	color: black;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 7px 18px;
-	border: 1px solid black;
-	border-radius: 3px;
+    color:  black;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px 18px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .form-labels-on-top input[type=radio],
 .form-labels-on-top input[type=checkbox]{
-	box-shadow: none;
-	width: auto;
-	height: 10px;
-	margin-right: 5px;
+    box-shadow: none;
+    width: auto;
+    height: 10px;
+    margin-right: 5px;
 }
 
 .form-labels-on-top select{
-	background-color: #ffffff;
-	color: black;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 6px 18px;
-	border: 1px solid white;
+    background-color: #ffffff;
+    color:  black;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 18px;
+    border: 1px solid white;
     
 }
 
 .form-labels-on-top .form-radio-buttons > div{
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .form-labels-on-top .form-radio-buttons label span{
-	margin-left: 8px;
-	color: #5f5f5f;
-	font-weight: normal;
+    margin-left: 8px;
+    color:  #5f5f5f;
+    font-weight: normal;
 }
 
 .form-labels-on-top .form-radio-buttons input{
-	width: auto;
+    width: auto;
 }
 
 .form-labels-on-top button{
-	border-radius: 2px;
-	background-color: #D25E00;
-	color: #E4DCDC;
-	font-size: 12px;
-	font-weight: bold;
-	box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-	padding: 7px 22px;
-	border: 0;
-	width: 100%;
-	margin-top: 15px;
+    border-radius: 2px;
+    background-color:  #D25E00;
+    color: #E4DCDC;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 7px 22px;
+    border: 0;
+    width: 100%;
+    margin-top: 15px;
 }
 
 .payment-btn{
 	max-width: 685px;
-	margin: 0 auto;
-	margin-bottom: 25px;
-	text-align: center;
-	font-size: 12px;
-	background-color: transparent;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 12px;
+    background-color:  transparent;
 }
 
 .security-field{
@@ -1258,15 +1252,15 @@ html{
 }
 
 .shipping-fields{
-	width: 99% !important;	
+width:99% !important;	
 }
 @media (max-width: 500px){
 	.form-labels-on-top h1{
-		font-size: 12px;
+		font-size:12px;
 		font-weight: bold;
 	}
  
-	.shipping-fields span{
+  	.shipping-fields span{
 		font-size: 8px;
 	}
 	
@@ -1280,7 +1274,7 @@ html{
 	}
 	
 	.cus-span{
-		font-size: 10px;
+	font-size: 10px;
 	}
 	
 
@@ -1303,8 +1297,8 @@ html{
 /*Pagination*/
 .pagination > .active > a{
 	background-color: #D25E00 !important;
-	border-color: #D25E00 !important;
-	color: white !important;
+    border-color: #D25E00 !important;
+    color: white !important;
 }
 
 .pagination > li > a{
@@ -1315,203 +1309,5 @@ html{
 .nav > li > a{
 	
 	padding: 0px;
-	padding-top: 10px;
-}
-
-.individual-desc{
-	font-size: 16px;
-	margin-top: 3px;
-	margin-bottom: 10px;
-	line-height: 17px;
-}
-
-.field-icon{
-	background-image: url('../images/lock-icon_03.jpg');
-	background-repeat: no-repeat;
-	background-position: right;
-	padding-right: 5px;
-}
-
-.image-button{
-	
-	margin-top: -25px;
-	
-}
-
-.show-image:hover input {
-	display: inline;
-	
-	
-}
-
-.show-image input:hover{
-	color: black;
-}
-.show-image:hover .image-button{
-	background-color: rgba(210, 94, 0, 0.44);
-}
-
-.show-image input{
-	display: none;
-}
-
-.image-button input{
-	background: transparent;
-	color: white;
-	border: none;
-	font-size: 15px;
-	font-weight: bold;
-	padding-top: 10px;
-	padding-bottom: 8px;
-}
-
-.cart-items-label{
-	background-color: #D25E00;
-	color: white;
-	padding: 3px 4px 2px 4px;
-	border-radius: 15px;
-}
-
-/*Upload Image*/
-
-.upload-container{
-	margin: 10px;
-	width: 166px; 
-	height: 177px;
-	padding: 0px;
-	border: 1px solid rgba(128, 128, 128, 0.49);
-}
-
-.upload-container input{
-	height: 177px !important;
-	border: 0px !important;
-	
-}
-.upload-container input:focus{
-	outline: none;
-	
-}
-
-.upload-container input:hover{
-	border: 1px solid black;
-}
-
-.upload-container-img{
-	margin-bottom: 10px;
-	height: 130px; 
-	border-bottom: 1px solid rgba(128, 128, 128, 0.49);
-}
-
-.upload-img-icons td{
-	padding-left: 25px !important;
-}
-
-.upload-container-img img{
-	width: 100%;
-	height: 127px; 
-	padding: 5px;
-}
-
-.custom-file-input {
-	color: transparent;
-}
-.custom-file-input::-webkit-file-upload-button {
-	visibility: hidden;
-}
-.custom-file-input::before {
-	content: 'Add Photo';
-	color: rgba(51, 122, 183, 0.63);
-	display: inline-block;
-	background-color: #F0FBFD; 
-	width: 166px;
-	height: 177px;
-	padding-top: 85px;
-	padding-left: 45px;
-	border: 1px solid rgba(128, 128, 128, 0.49);
-	outline: none;
-	white-space: nowrap;
-	-webkit-user-select: none;
-	cursor: pointer;
-	font-weight: 700;
-	font-size: 10pt;
-}
-.custom-file-input:hover {
-	border-color: black;
-}
-
-
-/*End of Upload Image*/
-@media (max-width: 500px){
-	.form-labels-on-top h1{
-		font-size: 12px;
-		font-weight: bold;
-	}
- 
-	.shipping-fields span{
-		font-size: 8px;
-	}
-	
-	.security-field span{
-		font-size: 9px;
-	}
-	
-	.payment-checkbox{
-		font-size: 10px;
-		line-height: 15px;
-	}
-	
-	.cus-span{
-		font-size: 10px;
-	}
-	
-	.image-button input{
-		font-size: 10px;
-		padding-left: 4px;
-		padding-right: 4px;
-		margin: 0px;
-		bottom: 0;
-	}
-
-}
-
-.product-title{
-	font-size: 14px;
-}
-
-.designerpage-image{
-	padding-left: 18px;
-}
-
-.upload-btn{
-	padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 10px;
-    margin-top: 50px;
-    margin-left: 0;
-}
-
-.adjust-btn{
-	    background-color: #D25E00;
-    color: white;
-    padding: 5px 10px;
-    margin: 10px;
-}
-
-@media (max-width: 300px){
-	.image-button input{
-		font-size: 8px;
-	}
-}
-.cropArea {
-	overflow: hidden;
-	
-}
-
-@media (min-width: 768px){
-	.modal-dialog {
-    
-    margin: 155px auto !important;
-    
-    }
+padding-top: 10px;
 }

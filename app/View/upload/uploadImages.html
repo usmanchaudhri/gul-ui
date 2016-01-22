@@ -2,17 +2,7 @@
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles">
 			<div  href="#" class="upload-container-img">
-		<image-cropper image="{{file.url}}"
-			dest-width="640"
-			dest-height="480"
-			show-controls="false"
-    		cropped-image="cropImage"
-    		fit-on-init="true"
-    		init="4"
-    		
-    	
-    		 >
-		</image-cropper>	
+				<image-cropper image="{{file.url}}" dest-width="640" dest-height="480" show-controls="false" cropped-image="cropImage" fit-on-init="true" init="4"></image-cropper>	
 			</div>
 			
 			<div  ng-controller="imgViewCtrl" style="height: 45px;" >
@@ -25,32 +15,42 @@
 					
 				</table>
 			
-				<span ng-show="showProgress">
+			
+					<span ng-show="showProgress">
 					<div class="progress">
 			
 						<div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progressArr[$index].imgProgress" aria-valuemin="0" aria-valuemax="100" data-value="progressArr[$index].imgProgress" style="width: 100%">
 							{{progressArr[$index].imgProgress}}
 						</div>
+					
 					</div>
-				</span>
+					
+					
+				</span>	
+				
+				
 				<span ng-hide="showProgress">
 					<br/>
 					<br/>
 					<br/>
 				</span>
-				<hr>
-				<span ng-if="$index == 0">
-					<button type="button" class="btn btn-secondary" ng-click="openZoomModal(this.file,$index)" >Adjust Thumbnail</button><br><br><br>	
+				
+				<!--<span ng-if="$index == 0">
+					<button type="button" class="btn btn-default adjust-btn" ng-click="openZoomModal(this.file,$index)" >Adjust Thumbnail</button><br><br><br>	-->
 				</span>
 			</div>
 		</div>
-		
 		
 		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
 			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" multiple />
 		</div>
 	</div>
-	<button type="button" class="btn btn-secondary " ng-click="upload()">UPLOAD</button>	
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="upload()">UPLOAD</button>	</div>
+		<div class="col-sm-4"></div>
+	</div>
+	
 	
 	<div class="row">
 	
@@ -58,8 +58,9 @@
 			<input type="text" ng-model="pro_sku" />
 			<input type="text" ng-model="pro_name" />
 			<input type="text" ng-model="pro_shortDesc" />
-			<textarea type="text" ng-model="pro_lognDesc" >
+			<textarea type="text" ng-model="pro_lognDesc">
 			</textarea>
+			
 			<input type="text" ng-model="pro_sku" />
 		</form>
 		
