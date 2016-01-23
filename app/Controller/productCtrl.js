@@ -1,4 +1,4 @@
- app.controller('productCtrl', function($scope,$http,$cookieStore,$routeParams) {
+ app.controller('productCtrl', function($scope,$http,$routeParams) {
 		$scope.isNumber = angular.isNumber;
 		/*$http.get("url.properties")
 		.then(function(response) {
@@ -13,7 +13,7 @@
 		});*/
 		$scope.shopTemp = [];
 		function load(page) {
-			var params     = { page: page},
+			var params = { page: page},
 			isTerminal = $scope.pagination &&
 			$scope.pagination.current_page >= $scope.pagination.total_pages &&
 			$scope.pagination.current_page <= 1;
@@ -46,14 +46,12 @@
 								$scope.pagination = angular.fromJson(headers('x-pagination'));
 
 								// Create an array if not already created
-								$scope.items = $scope.items || [];
+								$scope.products = $scope.products || [];
 
 								// Append new items (or prepend if loading previous pages)
-								if($scope.items.length == 0){
 										
 									
-									$scope.items.push.apply($scope.items, data);
-								}
+									$scope.products.push.apply($scope.products, data);
 							}).finally(function() {
 								// Flag loading as complete
 								$scope.loading = false;

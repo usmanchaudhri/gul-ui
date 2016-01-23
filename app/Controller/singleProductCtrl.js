@@ -1,7 +1,7 @@
 app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.pro_id = $routeParams.proId;
-		$scope.prodSize = 0;
+		$scope.prodSize = 1;
 		$scope.prodQty = 0;
 		$http.get("url.properties")
 		.then(function(response) {
