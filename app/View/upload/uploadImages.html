@@ -58,47 +58,48 @@
 			<form id="upload-form" role="form" >
 				<table>
 					<tr>
-					<td><label for="title">SKU:</label></td>
+						<td><label for="title">SKU:</label></td>
 						<td class="upload-form-col">
-							<input  type="text" class="form-control" id="sku" >			
+							<input  type="text" ng-model="proSku" class="form-control" id="sku" >			
 						</td>
 					</tr>
 					<tr>
-					<td><label for="title">Title:</label></td>
+						<td><label for="title">Title:</label></td>
 						<td class="upload-form-col">
-							<input  type="text" class="form-control" id="title" >			
+							<input  type="text" ng-model="proName" class="form-control" id="title" >			
 						</td>
 					</tr>
 					<tr>
 						<td><label for="price">Price:</label></td>
 						<td style="width: 50%;">
-							<input type="text" class="form-control" id="price" >
+							<input type="text" ng-model="proPrice" class="form-control" id="price" >
 						</td>
 					</tr>
-					 <tr>
+					<tr>
 						<td><label for="quantity">Categories:</label></td>
 						<td>
-							<select class="select-custom">
-								<option>Hello!</option>
+							<select
+           		 				ng-model="cat.id"
+           		 				ng-options="cat.id as cat.name for cat in categoryDetail">
 							</select>
-						</td>
+            			</td>
 					</tr>
 					<tr>
 						<td><label for="quantity">Quantity:</label></td>
 						<td style="width: 50%;">
-							<input  type="text" class="form-control" id="quantity" >
+							<input  type="text" ng-model="proQty" class="form-control" id="quantity" >
 						</td>
 					</tr>
 					<tr>
 						<td><label for="quantity">Short Description:</label></td>
 						<td class="upload-form-col">
-							<input  type="text" class="form-control" id="shortdesc" >
+							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" >
 						</td>
 					</tr>
 					<tr>
 						<td><label for="quantity">Long Description:</label></td>
 						<td class="upload-form-col">
-							<textarea  type="text" class="form-control" id="shortdesc" ></textarea>
+							<textarea  type="text" class="form-control" ng-model="proLongDesc" id="shortdesc" ></textarea>
 						</td>
 					</tr>
 					
@@ -115,12 +116,4 @@
 			</form>
 		</div>
 	</div>
-	
-	
-	
-	<!-- Footer -->
-	<footer>
-		<div class="row">
-		</div>
-	</footer>
-</div>
+	</div>

@@ -7,29 +7,22 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			.then(function(response) {
 			
 					$scope.productUrl = response.data.productUrl;
+					$scope.categoryUrl = response.data.categoryUrl;
+					$http.get(response.data.categoryUrl)
+					.then(function(response1){
+							$scope.categoryDetail = response1.data;
+    	
+						});
 				});
-			$scope.$on('cropImage', function (event, arg) { 
-					$scope.imageUrl =  arg.img;
-					
-					if($scope.imageUrl != ''){
-						var fileCheck = $scope.dataURItoBlob($scope.imageUrl);
-						var file1 = new File([fileCheck], arg.imgName);
-						var value = {
-							// File Name 
-							name: file1.name,
-							//File Size 
-							size: file1.size,
-							//File URL to view 
-							url: URL.createObjectURL(file1),
-							// File Input Value 
-							_file: file1
-						};
-						console.log(value);
-						$scope.allFiles.splice(arg.imgIndex, 1);
-						$scope.allFiles.splice(arg.imgIndex, 0,value );
-						//	$scope.allFiles.push(value);
-					}
-				});
+			
+			
+			/*
+			*
+			Add images into Array
+			*
+			*/
+			
+			
 			$scope.addImages=function(files){
 				
 				$scope.totImages = files.length+$scope.allFiles.length;
@@ -57,72 +50,74 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 				console.log($scope.allFiles);
 				
 			};
+			
+			/*
+			*
+			Total Images Number
+			*
+			*/
+			
+			
 			$scope.getNumber = function(num) {
 				num = num-$scope.allFiles.length;
 				return new Array(num);   
 			}
+			
+			/*
+			*
+			product Info Upload
+			*
+			*/
+			
+			
 			$scope.upload=function(){
 				$scope.showProgress = true;
 				var count = -1;
-				//************** Product Info Upload  ****************\\\
-			
 				var config = {
 					headers : {
 						'Content-Type': 'application/json'
 					}
 				}
-				var proPayload = {
-					"sku": 'sku1556',//$scope.proSku,
-					"name": 'Jeans pent Orange',//$scope.proName,
-					"shortDesc":  'Orange Color Jeans PEnt',//$scope.proShortDesc,
-					"longDesc": 'A attractive Orange Color jeans Pent or good Quality',//$scope.proLongDesc,
-					"imageInfo": {
-						"imagePath": "/listing/img-201.jpg"
-					},
-					"quantity": '20',//$scope.proQty,
-					"category": {
-						"id": 2
-					},
-					"pricingProduct": {
-						"storedValue": '50',//$scope.proPrice
-					},
-					"shop": {
-						"id": 2
-					},
-					"productVariation": [{}]
-				}
-			
 				$http.post(
-					$scope.productUrl,  proPayload,config
+					$scope.productUrl,  $scope.proUpload(),config
 				).success(function(data, status) {
 						console.log(data);
-				
+						$scope.newProId = data.id;
 					}).error(function (data, status) {
 						console.log(data);
 					});
+			};
 			
-				//************** Product Info Upload  ****************\\\
-				
-				
-				
-				
-				
-				
-				
-				
+			/*
+			*
+			Upload Images to Dropbox
+			*
+			*/
+			
+			$scope.uploadImages = function(){
+			var count = -1;
 				angular.forEach($scope.allFiles, function(value, key){
 						count ++;
-						console.log(value._file);
-         
+						var imgFile = value._file;
+						var value = {
+							// File Name 
+							name: 'img-'+$scope.newProId+'-'+count,
+							//File Size 
+							size: value.size,
+							//File URL to view 
+							url: URL.createObjectURL(value._file),
+							// File Input Value 
+							_file: value
+						};
 						$scope.one = value;
 						console.log($scope.one);
-						var value = {
+						var value1 = {
 							imgName: $scope.one.name,
 							imgIndex: count	,
 							imgProgress: 0
 						};
-						console.log(value);
-						$scope.progressArr.push(value);
+						console.log(value1);
+						$scope.progressArr.push(value1);
 						// alert($scope.files[0]+" files selected ... Write your Upload Code"); 
 						$scope.upload = Upload.upload({
 								url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
@@ -151,8 +146,14 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 								
 							});
 					});
-			};
 			
+			}
+			
+			/*
+			*
+			product Upload Payload
+			*
+			*/
 			
 			$scope.proUpload = function(){
 				
@@ -162,11 +163,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 					"shortDesc":  $scope.proShortDesc,
 					"longDesc": $scope.proLongDesc,
 					"imageInfo": {
-						"imagePath": "/listing/img-201.jpg"
+						"imagePath": "/listing/"
 					},
 					"quantity": $scope.proQty,
 					"category": {
-						"id": 2
+						"id": $scope.cat.id
 					},
 					"pricingProduct": {
 						"storedValue": $scope.proPrice
@@ -178,12 +179,22 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 				}
 			}
 			
+			/*
+			*
+			Remove Image 
+			*
+			*/
 			
 			$scope.removeImage = function(index){
 				console.log("REMOVE:" + index);
 				$scope.allFiles.splice(index, 1);
 			}
 			
+			/*
+			*
+			URI To Blob Conversion
+			*
+			*/
 			$scope.dataURItoBlob = function(dataURI) {
 				var binary = atob(dataURI.split(',')[1]);
 				var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -194,7 +205,36 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 				return new Blob([new Uint8Array(array)], {type: mimeString});
 			};
 
+
+
+			/*
+			*
+			Crop Image Result
+			*
+			*/
+			$scope.$on('cropImage', function (event, arg) { 
+					$scope.imageUrl =  arg.img;
+					
+					if($scope.imageUrl != ''){
+						var fileCheck = $scope.dataURItoBlob($scope.imageUrl);
+						var file1 = new File([fileCheck], arg.imgName);
+						var value = {
+							// File Name 
+							name: file1.name,
+							//File Size 
+							size: file1.size,
+							//File URL to view 
+							url: URL.createObjectURL(file1),
+							// File Input Value 
+							_file: file1
+						};
+						$scope.allFiles.splice(arg.imgIndex, 1);
+						$scope.allFiles.splice(arg.imgIndex, 0,value );
+						//	$scope.allFiles.push(value);
+					}
+				});
 		}]);
+		
 
 
 

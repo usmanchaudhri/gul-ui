@@ -16,7 +16,17 @@ app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$rou
 			});
 			
 			
-			
+			$scope.getNumber = function(num) {
+				var numDrop = [];
+				for(var i = 1; i<=num; i++){
+					var value = {
+					id: i
+				}
+				numDrop.push(value);
+				}
+					
+				return numDrop;   
+			}
 			
 		$scope.load = function() {
 			$('.spinner .btn:first-of-type').on('click', function() {
