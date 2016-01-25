@@ -50,7 +50,7 @@
 					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 						<div class="input-group spinner" id="two">
                     
-							<input type="text" class="form-control"  value="0" min="0" >
+							<input type="text" class="form-control" ng-model="prodQty"  value="0" min="0" >
 							<span class="input-group-btn-vertical">
 								<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
 								<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
@@ -61,7 +61,7 @@
 			</div >
           
 			<div class=" mainBox buttonBox">
-				<a ng-href="" ng-click="storeProductsInCookie(productDetail.pricingProduct.storedValue,productDetail.name,prodSize)"><img src="images/button copy.PNG"/></a>
+				<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			</div>
           
