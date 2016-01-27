@@ -989,6 +989,7 @@ button.btn:active,button.btn.active{
 
 .clr{
 	margin-left: -6px;
+	margin-top: 8px;
 }
 #btm{
 	text-align-last: 100px;
@@ -1570,6 +1571,32 @@ html{
 
 .upload-form-col{
 	width: 100%;
+}
+
+select{
+	border-radius: 3px;
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) 0 inset;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+ 	border-color: #E1E3DF;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-style: solid;
+    color: #222;
+    background-color: white;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    height: 38px;
+    outline: none;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    line-height: 17px;
+    padding-right: 12px;
 }
 
 }

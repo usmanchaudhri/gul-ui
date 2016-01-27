@@ -33,12 +33,13 @@
 					<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
 					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 						<div class="input-group spinner" id="one">
-                    
-							<input type="text" class="form-control" ng-model="prodSize"  value="0" min="0" >
-							<span class="input-group-btn-vertical">
-								<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-								<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-							</span>
+                    		<select>
+								<option>XS</option>
+								<option>S</option>
+								<option>M</option>
+								<option>L</option>
+								<option>XL</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -52,13 +53,13 @@
                     
 						<select
            		 				ng-model='cat.id'
-           		 				ng-options="cat.id for cat in getNumber(productDetail.quantity) track by $index">
+           		 				ng-options="cat.id for cat in getNumber(productDetail.quantity) track by $index" style="width: 127%;">
 							</select>
 							
-							<span class="input-group-btn-vertical">
+							<!--<span class="input-group-btn-vertical">
 								<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
 								<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-							</span>
+							</span>-->
 						</div>
 					</div>
 				</div>

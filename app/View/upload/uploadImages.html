@@ -78,10 +78,9 @@
 					<tr>
 						<td><label for="quantity">Categories:</label></td>
 						<td>
-							<select
-           		 				ng-model="cat.id"
-           		 				ng-options="cat.id as cat.name for cat in categoryDetail">
-							</select>
+							<select ng-model="cat.id">
+								<option ng-repeat="cat in categoryDetail" value="{{cat.id}}">{{cat.name}}</option>
+           		 			</select>
             			</td>
 					</tr>
 					<tr>
