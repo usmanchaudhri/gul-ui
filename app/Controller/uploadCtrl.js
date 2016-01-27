@@ -3,6 +3,8 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
 			$scope.showProgress = false;
+			$scope.images4 = [];
+			$scope.tempFiles = [];
 			$http.get("url.properties")
 			.then(function(response) {
 			
@@ -24,31 +26,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			
 			
 			$scope.addImages=function(files){
-				
-				$scope.totImages = files.length+$scope.allFiles.length;
-				if($scope.totImages <= 5){
-				
-			
-					console.log("All Length: "+$scope.allFiles.length);
-					angular.forEach(files, function (item) {
-							var value = {
-								// File Name 
-								name: item.name,
-								//File Size 
-								size: item.size,
-								//File URL to view 
-								url: URL.createObjectURL(item),
-								// File Input Value 
-								_file: item
-							};
-							console.log("Value"+value);
-							$scope.allFiles.push(value);
-						});
-				}else{
-					alert("MAx 5 images");
+				if(angular.isDefined(files)&& files != null){
+					$scope.allFiles = files;
+					var count = 0;
 				}
-				console.log($scope.allFiles);
-				
 			};
 			
 			/*
@@ -59,6 +40,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			
 			
 			$scope.getNumber = function(num) {
+				
 				num = num-$scope.allFiles.length;
 				return new Array(num);   
 			}
@@ -78,13 +60,16 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 						'Content-Type': 'application/json'
 					}
 				}
+				console.log($scope.proUpload());
 				$http.post(
-					$scope.productUrl,  $scope.proUpload(),config
+					$scope.productUrl, $scope.proUpload(),config
 				).success(function(data, status) {
 						console.log(data);
 						$scope.newProId = data.id;
+						$scope.uploadImages();
 					}).error(function (data, status) {
 						console.log(data);
+						console.log(status);
 					});
 			};
 			
@@ -95,58 +80,41 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			*/
 			
 			$scope.uploadImages = function(){
-			var count = -1;
-				angular.forEach($scope.allFiles, function(value, key){
-						count ++;
-						var imgFile = value._file;
-						var value = {
-							// File Name 
-							name: 'img-'+$scope.newProId+'-'+count,
-							//File Size 
-							size: value.size,
-							//File URL to view 
-							url: URL.createObjectURL(value._file),
-							// File Input Value 
-							_file: value
-						};
+				var count = -1;
+				$scope.uriToFile();
+				console.log("Image Upload: " + $scope.tempFiles);
+				angular.forEach($scope.tempFiles, function(value, key){
+						count++;
 						$scope.one = value;
-						console.log($scope.one);
 						var value1 = {
 							imgName: $scope.one.name,
 							imgIndex: count	,
 							imgProgress: 0
 						};
-						console.log(value1);
 						$scope.progressArr.push(value1);
 						// alert($scope.files[0]+" files selected ... Write your Upload Code"); 
 						$scope.upload = Upload.upload({
 								url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
 								data: {file: $scope.one._file}
 							});
-
 						$scope.upload.then(function (response) {
 								$timeout(function () {
 										$scope.result = response.data;
-										console.log($scope.result);
+										//	console.log($scope.result);
 									});
 							}, function (response) {
 								if (response.status > 0)
 								$scope.errorMsg = response.status + ': ' + response.data;
 							}, function (evt) {
 								// Math.min is to fix IE which reports 200% sometimes
-								
-								//		$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 								angular.forEach($scope.progressArr, function(value, key){
-										console.log(evt.config);
 										if(evt.config._file.name == value.imgName){
 											$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-											console.log("PRogress: " + $scope.progressArr[value.imgIndex].imgProgress);	
+								console.log($scope.progressArr[value.imgIndex].imgProgress);
 										}
 									});
-								
 							});
 					});
-			
 			}
 			
 			/*
@@ -157,7 +125,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			
 			$scope.proUpload = function(){
 				
-				var proPayload = {
+				return proPayload = {
 					"sku": $scope.proSku,
 					"name": $scope.proName,
 					"shortDesc":  $scope.proShortDesc,
@@ -167,13 +135,13 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 					},
 					"quantity": $scope.proQty,
 					"category": {
-						"id": $scope.cat.id
+						"id": 2
 					},
 					"pricingProduct": {
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": 2
+						"id": $scope.cat.id
 					},
 					"productVariation": [{}]
 				}
@@ -186,7 +154,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			*/
 			
 			$scope.removeImage = function(index){
-				console.log("REMOVE:" + index);
+				//	console.log("REMOVE:" + index);
 				$scope.allFiles.splice(index, 1);
 			}
 			
@@ -215,16 +183,25 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			$scope.$on('cropImage', function (event, arg) { 
 					$scope.imageUrl =  arg.img;
 					
+					console.log(arg);
 					if($scope.imageUrl != ''){
 						var fileCheck = $scope.dataURItoBlob($scope.imageUrl);
+						console.log("fileCheck");
+						console.log(fileCheck);
 						var file1 = new File([fileCheck], arg.imgName);
+						console.log("file1");
+						console.log(file1);
+						
+						var resized = {
+							dataURL: URL.createObjectURL(file1)
+						}
 						var value = {
 							// File Name 
 							name: file1.name,
 							//File Size 
 							size: file1.size,
 							//File URL to view 
-							url: URL.createObjectURL(file1),
+							resized: resized,
 							// File Input Value 
 							_file: file1
 						};
@@ -233,11 +210,62 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 						//	$scope.allFiles.push(value);
 					}
 				});
-		}]);
+
+			/*
+			*
+			Watch Images Size Change
+			*
+			*/
+			
+			$scope.$watch('images4',function(newValue, oldValue){
 		
+					/*console.log("Length:"+$scope.images4.length);
+					console.log($scope.images4);*/
+				
+					$scope.addImages($scope.images4);
+				
+				});
 
-
-
-
-
-
+			/*
+			*
+			Creating file from URI
+			*
+			*/
+			
+			$scope.uriToFile = function(){
+				var count = 0;
+				
+				angular.forEach($scope.allFiles, function (item) {
+						count++;
+						console.log(item);
+							
+						var fileCheck = $scope.dataURItoBlob(item.resized.dataURL);
+						var file1 = new File([fileCheck],'img-'+$scope.newProId+'-'+count+'.jpg');
+						var value = {
+							// File Name 
+							name: 'img-'+$scope.newProId+'-'+count+'.jpg',
+							//File Size 
+							size: file1.size,
+							//File URL to view 
+							url: URL.createObjectURL(file1),
+							// File Input Value 
+							_file: file1
+						};
+						/*	var value = {
+						// File Name 
+						name: item.name,
+						//File Size 
+						size: item.size,
+						//File URL to view 
+						url: URL.createObjectURL(item),
+						// File Input Value 
+						_file: item
+						};*/
+						//		console.log(value);
+						$scope.tempFiles.push(value);
+					});
+				console.log("TEMP");
+				console.log($scope.tempFiles);
+									
+			}
+		}]);

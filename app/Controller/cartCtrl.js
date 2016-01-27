@@ -29,6 +29,16 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 			mShop = prod.shop;
 			else
 			mShop = prod.shop.name;
+			
+			var numDrop = [];
+			for(var i = 1; i<=prod.quantity; i++){
+				var value = {
+					id: i
+				};
+				
+				numDrop.push(value);
+			}
+					  
 			$scope.invoice.items.push({
 					id:prod.id,
 					qty: qty,
@@ -37,7 +47,8 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 					size: size,
 					shop: mShop,
 					cost: prod.pricingProduct.storedValue,
-					imagePath: prod.imageInfo.imagePath
+					imagePath: prod.imageInfo.imagePath,
+					dropObj: numDrop
 				});
 			$cookieStore.put("invoices",$scope.invoice.items);
 			items = $cookieStore.get("invoices",$scope.invoices);
@@ -46,14 +57,7 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		};
 	
 		$scope.getNumber = function(num) {
-			var numDrop = [];
-			for(var i = 1; i<=num; i++){
-				var value = {
-					id: i
-				}
-				numDrop.push(value);
-			}		
-			return numDrop;   
+			
 		}    
 	});
         
