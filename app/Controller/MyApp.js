@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ngRoute','angularUtils.directives.dirPagination','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','dc.endlessScroll','imageCropper']);
+var app = angular.module('myApp',['ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','dc.endlessScroll','imageCropper']);
 
 app.config(['$routeProvider', function($routeProvider) 
 		{ $routeProvider .when('/', { 
@@ -66,4 +66,4 @@ app.directive('progressbar', [function() {
             })
         }
     }
-}])
+}]);

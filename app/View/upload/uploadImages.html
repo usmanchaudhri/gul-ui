@@ -1,8 +1,9 @@
-<div class="container" ng-controller="uploadCtrl">
+<div class="container">
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles">
 			<div  href="#" class="upload-container-img">
-				<image-cropper image="{{file.url}}" dest-width="640" dest-height="480" show-controls="false" cropped-image="cropImage" fit-on-init="true" init="4"></image-cropper>	
+		
+				<image-cropper image="{{file.resized.dataURL}}" dest-width="640" dest-height="480" show-controls="false" cropped-image="cropImage" fit-on-init="true" init="4"></image-cropper>
 			</div>
 			
 			<div  ng-controller="imgViewCtrl" style="height: 45px;" >
@@ -42,8 +43,26 @@
 		</div>
 		
 		<div id="container" class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
-			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" multiple />
+			<!--<input class="custom-file-input" 
+			type="file" 
+			ng-model="files" 
+			ngf-select="addImages(this.files)" 
+			multiple 
+			/>-->
+			<input 
+				id="inputImage4" 
+				class="custom-file-input" 
+				type="file" 
+				accept="image/*" 
+				res-image="images4" 
+				resize-max-height="600"
+				resize-max-width="600"
+				resize-quality="0.1"
+				multiple />
+		
+					
 		</div>
+	
 	</div>
 	<div class="row">
 		<div class="col-sm-4 "></div>
@@ -82,7 +101,8 @@
            		 				ng-model="cat.id"
            		 				ng-options="cat.id as cat.name for cat in categoryDetail">
 							</select>
-            			</td>
+							
+						</td>
 					</tr>
 					<tr>
 						<td><label for="quantity">Quantity:</label></td>
@@ -116,4 +136,4 @@
 			</form>
 		</div>
 	</div>
-	</div>
+</div>

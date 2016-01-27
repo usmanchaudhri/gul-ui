@@ -29,11 +29,11 @@
 							<td>
 								<div style="margin-top: 10px; margin-left: 5px;">
 									<div class="input-group spinner" id="cartQty">
-										<span ng-init="qty = a.qty"></span>
-										<select
-           		 			ng-model='cat.id'
-           		 				ng-options="cat.id for cat in getNumber(a.totalQty) track by $index">			</select>
-										<span class="input-group-btn-vertical">
+									<select
+           		 				ng-model="cat.id"
+           		 				ng-options="cat.id as cat.id for cat in a.dropObj">
+							</select>
+           		 						<span class="input-group-btn-vertical">
 											<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
 											<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
 										</span>

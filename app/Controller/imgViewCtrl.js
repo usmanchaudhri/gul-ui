@@ -49,8 +49,8 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 		};
 		$scope.$watch('resImageDataURI',function(){
 		
-				console.log('Res image');
-				console.log($scope.resImageDataURI);
+				//console.log('Res image');
+				//console.log($scope.resImageDataURI);
 				
 			});
 		
