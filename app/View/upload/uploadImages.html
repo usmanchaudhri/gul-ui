@@ -34,39 +34,27 @@
 					<br/>
 					<br/>
 					<br/>
-				</span>
-				
-				<!--<span ng-if="$index == 0">
-				<button type="button" class="btn btn-default adjust-btn" ng-click="openZoomModal(this.file,$index)" >Adjust Thumbnail</button><br><br><br>	-->
-				
+				</span>	
 			</div>
 		</div>
 		
 		<div id="container" class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
-			<!--<input class="custom-file-input" 
-			type="file" 
-			ng-model="files" 
-			ngf-select="addImages(this.files)" 
-			multiple 
-			/>-->
 			<input 
-				id="inputImage4" 
-				class="custom-file-input" 
-				type="file" 
-				accept="image/*" 
-				res-image="images4" 
-				resize-max-height="600"
-				resize-max-width="600"
-				resize-quality="0.1"
-				multiple />
-		
-					
+			id="inputImage4" 
+			class="custom-file-input" 
+			type="file" 
+			accept="image/*" 
+			res-image="images4" 
+			resize-max-height="600"
+			resize-max-width="600"
+			resize-quality="0.1"
+			multiple />
 		</div>
 	
 	</div>
 	<div class="row">
 		<div class="col-sm-4 "></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="upload()">UPLOAD</button></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="uploadImages()">UPLOAD</button></div>
 		<div class="col-sm-4"></div>
 	</div>
 	
@@ -129,10 +117,6 @@
 						</td>
 					</tr>
 				</table>
-				
-				
-				
-				
 			</form>
 		</div>
 	</div>

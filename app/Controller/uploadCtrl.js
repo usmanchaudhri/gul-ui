@@ -26,53 +26,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 			
 			
 			$scope.addImages=function(files){
-				
-				
-				//console.log("Add Images Called");
 				if(angular.isDefined(files)&& files != null){
-					/*console.log("Add IMage ");
-					console.log(files);*/
 					$scope.allFiles = files;
-					//console.log("All Length: "+$scope.images4.length);
-					
-					$scope.totImages = files.length+$scope.allFiles.length;
-					//console.log("All Length: "+$scope.allFiles.length);
-					
-					if($scope.totImages <= 5){
-					
-						var count = 0;
-						angular.forEach(files, function (item) {
-							
-								//console.log(count+1);
-							
-								/*	var fileCheck = $scope.dataURItoBlob(item.resized.dataURL);
-								var file1 = new File([fileCheck], 'abc.jpg');
-								var value = {
-								// File Name 
-								name: file1.name,
-								//File Size 
-								size: file1.size,
-								//File URL to view 
-								url: URL.createObjectURL(file1),
-								// File Input Value 
-								_file: file1
-								};*/
-								/*	var value = {
-								// File Name 
-								name: item.name,
-								//File Size 
-								size: item.size,
-								//File URL to view 
-								url: URL.createObjectURL(item),
-								// File Input Value 
-								_file: item
-								};*/
-								//		console.log(value);
-								//	$scope.allFiles.push(value);
-							});
-					}else{
-						alert("MAx 5 images");
-					}
+					var count = 0;
 				}
 			};
 			
@@ -128,33 +84,19 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 				$scope.uriToFile();
 				console.log("Image Upload: " + $scope.tempFiles);
 				angular.forEach($scope.tempFiles, function(value, key){
-						/*count ++;
-						var imgFile = value._file;
-						var value = {
-						// File Name 
-						name: 'img-'+$scope.newProId+'-'+count,
-						//File Size 
-						size: value.size,
-						//File URL to view 
-						url: URL.createObjectURL(value._file),
-						// File Input Value 
-						_file: value
-						};*/
+						count++;
 						$scope.one = value;
-						//console.log($scope.one);
 						var value1 = {
 							imgName: $scope.one.name,
 							imgIndex: count	,
 							imgProgress: 0
 						};
-						//	console.log(value1);
 						$scope.progressArr.push(value1);
 						// alert($scope.files[0]+" files selected ... Write your Upload Code"); 
 						$scope.upload = Upload.upload({
 								url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
 								data: {file: $scope.one._file}
 							});
-
 						$scope.upload.then(function (response) {
 								$timeout(function () {
 										$scope.result = response.data;
@@ -165,19 +107,14 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 								$scope.errorMsg = response.status + ': ' + response.data;
 							}, function (evt) {
 								// Math.min is to fix IE which reports 200% sometimes
-								
-								//		$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 								angular.forEach($scope.progressArr, function(value, key){
-										//console.log(evt.config);
-										/*	if(evt.config._file.name == value.imgName){
-										$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));*/
-										//	console.log("PRogress: " + $scope.progressArr[value.imgIndex].imgProgress);	
-										//}
+										if(evt.config._file.name == value.imgName){
+											$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+								console.log($scope.progressArr[value.imgIndex].imgProgress);
+										}
 									});
-								
 							});
 					});
-			
 			}
 			
 			/*
@@ -273,6 +210,13 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 						//	$scope.allFiles.push(value);
 					}
 				});
+
+			/*
+			*
+			Watch Images Size Change
+			*
+			*/
+			
 			$scope.$watch('images4',function(newValue, oldValue){
 		
 					/*console.log("Length:"+$scope.images4.length);
@@ -281,6 +225,13 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 					$scope.addImages($scope.images4);
 				
 				});
+
+			/*
+			*
+			Creating file from URI
+			*
+			*/
+			
 			$scope.uriToFile = function(){
 				var count = 0;
 				
@@ -312,8 +263,6 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$http', function($s
 						};*/
 						//		console.log(value);
 						$scope.tempFiles.push(value);
-									
-									
 					});
 				console.log("TEMP");
 				console.log($scope.tempFiles);
