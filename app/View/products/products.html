@@ -1,3 +1,17 @@
+<script>
+	$(document).ready(function(){
+		$('#filter').on('change', function(){
+    if($(this).find("option:selected").attr("optGroup") == "price"){
+        $('#select-price-filter').addClass('show');
+    } else{
+    	 $('#select-price-filter').removeClass('show');
+    	$('#select-price-filter').hide();
+    }
+});
+		
+	});
+</script>
+
 <div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
@@ -13,18 +27,23 @@
 		<div class="col-sm-2">
 			<h2 latestDiv class="product-title">Latest <span style="color:black;">Designs</span></h2>		
 		</div>
-		<div class="col-sm-7"></div>
-		<div class="col-sm-3 sorting">
+		<div class="col-sm-5"></div>
+		<div class="col-sm-5 sorting">
 			<table>
 				<tr>
 					<td>
 						<label style="font-size: 14px;margin-right: 5px;"><b>Order By:	</b></label>		
 					</td>
 					<td>
-						<select>
-							<option>Price</option>
-							<option>Color</option>
+						<select id="filter" >
+							<option>Select</option>
+							<option id="color" optGroup="color" >Color</option>
+							<option id="price" optGroup="price">Price</option>
 						</select>
+					</td>
+					<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
+						<input type="radio" name="sortbyprice" value="lowhigh"> Low to High
+  						<input type="radio" name="sortbyprice" value="highlow"> High to Low
 					</td>
 				</tr>
 			</table>
