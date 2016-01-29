@@ -1,0 +1,51 @@
+
+	/*		$scope.upload=function(){
+				
+				
+
+				console.log("Resize Image");
+				console.log($scope.resImage);
+				$scope.showProgress = true;
+				var count = -1;
+				angular.forEach($scope.resImage, function(value, key){
+						count ++;
+						console.log(value._file);
+         
+						$scope.one = value;
+						console.log($scope.one);
+						var value = {
+							imgName: $scope.one.name,
+							imgIndex: count	,
+							imgProgress: 0
+						};
+						console.log(value);
+						$scope.progressArr.push(value);
+						// alert($scope.files[0]+" files selected ... Write your Upload Code"); 
+						$scope.upload = Upload.upload({
+								url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
+								data: {file: $scope.one._file}
+							});
+
+						$scope.upload.then(function (response) {
+								$timeout(function () {
+										$scope.result = response.data;
+										console.log($scope.result);
+									});
+							}, function (response) {
+								if (response.status > 0)
+								$scope.errorMsg = response.status + ': ' + response.data;
+							}, function (evt) {
+								// Math.min is to fix IE which reports 200% sometimes
+								
+								//		$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+								angular.forEach($scope.progressArr, function(value, key){
+										console.log(evt.config);
+										if(evt.config._file.name == value.imgName){
+											$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+											console.log("PRogress: " + $scope.progressArr[value.imgIndex].imgProgress);	
+										}
+									});
+								
+							});
+					});
+			};*/

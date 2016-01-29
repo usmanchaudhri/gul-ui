@@ -129,7 +129,8 @@ app.directive('resImage', function($q) {
 								file: files[i],
 								url: URL.createObjectURL(files[i])
 							};
-
+console.log("imageResult Object");
+console.log(imageResult);
 							fileToDataURL(files[i]).then(function (dataURL) {
 									imageResult.dataURL = dataURL;
 									//console.log("dataURL");
