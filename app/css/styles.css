@@ -989,7 +989,6 @@ button.btn:active,button.btn.active{
 
 .clr{
 	margin-left: -6px;
-	margin-top: 8px;
 }
 #btm{
 	text-align-last: 100px;
@@ -1037,10 +1036,10 @@ button.btn:active,button.btn.active{
 	
 }
 
-.glyphicon{
+/*.glyphicon{
 	position: inherit !important;
 	line-height: 0 !important;
-}
+}*/
 
 #breadcrumbs{
 	margin-top: 30px;
@@ -1380,6 +1379,7 @@ html{
 	width: 166px; 
 	height: 177px;
 	padding: 0px;
+	background-color: aliceblue;
 	border: 1px solid rgba(128, 128, 128, 0.49);
 }
 
@@ -1398,8 +1398,8 @@ html{
 }
 
 .upload-container-img{
-	margin-bottom: 10px;
-	height: 130px; 
+	margin-bottom: 5px;
+	height: 150px; 
 	border-bottom: 1px solid rgba(128, 128, 128, 0.49);
 }
 
@@ -1409,7 +1409,7 @@ html{
 
 .upload-container-img img{
 	width: 100%;
-	height: 127px; 
+	/*height: 127px; */
 	padding: 5px;
 }
 
@@ -1423,12 +1423,12 @@ html{
 	content: 'Add Photo';
 	color: rgba(51, 122, 183, 0.63);
 	display: inline-block;
-	background-color: #F0FBFD; 
+	/*background-color: #F0FBFD; */
 	width: 166px;
 	height: 177px;
 	padding-top: 85px;
 	padding-left: 45px;
-	border: 1px solid rgba(128, 128, 128, 0.49);
+	/*border: 1px solid rgba(128, 128, 128, 0.49);*/
 	outline: none;
 	white-space: nowrap;
 	-webkit-user-select: none;
@@ -1569,6 +1569,10 @@ html{
 	
 }
 
+.crop-btns{
+	padding : 5px;
+}
+
 .upload-form-col{
 	width: 100%;
 }
@@ -1603,7 +1607,6 @@ html{
     padding-right: 7px;	
 }
 
-}
 
 select{
 	border-radius: 3px;
@@ -1631,6 +1634,11 @@ select{
     padding-right: 12px;
 }
 
+#formLogin input{
+	padding: 3px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
 }
 
 @media (max-width: 300px){
@@ -1644,9 +1652,5 @@ select{
 }
 
 @media (min-width: 768px){
-	.modal-dialog {
-    
-    margin: 155px auto !important;
-    
-    }
+	
 }

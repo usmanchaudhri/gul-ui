@@ -3,16 +3,11 @@
 		<div class="col-sm-4 col-xs-6" id="imagediv" dir-paginate="a in allShopDetail | filter:q | itemsPerPage: pageSize" current-page="currentPage">
 		
 		
-			<!--<span ng-if="a.category.subCategories.length == '0'">
-				<a ng-href="#productDetailPage/{{a.id}}">		
-					<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath + token}}"   >
-				</a>
-			</span>
-			<span ng-if="a.category.subCategories.length > '0'">-->
-				<a ng-href="#shop/{{a.id}}">		
-					<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath + token}}"   >
-				</a>
-		<!--	</span>-->
+			
+			<a ng-href="#shop/{{a.id}}">		
+				<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath + token}}"   >
+			</a>
+		
 			<div class="imageText">
 				<span class="proDes">
 					<p>
