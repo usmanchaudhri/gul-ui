@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','dc.endlessScroll','imageCropper']);
+var app = angular.module('myApp',['ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','dc.endlessScroll','imageCropper','infinite-scroll']);
 
 app.config(['$routeProvider', function($routeProvider) 
 		{ $routeProvider .when('/', { 
