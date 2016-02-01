@@ -1,16 +1,3 @@
-<script>
-	$(document).ready(function(){
-		$('#filter').on('change', function(){
-    if($(this).find("option:selected").attr("optGroup") == "price"){
-        $('#select-price-filter').addClass('show');
-    } else{
-    	 $('#select-price-filter').removeClass('show');
-    	$('#select-price-filter').hide();
-    }
-});
-		
-	});
-</script>
 
 <div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
@@ -27,65 +14,68 @@
 		<div class="col-sm-2">
 			<h2 latestDiv class="product-title">Latest <span style="color:black;">Designs</span></h2>		
 		</div>
-		<div class="col-sm-5"></div>
-		<div class="col-sm-5 sorting">
+		<div class="col-sm-7"></div>
+		<div class="col-sm-3 sorting ">
 			<table>
 				<tr>
 					<td>
-						<label style="font-size: 14px;margin-right: 5px;"><b>Order By:	</b></label>		
+						<label style="font-size: 14px;margin-right: 5px;"><b>Filter:</b></label>		
 					</td>
 					<td>
-						<select id="filter" >
-							<option>Select</option>
-							<option id="color" optGroup="color" >Color</option>
-							<option id="price" optGroup="price">Price</option>
+						<select ng-model="sorting" >
+							<option  value="pricingProduct.storedValue" >Low to High(price)</option>
+							<option  value="-pricingProduct.storedValue" >High to Low(price)</option>
 						</select>
 					</td>
-					<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
+					<!--<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
 						<input type="radio" name="sortbyprice" value="lowhigh"> Low to High
-  						<input type="radio" name="sortbyprice" value="highlow"> High to Low
-					</td>
+						<input type="radio" name="sortbyprice" value="highlow"> High to Low
+					</td>-->
 				</tr>
 			</table>
 		</div>
 	</div>
 	
 	<div class="row info-boxes">
-		<div class="col-sm-4 col-xs-6 show-image" id="imagediv" endless-scroll="a in products | orderBy: id track by $index" >
-			<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
-			<div class="col-sm-12 col-xs-12 image-button" >
-				<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
-				<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
-				<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
-				<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
-				<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
-				<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
-			</div>
-			<div class="imageText">
-				<span class="proDes">
-					<p>
-						<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
-						<span ng-init="prodQty = 1"></span>
-						<span ng-init="prodName = a.name"></span>
+		
+		<!--<div infinite-scroll="addMoreItems()" infinite-scroll-listen-for-event="list:filtered">-->
+		SORTING: {{sorting}}
+			<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in products | orderBy:sorting track by $index" >
+				<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
+				<div class="col-sm-12 col-xs-12 image-button" >
+					<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
+					<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
+					<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
+					<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
+					<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
+					<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
+				</div>
+				<div class="imageText">
+					<span class="proDes">
+						<p>
+							<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
+							<span ng-init="prodQty = 1"></span>
+							<span ng-init="prodName = a.name"></span>
 					
-						<strong>{{a.name}}</strong>
-						- {{a.shortDesc | limitTo: 30}}
-					</p>
-				</span>
-				<span class="proDes" ng-if="isNumber(a.shop.id)">
-					<small>	 <a ng-href="#shop/{{a.shop.id}}"  ><i>by {{a.shop.name}}</i></a></small>
+							<strong>{{a.name}}</strong>
+							- {{a.shortDesc | limitTo: 30}}
+						</p>
+					</span>
+					<span class="proDes" ng-if="isNumber(a.shop.id)">
+						<small>	 <a ng-href="#shop/{{a.shop.id}}"  ><i>by {{a.pricingProduct.storedValue}}</i></a></small>
 					
     						 
-				</span>
-				<span class="proDes" ng-show="!isNumber(a.shop.id)">
+					</span>
+					<span class="proDes" ng-show="!isNumber(a.shop.id)">
 				
-					<small>	 <a ng-href="#shop/{{getShop(a.shop)}}"  ><i>by {{a.shop}}</i></a></small>
+						<small>	 <a ng-href="#shop/{{getShop(a.shop)}}"  ><i>by {{a.pricingProduct.storedValue}}</i></a></small>
     						 
-				</span>
+					</span>
 				
 				
+				</div>
 			</div>
-		</div>
+		<!--</div>-->
 	</div>
 	<!--<div class="other-controller">
 	<div class="text-center">
