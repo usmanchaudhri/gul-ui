@@ -27,10 +27,10 @@
 							<option  value="-pricingProduct.storedValue" >High to Low(price)</option>
 						</select>
 					</td>
-					<!--<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
+					<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
 						<input type="radio" name="sortbyprice" value="lowhigh"> Low to High
 						<input type="radio" name="sortbyprice" value="highlow"> High to Low
-					</td>-->
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -39,7 +39,7 @@
 	<div class="row info-boxes">
 		
 		<!--<div infinite-scroll="addMoreItems()" infinite-scroll-listen-for-event="list:filtered">-->
-		SORTING: {{sorting}}
+		<!--SORTING: {{sorting}}-->
 			<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in products | orderBy:sorting track by $index" >
 				<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
 				<div class="col-sm-12 col-xs-12 image-button" >
@@ -75,6 +75,6 @@
 				
 				</div>
 			</div>
-		<!--</div>-->
+		</div>
 	</div>
 </div>
