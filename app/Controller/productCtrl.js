@@ -1,7 +1,9 @@
- app.controller('productCtrl', function($scope,$http,$routeParams) {
+ app.controller('productCtrl',['$scope','$http','$routeParams' , function($scope,$http,$routeParams) {
 		$scope.isNumber = angular.isNumber;
 		$scope.shopTemp = [];
 		$scope.records = [];
+		$scope.infiniteList = [];
+		$scope.incr = 1;
 		$scope.sorting = 'pricingProduct.storedValue';
 
 		// Make an API request
@@ -23,16 +25,7 @@
 							});
 					});
 			});
-
-		/*$scope.addMoreItems = function(){
-			var i =0;
-			for(i=10;i<20 ; i++){
-				$scope.records.push($scope.products[i]);
-			}
-			
-		}*/
-
-		$scope.getShop = function(shopName){
+	$scope.getShop = function(shopName){
 			var tempId = 0;
 			angular.forEach($scope.shopTemp, function(value, key){
 				
@@ -44,6 +37,18 @@
 	
 			return tempId;
 		};
+		$scope.scrollTriggered = "";
+    
+    $scope.loadMore = function(){
+      console.log("Load More");
+      $scope.scrollTriggered += "\n Scroll Triggered" 
+       if($scope.products.length > $scope.incr)
+        for(var i = $scope.incr; i< ($scope.incr+2); i++){
+            $scope.infiniteList.push($scope.products[i]);
+        }
+        $scope.incr= $scope.incr + 2 ;
+        console.log("Load More" + $scope.infiniteList.length);
+    };
 		$scope.load = function() {
  
 			$('.carousel .item').each(function(e) {
@@ -53,4 +58,4 @@
 				});
 		};
 		$scope.load();
-	});
+	}]);

@@ -2,14 +2,16 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 		$scope.images = [];
 		$scope.imageUrl = '';
 		$scope.openLightboxModal = function (img,imgIndex) {
+			$scope.images = [];
 			angular.forEach($scope.allFiles, function(value, key){
 			$scope.images.push(value);	
 			});
-			
+			console.log("View LightBox: "+ $scope.images.length);
 			Lightbox.openModal($scope.images, imgIndex,2);
 			//console.log("CLose");
 		};
 		$scope.openLightboxCrop = function (img,indexN) {
+			$scope.images = [];
 			console.log("Index num: " + indexN);
 			$scope.images.push(img);
 			Lightbox.openModal($scope.images,0 ,1,indexN);
@@ -17,6 +19,7 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 		};
 		
 		$scope.openZoomModal = function (img,indexNo) {
+			$scope.images = [];
    			console.log("Zoom Index num: " + indexNo);
 			$scope.images.push(img);
 			Lightbox.openModal($scope.images,0 ,3,indexNo);

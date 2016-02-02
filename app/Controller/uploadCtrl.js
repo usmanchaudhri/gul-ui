@@ -249,11 +249,12 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 							_file: file1,
 							croped: true
 						};
-						console.log(value);
+						console.log($scope.allFiles.length);
 						//$scope.allFiles.splice(arg.imgIndex, );
 						$scope.allFiles.splice(arg.imgIndex, 1,value );
 						cropImageArr.splice(arg.imgIndex, 1,$scope.imageUrl );
 						console.log("Custom: "+cropImageArr.length);
+						console.log("After : "+$scope.allFiles.length);
 						//	$scope.allFiles.push(value);
 					}
 				});
