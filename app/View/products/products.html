@@ -27,10 +27,10 @@
 							<option  value="-pricingProduct.storedValue" >High to Low(price)</option>
 						</select>
 					</td>
-					<!--<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
+					<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
 						<input type="radio" name="sortbyprice" value="lowhigh"> Low to High
 						<input type="radio" name="sortbyprice" value="highlow"> High to Low
-					</td>-->
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -44,6 +44,14 @@
 			<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList | orderBy:sorting track by $index" >
 				<a ng-href="#productDetailPage/{{a.id}}">	
 				<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
+	
+	<div class="row info-boxes">
+		
+		<!--<div infinite-scroll="addMoreItems()" infinite-scroll-listen-for-event="list:filtered">-->
+		<!--SORTING: {{sorting}}-->
+	<!--		<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in products | orderBy:sorting track by $index" >
+				<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
+>>>>>>> aec547a54feadb5e049b07e579a298384fa344da-->
 				<div class="col-sm-12 col-xs-12 image-button" >
 					<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
 					<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
