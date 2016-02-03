@@ -43,7 +43,7 @@
       console.log("Load More");
       $scope.scrollTriggered += "\n Scroll Triggered" 
        if($scope.products.length > $scope.incr)
-        for(var i = $scope.incr; i< ($scope.incr+2); i++){
+        for(var i = $scope.incr; i< ($scope.incr+3); i++){
             $scope.infiniteList.push($scope.products[i]);
         }
         $scope.incr= $scope.incr + 2 ;
