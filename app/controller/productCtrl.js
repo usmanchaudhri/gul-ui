@@ -6,7 +6,6 @@
 		$scope.incr = 1;
 		$scope.sorting = 'pricingProduct.storedValue';
 
-		console.log(jQuery(window).height());
 		// Make an API request
 		$http.get("url.properties")
 		.then(function(response) {
@@ -43,11 +42,14 @@
     $scope.loadMore = function(){
       console.log("Load More");
       $scope.scrollTriggered += "\n Scroll Triggered" 
+     if(angular.isDefined($scope.products)){
        if($scope.products.length > $scope.incr)
         for(var i = $scope.incr; i< ($scope.incr+2); i++){
             $scope.infiniteList.push($scope.products[i]);
         }
         $scope.incr= $scope.incr + 2 ;
+        }
+        
         console.log("Load More" + $scope.infiniteList.length);
     };
 		$scope.load = function() {
