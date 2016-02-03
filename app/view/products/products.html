@@ -69,18 +69,18 @@
 							<span ng-init="prodQty = 1"></span>
 							<span ng-init="prodName = a.name"></span>
 					
-							<strong>{{a.name}}</strong>
-							- {{a.shortDesc | limitTo: 30}}
+							{{a.name}}
+							<!--- {{a.shortDesc | limitTo: 30}}-->
 						</p>
 					</span>
 					<span class="proDes" ng-if="isNumber(a.shop.id)">
-						<small>	 <a ng-href="#shop/{{a.shop.id}}"  ><i>by {{a.shop.name}}</i></a></small>
+						<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
 					
     						 
 					</span>
 					<span class="proDes" ng-show="!isNumber(a.shop.id)">
 				
-						<small>	 <a ng-href="#shop/{{getShop(a.shop)}}"  ><i>by {{a.shop}}</i></a></small>
+						<small>	 <a ng-href="#shop/{{getShop(a.shop)}}" style="color: black;"  >{{a.shop}}</a></small>
     						 
 					</span>
 				

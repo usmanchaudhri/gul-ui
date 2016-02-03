@@ -15,8 +15,9 @@
 	left: 0; 
 	width: 100%;
 	height: 50px;
-	background-color: #727272; 
-	padding-top: 5px;
+	/*background-color: #727272; */
+	padding-top: 10px;
+	text-align: center;
    	
 }
 .imageText a{
@@ -29,10 +30,11 @@
 	text-decoration: none;
 }
 .proDes{
-	line-height: 0px;
-	color: #fff;
-	font-size: 9px;
-	margin-left: 15px;
+	line-height: 10px;
+	color: black;
+	font-family: "Gill Sans MT";
+	font-size: 18px;
+	margin-left: 0px;
 }
 
 .proAuth{
