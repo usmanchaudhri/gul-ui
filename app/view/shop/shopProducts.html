@@ -1,0 +1,42 @@
+<div class="container">
+
+	<div class="row info-boxes" dir-paginate="x in designer | filter:q | itemsPerPage: pageSize track by $index" current-page="currentPage">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="col-sm-4 designerpage-image">
+					<img  class="img-responsive" bn-lazy-src="{{fixPath + x.imagePath + token }}" alt="img" /> 
+				</div>
+				<div class="col-sm-4" style="margin-top: 5px;">
+			
+					<p style=" font-size: 18px;"><span style="color: black;">{{shop.name}}</span></p><br>	  
+					<h4>
+						<p style="font-size: 13px;">
+							The South African born interiors queen (1959-, British)has wowed the British interiors scene with her sereneelegance and Eastern inspired creations. She was thefirst designer to receive the Andrew Martin Internation-al Designer of the Year award in 1997 and, ten years later, has been awarded the European Women of Achievement Award for Entrepreneurship.<br><br>What's her Speciality?Her signature beige and neutrals. Cheesy it may sound
+							but the world has literally gone hopping mad for Hoppen.</p></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in shop.products">
+		
+
+		<a ng-href="#productDetailPage/{{a.id}}">		
+			<img bn-lazy-src= "{{'https://content.dropboxapi.com/1/files/auto/gul/product/images/' + a.imageInfo.imagePath + token}}"   ></a>
+		<div class="imageText">
+			<span class="proDes">
+				<p>
+					<strong>{{a.name}}</strong>
+					- {{a.shortDesc | limitTo: 30}}
+				</p>
+			</span>
+			
+		</div>
+    		
+	</div>
+	<div class="other-controller">
+		<div class="text-center">
+			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html"></dir-pagination-controls>
+		</div>
+	</div>
+</div>

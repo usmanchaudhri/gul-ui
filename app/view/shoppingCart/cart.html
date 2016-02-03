@@ -1,0 +1,60 @@
+
+<div class="container">
+	<div class="row" style="padding-left: 0px;margin-bottom: 40px;">
+		<div class="col-sm-12" ng-controller="cartCtrl">
+			<div class="col-sm-4">
+				<h1 style="font-size: 20px;">{{abc}} Items in your Cart</h1>
+			</div>
+			<div class="col-sm-5"></div>
+			<div class="col-sm-3">
+				<button type="button" class="keep-shopping-btn" id="item" style="margin-top: 12px;"><a href="#a" style="text-decoration: none; color: white;">Keep Shopping</a></button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="row" ng-repeat="a in items track by $index">
+				
+				<div class="col-sm-1" style="width: 130px; height: 125px;padding:0px;margin-bottom: 40px;">
+					<img  src="{{fixPath + a.imagePath + token}}" width="130" height="125"/>
+				</div>
+				<div class="col-sm-3" style="width: auto;" >
+					<p style=" font-size: 17px;color: orange;">{{a.name}}</p>
+					<p style=" font-size: 17px;color: orange;">By {{a.shop}}</p>
+					<table>
+						<tr>
+							<td>
+								<h3>Quantity</h3>			
+							</td>
+							<td>
+								<div style="margin-top: 10px; margin-left: 5px;">
+									<div class="input-group spinner" id="cartQty">
+
+										<span ng-init="qty = a.qty"></span>
+										
+									<select
+           		 				ng-model="cat.id"
+           		 				ng-options="cat.id as cat.id for cat in a.dropObj">
+							</select>
+           		 						<span class="input-group-btn-vertical">
+											<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+											<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+										</span>
+
+									</div>
+								</div>		
+							</td>
+						</tr>
+							
+					</table>
+				</div>
+				
+			</div>
+				
+			<button type="button" class="cart-proceed-btn"><a href="#cart/payment" style="text-decoration: none; color: white;"><p style="font-size: 10px;">Proceed to Chechout</p></a></button>
+			
+			
+			
+		</div>
+	</div>
+</div>
