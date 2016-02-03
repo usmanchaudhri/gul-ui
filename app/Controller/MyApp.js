@@ -67,3 +67,13 @@ app.directive('progressbar', [function() {
         }
     }
 }]);
+app.directive('closeModal', function() {
+   return {
+     restrict: 'A',
+     link: function(scope, element, attr) {
+       scope.dismiss = function() {
+           element.modal('hide');
+       };
+     }
+   } 
+});
