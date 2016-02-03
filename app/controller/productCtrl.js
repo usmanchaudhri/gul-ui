@@ -6,6 +6,7 @@
 		$scope.incr = 1;
 		$scope.sorting = 'pricingProduct.storedValue';
 
+		console.log(jQuery(window).height());
 		// Make an API request
 		$http.get("url.properties")
 		.then(function(response) {
