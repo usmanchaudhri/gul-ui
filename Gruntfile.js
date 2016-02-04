@@ -114,6 +114,8 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= config.dist %>/*',
+            '!<%= config.dist %>/server.js',
+            '!<%= config.dist %>/Procfile',
             '!<%= config.dist %>/.git*'
           ]
         }]
@@ -303,28 +305,28 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= config.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/scripts/scripts.js': [
-    //         '<%= config.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= config.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= config.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= config.dist %>/scripts/scripts.js': [
+            '<%= config.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -337,14 +339,36 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
+            'images/*.jpg',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'css/**',
+            'fonts/**',
+            'js/**',
+            'controller/**',
+            'view/**',
+            'scripts/**',
+            'url.properties',
+            'favicon.ico',
+            'apple-touch-icon.png',
+            'package.json',
+            'server.js',
+            'Procfile'
           ]
         }, {
           expand: true,
           dot: true,
           cwd: '.',
-          src: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
+          src: ['bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
+                'bower_components/jquery/dist/jquery.min.js',
+                'bower_components/angular/angular.js',                
+                'bower_components/angular/angular.min.js',
+                'bower_components/angular-route/angular-route.js',
+                'bower_components/angular-resource/angular-resource.min.js',
+                'bower_components/angular-cookies/angular-cookies.min.js',
+                'bower_components/restangular/dist/restangular.min.js',
+                'bower_components/lodash/lodash.min.js'
+               ],
           dest: '<%= config.dist %>'
         }]
       }
