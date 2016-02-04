@@ -311,7 +311,7 @@ h2 span {
 	opacity: 1;}
 /* info-boxes */
 .info-boxes {
-	padding-bottom: 52px;
+
 	color: #fff;
 }
 .info-boxes figure {
@@ -942,8 +942,7 @@ img {
 	padding: 2px 20px 2px 20px;
 	font-size: 15px;
 	line-height: 1.5;
-	border-radius: 25px;
-	margin-left: -2px;
+	margin-left: 10px;
 	background-color: #D25E00;
 }
 .jumbotron {
@@ -988,7 +987,8 @@ button.btn:active,button.btn.active{
 }
 
 .clr{
-	margin-left: -6px;
+	margin-left: -8px;
+	padding-top: 8px;
 }
 #btm{
 	text-align-last: 100px;
@@ -1640,6 +1640,51 @@ select{
     border: 1px solid #ddd;
     border-radius: 3px;
 }
+
+
+/*Individual Page*/
+.quantity-wrapper{
+	margin-top: 156px;
+}
+
+.size-dropdown{
+	border-radius: 0px;
+	border: 2px solid black;
+	font-weight: 600;
+	width: 254%;
+}
+
+.quantity-dropdown{
+	border-radius: 0px;
+	border: 2px solid black;
+	font-weight: 600;
+}
+
+.size-dropdown option{
+	font-weight: 600;
+}
+
+.customise-sec{
+	/*border: 2px solid black;*/
+}
+.customise-sec label{
+	padding: 1px;
+	margin: 10px;
+	font-weight: 600;
+	color: gray !important;
+	cursor: pointer;
+}
+
+.itemdetail-border{
+	border-bottom: 2px solid #D25E00;
+	
+}
+.customization-border,.shipping-border{
+	border-bottom: none;
+	
+	
+}
+/*End of Individual Page*/
 
 @media (max-width: 300px){
 	.image-button input{

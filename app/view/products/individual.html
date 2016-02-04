@@ -1,3 +1,30 @@
+<script>
+	$(document).ready(function(){
+		$("#itemdetail").click(function(){
+			$("#custom-section").css("display","block");
+			$(".itemdetail-border").css("border-bottom","2px solid #D25E00");
+			$(".customization-border").css("border-bottom","none");
+			$(".shipping-border").css("border-bottom","none");
+			
+		});
+		$("#customization").click(function(){
+			$("#custom-section").css("display","block");
+			$(".itemdetail-border").css("border-bottom","none");
+			$(".customization-border").css("border-bottom","2px solid #D25E00");
+			$(".shipping-border").css("border-bottom","none");
+			
+		});
+		$("#shipping").click(function(){
+			$("#custom-section").css("display","block");
+			$(".itemdetail-border").css("border-bottom","none");
+			$(".customization-border").css("border-bottom","none");
+			$(".shipping-border").css("border-bottom","2px solid #D25E00");
+		});
+		
+	});
+	
+</script>	
+	
 		<div class="container" id="marg">
 	<div class="row">
 				
@@ -23,22 +50,22 @@
 			<p style="font-size: 16px;margin-top: 3px;margin-bottom: 10px; line-height: 14px;">
 				<strong>{{productDetail.name}} </strong>- {{productDetail.shortDesc}}</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by {{productDetail.shop.name}}<br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
-			<h3>
+			<!--<h3>
 				{{productDetail.longDesc}}
-			</h3>  	
+			</h3>  -->	
              
-                             
-			<div class="row" id="margi">
+            <div class="quantity-wrapper">
+            	<div class="row" id="margi">
 				<div class="col-sm-12">
 					<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
 					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 						<div class="input-group spinner" id="one">
-                    		<select>
-								<option>XS</option>
-								<option>S</option>
-								<option>M</option>
-								<option>L</option>
-								<option>XL</option>
+                    		<select class="size-dropdown">
+								<option><b>XS</b></option>
+								<option><b>S</b></option>
+								<option><b>M</b></option>
+								<option><b>L</b></option>
+								<option><b>XL</b></option>
 							</select>
 						</div>
 					</div>
@@ -51,7 +78,7 @@
 					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 						<div class="input-group spinner" id="two">
                     
-						<select
+						<select class="quantity-dropdown"
            		 				ng-model='cat.id'
            		 				ng-options="cat.id for cat in getNumber(productDetail.quantity) track by $index" style="width: 127%;">
 							</select>
@@ -67,9 +94,12 @@
 					</div>
 				</div>
 			</div >
+            </div>                 
+			
           
 			<div class=" mainBox buttonBox">
-				<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>
+				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
+				<button type="button" class="btn btn-primary" style="width:209px;height: 25px; color:#E86903;margin-left: 3px;" >ADD TO BAG</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			</div>
           
@@ -78,13 +108,29 @@
          	
 	</div><!-- /row -->
 </div><!-- /container -->
-<div class="container" style="border-bottom: 1px solid gray;">
+<div class="container">
 	<div class="row">
-		<div class=" btn-group-sm col-sm-12  col-sm-push-3   col-xs-4 " id="my_styles" >
+		<!--<div class=" btn-group-sm col-sm-12  col-sm-push-2   col-xs-4 " id="my_styles" >
 			<button type="button" class="btn btn-primary active" id="item">Item Details</button>
 			<button type="button" class="btn btn-primary ">Customisation</button>
 			<button type="button" class="btn btn-primary">Shiping & Return Policy</button>
+		</div>-->
+		
+		<div class="row customise-sec text-center" >
+			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3>Item Details</h3></label></div>
+			<div class="col-sm-4 customization-border custom-divider"><label class="clr" id="customization"><h3>Customization</h3></label></div>
+			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3>Shipping & Return Policy</h3></label></div>
 		</div>
+		
+		<div id="custom-section" class="row" >
+			<div class="col-sm-12" style=" width: 100%; height: 300px;margin-top: 10px;" >
+				
+			</div>
+			
+		</div>
+		
+		
+		
 	</div>
 </div><!---btn end -->     
 <div class="jumbotron" >
