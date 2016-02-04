@@ -3,7 +3,7 @@ app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$rou
 		$scope.pro_id = $routeParams.proId;
 		$scope.prodSize = 0;
 		$scope.prodQty = 1;
-		$http.get("url.properties")
+		$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;

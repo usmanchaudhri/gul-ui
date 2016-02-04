@@ -1,7 +1,7 @@
 app.controller('singleCatCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.cat_id = $routeParams.catId;
-		$http.get("url.properties")
+		$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;

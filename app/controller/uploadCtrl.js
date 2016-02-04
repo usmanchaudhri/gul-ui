@@ -11,7 +11,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			var imgSize = 0;
 			
 			
-			$http.get("url.properties")
+			$http.get("gulgs.properties")
 			.then(function(response) {
 			
 					$scope.productUrl = response.data.productUrl;
@@ -31,18 +31,18 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			*/
 			$scope.addImages=function(files){
 				
-							var value = {
-								// File Name 
-								name: files.name,
-								//File Size 
-								size: files.size,
-								//File URL to view 
-								url: URL.createObjectURL(files),
-								// File Input Value 
-								_file: files
-							};
-							//console.log("Value"+value);
-							$scope.allFiles.push(value);
+				var value = {
+					// File Name 
+					name: files.name,
+					//File Size 
+					size: files.size,
+					//File URL to view 
+					url: URL.createObjectURL(files),
+					// File Input Value 
+					_file: files
+				};
+				//console.log("Value"+value);
+				$scope.allFiles.push(value);
 
 				
 			};
@@ -89,11 +89,12 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 
 			$scope.uploadProduct = function(){
 				$scope.uriToFile(cropImageArr);
+				console.log(cropImageArr);
 				$scope.resizeUpload(tempFiles);
 			}
 
 			$scope.resizeUpload = function(tmpFiles){
-				console.log("Called");
+				console.log(tmpFiles);
 				imgSize++;
 				angular.forEach(tmpFiles, function (myItem) {
 						var deferred = $q.defer();
@@ -102,14 +103,14 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 					});
 				$q.all(promises).then(function () {
 						/*if(imgSize <2){
-							if(imgSize == 1){
-								resizeMaxHeight = 300;
-								resizeMaxWidth = 300;
+						if(imgSize == 1){
+						resizeMaxHeight = 300;
+						resizeMaxWidth = 300;
 			
-							}
-							$scope.resizeUpload(tmpFiles);
+						}
+						$scope.resizeUpload(tmpFiles);
 						}else{*/
-							$scope.uploadImages();
+						$scope.uploadImages();
 						//}
 					});
 			}
@@ -156,11 +157,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 								$scope.errorMsg = response.status + ': ' + response.data;
 							}, function (evt) {
 								// Math.min is to fix IE which reports 200% sometimes
-								console.log(evt);
+							//	console.log(evt);
 								angular.forEach($scope.progressArr, function(value, key){
 										if(evt.config._file.name == value.imgName){
 											$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-											console.log($scope.progressArr[value.imgIndex].imgProgress);
+											//console.log($scope.progressArr[value.imgIndex].imgProgress);
 										}
 									});
 							});
@@ -272,9 +273,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				console.log(count);
 				var resolution = '';
 				if(count == 0){
-					 resolution = '600x600';
+					resolution = '600x600';
 				}else{
-					 resolution = '300x300';
+					resolution = '300x300';
 				}
 				angular.forEach(uriArray, function (item) {
 						count++;
@@ -282,16 +283,16 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						//console.log(angular.isDefined($scope.allFiles[count-1].croped));
 						var flag = false;
 						/*if((uriArray.length + count) == $scope.allFiles.length){
-							if(angular.isDefined($scope.allFiles[countIndex-1].croped)){
-								flag = $scope.allFiles[countIndex-1].croped;
-							}
+						if(angular.isDefined($scope.allFiles[countIndex-1].croped)){
+						flag = $scope.allFiles[countIndex-1].croped;
+						}
 						}*/
 						if(!flag){
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],resolution + '-img-'+$scope.newProId+'.jpg');
+							var file1 = new File([fileCheck],resolution + '-img-'+$scope.newProId+'.png');
 							var value = {
 								// File Name 
-								name: resolution + '-img-'+$scope.newProId+'.jpg',
+								name: resolution + '-img-'+$scope.newProId+'.png',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
@@ -309,14 +310,14 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 
 
 			$scope.cropImageArray = function(crop,indexNum){
-				//	 console.log("DEFined: "+ angular.isDefined(crop) + "INDEX: " + indexNum);
+				console.log("DEFined: "+ angular.isDefined(crop) + "INDEX: " + indexNum);
 				if(angular.isDefined(crop)){
 				 		
 					if(cropImageArr.length > indexNum){
 						//		console.log("Crop IMAGE Replace: " + indexNum);
 						//	console.log(crop);
 						if(angular.isUndefined($scope.allFiles[indexNum].croped))
-							cropImageArr.splice(indexNum, 1,crop);
+						cropImageArr.splice(indexNum, 1,crop);
 					}else{
 						//		console.log("Crop IMAGE push: " + indexNum);
 						cropImageArr.push(crop);	
@@ -335,8 +336,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				var resizeAreaId = 'fileupload-resize-area';
 
 				var resizeArea = document.getElementById(resizeAreaId);
-
+console.log("ResizeArea Before");
+					
 				if (!resizeArea) {
+					console.log("ResizeArea If Called");
 					resizeArea = document.createElement('canvas');
 					resizeArea.id = resizeAreaId;
 					resizeArea.style.visibility = 'hidden';
@@ -347,40 +350,26 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			}
 
 			var resizeImage = function (origImage, options) {
-				/*console.log("resizeImage");
-				console.log(origImage);*/
-				var maxHeight = options.resizeMaxHeight || 300;
-				var maxWidth = options.resizeMaxWidth || 300;
-				var quality = options.resizeQuality || 1;
-				var type = options.resizeType || 'image/jpeg';
+				//var canvas = createHiDPICanvas(500, 600, 4);
+            
+                var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+            /// step 1
+            var oc = document.createElement('canvas'),
+                octx = oc.getContext('2d');
+            oc.width = origImage.width ;
+            oc.height = origImage.height; 
+            octx.drawImage(origImage, 0,0, oc.width,oc.height);
 
-				var canvas = getResizeArea();
-
-				var height = origImage.height;
-				var width = origImage.width;
-
-				// calculate the width and height, constraining the proportions
-				if (width > height) {
-					if (width > maxWidth) {
-						height = Math.round(height *= maxWidth / width);
-						width = maxWidth;
-					}
-				} else {
-					if (height > maxHeight) {
-						width = Math.round(width *= maxHeight / height);
-						height = maxHeight;
-					}
-				}
-
-				canvas.width = width;
-				canvas.height = height;
-				//		console.log(width + "Height: " + height);
-				//draw image on canvas
-				var ctx = canvas.getContext("2d");
-				ctx.drawImage(origImage, 0, 0, width, height);
-
-				// get the data from canvas as 70% jpg (or specified type).
-				return canvas.toDataURL(type, quality);
+            /// step 2
+            octx.drawImage(oc,0,0,oc.width,oc.height);
+            
+            canvas.width=300;
+            canvas.height=300;
+            ctx.drawImage(oc,0,0,oc.width, oc.height,
+                             0,0,canvas.width,canvas.height);
+				
+				return canvas.toDataURL('image/png',1);
 			};
 
 			var createImage = function(url, callback) {
@@ -462,6 +451,30 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 							
 						
 			};
+		
+			var PIXEL_RATIO = (function () {
+    var ctx = document.createElement("canvas").getContext("2d"),
+        dpr = window.devicePixelRatio || 1,
+        bsr = ctx.webkitBackingStorePixelRatio ||
+              ctx.mozBackingStorePixelRatio ||
+              ctx.msBackingStorePixelRatio ||
+              ctx.oBackingStorePixelRatio ||
+              ctx.backingStorePixelRatio || 1;
+
+    return dpr / bsr;
+})();
+
+			createHiDPICanvas = function(w, h, ratio) {
+    if (!ratio) { ratio = PIXEL_RATIO; }
+    var can = document.createElement("canvas");
+    can.width = w * ratio;
+    can.height = h * ratio;
+    can.style.width = w + "px";
+    can.style.height = h + "px";
+    can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+    return can;
+}
+
 		}]);
 
 

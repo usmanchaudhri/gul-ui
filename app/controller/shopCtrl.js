@@ -1,7 +1,7 @@
 app.controller('shopCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.shop_id = $routeParams.shopId;
-		$http.get("url.properties")
+		$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;

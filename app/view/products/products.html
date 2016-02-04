@@ -1,4 +1,3 @@
-
 <div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
@@ -35,37 +34,34 @@
 			</table>
 		</div>
 	</div>
-	<div class="row info-boxes ">
-		<div 
+	<div class="row info-boxes " >
+		<div class="scroll-wrapper" >
+			<div class="list"
 		infinite-scroll='loadMore()'
         infinite-scroll-distance='2' 
+        infinite-scroll-disabled='busy'
        >
 			
-			<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList | orderBy:sorting track by $index" >
+			<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList track by $index" >
 				<a ng-href="#productDetailPage/{{a.id}}">	
 					<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
 	
-				<div class="row info-boxes">
+	<div class="row info-boxes" style="margin: 0px;">
 		
-					<!--<div infinite-scroll="addMoreItems()" infinite-scroll-listen-for-event="list:filtered">-->
-					<!--SORTING: {{sorting}}-->
-					<!--		<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in products | orderBy:sorting track by $index" >
-					<a ng-href="#productDetailPage/{{a.id}}">	<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath+token}}"></a>
-					>>>>>>> aec547a54feadb5e049b07e579a298384fa344da-->
-					<div class="col-sm-12 col-xs-12 image-button" >
-						<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
-						<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
-						<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
-						<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
-						<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
-						<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
-					</div>
-					<div class="imageText">
-						<span class="proDes">
-							<p>
-								<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
-								<span ng-init="prodQty = 1"></span>
-								<span ng-init="prodName = a.name"></span>
+				<div class="col-sm-12 col-xs-12 image-button" >
+					<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
+					<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
+					<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
+					<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
+					<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
+					<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
+				</div>
+				<div class="imageText">
+					<span class="proDes">
+						<p>
+							<span ng-init="prodPrice = a.pricingProduct.storedValue"></span>
+							<span ng-init="prodQty = 1"></span>
+							<span ng-init="prodName = a.name"></span>
 					
 								<strong>{{a.name}}</strong>
 								- {{a.shortDesc | limitTo: 30}}
@@ -89,5 +85,5 @@
 			<div style='clear: both;'></div>
 		</div>
 	</div>
-	
+	</div>	
 </div>

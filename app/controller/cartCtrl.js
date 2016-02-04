@@ -1,7 +1,7 @@
 
 app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		$scope.isNumber = angular.isNumber;
-		$http.get("url.properties")
+		$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;

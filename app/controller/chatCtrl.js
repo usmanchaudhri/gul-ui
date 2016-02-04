@@ -1,6 +1,6 @@
  app.controller('chatCtrl', function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
 		
-		$http.get("url.properties")
+		$http.get("gulgs.properties")
 		.then(function(response) {
 			
 				$scope.twilioUsername = response.data.twilioUsername;
