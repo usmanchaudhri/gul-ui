@@ -348,7 +348,7 @@ module.exports = function (grunt) {
             'controller/**',
             'view/**',
             'scripts/**',
-            'url.properties',
+            'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
             'package.json',
