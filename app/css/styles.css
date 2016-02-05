@@ -311,7 +311,7 @@ h2 span {
 	opacity: 1;}
 /* info-boxes */
 .info-boxes {
-
+	margin-bottom: 30px;
 	color: #fff;
 }
 .info-boxes figure {
@@ -893,6 +893,7 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	position: relative;
 	white-space: nowrap;
 	width: 2%;
+	z-index: 10;
 	vertical-align: middle;
 	display: table-cell;
 }
@@ -902,7 +903,7 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	float: none;
 	width: 100%;
 	max-width: 100%;
-	padding: 6px;
+	padding: 7px;
 	margin-left: 0px;
 	position: relative;
 	border-radius: 0;
@@ -1334,7 +1335,7 @@ html{
 
 .image-button{
 	
-	margin-top: -25px;
+	margin-top: -27px;
 	
 }
 
@@ -1681,8 +1682,17 @@ select{
 }
 .customization-border,.shipping-border{
 	border-bottom: none;
-	
-	
+}
+
+.fa-caret-up,.fa-caret-down{
+	color:black;
+}
+
+.cus-caret{
+	width: auto !important;
+    height: auto !important;
+	background-color: transparent;
+    box-shadow: none;
 }
 /*End of Individual Page*/
 
