@@ -124,4 +124,5 @@ img[ bn-lazy-src ] {
 }
 .proDes p {
     margin: 0px 15px 7px;
+    line-height: 15px;
 }
