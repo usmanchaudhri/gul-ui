@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container" ng-cloak>
 
-	<div class="row info-boxes" dir-paginate="x in designer | filter:q | itemsPerPage: pageSize track by $index" current-page="currentPage">
+	<div class="row info-boxes">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="col-sm-4 designerpage-image">
-					<img  class="img-responsive" bn-lazy-src="{{fixPath + x.imagePath + token }}" alt="img" /> 
+					<img  class="img-responsive" bn-lazy-src="{{fixPath + shop.imagePath + token }}" alt="img" /> 
 				</div>
 				<div class="col-sm-4" style="margin-top: 5px;">
 			
 					<p style=" font-size: 18px;"><span style="color: black;">{{shop.name}}</span></p><br>	  
 					<h4>
-						<p style="font-size: 13px;">
+						<p style="font-size: 13px; color: black">
 							The South African born interiors queen (1959-, British)has wowed the British interiors scene with her sereneelegance and Eastern inspired creations. She was thefirst designer to receive the Andrew Martin Internation-al Designer of the Year award in 1997 and, ten years later, has been awarded the European Women of Achievement Award for Entrepreneurship.<br><br>What's her Speciality?Her signature beige and neutrals. Cheesy it may sound
 							but the world has literally gone hopping mad for Hoppen.</p></h4>
 				</div>
@@ -20,7 +20,7 @@
 	
 	<div class="row">
 		<div class="col-sm-3">
-			<h2 latestDiv class="product-title" style="margin-left: 7px;">Designer's <span style="color:black;">Product</span></h2>		
+			<h2 latestDiv class="product-title" style="margin-left: 7px;">{{designer[0].name}}'s <span style="color:black;">Product</span></h2>		
 		</div>
 	</div>
 	

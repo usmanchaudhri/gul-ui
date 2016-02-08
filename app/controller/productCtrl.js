@@ -14,19 +14,27 @@
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
 					$scope.productUrl = response.data.productUrl;
-					/*$http.get(response.data.productUrl+"?first=1&max=10")
+					$scope.busy = true;
+					$http.get(response.data.productUrl+"?first="+first+"&max=9")
 					.then(function(data) {
-					$scope.products = data.data;
-					angular.forEach(data.data, function(value, key){
-					if(angular.isDefined(value.shop.id)){
-					var shopVal = {
-					id: value.shop.id,
-					name: value.shop.name,
-					};
-					$scope.shopTemp.push(shopVal);
-					}
-					});
-					});*/
+						 var products = data.data;
+							angular.forEach(data.data, function(value, key){
+									if(angular.isDefined(value.shop.id)){
+										var shopVal = {
+											id: value.shop.id,
+											name: value.shop.name,
+										};
+										$scope.shopTemp.push(shopVal);
+									}
+								});
+								for(var i = 0; i< products.length; i++){
+								console.log("LENGTH: "+ $scope.infiniteList.length);
+								$scope.infiniteList.push(products[i]);
+								
+							}
+							$scope.busy = false;
+								first = first + 9;
+						});
 				});
 			$scope.getShop = function(shopName){
 				var tempId = 0;
