@@ -19,6 +19,14 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 			};
 			$scope.abc = $scope.items.length;
 		}
+		
+		$scope.submitOrder = function(){
+			
+			
+			
+			
+		}
+		
 		$scope.removeItem = function(index) {
 			$scope.invoice.items.splice(index, 1);
 			
@@ -56,9 +64,21 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 
 		};
 	
-		$scope.getNumber = function(num) {
-			
-		}    
+	
+	$scope.cartItem = function(product){
+				
+				return proPayload =  "productId":,
+  "productName": "Birds Hands Tee",
+  "productSku": "Birds Han",
+  "productQuantity": "1",
+  "productPrice": "100",
+  "productImagePath": "/listing",
+  "productCategoryId": "8",
+  "productShopId": "1",
+  "customer": {
+    "id": "4"
+  }
+			}
 	});
         
 
