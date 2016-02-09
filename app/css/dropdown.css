@@ -108,6 +108,7 @@ img[ bn-lazy-src ] {
 
 .navbar-nav>li, .navbar-nav {
 	float: left !important;
+	text-align: right;
 }
 
 .navbar-nav.navbar-center:last-child {
