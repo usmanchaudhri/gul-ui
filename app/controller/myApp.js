@@ -13,8 +13,7 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/shop/allShops.html', 
 					controller: 'allShopCtrl',
 					label:'SHOP'
-				})
-			.when('/designerPage/:shopId', {
+				}).when('/designerPage/:shopId', {
 					templateUrl: 'view/designer/designerPage.html', 
 					controller: 'Ctrl1',
 					label:'DESIGNER'
@@ -45,11 +44,10 @@ app.config(['$routeProvider', function($routeProvider)
 				}).when('/chat', {
 					templateUrl: 'view/chatting/chatting.html', 
 					controller: 'chatCtrl',
-					label:'CHAT'})
-					
-			.otherwise({ redirectTo: '/' });
-	 
+					label:'CHAT'
+				}).otherwise({ redirectTo: '/' });
 		}]);
+
 app.directive('progressbar', [function() {
     return {
         restrict: 'A',
@@ -67,6 +65,7 @@ app.directive('progressbar', [function() {
         }
     }
 }]);
+
 app.directive('closeModal', function() {
    return {
      restrict: 'A',
@@ -77,6 +76,7 @@ app.directive('closeModal', function() {
      }
    } 
 });
+
 app.directive('ngElevateZoom', function() {
   return {
     restrict: 'A',
