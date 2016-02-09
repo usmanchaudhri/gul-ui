@@ -27,35 +27,45 @@
 			<!--Navigation Bar-->
 			<div ng-controller="loginCtrl">
 			<nav class="navbar">
-				<div class="container" >
+				<div class="container-fluid" >
 					<div class="row">
 						<div class="col-sm-5"></div>
 						<div class="col-sm-4">
 							<strong style="font-size:45px;margin-left: 19px; color:black; "><a href="#cart" style="color: black;"><span style=" font-weight: 700; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;">l</span></a></strong>	
 						</div>	
 						<div class="col-sm-3" style="margin-top: -11px;" >
-					
-							
-							<span ng-show="loginUser == 'logout'"><h3 class="pull-right" style="cursor: pointer;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" >Sign In</a></h3></span>
-							<span ng-show="loginUser == 'login'">
-								<ul class="nav navbar-nav my-navbar">
+							<span ng-show="loginUser == 'logout'"><h3 class="pull-right" style="cursor: pointer;margin-right: 30px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" >Sign In</a></h3></span>
+							<span>
+								<ul ng-show="loginUser == 'login'" class="nav navbar-nav my-navbar">
 									<li class="dropdown my-dropdown" style="cursor: pointer;">
-										<a class="dropdown-toggle pull-right" data-toggle="dropdown">Account</a>
+										<a class="dropdown-toggle" data-toggle="dropdown">Account</a>
 										<ul class="dropdown-menu text-center">
 											<li>
-												<a href="#acc">Account Settings</a>
+												<a href="#acc">Settings</a>
 											</li>
 											<li class="divider"></li>
 											<li>
-												<a href="#fav">Favourites</a>
+												<a href="#fav">Order Status</a>
 											</li>
 											<li class="divider"></li>
 											<li>
-												<a href="#status">Status</a>
+												<a href="#status">Chat</a>
 											</li>
 											<li class="divider"></li>
 											<li>
 												<a href="" ng-click="userLogout()">Logout</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</span>		
+							<span>
+								<ul class="nav navbar-nav my-navbar">
+									<li class="dropdown my-dropdown" style="cursor: pointer;">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#cart"><p style="font-size: 14px;">Shopping Bag</p></a>
+										<ul class="dropdown-menu text-center">
+											<li>
+												<a>Shopping Bag is Empty</a>
 											</li>
 										</ul>
 									</li>

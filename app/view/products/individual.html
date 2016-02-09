@@ -21,7 +21,29 @@
 			$(".shipping-border").css("border-bottom","2px solid #D25E00");
 		});
 		
+		$('.spinner .btn:first-of-type').on('click', function() {
+					var btn = $(this);
+					var input = btn.closest('#up').find('input');
+					if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
+						input.val(parseInt(input.val(), 10) + 1);
+					} else {
+						btn.next("disabled", true);
+					}
+				});
+			$('.spinner .btn:last-of-type').on('click', function() {
+					var btn = $(this);
+					var input = btn.closest('#up').find('input');
+					if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {    
+						input.val(parseInt(input.val(), 10) - 1);
+					} else {
+						btn.prev("disabled", true);
+					}
+				});
+		
 	});
+	
+	
+	
 	
 </script>	
 	
@@ -83,18 +105,10 @@
 					<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 						<div class="input-group spinner" id="two">
-                    
-						<!--<select class="quantity-dropdown"
-           		 				ng-model='cat.id'
-           		 				ng-options="cat.id for cat in getNumber(productDetail.quantity) track by $index" style="width: 127%;">
-							</select>-->
-
-							
-							<input type="text" class="form-control quantity-dropdown"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+                    		<input type="text" class="form-control quantity-dropdown"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 							<span class="input-group-btn-vertical">
-								
-								<button class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
-								<button class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
+								<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
+								<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
 							</span>
 						</div>
 					</div>
