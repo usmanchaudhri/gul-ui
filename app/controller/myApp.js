@@ -77,3 +77,12 @@ app.directive('closeModal', function() {
    } 
 });
 
+app.directive('ngElevateZoom', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      element.attr('data-zoom-image',attrs.zoomImage);
+      $(element).elevateZoom();
+    }
+  };
+});

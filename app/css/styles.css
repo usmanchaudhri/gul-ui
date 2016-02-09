@@ -311,7 +311,7 @@ h2 span {
 	opacity: 1;}
 /* info-boxes */
 .info-boxes {
-
+	margin-bottom: 30px;
 	color: #fff;
 }
 .info-boxes figure {
@@ -893,6 +893,7 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	position: relative;
 	white-space: nowrap;
 	width: 2%;
+	z-index: 10;
 	vertical-align: middle;
 	display: table-cell;
 }
@@ -902,7 +903,7 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	float: none;
 	width: 100%;
 	max-width: 100%;
-	padding: 6px;
+	padding: 7px;
 	margin-left: 0px;
 	position: relative;
 	border-radius: 0;
@@ -1334,7 +1335,7 @@ html{
 
 .image-button{
 	
-	margin-top: -25px;
+	margin-top: -27px;
 	
 }
 
@@ -1681,10 +1682,48 @@ select{
 }
 .customization-border,.shipping-border{
 	border-bottom: none;
-	
-	
+}
+
+.fa-caret-up,.fa-caret-down{
+	color:black;
+}
+
+.cus-caret{
+	width: auto !important;
+    height: auto !important;
+	background-color: transparent;
+    box-shadow: none;
 }
 /*End of Individual Page*/
+
+/*Cart*/
+.cart-title{
+	font-size: 17px;
+	color: orange;
+	line-height: 15px;
+}
+
+.cart-products{
+	padding: 10px;
+	padding-bottom: 0px;
+	padding-top: 20px;
+   background-color: rgba(241, 241, 241, 0.28);;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #C8C8C8;
+    border-top: 1px solid #C8C8C8;
+}
+
+.cart-details{
+	font-size: 14px;
+	padding: 5px;
+}
+
+.quantity-dropdown input[type="number"].mod::inner-spin-button{
+	background-color: transparent;
+	color: black;
+	font-size: 14px;
+}
+/*End of Cart*/
 
 @media (max-width: 300px){
 	.image-button input{
@@ -1699,13 +1738,7 @@ select{
 @media (min-width: 768px){
 	
 }
-
-
-canvas {
- /* image-rendering: optimizeSpeed;             /* Older versions of FF          */
- /* image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
- /* image-rendering: -webkit-optimize-contrast; /* Safari                        */
- /* image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
- /* image-rendering: pixelated;                 /* Awesome future-browsers       */
- /* -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+.order-right-table td{
+	height: 30px;
+	font-size: 15px;
 }

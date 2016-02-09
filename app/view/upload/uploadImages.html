@@ -2,7 +2,6 @@
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
 			<div  href="#" class="upload-container-img">
-		<canvas   id="canvas"></canvas>
 				<image-cropper image="{{file.url}}" dest-width="600" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
 			</div>
 			{{cropImageArray(cropImage,$index)}}
@@ -37,13 +36,13 @@
 			</div>
 		</div>
 		<!--<img ng-repeat="cropImg in tempFiles track by $index" ng-src="{{cropImg.url}}" />-->
-		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(1) track by $index">
+		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
 			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
 		</div>
 	
 	</div>
 
-	<!--
+	
 	
 	<div class="row">
 	
@@ -103,7 +102,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-5 "></div>-->
+		<div class="col-sm-5 "></div>
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="uploadProduct()">UPLOAD</button></div>
 		<div class="col-sm-5"></div>
 	</div>

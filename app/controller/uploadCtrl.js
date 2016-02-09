@@ -352,7 +352,7 @@ console.log("ResizeArea Before");
 			var resizeImage = function (origImage, options) {
 				//var canvas = createHiDPICanvas(500, 600, 4);
             
-                var canvas=document.getElementById("canvas");
+                var canvas=document.createElement("canvas");
         var ctx=canvas.getContext("2d");
             /// step 1
             var oc = document.createElement('canvas'),

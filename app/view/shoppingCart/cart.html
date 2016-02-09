@@ -12,49 +12,72 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12">
-			<div class="row" ng-repeat="a in items track by $index">
+		<div class="col-sm-8">
+			<div class="row cart-products" ng-repeat="a in items track by $index" >
 				
-				<div class="col-sm-1" style="width: 130px; height: 125px;padding:0px;margin-bottom: 40px;">
+				<div class="col-sm-1" style="width: 130px; height: 125px;padding:0px;margin-bottom: 20px;">
 					<img  src="{{fixPath + a.imagePath + token}}" width="130" height="125"/>
 				</div>
+				
 				<div class="col-sm-3" style="width: auto;" >
-					<p style=" font-size: 17px;color: orange;">{{a.name}}</p>
-					<p style=" font-size: 17px;color: orange;">By {{a.shop}}</p>
-					<table>
-						<tr>
-							<td>
-								<h3>Quantity</h3>			
-							</td>
-							<td>
-								<div style="margin-top: 10px; margin-left: 5px;">
-									<div class="input-group spinner" id="cartQty">
-
-										<span ng-init="qty = a.qty"></span>
-										
-									<select
-           		 				ng-model="cat.id"
-           		 				ng-options="cat.id as cat.id for cat in a.dropObj">
-							</select>
-           		 						<span class="input-group-btn-vertical">
-											<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-											<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-										</span>
-
-									</div>
-								</div>		
-							</td>
-						</tr>
-							
-					</table>
+					<p class="cart-title">{{a.name}}</p>
+					<p class="cart-title"><span style="color: black;">By <b>{{a.shop}}</b></span></p>
+				
 				</div>
 				
-			</div>
+					<div class="col-sm-1"></div>
+					<div class="col-sm-1 text-center ">
+						<h3><b>Price</b></h3>
+						<p class="cart-details">$1400</p>
+					</div>
+					<div class="col-sm-1 text-center">
+						<h3><b>Qty</b></h3>
+						<p class="cart-details">2</p>
+					</div>
+					<div class="col-sm-1 text-center">
+						<h3><b>Size</b></h3>
+						<p class="cart-details">XL</p>
+					</div>
+					<!--<div class="col-sm-1 text-center">
+					<h3><b>Total</b></h3>
+					<p class="cart-details">$1400</p>
+					</div>-->
 				
-			<button type="button" class="cart-proceed-btn"><a href="#cart/payment" style="text-decoration: none; color: white;"><p style="font-size: 10px;">Proceed to Chechout</p></a></button>
+					<a href="#"><img src="images/close-button.png" style="margin-top:13px;" /></a>
+				</div>
+			</div>
+			<div class="col-sm-3" style="margin-left: 10px">
+			<div class="row cart-products">
 			
-			
-			
+			<table width="100%" class="order-right-table">
+				<tr style="border-bottom: 1px grey solid;">
+					<td>Number of Items</td>
+					<td style="text-align: right;">$1400</td>
+				</tr>
+				
+				<tr>
+					<td>Subtotal</td>
+					<td style="text-align: right;">$1400</td>
+				</tr>
+			</table>
+					<!--<p class="cart-details"><span style="text-align: right;"> </span></p>
+					<p class="cart-details"><b>Subtotal</b> $1400</p>
+					-->
+			</div>
 		</div>
+		
 	</div>
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4"><button type="button" class="cart-proceed-btn"><a href="#cart/payment" style="text-decoration: none; color: white;"><p style="font-size: 16px;padding: 6px;">Proceed to Checkout</p></a></button></div>
+		<div class="col-sm-4"></div>
+	</div>
+			
+			
+			
+			
+			
+			
+	
+	
 </div>

@@ -108,6 +108,7 @@ img[ bn-lazy-src ] {
 
 .navbar-nav>li, .navbar-nav {
 	float: left !important;
+	text-align: right;
 }
 
 .navbar-nav.navbar-center:last-child {
@@ -124,4 +125,5 @@ img[ bn-lazy-src ] {
 }
 .proDes p {
     margin: 0px 15px 7px;
+    line-height: 15px;
 }
