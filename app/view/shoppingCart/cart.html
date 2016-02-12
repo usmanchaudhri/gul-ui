@@ -6,7 +6,7 @@
 				<h1 style="font-size: 20px;">{{abc}} Items in your Cart</h1>
 			</div>
 			<div class="col-sm-5"></div>
-			<div class="col-sm-3 col-xs-5" style="float: right;">
+			<div class="col-sm-3 col-xs-5" style="float: right;padding-right: 0px;">
 				<button type="button" class="btn btn-primary keep-shopping-btn" >Keep Shopping</button>
 			</div>
 		</div>
@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="col-sm-8">
-				<div class="row cart-products" ng-repeat="a in items track by $index" style="border-bottom:1px solid rgba(128, 128, 128, 0.08); ">
+				<div class="row cart-products" ng-repeat="a in items track by $index" style="border-bottom:1px solid rgba(128, 128, 128, 0.08);margin-top:20px; ">
 				
 					<div class="col-sm-1 col-xs-5" style="width: 130px; height: 125px;margin-bottom: 20px;">
 						<img  src="{{fixPath + a.imagePath + token}}" width="130" height="125"/>
@@ -23,7 +23,7 @@
 					<div class="col-sm-8 col-xs-12 cart-pro-detail" >
 						<p class="cart-title">{{a.name}}</p>
 						<p class="cart-title"><span style="color: black;"><b>{{a.shop}}</b></span></p>
-						<div class="wrapper-col" style="margin-top: 50px;">
+						<div class="wrapper-col" style="margin-top: 47px;">
 							<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 								<p style="font-size: 13px">Size</p>
 								<p class="cart-details">XL</p>
