@@ -23,6 +23,10 @@ app.config(['$routeProvider', function($routeProvider)
 					label:'PRODUCT'
 				}).when('/categories/:catId', {
 					templateUrl: 'view/categories/categoryProducts.html', 
+					controller: 'categoryProCtrl',
+					label:'CATEGORY'
+				}).when('/categories/:catId', {
+					templateUrl: 'view/categories/categories.html', 
 					controller: 'singleCatCtrl',
 					label:'CATEGORY'
 				}).when('/cart', {

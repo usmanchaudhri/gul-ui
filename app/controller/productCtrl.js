@@ -6,7 +6,7 @@
 			$scope.incr = 1;
 			$scope.busy =false;
 			var first = 0;
-			$scope.sorting = 'pricingProduct.storedValue';
+			$scope.sorting = 'price';
 
 			// Make an API request
 			$http.get("gulgs.properties")
@@ -15,26 +15,47 @@
 					$scope.token = response.data.token;
 					$scope.productUrl = response.data.productUrl;
 					$scope.busy = true;
-					$http.get(response.data.productUrl+"?first="+first+"&max=9")
+						$http.get($scope.productUrl+"?first="+first+"&max=9")
 					.then(function(data) {
-						 var products = data.data;
-							angular.forEach(data.data, function(value, key){
-									if(angular.isDefined(value.shop.id)){
+						var shopID = -1;
+						var shopName = '';
+							var products = data.data;
+							for(var i = 0; i< products.length; i++){
+								if(angular.isDefined(products[i].shop.id)){
 										var shopVal = {
-											id: value.shop.id,
-											name: value.shop.name,
+											id: products[i].shop.id,
+											name: products[i].shop.name,
 										};
 										$scope.shopTemp.push(shopVal);
+										shopID = products[i].shop.id;
+										shopName = products[i].shop.name;
+									}else{
+										shopID = $scope.getShop(products[i].shop);
+										shopName = products[i].shop;
 									}
-								});
-								for(var i = 0; i< products.length; i++){
 								console.log("LENGTH: "+ $scope.infiniteList.length);
-								$scope.infiniteList.push(products[i]);
+								var value = {
+									'shop': {
+										'id': shopID,
+										'name': shopName
+									},
+									'id': products[i].id,
+									'name': products[i].name,
+									'quantity': products[i].quantity,
+									'price': products[i].pricingProduct.storedValue,
+									'imagePath': products[i].imageInfo.imagePath,
+									'prodCat': products[i].category.id
+									
+								}
+								
+								$scope.infiniteList.push(value);
 								
 							}
 							$scope.busy = false;
-								first = first + 9;
+							first = first + 9;
+							
 						});
+			
 				});
 			$scope.getShop = function(shopName){
 				var tempId = 0;
@@ -55,19 +76,38 @@
 					$scope.busy = true;
 					$http.get($scope.productUrl+"?first="+first+"&max=9")
 					.then(function(data) {
+						var shopID = -1;
+						var shopName = '';
 							var products = data.data;
-							angular.forEach(data.data, function(value, key){
-									if(angular.isDefined(value.shop.id)){
+							for(var i = 0; i< products.length; i++){
+								if(angular.isDefined(products[i].shop.id)){
 										var shopVal = {
-											id: value.shop.id,
-											name: value.shop.name,
+											id: products[i].shop.id,
+											name: products[i].shop.name,
 										};
 										$scope.shopTemp.push(shopVal);
+										shopID = products[i].shop.id;
+										shopName = products[i].shop.name;
+									}else{
+										shopID = $scope.getShop(products[i].shop);
+										shopName = products[i].shop;
 									}
-								});
-							for(var i = 0; i< products.length; i++){
 								console.log("LENGTH: "+ $scope.infiniteList.length);
-								$scope.infiniteList.push(products[i]);
+								var value = {
+									'shop': {
+										'id': shopID,
+										'name': shopName
+									},
+									'id': products[i].id,
+									'name': products[i].name,
+									'quantity': products[i].quantity,
+									'price': products[i].pricingProduct.storedValue,
+									'imagePath': products[i].imageInfo.imagePath,
+									'prodCat': products[i].category.id
+									
+								}
+								
+								$scope.infiniteList.push(value);
 								
 							}
 							$scope.busy = false;
@@ -75,16 +115,7 @@
 							
 						});
 					console.log("Load More");
-					/*	if(angular.isDefined($scope.products)){
-					if($scope.products.length > $scope.incr)
-					for(var i = 0; i< $scope.products.length; i++){
-					$scope.infiniteList.push($scope.products[i]);
 					}
-					}
-        
-					console.log("Load More" + $scope.infiniteList.length);
-					*/
-				}
 			};
 			$scope.load = function() {
  
