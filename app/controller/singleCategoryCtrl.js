@@ -11,12 +11,11 @@ app.controller('singleCatCtrl', function($scope,$http,$q,$timeout,$location,$rou
 						$scope.categoryDetail = response1.data;
 					});
 			});
-		$scope.currentPage = 1;
-		$scope.pageSize = 9;
-		$scope.pageChangeHandler = function(num) {
-			console.log('meals page changed to ' + num);
-		};
 			
+			$scope.checkLength = function(cat){
+				return cat.length;
+				//console.log(cat.length);
+			}
 			
 	});
         

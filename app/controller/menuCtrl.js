@@ -10,5 +10,10 @@ app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
 					});
 			}
 		);
+		
+		$scope.checkLength = function(cat){
+				return cat.length;
+				//console.log(cat.length);
+			}
         
 	});
