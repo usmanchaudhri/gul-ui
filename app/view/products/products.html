@@ -1,3 +1,20 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+			$("#filter-dropdown").click(function(){
+					/*$(".home-filter").addClass("homepage-filter");*/
+					if ( $( "#price-filters" ).is( ":hidden" ) ) {
+						$( "#price-filters" ).slideDown( "slow" );
+						
+					} else {
+						$( "#price-filters" ).slideUp("slow");
+						/*$(".home-filter").removeClass("homepage-filter");*/
+					}
+				});
+		});
+    
+	
+</script>
+
 <div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
@@ -13,25 +30,22 @@
 		<div class="col-sm-2">
 			<h2 latestDiv class="product-title">Latest <span style="color:black;">Designs</span></h2>		
 		</div>
-		<div class="col-sm-7"></div>
-		<div class="col-sm-3 sorting ">
-			<table>
-				<tr>
-					<td>
-						<label style="font-size: 14px;margin-right: 5px;"><b>Filter:</b></label>		
-					</td>
-					<td>
-						<select ng-model="sorting" >
-							<option  value="price" >Low to High(price)</option>
-							<option  value="-price" >High to Low(price)</option>
-						</select>
-					</td>
-					<td id="select-price-filter" style="display: none;padding-left: 7px;font-size: 15px;">
-						<input type="radio" name="sortbyprice" value="lowhigh"> Low to High
-						<input type="radio" name="sortbyprice" value="highlow"> High to Low
-					</td>
-				</tr>
-			</table>
+		<div class="col-sm-8"></div>
+		<div class="col-sm-2 sorting ">
+			<label  class="home-filter"><b>Filter</b>&nbsp;<img id="filter-dropdown" src="images/down.png" onclick="showfilter()" style="cursor: pointer;" /></label>
+		</div>
+	</div>
+	<div id="price-filters" class="row price-filter">
+		<div class="col-sm-12">
+			<div class="col-sm-4">
+				
+				<input type="radio" value="lowhigh" name="low" /><label style="font-size: 14px;">Low to High(price)</label>&nbsp;
+				<input type="radio" value="lowhigh" name="low"  /><label style="font-size: 14px;">High to Low(price)</label>
+				<!--<select  >
+					<option  value="price" >Low to High(price)</option>
+					<option  value="-price" >High to Low(price)</option>
+				</select>-->
+			</div>
 		</div>
 	</div>
 	<div class="row info-boxes " >
