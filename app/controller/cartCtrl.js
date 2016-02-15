@@ -25,19 +25,19 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		};
 
 		$scope.storeProductsInCookie=function(prod,size,qty){
-			if(!$scope.isNumber(prod.shop.id))
+			/*if(!$scope.isNumber(prod.shop.id))
 			mShop = prod.shop;
 			else
-			mShop = prod.shop.name;
+			mShop = prod.shop.name;*/
 			
-			var numDrop = [];
+		/*	var numDrop = [];
 			for(var i = 1; i<=prod.quantity; i++){
 				var value = {
 					id: i
 				};
 				
 				numDrop.push(value);
-			}
+			}*/
 					  
 			$scope.invoice.items.push({
 					id:prod.id,
@@ -45,10 +45,12 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 					totalQty: prod.quantity,
 					name:prod.name,
 					size: size,
-					shop: mShop,
-					cost: prod.pricingProduct.storedValue,
-					imagePath: prod.imageInfo.imagePath,
-					dropObj: numDrop
+					shop: prod.shop.name,
+					shopID: prod.shop.id,
+					cost: prod.price,
+					category: prod.category,
+					imagePath: prod.imagePath
+					
 				});
 			$cookieStore.put("invoices",$scope.invoice.items);
 			items = $cookieStore.get("invoices",$scope.invoices);

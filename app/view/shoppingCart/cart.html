@@ -20,32 +20,26 @@
 						<img  src="{{fixPath + a.imagePath + token}}" width="130" height="125"/>
 					</div>
 				
-					<div class="col-sm-8 col-xs-12 cart-pro-detail" >
-						<p class="cart-title">{{a.name}}</p>
-						<p class="cart-title"><span style="color: black;"><b>{{a.shop}}</b></span></p>
-						<div class="wrapper-col" style="margin-top: 47px;">
-							<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-								<p style="font-size: 13px">Size</p>
-								<p class="cart-details">XL</p>
-							</div>
-							<div class="col-sm-3 col-xs-2" style="padding-left: 0px;text-align: center;">
-								<p style="font-size: 13px">Quantity</p>
-								<input type="text" maxlength="2" style="width: 25px;height: 22px;font-size: 12px; border: 2px solid black;text-align: center;"/>
-							</div>
-							<div class="col-sm-3 col-xs-3" style="padding-left: 0px;text-align: center;">
-								<p style="font-size: 13px">Price</p>
-								<p class="cart-details" style="padding-left: 0px;">$1400</p>
-							</div>
-						</div>
-					</div>
-					<a href="#"><img src="images/closebtn.png" style="float: right;"/></a>
-					
-					<!--<div class="col-sm-1 text-center">
-					<h3><b>Total</b></h3>
-					<p class="cart-details">$1400</p>
-					</div>-->
-				
+				<div class="col-sm-3" style="width: auto;" >
+					<p class="cart-title">{{a.name}}</p>
+					<p class="cart-title"><span style="color: black;"><b>{{a.shop}}</b></span></p>
 				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-1 text-center">
+					<p style="font-size: 14px">Size</p>
+					<p class="cart-details">{{a.size}}</p>
+				</div>
+				<div class="col-sm-2 text-center">
+					<p style="font-size: 14px">Qty</p>
+					<input type="text" maxlength="2" value="{{a.qty}}" style="width: 25px;height: 22px;font-size: 12px; border: 2px solid black;text-align: center;"/>
+				</div>
+				
+				
+				<div class="col-sm-1 text-center ">
+					<p style="font-size: 14px">Price</p>
+					<p class="cart-details">${{a.cost}}</p>
+				</div>
+				<a href="#"><img src="images/closebtn.png" style="float: right;margin-top:-10px;"/></a>
 			</div>
 			<div class="col-sm-1"></div>
 			<div class="col-sm-3 col-xs-6 cart-right-table">
