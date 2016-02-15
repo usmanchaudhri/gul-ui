@@ -23,7 +23,7 @@
 	<div class="main-nav">
 		<ul class="nav">
 			<li class="has-drop dropdown menu-large">
-				<a href="#allShops">Shop<span class="opener">Open Drop</span></a>
+				<a href="#allShops">Shop<span class="opener" style="height: 26px;margin-top: 5px;margin-right: 12px;">Open Drop</span></a>
 				<ul class="dropdown-menu megamenu row " id="dropdown-menu" style="display: none;">
 					<li class="col-sm-4" ng-repeat="x in shop">
 						<ul>
@@ -53,6 +53,11 @@
 					<li ng-repeat = "a in x.subCategories"><a href="#categories/{{a.id}}"><strong>{{a.name}}</strong></a></li>
 					</span>
 					</span>
+				</ul>
+			</li>
+			<li><a href="#">Inspiration</a>
+				<ul class="dropdown-menu" id="inspiration-dropdown-menu" style="display: none;">
+					
 				</ul>
 			</li>
 		</ul>

@@ -171,7 +171,7 @@ h2 span {
 	vertical-align: top;
 	position: relative;
 	margin: 0 38px;
-	font: 22px/26px Arial, Helvetica, sans-serif;
+	font: 22px/26px Arial, Helvetica, sans-serif !important;
 }
 .main-nav > ul > li:hover > ul { 
 	display: block;}
@@ -179,6 +179,8 @@ h2 span {
 	display: block;
 	border-bottom: 3px solid transparent;
 	color: #010101;
+	/*font: 22px/26px Arial, Helvetica, sans-serif !important;
+	padding: 5px;*/
 }
 .main-nav > ul > li > a:hover,
 .main-nav > ul > .active > a,
@@ -557,7 +559,7 @@ body {
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
-	font-size: 14px;  /*Uzair: menu-font*/
+	font-size: 14px;  
 	font-weight: 500;
 }	
 
@@ -709,6 +711,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		position: absolute;
 		right: 9px;
 		top: -10px;
+		margin-top: 20px;
 		width: 29px;
 		height: 22px;
 		text-indent: -9999px;
@@ -762,7 +765,11 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 	.main-nav > ul > li:hover > ul { 
 		display: none;}
 	.main-nav > ul > li > a { 
-		position: relative;}
+		position: relative;
+		font: 22px/26px Arial, Helvetica, sans-serif !important;
+		padding: 5px;
+
+		}
 	.main-nav > ul > li > ul {
 		position: static;
 		/*width: auto;*/
@@ -862,6 +869,10 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	.navbar-nav.navbar-center:last-child{
 		
 	}
+	.main-nav > ul > li > a {
+	font: 22px/26px Arial, Helvetica, sans-serif !important;
+	padding: 5px;
+}
 
 }
 
