@@ -29,17 +29,17 @@
 			<nav class="navbar">
 				<div class="container-fluid" >
 					<div class="row">
-						<div class="col-sm-5"></div>
-						<div class="col-sm-4">
-							<strong style="font-size:45px;margin-left: 19px; color:black; "><a href="#cart" style="color: black;"><span style=" font-weight: 700; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;">l</span></a></strong>	
+						<div class="col-sm-4"></div>
+						<div class="col-sm-3 col-xs-2 text-center">
+							<strong style="font-size:45px;margin-left: 22%; color:black; "><a href="#cart" style="color: black;"><span style=" font-weight: 700; ">We</span><span style="color: #e86903;">do</span><span style="font-weight: 700;">mize</span></a></strong>	
 						</div>	
-						<div class="col-sm-3" style="margin-top: -11px;" >
+						<div class="col-sm-5" style="margin-top: -11px;" >
 							<span ng-show="loginUser == 'logout'"><h3 class="pull-right" style="cursor: pointer;margin-right: 30px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" >Sign In</a></h3></span>
 							<span>
 								<ul ng-show="loginUser == 'login'" class="nav navbar-nav my-navbar">
 									<li class="dropdown my-dropdown" style="cursor: pointer;">
 										<a class="dropdown-toggle" data-toggle="dropdown">Account</a>
-										<ul class="dropdown-menu text-center">
+										<ul class="dropdown-menu text-center" style="min-width: 140px !important;">
 											<li>
 												<a href="#acc">Settings</a>
 											</li>
@@ -62,7 +62,7 @@
 							<span>
 								<ul class="nav navbar-nav my-navbar">
 									<li class="dropdown my-dropdown" style="cursor: pointer;">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#cart"><p style="font-size: 14px;">Shopping Bag</p></a>
+										<a class="dropdown-toggle" href="#cart"><p style="font-size: 14px;">Cart</p></a>
 										<ul class="dropdown-menu text-center">
 											<li>
 												<a>Shopping Bag is Empty</a>
@@ -78,12 +78,10 @@
 					
 						
 					<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
-					
-						
-					
-					
-					<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
 				</div><!--/ End of container -->
+				<div class="container">
+					<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
+				</div>
 			</nav>
 			
 				<div class="modal fade" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -189,6 +187,7 @@
 			<script src="controller/designerCtrl.js"></script>
 			<script src="controller/singleProductCtrl.js"></script>
 			<script src="controller/singleCategoryCtrl.js"></script>
+			<script src="controller/categoryProCtrl.js"></script>
 			<script src="controller/breadCrumbsCtrl.js"></script>
 			<script src="controller/shopCtrl.js"></script>
 			<script src="controller/allShopCtrl.js"></script>
