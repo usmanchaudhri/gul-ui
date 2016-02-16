@@ -633,6 +633,10 @@ body {
 }
 @media (max-width: 768px) {
 	
+	.account-navbar li .acc-nav
+	{
+		margin-top: 90% !important;
+	}
 	
 	.keep-shopping-btn{
 		font-size: 12px;
@@ -790,7 +794,40 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		cursor: pointer;
 		text-decoration: underline !important;
 		
-	}	
+	}
+	.main-nav .acc-opener {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 40px;
+		text-indent: -9999px;
+		overflow: hidden;
+		background: #010101;
+		transition: all .3s;
+		-webkit-transition: all .3s;
+	}
+	.main-nav  .acc-opener:before  {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -7px 0 0 -5px;
+		border-top: 7px solid transparent;
+		border-bottom: 7px solid transparent;
+		border-left: 10px solid #fff;
+		content: "";
+		transition: all .3s;
+		-webkit-transition: all .3s;
+		
+	}
+	.main-nav .active .acc-opener:before {
+		-ms-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+	
+		
 	.main-nav .opener {
 		display: block;
 		position: absolute;
@@ -850,6 +887,13 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		padding: 4px 122px 30px 0;}
 	.subscribe .btn-submit { 
 		right: 0;}
+		.ind-pro-thumbnail{
+	padding-left: 0px !important;	
+}
+
+.clr h3{
+	font-size:13px;	
+}
 	
 }
 @media screen and (max-width: 479px),
@@ -1331,6 +1375,9 @@ html{
 	.cart-elements{
 	padding-left: 10px !important;
 }
+.ind-pro-thumbnail{
+	padding-left: 0px !important;	
+}
 
 }
 
@@ -1742,6 +1789,8 @@ select{
 	background-color: transparent;
     box-shadow: none;
 }
+
+
 /*End of Individual Page*/
 
 /*Cart*/
@@ -1849,6 +1898,10 @@ select{
 
 .cart-elements{
 	padding-left: 0px;
+}
+
+.ind-pro-thumbnail{
+	padding-left: 0px !important;	
 }
 	
 }
