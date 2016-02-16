@@ -7,6 +7,8 @@
 				$scope.twilioAuth = response.data.twilioAuth;
 				$scope.twilioUser = response.data.twilioUser;
 				$scope.twilioChannel = response.data.twilioChannel;
+				app.use(allowCrossDomain);
+				$scope.createChannel();
 			});
 		
 		$scope.prepareCall = function(){
@@ -45,7 +47,7 @@
 			}
 		
 			var data1 = $.param({
-					UniqueName : $scope.user+$scope.designer,
+					UniqueName : 'AmjadGulgs',
 					Type: 'private'
 				});			
 			
@@ -53,17 +55,18 @@
 				$scope.twilioChannel,  data1,config
 			).success(function(data, status) {
 					$scope.data = data;
-					$scope.channelSid = data.sid;
+					$scope.channelLink = data.links.members;
+					$scope.msgLink = data.links.messages;
 					console.log(data.sid);
 					var data2 = $.param({
-							Identity : $scope.user
+							Identity : 'Amjad'
 						});
 					var data1 = $.param({
-							Identity : $scope.designer
+							Identity : 'Gulgs'
 						});
 					var promise1 = $http({
 							method: 'POST',
-							url: $scope.twilioChannel+'/'+data.sid+'/Members',
+							url: $scope.channelLink,
 							data: data2,
 							headers : {
 								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -71,7 +74,7 @@
 							cache: 'true'});
 					var promise2 = $http({
 							method: 'POST',
-							url: $scope.twilioChannel+'/'+data.sid+'/Members',
+							url: $scope.channelLink,
 							data: data1,
 							headers : {
 								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -86,11 +89,20 @@
 				
 				
 				}).error(function (data, status) {
+				
+				$scope.retrieveChannel();
+				
 					console.log(data);
 				});
 		}
 			
 		$scope.sendMessage = function(){
+			/*if(angular.isUndefined($scope.channelLink)){
+				
+			$scope.retrieveChannel();
+				
+			}*/
+			console.log('Called');
 			$scope.prepareCall();
 			var config = {
 				headers : {
@@ -100,11 +112,11 @@
 		
 			var data1 = $.param({
 					Body : $scope.msgBody,
-					From : $scope.user
+					From : 'Amjad'
 				});
 				$scope.msgBody = "";
 			$http.post(
-				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
+				$scope.msgLink,  data1,config
 			).success(function(data, status) {
 				console.log(data);
 				
@@ -115,6 +127,7 @@
 		}
 		$scope.retrieveMessage = function(){
 			$scope.prepareCall();
+			console.log("Error");
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -122,14 +135,48 @@
 			}
 		
 			$http.get(
-				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',config
+				$scope.msgLink,config
 			).success(function(data, status) {
 				$scope.retMsg = data;
+				console.log(data);
 				
 				}).error(function (data, status) {
+					console.log("Error");
 					console.log(data);
+					
+				});
+				
+		};
+		$scope.retrieveChannel = function(){
+			$scope.prepareCall();
+			console.log("Check");
+			var config = {
+				headers : {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
+			}
+		
+			$http.get(
+				$scope.twilioChannel+'/AmjadGulgs',config
+			).success(function(data, status) {
+				$scope.channelLink = data.links.members;
+				$scope.msgLink = data.links.messages;
+				console.log("First");
+				}).error(function (data, status) {
+					console.log(data);
+					console.log("3rd");
 				});
 				
 		}
+		var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  if ('OPTIONS' === req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
+};
   
 	});

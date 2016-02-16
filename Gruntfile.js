@@ -246,6 +246,7 @@ module.exports = function (grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
+      	basedir: ['<%= config.dist %>'],
         assetsDirs: [
           '<%= config.dist %>',
           '<%= config.dist %>/images',

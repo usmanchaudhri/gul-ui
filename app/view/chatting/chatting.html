@@ -13,7 +13,7 @@
 			<br/>
 			<div  class=" box-body" >
         
-				<div class="form-group" style="font-size: medium">
+		<!--		<div class="form-group" style="font-size: medium">
 					<label class="control-label col-sm-2" >Reg User:</label>
 					<div class="col-sm-8">
 						<input type="text" class="form-control"  ng-model="user"  >
@@ -39,14 +39,14 @@
 				</div>
 				<br/>
         
-        
+        -->
         
 				<div>
 					<!-- Conversations are loaded here -->
 					<div class="direct-chat-messages" >
 					<div ng-repeat="x in retMsg.messages">
 						<!-- Message. Default to the left -->
-						<span ng-if="x.from == '82'">
+						<span ng-if="x.from == 'Amjad'">
 							<div class="direct-chat-msg">
 								<div class="direct-chat-info clearfix">
 									<span class="direct-chat-info pull-left">Alexander Pierce</span>
@@ -58,7 +58,7 @@
 								</div><!-- /.direct-chat-text -->
 							</div><!-- /.direct-chat-msg -->
 						</span>
-						<span ng-if="x.from == '83'">
+						<span ng-if="x.from == '15'">
 							<div class="direct-chat-msg right">
 								<div class="direct-chat-info clearfix">
 									<span class="direct-chat-name pull-right">Sarah Bullock</span>
