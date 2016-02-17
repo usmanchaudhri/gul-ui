@@ -13,8 +13,6 @@
 .my-dropdown ul.dropdown-menu {
 	border-radius:4px;
 	box-shadow:none;
-	margin-top:20px;
-	width:100px;
 }
 .my-dropdown ul.dropdown-menu:before {
 	content: "";

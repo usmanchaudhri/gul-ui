@@ -45,8 +45,8 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/shoppingCart/shipping.html', 
 					controller: 'shipCtrl',
 					label:'SHIPPMENT'
-				}).when('/chat', {
-					templateUrl: 'view/chatting/chatting.html', 
+				}).when('/chat/:designerName', {
+					templateUrl: 'view/chatting/chatscreen.html', 
 					controller: 'chatCtrl',
 					label:'CHAT'
 				}).otherwise({ redirectTo: '/' });
