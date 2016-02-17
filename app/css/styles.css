@@ -633,6 +633,7 @@ body {
 }
 @media (max-width: 768px) {
 	
+	
 	.account-navbar li .acc-nav
 	{
 		margin-top: 90% !important;
@@ -670,6 +671,15 @@ body {
 	.cart-right-table
 	{
 		padding-left:20px !important;	
+	}
+	
+	.mob-logo{
+		margin-top: 5px;
+	}
+	
+	.individual-bag-btn{
+		width: 94% !important;
+		margin: 10px;
 	}
 }
 
@@ -723,7 +733,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		position: absolute;
 		right: 9px;
 		top: -10px;
-		margin-top: 20px;
+		margin-top: 25px;
 		width: 29px;
 		height: 22px;
 		text-indent: -9999px;
@@ -1790,6 +1800,13 @@ select{
     box-shadow: none;
 }
 
+.individual-bag-btn{
+	width:61.5%;
+	height: 25px; 
+	color:#E86903;
+	margin-left: 12px;
+	margin: 10px;
+}
 
 /*End of Individual Page*/
 
@@ -1869,12 +1886,17 @@ select{
 	margin-top: -15px;
 	margin-bottom: 5px;
 }
+
+.acc-nav {
+	font-size: 10px;
+}
 /*End of Homepage*/
 
 @media (min-width: 200px) and (max-width: 400px){
 .cart-elements{
 	padding-left: 10px !important;
 }
+
 }
 
 @media (min-width: 400px){
