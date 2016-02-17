@@ -1,0 +1,89 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+			$("#filter-dropdown").click(function(){
+					/*$(".home-filter").addClass("homepage-filter");*/
+					if ( $( "#price-filters" ).is( ":hidden" ) ) {
+						$( "#price-filters" ).slideDown( "slow" );
+						
+					} else {
+						$( "#price-filters" ).slideUp("slow");
+						/*$(".home-filter").removeClass("homepage-filter");*/
+					}
+				});
+		});
+    
+	
+</script>
+
+<div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<img src="images/img-01.png" alt="image">
+		</div>
+		<div class="item">
+			<img src="images/img-01.png" alt="image">
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2">
+			<h2 latestDiv class="product-title">Latest <span style="color:black;">Designs</span></h2>		
+		</div>
+		<div class="col-sm-8"></div>
+		<div class="col-sm-2 sorting ">
+			<label  class="home-filter"><b>Filter</b>&nbsp;<img id="filter-dropdown" src="images/down.png" onclick="showfilter()" style="cursor: pointer;" /></label>
+		</div>
+	</div>
+	<div id="price-filters" class="row price-filter">
+		<div class="col-sm-12">
+			<div class="col-sm-4">
+				
+				<input type="radio" value="lowhigh" name="low" /><label style="font-size: 14px;">Low to High(price)</label>&nbsp;
+				<input type="radio" value="lowhigh" name="low"  /><label style="font-size: 14px;">High to Low(price)</label>
+				<!--<select  >
+					<option  value="price" >Low to High(price)</option>
+					<option  value="-price" >High to Low(price)</option>
+				</select>-->
+			</div>
+		</div>
+	</div>
+	<div class="row info-boxes " >
+		<div class="scroll-wrapper" >
+			<div class="list"
+		infinite-scroll='loadMore()'
+        infinite-scroll-distance='2' 
+        infinite-scroll-disabled='busy'
+       >
+			
+				<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList | orderBy:sorting track by $index" >
+					<a ng-href="#productDetailPage/{{a.id}}">	
+						<img bn-lazy-src= "{{fixPath + a.imagePath+token}}"></a>
+	
+					<div class="row info-boxes" style="margin: 0px;">
+						<div class="col-sm-12 col-xs-12 image-button" >
+							<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
+							<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
+							<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
+							<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
+							<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
+							<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
+						</div>
+						<div class="imageText">
+							<span class="proDes">
+								<p>
+									{{a.name}}
+								</p>
+							</span>
+							<span class="proDes">
+								<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
+							</span>
+						
+						</div>
+					</div>
+				</div>
+				<div style='clear: both;'></div>
+			</div>
+		</div>
+	</div>	
+</div>
