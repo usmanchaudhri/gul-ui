@@ -1,21 +1,4 @@
 ﻿
-/*======================================
-    GENERAL STYLES
-======================================= */
-
-body {
-   font-family:Verdana;
-}
-.pad-top {
-    padding-top:30px;
-}
-.pad-bottom {
-     padding-bottom:30px;
-}
-/*======================================
-    CHAT BOX STYLES
-======================================= */
-
 .hr-clas {
     border-top: 1px solid #A12EB3;
 }
