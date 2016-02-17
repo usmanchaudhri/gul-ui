@@ -248,8 +248,6 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
-          '<%= config.dist %>/images',
-          '<%= config.dist %>/view/**',
           '<%= config.dist %>/styles'
         ]
       },
