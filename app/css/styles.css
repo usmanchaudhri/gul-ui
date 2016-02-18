@@ -1905,15 +1905,22 @@ select{
     padding-top: 8px;
     width: auto;
     margin-left:20px;
+   
 }
 .cart-label:hover{
 	cursor: pointer;
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	}
-.cart-label .ulll{
+	
+.cart-block{
+	 margin-left: -700%;
+    z-index: -1;
+    margin-top:0px;
+}	
+.cart-label .cart-block{
 	display: none;
 }	
-.cart-label:hover .ulll{
+.cart-label:hover .cart-block{
 	display: block;
 }
 /*End of Homepage*/
