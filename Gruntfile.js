@@ -225,6 +225,7 @@ module.exports = function (grunt) {
       dist: {
         src: [
           '<%= config.dist %>/js/{,*/}*.js',
+          '<%= config.dist %>/controller/{,*/}*.js',
           '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
           '<%= config.dist %>/css/fonts/{,*/}*.*',
@@ -350,7 +351,6 @@ module.exports = function (grunt) {
             'css/*.css',
             'css/fonts/{,*/}*.*',
             'fonts/**',
-            'controller/**',
             'view/**',
             'scripts/**',
             'gulgs.properties',
