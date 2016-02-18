@@ -681,6 +681,10 @@ body {
 		width: 94% !important;
 		margin: 10px;
 	}
+	
+	.cart-label{
+		margin-top: 30px;
+}
 }
 
 /* END 21 NOV 201 */
@@ -1890,7 +1894,35 @@ select{
 .acc-nav {
 	font-size: 10px;
 }
+
+.cart-label{
+	
+    border-radius: 4px;
+    padding: 8px;
+    border-bottom: 4px solid white !important;
+    padding-bottom: 3px;
+    text-align:right;
+    padding-top: 8px;
+    width: auto;
+    margin-left:20px;
+}
+.cart-label:hover{
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	}
+.cart-label .ulll{
+	display: none;
+}	
+.cart-label:hover .ulll{
+	display: block;
+}
 /*End of Homepage*/
+
+/*Footer*/
+.footer-list li{
+	padding: 10px;
+}
+/*End of Footer*/
 
 @media (min-width: 200px) and (max-width: 400px){
 .cart-elements{
