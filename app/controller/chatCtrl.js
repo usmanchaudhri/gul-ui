@@ -42,7 +42,10 @@
 			$scope.prepareCall();
 			var config = {
 				headers : {
+					'Access-Control-Allow-Origin': 'http://www.ip-messaging.twilio.com',
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+					
+					
 				}
 			}
 		
@@ -152,7 +155,8 @@
 			console.log("Check");
 			var config = {
 				headers : {
-					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+					'Access-Control-Allow-Origin' : '*'
 				}
 			}
 		
