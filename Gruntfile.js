@@ -322,6 +322,11 @@ module.exports = function (grunt) {
             src: '**/*.js',
             dest: '<%= config.dist %>/js',
             cwd: 'app/js'
+        },{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/controller',
+            cwd: 'app/controller'
         }]
       }
     },
@@ -342,6 +347,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.webp',
             'images/*.jpg',
             '{,*/}*.html',
+            'css/*.css',
             'css/fonts/{,*/}*.*',
             'fonts/**',
             'controller/**',
