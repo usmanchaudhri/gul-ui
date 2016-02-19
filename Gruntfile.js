@@ -263,7 +263,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/images',
+          cwd: '<%= config.dist %>/images',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
           dest: '<%= config.dist %>/images'
         }]
@@ -274,7 +274,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/images',
+          cwd: '<%= config.dist %>/images',
           src: '{,*/}*.svg',
           dest: '<%= config.dist %>/images'
         }]
@@ -313,7 +313,7 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.css',
             dest: '<%= config.dist %>/css',
-            cwd: 'app/css'
+            cwd: '<%= config.dist %>/css'
         }]
       }
     },
@@ -323,12 +323,12 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.js',
             dest: '<%= config.dist %>/js',
-            cwd: 'app/js'
+            cwd: '<%= config.dist %>/js'
         },{
             expand: true,
             src: '**/*.js',
             dest: '<%= config.dist %>/controller',
-            cwd: 'app/controller'
+            cwd: '<%= config.dist %>/controller'
         }]
       }
     },
@@ -485,20 +485,22 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'copy:dist',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'postcss',
- 'filerev',
-    'copy:dist',
-    'concat',
-    'cssmin',
+ 	'filerev',
+ 	'cssmin',
     'uglify',
-    //'modernizr',
-    
     'usemin',
-    'htmlmin'
- 
+    'htmlmin',
+   
+    'concat'
+    
+ //'modernizr',
+    
+    
   ]);
 
   grunt.registerTask('default', [
