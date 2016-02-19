@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       babel: {
-        files: ['<%= config.app %>/js/{,*/}*.js','<%= config.app %>/controller/{,*/}*.js'],
+        files: ['<%= config.app %>/scripts/{,*/}*.js'],
         tasks: ['babel:dist']
       },
       babelTest: {
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
             '<%= config.app %>/{,*/}*.html',
             '.tmp/styles/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
-            '.tmp/js/{,*/}*.js'
+            '.tmp/scripts/{,*/}*.js'
           ],
           port: 9000,
           server: {
@@ -127,8 +127,8 @@ module.exports = function (grunt) {
     eslint: {
       target: [
         'Gruntfile.js',
-        '<%= config.app %>/js/{,*/}*.js',
-        '!<%= config.app %>/js/vendor/*',
+        '<%= config.app %>/scripts/{,*/}*.js',
+        '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
     },
@@ -151,9 +151,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/js',
+          cwd: '<%= config.app %>/scripts',
           src: '{,*/}*.js',
-          dest: '.tmp/js',
+          dest: '.tmp/scripts',
           ext: '.js'
         }]
       },
@@ -224,9 +224,8 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/js/{,*/}*.js',
-          '<%= config.dist %>/controller/{,*/}*.js',
-          '<%= config.dist %>/css/{,*/}*.css',
+          '<%= config.dist %>/scripts/{,*/}*.js',
+          '<%= config.dist %>/styles/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
           '<%= config.dist %>/styles/fonts/{,*/}*.*',
           '<%= config.dist %>/*.{ico,png}'
@@ -309,27 +308,21 @@ module.exports = function (grunt) {
     // wish to use the Usemin blocks.
     cssmin: {
       dist: {
-        files: [{
-            expand: true,
-            src: '**/*.css',
-            dest: '<%= config.dist %>/css',
-            cwd: 'app/css'
-        }]
+        files: {
+          '<%= config.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= config.app %>/styles/{,*/}*.css'
+          ]
+        }
       }
     },
     uglify: {
       dist: {
-       files: [{
-            expand: true,
-            src: '**/*.js',
-            dest: '<%= config.dist %>/js',
-            cwd: 'app/js'
-        },{
-            expand: true,
-            src: '**/*.js',
-            dest: '<%= config.dist %>/controller',
-            cwd: 'app/controller'
-        }]
+        files: {
+          '<%= config.dist %>/scripts/scripts.js': [
+            '<%= config.dist %>/scripts/scripts.js'
+          ]
+        }
       }
     },
     concat: {
@@ -352,7 +345,10 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*',
             'css/**',
             'fonts/**',
+            'js/**',
+            'controller/**',
             'view/**',
+            'scripts/**',
             'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
@@ -384,12 +380,12 @@ module.exports = function (grunt) {
     modernizr: {
       dist: {
         devFile: 'bower_components/modernizr/modernizr.js',
-        outputFile: '<%= config.dist %>/js/vendor/modernizr.js',
+        outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
         files: {
           src: [
-            '<%= config.dist %>/js/{,*/}*.js',
+            '<%= config.dist %>/scripts/{,*/}*.js',
             '<%= config.dist %>/styles/{,*/}*.css',
-            '!<%= config.dist %>/js/vendor/*'
+            '!<%= config.dist %>/scripts/vendor/*'
           ]
         },
         uglify: true
@@ -487,15 +483,14 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
-    'copy:dist',
     'concat',
     'cssmin',
     'uglify',
-    //'modernizr',
-    
+    'copy:dist',
+    'modernizr',
+    'filerev',
     'usemin',
-    'htmlmin',
- 'filerev'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
