@@ -351,6 +351,8 @@ module.exports = function (grunt) {
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*',
             'css/**',
+            'js/**',
+            'controller/**',
             'fonts/**',
             'view/**',
             'gulgs.properties',
