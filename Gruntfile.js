@@ -317,13 +317,19 @@ module.exports = function (grunt) {
         }
       }
     },
-    uglify: {
+   uglify: {
       dist: {
-        files: {
-          '<%= config.dist %>/scripts/scripts.js': [
-            '<%= config.dist %>/scripts/scripts.js'
-          ]
-        }
+       files: [{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/js',
+            cwd: '<%= config.dist %>/js'
+        },{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/controller',
+            cwd: '<%= config.dist %>/controller'
+        }]
       }
     },
     concat: {
