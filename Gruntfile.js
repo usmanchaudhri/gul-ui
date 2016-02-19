@@ -319,8 +319,8 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= config.dist %>/js/scripts.js': [
-            '<%= config.dist %>/js/scripts.js'
+          '<%= config.dist %>/js/directive.js': [
+            '<%= config.dist %>/js/directive.js'
           ]
         }
       }
