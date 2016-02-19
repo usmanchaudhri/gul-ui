@@ -355,7 +355,7 @@ module.exports = function (grunt) {
             'js/**',
             'controller/**',
             'view/**',
-            'gulgs.prope.rties',
+            'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
             'package.json',
@@ -485,8 +485,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'copy:dist',
-    
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -494,6 +492,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
+    'copy:dist',
     'modernizr',
     'filerev',
     'usemin',
