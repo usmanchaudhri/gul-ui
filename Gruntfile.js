@@ -50,12 +50,12 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'postcss']
       },
-      styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      css: {
+        files: ['<%= config.app %>/css/{,*/}*.css'],
+        tasks: ['newer:copy:css', 'postcss']
       }
     },
 
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         options: {
           files: [
             '<%= config.app %>/{,*/}*.html',
-            '.tmp/styles/{,*/}*.css',
+            '.tmp/css/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
             '.tmp/scripts/{,*/}*.js'
           ],
@@ -123,7 +123,7 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Make sure code styles are up to par and there are no obvious mistakes
+    // Make sure code css are up to par and there are no obvious mistakes
     eslint: {
       target: [
         'Gruntfile.js',
@@ -179,9 +179,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/css',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '.tmp/css',
           ext: '.css'
         }]
       }
@@ -191,7 +191,7 @@ module.exports = function (grunt) {
       options: {
         map: true,
         processors: [
-          // Add vendor prefixed styles
+          // Add vendor prefixed css
           require('autoprefixer')({
             browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
           })
@@ -200,9 +200,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/css/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/css/'
         }]
       }
     },
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -228,7 +228,7 @@ module.exports = function (grunt) {
           '<%= config.dist %>/controller/{,*/}*.js',
           '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
-          '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          '<%= config.dist %>/css/fonts/{,*/}*.*',
           '<%= config.dist %>/*.{ico,png}'
         ]
       }
@@ -291,7 +291,7 @@ module.exports = function (grunt) {
           removeCommentsFromCDATA: true,
           removeEmptyAttributes: true,
           removeOptionalTags: true,
-          // true would impact styles with attribute selectors
+          // true would impact css with attribute selectors
           removeRedundantAttributes: false,
           useShortDoctype: true
         },
@@ -310,9 +310,9 @@ module.exports = function (grunt) {
     cssmin: {
       dist: {
         files: {
-          '<%= config.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= config.app %>/styles/{,*/}*.css'
+          '<%= config.dist %>/css/main.css': [
+            '.tmp/css/{,*/}*.css',
+            '<%= config.app %>/css/{,*/}*.css'
           ]
         }
       }
@@ -343,13 +343,12 @@ module.exports = function (grunt) {
             'images/{,*/}*.webp',
             'images/*.jpg',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*',
+            'css/fonts/{,*/}*.*',
             'css/**',
             'fonts/**',
             'js/**',
             'controller/**',
             'view/**',
-            'scripts/**',
             'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
@@ -385,7 +384,7 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
+            '<%= config.dist %>/css/{,*/}*.css',
             '!<%= config.dist %>/scripts/vendor/*'
           ]
         },
