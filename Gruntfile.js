@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       babel: {
-        files: ['<%= config.app %>/scripts/{,*/}*.js'],
+        files: ['<%= config.app %>/js/{,*/}*.js'],
         tasks: ['babel:dist']
       },
       babelTest: {
@@ -50,12 +50,12 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'postcss']
       },
-      styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      css: {
+        files: ['<%= config.app %>/css/{,*/}*.css'],
+        tasks: ['newer:copy:css', 'postcss']
       }
     },
 
@@ -71,9 +71,9 @@ module.exports = function (grunt) {
         options: {
           files: [
             '<%= config.app %>/{,*/}*.html',
-            '.tmp/styles/{,*/}*.css',
+            '.tmp/css/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
-            '.tmp/scripts/{,*/}*.js'
+            '.tmp/js/{,*/}*.js'
           ],
           port: 9000,
           server: {
@@ -123,12 +123,12 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Make sure code styles are up to par and there are no obvious mistakes
+    // Make sure code css are up to par and there are no obvious mistakes
     eslint: {
       target: [
         'Gruntfile.js',
-        '<%= config.app %>/scripts/{,*/}*.js',
-        '!<%= config.app %>/scripts/vendor/*',
+        '<%= config.app %>/js/{,*/}*.js',
+        '!<%= config.app %>/js/vendor/*',
         'test/spec/{,*/}*.js'
       ]
     },
@@ -151,9 +151,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/scripts',
+          cwd: '<%= config.app %>/js',
           src: '{,*/}*.js',
-          dest: '.tmp/scripts',
+          dest: '.tmp/js',
           ext: '.js'
         }]
       },
@@ -179,9 +179,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/css',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '.tmp/css',
           ext: '.css'
         }]
       }
@@ -191,7 +191,7 @@ module.exports = function (grunt) {
       options: {
         map: true,
         processors: [
-          // Add vendor prefixed styles
+          // Add vendor prefixed css
           require('autoprefixer')({
             browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
           })
@@ -200,9 +200,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/css/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/css/'
         }]
       }
     },
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -250,11 +250,11 @@ module.exports = function (grunt) {
           '<%= config.dist %>',
           '<%= config.dist %>/images',
           '<%= config.dist %>/view/**',
-          '<%= config.dist %>/styles'
+          '<%= config.dist %>/css'
         ]
       },
       html: ['<%= config.dist %>/**/*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      css: ['<%= config.dist %>/css/{,*/}*.css']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -290,7 +290,7 @@ module.exports = function (grunt) {
           removeCommentsFromCDATA: true,
           removeEmptyAttributes: true,
           removeOptionalTags: true,
-          // true would impact styles with attribute selectors
+          // true would impact css with attribute selectors
           removeRedundantAttributes: false,
           useShortDoctype: true
         },
@@ -348,7 +348,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.webp',
             'images/*.jpg',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*',
+            'css/fonts/{,*/}*.*',
             'fonts/**',
             'view/**',
             'gulgs.properties',
@@ -382,12 +382,12 @@ module.exports = function (grunt) {
     modernizr: {
       dist: {
         devFile: 'bower_components/modernizr/modernizr.js',
-        outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
+        outputFile: '<%= config.dist %>/js/vendor/modernizr.js',
         files: {
           src: [
-            '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '!<%= config.dist %>/scripts/vendor/*'
+            '<%= config.dist %>/js/{,*/}*.js',
+            '<%= config.dist %>/css/{,*/}*.css',
+            '!<%= config.dist %>/js/vendor/*'
           ]
         },
         uglify: true
@@ -488,8 +488,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'copy:dist',
-    'modernizr',
-    
+   // 'modernizr',
     'uglify',
     'usemin',
     'htmlmin',
