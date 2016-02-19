@@ -1,4 +1,4 @@
-app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
+app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs' ,function($scope, $q, $http, $timeout,breadcrumbs) {
 	 $scope.breadcrumbs = breadcrumbs;
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -16,4 +16,4 @@ app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
 				//console.log(cat.length);
 			}
         
-	});
+	}]);

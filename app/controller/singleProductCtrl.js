@@ -1,4 +1,4 @@
-app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.pro_id = $routeParams.proId;
 		$scope.prodSize = 0;
@@ -73,5 +73,5 @@ app.controller('singleProCtrl', function($scope,$http,$q,$timeout,$location,$rou
 				});
 		};
 		$scope.load();
-	});
+	}]);
         

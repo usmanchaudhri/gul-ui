@@ -1,4 +1,4 @@
-app.controller('cartCtrl', function($scope,$cookieStore,$http) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$cookieStore,$http) {
 		$scope.isNumber = angular.isNumber;
 		$scope.totalPrice = 0;
 		$scope.qty = 0;
@@ -62,6 +62,6 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		  
 		  
 
-	});
+	}]);
         
 

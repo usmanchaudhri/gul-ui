@@ -1,4 +1,4 @@
- app.controller('Ctrl1', function($scope,$http,$q,$timeout,$location,$routeParams) {
+ app.controller('Ctrl1',[ '$scope','$http','$timeout','$location','$routeParams',function($scope,$http,$q,$timeout,$location,$routeParams) {
      
 		//	$scope.target = $location.search().target;
 		$http.get("gulgs.properties")
@@ -13,5 +13,5 @@
     	
 					});
 			});
-	});
+	}]);
         

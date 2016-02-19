@@ -1,4 +1,4 @@
- app.controller('chatCtrl', function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
+ app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q' ,function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
 		
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -184,4 +184,4 @@
   }
 };*/
   
-	});
+	}]);

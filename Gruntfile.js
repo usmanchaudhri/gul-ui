@@ -308,12 +308,12 @@ module.exports = function (grunt) {
     // wish to use the Usemin blocks.
     cssmin: {
       dist: {
-        files: {
-          '<%= config.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= config.app %>/styles/{,*/}*.css'
-          ]
-        }
+        files: [{
+            expand: true,
+            src: '**/*.css',
+            dest: '<%= config.dist %>/css',
+            cwd: 'app/css'
+        }]
       }
     },
    uglify: {
@@ -323,6 +323,11 @@ module.exports = function (grunt) {
             src: '**/*.js',
             dest: '<%= config.dist %>/js',
             cwd: 'app/js'
+        },{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/controller',
+            cwd: 'app/controller'
         }]
       }
     },
@@ -346,8 +351,6 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*',
             'css/**',
             'fonts/**',
-            'js/**',
-            'controller/**',
             'view/**',
             'scripts/**',
             'gulgs.properties',

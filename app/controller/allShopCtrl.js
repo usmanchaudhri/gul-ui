@@ -1,4 +1,4 @@
-app.controller('allShopCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('allShopCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -15,5 +15,5 @@ app.controller('allShopCtrl', function($scope,$http,$q,$timeout,$location,$route
 		$scope.pageChangeHandler = function(num) {
 			console.log('meals page changed to ' + num);
 		};
-	});
+	}]);
         
