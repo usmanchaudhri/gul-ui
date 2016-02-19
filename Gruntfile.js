@@ -316,13 +316,14 @@ module.exports = function (grunt) {
         }
       }
     },
-    uglify: {
-      dist: {
-        files: {
-          '<%= config.dist %>/js/directive.js': [
-            '<%= config.dist %>/js/directive.js'
-          ]
-        }
+   uglify: {
+      build: {
+        files: [{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/js',
+            cwd: 'app/js'
+        }]
       }
     },
     concat: {
