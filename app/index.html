@@ -86,52 +86,12 @@
 									
 									
 								</span>
-								<span>
-										<!--<ul>
-											<li class="dropdown">
-												<a href="#" class="cart-nav" style="padding: 0px;">Cart</a>
-												<ul class="dropdown-menu row " id="dropdown-menu">
-													<li>Empty Cart!</li>
-												</ul>
-											</li>
-										</ul>-->
-										
-									</span>
-									
-									
-								
-									<!--<ul ng-show="loginUser == 'login'" class="nav navbar-nav my-navbar">
-									<li class="dropdown my-dropdown" style="cursor: pointer;text-align: center;">
-									<a class="dropdown-toggle" data-toggle="dropdown">Account</a>
-									<ul class="dropdown-menu text-center" style="min-width: 140px !important;">
-									<li>
-									<a href="#acc">Settings</a>
-									</li>
-									<li class="divider"></li>
-									<li>
-									<a href="#fav">Order Status</a>
-									</li>
-									<li class="divider"></li>
-									<li>
-									<a href="#status">Chat</a>
-									</li>
-									<li class="divider"></li>
-									<li>
-									<a href="" ng-click="userLogout()">Logout</a>
-									</li>
-									</ul>
-									</li>
-									</ul>-->	
-								
 								
 							</div>
 						</div>
 				
 						<a class="btn-menu visible-xs" href="#a">menu</a>
-					
-						
-						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
-					</div><!--/ End of container -->
+										</div><!--/ End of container -->
 					<div class="container">
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
 					</div>
@@ -167,15 +127,7 @@
 					</div>
 				</div>
 			</div>
-		
-			
-		
-			<!--<div ng-view autoscroll="true"></div>-->
-			
-		
-		
-
-			<div ng-controller="BreadcrumbCtrl" >
+		<div ng-controller="BreadcrumbCtrl" >
 				<div ng-if="breadcrumbs.get().length > 1">
 					<div  ng-include src="'view/header/breadCrumb.html'" ></div>
 				</div>
