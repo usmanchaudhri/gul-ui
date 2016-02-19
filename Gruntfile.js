@@ -485,10 +485,10 @@ module.exports = function (grunt) {
     'postcss',
     'concat',
     'cssmin',
-    'uglify',
     'copy:dist',
     'modernizr',
     'filerev',
+    'uglify',
     'usemin',
     'htmlmin'
   ]);
