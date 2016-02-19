@@ -1,5 +1,5 @@
 app.directive(
-            "bnLazySrc",
+            "bnLazySrc",['$window','$document',
             function( $window, $document ) {
                 var lazyLoader = (function() {
                     var images = [];
@@ -168,5 +168,5 @@ app.directive(
                     restrict: "A"
                 });
            
-});
+}]);
  

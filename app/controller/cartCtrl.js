@@ -1,4 +1,3 @@
-
 app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		$scope.isNumber = angular.isNumber;
 		$scope.totalPrice = 0;
