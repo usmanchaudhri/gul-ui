@@ -224,10 +224,7 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/js/{,*/}*.js',
-          '<%= config.dist %>/styles/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
-          '<%= config.dist %>/styles/fonts/{,*/}*.*',
           '<%= config.dist %>/*.{ico,png}'
         ]
       }
@@ -308,12 +305,12 @@ module.exports = function (grunt) {
     // wish to use the Usemin blocks.
     cssmin: {
       dist: {
-        files: {
-          '<%= config.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= config.app %>/styles/{,*/}*.css'
-          ]
-        }
+        files: [{
+            expand: true,
+            src: '**/*.css',
+            dest: '<%= config.dist %>/css',
+            cwd: 'app/css'
+        }]
       }
     },
     uglify: {
@@ -491,9 +488,10 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     //'modernizr',
-    'filerev',
+    
     'usemin',
-    'htmlmin'
+    'htmlmin',
+ 'filerev'
   ]);
 
   grunt.registerTask('default', [
