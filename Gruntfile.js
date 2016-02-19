@@ -351,7 +351,6 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*',
             'fonts/**',
             'view/**',
-            'scripts/**',
             'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
@@ -490,10 +489,11 @@ module.exports = function (grunt) {
     'cssmin',
     'copy:dist',
     'modernizr',
-    'filerev',
+    
     'uglify',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'filerev'
   ]);
 
   grunt.registerTask('default', [
