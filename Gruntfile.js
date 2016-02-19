@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       babel: {
-        files: ['<%= config.app %>/js/{,*/}*.js'],
+        files: ['<%= config.app %>/js/{,*/}*.js','<%= config.app %>/controller/{,*/}*.js'],
         tasks: ['babel:dist']
       },
       babelTest: {
@@ -224,7 +224,11 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
+          '<%= config.dist %>/js/{,*/}*.js',
+          '<%= config.dist %>/controller/{,*/}*.js',
+          '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
+          '<%= config.dist %>/styles/fonts/{,*/}*.*',
           '<%= config.dist %>/*.{ico,png}'
         ]
       }
