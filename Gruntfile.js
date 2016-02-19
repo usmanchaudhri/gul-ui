@@ -294,7 +294,7 @@ module.exports = function (grunt) {
           removeRedundantAttributes: false,
           useShortDoctype: true
         },
-        files: [{
+         files: [{
           expand: true,
           cwd: '<%= config.dist %>',
           src: '{,*/}*.html',
@@ -351,8 +351,6 @@ module.exports = function (grunt) {
             'css/*.css',
             'css/fonts/{,*/}*.*',
             'fonts/**',
-            'view/**',
-            'scripts/**',
             'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
@@ -488,13 +486,13 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'postcss',
     'concat',
+    'copy:dist',
     'cssmin',
     'uglify',
-    'copy:dist',
     'modernizr',
-    'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'filerev'
   ]);
 
   grunt.registerTask('default', [
