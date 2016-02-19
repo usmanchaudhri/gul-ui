@@ -323,7 +323,7 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.js',
             dest: '<%= config.dist %>/js',
-            cwd: '<%= config.dist %>/js'
+            cwd: '<%= config.app %>/js'
         },{
             expand: true,
             src: '**/*.js',
@@ -352,7 +352,6 @@ module.exports = function (grunt) {
             'css/fonts/{,*/}*.*',
             'css/**',
             'fonts/**',
-            'js/**',
             'controller/**',
             'view/**',
             'gulgs.properties',
