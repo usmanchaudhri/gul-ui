@@ -493,8 +493,8 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
-    'modernizr',
-    'filerev',
+    //'modernizr',
+   // 'filerev',
     'usemin',
     'htmlmin'
   ]);
