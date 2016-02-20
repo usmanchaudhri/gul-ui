@@ -1,27 +1,27 @@
 <script>
 	$(document).ready(function(){
-		$("#itemdetail").click(function(){
-			$("#custom-section").css("display","block");
-			$(".itemdetail-border").css("border-bottom","2px solid #D25E00");
-			$(".customization-border").css("border-bottom","none");
-			$(".shipping-border").css("border-bottom","none");
+			$("#itemdetail").click(function(){
+					$("#custom-section").css("display","block");
+					$(".itemdetail-border").css("border-bottom","2px solid #D25E00");
+					$(".customization-border").css("border-bottom","none");
+					$(".shipping-border").css("border-bottom","none");
 			
-		});
-		$("#customization").click(function(){
-			$("#custom-section").css("display","block");
-			$(".itemdetail-border").css("border-bottom","none");
-			$(".customization-border").css("border-bottom","2px solid #D25E00");
-			$(".shipping-border").css("border-bottom","none");
+				});
+			$("#customization").click(function(){
+					$("#custom-section").css("display","block");
+					$(".itemdetail-border").css("border-bottom","none");
+					$(".customization-border").css("border-bottom","2px solid #D25E00");
+					$(".shipping-border").css("border-bottom","none");
 			
-		});
-		$("#shipping").click(function(){
-			$("#custom-section").css("display","block");
-			$(".itemdetail-border").css("border-bottom","none");
-			$(".customization-border").css("border-bottom","none");
-			$(".shipping-border").css("border-bottom","2px solid #D25E00");
-		});
+				});
+			$("#shipping").click(function(){
+					$("#custom-section").css("display","block");
+					$(".itemdetail-border").css("border-bottom","none");
+					$(".customization-border").css("border-bottom","none");
+					$(".shipping-border").css("border-bottom","2px solid #D25E00");
+				});
 		
-		$('.spinner .btn:first-of-type').on('click', function() {
+			$('.spinner .btn:first-of-type').on('click', function() {
 					var btn = $(this);
 					var input = btn.closest('#up').find('input');
 					if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
@@ -40,14 +40,14 @@
 					}
 				});
 		
-	});
+		});
 	
 	
 	
 	
 </script>	
 	
-		<div class="container" id="marg">
+<div class="container" id="marg">
 	<div class="row">
 				
 	</div>
@@ -70,53 +70,75 @@
 		<div class="col-sm-5 " id="indisize1">
 				  
 			<p style="font-size: 16px;margin-top: 3px;margin-bottom: 10px; line-height: 20px;">
-				<strong>{{productDetail.name}} </strong>- {{productDetail.shortDesc}}</p>
+				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by {{productDetail.shop.name}}<br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
 			<!--<h3>
-				{{productDetail.longDesc}}
+			{{productDetail.longDesc}}
 			</h3>  -->	
              
-            <div class="quantity-wrapper">
+			<div class="quantity-wrapper">
             	
-            </div>                 
+			</div>                 
 			
           
 			<div class="row mainBox buttonBox">
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
 				<div class="row" id="margi">
-				<div class="col-sm-12">
-					<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
-					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
-						<div class="input-group spinner" id="one">
-                    		<select class="size-dropdown">
-								<option><b>XS</b></option>
-								<option><b>S</b></option>
-								<option><b>M</b></option>
-								<option><b>L</b></option>
-								<option><b>XL</b></option>
-							</select>
+					<div class="col-sm-12">
+						<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
+						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
+							<div class="input-group spinner" id="one">
+								<select class="size-dropdown">
+									<option><b>XS</b></option>
+									<option><b>S</b></option>
+									<option><b>M</b></option>
+									<option><b>L</b></option>
+									<option><b>XL</b></option>
+								</select>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
           
-			<div class="row" id="margi" style="margin-bottom: 50px;">
-				<div class="col-sm-12">
-					<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
-					<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
-						<div class="input-group spinner" id="two">
-                    		<input type="text" class="form-control quantity-dropdown"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
-							<span class="input-group-btn-vertical">
-								<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
-								<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
-							</span>
+				<div class="row" id="margi" style="margin-bottom: 50px;">
+					<div class="col-sm-12">
+						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
+						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
+							<div class="input-group spinner" id="two">
+								<input type="text" class="form-control quantity-dropdown"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<span class="input-group-btn-vertical">
+									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
+									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
+								</span>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div >
-				<button type="button" class="btn btn-primary individual-bag-btn" >ADD TO BAG</button>
-				<button type="button" class="btn btn-primary individual-bag-btn" style="width:61.5%;height: 25px; color:#E86903;margin-left: 12px;" ><a href="#chat/{{productDetail.shop.name}}">Ask Designer</a></button>
+				</div >
+				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;">ADD TO BAG</button>
+				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
+			
+
+				<!-- Modal -->
+				<div id="chatModel" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Title</h4>
+							</div>
+							<div class="modal-body">
+								<textarea style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Something in Textarea!</textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Send</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
 			</div>
           
          			

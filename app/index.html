@@ -39,39 +39,29 @@
 							</div>	
 							<div class="col-sm-1"></div>
 							<div class="col-sm-3" style="margin-top: -11px;" >
-								<span ng-show="loginUser == 'logout'"><h3 class="pull-right" style="cursor: pointer;margin-right: 30px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" >Sign In</a></h3></span>
+								<span ng-show="loginUser == 'logout'"><h3 class="pull-right signin-label" style="cursor: pointer;margin:0px;margin-top:7px;font-size: 11px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
 								<span>
 									<div class="col-sm-2">
 										
 									</div>
-									<div class="col-sm-10">
-									<div class="col-sm-2 col-sm-push-6 cart-label" style="text-align:right;padding: 8px;padding-bottom:3px;">
-										<label style="padding: 0px;font-size: 10px;">CART</label>
+									<div class="col-sm-10 col-xs-7">
+									<div class="col-sm-2 col-xs-3 col-sm-push-6 col-xs-push-10 cart-label">
+										<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+										<li><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+											<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="width: 333px !important;padding:25px;">
+													<li style="text-align: center;">
+														<a href="#acc">Your Bag cart is Empty!</a>
+													</li>
+											</ul>
+										</li>
+										    
+										</ul>
 									</div>
 										<div class="main-nav">
 									<ul class="nav account-navbar">
-											<!--<li class="dropdown">
-												<a class="acc-nav" href="#" style="padding: 0px;">Account</a>
-												<ul class="dropdown-menu row " id="acc-dropdown">
-													<li>
-														<a href="#acc">Settings</a>
-													</li>
-													
-													<li>
-														<a href="#fav">Order Status</a>
-													</li>
-													
-													<li>
-														<a href="#status">Chat</a>
-													</li>
-													
-													<li>
-														<a href="" ng-click="userLogout()">Logout</a>
-													</li>
-												</ul>
-											</li>-->
+											
 											<li style="margin:0px;float:right;"><a href="#" style="padding: 0px;font-size: 10px;"><b>Account</b></a>
-												<ul class="row dropdown-menu" id="acc-dropdown" style="margin-left: -220%;">
+												<ul class="row dropdown-menu" id="acc-dropdown" style="margin-left: -220%;width: 120px;">
 													<li>
 														<a href="#acc">Settings</a>
 													</li>
@@ -195,20 +185,9 @@
 			<!--Footer-->
 			<footer id="footer">
 				<div style="width: 100%;">
-					<div class="row">
+					<div class="row" style="padding-bottom: 40px;">
 						<div class="col-sm-12">
-							<div class="col-sm-4 col-xs-4">
-							<div class="subscribe">
-								<form action="#a">
-									<label for="lbl-01">E-mail<span>*</span></label>
-									<div class="form-group">
-										<input id="lbl-01" class="form-control" type="email">
-									</div>
-									<button class="btn-submit">SUBSCRIBE</button>
-								</form>
-							</div>
-						</div>
-						<div class="col-sm-6 col-xs-6 text-center">
+							<div class="col-sm-6 col-xs-6 text-center">
 							<ul class="footer-list" style="list-style-type: none;display: inline-flex;">
 								<li><a href="#a">ABOUT</a></li>
 								<li><a href="#a">TERMS &amp; PRIVACY</a></li>
@@ -216,6 +195,18 @@
 								<li><a href="#a">CONTACT US</a></li>
 							</ul>
 						</div>
+							<div class="col-sm-4 col-xs-4">
+							<div class="subscribe">
+								<form action="#a">
+									<label for="lbl-01" style="padding: 0px;padding-right: 4px;">Email</label>
+									<div class="form-group">
+										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
+									</div>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 27px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+								</form>
+							</div>
+						</div>
+						
 						<div class="col-sm-2 col-xs-6">
 						<ul class="social">
 								<li><a href="#a"><img src="images/ico-facebook.png" alt="image"></a></li>
