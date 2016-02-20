@@ -1,38 +1,3 @@
-<!--Dropdown Menu-->
-<script>
-	$(document).ready(function(){
-			$(".opener").click(function(){
-					$(".has-drop").addClass("active");
-					$("#dropdown-menu").addClass("menu-slider");
-					$("#dropdown-menu").slideToggle("fast","linear",function(){
-							$(".opener").click(function(){
-									if($(".has-drop").hasClass("active") == true)
-									$(".has-drop").removeClass("active");	
-									else
-									$(".has-drop").addClass("active");	
-								});
-    		
-						});
-				});
-				
-			$(".opener").click(function(){
-					$(".has-drop").addClass("active");
-					$("#acc-dropdown").addClass("menu-slider");
-					$("#acc-dropdown").slideToggle("fast","linear",function(){
-							$(".opener").click(function(){
-									if($(".has-drop").hasClass("active") == true)
-									$(".has-drop").removeClass("active");	
-									else
-									$(".has-drop").addClass("active");	
-								});
-    		
-						});
-				});
-		});
-    
-
-</script>
-
 <div class="row">
 <div class="col-sm-12">
 <div class="col-sm-1"></div>

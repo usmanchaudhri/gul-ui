@@ -50,12 +50,12 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'postcss']
       },
-      styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      css: {
+        files: ['<%= config.app %>/css/{,*/}*.css'],
+        tasks: ['newer:copy:css', 'postcss']
       }
     },
 
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         options: {
           files: [
             '<%= config.app %>/{,*/}*.html',
-            '.tmp/styles/{,*/}*.css',
+            '.tmp/css/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
             '.tmp/scripts/{,*/}*.js'
           ],
@@ -179,9 +179,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/css',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '.tmp/css',
           ext: '.css'
         }]
       }
@@ -200,9 +200,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/css/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/css/'
         }]
       }
     },
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/css/{,*/}*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -224,10 +224,11 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/scripts/{,*/}*.js',
-          '<%= config.dist %>/styles/{,*/}*.css',
+          '<%= config.dist %>/js/{,*/}*.js',
+          '<%= config.dist %>/controller/{,*/}*.js',
+          '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
-          '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          '<%= config.dist %>/css/fonts/{,*/}*.*',
           '<%= config.dist %>/*.{ico,png}'
         ]
       }
@@ -249,11 +250,11 @@ module.exports = function (grunt) {
           '<%= config.dist %>',
           '<%= config.dist %>/images',
           '<%= config.dist %>/view/**',
-          '<%= config.dist %>/styles'
+          '<%= config.dist %>/css'
         ]
       },
       html: ['<%= config.dist %>/**/*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      css: ['<%= config.dist %>/css/{,*/}*.css']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -295,9 +296,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>',
+          cwd: '<%= config.dist %>/view/**',
           src: '{,*/}*.html',
-          dest: '<%= config.dist %>'
+          dest: '<%= config.dist %>/view/**'
         }]
       }
     },
@@ -307,7 +308,7 @@ module.exports = function (grunt) {
             ignore: ['.ng-move', '.ng-enter', '.ng-leave', '.created_by_jQuery']
         },
         files: {
-            '<%= config.dist %>/style.css': [ '<%= config.app %>/index.html',
+            '<%= config.dist %>/css/style.css': [ '<%= config.app %>/index.html',
              '<%= config.app %>/view/**/*.html']
         }
     }
@@ -320,12 +321,12 @@ module.exports = function (grunt) {
    
     cssmin: {
       dist: {
-        files: {
-          '<%= config.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= config.app %>/styles/{,*/}*.css'
-          ]
-        }
+        files: [{
+            expand: true,
+            src: '**/*.css',
+            dest: '<%= config.dist %>/css',
+            cwd: '<%= config.dist %>/css'
+        }]
       }
     },
     uglify: {
@@ -360,8 +361,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.webp',
             'images/*.jpg',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*',
-            'css/**',
+            'css/fonts/{,*/}*.*',
             'fonts/**',
             'view/**',
             'scripts/**',
@@ -400,7 +400,7 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
+            '<%= config.dist %>/css/{,*/}*.css',
             '!<%= config.dist %>/scripts/vendor/*'
           ]
         },
