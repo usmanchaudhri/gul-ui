@@ -242,7 +242,6 @@ module.exports = function (grunt) {
       },
       html: '<%= config.app %>/index.html'
     },
-
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
@@ -302,10 +301,23 @@ module.exports = function (grunt) {
         }]
       }
     },
+ uncss: {
+    dist: {
+        options: {
+            ignore: ['.ng-move', '.ng-enter', '.ng-leave', '.created_by_jQuery']
+        },
+        files: {
+            '<%= config.dist %>/style.css': [ '<%= config.app %>/index.html',
+             '<%= config.app %>/view/**/*.html']
+        }
+    }
+},
+    
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
+   
     cssmin: {
       dist: {
         files: {
@@ -444,7 +456,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-build-control');
-
+  
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
     if (target === 'dist') {
@@ -488,6 +500,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'postcss',
     'concat',
+    'uncss',
     'cssmin',
     'uglify',
     'copy:dist',
