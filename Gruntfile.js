@@ -224,8 +224,8 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/javascript/libs/{,*/}*.js',
-          '<%= config.dist %>/javascript/controller/{,*/}*.js',
+          '<%= config.dist %>/js/{,*/}*.js',
+          '<%= config.dist %>/controller/{,*/}*.js',
           '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
           '<%= config.dist %>/css/fonts/{,*/}*.*',
@@ -240,9 +240,8 @@ module.exports = function (grunt) {
     useminPrepare: {
       options: {
         dest: '<%= config.dist %>'
-        
       },
-      html: '<%= config.dist %>/index.html'
+      html: '<%= config.app %>/index.html'
     },
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
@@ -251,12 +250,10 @@ module.exports = function (grunt) {
           '<%= config.dist %>',
           '<%= config.dist %>/images',
           '<%= config.dist %>/view/**',
-          '<%= config.dist %>/javascript/libs',
-          '<%= config.dist %>/javascript/controller',
           '<%= config.dist %>/css'
         ]
       },
-      html: ['<%= config.dist %>/index.html'],
+      html: ['<%= config.dist %>/**/*.html'],
       css: ['<%= config.dist %>/css/{,*/}*.css']
     },
 
@@ -299,9 +296,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>/index.html',
+          cwd: '<%= config.dist %>/view/**',
           src: '{,*/}*.html',
-          dest: '<%= config.dist %>/index.html'
+          dest: '<%= config.dist %>/view/**'
         }]
       }
     },
@@ -337,13 +334,13 @@ module.exports = function (grunt) {
         files: [{
             expand: true,
             src: '**/*.js',
-            dest: '<%= config.dist %>/javascript/libs',
-            cwd: 'app/javascript/libs'
+            dest: '<%= config.dist %>/js',
+            cwd: 'app/js'
         },{
             expand: true,
             src: '**/*.js',
-            dest: '<%= config.dist %>/javascript/controller',
-            cwd: 'app/javascript/controller'
+            dest: '<%= config.dist %>/controller',
+            cwd: 'app/controller'
         }]
       }
     },
@@ -367,6 +364,7 @@ module.exports = function (grunt) {
             'css/fonts/{,*/}*.*',
             'fonts/**',
             'view/**',
+            'scripts/**',
             'gulgs.properties',
             'favicon.ico',
             'apple-touch-icon.png',
@@ -508,8 +506,8 @@ module.exports = function (grunt) {
     'copy:dist',
     'modernizr',
     'filerev',
-    'usemin'
-    //'htmlmin'
+    'usemin',
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
