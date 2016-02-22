@@ -1,4 +1,4 @@
-app.controller('singleCatCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('singleCatCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.cat_id = $routeParams.catId;
 		$http.get("gulgs.properties")
@@ -17,5 +17,5 @@ app.controller('singleCatCtrl', function($scope,$http,$q,$timeout,$location,$rou
 				//console.log(cat.length);
 			}
 			
-	});
+	}]);
         

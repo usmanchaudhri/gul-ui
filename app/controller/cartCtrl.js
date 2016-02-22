@@ -1,13 +1,26 @@
-
-app.controller('cartCtrl', function($scope,$cookieStore,$http) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$cookieStore,$http) {
 		$scope.isNumber = angular.isNumber;
+		$scope.totalPrice = 0;
+		$scope.qty = 0;
+		
 		$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;
 			});
-		$scope.qty = 0;
+	
 		$scope.items = $cookieStore.get("invoices",$scope.invoices);
+		
+		$scope.totalCost = function(items) {
+			console.log("Length: " + items.length);
+			for(var i =0; i< items.length ;i++){
+				$scope.totalPrice = $scope.totalPrice + items[i].cost;
+				console.log("Len: " + $scope.totalPrice);
+			}
+
+				
+		};
+		
 		if(angular.isUndefined($scope.items)){
 			$scope.invoice = {
 				items: []
@@ -18,6 +31,8 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 				items: $cookieStore.get("invoices",$scope.invoices)
 			};
 			$scope.abc = $scope.items.length;
+			
+			$scope.totalCost($scope.invoice.items);
 		}
 		$scope.removeItem = function(index) {
 			$scope.invoice.items.splice(index, 1);
@@ -25,20 +40,6 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 		};
 
 		$scope.storeProductsInCookie=function(prod,size,qty){
-			/*if(!$scope.isNumber(prod.shop.id))
-			mShop = prod.shop;
-			else
-			mShop = prod.shop.name;*/
-			
-		/*	var numDrop = [];
-			for(var i = 1; i<=prod.quantity; i++){
-				var value = {
-					id: i
-				};
-				
-				numDrop.push(value);
-			}*/
-					  
 			$scope.invoice.items.push({
 					id:prod.id,
 					qty: qty,
@@ -58,9 +59,9 @@ app.controller('cartCtrl', function($scope,$cookieStore,$http) {
 
 		};
 	
-		$scope.getNumber = function(num) {
-			
-		}    
-	});
+		  
+		  
+
+	}]);
         
 

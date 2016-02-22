@@ -1,4 +1,4 @@
-app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
+app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs' ,function($scope, $q, $http, $timeout,breadcrumbs) {
 	 $scope.breadcrumbs = breadcrumbs;
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -15,5 +15,36 @@ app.controller('MenuCtrl', function($scope, $q, $http, $timeout,breadcrumbs) {
 				return cat.length;
 				//console.log(cat.length);
 			}
+        $scope.load = function(){
+			$(".opener").click(function(){
+					$(".has-drop").addClass("active");
+					$("#dropdown-menu").addClass("menu-slider");
+					$("#dropdown-menu").slideToggle("fast","linear",function(){
+							$(".opener").click(function(){
+									if($(".has-drop").hasClass("active") == true)
+									$(".has-drop").removeClass("active");	
+									else
+									$(".has-drop").addClass("active");	
+								});
+    		
+						});
+				});
+				
+			$(".opener").click(function(){
+					$(".has-drop").addClass("active");
+					$("#acc-dropdown").addClass("menu-slider");
+					$("#acc-dropdown").slideToggle("fast","linear",function(){
+							$(".opener").click(function(){
+									if($(".has-drop").hasClass("active") == true)
+									$(".has-drop").removeClass("active");	
+									else
+									$(".has-drop").addClass("active");	
+								});
+    		
+						});
+				});
+		};
         
-	});
+        $scope.load();
+        
+	}]);

@@ -123,7 +123,7 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Make sure code css are up to par and there are no obvious mistakes
+    // Make sure code styles are up to par and there are no obvious mistakes
     eslint: {
       target: [
         'Gruntfile.js',
@@ -191,7 +191,7 @@ module.exports = function (grunt) {
       options: {
         map: true,
         processors: [
-          // Add vendor prefixed css
+          // Add vendor prefixed styles
           require('autoprefixer')({
             browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
           })
@@ -224,7 +224,8 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/scripts/{,*/}*.js',
+          '<%= config.dist %>/js/{,*/}*.js',
+          '<%= config.dist %>/controller/{,*/}*.js',
           '<%= config.dist %>/css/{,*/}*.css',
           '<%= config.dist %>/images/{,*/}*.*',
           '<%= config.dist %>/css/fonts/{,*/}*.*',
@@ -242,13 +243,13 @@ module.exports = function (grunt) {
       },
       html: '<%= config.app %>/index.html'
     },
-
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
           '<%= config.dist %>/images',
+          '<%= config.dist %>/view/**',
           '<%= config.dist %>/css'
         ]
       },
@@ -289,39 +290,58 @@ module.exports = function (grunt) {
           removeCommentsFromCDATA: true,
           removeEmptyAttributes: true,
           removeOptionalTags: true,
-          // true would impact css with attribute selectors
+          // true would impact styles with attribute selectors
           removeRedundantAttributes: false,
           useShortDoctype: true
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>',
+          cwd: '<%= config.dist %>/view/**',
           src: '{,*/}*.html',
-          dest: '<%= config.dist %>'
+          dest: '<%= config.dist %>/view/**'
         }]
       }
     },
+ uncss: {
+    dist: {
+        options: {
+            ignore: ['.ng-move', '.ng-enter', '.ng-leave', '.created_by_jQuery']
+        },
+        files: {
+            '<%= config.dist %>/css/style.css': [ '<%= config.app %>/index.html',
+             '<%= config.app %>/view/**/*.html']
+        }
+    }
+},
+    
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
+   
     cssmin: {
       dist: {
-        files: {
-          '<%= config.dist %>/css/main.css': [
-            '.tmp/css/{,*/}*.css',
-            '<%= config.app %>/css/{,*/}*.css'
-          ]
-        }
+        files: [{
+            expand: true,
+            src: '**/*.css',
+            dest: '<%= config.dist %>/css',
+            cwd: '<%= config.dist %>/css'
+        }]
       }
     },
     uglify: {
-      dist: {
-        files: {
-          '<%= config.dist %>/scripts/scripts.js': [
-            '<%= config.dist %>/scripts/scripts.js'
-          ]
-        }
+      build: {
+        files: [{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/js',
+            cwd: 'app/js'
+        },{
+            expand: true,
+            src: '**/*.js',
+            dest: '<%= config.dist %>/controller',
+            cwd: 'app/controller'
+        }]
       }
     },
     concat: {
@@ -343,10 +363,7 @@ module.exports = function (grunt) {
             'images/*.png',
             '{,*/}*.html',
             'css/fonts/{,*/}*.*',
-            'css/**',
             'fonts/**',
-            'js/**',
-            'controller/**',
             'view/**',
             'scripts/**',
             'gulgs.properties',
@@ -440,7 +457,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-build-control');
-
+  
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
     if (target === 'dist') {
@@ -484,6 +501,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'postcss',
     'concat',
+    'uncss',
     'cssmin',
     'uglify',
     'copy:dist',

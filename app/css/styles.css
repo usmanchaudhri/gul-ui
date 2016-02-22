@@ -526,10 +526,10 @@ body {
             
             
 /* Toggle caret*/
-.navbar .nav li.dropdown > .dropdown-toggle .caret {
+/*.navbar .nav li.dropdown > .dropdown-toggle .caret {
 	border-bottom-color: ;
 	border-top-color: ;
-}
+}*/
 /* Toggle caret hover */
 .navbar .nav li.dropdown > a:hover .caret, 
 .navbar .nav li.dropdown > a:focus .caret {
@@ -590,7 +590,7 @@ body {
 .megamenu{
 	padding: 20px 0px;
 	width: 100%;
-	log
+
 }
 .megamenu> li > ul {
 	padding: 0;
