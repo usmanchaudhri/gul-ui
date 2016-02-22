@@ -1,15 +1,6 @@
-define(function (require) {
-  'use strict';
+var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','imageCropper']);
 
-  var angular = require('angular');
-  var controllers = require('../controller/menuCtrl');
-  
-  var app = angular.module('myApp', ['controllers']);
-
-  app.init = function () {
-      angular.bootstrap(document, ['myApp']);
-  };
-  app.config(['$routeProvider', function($routeProvider) 
+app.config(['$routeProvider', function($routeProvider) 
 		{ $routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
@@ -60,12 +51,6 @@ define(function (require) {
 					label:'CHAT'
 				}).otherwise({ redirectTo: '/' });
 		}]);
-
-  return app;
-});
-var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','imageCropper']);
-
-
 
 app.directive('progressbar', [function() {
     return {
