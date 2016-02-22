@@ -1,3 +1,3 @@
-app.controller('BreadcrumbCtrl', function($scope,breadcrumbs) {
+app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcrumbs) {
 	 $scope.breadcrumbs = breadcrumbs;
-      });
+      }]);

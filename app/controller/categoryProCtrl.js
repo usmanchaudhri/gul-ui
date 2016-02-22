@@ -1,4 +1,4 @@
-app.controller('categoryProCtrl', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
    
 		$scope.cat_id = $routeParams.catId;
 		$scope.categoryProDetail = [];
@@ -36,17 +36,7 @@ app.controller('categoryProCtrl', function($scope,$http,$q,$timeout,$location,$r
 							console.log(value);
 							$scope.categoryProDetail.push(value);
 							data = data[i].category.products;
-							
-		
-							
-							
-							
 						}
-						
-						
-						
-						
-						
 					});
 			});
 		$scope.currentPage = 1;
@@ -56,5 +46,5 @@ app.controller('categoryProCtrl', function($scope,$http,$q,$timeout,$location,$r
 		};
 			
 			
-	});
+	}]);
         

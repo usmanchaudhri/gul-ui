@@ -1,4 +1,4 @@
- app.controller('chatCtrl', function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
+ app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q' ,function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
 		
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -171,7 +171,8 @@
 					console.log("3rd");
 				});
 				
-		}/*
+		}
+		/*
 		var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -183,4 +184,4 @@
   }
 };*/
   
-	});
+	}]);

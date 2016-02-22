@@ -1,4 +1,4 @@
-app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
+app.controller('imgViewCtrl',['$scope', 'Lightbox','$rootScope' , function ($scope, Lightbox,$rootScope) {
 		$scope.images = [];
 		$scope.imageUrl = '';
 		$scope.openLightboxModal = function (img,imgIndex) {
@@ -67,4 +67,4 @@ app.controller('imgViewCtrl', function ($scope, Lightbox,$rootScope) {
 			$rootScope.$broadcast('cropImage', cropResult);
 					Lightbox.modalInstance.close();
 		};
-	});
+	}]);

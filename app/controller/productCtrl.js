@@ -118,8 +118,17 @@
 					}
 			};
 			$scope.load = function() {
- 
-				$('.carousel .item').each(function(e) {
+ 			$("#filter-dropdown").click(function(){
+					/*$(".home-filter").addClass("homepage-filter");*/
+					if ( $( "#price-filters" ).is( ":hidden" ) ) {
+						$( "#price-filters" ).slideDown( "slow" );
+						
+					} else {
+						$( "#price-filters" ).slideUp("slow");
+						/*$(".home-filter").removeClass("homepage-filter");*/
+					}
+				});
+			$('.carousel .item').each(function(e) {
 						var bg_ = 'url(' + $(this).find('>img').attr('src') + ')';
 						$(this).find('>img').hide();
 						$(this).css('background-image', bg_);

@@ -1,20 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function(){
-			$("#filter-dropdown").click(function(){
-					/*$(".home-filter").addClass("homepage-filter");*/
-					if ( $( "#price-filters" ).is( ":hidden" ) ) {
-						$( "#price-filters" ).slideDown( "slow" );
-						
-					} else {
-						$( "#price-filters" ).slideUp("slow");
-						/*$(".home-filter").removeClass("homepage-filter");*/
-					}
-				});
-		});
-    
-	
-</script>
-
 <div id="carousel-01" class="carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
@@ -35,20 +18,7 @@
 			<h2 latestDiv class="product-title">Latest <span style="color:black;">Designs</span></h2>		
 		</div>
 		<div class="col-sm-8"></div>
-		<!--<div class="col-sm-2 sorting ">
-			<label  class="home-filter"><b>Filter</b>&nbsp;<img id="filter-dropdown" src="images/down.png" onclick="showfilter()" style="cursor: pointer;" /></label>
-		</div>-->
 	</div>
-	<!--<div id="price-filters" class="row price-filter">
-		<div class="col-sm-12">
-			<div class="col-sm-4">
-				
-				<input type="radio" value="lowhigh" name="low" /><label style="font-size: 14px;">Low to High(price)</label>&nbsp;
-				<input type="radio" value="lowhigh" name="low"  /><label style="font-size: 14px;">High to Low(price)</label>
-				
-			</div>
-		</div>
-	</div>-->
 	<div class="row info-boxes " >
 		<div class="scroll-wrapper" >
 			<div class="list"
@@ -79,9 +49,9 @@
 							<span class="proDes">
 								<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
 							</span>
-						
 						</div>
 					</div>
+					
 				</div>
 				<div style='clear: both;'></div>
 			</div>
