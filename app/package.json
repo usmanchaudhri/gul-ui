@@ -4,7 +4,7 @@
    "version": "0.0.0",
    "dependencies": {
       "express": "~3.4.8",
-      "compression": "~3.4.0"
+      "compression": "1.6.1"
    }
 }
 
