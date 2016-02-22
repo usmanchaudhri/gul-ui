@@ -335,7 +335,7 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.js',
             dest: '<%= config.dist %>/js',
-            cwd: '<%= config.dist %>/js'
+            cwd: 'app/js'
         },{
             expand: true,
             src: '**/*.js',
@@ -345,10 +345,7 @@ module.exports = function (grunt) {
       }
     },
     concat: {
-      dist: {
-      	src: "<%= config.app %>/js/*.js",            
-        dest: "<%= config.dist %>/js/ctrlfile.min.js"
-      }
+      dist: {}
     },
 
     // Copies remaining files to places other tasks can use
