@@ -1,5 +1,10 @@
+
+var compression = require('compression'); 
 var express = require('express');
 var app = express();
+
+// compress responses
+app.use(compression());
 app.use(express.static(__dirname)); // Current directory is root  
 app.use(express.static(__dirname + '/app'));
 app.use('../bower_components', express.static(__dirname + '../bower_components'));
