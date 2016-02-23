@@ -1900,14 +1900,13 @@ select{
 
 .cart-label{
 	
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     padding: 8px;
-    border-bottom: 4px solid white !important;
+    border-bottom: 1px solid white !important;
     padding-bottom: 3px;
     text-align:right;
     padding-top: 8px;
     width: auto;
-    margin-left:20px;
    
 }
 .cart-label:hover{
@@ -1926,6 +1925,14 @@ select{
 .cart-label:hover .cart-block{
 	display: block;
 }
+
+#acc-dropdown{
+	/*width: 345px !important;*/
+	
+	margin-left: -19.3em !important;
+	
+	padding:25px;
+}
 /*End of Homepage*/
 
 /*Footer*/
@@ -1935,9 +1942,13 @@ select{
 }
 /*End of Footer*/
 
-@media (min-width: 200px) and (max-width: 400px){
+@media (min-width: 200px) and (max-width: 500px){
 .cart-elements{
 	padding-left: 10px !important;
+}
+
+.cart-label{
+	margin-left: -10px;
 }
 
 }

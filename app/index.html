@@ -6,7 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Gulgs</title>
+<<<<<<< HEAD
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+=======
+
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+>>>>>>> 1ea965b31e2c6dd21a23204983312de2db66e446
 
 
 		<link rel="stylesheet" href="css/bootstrap.css">
@@ -45,52 +50,92 @@
 										
 									</div>
 									<div class="col-sm-10 col-xs-7">
-										<div class="col-sm-2 col-xs-3 col-sm-push-6 col-xs-push-10 cart-label">
-											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
-												<li><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
-													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="width: 333px !important;padding:25px;">
-														<li style="text-align: center;">
-															<a href="#acc">Your Bag cart is Empty!</a>
-														</li>
-													</ul>
-												</li>
+									<div class="col-sm-2 col-xs-3 col-sm-push-6 col-xs-push-11 cart-label">
+										<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+										<li><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+											<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+													<li style="text-align: center;">
+														<a href="#acc">Your Bag cart is Empty!</a>
+													</li>
+											</ul>
+										</li>
 										    
-											</ul>
-										</div>
+										</ul>
+									</div>
 										<div class="main-nav">
-											<ul class="nav account-navbar">
+									<ul class="nav account-navbar">
 											
-												<li style="margin:0px;float:right;"><a href="#" style="padding: 0px;font-size: 10px;"><b>Account</b></a>
-													<ul class="row dropdown-menu" id="acc-dropdown" style="margin-left: -220%;width: 120px;">
-														<li>
-															<a href="#acc">Settings</a>
-														</li>
+											<li style="margin:0px;float:right;"><a href="#" style="padding: 0px;font-size: 10px;"><b>Account</b></a>
+												<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
+													<li>
+														<a href="#acc">Settings</a>
+													</li>
 													
-														<li>
-															<a href="#fav">Order Status</a>
-														</li>
+													<li>
+														<a href="#fav">Order Status</a>
+													</li>
 													
-														<li>
-															<a href="#status">Chat</a>
-														</li>
+													<li>
+														<a href="#status">Chat</a>
+													</li>
 													
-														<li>
-															<a href="" ng-click="userLogout()">Logout</a>
-														</li>
-													</ul>
-												</li>
+													<li>
+														<a href="" ng-click="userLogout()">Logout</a>
+													</li>
+												</ul>
+											</li>
 											
-											</ul>
-										</div>	
+										</ul>
+									</div>	
 									</div>
 									
 									
 								</span>
+								<span>
+										<!--<ul>
+											<li class="dropdown">
+												<a href="#" class="cart-nav" style="padding: 0px;">Cart</a>
+												<ul class="dropdown-menu row " id="dropdown-menu">
+													<li>Empty Cart!</li>
+												</ul>
+											</li>
+										</ul>-->
+										
+									</span>
+									
+									
+								
+									<!--<ul ng-show="loginUser == 'login'" class="nav navbar-nav my-navbar">
+									<li class="dropdown my-dropdown" style="cursor: pointer;text-align: center;">
+									<a class="dropdown-toggle" data-toggle="dropdown">Account</a>
+									<ul class="dropdown-menu text-center" style="min-width: 140px !important;">
+									<li>
+									<a href="#acc">Settings</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="#fav">Order Status</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="#status">Chat</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="" ng-click="userLogout()">Logout</a>
+									</li>
+									</ul>
+									</li>
+									</ul>-->	
+								
 								
 							</div>
 						</div>
 				
 						<a class="btn-menu visible-xs" href="#a">menu</a>
+					
+						
+						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
 					</div><!--/ End of container -->
 					<div class="container">
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
@@ -127,6 +172,14 @@
 					</div>
 				</div>
 			</div>
+		
+			
+		
+			<!--<div ng-view autoscroll="true"></div>-->
+			
+		
+		
+
 			<div ng-controller="BreadcrumbCtrl" >
 				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
 				
@@ -140,7 +193,7 @@
 				<div style="width: 100%;">
 					<div class="row" style="padding-bottom: 40px;">
 						<div class="col-sm-12">
-							<div class="col-sm-6 col-xs-6 text-center">
+							<div class="col-sm-6 col-xs-12 text-center">
 							<ul class="footer-list" style="list-style-type: none;display: inline-flex;">
 								<li><a href="#a">ABOUT</a></li>
 								<li><a href="#a">TERMS &amp; PRIVACY</a></li>
@@ -148,23 +201,23 @@
 								<li><a href="#a">CONTACT US</a></li>
 							</ul>
 						</div>
-							<div class="col-sm-4 col-xs-4">
-								<div class="subscribe">
-									<form action="#a">
-										<label for="lbl-01" style="padding: 0px;padding-right: 4px;">Email</label>
-										<div class="form-group">
-											<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
-										</div>
-										<button class="btn-submit" style="background-color: white;box-shadow: none;height: 27px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
-									</form>
-								</div>
+
+							<div class="col-sm-4 col-xs-12">
+							<div class="subscribe">
+								<form action="#a">
+									<label for="lbl-01" style="padding: 0px;padding-right: 4px;">Email</label>
+									<div class="form-group">
+										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
+									</div>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 27px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+								</form>
 							</div>
 						</div>
 						
-						<div class="col-sm-2 col-xs-6">
-						<ul class="social">
-								<li><a href="#a"><img src="images/ico-facebook.png" alt="image"></a></li>
-								<li><a href="#a"><img src="images/ico-twitter.png" alt="image"></a></li>
+						<div class="col-sm-2 col-xs-12">
+						<ul class="social" style="display:block;line-height: 15px;">
+								<li><a href="#"><label style="font-size: 13px;">Facebook</label></a></li><br>
+								<li><a href="#"><label style="font-size: 13px;">Twitter</label></a></li><br>
 							</ul>
 						</div>	
 						</div>
@@ -175,48 +228,51 @@
 			<!--End of Footer-->
 	
 			<!-- javascript -->
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="js/scripts.js"></script>
+			<script src="js/spiner.js"></script>
+			<script src="js/carousel.js"></script>		
+			<script src="js/bootstrap.js"></script>
+			<script src="bower_components/angular/angular.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.js"></script>
+			<script src="bower_components/angular-route/angular-route.js"></script>
+			<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+			<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+			<script src="bower_components/angular-html5-storage/dist/angular-html5-storage.min.js"></script>
+			<script src="bower_components/restangular/dist/restangular.min.js"></script>
+			<script src="bower_components/lodash/lodash.min.js"></script>
+			<script src="js/ng-breadcrumbs.js"></script>
 			
+			<script src="js/ngInfiniteScroll.js" ></script>
+			<script src="controller/myApp.js"></script>
+			
+			<script src="controller/productCtrl.js" ></script>
+			<script src="controller/categoryProCtrl.js" ></script>
+			<script src="controller/menuCtrl.js"></script>
+			<script src="controller/designerCtrl.js"></script>
+			<script src="controller/singleProductCtrl.js"></script>
+			<script src="controller/singleCategoryCtrl.js"></script>
+			<script src="controller/breadCrumbsCtrl.js"></script>
+			<script src="controller/shopCtrl.js"></script>
+			<script src="controller/allShopCtrl.js"></script>
+			<script src="controller/cartCtrl.js"></script>
+			<script src="controller/loginCtrl.js"></script>
+			
+			<script src="js/directive.js"></script>
+			<script src="controller/imgViewCtrl.js"></script>
+			<script src="js/ng-file-upload.js" ></script>
+			<script src="js/jquery.elevatezoom.min.js" ></script>
+			<script src="js/ng-file-upload-shim.js" ></script>
+			<script src="controller/uploadCtrl.js" ></script>
+			<script src="js/services.js"></script>
+			<script src="controller/chatCtrl.js" ></script>
+			<script src="js/ng-img-crop.js"></script>
+			<script src="js/angular-image-cropper.min.js"></script>
+			<script src="js/jquery-ui.min.js"></script>
+			<script src="js/ui-bootstrap-tpls.js"></script>
+			<script src="js/angular-bootstrap-lightbox.js"></script>
+			<script src="js/imageupload.js"></script>
 			
 		</div><!-- /wrapper -->
-		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script  src="js/scripts.js"></script>
-		<script  src="js/spiner.js"></script>
-		<script  src="js/carousel.js"></script>		
-		<script  src="js/bootstrap.js"></script>
-		<script src="js/angular.min.js"></script>
-		<script  type="text/javascript" src="js/angular-animate.js"></script>
-		<script  src="js/angular-route.min.js"></script>
-		<script  src="bower_components/angular-resource/angular-resource.min.js"></script>
-		<script  src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-		<script  src="js/ng-breadcrumbs.js"></script>
-		<script  src="js/ngInfiniteScroll.js" ></script>
-		<script src="controller/myApp.js"></script>
-			
-		<script  src="controller/productCtrl.js" ></script>
-		<script  src="controller/categoryProCtrl.js" ></script>
-		<script  src="controller/menuCtrl.js"></script>
-		<script  src="controller/designerCtrl.js"></script>
-		<script  src="controller/singleProductCtrl.js"></script>
-		<script  src="controller/singleCategoryCtrl.js"></script>
-		<script  src="controller/breadCrumbsCtrl.js"></script>
-		<script  src="controller/shopCtrl.js"></script>
-		<script  src="controller/allShopCtrl.js"></script>
-		<script  src="controller/cartCtrl.js"></script>
-		<script  src="controller/loginCtrl.js"></script>
-			
-		<script  src="js/directive.js"></script>
-		<script  src="controller/imgViewCtrl.js"></script>
-		<script  src="js/ng-file-upload.js" ></script>
-		<script  src="js/jquery.elevatezoom.min.js" ></script>
-		<script  src="js/ng-file-upload-shim.js" ></script>
-		<script  src="controller/uploadCtrl.js" ></script>
-		<script  src="js/services.js"></script>
-		<script  src="controller/chatCtrl.js" ></script>
-		<script  src="js/ng-img-crop.js"></script>
-		<script  src="js/angular-image-cropper.min.js"></script>
-		<script  src="js/jquery-ui.min.js"></script>
-		<script  src="js/ui-bootstrap-tpls.js"></script>
-		<script  src="js/angular-bootstrap-lightbox.js"></script>
-		<script  src="js/imageupload.js"></script>
 	</body>
 </html>
