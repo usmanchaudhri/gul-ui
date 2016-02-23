@@ -13,6 +13,12 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 						var dataLength = data.length;
 						console.log(data.length);
 						for(var i=0;i<dataLength;i++){
+							var shopName = '';
+							if(angular.isObject(data[i].shop)){
+								shopName = data[i].shop.name;
+							}else{
+								shopName = data[i].shop;
+							}
 							var value = {
 								"name": data[i].name,
 								"id": data[i].id,
@@ -26,7 +32,7 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 									"name": data[i].category.name,
 									"createdOn": data[i].category.createdOn,
 								},
-								"shop": data[i].shop,
+								"shop": shopName,
 								"productVariation": data[i].productVariation,
 								"attributeDefinitions": data[i].attributeDefinitions,
 								"imageInfo": data[i].imageInfo,
@@ -39,11 +45,7 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 						}
 					});
 			});
-		$scope.currentPage = 1;
-		$scope.pageSize = 9;
-		$scope.pageChangeHandler = function(num) {
-			console.log('meals page changed to ' + num);
-		};
+		
 			
 			
 	}]);
