@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Gulgs</title>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link href="css/chat.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mail.css" />
+		
+		<link rel="stylesheet" href="css/jquery-ui.css">
+
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+		
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/dropdown.css">
+		<link rel="stylesheet" href="css/user-dropdown.css">
+		<link rel="stylesheet" href="css/login.css">
+		<link href="css/angular-image-cropper.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/angular-bootstrap-lightbox.css">
+		
+		
+	</head>
+	<body>
+		<div class="wrapper" ng-app="myApp" ng-controller="cartCtrl">
+			<!--Navigation Bar-->
+			<div ng-controller="loginCtrl">
+				<nav class="navbar">
+					<div class="container-fluid" >
+						<div class="row">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4 col-xs-5 text-center mob-logo">
+								<strong style="font-size:45px; color:black; "><a href="#cart" style="color: black;"><span style=" font-weight: 700; ">We</span><span style="color: #e86903;">do</span><span style="font-weight: 700;">mize</span></a></strong>	
+							</div>	
+							<div class="col-sm-1"></div>
+							<div class="col-sm-3" style="margin-top: -11px;" >
+								<span ng-show="loginUser == 'logout'"><h3 class="pull-right signin-label" style="cursor: pointer;margin:0px;margin-top:7px;font-size: 11px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+								<span>
+									<div class="col-sm-2">
+										
+									</div>
+									<div class="col-sm-10 col-xs-7">
+									<div class="col-sm-2 col-xs-3 col-sm-push-6 col-xs-push-11 cart-label">
+										<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+										<li><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+											<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+													<li style="text-align: center;">
+														<a href="#acc">Your Bag cart is Empty!</a>
+													</li>
+											</ul>
+										</li>
+										    
+										</ul>
+									</div>
+										<div class="main-nav">
+									<ul class="nav account-navbar">
+											
+											<li style="margin:0px;float:right;"><a href="#" style="padding: 0px;font-size: 10px;"><b>Account</b></a>
+												<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
+													<li>
+														<a href="#acc">Settings</a>
+													</li>
+													
+													<li>
+														<a href="#fav">Order Status</a>
+													</li>
+													
+													<li>
+														<a href="#status">Chat</a>
+													</li>
+													
+													<li>
+														<a href="" ng-click="userLogout()">Logout</a>
+													</li>
+												</ul>
+											</li>
+											
+										</ul>
+									</div>	
+									</div>
+									
+									
+								</span>
+								<span>
+										<!--<ul>
+											<li class="dropdown">
+												<a href="#" class="cart-nav" style="padding: 0px;">Cart</a>
+												<ul class="dropdown-menu row " id="dropdown-menu">
+													<li>Empty Cart!</li>
+												</ul>
+											</li>
+										</ul>-->
+										
+									</span>
+									
+									
+								
+									<!--<ul ng-show="loginUser == 'login'" class="nav navbar-nav my-navbar">
+									<li class="dropdown my-dropdown" style="cursor: pointer;text-align: center;">
+									<a class="dropdown-toggle" data-toggle="dropdown">Account</a>
+									<ul class="dropdown-menu text-center" style="min-width: 140px !important;">
+									<li>
+									<a href="#acc">Settings</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="#fav">Order Status</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="#status">Chat</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+									<a href="" ng-click="userLogout()">Logout</a>
+									</li>
+									</ul>
+									</li>
+									</ul>-->	
+								
+								
+							</div>
+						</div>
+				
+						<a class="btn-menu visible-xs" href="#a">menu</a>
+					
+						
+						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
+					</div><!--/ End of container -->
+					<div class="container">
+						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
+					</div>
+				</nav>
+			
+				<div class="modal fade" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+					<div class="modal-dialog" role="document">
+						<div>
+							<div class="modal-body">
+								<div>
+									<div class="card card-container">
+										<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+										<p id="profile-name" class="profile-name-card"></p>
+										<form class="form-signin">
+											<span id="reauth-email" class="reauth-email"></span>
+
+											<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
+											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="loginPass" />
+
+											<div id="remember" class="checkbox">
+												<label>
+													<input type="checkbox" value="remember-me"> Remember me
+												</label>
+											</div>
+											<button class="btn btn-lg btn-block btn-signin" ng-click="checkLogin()" >Sign in</button>
+										</form><!-- /form -->
+									
+									</div><!-- /card-container -->
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			
+		
+			<!--<div ng-view autoscroll="true"></div>-->
+			
+		
+		
+
+			<div ng-controller="BreadcrumbCtrl" >
+				<div ng-if="breadcrumbs.get().length > 1">
+					<div  ng-include src="'view/header/breadCrumb.html'" ></div>
+				</div>
+			</div>
+			<div ng-view autoscroll="true"></div>
+			
+			<!--Footer-->
+			<footer id="footer">
+				<div style="width: 100%;">
+					<div class="row" style="padding-bottom: 40px;">
+						<div class="col-sm-12">
+							<div class="col-sm-6 col-xs-12 text-center">
+							<ul class="footer-list" style="list-style-type: none;display: inline-flex;">
+								<li><a href="#a">ABOUT</a></li>
+								<li><a href="#a">TERMS &amp; PRIVACY</a></li>
+								<li><a href="#a">PRIVACY POLICY</a></li>
+								<li><a href="#a">CONTACT US</a></li>
+							</ul>
+						</div>
+							<div class="col-sm-4 col-xs-12">
+							<div class="subscribe">
+								<form action="#a">
+									<label for="lbl-01" style="padding: 0px;padding-right: 4px;">Email</label>
+									<div class="form-group">
+										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
+									</div>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 27px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+								</form>
+							</div>
+						</div>
+						
+						<div class="col-sm-2 col-xs-12">
+						<ul class="social" style="display:block;line-height: 15px;">
+								<li><a href="#"><label style="font-size: 13px;">Facebook</label></a></li><br>
+								<li><a href="#"><label style="font-size: 13px;">Twitter</label></a></li><br>
+							</ul>
+						</div>	
+						</div>
+						
+					</div><!-- /row -->
+				</div><!-- /container-fluid -->
+			</footer><!-- /footer -->
+			<!--End of Footer-->
+	
+			<!-- javascript -->
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="js/scripts.js"></script>
+			<script src="js/spiner.js"></script>
+			<script src="js/carousel.js"></script>		
+			<script src="js/bootstrap.js"></script>
+			<script src="bower_components/angular/angular.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.js"></script>
+			<script src="bower_components/angular-route/angular-route.js"></script>
+			<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+			<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+			<script src="bower_components/angular-html5-storage/dist/angular-html5-storage.min.js"></script>
+			<script src="bower_components/restangular/dist/restangular.min.js"></script>
+			<script src="bower_components/lodash/lodash.min.js"></script>
+			<script src="js/ng-breadcrumbs.js"></script>
+			
+			<script src="js/ngInfiniteScroll.js" ></script>
+			<script src="controller/myApp.js"></script>
+			
+			<script src="controller/productCtrl.js" ></script>
+			<script src="controller/categoryProCtrl.js" ></script>
+			<script src="controller/menuCtrl.js"></script>
+			<script src="controller/designerCtrl.js"></script>
+			<script src="controller/singleProductCtrl.js"></script>
+			<script src="controller/singleCategoryCtrl.js"></script>
+			<script src="controller/breadCrumbsCtrl.js"></script>
+			<script src="controller/shopCtrl.js"></script>
+			<script src="controller/allShopCtrl.js"></script>
+			<script src="controller/cartCtrl.js"></script>
+			<script src="controller/loginCtrl.js"></script>
+			
+			<script src="js/directive.js"></script>
+			<script src="controller/imgViewCtrl.js"></script>
+			<script src="js/ng-file-upload.js" ></script>
+			<script src="js/jquery.elevatezoom.min.js" ></script>
+			<script src="js/ng-file-upload-shim.js" ></script>
+			<script src="controller/uploadCtrl.js" ></script>
+			<script src="js/services.js"></script>
+			<script src="controller/chatCtrl.js" ></script>
+			<script src="js/ng-img-crop.js"></script>
+			<script src="js/angular-image-cropper.min.js"></script>
+			<script src="js/jquery-ui.min.js"></script>
+			<script src="js/ui-bootstrap-tpls.js"></script>
+			<script src="js/angular-bootstrap-lightbox.js"></script>
+			<script src="js/imageupload.js"></script>
+			
+		</div><!-- /wrapper -->
+	</body>
+</html>
