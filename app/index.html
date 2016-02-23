@@ -113,7 +113,8 @@
 				</div>
 			</div>
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length > 1">
+				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
+				
 					<div  ng-include src="'view/header/breadCrumb.html'" ></div>
 				</div>
 			</div>
