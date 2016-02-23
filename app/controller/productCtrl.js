@@ -44,9 +44,11 @@
 									'quantity': products[i].quantity,
 									'price': products[i].pricingProduct.storedValue,
 									'imagePath': products[i].imageInfo.imagePath,
-									'prodCat': products[i].category.id
+									'prodCat': products[i].category.id,
+									'prodVar': products[i].productVariation
 									
 								}
+								console.log(products[i].productVariation);
 								
 								$scope.infiniteList.push(value);
 								
@@ -103,7 +105,8 @@
 									'quantity': products[i].quantity,
 									'price': products[i].pricingProduct.storedValue,
 									'imagePath': products[i].imageInfo.imagePath,
-									'prodCat': products[i].category.id
+									'prodCat': products[i].category.id,
+									'prodVar': products[i].productVariation
 									
 								}
 								
