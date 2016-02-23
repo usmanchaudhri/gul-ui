@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Gulgs</title>
+
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
@@ -176,7 +177,8 @@
 		
 
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length > 1">
+				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
+				
 					<div  ng-include src="'view/header/breadCrumb.html'" ></div>
 				</div>
 			</div>
