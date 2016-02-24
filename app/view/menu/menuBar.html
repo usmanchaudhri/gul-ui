@@ -1,0 +1,74 @@
+<div class="row">
+<div class="col-sm-12">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+		<div class="main-nav">
+		<ul class="nav">
+			<li class="has-drop dropdown menu-large">
+				<a href="#allShops">Shop<span class="opener" style="height: 26px;margin-top: 5px;margin-right: 12px;">Open Drop</span></a>
+				<ul class="dropdown-menu megamenu row " id="dropdown-menu" style="display: none;">
+					<li class="col-sm-4" ng-repeat="x in shop">
+						<ul>
+							<li>
+								<span>
+									<a href="#shop/{{x.id}}"><strong>{{x.name}}</strong></a> 
+								</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#categories/6">MEN</a>
+				<ul class="dropdown-menu" id="men-dropdown-menu" style="display: none;">
+					<span ng-repeat="x in cat">
+						<span ng-if="x.name == 'Men'">
+						
+							<li ng-repeat = "a in x.subCategories">
+								<span ng-if="checkLength(a.subCategories) == '0'">
+									<a href="#categoryProducts/{{a.id}}"><strong>{{a.name}}</strong></a>
+								</span>
+								<span ng-if="checkLength(a.subCategories) != '0'">
+									<a href="#categories/{{a.id}}"><strong>{{a.name}}</strong></a>
+								</span>
+							</li>
+					
+				
+					
+						</span>
+					</span>
+				</ul>
+			</li>
+	
+			<li><a href="#categories/1">WOMEN</a>
+				<ul class="dropdown-menu" id="women-dropdown-menu" style="display: none;">
+					<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
+							<li ng-repeat = "a in x.subCategories">
+								<span ng-if="checkLength(a.subCategories) == '0'">
+									<a href="#categoryProducts/{{a.id}}"><strong>{{a.name}}</strong></a>
+								</span>
+								<span ng-if="checkLength(a.subCategories) != '0'">
+									<a href="#categories/{{a.id}}"><strong>{{a.name}}</strong></a>
+								</span>
+					
+							</li>
+						</span>
+					</span>
+				</ul>
+			</li>
+			<li><a href="#">Inspiration</a>
+				<ul class="dropdown-menu" id="inspiration-dropdown-menu" style="display: none;">
+					
+				</ul>
+			</li>
+		</ul>
+	</div>	
+</div>
+
+<div class="col-sm-1"></div>	
+</div>
+
+</div>
+
+
+<!--End of Dropdown Menu-->

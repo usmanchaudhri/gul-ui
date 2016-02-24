@@ -1,0 +1,28 @@
+{
+  "name": "gul-ui",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.3",
+    "angular": "~1.4.7",
+    "lodash": "~3.10.1",
+    "angular-route": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "jquery": "~2.1.4",
+    "angular-cookies": "~1.4.7",
+    "restangular": "~1.5.1"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "~3.4.2",
+    "mocha": "~2.3.4"
+  }
+}

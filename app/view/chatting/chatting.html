@@ -1,0 +1,93 @@
+<div class="container">
+	
+	<form class="form-horizontal" role="form">
+    
+    
+    
+		<!-- DIRECT CHAT SUCCESS -->
+		<div class="box box-success direct-chat direct-chat-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Direct Chat</h3>
+			</div><!-- /.box-header -->
+			<br/>
+			<br/>
+			<div  class=" box-body" >
+        
+				<div>
+					<!-- Conversations are loaded here -->
+					<div class="direct-chat-messages" >
+					<div ng-repeat="x in retMsg.messages">
+						<!-- Message. Default to the left -->
+						<span ng-if="x.from == 'Amjad'">
+							<div class="direct-chat-msg">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-info pull-left">Alexander Pierce</span>
+									<span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+								</div><!-- /.direct-chat-info -->
+             
+								<div class="direct-chat-text">
+									{{x.body}}
+								</div><!-- /.direct-chat-text -->
+							</div><!-- /.direct-chat-msg -->
+						</span>
+						<span ng-if="x.from == '15'">
+							<div class="direct-chat-msg right">
+								<div class="direct-chat-info clearfix">
+									<span class="direct-chat-name pull-right">Sarah Bullock</span>
+									<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+								</div><!-- /.direct-chat-info -->
+              
+								<div class="direct-chat-text">
+								{{x.body}}
+								</div><!-- /.direct-chat-text -->
+							</div><!-- /.direct-chat-msg -->
+          
+						</span>
+						</div>
+						<!-- Message to the right -->
+					</div><!--/.direct-chat-messages-->
+					<br/>
+					<!-- Contacts are loaded here -->
+					<div class="direct-chat-contacts">
+						<ul class="contacts-list">
+							<li>
+								<a href="#">
+                  
+									<div class="contacts-list-info">
+										<span class="contacts-list-name">
+											Count Dracula
+											<small class="contacts-list-date pull-right">2/28/2015</small>
+										</span>
+										<span class="contacts-list-msg">How have you been? I was...</span>
+									</div><!-- /.contacts-list-info -->
+								</a>
+							</li><!-- End Contact Item -->
+						</ul><!-- /.contatcts-list -->
+					</div><!-- /.direct-chat-pane -->
+				</div>
+        
+        
+				<div class="col-md-12">
+					<textarea class="form-control" rows="5"  ng-model="msgBody" ></textarea>
+					<br/>
+					<span class="col-md-2 col-md-push-5">
+						<button type="button" class="btn btn-success" ng-click="sendMessage()">Send</button>
+					</span>
+					<span class="col-md-2 col-md-push-5">
+						<button type="button" class="btn btn-success" ng-click="retrieveMessage()">Show</button>
+					</span>
+				</div>
+			</div><!-- /.box-body -->
+		</div>
+         
+       
+		<!-- /.col -->
+    
+    
+    
+    
+    
+      
+	</form>
+</div>
+

@@ -1,0 +1,129 @@
+/*.imageDiv{
+	position: relative;
+	float: left;
+	margin-left: 0px;
+	margin-top: 0PX;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	width: 250px;
+	height: 300px;
+	
+}*/
+.imageText{ 
+	position: relative; 
+	bottom: 0px; 
+	left: 0; 
+	width: 100%;
+	height: 50px;
+	/*background-color: #727272; */
+	padding-top: 10px;
+	text-align: center;
+   	
+}
+.imageText a{
+	color: #FFFFFF;
+	text-decoration: none;
+    
+}
+.imageText a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.proDes{
+	line-height: 10px;
+	color: black;
+	font-family: "Gill Sans MT";
+	font-size: 18px;
+	margin-left: 0px;
+}
+
+.proAuth{
+	line-height: 10px;
+	color: #fff;
+	font-size: 8px;
+	margin-left: 0px;
+}
+.offerText{
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	color: #e86903;
+	margin-left: 0px;
+	
+}
+.buyBtn{
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+	padding: 1px 10px 0;
+	border: 0;
+	color: #e86903;
+	border-radius: 0;
+	font: 13px/17px 'helveticaneue-bold', sans-serif;
+	text-transform: uppercase;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.38);
+	box-shadow: 0 1px 3px rgba(0,0,0,.38);
+}
+.main-nav > ul {
+	list-style: none;
+	margin: 0 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+img[ bn-lazy-src ] {
+	background-image: url('../images/ajax-loader.gif') ;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 300px;
+}
+
+
+#desDetail{
+	width: 954px;
+	height: auto;
+	margin-top: 15px;
+}        
+        
+#desImage{
+	position: relative;
+	width: 150px;
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: left;
+}
+#desInfo{
+	width: auto;
+	position: relative;
+	float: left;
+	margin-left: 25px;
+}
+.navbar-collapse.collapse {
+	display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+	float: right !important;
+	text-align: right !important;
+}
+
+.navbar-nav.navbar-center:last-child {
+	margin-right: -15px !important;
+}
+#designerContainer{
+	margin-bottom: 100px;
+	margin-top: 50px;	
+}
+
+.nav ul{
+	border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+.proDes p {
+    margin: 0px 15px 7px;
+    line-height: 15px;
+}
