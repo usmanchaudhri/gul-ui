@@ -78,7 +78,7 @@ h2 span {
 }
 .btn-primary {
 	color: gray;
-	background: #eee;
+	background: #eee !important;
 	background: url(data:image/svg+xml;
 	base64,
 	PD94bWwgdmVyc2lvbj0iMS4wIiA/
