@@ -1,5 +1,10 @@
  app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q' ,function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
 		
+		var config = {
+				headers : {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
+			}
 		$http.get("gulgs.properties")
 		.then(function(response) {
 			
@@ -11,11 +16,7 @@
 				$scope.createChannel();
 			});
 		
-		$scope.prepareCall = function(){
-			
-			var base64 = Base64.encode( $scope.twilioUsername + ':' + $scope.twilioAuth );
-			$http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
-		}
+		
 		$scope.regUser = function(user){
 			$scope.prepareCall();
 			var config = {
@@ -40,14 +41,7 @@
 		
 		$scope.createChannel = function(){
 			$scope.prepareCall();
-			var config = {
-				headers : {
-					'Access-Control-Allow-Origin': 'http://www.ip-messaging.twilio.com',
-					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-					
-					
-				}
-			}
+			
 		
 			var data1 = $.param({
 					UniqueName : 'AmjadGulgs',
@@ -156,7 +150,6 @@
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-					'Access-Control-Allow-Origin' : '*'
 				}
 			}
 		
