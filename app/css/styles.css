@@ -1945,7 +1945,53 @@ select{
 @media (min-width: 200px) and (max-width: 500px){
 .cart-elements{
 	padding-left: 10px !important;
+	
 }
+#control-nav  {
+		display: none;
+		}
+#menu-account{
+			
+			margin-right: 140px;
+			display: block;
+			    border: 0px;
+            box-shadow: none;
+            text-align-last: center;
+            width: 100%;
+           color:#000000;
+			
+		}
+#menu-display{
+			display:inline !important;
+		}
+#dropdown-menubar{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+        width: 100%;
+		}
+		
+		
+		
+		#men-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+         width: 100%;
+		}
+		#women-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+         width: 100%;
+		}
+		
+		
+	
+		
 
 .cart-label{
 	margin-left: -10px;
@@ -1957,6 +2003,7 @@ select{
 	.cart-elements{
 	padding-left: 15px !important;
 }
+
 }
 @media (max-width: 300px){
 	.image-button input{
@@ -1992,3 +2039,63 @@ select{
 	height: 30px;
 	font-size: 15px;
 }
+
+
+@media (max-width: 768px) {
+    .btn,.btn-group {
+        width:100%;
+    }
+    #control-nav  {
+		display: none;
+		}
+#menu-account{
+			
+			margin-right: 140px;
+			display: block;
+			    border: 0px;
+            box-shadow: none;
+            text-align-last: center;
+            width: 100%;
+           color:#000000;
+			
+		}
+#menu-display{
+			display:inline !important;
+		}
+#dropdown-menubar{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+        width: 100%;
+		}
+		
+		
+		
+		#men-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+         width: 100%;
+		}
+		#women-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        text-align-last: center;
+         width: 100%;
+		}
+}
+
+
+
+
+	
+	
+		
+	
+
+
+
+

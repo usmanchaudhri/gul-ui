@@ -3,25 +3,31 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
 		<div class="main-nav">
-		<ul class="nav">
+		<ul class="nav ">
 			<li class="has-drop dropdown menu-large">
-				<a href="#allShops">Shop<span class="opener" style="height: 26px;margin-top: 5px;margin-right: 12px;">Open Drop</span></a>
-				<ul class="dropdown-menu megamenu row " id="dropdown-menu" style="display: none;">
-					<li class="col-sm-4" ng-repeat="x in shop">
-						<ul>
+				<a href="#allShops" class="dropdown-toggle">Shop</a>
+				
+				<ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
+					<li class="col-sm-4">
+						
 							<li>
-								<span>
+							<!--<span>
 									<a href="#shop/{{x.id}}"><strong>{{x.name}}</strong></a> 
-								</span>
-							</li>
-						</ul>
+								</span> -->
+								this 
+								</li>
+								<li>dlkdhfd</li>
+								<li>djfdklf</li>
+								<li>fhdkfdk</li>
+								<li>dfkd</li>
+						
 					</li>
 				</ul>
 			</li>
 			<li>
 				<a href="#categories/6">MEN</a>
-				<ul class="dropdown-menu" id="men-dropdown-menu" style="display: none;">
-					<span ng-repeat="x in cat">
+				<ul class="dropdown-menu  " id="men-dropdown-menu" >
+				<!--	<span ng-repeat="x in cat">
 						<span ng-if="x.name == 'Men'">
 						
 							<li ng-repeat = "a in x.subCategories">
@@ -36,13 +42,17 @@
 				
 					
 						</span>
-					</span>
+					</span> -->
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
 				</ul>
 			</li>
 	
 			<li><a href="#categories/1">WOMEN</a>
-				<ul class="dropdown-menu" id="women-dropdown-menu" style="display: none;">
-					<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
+				<ul class="dropdown-menu  " id="women-dropdown-menu" >
+				<!--	<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
 							<li ng-repeat = "a in x.subCategories">
 								<span ng-if="checkLength(a.subCategories) == '0'">
 									<a href="#categoryProducts/{{a.id}}"><strong>{{a.name}}</strong></a>
@@ -53,14 +63,48 @@
 					
 							</li>
 						</span>
-					</span>
+					</span>  -->
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
+					<li>dfkdfd</li>
 				</ul>
 			</li>
 			<li><a href="#">Inspiration</a>
-				<ul class="dropdown-menu" id="inspiration-dropdown-menu" style="display: none;">
+				<ul class="dropdown-menu   " id="inspiration-dropdown-menu" >
 					
 				</ul>
 			</li>
+			
+											
+											
+											<li style="display: none;" id="menu-display" ><a  href="#">Account</a>
+											
+											
+												<ul class="dropdown-menu row dropdown-menu"  id="menu-account">
+													<li>
+														<a href="#acc">Settings</a>
+													</li>
+													
+													<li>
+														<a href="#fav">Order Status</a>
+													</li>
+													
+													<li>
+														<a href="#status">Chat</a>
+													</li>
+													
+													<li>
+														<a href="" ng-click="userLogout()">Logout</a>
+													</li>
+												</ul>
+											</li>
+											
+										
+											
+			
+			
 		</ul>
 	</div>	
 </div>
