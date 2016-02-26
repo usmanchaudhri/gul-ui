@@ -46,3 +46,14 @@ $(document).ready(function(){
 });
 
 
+ $(document).ready(function() {
+    $('#itemdetail').click(function() {
+    	$(".two2").hide("fast")
+    	 $(".three3").hide("fast")
+    	 
+            $('.one1').slideToggle("slide");
+    });
+});
+
+
+
