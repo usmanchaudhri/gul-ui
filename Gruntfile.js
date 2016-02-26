@@ -305,7 +305,7 @@ module.exports = function (grunt) {
  uncss: {
     dist: {
         options: {
-            ignore: ['.ng-move', '.ng-enter', '.ng-leave', '.created_by_jQuery']
+            ignore: ['.navbar.scroll']
         },
         files: {
             '<%= config.dist %>/css/style.css': [ '<%= config.app %>/index.html',
@@ -314,7 +314,7 @@ module.exports = function (grunt) {
     }
 },
     
-
+//'.ng-move', '.ng-enter', '.ng-leave', '.created_by_jQuery'
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
