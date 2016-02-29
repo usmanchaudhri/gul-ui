@@ -10,27 +10,23 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
 			
-			
 			$http.get("gulgs.properties")
 			.then(function(response) {
-			
 					$scope.productUrl = response.data.productUrl;
 					$scope.categoryUrl = response.data.categoryUrl;
 					$http.get(response.data.categoryUrl)
 					.then(function(response1){
 							$scope.categoryDetail = response1.data;
-    	
 						});
 				});
-			
-			
+		
 			/*
 			*
 			Add images into Array
 			*
 			*/
+			
 			$scope.addImages=function(files){
-				
 				var value = {
 					// File Name 
 					name: files.name,
@@ -43,8 +39,6 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				};
 				//console.log("Value"+value);
 				$scope.allFiles.push(value);
-
-				
 			};
 			
 			
@@ -79,7 +73,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				).success(function(data, status) {
 						console.log(data);
 						$scope.newProId = data.id;
-						$scope.uploadImages();
+						$scope.uploadProduct();
 					}).error(function (data, status) {
 						console.log(data);
 						console.log(status);
@@ -102,16 +96,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						resizeImg(myItem,deferred);
 					});
 				$q.all(promises).then(function () {
-						/*if(imgSize <2){
-						if(imgSize == 1){
-						resizeMaxHeight = 300;
-						resizeMaxWidth = 300;
-			
-						}
-						$scope.resizeUpload(tmpFiles);
-						}else{*/
 						$scope.uploadImages();
-						//}
 					});
 			}
 			
@@ -157,7 +142,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 								$scope.errorMsg = response.status + ': ' + response.data;
 							}, function (evt) {
 								// Math.min is to fix IE which reports 200% sometimes
-							//	console.log(evt);
+								//	console.log(evt);
 								angular.forEach($scope.progressArr, function(value, key){
 										if(evt.config._file.name == value.imgName){
 											$scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -194,7 +179,16 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 					"shop": {
 						"id": $scope.cat.id
 					},
-					"productVariation": [{}]
+					"productVariation": [{
+							"size": "L",
+							"color": "Red"
+						},{
+							"size": "M",
+							"color": "Red"
+						},{
+							"size": "S",
+							"color": "Red"
+						}]
 				}
 			}
 
@@ -336,7 +330,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				var resizeAreaId = 'fileupload-resize-area';
 
 				var resizeArea = document.getElementById(resizeAreaId);
-console.log("ResizeArea Before");
+				console.log("ResizeArea Before");
 					
 				if (!resizeArea) {
 					console.log("ResizeArea If Called");
@@ -352,22 +346,22 @@ console.log("ResizeArea Before");
 			var resizeImage = function (origImage, options) {
 				//var canvas = createHiDPICanvas(500, 600, 4);
             
-                var canvas=document.createElement("canvas");
-        var ctx=canvas.getContext("2d");
-            /// step 1
-            var oc = document.createElement('canvas'),
-                octx = oc.getContext('2d');
-            oc.width = origImage.width ;
-            oc.height = origImage.height; 
-            octx.drawImage(origImage, 0,0, oc.width,oc.height);
+				var canvas=document.createElement("canvas");
+				var ctx=canvas.getContext("2d");
+				/// step 1
+				var oc = document.createElement('canvas'),
+				octx = oc.getContext('2d');
+				oc.width = origImage.width ;
+				oc.height = origImage.height; 
+				octx.drawImage(origImage, 0,0, oc.width,oc.height);
 
-            /// step 2
-            octx.drawImage(oc,0,0,oc.width,oc.height);
+				/// step 2
+				octx.drawImage(oc,0,0,oc.width,oc.height);
             
-            canvas.width=300;
-            canvas.height=300;
-            ctx.drawImage(oc,0,0,oc.width, oc.height,
-                             0,0,canvas.width,canvas.height);
+				canvas.width=300;
+				canvas.height=300;
+				ctx.drawImage(oc,0,0,oc.width, oc.height,
+					0,0,canvas.width,canvas.height);
 				
 				return canvas.toDataURL('image/png',1);
 			};
@@ -453,27 +447,27 @@ console.log("ResizeArea Before");
 			};
 		
 			var PIXEL_RATIO = (function () {
-    var ctx = document.createElement("canvas").getContext("2d"),
-        dpr = window.devicePixelRatio || 1,
-        bsr = ctx.webkitBackingStorePixelRatio ||
-              ctx.mozBackingStorePixelRatio ||
-              ctx.msBackingStorePixelRatio ||
-              ctx.oBackingStorePixelRatio ||
-              ctx.backingStorePixelRatio || 1;
+					var ctx = document.createElement("canvas").getContext("2d"),
+					dpr = window.devicePixelRatio || 1,
+					bsr = ctx.webkitBackingStorePixelRatio ||
+					ctx.mozBackingStorePixelRatio ||
+					ctx.msBackingStorePixelRatio ||
+					ctx.oBackingStorePixelRatio ||
+					ctx.backingStorePixelRatio || 1;
 
-    return dpr / bsr;
-})();
+					return dpr / bsr;
+				})();
 
 			createHiDPICanvas = function(w, h, ratio) {
-    if (!ratio) { ratio = PIXEL_RATIO; }
-    var can = document.createElement("canvas");
-    can.width = w * ratio;
-    can.height = h * ratio;
-    can.style.width = w + "px";
-    can.style.height = h + "px";
-    can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
-    return can;
-}
+				if (!ratio) { ratio = PIXEL_RATIO;}
+				var can = document.createElement("canvas");
+				can.width = w * ratio;
+				can.height = h * ratio;
+				can.style.width = w + "px";
+				can.style.height = h + "px";
+				can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+				return can;
+			}
 
 		}]);
 

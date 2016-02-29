@@ -9,6 +9,13 @@
 .chat-box-div {
     
 } 
+
+.chat-menu li{
+	font-size: 15px;
+	line-height: 25px;
+	
+}
+
 .chat-box-head {
     padding: 10px 15px;
 background-color: #e86903;
@@ -29,6 +36,7 @@ margin-bottom: 15px;
    /* position: relative;*/
    background-color: rgba(4, 158, 100, 0.13);
     font-size:12px;
+    line-height: 25px;
 }
 .chat-box-left:after {
     top: 100%;
@@ -63,7 +71,9 @@ margin-bottom: 15px;
     position: relative;
    background-color: rgba(53, 78, 160, 0.12);
     font-size:12px;
+    line-height: 25px;
 }
+
 .chat-box-right:after {
     top: 100%;
     right: 10%;
@@ -84,8 +94,10 @@ margin-bottom: 15px;
         max-width:40px;
         border: 2px solid #354EA0;
     }
+    
+    
 .chat-box-footer {
-    background-color: #D8D8D8;
+    background-color: rgba(216, 216, 216, 0.32);
 padding: 10px;
 margin-top: 15px;
 }
@@ -137,6 +149,8 @@ text-align: center;
         margin-bottom:10px;
         
     }
+    
+
 
     /*======================================
   NEW  CHAT  STYLES

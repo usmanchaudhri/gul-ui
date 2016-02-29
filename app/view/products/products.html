@@ -10,7 +10,7 @@
 </div>
 <div class="container">
 	<div class="row text-center">
-		<h1>Tag Line here!</h1>
+		<h1>Unique Personalized Dresses</h1>
 	</div>
 	
 	<div class="row">
@@ -29,16 +29,15 @@
 			
 				<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList | orderBy:sorting track by $index" >
 					<a ng-href="#productDetailPage/{{a.id}}">	
-						<img bn-lazy-src= "{{fixPath + a.imagePath+token}}"></a>
+						<img bn-lazy-src= "{{fixPath +'300x300-img-'+a.id+'.png'+token}}"></a>
 	
 					<div class="row info-boxes" style="margin: 0px;">
 						<div class="col-sm-12 col-xs-12 image-button" >
 							<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
-							<a ><input type="submit" value="XS" ng-click="storeProductsInCookie(a,'XS',1)"/></a>
-							<a ><input type="button" value="S" ng-click="storeProductsInCookie(a,'S',1)" /></a>
-							<a ><input type="button" value="M" ng-click="storeProductsInCookie(a,'M',1)" /></a>
-							<a ><input type="button" value="L" ng-click="storeProductsInCookie(a,'L',1)" /></a>
-							<a ><input type="button" value="XL" ng-click="storeProductsInCookie(a,'XL',1)" /></a>
+							<span ng-repeat="x in a.prodVar">
+								<a ><input type="submit" value="{{x.size}}" ng-click="storeProductsInCookie(a,x.size,1)"/></a>	
+							</span>
+							
 						</div>
 						<div class="imageText">
 							<span class="proDes">
@@ -51,7 +50,6 @@
 							</span>
 						</div>
 					</div>
-					
 				</div>
 				<div style='clear: both;'></div>
 			</div>

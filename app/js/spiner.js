@@ -45,7 +45,6 @@ $(function(){
 
 
 
-jQuery("#my_styles .btn").click(function(){
-    jQuery("#my_styles .btn").removeClass('active');
-    jQuery(this).toggleClass('active'); 
-});
+
+
+
