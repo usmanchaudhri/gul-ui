@@ -97,7 +97,7 @@ $("#itemdetail").click(function () {
 						</div>
 					</div>
 				</div >
-				<a href="#chat/{{productDetail.name}}"><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;">ADD TO BAG</button></a>
+				<a href="#chat/{{productDetail.name}}"><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			
@@ -115,6 +115,7 @@ $("#itemdetail").click(function () {
 							<div class="modal-body">
 								<textarea style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Something in Textarea!</textarea>
 							</div>
+							
 							<div class="modal-footer">
 								<a href="#"><button type="button" class="btn btn-default" data-dismiss="modal">Send</button></a>
 							</div>
@@ -132,6 +133,7 @@ $("#itemdetail").click(function () {
 <div class="container">
 	<div class="row">
 		<div class="row customise-sec text-center" >
+<!--<<<<<<< HEAD
 			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3 id="showdiv1">Item Details</h3></label>
 				
 			
@@ -167,7 +169,29 @@ $("#itemdetail").click(function () {
 		
 		<div id="custom-section" class="row" >
 			<div class="col-sm-12 asd" style=" width: 100%; height: 300px;margin-top: 10px;padding-left: 25px;" >
-				{{productDetail.longDesc}}
+=======-->
+			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3>Item Details</h3></label>
+			<div class=" one1" style="display: none;" >
+				<p>this is one </p>
+			</div>
+			</div>
+			<div class="col-sm-4 customization-border custom-divider">
+			<label class="clr" id="customization"><h3>Customization</h3></label>
+			<div class=" two2" style="display: none;" >
+				<p>this is two </p>
+			</div>
+			</div>
+			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3>Shipping & Return Policy</h3></label>
+			<div class=" three3"  style="display: none;">
+				<p>this is THree </p>
+			</div>
+			</div>
+		</div>
+		
+		
+		
+		<div id="custom-section" class="row one1"  style="display: none;" >
+			<div class="col-sm-12" style=" width: 100%; margin-top: 10px;padding-left: 25px;" >
 			</div>
 			
 			
@@ -181,3 +205,32 @@ $("#itemdetail").click(function () {
 <div class="jumbotron" >
 	<a href="#item"></a>
 </div>
+
+<script>
+	
+	 $(document).ready(function() {
+    $('.itemdetail-border').click(function() {
+    	$(".two2").hide("fast")
+    	 $(".three3").hide("fast")
+    	 
+            $('.one1').slideToggle("slide");
+    });
+});
+ $(document).ready(function() {
+    $('.customization-border').click(function() {
+    	$(".one1").hide("fast")
+    	 $(".three3").hide("fast")
+    	 
+            $('.two2').slideToggle("slide");
+    });
+});
+ $(document).ready(function() {
+    $('.shipping-border').click(function() {
+    	$(".one1").hide("fast")
+    	 $(".two2").hide("fast")
+    	 
+            $('.three3').slideToggle("slide");
+    });
+});
+</script>
+

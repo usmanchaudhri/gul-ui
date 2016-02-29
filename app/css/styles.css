@@ -218,6 +218,7 @@ h2 span {
 	display: block;
 	padding: 12px 10px 0;
 	color: #c3c1c1;
+	font-size: 12px;
 }
 .main-nav > ul > li > ul ul {
 	list-style: none;
@@ -799,7 +800,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		display: none;}
 	.main-nav > ul > li > a { 
 		position: relative;
-		font: 22px/26px Arial, Helvetica, sans-serif !important;
+		font: 14px/26px Arial, Helvetica, sans-serif !important;
 		padding: 5px;
 
 		}
@@ -1942,13 +1943,65 @@ select{
 .footer-list li{
 	padding: 10px;
 	font-size: 12px;
+	margin-top: 10px;
 }
 /*End of Footer*/
 
 @media (min-width: 200px) and (max-width: 500px){
 .cart-elements{
 	padding-left: 10px !important;
+	
 }
+.btn,.btn-group {
+        width:100%;
+    }
+#control-nav  {
+		display: none;
+		}
+#menu-account{
+			
+			margin-right: 140px;
+			display: block;
+			    border: 0px;
+            box-shadow: none;
+            
+            width: 100%;
+           color:#000000;
+			
+		}
+#menu-display{
+			display:inline !important;
+		}
+#dropdown-menubar{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        
+        width: 100%;
+		}
+		
+		
+		
+		#men-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        ;
+         width: 100%;
+		}
+		#women-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+       
+         width: 100%;
+		}
+		
+		.signin-label{
+			display: none;
+		}
+	
+		
 
 .cart-label{
 	margin-left: -10px;
@@ -1960,8 +2013,12 @@ select{
 	.cart-elements{
 	padding-left: 15px !important;
 }
+
+
 }
 @media (max-width: 300px){
+	
+	
 	.image-button input{
 		font-size: 8px;
 	}
@@ -1982,16 +2039,82 @@ select{
 .ind-pro-thumbnail{
 	padding-left: 0px !important;	
 }
-	
-}
+
 .cropArea {
 	overflow: hidden;
 	
 }
 
 @media (min-width: 768px){
+	
 }
 .order-right-table td{
 	height: 30px;
 	font-size: 15px;
+	
+	
 }
+
+
+@media (max-width: 768px) {
+	.btn,.btn-group {
+        width:100%;
+    }
+    
+    #control-nav  {
+		display: none;
+		}
+#menu-account{
+			
+			margin-right: 140px;
+			display: block;
+			    border: 0px;
+            box-shadow: none;
+            
+            width: 100%;
+           color:#000000;
+			
+		}
+#menu-display{
+			display:inline !important;
+		}
+#dropdown-menubar{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+       
+        width: 100%;
+		}
+		
+		
+		
+		#men-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+        
+         width: 100%;
+		}
+		#women-dropdown-menu{
+			display: block;
+			    border: 0px;
+         box-shadow: none;
+       
+         width: 100%;
+		}
+		.signin-label{
+			display: none;
+		}
+}
+
+
+
+
+	
+	
+		
+	
+
+
+
+

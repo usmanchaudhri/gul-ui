@@ -46,7 +46,7 @@
 										
 									</div>
 									<div class="col-sm-10 col-xs-7">
-									<div class="col-sm-2 col-xs-3 col-sm-push-6 col-xs-push-11 cart-label">
+									<div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-11 cart-label">
 										<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 										<li><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
 											<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
@@ -61,7 +61,7 @@
 										<div class="main-nav">
 									<ul class="nav account-navbar">
 											
-											<li style="margin:0px;float:right;"><a href="#" style="padding: 0px;font-size: 10px;"><b>Account</b></a>
+											<li style="margin:0px;float: right;"><a href="#" style="padding: 0px;font-size: 10px; " id="control-nav">Account</a>
 												<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
 													<li>
 														<a href="#acc">Settings</a>
@@ -200,19 +200,19 @@
 							<div class="col-sm-4 col-xs-12">
 							<div class="subscribe">
 								<form action="#a">
-									<label for="lbl-01" style="padding: 0px;padding-right: 4px;">Email</label>
+									<label for="lbl-01" style="padding: 7px;padding-right: 4px;">Email</label>
 									<div class="form-group">
 										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
 									</div>
-									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 27px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 26px;border: 3px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
 								</form>
 							</div>
 						</div>
 						
-						<div class="col-sm-2 col-xs-12">
-						<ul class="social" style="display:block;line-height: 15px;">
-								<li><a href="#"><label style="font-size: 13px;">Facebook</label></a></li><br>
-								<li><a href="#"><label style="font-size: 13px;">Twitter</label></a></li><br>
+						<div class="col-sm-2 col-xs-12" >
+						<ul class="social" style="display:inline-flex;line-height: 15px; bottom: 0;">
+								<li ><a href="#"><label style="font-size: 13px; padding: 14px;padding-right: 17px;">Facebook</label></a></li>
+								<li><a href="#"><label style="font-size: 13px; padding: 14px;">Twitter</label></a></li><br>
 							</ul>
 						</div>	
 						</div>
@@ -252,7 +252,7 @@
 			<script src="controller/allShopCtrl.js"></script>
 			<script src="controller/cartCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
-			
+			<script src="js/jquery-1.12.1.min.js"></script>
 			<script src="js/directive.js"></script>
 			<script src="controller/imgViewCtrl.js"></script>
 			<script src="js/ng-file-upload.js" ></script>
