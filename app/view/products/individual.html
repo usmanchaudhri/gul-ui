@@ -1,4 +1,35 @@
 
+<!--
+<script>
+$("#itemdetail").click(function () {
+   $('.detail').slideToggle();
+});
+
+</script>
+-->
+<script type="text/javascript">
+	$( document ).ready(function() {
+		$(function() {
+		    $('#showdiv1').click(function() {
+		        $('div[id^=div]').hide();
+		        $('#div1').show();
+		    });
+		    $('#showdiv2').click(function() {
+		        $('div[id^=div]').hide();
+		        $('#div2').show();
+		    });
+
+		    $('#showdiv3').click(function() {
+		        $('div[id^=div]').hide();
+		        $('#div3').show();
+		    });
+
+		    
+
+		});
+	});
+</script>
+
 <div class="container" id="marg">
 	<div class="row">
 				
@@ -101,17 +132,45 @@
 <div class="container">
 	<div class="row">
 		<div class="row customise-sec text-center" >
-			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3>Item Details</h3></label>
+			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3 id="showdiv1">Item Details</h3></label>
+				
 			
 			</div>
-			<div class="col-sm-4 customization-border custom-divider"><label class="clr" id="customization"><h3>Customization</h3></label></div>
-			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3>Shipping & Return Policy</h3></label></div>
+			<div class="col-sm-4 customization-border custom-divider"><label class="clr" id="customization"><h3 id="showdiv2">Customization</h3></label></div>
+			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3 id="showdiv3">Shipping & Return Policy</h3></label></div>
+			
+			
+			
 		</div>
 		
+			<div id="div1">
+				<p>Some text Some text Some text Some text Some text</p>
+			</div>
+			
+			<div id="div2" style="display:none;">
+				<p>hihihhuhdkfdd</p>
+			</div>
+			
+			<div id="div3" style="display:none;">
+				<p>nononononononnonononono</p>
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<div id="custom-section" class="row" >
-			<div class="col-sm-12" style=" width: 100%; height: 300px;margin-top: 10px;padding-left: 25px;" >
+			<div class="col-sm-12 asd" style=" width: 100%; height: 300px;margin-top: 10px;padding-left: 25px;" >
 				{{productDetail.longDesc}}
 			</div>
+			
+			
 			
 		</div>
 		
