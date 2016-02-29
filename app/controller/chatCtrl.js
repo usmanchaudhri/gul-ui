@@ -12,18 +12,12 @@
 				$scope.twilioAuth = response.data.twilioAuth;
 				$scope.twilioUser = response.data.twilioUser;
 				$scope.twilioChannel = response.data.twilioChannel;
-				//app.use(allowCrossDomain);
+				$scope.twilio = response.data.twilio;
 				$scope.createChannel();
 			});
 		
 		
 		$scope.regUser = function(user){
-			$scope.prepareCall();
-			var config = {
-				headers : {
-					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-				}
-			}
 			var data = $.param({
 					Identity : user
 				});
@@ -40,49 +34,25 @@
 		}
 		
 		$scope.createChannel = function(){
-			$scope.prepareCall();
-			
-		
 			var data1 = $.param({
-					UniqueName : 'AmjadGulgs',
+					UniqueName : 'UzairAmjad',
 					Type: 'private'
 				});			
 			
 			$http.post(
 				$scope.twilioChannel,  data1,config
 			).success(function(data, status) {
+				console.log(data);
+				if(data == ''){
+					$scope.retrieveChannel();
+				}else{
 					$scope.data = data;
-					$scope.channelLink = data.links.members;
-					$scope.msgLink = data.links.messages;
-					console.log(data.sid);
-					var data2 = $.param({
-							Identity : 'Amjad'
-						});
-					var data1 = $.param({
-							Identity : 'Gulgs'
-						});
-					var promise1 = $http({
-							method: 'POST',
-							url: $scope.channelLink,
-							data: data2,
-							headers : {
-								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-							},
-							cache: 'true'});
-					var promise2 = $http({
-							method: 'POST',
-							url: $scope.channelLink,
-							data: data1,
-							headers : {
-								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-							},
-							cache: 'true'});
-
-					$q.all([promise1,promise2]).then(function(data){
-							console.log(data[0],data[1]);
-						}, function onError(response) {
-							console.log(response);
-						});
+					$scope.channelSid = data.sid;
+					addMembers();
+					
+				}
+					//console.log($scope.channelSid);
+					
 				
 				
 				}).error(function (data, status) {
@@ -100,7 +70,6 @@
 				
 			}*/
 			console.log('Called');
-			$scope.prepareCall();
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -122,8 +91,8 @@
 				});
 				
 		}
+	
 		$scope.retrieveMessage = function(){
-			$scope.prepareCall();
 			console.log("Error");
 			var config = {
 				headers : {
@@ -144,8 +113,8 @@
 				});
 				
 		};
+
 		$scope.retrieveChannel = function(){
-			$scope.prepareCall();
 			console.log("Check");
 			var config = {
 				headers : {
@@ -154,27 +123,47 @@
 			}
 		
 			$http.get(
-				$scope.twilioChannel+'/AmjadGulgs',config
+				$scope.twilioChannel+'/UzairAmjad',config
 			).success(function(data, status) {
-				$scope.channelLink = data.links.members;
-				$scope.msgLink = data.links.messages;
-				console.log("First");
+				$scope.channelSid = data.sid;
+				addMembers();
+				console.log(data.sid);
 				}).error(function (data, status) {
 					console.log(data);
 					console.log("3rd");
 				});
 				
 		}
-		/*
-		var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-  if ('OPTIONS' === req.method) {
-    res.send(200);
-  } else {
-    next();
-  }
-};*/
+		var addMembers = function(){
+			var data2 = $.param({
+							Identity : 'Amjad'
+						});
+					var data1 = $.param({
+							Identity : 'Uzair'
+						});
+					var promise1 = $http({
+							method: 'POST',
+							url: $scope.twilio+$scope.channelSid+'/Members',
+							data: data2,
+							headers : {
+								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+							},
+							cache: 'true'});
+					var promise2 = $http({
+							method: 'POST',
+							url: $scope.twilio+$scope.channelSid+'/Members',
+							data: data1,
+							headers : {
+								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+							},
+							cache: 'true'});
+
+					$q.all([promise1,promise2]).then(function(data){
+							console.log(data[0],data[1]);
+						}, function onError(response) {
+							console.log(response);
+						});
+		}
+	
   
 	}]);
