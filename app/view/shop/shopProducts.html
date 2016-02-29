@@ -28,7 +28,7 @@
 		
 
 		<a ng-href="#productDetailPage/{{a.id}}">		
-			<img bn-lazy-src= "{{'https://content.dropboxapi.com/1/files/auto/gul/product/images/' + a.imageInfo.imagePath + token}}"   ></a>
+			<img bn-lazy-src= "{{fixPath +'300x300-img-'+a.id+'.png'+token}}"   ></a>
 		<div class="imageText">
 			<span class="proDes">
 				<p>

@@ -78,7 +78,7 @@ h2 span {
 }
 .btn-primary {
 	color: gray;
-	background: #eee;
+	background-color: #eee !important;
 	background: url(data:image/svg+xml;
 	base64,
 	PD94bWwgdmVyc2lvbj0iMS4wIiA/
@@ -1151,7 +1151,7 @@ button.btn:active,button.btn.active{
 }*/
 
 #breadcrumbs{
-	margin-top: 0px;
+	margin-top: 1px;
 	margin-bottom: 12px;
 	/*padding-left: 10px;*/
 	
@@ -2051,6 +2051,7 @@ select{
 .order-right-table td{
 	height: 30px;
 	font-size: 15px;
+<<<<<<< HEAD
 	
 	
 }
@@ -2105,16 +2106,6 @@ select{
 		.signin-label{
 			display: none;
 		}
+
 }
-
-
-
-
-	
-	
-		
-	
-
-
-
 

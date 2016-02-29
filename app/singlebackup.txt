@@ -1,0 +1,1486 @@
+<?php 
+session_start();
+/**
+Template Name: Single post
+*/
+
+get_header(); 
+
+
+$single_style = ancora_get_custom_option('single_style');
+
+while( have_posts() ){ the_post();
+
+	// Move ancora_set_post_views to the javascript - counter will work under cache system
+	if(ancora_get_custom_option('use_ajax_views_counter')=='no'){
+		ancora_set_post_views(get_the_ID());
+	}
+
+	//ancora_sc_clear_dedicated_content();
+	ancora_show_post_layout(
+		array(
+			'layout' => $single_style,
+			'sidebar' => !ancora_sc_param_is_off(ancora_get_custom_option('show_sidebar_main')),
+			'content' => ancora_get_template_property($single_style, 'need_content'),
+			'terms_list' => ancora_get_template_property($single_style, 'need_terms')
+		)
+	);
+
+}
+
+global $post;
+global $wpdb;
+
+
+
+$pagename = $post->post_name;
+
+
+?>
+	
+
+
+
+	<?php 	
+if($pagename == "register"){
+	If(isset($_GET['msg'])){
+		echo $_GET['msg'] ;
+	}
+	?>
+	<div class="login-form">
+		<h3 class="text-center">Registration</h3>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6" style="background-color: #e0e0e0;">
+					<table>
+						<tr style="text-align: center;">
+							<td>
+								<a href="http://irishdeathnotice.pakwedds.com/register/?value=1"><button type="button">Public User</button></a>			
+							</td>
+							<td><a href="http://irishdeathnotice.pakwedds.com/register?value=2"><button type="button">Funeral Director</button></a></td>
+						</tr>
+					</table>
+
+					<form method="post" action="<?php  echo get_template_directory_uri(); ?>/registerform.php">
+
+						<?php  if($_GET['value'] == '2'){ ?>
+							<input type="hidden" name="usertype" value="F" />
+							<?php 
+							}else{?>
+							<input type="hidden" name="usertype" value="P" />
+							<?php 
+							} ?>
+
+						<table class="dropdown-height" style="border: none;width:100%;">
+							<tbody>
+								<tr>
+									<td>
+										<h5>Name</h5>
+									</td>
+									<td><input name="username" id="name" type="text" /></td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Surname:</h5>
+									</td>
+									<td><input name="surname" type="text" /></td>
+								</tr>
+								<?php 
+								if($_GET['value'] == '2'){
+									?>
+									<tr>
+										<td>
+											<h5>Company:</h5>
+										</td>
+										<td>
+											<input name="company" type="text" /></td>
+									</tr>
+									<?php 	
+								}
+								?>
+
+								<tr>
+									<td>
+										<h5>Email:</h5>
+									</td>
+									<td><input name="email" type="email" /></td>
+								</tr>
+								<tr>
+									<td>
+										<h5>County:</h5>
+									</td>
+									<td><select name="county">
+											<option value="">--Select County--</option>
+											<?php  
+											$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+											foreach($county as $row){
+												echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+											}
+											?>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Password:</td>
+									<td><input name="password" type="password" /></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="col-sm-4"></div>
+
+						<button class="col-sm-4" type="submit" style="margin: 15px;">Register</button>
+
+
+					</form>			
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<?php 	
+}
+else if($pagename == "user-profile-2"){
+	if(isset($_GET['msg'])){
+		echo $_GET['msg'];
+	}
+	$getuser = $_SESSION['userID'];
+	$userdata = $wpdb->get_row("SELECT * FROM members WHERE member_id ='$getuser' ",ARRAY_A);
+	?>
+	<form action="<?php  echo get_template_directory_uri(); ?>/userprofile.php?<?php echo $getuser; ?>" method="post"><input id="user_profile" name="user_profile" type="hidden" value="1" />
+		<div class="container">
+			<div class="row">
+				<h2>General</h2>
+				<div class="col-sm-6">
+					<label>Name</label>
+				<input name="fname" type="text" value="<?php echo $userdata['name'];  ?>" placeholder="<?php echo $userdata['name'];  ?>" />
+				</div>
+				<div class="col-sm-6">
+					<label>SurName</label>
+				<input name="surname" type="text" value="<?php echo $userdata['surname'];  ?>" placeholder="<?php echo $userdata['surname'];  ?>" />
+				</div>
+			</div>
+			<div class="row form-rows-margin">
+				<label>Date of Birth</label>
+				<input name="dob" type="text" width="50%" />
+			</div>
+			<div class="row">
+				<h2>Contact Information</h2>
+			</div>
+			<div class="row form-rows-margin">
+				<div class="col-sm-6">
+					<label>Email</label>
+				<input name="email" type="text" value="<?php echo $userdata['email'];  ?>" placeholder="<?php echo $userdata['email'];  ?>" style="width: 85%;"/>
+				</div>
+				<div class="col-sm-6">
+					<label>Phone Number</label>
+				<input name="phone" type="text" value="<?php echo $userdata['first_phone'];  ?>" placeholder="Phone Number" style="width: 65%;"/>
+				</div>
+			</div>
+			<div class="row form-rows-margin">
+				<div class="col-sm-6">
+					<label>County</label>
+					<select id="countyId" name="county" style="height: 30px;">
+					<option value="">--Select County--</option>
+					<?php  
+					$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+					foreach($county as $row){
+						echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+					}
+					?>	
+					</select>
+				</div>
+				<div class="col-sm-6">
+					<label>Town</label>
+				<select id="townId" name="town" style="height: 30px;">
+					<option value="">Towns</option>
+				</select>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<div class="col-sm-12 form-actions">
+			<div class="submit-btns" style="margin-right: 25px; float: right;">
+
+				<input class="btn" type="submit" value="Save" />
+
+			</div>
+		</div>
+	</form>
+	<?php 	
+}
+else if($pagename == "order-management"){
+	$getUserId = $_SESSION['userID'];
+	
+	$orders = $wpdb->get_results("SELECT id FROM sympathy_add_cards WHERE id = '$getUserId'", ARRAY_A );
+	if($wpdb->num_rows > 0) {
+       	foreach($orders as $row){
+       		$item_ids[] = $row['id'];
+        }
+         $itemId = implode(",",$item_ids);
+         $sql =$wpdb->get_results("SELECT * FROM symp_card_payment WHERE item_id in($itemId)",ARRAY_A);
+        ?>
+		
+		<label style="font-size: 18px;">Order Management</label>
+		<table>
+			<tbody>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Title</td>
+					<td>Email</td>
+					<td>Amount</td>
+					<td>Status</td>
+					<td>Date</td>
+				</tr>
+				<?php 
+					foreach($sql as $rows)
+						{
+				?>
+				<tr>
+					<td><?php echo $rows['first_name']; ?></td>
+					<td><?php echo $rows['last_name']; ?></td>
+					<td><?php echo $rows['item_name']; ?></td>
+					<td><?php echo $rows['payer_email']; ?></td>
+					<td><?php echo $rows['payment_amount']; ?></td>
+					<td><?php echo $rows['payment_status']; ?></td>
+					<td><?php echo $rows['payment_date']; ?></td>
+				</tr>
+				
+				<?php	
+				}
+				 ?>
+				
+			</tbody>
+		</table>
+		<?php 	
+	}else{
+	?>
+		<tr>
+					<td>No Record Found</td>
+				</tr>
+	
+	<?php	
+	}	
+}else if($pagename == "dashboard-home"){
+	global $value;
+	$getUserId = $_SESSION['userID'];
+	$username = $wpdb->get_row("SELECT name FROM members WHERE member_id ='$getUserId' ",ARRAY_A);
+	
+	?>
+	<h4><strong>Welcome to Irish Death Notices(<?php echo $username['name']; ?>)</strong></h4>
+	<script>
+		jQuery(function() {	
+
+				var id = '#dialog';
+	
+				//Get the screen height and width
+				var maskHeight = jQuery(document).height();
+				var maskWidth = jQuery(window).width();
+	
+				//Set heigth and width to mask to fill up the whole screen
+				jQuery('#mask').css({'width':maskWidth,'height':maskHeight});
+
+				//transition effect
+				jQuery('#mask').fadeIn(500);	
+				jQuery('#mask').fadeTo("slow",0.9);	
+	
+				//Get the window height and width
+				var winH = jQuery(window).height();
+				var winW = jQuery(window).width();
+              
+				//Set the popup window to center
+				jQuery(id).css('top',  winH/2-jQuery(id).height()/2);
+				jQuery(id).css('left', winW/2-jQuery(id).width()/2);
+	
+				//transition effect
+				jQuery(id).fadeIn(2000); 	
+	
+				//if close button is clicked
+
+
+				//if mask is clicked
+				jQuery('#mask').click(function () {
+						jQuery(this).hide();
+						jQuery('.window').hide();
+					});
+	
+			});
+	</script>
+	<div id="boxes">
+		<div id="dialog" class="window">
+			<script>
+  			jQuery(function () {
+						jQuery('#selectCounty').click( function(){
+								var e = document.getElementById("country-dropdown");
+								var countyid = e.options[e.selectedIndex].value;
+							//	alert(countyid);
+								jQuery.ajax({
+										type: "GET",
+										url: "http://irishdeathnotice.pakwedds.com/wp-content/themes/blessing/get_deathNotices_by_towns.php?countyId="+countyid,
+										dataType:"json",
+										success: function(data)
+										{
+										if(data.status == '0'){
+											jQuery.each(data.data, function(key, element) {
+												
+												var row = "<tr><td>"+element.name+"</td>"+
+												"<td>"+element.address+"</td>"+
+												"<td>"+element.second_town+"</td>"+
+												"<td>"+element.death_date+"</td></tr>";
+												jQuery("#tblNotice tr:last").after(row);
+												
+												
+												//	alert(element.name);
+												});
+			
+											//$('#townId').html(data);
+			}
+										}
+									});
+		
+		
+								jQuery('#mask').hide();
+								jQuery('.window').hide();
+							});
+
+	
+					});
+		
+			</script>
+  
+			<form name="countyform" method="post">
+				<span style="font-size:16px;color: black;">Select County:</span>
+				<select id='country-dropdown'>
+					<?php  $county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+					foreach($county as $row){
+						echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+						$value=$row['city_accented'];
+					}		
+					?>
+				</select>
+				<button type="button" id="selectCounty" style="padding-bottom: 5px; padding-top:5px;">Select</button>
+			</form>
+		</div>
+
+		<div id="mask"></div>
+	</div>
+
+
+	<span style='font-size: 20px;'>Death Notices in your Country</span>
+	<table id="tblNotice">
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td>Address</td>
+				<td style="width: 24%;">City</td>
+				<td style="width: 20%;">Date</td>
+			</tr>
+			<?php 
+			$countyid = $_GET['countyid'];
+			$citydata = $wpdb->get_results('SELECT * FROM death_notice WHERE id ='.$countyid.'', ARRAY_A );
+			foreach($citydata as $cityrow){
+				?>
+				<tr>
+			
+					<td><?php  echo $cityrow['name']; ?></td>
+					<td><?php  echo $cityrow['address']; ?></td>
+					<td style="width: 24%;"><?php  echo $cityrow['second_town']; ?></td>
+					<td style="width: 20%;"><?php  echo $cityrow['death_date']; ?></td>
+			
+				</tr>
+				<?php } ?>
+		</tbody>
+	</table>
+	
+	
+
+
+
+	
+
+
+	<?php 
+}
+else if($pagename == "mass-management-3"){
+	?>
+	<h2>Mass Management</h2>
+	<table class="mass-table">
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td>Memorial Location</td>
+				<td>Publish Status</td>
+				<td>Payment Status</td>
+				<td>Frequency</td>
+				<td>Image</td>
+				<td>Action</td>
+			</tr>
+			<?php  
+			$getUserId = $_SESSION['userID'];
+			$mass = $wpdb->get_results("SELECT * FROM masses WHERE user_id = '$getUserId'", ARRAY_A );
+			foreach($mass as $row){
+				?>
+				<tr>
+					<td><?php  echo $row['mass_name']; ?></td>
+					<td><?php  echo $row['mass_location']; ?></td>
+					<td><?php  echo $row['mass_status']; ?></td>
+					<td><?php  echo $row['payment_status']; ?></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<?php } ?>
+		</tbody>
+	</table>
+
+	<?php 	
+}
+else if($pagename == "add-month-memorial-acknowledgement" || $pagename == "add-years-memorial-acknowledgement" || $pagename == "add-anniversary-acknowledgement" ){
+	?>
+	<?php  if(isset($_GET['msg'])){
+		echo "<h1>".$_GET['msg']."</h1>";
+	}
+	?>
+	
+	<script>
+			jQuery(function () {
+						jQuery('#selCounty').change( function(){
+								var e = document.getElementById("selCounty");
+								var countyid = e.options[e.selectedIndex].value;
+								
+								var el = jQuery("#townId");
+        						el.empty(); // remove old options
+								
+								jQuery.ajax({
+										type: "GET",
+										url: "http://irishdeathnotice.pakwedds.com/wp-content/themes/blessing/get_towns.php?countyId="+countyid,
+										dataType:"json",
+										success: function(data)
+										{
+											
+											
+										if(data.status == '0'){
+											
+										el.append(jQuery("<option></option>").attr("value",'0').text("Select Town"));
+											jQuery.each(data.data, function(key, element) {
+							el.append(jQuery("<option></option>").attr("value",element.TownID).text(element.Town));
+												
+												});
+											}
+			}
+										
+									});
+							});
+	
+					});
+
+jQuery(function () {
+						jQuery('#second_countyId').change( function(){
+								var e = document.getElementById("second_countyId");
+								var countyid = e.options[e.selectedIndex].value;
+								
+								var el = jQuery("#second_townId");
+        						el.empty(); // remove old options
+								
+								jQuery.ajax({
+										type: "GET",
+										url: "http://irishdeathnotice.pakwedds.com/wp-content/themes/blessing/get_towns.php?countyId="+countyid,
+										dataType:"json",
+										success: function(data)
+										{
+											
+											
+										if(data.status == '0'){
+											
+										el.append(jQuery("<option></option>").attr("value",'0').text("Select Town"));
+											jQuery.each(data.data, function(key, element) {
+							el.append(jQuery("<option></option>").attr("value",element.TownID).text(element.Town));
+												
+												});
+											}
+			}
+										
+									});
+							});
+	
+					});
+		
+	</script>	
+	
+	<form method="POST" action="<?php  echo get_template_directory_uri(); ?>/addMonthMemorialform.php?<?php  echo $pagename;  ?>">
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm-12">
+					<ul class="userprof-form" style="list-style-type: none;">
+			<ul class="userprof-form" style="list-style-type: none;">
+				<li>
+					<?php  if($pagename == "add-month-memorial-acknowledgement") 
+					echo "<h4>Add Months Memorial Acknowledgement</h4>";
+					else if($pagename == "add-years-memorial-acknowledgement"){
+						echo "<h4>Add Years Memorial Acknowledgement</h4>";
+					}else if($pagename == "add-anniversary-acknowledgement")
+					echo "<h4>Add Anniversary Acknowledgement</h4>";
+					?>
+				</li>
+			</ul>
+		</ul>
+		<table class="searchfrom-table dropdown-height">
+			<tbody>
+				<tr>
+					<td>
+						<ul style="list-style-type: none;">
+							<li><label>Name</label>
+								<input name="name" type="text" value="" placeholder="Enter Persons Name" style="height: 33px !important;" /></li>
+						</ul>
+					</td>
+					<td>
+						<ul style="list-style-type: none;">
+							<li ><label>SurName</label>
+								<input name="surname" type="text" value="" placeholder="Enter Persons SurName" style="height: 33px !important;" /></li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table><br>
+		<ul class="userprof-form" style="list-style-type: none; margin: 0px;padding: 0px;">
+			<ul class="userprof-form" style="list-style-type: none; margin: 0px;padding: 0px;">
+				<li><label>Address:</label>
+					<textarea class="text-input large-input" style="width: 100%;" name="address" rows="3" placeholder="Enter Persons Address"></textarea></li>
+			</ul>
+		</ul><br>
+		&nbsp;
+		
+		<div class="row">
+			<label style="width: 13%; display: inline-block;" for="img_41">
+			<img src="http://www.irishdeathnotices.ie/media/masses/Candle In memoriam.png" alt="" width="80" height="60" />
+			<input id="img_41" name="select_img" type="radio" value="Candle In memoriam.png" /></label>
+
+		<label style="width: 13%; display: inline-block;" for="img_43">
+			<img src="http://www.irishdeathnotices.ie/media/masses/Lilly Im memoraim image.png" alt="" width="80" height="60" />
+			<input id="img_43" name="select_img" type="radio" value="Lilly Im memoraim image.png" /></label>
+
+		<label style="width: 13%; display: inline-block;" for="img_44">
+			<img src="http://www.irishdeathnotices.ie/media/masses/Cross In memoriam.png" alt="" width="80" height="60" />
+			<input id="img_44" name="select_img" type="radio" value="Cross In memoriam.png" /></label>
+
+		<label style="width: 13%; display: inline-block;" for="img_45">
+			<img src="http://www.irishdeathnotices.ie/media/masses/In memoriam2.png" alt="" width="80" height="60" />
+			<input id="img_45" name="select_img" type="radio" value="In memoriam2.png" /></label>	
+		</div>
+		<br>
+		(Please Upload Image having width=130 &amp; Height=150)
+		
+		<table class="searchfrom-table dropdown-height">
+			<tbody>
+				<tr>
+					<td>
+						<ul style="list-style-type: none;">
+							<li><label>Date &amp; Time:</label>
+							<?php  $date = date("Y-m-d");?>
+								<input style="cursor: pointer;" name="date_time" type="date" value="<?php echo $date; ?>"/></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul style="list-style-type: none;">
+							<li ><label>County Listing</label></li>
+							<li>
+								<select id="selCounty" name="county">
+									<option value="">--Select County--</option>
+									<?php  
+									$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+									foreach($county as $row){
+										echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+										
+									}
+									?>
+								</select>
+							</li>
+						</ul>
+					</td>
+					<td>
+						<ul style="list-style-type: none;">
+							<li ><label>Town Listing</label></li>
+							<li>
+								<select id="townId" name="town">
+									<option value="">Towns</option>
+									<option value="<?php  echo $row['town'];?>" selected="selected" ><?php  echo $row['town']; ?></option>
+								</select>
+							</li>
+						</ul>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<ul style="list-style-type: none;">
+							<li><label>Second County Listing ( If Required )</label>
+								<select name="second_county" id="second_countyId" onchange="get_second_towns(this.value, '')">
+									<option value="">--Select County--</option>
+									<?php  
+									$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+									foreach($county as $row){
+										echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+										
+									}
+									?>
+	
+								</select>
+							</li>
+						</ul>
+					</td>
+					<td>
+						<ul style="list-style-type: none;">
+							<li><label>Second Town Listing ( If Required )</label></li>
+							<li><select id="second_townId" name="second_town">
+									<option value="">Towns</option>
+									
+								</select></li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table><br>
+		<ul style="list-style-type: none;padding-left: 0px;">
+			<li><label>Description</label>
+				<textarea style="width: 100%;" name="description" rows="6" placeholder="Some Description About Memorial Acknowledgement"></textarea></li>
+		</ul><br>
+
+<table class="searchfrom-table dropdown-height">
+			<tbody>
+				<tr>
+					<td style="padding-bottom: 0px;">
+					</td>
+					<td style="padding-bottom: 0px;">
+						<ul style="list-style-type: none;">
+							<li class="col-sm-12"><label>Enter Phrase</label></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 0px;">
+						<ul>
+							<select name="phrases" id="phrases">
+									<option value="">--Select Phrase--</option>
+									<?php  
+									$phrases = $wpdb->get_results("SELECT * from phrases",ARRAY_A);
+									foreach($phrases as $row){
+										echo "<option>".$row['phrase']."</option>";
+										
+									}
+									?>
+	
+								</select>
+						</ul>
+					</td>
+					<td style="padding-top: 0px;">
+						<ul style="list-style-type: none;">
+							<li>
+								<input name="phrasetxt" type="text" value="" placeholder="Enter your own Phrase" />
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table><br>
+		<ul style="list-style-type: none;padding-left: 0px;">
+			<li>
+				<div id="infoPanel">
+					<div id="info" style="display: none;">53.3498053, -6.260309699999993</div>
+					<div><label>Memorial Acknowledgement Location / Map</label><input id="gm_address" style="width: 100%;" autocomplete="off" name="location" type="text" value="" placeholder="Enter Exact Church Name, Street Name And Co County" />
+
+					</div>
+				</div></li>
+		</ul>
+				</div>
+			</div>
+		</div>
+		
+
+		&nbsp;
+		
+		
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" style="margin: 20px;"><button type="submit" >Submit</button></div>
+		
+	</form>
+
+	<?php 
+}
+else if($pagename == "anniversary-management"){
+	?>
+	<h2>Anniversary Management</h2>
+	<table>
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td>Location</td>
+				<td>Publish Status</td>
+				<td>Payment Status</td>
+				<td>Date & Time</td>
+				<td>Image</td>
+				<td>Action</td>
+			</tr>
+			<?php  
+		$getUserId = $_SESSION['userID'];
+			$anniversary = $wpdb->get_results("SELECT * FROM anniversary WHERE user_id = '$getUserId'", ARRAY_A );
+			if($wpdb->num_rows > 0) {
+       	foreach($anniversary as $row){
+       		$item_id = $row['id'];
+        
+       //  $sql =$wpdb->get_row("SELECT * FROM anniversary_payment WHERE item_id = '$item_id'",ARRAY_A);
+       //		$paymentStatus =  $sql['payment_status']
+				?>
+				<tr>
+					<td><?php  echo $row['name']; ?></td>
+					<td><?php  echo $row['location']; ?></td>
+					<td><?php  echo $row['status']; ?></td>
+					<td><?php  echo $row['payment_status']; ?></td>
+					<td><?php  echo $row['date']; ?></td>
+					<td>Image</td>
+					<td>Action</td>
+				</tr>
+				<?php }} ?>
+		</tbody>
+	</table>
+
+	<?php 	
+}
+else if($pagename == "add-fundraising-events" || $pagename == "add-parish-notices"){
+	if(isset($_GET['msg'])){
+		echo $_GET['msg'];
+	}
+	?>
+	<form action="<?php  echo get_template_directory_uri(); ?>/fundraising.php?<?php  echo $pagename;?>" enctype="multipart/form-data" method="post">
+		<div class="container">
+			<div class="row form-rows-margin">
+				<?php  	if($pagename == "add-fundraising-events")
+					echo "<h2>Add Fund Raising Event</h2>";
+					else if($pagename == "add-parish-notices")
+					echo "<h2>Add Parish Event</h2>";
+					?>
+					<label>Title:</label>
+					<input name="title" type="text" value="" placeholder="Enter Title" style="width: 94%;" />
+			</div>
+			<div class="row form-rows-margin">
+				<label>Browse Image:</label>
+					<input class="slct-class" name="image" type="file" />
+					(Please Upload Image having width=691 &amp; Height=120)
+			</div>
+			<div class="row form-rows-margin">
+				<div class="col-sm-6" style="padding-left: 0px;margin-left:0px;">
+					<label>Date:</label>
+				<input id="fund_date" name="pickdate" class="hasDatepicker" type="date" style="cursor: pointer;" placeholder="Select Date" />	
+				</div>
+				<div class="col-sm-6">
+					<label>County Listing:</label>
+					<select id="countyId" class="text-input largSelect" name="county" style="height: 30px;">
+						<option value="-1">--Select County--</option>
+						<?php  
+						$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+						foreach($county as $row){
+							echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+						}
+						?>
+					</select>		
+				</div>
+				
+			</div>
+			
+			<div class="row form-rows-margin">
+				<label>Browse FundRaising Cover Image <i> (Optional)</i></label>
+					<input class="slct-class" style="width: 280px;" name="imageCover" type="file" />
+			</div>
+			<div class="row form-rows-margin">
+				<label>Description</label><br>
+				<textarea name="description" style="width: 100%;"></textarea>
+			</div>
+		</div>
+		<div class="col-sm-12 form-actions">
+			<div class="submit-btns" style="float: right; margin-right: 25px;">
+
+				<input class="btn" name="Add_Fundraising" type="submit" value="Publish" />
+
+				<!--<input type="reset" value="Reset" class="btn reset">-->
+
+			</div>
+		</div>
+	</form>
+	<?php  
+}
+else if($pagename == "published-fundraising-events" || $pagename == "published-parish-notices-2"){
+	?>
+	
+	<?php  if($pagename == "published-fundraising-events"){
+		echo "<h2>Fund Raising Management</h2>";
+			
+	}else if($pagename == "published-parish-notices-2"){
+		echo "<h2>Parish Notices</h2>";	
+	}
+	?>
+	
+	<table>
+		<tbody>
+			<tr>
+				<td>Title</td>
+				<td>Date</td>
+				<td>Description</td>
+				<td>Status</td>
+				<td>Image</td>
+				<td>Action</td>
+			</tr>
+			<?php  
+			if($pagename == "published-fundraising-events"){
+				$fund = $wpdb->get_results("SELECT * FROM fundraising_events",ARRAY_A);
+				foreach($fund as $row){
+					?>
+					<tr>
+						<td><?php  echo $row['title']; ?></td>
+						<td><?php  echo $row['date']; ?></td>
+						<td>description</td>
+						<td><?php  echo $row['status']; ?></td>
+						<td>Image</td>
+						<td>Action</td>
+					</tr>
+					<?php 	
+				}	
+			}else if($pagename == "published-parish-notices-2"){
+				$parish = $wpdb->get_results("SELECT * FROM parish_notices",ARRAY_A);
+				foreach($parish as $row){
+					?>
+					<tr>
+						<td><?php  echo $row['title']; ?></td>
+						<td><?php  echo $row['date']; ?></td>
+						<td>description</td>
+						<td><?php  echo $row['status']; ?></td>
+						<td>Image</td>
+						<td>Action</td>
+					</tr>
+					<?php } ?>
+				<?php } ?>
+		</tbody>
+	</table>
+
+	<?php 	
+}else if($pagename == "in-memoriam" || $pagename == "anniversary-notices"){
+	
+	?>
+
+	<form method="get" class="search_form" action="<?php  echo get_template_directory_uri(); ?>/searchforms.php" style="text-align: center;margin-bottom:30px;">
+		<input type="text" class="search_field" placeholder="Search ..." value="" name="searchname" title="Search ..." style="width: 40%;">
+		<button type="submit" class="search_submit" data-text="Search" title="Start search">Search</button>
+						
+	</form>
+	<?php  if(isset($_GET['getname'])){
+					
+						
+		?>
+		<table class="searchfrom-table">
+			<tr>
+				<td style="border: 0px;text-align:center;">
+					<a href="#"><img src="http://irishdeathnotice.pakwedds.com/wp-content/uploads/2016/02/death-notice.jpg" width="200" height="100" /></a>
+				</td>
+				<td style="text-align: left">
+					<label style="font-size: 17px;color: #592131;"><a href="#"><?php  echo $_GET['getname']; ?></a></label><br>
+					<label style="font-size: 13px"><?php  echo $_GET['getdate']; ?></label><br>
+					<label style="font-size: 13px"><?php  echo $_GET['getaddress']; ?></label><br>
+					<label style="font-size: 13px"><a href="#">Read Full Notice</a></label>
+				</td>
+			</tr>
+		</table>
+						
+
+
+		<?php 
+	} ?>
+				
+				
+	<?php 
+}else if($pagename == "subscribe-for-death-notices"){
+	?>
+	<script>
+		jQuery(function () {
+				jQuery('#myTab a:last').tab('show')
+			});	
+			jQuery(function () {
+						jQuery('#alertCounty').change( function(){
+								var e = document.getElementById("alertCounty");
+								var countyid = e.options[e.selectedIndex].value;
+								
+								var el = jQuery("#alertTown");
+        						el.empty(); // remove old options
+								
+								jQuery.ajax({
+										type: "GET",
+										url: "http://irishdeathnotice.pakwedds.com/wp-content/themes/blessing/get_towns.php?countyId="+countyid,
+										dataType:"json",
+										success: function(data)
+										{
+											
+											
+										if(data.status == '0'){
+											
+										el.append(jQuery("<option></option>").attr("value",'0').text("Select Town"));
+											jQuery.each(data.data, function(key, element) {
+							el.append(jQuery("<option></option>").attr("value",element.TownID).text(element.Town));
+												
+												});
+											}
+			}
+										
+									});
+							});
+	
+					});
+			
+			
+			
+		
+	</script>
+
+			
+	<div class="container" style="width: 65%;">
+		<h2 style="margin-top: 0px;">Email Alerts</h2>
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a data-target="#home" data-toggle="tab">By Surname/Town/County</a></li>
+			<li><a data-target="#profile" data-toggle="tab">By Church</a></li>
+			 
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="home">
+				<table class="searchfrom-table dropdown-height">
+					<tr>
+						<td>
+							Surname:
+						</td>
+						<td>
+							<input type="text" name="alertsurname" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							County:
+						</td>
+						<td>
+							<select id="alertCounty" name="county">
+								<option value="">--Select County--</option>
+								<?php  
+								$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+								foreach($county as $row){
+									echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+								}
+								?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Town
+						</td>
+						<td>
+							<select id="alertTown">
+								<option>--Select Town--</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="submit" value="Create Alert" />
+						</td>
+					</tr>
+				</table>
+			  	
+			</div>
+			<div class="tab-pane" id="profile">
+				<table class="searchfrom-table dropdown-height">
+					<tr>
+						<td>
+							County:
+						</td>
+						<td>
+							<select name="county">
+								<option value="">--Select County--</option>
+								<?php  
+								$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+								foreach($county as $row){
+									echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+								}
+								?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Denomination:
+						</td>
+						<td>
+							<select name="county">
+								<option value="">--Select County--</option>
+								
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Church:
+						</td>
+						<td>
+							<select name="church">
+								<option value="">--Select County--</option>
+								
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="submit" value="Create Alert" style="height: 40px !important;" />
+						</td>
+					</tr>
+				</table>
+			  	
+			</div>
+			 
+		</div>
+	</div>
+            
+
+	<?php 	
+}else if ($pagename == "single-death-notice"){
+?>
+<script>
+	jQuery(function () {
+						jQuery('#searchCounty').change( function(){
+								var e = document.getElementById("searchCounty");
+								var countyid = e.options[e.selectedIndex].value;
+								
+								var el = jQuery("#searchTown");
+        						el.empty(); // remove old options
+								
+								jQuery.ajax({
+										type: "GET",
+										url: "http://irishdeathnotice.pakwedds.com/wp-content/themes/blessing/get_towns.php?countyId="+countyid,
+										dataType:"json",
+										success: function(data)
+										{
+											
+											
+										if(data.status == '0'){
+											
+										el.append(jQuery("<option></option>").attr("value",'0').text("Select Town"));
+											jQuery.each(data.data, function(key, element) {
+							el.append(jQuery("<option></option>").attr("value",element.TownID).text(element.Town));
+												
+												});
+											}
+			}
+										
+									});
+							});
+	
+					});
+</script>
+<form method="POST" action="http://irishdeathnotice.pakwedds.com/single-death-notice/">
+<div class="row">
+<div class="col-sm-12">
+<div class="col-sm-12 searchform-table">
+<span style="font-size: 15px;">Search:</span>
+<input type="text" class="search_field" placeholder="Search ..." value="<?php echo $_POST['searchdeath'] ?>" name="searchdeath" title="Search ..." style="width: 100%;margin-bottom:15px;">
+
+
+
+<table class="searchfrom-table">
+	<tr>
+		<td>
+			<span style="font-size: 15px;margin-top:15px;">County:</span>
+			<select name="county" id="searchCounty" style="width: 100%;margin-bottom:15px;height: 30px;">
+								<option value="0">--Select County--</option>
+								<?php   
+								$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+								foreach($county as $row){
+									echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+								}
+
+$name = $_POST['searchdeath'];
+$county = $_POST['county'];
+$town = $_POST['town'];
+$date_from = $_POST['date_from'];
+$date_to = $_POST['date_to'];
+						?>
+</select>
+		</td>
+		<td>
+			<span style="font-size: 15px;margin-top:15px;">Towns:</span>
+<select name="town" id="searchTown" style="width: 100%;margin-bottom:15px;height: 30px;">
+								<option value="">--Select Town--</option>
+								
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span style="font-size: 15px;margin-top:15px;">Date From:</span><br />
+			<?php  $date = date("Y-m-d");?>
+			<input style="cursor: pointer;width: 100%;" name="date_from" type="date" value="<?php echo $date; ?>"/>
+		</td>
+		<td>
+			<span style="font-size: 15px;margin-top:15px;">Date To:</span><br />
+			<?php  $date = date("Y-m-d");?>
+			<input style="cursor: pointer;width:100%;" name="date_to" type="date" value="<?php echo $date; ?>"/>
+		</td>
+	</tr>
+</table>
+
+
+
+
+
+</div>
+</div>
+</div>
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-3"><button type="submit" class="search_submit" data-text="Search" title="Startsearch" style="width: 100%;margin-top:15px;">Search</button></div>
+</div>
+</form> 
+
+<?php 
+if($name != null && $county > 0 && $town > 0){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE (name = '$name' OR surname = '$name') AND county_id = '$county' AND city_id = '$town'",ARRAY_A);
+}else if($name != null && $county > 0 ){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE (name = '$name' OR surname = '$name') AND county_id = '$county'",ARRAY_A);
+}else if($name != null && $town > 0){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE (name = '$name' OR surname = '$name') AND city_id = '$town'",ARRAY_A);
+}else if($county > 0 && $town > 0){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE county_id = '$county' AND city_id = '$town'",ARRAY_A);
+}else if($name != null){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE (name = '$name' OR surname = '$name')",ARRAY_A);
+}else if($county > 0){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE  county_id = '$county'",ARRAY_A);
+}else if($town > 0){
+$notices = $wpdb->get_results("SELECT * from death_notice WHERE  city_id = '$town'",ARRAY_A);
+}
+if($name != null || $county > 0 || $town > 0){
+foreach($notices as $row){
+?>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="col-sm-3">
+<a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>"><img src="http://irishdeathnotice.pakwedds.com/wp-content/uploads/2016/02/death-notice.jpg" width="150"  height="150"/></a></div>
+
+<div class="col-sm-6" style="margin-left: 0px; padding-left:0px;">
+<span><a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>"> 
+<?php echo $row['name'].' '.$row['surname'];?></a></span><br />
+<?php echo $row['death_date'];?><br />
+
+<span style="color: #999999; font-size: 12px; line-height: 14px;">Description</span><br />
+<a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>">Read full notice</a>
+</div>
+	</div>
+</div>
+
+
+
+<?php
+}
+}
+}else if($pagename == "forget-password"){
+	if(isset($_GET['msg'])){
+		echo $_GET['msg'];
+	}
+?>
+<h4><strong>Forget Password?</strong></h4>
+<div class="container">
+<form method="POST" action="<?php echo get_template_directory_uri(); ?>/forgetpassword.php/?<?php echo $pagename; ?>">
+		<div class="row">
+		<div class="col-sm-8">
+			<input name="checkmail" type="email" placeholder="Enter Email Address..." style="width: 100%;height:40px;"/>
+		</div>
+		<div class="col-sm-4">
+			<button type="submit" class="search_submit" data-text="Send" title="Send Email">Reset Password</button>
+		</div>
+	</div>
+</form>
+
+</div>
+<?php	
+}else if($pagename =="change-password" ){
+	if(isset($_GET['msg'])){
+		echo $_GET['msg'];
+	}
+?>
+<form action="<?php echo get_template_directory_uri(); ?>/forgetpassword.php?<?php echo $pagename; ?>" method="post">
+<input id="change_password" name="change_password" type="hidden" value="1" />
+<div class="container">
+	<div class="row form-rows-margin">
+		<h2>Change Password</h2>
+	</div>
+	<div class="row form-rows-margin">
+		<div class="col-sm-3"><label>Current Password</label></div>
+		<div class="col-sm-6"><input name="current_password" type="password" placeholder="Old Password" width="100%"/></div>
+	</div>
+	<div class="row form-rows-margin">
+		<div class="col-sm-3">
+			<label>New Password</label>
+		</div>
+		<div class="col-sm-6">
+			<input name="newpassword" type="password" placeholder="New Password" style="width: 100%;" />
+		</div>
+	</div>	
+			
+	<div class="row form-rows-margin">
+		<div class="col-sm-3">
+			<label>Confirm Password</label>
+		</div>
+		<div class="col-sm-6">
+			<input name="confirmpassword" type="password" placeholder="Confirm Password" style="width: 100%;" />
+		</div>
+	</div>	
+			
+	<div class="row form-rows-margin" style="float: right;">
+			<input class="btn" type="submit" value="Save" />
+		</div>
+</div>
+</form>
+<?php	
+}else if($pagename == "professional-services"){
+$services =  $wpdb->get_results("SELECT * FROM services ",ARRAY_A);
+foreach($services as $rows){
+?>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="col-sm-3">
+				<a href="http://irishdeathnotice.pakwedds.com/charities/?url=<?php echo $rows['title_links']; ?>"><img src="http://www.irishdeathnotices.ie/images/services2.jpg"/></a>
+				</div>
+				
+				<div class="col-sm-4">
+				<a href="http://irishdeathnotice.pakwedds.com/charities/?url=<?php echo $rows['title_links']; ?>">	<label style="font-size:18px;"><?php echo $rows['title'];  ?></label></a><br />
+					<a href="http://irishdeathnotice.pakwedds.com/charities/?url=<?php echo $rows['title_links']; ?>"><label style="font-size:16px;"><?php echo $rows['title_description'];  ?></label></a>
+				</div>	
+			
+		</div>
+	</div>
+</div>
+
+
+<?php	
+}
+}else if( $pagename == "charities"){
+$service_Title = $_GET['url'];
+$Title = explode("_" , $service_Title);
+$NewTitle = str_replace("--", " & ", $Title[0]);
+$ServiceTitle = str_replace("-", " ", $NewTitle);
+?>
+
+<h1><?php echo $ServiceTitle; ?> <span>Serving Counties</span></h1>
+
+<?php 
+$servicelisting = $wpdb->get_results("SELECT * FROM `tblCounty` order by fldCounty ASC",ARRAY_A);
+if($wpdb->num_rows > 0){
+	foreach($servicelisting as $row){
+?>
+<div class="col-sm-6">
+<div class="col-sm-4 servicelist">
+	 <?php 
+		$service_title = str_replace(" ", "-", $service_Title) ;
+		?>
+ <a href="http://irishdeathnotice.pakwedds.com/service-details?servicetitle=<?php echo $service_title; ?> & county=<?php echo $row['fldCounty']."_".$row['fldCountyID']; ?>">
+  <p><?php echo stripslashes($row['fldCounty']); ?></p>
+    <?php  $num_count = stripslashes($row['fldCountyID']); ?>
+     <?php $sql_count = $wpdb->get_results("SELECT * FROM `user_services` WHERE (service_id like '%,$Title[1],%' OR service_id like '$Title[1],%' OR service_id like '%,$Title[1]' OR service_id = '$Title[1]' ) and ( county_id like '%,$num_count,%' OR county_id like '$num_count,%' OR county_id like '%,$num_count' OR county_id = '$num_count' )",ARRAY_A);
+	   		
+			$result_count = $wpdb->num_rows;
+	   ?>
+</a>
+</div>
+<div class="col-sm-2">
+	 <a href="http://irishdeathnotice.pakwedds.com/service-details?servicetitle=<?php echo $service_title; ?> & county=<?php echo $row['fldCounty']."_".$row['fldCountyID']; ?>"><span><?php echo $result_count; ?></span></a>
+</div>	
+</div>
+
+
+<?php		
+	}
+}else{
+	echo "<h2>No Record Found!</h2>";
+}
+
+?>
+	
+<?php 
+}else if($pagename == 'service-details'){
+	if(isset($_GET['servicetitle']) && $_GET['servicetitle'] != ''){
+	
+	$serviceTitleId = $_GET['servicetitle'];
+	$serviceTitleId = explode("_", $serviceTitleId);
+	$service_Title = str_replace("-", " ", $serviceTitleId['0']);
+	$service_id = $serviceTitleId['1'];
+}
+
+if(isset($_GET['county']) && $_GET['county'] != ''){
+	
+	$countyTitleId = $_GET['county'];
+	$countyTitleId = explode("_", $countyTitleId);
+	$county_Title = str_replace("-", " ", $countyTitleId['0']);
+	$county_id = $countyTitleId['1'];
+}
+
+if(isset($_GET['servicetitle']) && $_GET['servicetitle'] != 'all' && isset($_GET['county']) && $_GET['county'] != ''){
+	
+	$sql_userService =$wpdb->get_results("SELECT user_services.*, members.member_id FROM user_services 
+left join members on user_services.member_id=members.member_id
+WHERE ( user_services.service_id like '%,$service_id,%' OR user_services.service_id like '$service_id,%' OR user_services.service_id like '%,$service_id' OR user_services.service_id = '$service_id' ) and ( user_services.county_id like '%,$county_id,%' OR user_services.county_id like '$county_id,%' OR user_services.county_id like '%,$county_id' OR user_services.county_id = '$county_id') and members.type != 'P' order by members.title ASC",ARRAY_A);
+} 
+else if(isset($_GET['servicetitle']) && $_GET['servicetitle'] != 'all' && !isset($_GET['county'])){
+	
+	$sql_userService =$wpdb->get_results("SELECT user_services.*, members.member_id FROM user_services 
+left join members on user_services.member_id=members.member_id
+WHERE ( user_services.service_id like '%,$service_id,%' OR user_services.service_id like '$service_id,%' OR user_services.service_id like '%,$service_id' OR user_services.service_id = '$service_id' ) and members.type != 'P' order by members.title ASC",ARRAY_A);
+		
+}elseif($_GET['s'] == 'all' && isset($_GET['o']) && $_GET['o'] != ''){
+
+	$sql_userService =$wpdb->get_results("SELECT user_services.*, members.member_id FROM user_services 
+  left join members on user_services.member_id=members.member_id
+  WHERE ( user_services.county_id = $county_id) and members.type != 'P' order by members.title ASC",ARRAY_A);
+
+}
+elseif($_GET['servicetitle'] == '' && $_GET['county'] == ''){
+	
+	$sql_userService =$wpdb->get_results("SELECT user_services.*, members.member_id FROM user_services 
+left join members on user_services.member_id=members.member_id where members.type != 'P' order by members.title ASC",ARRAY_A);
+}
+else if($_GET['servicetitle'] == 'all'){
+
+	$sql_userService =$wpdb->get_results("SELECT user_services.*, members.member_id FROM user_services 
+  left join members on user_services.member_id=members.member_id
+  WHERE members.type != 'P' order by members.title ASC",ARRAY_A);
+}		
+		
+?>
+<script>
+	jQuery(function () {
+						jQuery('#searchbtn').click( function(){
+								var service = document.getElementById("serviceslist");
+								var serviceId = service.options[service.selectedIndex].value;
+								
+								var county = document.getElementById("searchCounty");
+								var countyId = county.options[county.selectedIndex].value;
+								
+								
+					});
+			});
+</script>
+
+<div class="main-heading">
+<div class="row">
+<div class="col-sm-4">
+	<span style="font-size: 15px;margin-top:15px;">Type of Services:</span>
+			<select name="county" id="serviceslist" style="width: 100%;margin-bottom:15px;height: 30px;">
+								<option value="0">--Select Service--</option>
+								<?php   
+								$services = $wpdb->get_results("SELECT * from services",ARRAY_A);
+								foreach($services as $row){
+									echo "<option value=".$row['id'].">".$row['service_type']."</option>";
+								}
+								?>
+			</select>
+</div>
+<div class="col-sm-4">
+	<span style="font-size: 15px;margin-top:15px;">County:</span>
+			<select name="county" id="searchCounty" style="width: 100%;margin-bottom:15px;height: 30px;">
+								<option value="0">--Select County--</option>
+								<?php   
+								$county = $wpdb->get_results("SELECT * from tblCounty order by fldCountyID asc",ARRAY_A);
+								foreach($county as $row){
+									echo "<option value=".$row['fldCountyID'].">".$row['fldCounty']."</option>";
+								}
+								?>
+			</select>
+</div>
+<div class="col-sm-2">
+	<button type="button" id="searchbtn">Search</button>
+</div>
+	
+</div>
+			
+		
+            <h4><?php echo $service_Title; ?> Serving <?php echo $county_Title; ?></h4>
+             <?php
+        if($wpdb->num_rows > 0)
+	{ ?>
+	
+	 <?php 
+           foreach($sql_userService as $rows){
+                
+                $membrId = $rows['member_id'];
+                
+                $sql_serviceOwner =$wpdb->get_row("SELECT * FROM members WHERE member_id = '$membrId'",ARRAY_A);
+               
+                
+               
+        ?> 
+          <div class="row margin-top-20 parish parish-content">
+             <?php 
+              $service_Titl = str_replace(" ", "-", stripslashes($service_Title));
+                ?>
+                  <a href="#">
+                    <h3 class="title"><?php echo stripslashes($sql_serviceOwner['title']); ?></h3>
+                    <div class="row ">
+                      <div class="col-sm-8">
+                      <h4> <?php echo stripslashes($sql_serviceOwner['first_address']); ?></h4><?php $mydescription = trim(stripslashes($sql_serviceOwner['description']));
+          $mydescription = strip_tags($mydescription);
+          $mydescription = str_replace('&nbsp;','',$mydescription);
+          echo $mydescription;
+          
+          ?>
+          </div>
+          
+                      <div class="col-sm-4">
+                        <img src="<?php echo ru_media; ?>services/<?php echo $sql_serviceOwner['logo_image'] ?>" alt="<?php echo stripslashes($sql_serviceOwner['title']).' irishdeathnotices.ie'; ?>"  class="img-thumbnail" >
+          </div>
+          </div>
+           </a>
+                      
+         </div>           
+                    
+
+<?php } ?>
+</div>
+
+<?php	
+}else{
+		echo "<br><h1 align='center' style='color:#000000'>No Record Found</h1>";
+	}
+?>
+
+
+
+
+<!--<div class="row">
+	<div class="col-sm-12">
+		<div class="col-sm-3">
+<a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>"><img src="http://irishdeathnotice.pakwedds.com/wp-content/uploads/2016/02/death-notice.jpg" width="150"  height="150"/></a></div>
+
+<div class="col-sm-6" style="margin-left: 0px; padding-left:0px;">
+<span><a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>"> 
+<?php echo $row['name'].' '.$row['surname'];?></a></span><br />
+<?php echo $row['death_date'];?><br />
+
+<span style="color: #999999; font-size: 12px; line-height: 14px;">Description</span><br />
+<a style="font-size: 14px; color: #592131;" href="http://irishdeathnotice.pakwedds.com/death-notice-details/?id=<?php echo $row['id'];?>">Read full notice</a>
+</div>
+	</div>
+</div>-->
+
+
+<?php 
+}
+get_footer();
+?>

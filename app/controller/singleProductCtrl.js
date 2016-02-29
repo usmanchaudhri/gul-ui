@@ -11,7 +11,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 					$http.get(response.data.productUrl + '/' + $scope.pro_id)
 					.then(function(response1){
 							$scope.productDetail = response1.data;
-    	
+    						$scope.selectedItem = response1.data.productVariation[0].size;
 						});
 				});
 			

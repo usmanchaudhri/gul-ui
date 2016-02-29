@@ -36,7 +36,7 @@ $("#itemdetail").click(function () {
 	</div>
 	<div class="row" >
 		<div class="col-sm-5 " >
-			<img  class="img-responsive" ng-src="{{fixPath+productDetail.imageInfo.imagePath + token}}" alt="img" id="indisize" /> 
+			<img  class="img-responsive" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" /> 
 			<div class="col-sm-12 col-xs-12 ind-pro-thumbnail" id="marg">
 				<div class="row">
 					<div class="col-sm-3"></div>
@@ -71,13 +71,16 @@ $("#itemdetail").click(function () {
 						<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="one">
-								<select class="size-dropdown">
+								<!--<select class="size-dropdown">
 									<option><b>XS</b></option>
 									<option><b>S</b></option>
 									<option><b>M</b></option>
 									<option><b>L</b></option>
 									<option><b>XL</b></option>
-								</select>
+								</select>-->
+								<select ng-model="selectedItem">
+        <option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
+      </select>
 							</div>
 						</div>
 					</div>
