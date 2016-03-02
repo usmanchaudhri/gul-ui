@@ -325,7 +325,7 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.css',
             dest: '<%= config.dist %>/css',
-            cwd: '<%= config.dist %>/css'
+            cwd: '<%= config.app %>/css'
         }]
       }
     },
@@ -360,6 +360,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             'images/*.jpg',
+            'images/*.png',
             '{,*/}*.html',
             'css/fonts/{,*/}*.*',
             'fonts/**',
@@ -455,7 +456,9 @@ module.exports = function (grunt) {
       
   });
 
+  grunt.loadNpmTasks('grunt-uncss');
   grunt.loadNpmTasks('grunt-build-control');
+  // grunt.loadNpmTasks('grunt-uncss');
   
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
@@ -500,7 +503,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'postcss',
     'concat',
-    'uncss',
+    // 'uncss',
     'cssmin',
     'uglify',
     'copy:dist',
