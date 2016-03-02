@@ -177,7 +177,7 @@ h2 span {
 	display: block;}
 .main-nav > ul > li > a {
 	display: block;
-	border-bottom: 3px solid transparent;
+	border-bottom: 2px solid transparent;
 	color: #010101;
 	/*font: 22px/26px Arial, Helvetica, sans-serif !important;
 	padding: 5px;*/
@@ -218,7 +218,7 @@ h2 span {
 	display: block;
 	padding: 12px 10px 0;
 	color: #c3c1c1;
-	font-size: 12px;
+	font-size: 15px;
 }
 .main-nav > ul > li > ul ul {
 	list-style: none;
@@ -418,7 +418,7 @@ h2 span {
 }
 .subscribe .btn-submit {
 	position: absolute;
-	right: 22px;
+	right: 34px;
 	top: 4px;
 	padding: 4px 11px;
 	font-size: 14px;
@@ -1150,7 +1150,7 @@ button.btn:active,button.btn.active{
 }*/
 
 #breadcrumbs{
-	margin-top: 0px;
+	margin-top: 2px;
 	margin-bottom: 12px;
 	/*padding-left: 10px;*/
 	
@@ -1933,7 +1933,7 @@ select{
 #acc-dropdown{
 	/*width: 345px !important;*/
 	
-	margin-left: -19.3em !important;
+	margin-left: -19.4em !important;
 	
 	padding:25px;
 }
@@ -2144,8 +2144,20 @@ select{
 		}
 }
 
+.social label{
+	font-size: 13px; 
+	padding-top: 17px;
+	padding-right: 5px;
+}
 
-
+.individual-tabs{
+	 width: 102%;
+	height: 300px; 
+	margin-top: 10px;
+	padding-left: 25px;
+	background-color: rgba(245, 245, 245, 0.45);
+	display: none;
+}
 
 	
 	
