@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="row text-center">
 		<h1 style="font-size: 20px;">We create inspirational designs</h1>
-		<p style="text-align: center;font-size: 15px;">peronalize your favourite dress</p>
+		<p style="text-align: center;font-size: 15px;">peronalize your favourite designer's dress</p>
 	</div>
 	
 	<div class="row">
@@ -36,35 +36,33 @@
 						<div class="col-sm-12 col-xs-12 image-button" style="text-align: center;">
 						
 							
-				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
-				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
-				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
+							<span ng-repeat="x in a.prodVar">
+								<a ><input type="submit" value="{{x.size}}" ng-click="storeProductsInCookie(a,x.size,1)"/></a>	
+							</span>
 				  	
 				  	
 				  
 					
-				</div>
-							<!--<span ng-repeat="x in a.prodVar">
-								<a ><input type="submit" value="{{x.size}}" ng-click="storeProductsInCookie(a,x.size,1)"/></a>	
-							</span>-->
-							
 						</div>
-						<div class="imageText">
-							<a ng-href="#productDetailPage/{{a.id}}" style="font-color:black;">	
+							
+							
+					</div>
+					<div class="imageText">
+						<a ng-href="#productDetailPage/{{a.id}}" style="font-color:black;">	
 							<span class="proDes">
 								<p>
 									{{a.name}}
 								</p>
 							</span>
-							</a>
-							<span class="proDes">
-								<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
-							</span>
-						</div>
+						</a>
+						<span class="proDes">
+							<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
+						</span>
 					</div>
 				</div>
-				<div style='clear: both;'></div>
 			</div>
+			<div style='clear: both;'></div>
 		</div>
-	</div>	
+	</div>
+</div>	
 </div>
