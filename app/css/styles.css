@@ -177,7 +177,7 @@ h2 span {
 	display: block;}
 .main-nav > ul > li > a {
 	display: block;
-	border-bottom: 3px solid transparent;
+	border-bottom: 2px solid transparent;
 	color: #010101;
 	/*font: 22px/26px Arial, Helvetica, sans-serif !important;
 	padding: 5px;*/
@@ -1933,7 +1933,7 @@ select{
 #acc-dropdown{
 	/*width: 345px !important;*/
 	
-	margin-left: -19.3em !important;
+	margin-left: -19.4em !important;
 	
 	padding:25px;
 }
