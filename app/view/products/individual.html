@@ -1,35 +1,3 @@
-
-<!--
-<script>
-$("#itemdetail").click(function () {
-   $('.detail').slideToggle();
-});
-
-</script>
--->
-<script type="text/javascript">
-	$( document ).ready(function() {
-		$(function() {
-		    $('#showdiv1').click(function() {
-		        $('div[id^=div]').hide();
-		        $('#div1').show();
-		    });
-		    $('#showdiv2').click(function() {
-		        $('div[id^=div]').hide();
-		        $('#div2').show();
-		    });
-
-		    $('#showdiv3').click(function() {
-		        $('div[id^=div]').hide();
-		        $('#div3').show();
-		    });
-
-		    
-
-		});
-	});
-</script>
-
 <div class="container" id="marg">
 	<div class="row">
 				
@@ -52,12 +20,10 @@ $("#itemdetail").click(function () {
 		</div>
 		<div class="col-sm-5 " id="indisize1">
 				  
-			<p style="font-size: 16px;margin-top: 3px;margin-bottom: 10px; line-height: 20px;">
+			<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
 				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by {{productDetail.shop.name}}<br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
-			<!--<h3>
-			{{productDetail.longDesc}}
-			</h3>  -->	
+				
              
 			<div class="quantity-wrapper">
             	
@@ -71,16 +37,9 @@ $("#itemdetail").click(function () {
 						<label class="col-sm-3 col-xs-3 clr"><h3> Size</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="one">
-								<!--<select class="size-dropdown">
-									<option><b>XS</b></option>
-									<option><b>S</b></option>
-									<option><b>M</b></option>
-									<option><b>L</b></option>
-									<option><b>XL</b></option>
-								</select>-->
-								<select ng-model="selectedItem">
-        <option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
-      </select>
+								<select ng-model="selectedItem" class="size-dropdown">
+									<option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -100,8 +59,10 @@ $("#itemdetail").click(function () {
 						</div>
 					</div>
 				</div >
+				
+				
 				<a href="#chat/{{productDetail.name}}"><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;margin-bottom: 0px;">ASK DESIGNER</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			
 
@@ -136,104 +97,65 @@ $("#itemdetail").click(function () {
 <div class="container">
 	<div class="row">
 		<div class="row customise-sec text-center" >
-<!--<<<<<<< HEAD
-			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3 id="showdiv1">Item Details</h3></label>
-				
-			
-			</div>
-			<div class="col-sm-4 customization-border custom-divider"><label class="clr" id="customization"><h3 id="showdiv2">Customization</h3></label></div>
-			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3 id="showdiv3">Shipping & Return Policy</h3></label></div>
-			
-			
-			
+			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3>Item Details</h3></label></div>
+			<div class="col-sm-4 customization-border custom-divider"><label class="clr" id="customization"><h3>Customization</h3></label></div>
+			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3>Shipping & Return Policy</h3></label></div>
 		</div>
-		
-			<div id="div1">
-				<p>Some text Some text Some text Some text Some text</p>
-			</div>
-			
-			<div id="div2" style="display:none;">
-				<p>hihihhuhdkfdd</p>
-			</div>
-			
-			<div id="div3" style="display:none;">
-				<p>nononononononnonononono</p>
-			</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<div id="custom-section" class="row" >
-			<div class="col-sm-12 asd" style=" width: 100%; height: 300px;margin-top: 10px;padding-left: 25px;" >
-=======-->
-			<div class="col-sm-4 itemdetail-border custom-divider"><label class="clr" id="itemdetail"><h3>Item Details</h3></label>
-			<div class=" one1" style="display: none;" >
-				<p>this is one </p>
-			</div>
-			</div>
-			<div class="col-sm-4 customization-border custom-divider">
-			<label class="clr" id="customization"><h3>Customization</h3></label>
-			<div class=" two2" style="display: none;" >
-				<p>this is two </p>
-			</div>
-			</div>
-			<div class="col-sm-4 shipping-border custom-divider"><label class="clr" id="shipping"><h3>Shipping & Return Policy</h3></label>
-			<div class=" three3"  style="display: none;">
-				<p>this is THree </p>
-			</div>
-			</div>
+		<div class="row one1 individual-tabs">
+			<h1>Item Details</h1>
+			<h3>{{productDetail.longDesc}}</h3>
 		</div>
-		
-		
-		
-		<div id="custom-section" class="row one1"  style="display: none;" >
-			<div class="col-sm-12" style=" width: 100%; margin-top: 10px;padding-left: 25px;" >
-			</div>
-			
-			
-			
+		<div class="row two2 individual-tabs">
+			<h1>Customization</h1>
 		</div>
-		
+		<div class="row three3 individual-tabs">
+			<h1>Shipping & Return Policy</h1>
+		</div>
 		
 		
 	</div>
 </div><!---btn end -->     
-<div class="jumbotron" >
-	<a href="#item"></a>
-</div>
 
 <script>
 	
-	 $(document).ready(function() {
-    $('.itemdetail-border').click(function() {
-    	$(".two2").hide("fast")
-    	 $(".three3").hide("fast")
+	$(document).ready(function() {
+			$('.itemdetail-border').click(function() {
+					$(".two2").hide();
+					$(".three3").hide()
+					$('.one1').toggle();
+            
+				});
+    
+			$('.customization-border').click(function() {
+					$('.one1').hide();
+					$('.three3').hide();
+					$('.two2').toggle();
+        
+				});
+    
+			$('.shipping-border').click(function() {
+					$('.one1').hide();
+					$('.two2').hide();
+					$('.three3').toggle();
+        
+				});
+    
+		});
+	/*$(document).ready(function() {
+	$('.customization-border').click(function() {
+	$(".one1").hide("fast")
+	$(".three3").hide("fast")
     	 
-            $('.one1').slideToggle("slide");
-    });
-});
- $(document).ready(function() {
-    $('.customization-border').click(function() {
-    	$(".one1").hide("fast")
-    	 $(".three3").hide("fast")
+	$('.two2').slideToggle("slide");
+	});
+	});
+	$(document).ready(function() {
+	$('.shipping-border').click(function() {
+	$(".one1").hide("fast")
+	$(".two2").hide("fast")
     	 
-            $('.two2').slideToggle("slide");
-    });
-});
- $(document).ready(function() {
-    $('.shipping-border').click(function() {
-    	$(".one1").hide("fast")
-    	 $(".two2").hide("fast")
-    	 
-            $('.three3').slideToggle("slide");
-    });
-});
+	$('.three3').slideToggle("slide");
+	});
+	});*/
 </script>
 
