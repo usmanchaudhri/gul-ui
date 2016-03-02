@@ -30,7 +30,7 @@ app.config(['$routeProvider', function($routeProvider)
 					controller: 'singleCatCtrl',
 					label:'CATEGORY'
 				}).when('/cart', {
-					templateUrl: 'view/chatting/mailscreen.html', 
+					templateUrl: 'view/shoppingCart/cart.html', 
 					controller: 'cartCtrl',
 					label:'CART'
 				}).when('/cart/payment', {

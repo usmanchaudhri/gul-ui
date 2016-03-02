@@ -32,11 +32,20 @@
 						<img bn-lazy-src= "{{fixPath +'300x300-img-'+a.id+'.png'+token}}"></a>
 	
 					<div class="row info-boxes" style="margin: 0px;">
-						<div class="col-sm-12 col-xs-12 image-button" >
-							<div class="col-sm-2 col-xs-3 col-md-3 col-lg-3"></div>
-							<span ng-repeat="x in a.prodVar">
+						<div class="col-sm-12 col-xs-12 image-button" style="text-align: center;">
+						
+							
+				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
+				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
+				  	<a><input type="submit" value="XS" ng-click="storeProductsInCookie(a.id,prodPrice,'XS',1)"/></a>
+				  	
+				  	
+				  
+					
+				</div>
+							<!--<span ng-repeat="x in a.prodVar">
 								<a ><input type="submit" value="{{x.size}}" ng-click="storeProductsInCookie(a,x.size,1)"/></a>	
-							</span>
+							</span>-->
 							
 						</div>
 						<div class="imageText">

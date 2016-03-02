@@ -1088,7 +1088,7 @@ button.btn:active,button.btn.active{
 #indisize{
 	height: 441px;
 	width: 472px;
-	margin-bottom: 10px;
+	margin-bottom: 17px;
 }
 #indisize1{
 	height: 441px;
@@ -1910,6 +1910,7 @@ select{
     padding-bottom: 3px;
     text-align:right;
     padding-top: 8px;
+    margin-left: 5px;
     width: auto;
    
 }
@@ -1933,7 +1934,7 @@ select{
 #acc-dropdown{
 	/*width: 345px !important;*/
 	
-	margin-left: -19.4em !important;
+	margin-left: -19.3em !important;
 	
 	padding:25px;
 }
@@ -2060,10 +2061,12 @@ select{
 	
 }
 
+
+
 @media (min-width: 768px){
 	
 }
-.order-right-table td{
+.order-right-table tr td{
 	height: 30px;
 	font-size: 15px;
 	
@@ -2159,7 +2162,13 @@ select{
 	display: none;
 }
 
+	.order-right-table tr td{
+	height: 30px !important;
+	font-size: 15px !important;
 	
+	
+}
+
 	
 		
 	
