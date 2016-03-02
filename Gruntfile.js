@@ -325,7 +325,7 @@ module.exports = function (grunt) {
             expand: true,
             src: '**/*.css',
             dest: '<%= config.dist %>/css',
-            cwd: '<%= config.dist %>/css'
+            cwd: '<%= config.app %>/css'
         }]
       }
     },
