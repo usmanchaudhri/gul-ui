@@ -164,7 +164,7 @@ h2 span {
 	font-size: 0;
 	line-height: 0;
 	text-align: center;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 .main-nav > ul > li {
 	display: inline-block;
