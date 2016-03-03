@@ -1934,7 +1934,7 @@ select{
 #acc-dropdown{
 	/*width: 345px !important;*/
 	
-	margin-left: -19.3em !important;
+	margin-left: -19.2em !important;
 	
 	padding:25px;
 }
@@ -1942,10 +1942,10 @@ select{
 
 /*Footer*/
 .footer-list li{
-	padding: 10px;
+	padding: 5px;
 	font-size: 12px;
-	margin-top: 10px;
-	display: inline-flex;
+	margin-top: 2px;
+	
 }
 /*End of Footer*/
 }
@@ -2083,10 +2083,9 @@ select{
     
   
     .footer-list li{
-	padding: 5px;
+	
 	font-size: 12px;
-	margin-top: 10px;
- display: inline;
+	
 	
 }
 

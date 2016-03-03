@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="css/dropdown.css">
 		<link rel="stylesheet" href="css/user-dropdown.css">
 		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="css/smoothproducts.css">
 		<link href="css/angular-image-cropper.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/angular-bootstrap-lightbox.css">
 		
@@ -147,37 +148,38 @@
 			<!--Footer-->
 			<footer id="footer">
 				<div style="width: 100%;">
-					<div class="row" style="padding-bottom: 40px;">
+					<div class="row" style="padding-bottom: 20px;padding-top: 20px;">
 						<div class="col-sm-12">
-							<div class="col-sm-5 col-xs-12 text-center">
-							<ul class="footer-list" style="list-style-type: none;display: inline-flex;">
-								<li><a href="#a">ABOUT</a></li>
-								<li><a href="#a">TERMS &amp; PRIVACY</a></li>
-								<li><a href="#a">PRIVACY POLICY</a></li>
-								<li><a href="#a">CONTACT US</a></li>
-							</ul>
-						</div>
 							<div class="col-sm-5 col-xs-12">
 							<div class="subscribe">
 								<form action="#a">
-									<label for="lbl-01" style="padding: 7px;padding-right: 4px;">Email</label>
+									<label for="lbl-01" style="padding: 7px;padding-right: 4px;padding-left: 0px;">Email</label>
 									<div class="form-group">
-										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;">
+										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;">
 									</div>
 									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 26px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
 								</form>
 							</div>
 						</div>
-						
+						</div>
+					</div><!-- /row -->
+					<div class="row" style="padding-bottom: 20px;">
+						<div class="col-sm-5 col-xs-12">
+							<ul class="footer-list" style="list-style-type: none;padding-left: 10px;">
+								<li><a href="#a"><label>ABOUT</label></a></li>
+								<li><a href="#a"><label>TERMS &amp; PRIVACY</label></a></li>
+								<li><a href="#a"><label>PRIVACY POLICY</label></a></li>
+								<li><a href="#a"><label>CONTACT US</label></a></li>
+							</ul>
+						</div>
+							<div class="col-sm-5"></div>
 						<div class="col-sm-2 col-xs-12" >
 						<ul class="social" style="display:inline-flex;line-height: 15px; bottom: 0;">
 								<li style="padding-right:10px;" ><a href="#"><label>Facebook</label></a></li>
 								<li><a href="#"><label>Twitter</label></a></li><br>
 							</ul>
 						</div>	
-						</div>
-						
-					</div><!-- /row -->
+					</div>
 				</div><!-- /container-fluid -->
 			</footer><!-- /footer -->
 			<!--End of Footer-->
@@ -213,6 +215,7 @@
 			<script src="controller/cartCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
 			<script src="js/jquery-1.12.1.min.js"></script>
+			<script src="js/smoothproducts.js"></script>
 			<script src="js/directive.js"></script>
 			<script src="controller/imgViewCtrl.js"></script>
 			<script src="js/ng-file-upload.js" ></script>

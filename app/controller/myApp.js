@@ -45,11 +45,16 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/shoppingCart/shipping.html', 
 					controller: 'shipCtrl',
 					label:'SHIPPMENT'
-				}).when('/chat/:designerName', {
+				}).when('/chat', {
 					templateUrl: 'view/chatting/chatscreen.html', 
 					controller: 'chatCtrl',
 					label:'CHAT'
-				}).otherwise({ redirectTo: '/' });
+				}).when('/allchats', {
+					templateUrl: 'view/chatting/mailscreen.html', 
+					controller: 'chatCtrl',
+					label:'ALL CHATS'
+				})
+				.otherwise({ redirectTo: '/' });
 		}]);
 
 app.directive('progressbar', [function() {
