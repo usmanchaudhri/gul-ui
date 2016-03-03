@@ -1,18 +1,30 @@
+<script>
+	jQuery(function ($) {
+    var $blowup = $('.blowup img');
+    $('.thumbs-container img').click(function () {
+        $blowup.attr('src', this.src);
+    });
+});
+	
+</script>
 <div class="container" id="marg">
 	<div class="row">
 				
 	</div>
 	<div class="row" >
 		<div class="col-sm-5 " >
-			<img  class="img-responsive" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" /> 
-			<div class="col-sm-12 col-xs-12 ind-pro-thumbnail" id="marg">
+		<div class="blowup">
+			<img  class="img-responsive" src="images/img-09.89606685.jpg" alt="img" id="indisize" /> 
+		</div>
+			
+			<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg">
 				<div class="row text-center">
 					<div class="col-sm-1"></div>
 					<div class="col-sm-2 col-xs-2" >
 						<img  class="img-responsive" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive" src="images/img-05.d926140e.jpg" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
 						<img  class="img-responsive" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
@@ -70,7 +82,7 @@
 					</div>
 				</div >
 				
-				
+			
 				<a><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;margin-bottom: 0px;">ASK DESIGNER</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->

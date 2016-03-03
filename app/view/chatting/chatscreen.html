@@ -2,11 +2,7 @@
    <div class="row">
 		<div class="col-sm-3 col-md-2">
 			<ul class="nav nav-pills nav-stacked chat-menu">
-				<li><a href="#">Inbox</a></li>
-				<li><a href="#">Starred</a></li>
-				<li><a href="#">Important</a></li>
-				<li><a href="#">Sent Mail</a></li>
-				<li><a href="#"><span class="badge pull-right"></span>Drafts</a></li>
+				<li><a ng-href="#allchats">Chats</a></li>
 			</ul>
 		</div>
 		<div class="col-sm-9 col-md-10">
@@ -14,7 +10,7 @@
 			<div class="tab-content">
 				<div class=" col-lg-12 col-md-12 col-sm-12">
 					<div class="chat-box-div">
-						<div class="panel-body chat-box-main" style="height: 500px;background-color: rgba(238, 238, 238, 0.52);">
+						<div class="panel-body chat-box-main" style="height: 350px;background-color:rgba(238, 238, 238, 0.26);">
                         
 							<div class="chat-box-left">
 								<div class="chat-box-name-left">
@@ -96,13 +92,11 @@
 						</div>
                     
 						<div class="chat-box-footer">
-							<div class="input-group">
-								<input type="text" class="form-control send-input" placeholder="Enter Text Here..." style="padding: 20px;margin: 10px;width: 95%;" >
-								<span class="input-group-btn">
-									<button class="btn btn-info" type="button">SEND</button>
-								</span>
+							<div class="input-group send-input" style="width: 100%;">
+								<input type="text" class="form-control" placeholder="Enter Text Here..." >
 							</div>
 						</div>
+						<button type="button" class="btn btn-primary" style="height: 25px; text-align: center;float:right;">Send</button>
 
 					</div>
 
