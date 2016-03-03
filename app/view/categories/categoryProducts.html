@@ -37,7 +37,7 @@
 	<div class="row info-boxes show-image">
 		<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in categoryProDetail">
 			<a ng-href="#productDetailPage/{{a.id}}">		
-				<img bn-lazy-src= "{{fixPath + a.imageInfo.imagePath + token}}">
+				<img bn-lazy-src= "{{fixPath +'300x300-img-'+a.id+'.png'+token}}">
 			</a>
 			<div class="imageText">
 				<span class="proDes">
@@ -46,7 +46,7 @@
 					</p>
 				</span>
 				<span class="proDes">
-					<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop}}</a></small>
+					<small>	 <a ng-href="#productDetailPage/{{a.id}}" style="color: black;" >{{a.shop}}</a></small>
 				</span>
 			</div>
 		</div>
