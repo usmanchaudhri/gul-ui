@@ -32,7 +32,7 @@
 				  
 			<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
 				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
-			<font size="3" class="clr1" style="color: #D25E00;">by {{productDetail.shop.name}}<br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
+			<font size="3" class="clr1" style="color: #D25E00;"><a ng-href="#shop/{{productDetail.shop.id}}">by {{productDetail.shop.name}}</a><br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
 				
              
 			<div class="quantity-wrapper">
