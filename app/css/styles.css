@@ -2006,7 +2006,7 @@ select{
          width: 100%;
 		}
 		#women-dropdown-menu{
-			display: block;
+			display: inline;
 			    border: 0px;
          box-shadow: none;
        
