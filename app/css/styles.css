@@ -77,8 +77,8 @@ h2 span {
 	box-shadow: 0 1px 3px rgba(0,0,0,.38);*/
 }
 .btn-primary {
-	background-color: gray;
-	background: #eee;
+	color: gray;
+	background-color: #eee !important;
 	background: url(data:image/svg+xml;
 	base64,
 	PD94bWwgdmVyc2lvbj0iMS4wIiA/
@@ -1847,7 +1847,6 @@ select{
 	color: black;
 	font-size: 14px;
 }
-
 .dropdown-toggle ul{
 	display: none;
 }
@@ -1871,7 +1870,6 @@ select{
 	margin: 20px;
 	margin-left: 0px;
 }
-
 .cart-elements{
 	padding-left: 15px;
 }
@@ -1948,7 +1946,8 @@ select{
 	
 }
 /*End of Footer*/
-}
+
+
 
 
 @media (min-width: 200px) and (max-width: 500px){
