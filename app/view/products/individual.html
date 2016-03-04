@@ -4,6 +4,8 @@
     $('.thumbs-container img').click(function () {
         $blowup.attr('src', this.src);
     });
+    
+   $(".zoom").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 });
 	
 </script>
@@ -14,7 +16,7 @@
 	<div class="row" >
 		<div class="col-sm-5 " >
 		<div class="blowup">
-			<img  class="img-responsive" src="images/img-09.89606685.jpg" alt="img" id="indisize" /> 
+			<img  class="img-responsive zoom" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" data-zoom-image="images/img-01.png" /> 
 		</div>
 			
 			<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg">
