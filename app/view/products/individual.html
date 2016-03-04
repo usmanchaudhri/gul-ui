@@ -4,7 +4,6 @@
     $('.thumbs-container img').click(function () {
         $blowup.attr('src', this.src);
     });
-    
    $(".zoom").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 });
 	
@@ -16,7 +15,7 @@
 	<div class="row" >
 		<div class="col-sm-5 " >
 		<div class="blowup">
-			<img  class="img-responsive zoom" ng-src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" data-zoom-image="images/img-01.png" /> 
+			<img  class="img-responsive zoom" src="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" data-zoom-image="{{fixPath+'600x600-img-'+productDetail.id+'.png'+ token}}" /> 
 		</div>
 			
 			<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg">
@@ -46,7 +45,7 @@
 				  
 			<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
 				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
-			<font size="3" class="clr1" style="color: #D25E00;">by <a ng-href="#shop/{{productDetail.shop.id}}"> {{productDetail.shop.name}}</a><br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
+			<font size="3" class="clr1" style="color: #D25E00;"><a ng-href="#shop/{{productDetail.shop.id}}">by {{productDetail.shop.name}}</a><br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
 				
              
 			<div class="quantity-wrapper">
@@ -84,8 +83,8 @@
 					</div>
 				</div >
 				
-			
-				<a><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
+				
+				<a href="#chat"><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;margin-bottom: 0px;">ASK DESIGNER</button>
 				<!--<a ng-href="#cart"><input type="submit" value="Add to Bag" class="buyBtn" /></a>-->
 			
