@@ -1930,9 +1930,9 @@ select{
 }
 
 #acc-dropdown{
-	/*width: 345px !important;*/
+	width: 345px !important;
 	
-	margin-left: -19.2em !important;
+	margin-left: -33.5em !important;
 	
 	padding:25px;
 }
