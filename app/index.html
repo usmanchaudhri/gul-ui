@@ -45,72 +45,43 @@
 										
 									</div>
 									<div class="col-sm-10 col-xs-7">
-										<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
-											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
-												<li>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
-													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li>
-															<div class="row">
-																<div class="col-sm-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
-																</div>
-																<div class="col-sm-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
-																</div>
-																<div class="col-sm-2">
-																	<label style="font-size: 12px;">$79.99</label>
-																</div>
-															</div>	
-														</li>
-														<li>
-															<div class="row">
-																<div class="col-sm-12" style="margin-top:10px;padding:10px;border-top: 1px solid #f5f5f5;border-bottom: 1px solid #f5f5f5;">
-																<div class="col-sm-6">
-																	<label style="font-size: 13px;">Order SubTotal:</label>
-																</div>
-																<div class="col-sm-6">
-																	<label style="font-size: 12px;float: right;">$79.99</label>
-																</div>
-																	
-																	
-																</div>
-																
-															</div>		
-														</li>
-													
-													</ul>
-											
-												</li>
+									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+										<div style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+										<div><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+											<div class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+													<div style="text-align: center;">
+														<a href="#acc">Your Bag cart is Empty!</a>
+													</div>
+											</div>
+										</div>
 										    
-											</ul>
 										</div>
 									</div>
 										<div class="main-nav" ng-show="loginUser != 'logout'">
 									<ul class="nav account-navbar">
-	<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
-													<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
-														<li>
-															<a href="#acc">Settings</a>
-														</li>
-													
-														<li>
-															<a href="#fav">Order Status</a>
-														</li>
-													
-														<li>
-															<a href="#status">Chat</a>
-														</li>
-													
-														<li>
-															<a href="" ng-click="userLogout()">Logout</a>
-														</li>
-													</ul>
-												</li>
 											
-											</ul>
-										</div>	
+											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+												<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
+													<li>
+														<a href="#acc">Settings</a>
+													</li>
+													
+													<li>
+														<a href="#fav">Order Status</a>
+													</li>
+													
+													<li>
+														<a href="#status">Chat</a>
+													</li>
+													
+													<li>
+														<a href="" ng-click="userLogout()">Logout</a>
+													</li>
+												</ul>
+											</li>
+											
+										</ul>
+									</div>	
 									</div>
 									
 									
@@ -179,16 +150,16 @@
 					<div class="row" style="padding-bottom: 20px;padding-top: 20px;">
 						<div class="col-sm-12">
 							<div class="col-sm-5 col-xs-12">
-								<div class="subscribe">
-									<form action="#a">
-										<label for="lbl-01" style="padding: 7px;padding-right: 4px;padding-left: 0px;">Email</label>
-										<div class="form-group">
-											<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;">
-										</div>
-										<button class="btn-submit" style="background-color: white;box-shadow: none;height: 26px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
-									</form>
-								</div>
+							<div class="subscribe">
+								<form action="#a">
+									<label for="lbl-01" style="padding: 7px;padding-right: 4px;padding-left: 0px;">Email</label>
+									<div class="form-group">
+										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;">
+									</div>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 26px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+								</form>
 							</div>
+						</div>
 						</div>
 					</div><!-- /row -->
 					<div class="row" style="padding-bottom: 20px;">
@@ -200,9 +171,8 @@
 								<li><a href="#a"><label>CONTACT US</label></a></li>
 							</ul>
 						</div>
-						<div class="col-sm-5"></div>
+							<div class="col-sm-5"></div>
 						<div class="col-sm-2 col-xs-12" >
-
 						<ul class="social" style="display:inline-flex;line-height: 15px; bottom: 0;">
 								<li style="padding-right:10px;" ><a href="#a"><label>Facebook</label></a></li>
 								<li><a href="#a"><label>Twitter</label></a></li><br>
