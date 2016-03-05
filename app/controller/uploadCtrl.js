@@ -110,11 +110,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			$scope.uploadImages = function(){
 				var count = -1;
 				//console.log($scope.resImage);
-				console.log("Image Upload: " + tempFiles);
+				console.log("Image Upload: " + tempFiles.length);
 				var uploadImgs = [];
-				angular.forEach(resImage, function (myItem) {
-						uploadImgs.push(myItem.resized.dataURL);
-					});
+			//	angular.forEach(resImage, function (myItem) {
+						uploadImgs.push(resImage[0].resized.dataURL);
+			//		});
 				$scope.uriToFile(uploadImgs);
 				console.log("Image Upload: " + tempFiles.length);
 				angular.forEach(tempFiles, function(value, key){
@@ -276,13 +276,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				angular.forEach(uriArray, function (item) {
 						count++;
 						countIndex++;
-						//console.log(angular.isDefined($scope.allFiles[count-1].croped));
 						var flag = false;
-						/*if((uriArray.length + count) == $scope.allFiles.length){
-						if(angular.isDefined($scope.allFiles[countIndex-1].croped)){
-						flag = $scope.allFiles[countIndex-1].croped;
-						}
-						}*/
 						if(!flag){
 							console.log(resolution);
 							var fileCheck = $scope.dataURItoBlob(item);

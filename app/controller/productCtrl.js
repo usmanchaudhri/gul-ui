@@ -15,24 +15,24 @@
 					$scope.token = response.data.token;
 					$scope.productUrl = response.data.productUrl;
 					$scope.busy = true;
-						$http.get($scope.productUrl+"?first="+first+"&max=9")
+					$http.get($scope.productUrl+"?first="+first+"&max=9")
 					.then(function(data) {
-						var shopID = -1;
-						var shopName = '';
+							var shopID = -1;
+							var shopName = '';
 							var products = data.data;
 							for(var i = 0; i< products.length; i++){
 								if(angular.isDefined(products[i].shop.id)){
-										var shopVal = {
-											id: products[i].shop.id,
-											name: products[i].shop.name,
-										};
-										$scope.shopTemp.push(shopVal);
-										shopID = products[i].shop.id;
-										shopName = products[i].shop.name;
-									}else{
-										shopID = $scope.getShop(products[i].shop);
-										shopName = products[i].shop;
-									}
+									var shopVal = {
+										id: products[i].shop.id,
+										name: products[i].shop.name,
+									};
+									$scope.shopTemp.push(shopVal);
+									shopID = products[i].shop.id;
+									shopName = products[i].shop.name;
+								}else{
+									shopID = $scope.getShop(products[i].shop);
+									shopName = products[i].shop;
+								}
 								console.log("LENGTH: "+ $scope.infiniteList.length);
 								var value = {
 									'shop': {
@@ -78,11 +78,12 @@
 					$scope.busy = true;
 					$http.get($scope.productUrl+"?first="+first+"&max=9")
 					.then(function(data) {
-						var shopID = -1;
-						var shopName = '';
-							var products = data.data;
-							for(var i = 0; i< products.length; i++){
-								if(angular.isDefined(products[i].shop.id)){
+							if(data.data.length>0){
+								var shopID = -1;
+								var shopName = '';
+								var products = data.data;
+								for(var i = 0; i< products.length; i++){
+									if(angular.isDefined(products[i].shop.id)){
 										var shopVal = {
 											id: products[i].shop.id,
 											name: products[i].shop.name,
@@ -94,44 +95,44 @@
 										shopID = $scope.getShop(products[i].shop);
 										shopName = products[i].shop;
 									}
-								console.log("LENGTH: "+ $scope.infiniteList.length);
-								var value = {
-									'shop': {
-										'id': shopID,
-										'name': shopName
-									},
-									'id': products[i].id,
-									'name': products[i].name,
-									'quantity': products[i].quantity,
-									'price': products[i].pricingProduct.storedValue,
-									'imagePath': products[i].imageInfo.imagePath,
-									'prodCat': products[i].category.id,
-									'prodVar': products[i].productVariation
+									console.log("LENGTH: "+ $scope.infiniteList.length);
+									var value = {
+										'shop': {
+											'id': shopID,
+											'name': shopName
+										},
+										'id': products[i].id,
+										'name': products[i].name,
+										'quantity': products[i].quantity,
+										'price': products[i].pricingProduct.storedValue,
+										'imagePath': products[i].imageInfo.imagePath,
+										'prodCat': products[i].category.id,
+										'prodVar': products[i].productVariation
 									
+									}
+								
+									$scope.infiniteList.push(value);
+								
 								}
-								
-								$scope.infiniteList.push(value);
-								
+								$scope.busy = false;
+								first = first + 9;
 							}
-							$scope.busy = false;
-							first = first + 9;
-							
 						});
 					console.log("Load More");
-					}
+				}
 			};
 			$scope.load = function() {
- 			$("#filter-dropdown").click(function(){
-					/*$(".home-filter").addClass("homepage-filter");*/
-					if ( $( "#price-filters" ).is( ":hidden" ) ) {
-						$( "#price-filters" ).slideDown( "slow" );
+				$("#filter-dropdown").click(function(){
+						/*$(".home-filter").addClass("homepage-filter");*/
+						if ( $( "#price-filters" ).is( ":hidden" ) ) {
+							$( "#price-filters" ).slideDown( "slow" );
 						
-					} else {
-						$( "#price-filters" ).slideUp("slow");
-						/*$(".home-filter").removeClass("homepage-filter");*/
-					}
-				});
-			$('.carousel .item').each(function(e) {
+						} else {
+							$( "#price-filters" ).slideUp("slow");
+							/*$(".home-filter").removeClass("homepage-filter");*/
+						}
+					});
+				$('.carousel .item').each(function(e) {
 						var bg_ = 'url(' + $(this).find('>img').attr('src') + ')';
 						$(this).find('>img').hide();
 						$(this).css('background-image', bg_);
