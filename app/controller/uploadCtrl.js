@@ -59,6 +59,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			*/
 			
 			
+	
 			$scope.upload=function(){
 				$scope.showProgress = true;
 				var count = -1;
@@ -271,6 +272,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				}else{
 					resolution = '300x300';
 				}
+				count = 0;
 				angular.forEach(uriArray, function (item) {
 						count++;
 						countIndex++;
@@ -282,6 +284,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						}
 						}*/
 						if(!flag){
+							console.log(resolution);
 							var fileCheck = $scope.dataURItoBlob(item);
 							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.png');
 							var value = {
@@ -301,7 +304,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				console.log(tempFiles);
 									
 			}
-
+ 
 
 			$scope.cropImageArray = function(crop,indexNum){
 				console.log("DEFined: "+ angular.isDefined(crop) + "INDEX: " + indexNum);
