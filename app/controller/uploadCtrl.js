@@ -283,10 +283,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						}*/
 						if(!flag){
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],resolution + '-img-'+$scope.newProId+'.png');
+							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.png');
 							var value = {
 								// File Name 
-								name: resolution + '-img-'+$scope.newProId+'.png',
+								name: resolution + '-'+count+'-img-'+$scope.newProId+'.png',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
