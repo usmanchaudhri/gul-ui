@@ -56,7 +56,7 @@ select:focus{
 .wrapper {
 	position: relative;
 	overflow: hidden;
-	padding-top: 100px;
+	/*padding-top: 100px;*/
 }
 h2 {
 	font: bold 22px/26px Arial, Helvetica, sans-serif;
@@ -120,13 +120,28 @@ h2 span {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 24px;
+	/*top: 24px;*/
 	margin: 0;
 	padding-top: 15px;
 	border: 0;
-	background: #fff;
+	background: transparent;
 	z-index: 100;
 }
+
+.navbar:hover{
+	background-color: white;
+	color: black;
+}
+
+.navbar:hover .nav > li > a{
+
+color:black !important;
+}
+
+.navbar:hover .cart-label{
+	color: black !important;
+}
+
 .navbar.scroll {
 	position: fixed;
 	top: 0;
@@ -233,7 +248,7 @@ h2 span {
 .carousel { 
 	margin: 0 0 20px;}
 .carousel .item {
-	min-height: 399px;
+	min-height: 725px;
 	background-position: 50% 50%;
 	background-size: cover;
 	background-color: #6a6a6c;
@@ -565,10 +580,42 @@ body {
 	-webkit-transform: translateZ(0);
 	font-size: 14px;  
 	font-weight: 500;
+	color: white;
 }	
+.navbar{
+	padding-top: 50px;
+}
 
+.carousel-content {
+  position: absolute;
+  bottom: 51%;
+  left: 5%;
+  width: 100%;
+  z-index: 20;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-family: 'Century Schoolbook' !important;
+  font-size: 38px !important;
+  line-height: 46;
+}
 
+.carousel-content h1{
+font-size: 44px !important;
+ 
+}
 
+.carousel-content h3{
+	font-size: 17px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	
+}
+    
+
+.navbar .nav > li > a:hover{
+	color: black;
+}
 
 /* END IBRISM css */
 /* 21 NOV 201 */
@@ -1909,6 +1956,7 @@ select{
     text-align:right;
     padding-top: 8px;
     margin-left: 5px;
+    color: white;
     width: auto;
    
 }
@@ -1930,9 +1978,9 @@ select{
 }
 
 #acc-dropdown{
-	/*width: 345px !important;*/
+	width: 345px !important;
 	
-	margin-left: -19.2em !important;
+	margin-left: -33.5em !important;
 	
 	padding:25px;
 }

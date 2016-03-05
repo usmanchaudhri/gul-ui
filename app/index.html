@@ -35,7 +35,7 @@
 						<div class="row">
 							<div class="col-sm-4"></div>
 							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-								<strong style="font-size:45px; color:black; "><a href="#a" style="color: black;"><span style=" font-weight: 700; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;">l</span></a></strong>	
+								<strong style="font-size:45px; color: #e86903; "><a href="#a" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
 							</div>	
 							<div class="col-sm-1"></div>
 							<div class="col-sm-3" style="margin-top: -11px;" >
@@ -46,16 +46,45 @@
 									</div>
 									<div class="col-sm-10 col-xs-7">
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
-										<div style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
-										<div><label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
-											<div class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-													<div style="text-align: center;">
-														<a href="#acc">Your Bag cart is Empty!</a>
-													</div>
-											</div>
-										</div>
+											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+												<li>
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4" style="text-align: center;">
+																	<img src="images/img-04.jpg" width="76" height="74">
+																</div>
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">Description</label><br>
+																	<span style="font-size: 12px;">Quantity:</span>
+																</div>
+																<div class="col-sm-2">
+																	<label style="font-size: 12px;">$79.99</label>
+																</div>
+															</div>	
+														</li>
+														<li>
+															<div class="row">
+																<div class="col-sm-12" style="margin-top:10px;padding:10px;border-top: 1px solid #f5f5f5;border-bottom: 1px solid #f5f5f5;">
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">Order SubTotal:</label>
+																</div>
+																<div class="col-sm-6">
+																	<label style="font-size: 12px;float: right;">$79.99</label>
+																</div>
+																	
+																	
+																</div>
+																
+															</div>		
+														</li>
+													
+													</ul>
+											
+												</li>
 										    
-										</div>
+											</ul>
 									</div>
 										<div class="main-nav" ng-show="loginUser != 'logout'">
 									<ul class="nav account-navbar">
