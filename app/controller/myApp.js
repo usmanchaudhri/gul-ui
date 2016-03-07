@@ -53,6 +53,10 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/chatting/mailscreen.html', 
 					controller: 'chatCtrl',
 					label:'ALL CHATS'
+				}).when('/inspiration', {
+					templateUrl: 'view/inspiration/inspiration.html', 
+					controller: 'inspirationCtrl',
+					label:'INSPIRATION'
 				})
 				.otherwise({ redirectTo: '/' });
 		}]);
