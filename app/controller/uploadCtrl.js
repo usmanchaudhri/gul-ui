@@ -265,6 +265,9 @@ Create Shop
 			var createShop = function(){
 				shopPayload = {
 					"name": $scope.proName,
+					"designers":{
+						"name":"HUMA MANZOOR"	
+					}
 					}
 				
 				

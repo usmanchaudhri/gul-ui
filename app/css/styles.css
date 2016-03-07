@@ -124,27 +124,47 @@ h2 span {
 	margin: 0;
 	padding-top: 15px;
 	border: 0;
-	background: transparent;
 	z-index: 100;
 }
 
-.navbar:hover{
-	background-color: rgba(255, 255, 255, 0.55);
+.home-menu{
+	background: transparent;
+	color: white;
+}
+
+.header-main-nav ul > li{
+	color: black !important;
+}
+
+.header-main-nav ul > li > a{
+	background: white;
+	color: black !important;
+}
+
+.header-main-nav:hover ul > li > label{
+	color: black;
+}
+.home-menu:hover{
+	background-color: rgba(255, 255, 255, 0.5);
 	color: black;
 }
 
-.navbar:hover .nav > li > a{
+.home-menu ul > li > a{
+	color:white !important;
+}
+
+.home-menu:hover ul > li > a{
 
 color:black !important;
 }
 
-.navbar:hover .cart-label{
+.home-menu:hover .cart-label {
 	color: black !important;
 }
 
 .navbar.scroll {
 	position: fixed;
-	top: -35px;
+	top: 0;
 	background-color: white;
 }
 
@@ -153,7 +173,7 @@ color:black !important;
 }
 
 .navbar.scroll .cart-label {
-	color: black;
+	color: black !important;
 }
 
 .navbar .container { 
@@ -258,7 +278,7 @@ color:black !important;
 .carousel { 
 	margin: 0 0 20px;}
 .carousel .item {
-	max-height: 725px;
+	min-height: 725px;
 	background-position: 50% 50%;
 	background-size: cover;
 	background-color: #6a6a6c;
@@ -1143,12 +1163,12 @@ button.btn:active,button.btn.active{
 	margin-bottom: 30px;
 }
 #indisize{
-	height: 441px;
-	width: 472px;
+	height: 600px;
+	width: 600px;
 	margin-bottom: 17px;
 }
 #indisize1{
-	height: 441px;
+	height: 600px;
 }
 
 .clr{
@@ -1961,7 +1981,6 @@ select{
 	
     /*border-radius: 4px;*/
     padding: 8px;
-    border-bottom: 1px solid white !important;
     padding-bottom: 3px;
     text-align:right;
     padding-top: 8px;
@@ -1972,7 +1991,10 @@ select{
 }
 .cart-label:hover{
 	cursor: pointer;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-bottom: 1px solid white !important;
+	border: 1px solid gray;
+	background-color: white;
+	color: black;
 	}
 	
 .cart-block{
@@ -1989,7 +2011,7 @@ select{
 
 #acc-dropdown{
 	width: 345px !important;
-	
+	border: 1px solid black;
 	margin-left: -33.5em !important;
 	
 	padding:25px;
