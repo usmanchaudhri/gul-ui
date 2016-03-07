@@ -137,6 +137,7 @@
 						$(this).find('>img').hide();
 						$(this).css('background-image', bg_);
 					});
+				
 			};
 			$scope.load();
 		}]);

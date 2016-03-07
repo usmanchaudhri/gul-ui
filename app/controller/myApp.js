@@ -38,7 +38,7 @@ app.config(['$routeProvider', function($routeProvider)
 					controller: 'payCtrl',
 					label:'PAYMENT'
 				}).when('/upload', {
-					templateUrl: 'view/upload/uploadImages.html', 
+					templateUrl: 'view/upload/createShop.html', 
 					controller: 'uploadCtrl',
 					label:'UPLOAD'
 				}).when('/cart/payment/shipping', {

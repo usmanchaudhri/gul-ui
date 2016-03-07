@@ -11,15 +11,12 @@
 				console.log($scope.loginUser);
 			};
 			$scope.checkLogin = function(){
-			
-			
-			
 				if($scope.loginPass != '' && $scope.loginEmail != ''){
 					$cookieStore.put("login",'login');
 					$scope.loginUser = "login";
 				}
-					console.log("Check: "+$scope.loginUser);
-					$scope.dismiss();
+				console.log("Check: "+$scope.loginUser);
+				$scope.dismiss();
 			};
 		
 		}]);

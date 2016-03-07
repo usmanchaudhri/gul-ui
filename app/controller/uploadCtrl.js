@@ -178,7 +178,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": '2'
+						"id": '12'
 					},
 					"productVariation": [{
 							"size": "L",
@@ -256,6 +256,19 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				});
 
 
+/*
+*
+Create Shop
+*
+*/
+			
+			var createShop = function(){
+				shopPayload = {
+					"name": $scope.proName,
+					}
+				
+				
+			}
 			/*
 			*
 			Creating file from URI
