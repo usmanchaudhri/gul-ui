@@ -178,7 +178,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": '12'
+						"id": '15'
 					},
 					"productVariation": [{
 							"size": "L",
@@ -186,10 +186,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						},{
 							"size": "M",
 							"color": "Red"
-						},{
+						}/*,{
 							"size": "S",
 							"color": "Red"
-						}]
+						}*/]
 				}
 			}
 
