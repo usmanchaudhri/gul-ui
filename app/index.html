@@ -163,15 +163,17 @@
 	
 			
 		
-		
-
-			<div ng-controller="BreadcrumbCtrl" >
+			<div ng-controller="BreadcrumbCtrl">
 				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
 				
-					<div  ng-include src="'view/header/breadCrumb.html'" ></div>
+					<div  ng-include src="'view/header/breadCrumb.html'" style="padding-top: 135px;"></div>
 				</div>
 			</div>
 			<div ng-view autoscroll="true"></div>
+		
+		
+
+			
 			
 			<!--Footer-->
 			<footer id="footer">
