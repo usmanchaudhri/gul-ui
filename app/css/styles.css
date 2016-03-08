@@ -1992,7 +1992,7 @@ select{
 .cart-label:hover{
 	cursor: pointer;
 	border-bottom: 1px solid white !important;
-	border: 1px solid gray;
+	border: 1px solid rgba(0, 0, 0, 0.15);
 	background-color: white;
 	color: black;
 	}
@@ -2011,9 +2011,7 @@ select{
 
 #acc-dropdown{
 	width: 345px !important;
-	border: 1px solid black;
 	margin-left: -33.5em !important;
-	
 	padding:25px;
 }
 /*End of Homepage*/
