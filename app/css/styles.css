@@ -162,6 +162,10 @@ color:black !important;
 	color: black !important;
 }
 
+.home-menu  .cart-label:hover{
+	border: 1px solid #A09D93;
+}
+
 .navbar.scroll {
 	position: fixed;
 	top: 0;
@@ -174,6 +178,10 @@ color:black !important;
 
 .navbar.scroll .cart-label {
 	color: black !important;
+}
+
+.navbar.scroll .cart-label:hover{
+	border:1px solid rgba(0, 0, 0, 0.15);
 }
 
 .navbar .container { 
