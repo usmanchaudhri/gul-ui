@@ -34,7 +34,7 @@
 	
 			
 		<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length == 1 || !getPosition(breadcrumbs)"  >
+				<div ng-if="breadcrumbs.get().length == 1"  >
 				<div ng-controller="loginCtrl">
 				<nav class="navbar home-menu">
 					<div class="container-fluid" >
@@ -168,7 +168,7 @@
 		
 
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
+				<div ng-if="breadcrumbs.get().length > 1 " >
 				<div ng-controller="loginCtrl">
 				<nav class="navbar header-main-nav">
 					<div class="container-fluid" >
@@ -301,7 +301,9 @@
 				</div>
 			</div>
 		
+		<span ng-if="getPosition(breadcrumbs)">
 					<div  ng-include src="'view/header/breadCrumb.html'" style="padding-top: 135px;" ></div>
+					</span>
 				</div>
 			</div>
 			<div ng-view autoscroll="true"></div>
