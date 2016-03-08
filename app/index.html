@@ -168,7 +168,7 @@
 		
 
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)" >
+				<div ng-if="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
 				<div ng-controller="loginCtrl">
 				<nav class="navbar header-main-nav">
 					<div class="container-fluid" >
@@ -300,9 +300,145 @@
 					</div>
 				</div>
 			</div>
-		
+           
+            </div>
+				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)">
+					<div ng-controller="loginCtrl">
+				<nav class="navbar header-main-nav">
+					<div class="container-fluid" >
+						<div class="row">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-4 col-xs-5 text-center mob-logo">
+								<strong style="font-size:45px; color: #e86903; "><a href="#a" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
+							</div>	
+							<div class="col-sm-1"></div>
+							<div class="col-sm-3" style="margin-top: -11px;" >
+								<span ng-show="loginUser == 'logout'"><h3 class="pull-right signin-label" style="cursor: pointer;margin:0px;margin-top:7px;font-size: 11px;"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+								<span>
+									<div class="col-sm-2">
+										
+									</div>
+									<div class="col-sm-10 col-xs-7">
+									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+												<li>
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+														<!--<li>
+															<div class="row">
+																<div class="col-sm-4" style="text-align: center;">
+																	<img src="images/img-04.jpg" width="76" height="74">
+																</div>
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">Description</label><br>
+																	<span style="font-size: 12px;">Quantity:</span>
+																</div>
+																<div class="col-sm-2">
+																	<label style="font-size: 12px;">$79.99</label>
+																</div>
+															</div>	
+														</li>
+														<li>
+															<div class="row">
+																<div class="col-sm-12" style="margin-top:10px;padding:10px;border-top: 1px solid #f5f5f5;border-bottom: 1px solid #f5f5f5;">
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">Order SubTotal:</label>
+																</div>
+																<div class="col-sm-6">
+																	<label style="font-size: 12px;float: right;">$79.99</label>
+																</div>
+																	
+																	
+																</div>
+																
+															</div>		
+														</li>
+													-->
+													
+													<li><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+													</ul>
+											
+												</li>
+										    
+											</ul>
+									</div>
+										<div class="main-nav" ng-show="loginUser != 'logout'">
+									<ul class="nav account-navbar">
+											
+											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+												<ul class="row dropdown-menu" style="margin-left: -220%;width: 120px;">
+													<li>
+														<a href="#acc">Settings</a>
+													</li>
+													
+													<li>
+														<a href="#fav">Order Status</a>
+													</li>
+													
+													<li>
+														<a href="#status">Chat</a>
+													</li>
+													
+													<li>
+														<a href="" ng-click="userLogout()">Logout</a>
+													</li>
+												</ul>
+											</li>
+											
+										</ul>
+									</div>	
+									</div>
+									
+									
+								</span>
+							</div>
+						</div>
+				
+						<a class="btn-menu visible-xs" href="#a">menu</a>
+					
+						
+						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
+					</div><!--/ End of container -->
+					<div class="container">
+						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
+					</div>
+				</nav>
+			
+				<div class="modal fade" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+					<div class="modal-dialog" role="document">
+						<div>
+							<div class="modal-body">
+								<div>
+									<div class="card card-container">
+										<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+										<p id="profile-name" class="profile-name-card"></p>
+										<form class="form-signin">
+											<span id="reauth-email" class="reauth-email"></span>
+
+											<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
+											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="loginPass" />
+
+											<div id="remember" class="checkbox">
+												<label>
+													<input type="checkbox" value="remember-me"> Remember me
+												</label>
+											</div>
+											<button class="btn btn-lg btn-block btn-signin" ng-click="checkLogin()" >Sign in</button>
+										</form><!-- /form -->
+									
+									</div><!-- /card-container -->
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+					
 					<div  ng-include src="'view/header/breadCrumb.html'" style="padding-top: 135px;" ></div>
 				</div>
+					
+				
 			</div>
 			<div ng-view autoscroll="true"></div>
 			
