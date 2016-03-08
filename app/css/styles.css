@@ -1988,14 +1988,12 @@ select{
 .cart-label{
 	
     /*border-radius: 4px;*/
-    padding: 8px;
+    padding: 10px;
     padding-bottom: 3px;
     text-align:right;
     padding-top: 8px;
-    margin-left: 5px;
     color: white;
     width: auto;
-   
 }
 .cart-label:hover{
 	cursor: pointer;
@@ -2006,7 +2004,7 @@ select{
 	}
 	
 .cart-block{
-	 margin-left: -33.4em;
+	 margin-left: -33em;
     z-index: -1;
     margin-top:-1px;
 }	
