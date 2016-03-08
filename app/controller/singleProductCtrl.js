@@ -1,5 +1,11 @@
-app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookieStore', function($scope,$http,$q,$timeout,$location,$routeParams,$cookieStore) {
    
+   
+   var config = {
+				headers : {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
+			}
 			$scope.pro_id = $routeParams.proId;
 			$scope.prodSize = 0;
 			$scope.prodQty = 1;
@@ -11,7 +17,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 					$http.get(response.data.productUrl + '/' + $scope.pro_id)
 					.then(function(response1){
 							$scope.productDetail = response1.data;
-    						$scope.selectedItem = response1.data.productVariation[0].size;
+							$scope.selectedItem = response1.data.productVariation[0].size;
+							createChannel();
 						});
 				});
 			
@@ -32,92 +39,107 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			CREATE CHANNEL
 			**/
 			
-				$scope.createChannel = function(){
-			var data1 = $.param({
-					UniqueName : 'UzairAmjad',
-					Type: 'private'
-				});			
+			var createChannel = function(){
+				var data1 = $.param({
+						UniqueName : $cookieStore.get("login") + " - " + $scope.productDetail.shop.name,
+						Type: 'private'
+					});			
 			
-			$http.post(
-				$scope.twilioChannel,  data1,config
-			).success(function(data, status) {
-				console.log(data);
-				if(data == ''){
-					$scope.retrieveChannel();
-				}else{
-					$scope.data = data;
-					$scope.channelSid = data.sid;
-					addMembers();
+				$http.post(
+					$scope.twilioChannel,  data1,config
+				).success(function(data, status) {
+						console.log(data);
+						if(data == ''){
+							$scope.retrieveChannel();
+						}else{
+							$scope.data = data;
+							$scope.channelSid = data.sid;
+							addMembers();
 					
-				}
-					//console.log($scope.channelSid);
+						}
+						//console.log($scope.channelSid);
 					
 				
 				
-				}).error(function (data, status) {
+					}).error(function (data, status) {
 				
-				$scope.retrieveChannel();
+						$scope.retrieveChannel();
 				
-					console.log("RET Channel");
-				});
-		}
+						console.log("RET Channel");
+					});
+			}
 	
 			/**
 			Retrieve Channel
 			**/
 			
-				$scope.retrieveChannel = function(){
-			console.log("Check");
-			var config = {
-				headers : {
-					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+			$scope.retrieveChannel = function(){
+				console.log("Check");
+				var config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+					}
 				}
-			}
 		
-			$http.get(
-				$scope.twilioChannel+'/UzairAmjad',config
-			).success(function(data, status) {
-				$scope.channelSid = data.sid;
-				addMembers();
-				console.log(data.sid);
-				}).error(function (data, status) {
-					console.log(data);
-					console.log("3rd");
-				});
+				$http.get(
+					$scope.twilioChannel+'/'+$cookieStore.get("login") + " - " + $scope.productDetail.shop.name,config
+				).success(function(data, status) {
+						$scope.channelSid = data.sid;
+						addMembers();
+						console.log(data.sid);
+					}).error(function (data, status) {
+						console.log(data);
+						console.log("3rd");
+					});
 				
-		}
+			}
 	
-		var addMembers = function(){
-			var data2 = $.param({
-							Identity : ""
-						});
-					var data1 = $.param({
-							Identity : $cookieStore.get("login")
-						});
-					var promise1 = $http({
-							method: 'POST',
-							url: $scope.twilio+$scope.channelSid+'/Members',
-							data: data2,
-							headers : {
-								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-							},
-							cache: 'true'});
-					var promise2 = $http({
-							method: 'POST',
-							url: $scope.twilio+$scope.channelSid+'/Members',
-							data: data1,
-							headers : {
-								'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-							},
-							cache: 'true'});
+			/**
+			Add Members
+			**/
+	
+			var addMembers = function(){
+				var data2 = $.param({
+						Identity : ""
+					});
+				var data1 = $.param({
+						Identity : $cookieStore.get("login")
+					});
+				var promise1 = $http({
+						method: 'POST',
+						url: $scope.twilio+$scope.channelSid+'/Members',
+						data: data2,
+						headers : {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+						},
+						cache: 'true'});
+				var promise2 = $http({
+						method: 'POST',
+						url: $scope.twilio+$scope.channelSid+'/Members',
+						data: data1,
+						headers : {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+						},
+						cache: 'true'});
 
-					$q.all([promise1,promise2]).then(function(data){
-							console.log(data[0],data[1]);
-						}, function onError(response) {
-							console.log(response);
-						});
-		}
+				$q.all([promise1,promise2]).then(function(data){
+						console.log(data[0],data[1]);
+					}, function onError(response) {
+						console.log(response);
+					});
+			}
 	
+			/**
+			Send Message
+			**/
+		
+			$scope.sendMessage = function(){
+				
+				createChannel();
+				$scope.dismiss();
+				
+				
+			}
 			
 			$scope.load = function() {
 		
