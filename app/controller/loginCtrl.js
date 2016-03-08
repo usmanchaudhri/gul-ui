@@ -28,6 +28,7 @@
 			$scope.checkLogin = function(){
 				if($scope.loginPass != '' && $scope.loginEmail != ''){
 					$cookieStore.put("login",'login');
+					$cookieStore.put("username",$scope.loginEmail);
 					$scope.loginUser = "login";
 					regUser($scope.loginEmail);
 				}
