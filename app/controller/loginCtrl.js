@@ -12,6 +12,7 @@
 					$scope.twilioUser = response.data.twilioUser;
 					
 				});
+		
 			if(angular.isDefined($cookieStore.get("login"))){
 				$scope.loginUser = $cookieStore.get("login");
 			}else{

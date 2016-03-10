@@ -1,10 +1,12 @@
- app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q' ,function($scope,$http,DataLoader, Base64,$cookieStore,$q) {
+ app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams) {
 		
 		var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 				}
 			}
+			 $scope.chat_name = $routeParams.chatName;
+			
 		$http.get("gulgs.properties")
 		.then(function(response) {
 			
@@ -13,7 +15,7 @@
 				$scope.twilioUser = response.data.twilioUser;
 				$scope.twilioChannel = response.data.twilioChannel;
 				$scope.twilio = response.data.twilio;
-				$scope.createChannel();
+				$scope.retrieveChannel();
 			});
 		
 		
@@ -33,6 +35,7 @@
 				});
 		}
 		
+	/*
 		$scope.createChannel = function(){
 			var data1 = $.param({
 					UniqueName : 'UzairAmjad',
@@ -62,7 +65,7 @@
 					console.log("RET Channel");
 				});
 		}
-			
+	*/		
 		$scope.sendMessage = function(){
 			/*if(angular.isUndefined($scope.channelLink)){
 				
@@ -76,19 +79,22 @@
 				}
 			}
 		
-			var data1 = $.param({
+		var	mFrom = $cookieStore.get("username").replace(/ /g, '');
+				var data1 = $.param({
 					Body : $scope.msgBody,
-					From : 'Amjad'
+					From : mFrom
 				});
 				$scope.msgBody = "";
 			$http.post(
-				$scope.msgLink,  data1,config
+				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
 			).success(function(data, status) {
 				console.log(data);
+				$scope.retrieveMessage();
 				
 				}).error(function (data, status) {
 					console.log(data);
 				});
+				
 				
 		}
 	
@@ -101,7 +107,7 @@
 			}
 		
 			$http.get(
-				$scope.msgLink,config
+				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',config
 			).success(function(data, status) {
 				$scope.retMsg = data;
 				console.log(data);
@@ -115,25 +121,29 @@
 		};
 
 		$scope.retrieveChannel = function(){
-			console.log("Check");
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
 				}
 			}
-		
+			if(angular.isDefined($scope.chat_name))
+		var mUnique = $cookieStore.get("username") + "-" + $scope.chat_name.replace(/ /g, '');
+		console.log(mUnique);
 			$http.get(
-				$scope.twilioChannel+'/UzairAmjad',config
+				$scope.twilioChannel+'/'+mUnique,config
 			).success(function(data, status) {
-				$scope.channelSid = data.sid;
-				addMembers();
-				console.log(data.sid);
+				$scope.channelSid = data.entity.sid;
+				
+			//	addMembers();
+			$scope.retrieveMessage();
+				console.log(data.entity.sid);
 				}).error(function (data, status) {
 					console.log(data);
 					console.log("3rd");
 				});
 				
 		}
+		
 		var addMembers = function(){
 			var data2 = $.param({
 							Identity : 'Amjad'

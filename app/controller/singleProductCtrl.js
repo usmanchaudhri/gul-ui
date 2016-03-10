@@ -13,12 +13,12 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
+					$scope.twilioChannel = response.data.twilioChannel;
 			
 					$http.get(response.data.productUrl + '/' + $scope.pro_id)
 					.then(function(response1){
 							$scope.productDetail = response1.data;
 							$scope.selectedItem = response1.data.productVariation[0].size;
-							createChannel();
 						});
 				});
 			
@@ -40,10 +40,14 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			**/
 			
 			var createChannel = function(){
+			
+			var shopName = $cookieStore.get("username") + "-" + $scope.productDetail.shop.name.replace(/ /g, '');
+			console.log(shopName);
 				var data1 = $.param({
-						UniqueName : $cookieStore.get("login") + " - " + $scope.productDetail.shop.name,
+						UniqueName : shopName,
 						Type: 'private'
-					});			
+					});	
+					
 			
 				$http.post(
 					$scope.twilioChannel,  data1,config
@@ -81,12 +85,16 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 					}
 				}
 		
+	var shopName = $cookieStore.get("username") + "-" + $scope.productDetail.shop.name.replace(/ /g, '');
+			
 				$http.get(
-					$scope.twilioChannel+'/'+$cookieStore.get("login") + " - " + $scope.productDetail.shop.name,config
+					$scope.twilioChannel+'/'+shopName,config
 				).success(function(data, status) {
-						$scope.channelSid = data.sid;
-						addMembers();
-						console.log(data.sid);
+					
+						$scope.channelSid = data.entity.sid;
+						composeMsg();
+						//addMembers();
+						console.log(data);
 					}).error(function (data, status) {
 						console.log(data);
 						console.log("3rd");
@@ -99,15 +107,18 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			**/
 	
 			var addMembers = function(){
+				var mName = $cookieStore.get("username").replace(/ /g, '');
+				var mDesigner = $scope.productDetail.shop.name.replace(/ /g, '');
 				var data2 = $.param({
-						Identity : ""
+						Identity : mDesigner
 					});
+					 
 				var data1 = $.param({
-						Identity : $cookieStore.get("login")
+						Identity : mName
 					});
 				var promise1 = $http({
 						method: 'POST',
-						url: $scope.twilio+$scope.channelSid+'/Members',
+						url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
 						data: data2,
 						headers : {
 							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -115,7 +126,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						cache: 'true'});
 				var promise2 = $http({
 						method: 'POST',
-						url: $scope.twilio+$scope.channelSid+'/Members',
+						url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
 						data: data1,
 						headers : {
 							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -124,6 +135,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 
 				$q.all([promise1,promise2]).then(function(data){
 						console.log(data[0],data[1]);
+						composeMsg();
+						
 					}, function onError(response) {
 						console.log(response);
 					});
@@ -140,6 +153,25 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				
 				
 			}
+			
+			var composeMsg = function(){
+			var	mFrom = $cookieStore.get("username").replace(/ /g, '');
+				var data1 = $.param({
+					Body : $scope.productDetail.name+","+$scope.msgBody,
+					From : mFrom
+				});
+				$scope.msgBody = "";
+			$http.post(
+				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
+			).success(function(data, status) {
+				console.log(data);
+				
+				}).error(function (data, status) {
+					console.log(data);
+				});
+				
+			}
+			
 			
 			$scope.load = function() {
 		

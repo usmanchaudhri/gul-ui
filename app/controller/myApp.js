@@ -53,7 +53,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/shoppingCart/shipping.html', 
 					controller: 'shipCtrl',
 					label:'SHIPPMENT'
-				}).when('/chat', {
+				}).when('/chat/:chatName', {
 					templateUrl: 'view/chatting/chatscreen.html', 
 					controller: 'chatCtrl',
 					label:'CHAT'

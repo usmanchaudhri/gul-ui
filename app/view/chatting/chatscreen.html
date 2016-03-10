@@ -12,31 +12,30 @@
 					<div class="chat-box-div">
 						<div class="panel-body chat-box-main" style="height: 350px;background-color:rgba(238, 238, 238, 0.26);">
                         
-							<div class="chat-box-left">
+                        <span  ng-repeat="x in retMsg">
+							<div class="chat-box-left" ng-if="x.from != chat_name">
 								<div class="chat-box-name-left">
 									<img src="images/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								{{x.body}}
 								</div>
 							</div>
                        
                        
-							<div class="chat-box-right">
+							<div class="chat-box-right" ng-if="x.from == chat_name">
 								<div class="chat-box-name-right">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								{{x.body}}
 									<img src="images/user.png" alt="bootstrap Chat box user image" class="img-circle" />
 								</div>
                             
 							</div>
-		
+		</span>
                     </div>
 						<div class="chat-box-footer">
 							<div class="input-group send-input" style="width: 100%;">
-								<input type="text" class="form-control" placeholder="Enter Text Here..." >
+								<input type="text" ng-model="msgBody" class="form-control" placeholder="Enter Text Here..." >
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary" style="height: 25px; text-align: center;float:right;">Send</button>
+						<button type="button" class="btn btn-primary" ng-click="sendMessage()" style="height: 25px; text-align: center;float:right;">Send</button>
 
 					</div>
 
