@@ -406,7 +406,7 @@ color:black !important;
 }
 /* footer */
 #footer {
-	margin-top: 130px;	
+	margin-top: -5px;	
 	padding: 8px;
 	border-top: 1px solid #ddd;
 }
@@ -1061,13 +1061,17 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 	margin-bottom: 20px;
 }
 
+.split-footer {
+    border-bottom: 1px solid #e5e5e5;
+    margin: 30px 0 25px 0;
+}
 
 
 
 .fa {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: inherit;
+	
+	
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	color: #D25E00;
