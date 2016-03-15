@@ -2232,10 +2232,15 @@ select{
 		}
 }
 
+
 .social label{
 	font-size: 13px; 
 	padding-top: 17px;
 	padding-right: 5px;
+}
+.social li {
+    float: left;
+    padding-left: 10px;
 }
 
 .individual-tabs{

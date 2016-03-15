@@ -123,8 +123,57 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$coo
 				}
 			}
 			
-			
-			
+			/**
+ * Paypal checkout. Reacts on /paypal/set-express-checkout
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+/*function paypalCheckout(orderData, req, res) {{
+    var cancelUrl = req.body.cancelUrl;
+    var successUrl = req.body.successUrl;
+
+    var paypal = PayPal.create(GLOBAL.config.paypal.apiUsername, GLOBAL.config.paypal.apiPassword, GLOBAL.config.paypal.signature, GLOBAL.config.paypal.sandbox);
+    paypal.setPayOptions(GLOBAL.config.paypal.brandName, null, GLOBAL.config.paypal.logoUrl);
+
+    var paypalItems = _.map(orderData.products, function(item) {
+        return {
+            name: item.name,
+            description: item.description,
+            quantity: item.userOptions.quantity,
+            amount: item.price,
+        };
+    });
+
+    paypal.setProducts(paypalItems);
+
+    paypal.setExpressCheckoutPayment(
+        orderData.email, 
+        orderData.orderId, 
+        orderData.totalDiscountedPrice, 
+        '', 
+        'USD', 
+        successUrl, 
+        cancelUrl, 
+        false,
+        function(err, data) {
+            if (err) {
+                logger.error('paypal seting express checkout payment failed.', err);
+                res.status(500).send('Error setting paypal payment');
+                return;
+            }
+
+            GLOBAL.dbConnection.query('INSERT INTO paypal_order_data (token, order_data) VALUES (?, ?)', [data.token, JSON.stringify(orderData)], function(err) {
+                if (err) {
+                    logger.error('Storing paypal_order_data for orderId: %s with token: %s', orderData.orderId, data.token);
+                    return res.status(500).send('Error setting paypal payment. Failed storing order data.');
+                }
+
+                res.send({ redirectUrl: redirectUrl });
+            });
+    });
+}
+*/			
 			checkItems();
 			
 			
