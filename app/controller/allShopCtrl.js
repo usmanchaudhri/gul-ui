@@ -8,7 +8,6 @@ app.controller('allShopCtrl',['$scope','$http','$q','$timeout','$location','$rou
 					.then(function(response1){
 							//	$scope.shopLength = response1.data.products.categoty.subCategories.length;
 							$scope.allShopDetail = response1.data;
-							console.log(response1.data);
 						});
 				});
 		

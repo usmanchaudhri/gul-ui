@@ -1,7 +1,7 @@
 
 <div class="container">
 <div class="row" style="padding-left: 0px;margin-bottom: 40px;">
-	<div class="col-sm-12" ng-controller="cartCtrl">
+	<div class="col-sm-12">
 		<div class="col-sm-4 col-xs-7 items-title" style="padding-left:0px;">
 			<h1 style="font-size: 20px;">{{abc}} Items in your Cart</h1>
 		</div>
@@ -17,7 +17,7 @@
 			<div class="row cart-products" ng-repeat="a in items track by $index" style="border-bottom:1px solid rgba(128, 128, 128, 0.08);margin-top:20px; ">
 				
 				<div class="col-sm-1 col-xs-5" style="width: 130px; height: 125px;margin-bottom: 20px;">
-					<img  src="{{fixPath + a.imagePath + token}}" width="130" height="125"/>
+					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="130" height="125"/>
 				</div>
 				
 				<div class="col-sm-7 col-xs-8 cart-elements">
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="col-sm-1 col-xs-1">
-					<a href="#"><img src="images/closebtn.png" style="float: right;margin-top:-10px;"/></a>
+					<img src="images/closebtn.png" ng-click="removeItem($index)" style="float: right;margin-top:-10px;"/>
 				</div>
 				
 				
@@ -68,7 +68,7 @@
 							<td style="padding: 10px;"><input  type="radio" value="visa" name="pay" /><img src="/images/payment-methods.png" style="vertical-align: middle;"/></td>
 						</tr>
 					</table>
-					<button type="button" class="btn btn-primary proceed-checkout-btn"  >Proceed to Checkout</button>
+					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="uploadOrder()" >Proceed to Checkout</button>
 					<!--<p class="cart-details"><span style="text-align: right;"> </span></p>
 					<p class="cart-details"><b>Subtotal</b> $1400</p>
 					-->

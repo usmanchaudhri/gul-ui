@@ -39,7 +39,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					label:'CATEGORY'
 				}).when('/cart', {
 					templateUrl: 'view/shoppingCart/cart.html', 
-					controller: 'cartCtrl',
+					controller: '',
 					label:'CART'
 				}).when('/cart/payment', {
 					templateUrl: 'view/shoppingCart/payment.html', 

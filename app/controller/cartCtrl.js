@@ -1,67 +1,134 @@
 app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$cookieStore,$http) {
-		$scope.isNumber = angular.isNumber;
-		$scope.totalPrice = 0;
-		$scope.qty = 0;
+			$scope.isNumber = angular.isNumber;
+			$scope.totalPrice = 0;
+			$scope.qty = 0;
 		
-		$http.get("gulgs.properties")
-		.then(function(response) {
-				$scope.fixPath = response.data.fixImagePath;
-				$scope.token = response.data.token;
-			});
+			$http.get("gulgs.properties")
+			.then(function(response) {
+					$scope.fixPath = response.data.fixImagePath;
+					$scope.token = response.data.token;
+					$scope.orderUrl = response.data.orderUrl;
+				});
 	
-		$scope.items = $cookieStore.get("invoices",$scope.invoices);
+			$scope.items = $cookieStore.get("invoices",$scope.invoices);
 		
-		$scope.totalCost = function(items) {
-			console.log("Length: " + items.length);
-			for(var i =0; i< items.length ;i++){
-				$scope.totalPrice = $scope.totalPrice + items[i].cost;
-				console.log("Len: " + $scope.totalPrice);
+	
+			var checkItems = function(){
+				if(angular.isUndefined($scope.items)){
+					$scope.invoice = {
+						items: []
+					};
+					$scope.abc = 0;
+				}
+				else{
+					$scope.invoice = {
+						items: $cookieStore.get("invoices",$scope.invoices)
+					};
+					$scope.abc = $scope.items.length;
+			
+					$scope.totalCost($scope.invoice.items);
+				}
 			}
+		
+			$scope.removeItem = function(index) {
+				console.log(index);
+				$scope.invoice.items.splice(index, 1);
+			
+				//$cookieStore.remove("invoices");
+				$cookieStore.put("invoices",$scope.invoice.items);
+				$scope.items = [];
+				$scope.items = $cookieStore.get("invoices",$scope.invoices);
+				$scope.totalCost($scope.invoice.items);
+				$scope.abc = $scope.items.length;
+				console.log("Remove Method "+$scope.items.length);
+			
+			};
+
+			$scope.storeProductsInCookie=function(prod,size,qty){
+				console.log(prod);
+				$scope.invoice.items.push({
+						id:prod.id,
+						qty: qty,
+						totalQty: prod.quantity,
+						name:prod.name,
+						size: size,
+						shop: prod.shop.name,
+						shopID: prod.shop.id,
+						cost: prod.pricingProduct.storedValue,
+						category: prod.category,
+						imagePath: prod.imagePath
+					
+					});
+				$cookieStore.put("invoices",$scope.invoice.items);
+				$scope.items = $cookieStore.get("invoices",$scope.invoices);
+				console.log("Add Product "+$scope.items.length);
+				$scope.abc = $scope.items.length;
+				$scope.totalCost($scope.invoice.items);
+
+			};
+	
+			$scope.totalCost = function(items) {
+				console.log("TOTAL COST: " + items.length);
+				$scope.totalPrice = 0;
+				for(var i =0; i< items.length ;i++){
+					$scope.totalPrice = $scope.totalPrice + (items[i].cost*items[i].qty);
+					console.log("Len: " + $scope.totalPrice);
+				}
+				if(items.length == 0){
+					$scope.totalPrice = 0;
+				}
+				console.log("CHANGE QTY: " + $scope.qtyModel);
 
 				
-		};
-		
-		if(angular.isUndefined($scope.items)){
-			$scope.invoice = {
-				items: []
 			};
-			$scope.abc = 0;
-		}else{
-			$scope.invoice = {
-				items: $cookieStore.get("invoices",$scope.invoices)
+			
+			
+			$scope.uploadOrder=function(){
+				$scope.showProgress = true;
+				var count = -1;
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+				//	console.log($scope.proUpload());
+			
+				for(var i = 0;i<$scope.items.length;i++){
+			
+					$http.post(
+						$scope.orderUrl, $scope.orderPayload($scope.items[i]),config
+					).success(function(data, status) {
+							console.log(data);
+							$scope.newProId = data.id;
+						}).error(function (data, status) {
+							console.log(data);
+							console.log(status);
+						});
+				}
 			};
-			$scope.abc = $scope.items.length;
+			$scope.orderPayload = function(itemDetail){
+				
+				return payload ={
+					"productId": itemDetail.id,
+					"productName": itemDetail.name,
+					"productSku": "Birds Han",
+					"productQuantity": itemDetail.qty,
+					"productPrice": itemDetail.cost,
+					"productImagePath": "/listing",
+					"productCategoryId": itemDetail.category.id,
+					"productShopId": itemDetail.shopID,
+					"customer": {
+						"id": "4"
+					}
+				}
+			}
 			
-			$scope.totalCost($scope.invoice.items);
-		}
-		$scope.removeItem = function(index) {
-			$scope.invoice.items.splice(index, 1);
 			
-		};
+			
+			checkItems();
+			
+			
 
-		$scope.storeProductsInCookie=function(prod,size,qty){
-			$scope.invoice.items.push({
-					id:prod.id,
-					qty: qty,
-					totalQty: prod.quantity,
-					name:prod.name,
-					size: size,
-					shop: prod.shop.name,
-					shopID: prod.shop.id,
-					cost: prod.price,
-					category: prod.category,
-					imagePath: prod.imagePath
-					
-				});
-			$cookieStore.put("invoices",$scope.invoice.items);
-			items = $cookieStore.get("invoices",$scope.invoices);
-			$scope.abc = items.length;
-
-		};
-	
-		  
-		  
-
-	}]);
+		}]);
         
 

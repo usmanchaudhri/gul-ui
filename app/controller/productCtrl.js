@@ -42,7 +42,9 @@
 									'id': products[i].id,
 									'name': products[i].name,
 									'quantity': products[i].quantity,
-									'price': products[i].pricingProduct.storedValue,
+									'pricingProduct':{
+										'storedValue': products[i].pricingProduct.storedValue
+									},
 									'imagePath': products[i].imageInfo.imagePath,
 									'prodCat': products[i].category.id,
 									'prodVar': products[i].productVariation
