@@ -1,18 +1,96 @@
-app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$cookieStore,$http) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location', function($scope,$cookieStore,$http,Base64,$window,$location) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
 		
+			
 			$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
 					$scope.orderUrl = response.data.orderUrl;
+					$scope.paypalClientID = response.data.paypalClientID;
+					$scope.paypalSecretKey = response.data.paypalSecretKey;
+					$scope.paypalToken = response.data.paypalToken;
+					$scope.paypalPaymentUrl = response.data.paypalPayment;
+				//	checkUrl();
+				
 				});
-	
+			
+			//https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/
+			
+			console.log($location.search());
+			var checkUrl = function(){
+			var urlParameters = $location.search();
+			if(angular.isDefined(urlParameters.paymentId)){
+				var tokenID = $cookieStore.get("tokenID");
+				$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+						var config = {
+							headers : {
+								'Content-Type': 'application/json'
+							}
+						}
+				
+				console.log("PAYER ID: "+urlParameters.PayerID);
+				var data = {
+						"payer_id" : urlParameters.PayerID
+					}
+				$http.post(
+							$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
+						).success(function(data, status) {
+								console.log(data);
+								//console.log(data.links[1].href);
+							//	$window.location.href = data.links[1].href;
+							}).error(function (data, status) {
+								console.log(data);
+							});
+			}
+			}
 			$scope.items = $cookieStore.get("invoices",$scope.invoices);
 		
-	
+			var paypalData = $.param({
+					grant_type : "client_credentials"
+				});
+			
+			$scope.paypalPayment = function(){
+				$scope.prepareCall();
+				var config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+					}
+				}
+				var data = $.param({
+						grant_type : "client_credentials"
+					});
+			
+				$http.post(
+					$scope.paypalToken,  data,config
+				).success(function(data, status) {
+					$cookieStore.put("tokenID",data.access_token);
+					var tokenID = $cookieStore.get("tokenID");
+					
+						$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+						var config = {
+							headers : {
+								'Content-Type': 'application/json'
+							}
+						}
+				
+						$http.post(
+							$scope.paypalPaymentUrl,  paypalPayload(),config
+						).success(function(data, status) {
+								console.log(data);
+								console.log(data.links[1].href);
+								$window.location.href = data.links[1].href;
+							}).error(function (data, status) {
+								console.log(data);
+							});
+						console.log(data);
+					}).error(function (data, status) {
+						console.log(data);
+					});
+			}
+			
 			var checkItems = function(){
 				if(angular.isUndefined($scope.items)){
 					$scope.invoice = {
@@ -82,7 +160,40 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$coo
 				
 			};
 			
+			$scope.prepareCall = function(){
+				var base64 = Base64.encode( $scope.paypalClientID + ':' + $scope.paypalSecretKey );
+				//console.log(base64);
 			
+				$http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
+			}
+			
+			var paypalPayload = function(){
+				return paypalLoad = {
+					"intent":"sale",
+					"redirect_urls":{
+						"return_url":"http://localhost:9000/#/cart",
+						"cancel_url":"http://localhost:9000/#/cart"
+					},
+					"payer":{
+						"payment_method":"paypal"
+					},
+					"transactions":[
+						{
+							"amount":{
+								"total":"7.47",
+								"currency":"USD",
+								"details":{
+									"subtotal":"7.41",
+									"tax":"0.03",
+									"shipping":"0.03"
+								}
+							},
+							"description":"This is the payment transaction description."
+						}
+					]
+				}
+			}
+		
 			$scope.uploadOrder=function(){
 				$scope.showProgress = true;
 				var count = -1;
@@ -106,6 +217,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$coo
 						});
 				}
 			};
+		
 			$scope.orderPayload = function(itemDetail){
 				
 				return payload ={
@@ -123,57 +235,6 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http', function($scope,$coo
 				}
 			}
 			
-			/**
- * Paypal checkout. Reacts on /paypal/set-express-checkout
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-/*function paypalCheckout(orderData, req, res) {{
-    var cancelUrl = req.body.cancelUrl;
-    var successUrl = req.body.successUrl;
-
-    var paypal = PayPal.create(GLOBAL.config.paypal.apiUsername, GLOBAL.config.paypal.apiPassword, GLOBAL.config.paypal.signature, GLOBAL.config.paypal.sandbox);
-    paypal.setPayOptions(GLOBAL.config.paypal.brandName, null, GLOBAL.config.paypal.logoUrl);
-
-    var paypalItems = _.map(orderData.products, function(item) {
-        return {
-            name: item.name,
-            description: item.description,
-            quantity: item.userOptions.quantity,
-            amount: item.price,
-        };
-    });
-
-    paypal.setProducts(paypalItems);
-
-    paypal.setExpressCheckoutPayment(
-        orderData.email, 
-        orderData.orderId, 
-        orderData.totalDiscountedPrice, 
-        '', 
-        'USD', 
-        successUrl, 
-        cancelUrl, 
-        false,
-        function(err, data) {
-            if (err) {
-                logger.error('paypal seting express checkout payment failed.', err);
-                res.status(500).send('Error setting paypal payment');
-                return;
-            }
-
-            GLOBAL.dbConnection.query('INSERT INTO paypal_order_data (token, order_data) VALUES (?, ?)', [data.token, JSON.stringify(orderData)], function(err) {
-                if (err) {
-                    logger.error('Storing paypal_order_data for orderId: %s with token: %s', orderData.orderId, data.token);
-                    return res.status(500).send('Error setting paypal payment. Failed storing order data.');
-                }
-
-                res.send({ redirectUrl: redirectUrl });
-            });
-    });
-}
-*/			
 			checkItems();
 			
 			

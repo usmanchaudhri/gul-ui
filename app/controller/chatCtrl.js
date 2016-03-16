@@ -10,13 +10,15 @@
 		$http.get("gulgs.properties")
 		.then(function(response) {
 			
-				$scope.twilioUsername = response.data.twilioUsername;
-				$scope.twilioAuth = response.data.twilioAuth;
 				$scope.twilioUser = response.data.twilioUser;
 				$scope.twilioChannel = response.data.twilioChannel;
 				$scope.twilio = response.data.twilio;
 				$scope.retrieveChannel();
 			});
+		
+		
+
+		
 		
 		
 		$scope.regUser = function(user){
@@ -35,37 +37,6 @@
 				});
 		}
 		
-	/*
-		$scope.createChannel = function(){
-			var data1 = $.param({
-					UniqueName : 'UzairAmjad',
-					Type: 'private'
-				});			
-			
-			$http.post(
-				$scope.twilioChannel,  data1,config
-			).success(function(data, status) {
-				console.log(data);
-				if(data == ''){
-					$scope.retrieveChannel();
-				}else{
-					$scope.data = data;
-					$scope.channelSid = data.sid;
-					addMembers();
-					
-				}
-					//console.log($scope.channelSid);
-					
-				
-				
-				}).error(function (data, status) {
-				
-				$scope.retrieveChannel();
-				
-					console.log("RET Channel");
-				});
-		}
-	*/		
 		$scope.sendMessage = function(){
 			/*if(angular.isUndefined($scope.channelLink)){
 				
