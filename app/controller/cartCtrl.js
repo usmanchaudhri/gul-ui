@@ -13,24 +13,28 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-						checkUrl();
+					checkUrl();
 				
 				});
 			
 			//https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/
 			
-			console.log($location.search());
+			//console.log($location.search());
 			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
 					var tokenID = $cookieStore.get("tokenID");
-					$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+					$cookieStore.remove("tokenID");
+				//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+				console.log(tokenID);
 					var config = {
 						headers : {
-							'Content-Type': 'application/json'
+							'Content-Type': 'application/json',
+							'Authorization': 'Bearer ' + tokenID
+							
 						}
-					}
+					};
 				
 					console.log("PAYER ID: "+urlParameters.PayerID);
 					var data = {
@@ -39,9 +43,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$http.post(
 						$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
 					).success(function(data, status) {
-							//console.log(data);
+							console.log(data);
 							//console.log(data.links[1].href);
-								$window.location.href = data.links[1].href;
+					//			$window.location.href = data.links[1].href;
+								
 						}).error(function (data, status) {
 							console.log(data);
 						});
@@ -173,8 +178,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://www.gulgs.com/#/cart",
-						"cancel_url":"http://www.gulgs.com/#/cart"
+						"return_url":"http://localhost:9000/#/cart",
+						"cancel_url":"http://localhost:9000/#/cart"
 					},
 					"payer":{
 						"payment_method":"paypal"
