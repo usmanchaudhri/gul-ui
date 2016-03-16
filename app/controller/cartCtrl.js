@@ -178,8 +178,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/cart",
-						"cancel_url":"http://localhost:9000/#/cart"
+						"return_url":"http://www.gulgs.com/#/cart",
+						"cancel_url":"http://www.gulgs.com/#/cart"
 					},
 					"payer":{
 						"payment_method":"paypal"
