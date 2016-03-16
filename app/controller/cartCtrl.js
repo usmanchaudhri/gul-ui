@@ -13,39 +13,41 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-				//	checkUrl();
+						checkUrl();
 				
 				});
 			
 			//https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/
 			
 			console.log($location.search());
+			
 			var checkUrl = function(){
-			var urlParameters = $location.search();
-			if(angular.isDefined(urlParameters.paymentId)){
-				var tokenID = $cookieStore.get("tokenID");
-				$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
-						var config = {
-							headers : {
-								'Content-Type': 'application/json'
-							}
+				var urlParameters = $location.search();
+				if(angular.isDefined(urlParameters.paymentId)){
+					var tokenID = $cookieStore.get("tokenID");
+					$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+					var config = {
+						headers : {
+							'Content-Type': 'application/json'
 						}
+					}
 				
-				console.log("PAYER ID: "+urlParameters.PayerID);
-				var data = {
+					console.log("PAYER ID: "+urlParameters.PayerID);
+					var data = {
 						"payer_id" : urlParameters.PayerID
 					}
-				$http.post(
-							$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
-						).success(function(data, status) {
-								console.log(data);
-								//console.log(data.links[1].href);
-							//	$window.location.href = data.links[1].href;
-							}).error(function (data, status) {
-								console.log(data);
-							});
+					$http.post(
+						$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
+					).success(function(data, status) {
+							//console.log(data);
+							//console.log(data.links[1].href);
+								$window.location.href = data.links[1].href;
+						}).error(function (data, status) {
+							console.log(data);
+						});
+				}
 			}
-			}
+			
 			$scope.items = $cookieStore.get("invoices",$scope.invoices);
 		
 			var paypalData = $.param({
@@ -66,8 +68,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				$http.post(
 					$scope.paypalToken,  data,config
 				).success(function(data, status) {
-					$cookieStore.put("tokenID",data.access_token);
-					var tokenID = $cookieStore.get("tokenID");
+						$cookieStore.put("tokenID",data.access_token);
+						var tokenID = $cookieStore.get("tokenID");
 					
 						$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
 						var config = {
@@ -171,8 +173,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/cart",
-						"cancel_url":"http://localhost:9000/#/cart"
+						"return_url":"http://www.gulgs.com/#/cart",
+						"cancel_url":"http://www.gulgs.com/#/cart"
 					},
 					"payer":{
 						"payment_method":"paypal"
