@@ -1,0 +1,254 @@
+     <script>
+	jQuery(function ($) {
+    var $blowup = $('.blowup img');
+    $('.thumbs-container img').click(function () {
+        $blowup.attr('src', this.src);
+    });
+   $(".zoom").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
+});
+	jQuery('.lightbox_trigger').click(function(e) {
+		
+		//prevent default action (hyperlink)
+		e.preventDefault();
+		
+		//Get clicked link href
+		var image_href = $(this).attr("href");
+		
+		/* 	
+		If the lightbox window HTML already exists in document, 
+		change the img src to to match the href of whatever link was clicked
+		
+		If the lightbox window HTML doesn't exists, create it and insert it.
+		(This will only happen the first time around)
+		*/
+		
+		if (jQuery('#lightbox').length > 0) { // #lightbox exists
+			
+			//place href as img src value
+			jQuery('#content').html('<img src="' + image_href + '" />');
+		   	
+			//show lightbox window - you could use .show('fast') for a transition
+			jQuery('#lightbox').show();
+		}
+		
+		else { //#lightbox does not exist - create and insert (runs 1st time only)
+			
+			//create HTML markup for lightbox window
+			var lightbox = 
+			'<div id="lightbox">' +
+				'<p>Click to close</p>' +
+				'<div id="content">' + //insert clicked link's href into img src
+					'<img src="' + image_href +'" />' +
+				'</div>' +	
+			'</div>';
+				
+			//insert lightbox HTML into page
+			$('body').append(lightbox);
+		}
+		
+	});
+	
+	//Click anywhere on the page to get rid of lightbox window
+	jQuery('body').on('click', '#lightbox', function(){
+    jQuery('#lightbox').hide();
+});
+	
+	/*jQuery('#lightbox').on('click', function() { //must use live, as the lightbox element is inserted into the DOM
+		jQuery('#lightbox').hide();
+	});*/
+
+</script>
+<style>
+	#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100%; 
+    background:rgba(0, 0, 0, 0.86); 
+    z-index: 900;
+    text-align:center;
+}
+
+#lightbox p {
+    text-align:right; 
+    color:#fff; 
+    margin-right:20px; 
+    font-size:12px; 
+}
+#lightbox img {
+    box-shadow:0 0 25px #111;
+    -webkit-box-shadow:0 0 25px #111;
+    -moz-box-shadow:0 0 25px #111;
+    max-width:940px;
+    margin-top: 10%;
+}
+</style>
+<div class="container" id="marg">
+	
+	<div class="row" >
+		<div class="col-sm-6" style="border: 1px solid rgba(128, 128, 128, 0.15);box-shadow: 0px 0px 6px rgba(128, 128, 128, 0.32);" >
+		<div class="blowup">
+			<img  class="img-responsive zoom" src="images/001.jpg" alt="img" id="indisize"  /> 
+		</div>
+		</div>
+		<div class="col-sm-5 " id="indisize1">
+			<div style="height: 450px;">
+				<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
+				<strong>Designer's Name</strong></p><br><br><br><br>
+			<font size="3" class="clr1" style="color: #D25E00;"> Designer's Short Description</b></font><br><br><br><br>
+			</div>	  
+			
+			<a><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">Customize</button></a>                          <div style="padding-left: 10px;">
+         		<a href="images/001-jacket.jpg" class="lightbox_trigger"><img src="images/001-jacket.jpg" style="width: 80px;" /></a>
+         	</div>
+		</div><!-- /.col-lg-6 --><br>
+         	
+	</div>
+</div>
+
+
+<script>
+	
+	$(document).ready(function() {
+			$('.itemdetail-border').click(function() {
+					$(".two2").hide();
+					$(".three3").hide()
+					$('.one1').toggle();
+            
+				});
+    
+			$('.customization-border').click(function() {
+					$('.one1').hide();
+					$('.three3').hide();
+					$('.two2').toggle();
+        
+				});
+    
+			$('.shipping-border').click(function() {
+					$('.one1').hide();
+					$('.two2').hide();
+					$('.three3').toggle();
+        
+				});
+    
+		});
+</script>
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+ 
+<!--<style>
+  
+	.jssora08l, .jssora08r {
+		display: block;
+		position: absolute;
+		/* size of arrow element */
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		background: url('img/a08.png') no-repeat;
+		overflow: hidden;
+		opacity: .4;
+		filter: alpha(opacity=40);
+	}
+	.jssora08l { 
+		background-position: -5px -35px;}
+	.jssora08r { 
+		background-position: -65px -35px;}
+	.jssora08l:hover { 
+		background-position: -5px -35px; 
+		opacity: .8; 
+		filter: alpha(opacity=80);}
+	.jssora08r:hover { 
+		background-position: -65px -35px; 
+		opacity: .8; 
+		filter: alpha(opacity=80);}
+	.jssora08l.jssora08ldn { 
+		background-position: -5px -35px; 
+		opacity: .3; 
+		filter: alpha(opacity=30);}
+	.jssora08r.jssora08rdn { 
+		background-position: -65px -35px; 
+		opacity: .3; 
+		filter: alpha(opacity=30);}
+</style>-->
+
+<!--<div class="container" style="width: 100%;">
+	<div class="row">
+	<div class="col-sm-3" style="padding: 5%;">
+		<h1><u>Designer's Name</u></h1>
+		<p style="font-size: 15px;line-height: 22px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	</div>
+		<div class="col-sm-4">
+			<img src="images/001.jpg" width="90%" height="600" />
+		</div>
+		<div class="col-sm-4">
+			<div id="jssor_1" style="position: relative; margin: 0 auto; margin-top:25px; top: 0px; left: 0px; width: 600px; height: 400px; overflow: hidden; visibility: hidden;">
+				<!-- Loading Screen -->
+		<!--		<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+					<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+					<div style="position:absolute;display:block;background:url('images/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+				</div>
+				<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 400px; overflow: hidden;">
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="images/01.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="images/02.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="images/03.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="images/04.jpg" />
+					</div>
+				</div>
+				<!-- Arrow Navigator -->
+				<!--<span data-u="arrowleft" class="jssora08l" style="top:8px;left:8px;width:50px;height:50px;" data-autocenter="1"></span>
+				<span data-u="arrowright" class="jssora08r" style="bottom:8px;right:8px;width:50px;height:50px;" data-autocenter="1"></span>
+				<a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
+			</div>
+			<div class="row text-center" style="padding-left: 25px;">
+				
+				<div class="col-sm-2" style="margin-top:20px; width: auto;">
+					<img src="images/02.jpg" width="120" height="120" />
+				</div>
+				<div class="col-sm-2" style="margin-top:20px; width: auto;">
+					<img src="images/02.jpg" width="120" height="120" />
+				</div>
+				<div class="col-sm-2" style="margin-top:20px; width: auto;">
+					<img src="images/02.jpg" width="120" height="120" />
+				</div>
+				
+			</div>
+		</div>-->
+	<!--</div>
+</div>-->

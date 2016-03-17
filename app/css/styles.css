@@ -19,7 +19,8 @@
 	font-style: normal;
 }
 body{
-	font: 9px/9px  Helvetica,Arial,sans-serif;
+	
+	font: 9px/9px 'play', sans-serif;
 	color: #050505;
 	min-width: 300px;
 }
@@ -224,7 +225,7 @@ color:black !important;
 	vertical-align: top;
 	position: relative;
 	margin: 0 38px;
-	font: 22px/26px Arial, Helvetica, sans-serif !important;
+	font: 22px/26px 'play', sans-serif;
 }
 .main-nav > ul > li:hover > ul { 
 	display: block;}
@@ -2008,7 +2009,7 @@ select{
 	}
 	
 .cart-block{
-	 margin-left: -33em;
+	 margin-left: -33.1em;
     z-index: -1;
     margin-top:-1px;
 }	
@@ -2247,6 +2248,7 @@ select{
 	 width: 102%;
 	height: 300px; 
 	margin-top: 10px;
+	margin-bottom: 20px;
 	padding-left: 25px;
 	background-color: rgba(245, 245, 245, 0.45);
 	display: none;
