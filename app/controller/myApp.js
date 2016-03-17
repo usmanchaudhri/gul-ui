@@ -1,7 +1,15 @@
 var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','imageCropper']);
 
-app.config(['$routeProvider', function($routeProvider) 
-		{ $routeProvider .when('/', { 
+app.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) 
+		{ 
+		//$locationProvider.html5Mode(true);
+			/*if(window.history && window.history.pushState){
+				 $locationProvider.html5Mode({
+                 enabled: true,
+                 requireBase: false
+          });
+			}*/
+		$routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
 					label:'HOME' 
@@ -31,7 +39,7 @@ app.config(['$routeProvider', function($routeProvider)
 					label:'CATEGORY'
 				}).when('/cart', {
 					templateUrl: 'view/shoppingCart/cart.html', 
-					controller: 'cartCtrl',
+					controller: '',
 					label:'CART'
 				}).when('/cart/payment', {
 					templateUrl: 'view/shoppingCart/payment.html', 
@@ -45,7 +53,7 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/shoppingCart/shipping.html', 
 					controller: 'shipCtrl',
 					label:'SHIPPMENT'
-				}).when('/chat', {
+				}).when('/chat/:chatName', {
 					templateUrl: 'view/chatting/chatscreen.html', 
 					controller: 'chatCtrl',
 					label:'CHAT'
@@ -62,44 +70,45 @@ app.config(['$routeProvider', function($routeProvider)
 					controller: 'singleProductInspirationCtrl',
 					label:'PRODUCT INSPIRATION'
 				})
-				.otherwise({ redirectTo: '/' });
+			.otherwise({ redirectTo: '/' });
+		
 		}]);
 
 app.directive('progressbar', [function() {
-    return {
-        restrict: 'A',
-        scope: {
-            'progress': '=progressbar'
-        },
-        controller: function($scope, $element, $attrs) {
-            $element.progressbar({
-                value: $scope.progress
-            })
+			return {
+				restrict: 'A',
+				scope: {
+					'progress': '=progressbar'
+				},
+				controller: function($scope, $element, $attrs) {
+					$element.progressbar({
+							value: $scope.progress
+						})
 
-            $scope.$watch(function() {
-                $element.progressbar({value: $scope.progress})
-            })
-        }
-    }
-}]);
+					$scope.$watch(function() {
+							$element.progressbar({value: $scope.progress})
+						})
+				}
+			}
+		}]);
 
 app.directive('closeModal', function() {
-   return {
-     restrict: 'A',
-     link: function(scope, element, attr) {
-       scope.dismiss = function() {
-           element.modal('hide');
-       };
-     }
-   } 
-});
+		return {
+			restrict: 'A',
+			link: function(scope, element, attr) {
+				scope.dismiss = function() {
+					element.modal('hide');
+				};
+			}
+		} 
+	});
 
 app.directive('ngElevateZoom', function() {
-  return {
-    restrict: 'A',
-    link: function(scope, element, attrs) {
-      element.attr('data-zoom-image',attrs.zoomImage);
-      $(element).elevateZoom();
-    }
-  };
-});
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				element.attr('data-zoom-image',attrs.zoomImage);
+				$(element).elevateZoom();
+			}
+		};
+	});

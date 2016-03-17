@@ -1,5 +1,11 @@
-app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookieStore', function($scope,$http,$q,$timeout,$location,$routeParams,$cookieStore) {
    
+   
+   var config = {
+				headers : {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
+			}
 			$scope.pro_id = $routeParams.proId;
 			$scope.prodSize = 0;
 			$scope.prodQty = 1;
@@ -7,11 +13,12 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
+					$scope.twilioChannel = response.data.twilioChannel;
 			
 					$http.get(response.data.productUrl + '/' + $scope.pro_id)
 					.then(function(response1){
 							$scope.productDetail = response1.data;
-    						$scope.selectedItem = response1.data.productVariation[0].size;
+							$scope.selectedItem = response1.data.productVariation[0].size;
 						});
 				});
 			
@@ -27,6 +34,144 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 					
 				return numDrop;   
 			}
+			
+			/**
+			CREATE CHANNEL
+			**/
+			
+			var createChannel = function(){
+			
+			var shopName = $cookieStore.get("username") + "-" + $scope.productDetail.shop.name.replace(/ /g, '');
+			console.log(shopName);
+				var data1 = $.param({
+						UniqueName : shopName,
+						Type: 'private'
+					});	
+					
+			
+				$http.post(
+					$scope.twilioChannel,  data1,config
+				).success(function(data, status) {
+						console.log(data);
+						if(data == ''){
+							$scope.retrieveChannel();
+						}else{
+							$scope.data = data;
+							$scope.channelSid = data.sid;
+							addMembers();
+					
+						}
+						//console.log($scope.channelSid);
+					
+				
+				
+					}).error(function (data, status) {
+				
+						$scope.retrieveChannel();
+				
+						console.log("RET Channel");
+					});
+			}
+	
+			/**
+			Retrieve Channel
+			**/
+			
+			$scope.retrieveChannel = function(){
+				console.log("Check");
+				var config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+					}
+				}
+		
+	var shopName = $cookieStore.get("username") + "-" + $scope.productDetail.shop.name.replace(/ /g, '');
+			
+				$http.get(
+					$scope.twilioChannel+'/'+shopName,config
+				).success(function(data, status) {
+					
+						$scope.channelSid = data.entity.sid;
+						composeMsg();
+						//addMembers();
+						console.log(data);
+					}).error(function (data, status) {
+						console.log(data);
+						console.log("3rd");
+					});
+				
+			}
+	
+			/**
+			Add Members
+			**/
+	
+			var addMembers = function(){
+				var mName = $cookieStore.get("username").replace(/ /g, '');
+				var mDesigner = $scope.productDetail.shop.name.replace(/ /g, '');
+				var data2 = $.param({
+						Identity : mDesigner
+					});
+					 
+				var data1 = $.param({
+						Identity : mName
+					});
+				var promise1 = $http({
+						method: 'POST',
+						url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
+						data: data2,
+						headers : {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+						},
+						cache: 'true'});
+				var promise2 = $http({
+						method: 'POST',
+						url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
+						data: data1,
+						headers : {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+						},
+						cache: 'true'});
+
+				$q.all([promise1,promise2]).then(function(data){
+						console.log(data[0],data[1]);
+						composeMsg();
+						
+					}, function onError(response) {
+						console.log(response);
+					});
+			}
+	
+			/**
+			Send Message
+			**/
+		
+			$scope.sendMessage = function(){
+				
+				createChannel();
+				$scope.dismiss();
+				
+				
+			}
+			
+			var composeMsg = function(){
+			var	mFrom = $cookieStore.get("username").replace(/ /g, '');
+				var data1 = $.param({
+					Body : $scope.productDetail.name+","+$scope.msgBody,
+					From : mFrom
+				});
+				$scope.msgBody = "";
+			$http.post(
+				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
+			).success(function(data, status) {
+				console.log(data);
+				
+				}).error(function (data, status) {
+					console.log(data);
+				});
+				
+			}
+			
 			
 			$scope.load = function() {
 		

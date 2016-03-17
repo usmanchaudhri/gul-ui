@@ -36,7 +36,7 @@
 	
 			
 		<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length == 1 || getPosition(breadcrumbs)"  >
+				<div ng-if="breadcrumbs.get().length == 1"  >
 				<div ng-controller="loginCtrl">
 				<nav class="navbar home-menu">
 					<div class="container-fluid" >
@@ -108,7 +108,7 @@
 													</li>
 													
 													<li>
-														<a href="#status">Chat</a>
+														<a href="#allchats">Chat</a>
 													</li>
 													
 													<li>
@@ -147,7 +147,7 @@
 										<form class="form-signin">
 											<span id="reauth-email" class="reauth-email"></span>
 
-											<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
+											<input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
 											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="loginPass" />
 
 											<div id="remember" class="checkbox">
@@ -190,7 +190,7 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;">CART</label>
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
 														<!--<li>
 															<div class="row">
@@ -302,7 +302,6 @@
 					</div>
 				</div>
 			</div>
-           
             </div>
 				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)">
 					<div ng-controller="loginCtrl">
@@ -417,7 +416,7 @@
 										<form class="form-signin">
 											<span id="reauth-email" class="reauth-email"></span>
 
-											<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
+											<input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="loginEmail"/>
 											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="loginPass" />
 
 											<div id="remember" class="checkbox">
@@ -438,6 +437,7 @@
 			</div>
 					
 					<div  ng-include src="'view/header/breadCrumb.html'" style="padding-top: 135px;" ></div>
+					</span>
 				</div>
 					
 				
@@ -446,24 +446,15 @@
 			
 			<!--Footer-->
 			<footer id="footer">
-				<div style="width: 100%;">
-					<div class="row" style="padding-bottom: 20px;padding-top: 20px;">
+				<div class="container" style="width: 100%;">
+				<div class="row text-center" style="padding-bottom: 32px;">
+		<h1 style="font-size: 30px; font-family: 'Century Schoolbook' !important;">Peronalize Your Design </h1>
+		
+	</div>
+					<div class="row" style="padding-bottom: 20px;padding-top: 20px; ">
 						<div class="col-sm-12">
-							<div class="col-sm-5 col-xs-12">
-							<div class="subscribe">
-								<form action="#a">
-									<label for="lbl-01" style="padding: 7px;padding-right: 4px;padding-left: 0px;">Email</label>
-									<div class="form-group">
-										<input id="lbl-01" class="form-control" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;">
-									</div>
-									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 26px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
-								</form>
-							</div>
-						</div>
-						</div>
-					</div><!-- /row -->
-					<div class="row" style="padding-bottom: 20px;">
-						<div class="col-sm-5 col-xs-12">
+						<div class="col-sm-2 col-xs-12" style="margin-top: 10px;">
+								<label style="font-size: 14px; margin-left: 13px;     font-weight: 800;margin-bottom: 10px; color: #D25E00;">SUPPORT</label>
 							<ul class="footer-list" style="list-style-type: none;padding-left: 10px;">
 								<li><a href="#a"><label>ABOUT</label></a></li>
 								<li><a href="#a"><label>TERMS &amp; PRIVACY</label></a></li>
@@ -471,13 +462,47 @@
 								<li><a href="#a"><label>CONTACT US</label></a></li>
 							</ul>
 						</div>
-							<div class="col-sm-5"></div>
+						
+						<div class="col-sm-2 col-xs-12" style="margin-top: 10px;">
+								<label style="font-size: 14px; margin-left: 13px;margin-bottom: 10px;    font-weight: 800; color: #D25E00;">SHOP</label>
+							<ul class="footer-list" style="list-style-type: none;padding-left: 10px;">
+								<li><a href="#a"><label>WOMEN</label></a></li>
+								<li><a href="#a"><label>TUNIC TOP</label></a></li>
+								<li><a href="#a"><label>CASHMARE SCARWES</label></a></li>
+								<li><a href="#a"><label>DRESSES</label></a></li>
+							</ul>
+						</div>
+						
+					
+						
+						
+							<div class="col-sm-6 col-xs-12">
+			
+							<div class="subscribe">
+							
+								<form action="#a">
+						
+									<div class="form-group">
+										<input id="lbl-01" class="form-control" placeholder="email" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;     height: 35px;">
+									</div>
+									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 35px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+								</form>
+							</div>
+						</div>
+						
+					
+				
+						
+							
 						<div class="col-sm-2 col-xs-12" >
-						<ul class="social" style="display:inline-flex;line-height: 15px; bottom: 0;">
-								<li style="padding-right:10px;" ><a href="#a"><label>Facebook</label></a></li>
-								<li><a href="#a"><label>Twitter</label></a></li><br>
+						<ul class="social" style="display:inline-flex; bottom: 0; margin-top: -15px;">
+		                        <li ><a href="#a"><label><i class="fa fa-facebook fa-2x"></i></label></a></li>
+								<li><a href="#a"><label><i class="fa fa-twitter fa-2x"></i></label></a></li>
+								<li><a href="#a"><label><i class="fa fa-instagram fa-2x"></i></label></a></li><br>
 							</ul>
 						</div>	
+					</div><!-- /row -->
+					
 					</div>
 				</div><!-- /container-fluid -->
 			</footer><!-- /footer -->
