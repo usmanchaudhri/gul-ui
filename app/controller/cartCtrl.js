@@ -13,12 +13,11 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-					checkUrl();
+				//	checkUrl();
 				
 				});
 			
 			//https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/
-			
 			//console.log($location.search());
 			
 			var checkUrl = function(){
@@ -60,6 +59,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				});
 			
 			$scope.paypalPayment = function(){
+				if($scope.totalPrice > 0){
 				$scope.prepareCall();
 				var config = {
 					headers : {
@@ -96,6 +96,9 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					}).error(function (data, status) {
 						console.log(data);
 					});
+				}else{
+					alert("Card is Empty");
+				}
 			}
 			
 			var checkItems = function(){
@@ -162,9 +165,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				if(items.length == 0){
 					$scope.totalPrice = 0;
 				}
+				$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100; 
 				console.log("CHANGE QTY: " + $scope.qtyModel);
-
-				
 			};
 			
 			$scope.prepareCall = function(){
@@ -175,11 +177,13 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			}
 			
 			var paypalPayload = function(){
+				console.log($scope.totalPrice);
+			//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://www.gulgs.com/#/cart",
-						"cancel_url":"http://www.gulgs.com/#/cart"
+						"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -187,15 +191,15 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					"transactions":[
 						{
 							"amount":{
-								"total":"7.47",
+								"total":$scope.totalPrice,
 								"currency":"USD",
 								"details":{
-									"subtotal":"7.41",
-									"tax":"0.03",
-									"shipping":"0.03"
+									"subtotal":$scope.totalPrice,
+									"tax":"0.00",
+									"shipping":"0.00"
 								}
 							},
-							"description":"This is the payment transaction description."
+							"description":"Toatal Transaction Payment is " + $scope.totalPrice
 						}
 					]
 				}
