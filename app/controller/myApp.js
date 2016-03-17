@@ -57,6 +57,10 @@ app.config(['$routeProvider', function($routeProvider)
 					templateUrl: 'view/inspiration/inspiration.html', 
 					controller: 'inspirationCtrl',
 					label:'INSPIRATION'
+				}).when('/singleinspiration', {
+					templateUrl: 'view/inspiration/single-inspiration-product.html', 
+					controller: 'singleProductInspirationCtrl',
+					label:'PRODUCT INSPIRATION'
 				})
 				.otherwise({ redirectTo: '/' });
 		}]);
