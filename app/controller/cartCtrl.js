@@ -17,9 +17,6 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				
 				});
 			
-			//https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/
-			//console.log($location.search());
-			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
@@ -184,6 +181,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					"redirect_urls":{
 						"return_url":"http://localhost:9000/#/thanku",
 						"cancel_url":"http://localhost:9000/#/cancel"
+						/*"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"*/
 					},
 					"payer":{
 						"payment_method":"paypal"
