@@ -1,18 +1,20 @@
      <script>
-	jQuery(function ($) {
+	$(function ($) {
     var $blowup = $('.blowup img');
     $('.thumbs-container img').click(function () {
         $blowup.attr('src', this.src);
     });
    $(".zoom").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 });
-	jQuery('.lightbox_trigger').click(function(e) {
+	$('.lightbox_trigger').click(function(e) {
+		
+		var currentIndex = 0;
 		
 		//prevent default action (hyperlink)
 		e.preventDefault();
 		
 		//Get clicked link href
-		var image_href = $(this).attr("href");
+		var image_href = $('.cus-thumbnails').attr("href");
 		
 		/* 	
 		If the lightbox window HTML already exists in document, 
@@ -22,13 +24,13 @@
 		(This will only happen the first time around)
 		*/
 		
-		if (jQuery('#lightbox').length > 0) { // #lightbox exists
+		if ($('#lightbox').length > 0) { // #lightbox exists
 			
 			//place href as img src value
-			jQuery('#content').html('<img src="' + image_href + '" />');
+			$('#content').html('<img src="' + image_href + '" />');
 		   	
 			//show lightbox window - you could use .show('fast') for a transition
-			jQuery('#lightbox').show();
+			$('#lightbox').show();
 		}
 		
 		else { //#lightbox does not exist - create and insert (runs 1st time only)
@@ -36,23 +38,52 @@
 			//create HTML markup for lightbox window
 			var lightbox = 
 			'<div id="lightbox">' +
-				'<p>Click to close</p>' +
+				'<button type="button" class="btn btn-primary" id="pre-btn">Previous</button>' + '<div style="width:auto;"><h1>Jackets</h1></div>' + '<button type="button" class="btn btn-primary" id="next-btn">Next</button>' + 
 				'<div id="content">' + //insert clicked link's href into img src
-					'<img src="' + image_href +'" />' +
+					'<ul style="display:inline-flex;">' +
+					'<li>' + '<img style="width:100%;" src="' + image_href +'" />' + '</li>' +
+					'<li>' + '<img style="width:100%;" src="' + image_href +'" />' + '</li>' +
+					'<li>' + '<img style="width:100%;" src="' + image_href +'" />' + '</li>' 
+					 + '</ul>' +
 				'</div>' +	
 			'</div>';
 				
 			//insert lightbox HTML into page
 			$('body').append(lightbox);
-		}
+		
+		$('#next-btn').click(function(){
+		     next_lightbox();
+	});
+	$('#pre-btn').click(function(){
+		pre_lightbox();
+	});
+	
+	function next_lightbox(){
+		var lightbox2 = 
+		'<div id="lightbox">' +
+				'<button type="button" class="btn btn-primary" id="pre-btn">Previous</button>' + '<div style="width:auto;"><h1>Sleeves</h1></div>'  + '<button type="button" class="btn btn-primary" id="next-btn">Next</button>' +
+				'<div id="content">' + //insert clicked link's href into img src
+					'<ul style="display:inline-flex;">' +
+					'<li>' + '<img style="width:130%;" src="' + image_href +'" />' + '</li>' +
+					'<li>' + '<img style="width:130%;" src="' + image_href +'" />' + '</li>'
+					 + '</ul>' +
+				'</div>' +	
+			'</div>';
+				$('body').append(lightbox2);
+	}	
+		
+		};
+	
+	function pre_lightbox(){
+		$('body').append(lightbox);	
+	};
 		
 	});
 	
 	//Click anywhere on the page to get rid of lightbox window
-	jQuery('body').on('click', '#lightbox', function(){
-    jQuery('#lightbox').hide();
-});
-	
+	$('body').on('click', '#lightbox', function(){
+    $('#lightbox').hide();
+});	
 	/*jQuery('#lightbox').on('click', function() { //must use live, as the lightbox element is inserted into the DOM
 		jQuery('#lightbox').hide();
 	});*/
@@ -65,9 +96,8 @@
     left:0; 
     width:100%; 
     height:100%; 
-    background:rgba(0, 0, 0, 0.86); 
+    background:rgba(51, 51, 51, 0.79);
     z-index: 900;
-    text-align:center;
 }
 
 #lightbox p {
@@ -76,12 +106,40 @@
     margin-right:20px; 
     font-size:12px; 
 }
-#lightbox img {
+
+#lightbox ul > li{
+	margin: 10px;
+	
+}
+
+#lightbox ul > li > img {
     box-shadow:0 0 25px #111;
     -webkit-box-shadow:0 0 25px #111;
     -moz-box-shadow:0 0 25px #111;
     max-width:940px;
+    margin: 20px;
+    width: 130%;
     margin-top: 10%;
+}
+
+#content{
+	text-align : left;
+}
+
+#lightbox h1{
+	font-size: 30px; 
+	font-family: 'Century Schoolbook' !important;
+	color: white !Important;
+	margin-left: 30px;
+}
+
+#next-btn{
+	float: right;
+	margin: 40px;
+}
+
+#pre-btn{
+	margin: 40px;
 }
 </style>
 <div class="container" id="marg">
@@ -99,8 +157,8 @@
 			<font size="3" class="clr1" style="color: #D25E00;"> Designer's Short Description</b></font><br><br><br><br>
 			</div>	  
 			
-			<a><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">Customize</button></a>                          <div style="padding-left: 10px;">
-         		<a href="images/001-jacket.jpg" class="lightbox_trigger"><img src="images/001-jacket.jpg" style="width: 80px;" /></a>
+			<a><button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;">Customize</button></a>                          <div style="padding-left: 10px;">
+         		<a href="images/001-jacket.jpg" class="cus-thumbnails"><img src="images/001-jacket.jpg" style="width: 80px;" /></a>
          	</div>
 		</div><!-- /.col-lg-6 --><br>
          	
