@@ -134,11 +134,13 @@
 							/*$(".home-filter").removeClass("homepage-filter");*/
 						}
 					});
-				$('.carousel .item').each(function(e) {
-						var bg_ = 'url(' + $(this).find('>img').attr('src') + ')';
-						$(this).find('>img').hide();
-						$(this).css('background-image', bg_);
-					});
+				$('.carousel').carousel(); 		
+	 
+				/*jQuery('.carousel .item').each(function(e) {
+				var bg_ = 'url(' + $(this).find('>img').attr('src') + ')';
+				jQuery(this).find('>img').hide();
+				jQuery(this).css('background-image', bg_);
+				});*/
 				
 			};
 			$scope.load();

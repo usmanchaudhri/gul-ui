@@ -2009,7 +2009,7 @@ select{
 	}
 	
 .cart-block{
-	 margin-left: -33em;
+	 margin-left: -33.1em;
     z-index: -1;
     margin-top:-1px;
 }	
@@ -2248,6 +2248,7 @@ select{
 	 width: 102%;
 	height: 300px; 
 	margin-top: 10px;
+	margin-bottom: 20px;
 	padding-left: 25px;
 	background-color: rgba(245, 245, 245, 0.45);
 	display: none;

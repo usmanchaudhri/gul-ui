@@ -49,9 +49,13 @@
 	});
 	
 	//Click anywhere on the page to get rid of lightbox window
-	jQuery('#lightbox').live('click', function() { //must use live, as the lightbox element is inserted into the DOM
+	jQuery('body').on('click', '#lightbox', function(){
+    jQuery('#lightbox').hide();
+});
+	
+	/*jQuery('#lightbox').on('click', function() { //must use live, as the lightbox element is inserted into the DOM
 		jQuery('#lightbox').hide();
-	});
+	});*/
 
 </script>
 <style>
