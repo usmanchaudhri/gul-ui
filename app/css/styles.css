@@ -20,7 +20,7 @@
 }
 body{
 	
-	font: 9px/9px 'play', sans-serif;
+	font: 9px/9px Arial, Helvetica, sans-serif;
 	color: #050505;
 	min-width: 300px;
 }
@@ -225,8 +225,10 @@ color:black !important;
 	vertical-align: top;
 	position: relative;
 	margin: 0 38px;
-	font: 22px/26px 'play', sans-serif;
+	font: 22px/26px 'Quicksand', sans-serif;
+	text-transform: uppercase;
 }
+
 .main-nav > ul > li:hover > ul { 
 	display: block;}
 .main-nav > ul > li > a {
@@ -617,7 +619,7 @@ body {
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
-	font-size: 14px;  
+	font-size: 13px;  
 	font-weight: 500;
 	color: white;
 }	
