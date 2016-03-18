@@ -137,6 +137,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						console.log(data[0],data[1]);
 						composeMsg();
 						
+						updateCustomer();
+						
 					}, function onError(response) {
 						console.log(response);
 					});
@@ -153,6 +155,11 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				
 				
 			}
+			
+			
+			/**
+			Compose Message			
+			**/
 			
 			var composeMsg = function(){
 			var	mFrom = $cookieStore.get("username").replace(/ /g, '');
@@ -172,6 +179,9 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				
 			}
 			
+			var updateCustomer = function(){
+				
+			}
 			
 			$scope.load = function() {
 		
