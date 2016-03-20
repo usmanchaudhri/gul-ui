@@ -14,16 +14,18 @@
 			<div class="tab-content">
 				<div class="tab-pane fade in active" id="home">
 					<div class="list-group allchats-list">
-						<a href="#chat/Nayyar" class="list-group-item ">
+					<span ng-repeat="x in cChatNames">
+						<a href="#chat/{{x.name}}" class="list-group-item " >
 							<div class="checkbox">
 								<label>
 									<input type="checkbox">
 								</label>
 							</div>
-							<span class="name" style="min-width: 120px;display: inline-block;">Nayyar</span> 
+							<span class="name" style="min-width: 120px;display: inline-block;">{{x.name}}</span> 
 							<span class=""></span>
 						</a>
-						<a href="#chat/Gulgs" class="list-group-item ">
+						</span>
+						<!--<a href="#chat/Gulgs" class="list-group-item ">
 							<div class="checkbox">
 								<label>
 									<input type="checkbox">
@@ -31,7 +33,7 @@
 							</div>
 							<span class="name" style="min-width: 120px;display: inline-block;">Gulgs</span> 
 							<span class=""></span>
-						</a>
+						</a>-->
 					</div>
 				</div>
 			</div>

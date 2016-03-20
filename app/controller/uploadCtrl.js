@@ -83,11 +83,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			};
 
 
-/**
-*Get SubCategories
-**/
+			/**
+			*Get SubCategories
+			**/
 
-$scope.getSubCat = function(){
+			$scope.getSubCat = function(){
 	$scope.subCategoryDetail = [];
 	for(var i=0;i < $scope.categoryDetail.length;i++){
 		if($scope.categoryDetail[i].id == $scope.cat.id && $scope.categoryDetail[i].subCategories.length > 0){
@@ -101,6 +101,7 @@ $scope.getSubCat = function(){
 	}
 	
 }
+
 			$scope.uploadProduct = function(){
 				$scope.uriToFile(cropImageArr);
 				console.log(cropImageArr);
@@ -197,7 +198,7 @@ $scope.getSubCat = function(){
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": '15'
+						"id": '24'
 					},
 					"productVariation": [{
 							"size": "L",
@@ -205,10 +206,10 @@ $scope.getSubCat = function(){
 						},{
 							"size": "M",
 							"color": "Red"
-						}/*,{
+						},{
 							"size": "S",
 							"color": "Red"
-						}*/]
+						}]
 				}
 			}
 
@@ -275,11 +276,11 @@ $scope.getSubCat = function(){
 				});
 
 
-/*
-*
-Create Shop
-*
-*/
+			/*
+			*
+			Create Shop
+			*
+			*/
 			
 			var createShop = function(){
 				shopPayload = {
