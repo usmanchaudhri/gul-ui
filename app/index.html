@@ -34,13 +34,7 @@
 		<div class="wrapper" ng-app="myApp" ng-controller="cartCtrl">
 			<!--Navigation Bar-->
 			
-			
-	
-			
-		<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length == 1"  >
-				<div ng-controller="loginCtrl">
-				<nav class="navbar home-menu">
+			<nav class="navbar home-menu">
 					<div class="container-fluid" >
 						<div class="row">
 							<div class="col-sm-4"></div>
@@ -128,7 +122,7 @@
 							</div>
 						</div>
 				
-						<a class="btn-menu visible-xs" href="#a">menu</a>
+						<span class="btn-menu visible-xs">menu</span>
 					
 						
 						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
@@ -137,6 +131,12 @@
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/header-menuBar.html'" ></div>
 					</div>
 				</nav>
+	
+			
+		<div ng-controller="BreadcrumbCtrl" >
+				<div ng-if="breadcrumbs.get().length == 1"  >
+				<div ng-controller="loginCtrl">
+				
 			
 				<div class="modal fade" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 					<div class="modal-dialog" role="document">
@@ -169,7 +169,7 @@
 				</div>
 		    	</div>
 		</div>
-		
+		</div>
 
 			<div ng-controller="BreadcrumbCtrl" >
 				<div ng-if="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
@@ -438,7 +438,7 @@
 				</div>
 			</div>
 					
-					<div  ng-include src="'view/header/breadCrumb.html'" style="padding-top: 135px;" ></div>
+					<div  ng-include src="'view/header/breadCrumb.html'" class="custom-padding-top" ></div>
 					</span>
 				</div>
 					
@@ -557,7 +557,7 @@
 			<script src="js/angular-bootstrap-lightbox.js"></script>
 			<script src="js/imageupload.js"></script>
 			
-		</div>
+		
 </div><!-- /wrapper -->
 	</body>
 </html>
