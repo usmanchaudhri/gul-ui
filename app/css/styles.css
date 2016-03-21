@@ -159,7 +159,13 @@ h2 span {
 color:black !important;
 }
 
+.home-menu .cart-label a{
+	color: white !important;
+}
 
+.home-menu:hover .cart-label a {
+	color: black !important;
+}
 
 .home-menu:hover .cart-label {
 	color: black !important;
@@ -2322,7 +2328,7 @@ select{
 	border: 1px solid black; 
 	padding:10px;
 	font-family: Helvetica,Arial,sans-serif;
-	width:9% !important;
+	width:9%;
 	margin-top: 10px;
 }	
 }
@@ -2343,6 +2349,14 @@ select{
 	
 	
 }
+
+.home-slider-shop-btn{
+	border: 1px solid black; 
+	padding:10px;
+	font-family: Helvetica,Arial,sans-serif;
+	width:33% !important;
+	margin-top: 10px;
+}	
 
 .home-menu ul > li > a{
 	color:black !important;
