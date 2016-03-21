@@ -1,16 +1,26 @@
+<script>
+	$(document).ready(function(){
+		$('.hide-menu').click(function(){
+			var boddy = document.getElementsByTagName("BODY")[0];
+				boddy.className = "";
+			
+		});
+	});
+</script>
+
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-1"></div>
 		<div class="col-sm-10">
 			<div class="main-nav">
 				<ul class="nav ">
-					<li class="has-drop dropdown menu-large">
+					<li class="has-drop dropdown menu-large hide-menu">
 						<a href="#allShops" class="dropdown-toggle">Shop</a>
 				
 						<ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
-							<li class="col-sm-4" ng-repeat="x in shop" >
+							<li class="col-sm-4 hide-menu" ng-repeat="x in shop" >
 								<ul>
-									<li>
+									<li class="hide-menu">
 										<span>
 											<a href="#shop/{{x.id}}">{{x.name}}</a> 
 										</span> 
@@ -21,10 +31,10 @@
 							</li>
 						</ul>
 					</li>
-					<li class="dropdown menu-large"><a href="#categories/1">Women</a>
+					<li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categories/1">Women</a>
 						<ul class="dropdown-menu megamenu  " id="women-dropdown-menu" >
 							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
-									<li ng-repeat = "a in x.subCategories">
+									<li ng-repeat = "a in x.subCategories" class="hide-menu">
 										<span ng-if="checkLength(a.subCategories) == '0'">
 											<a href="#categoryProducts/{{a.id}}">{{a.name}}</a>
 										</span>
@@ -37,13 +47,13 @@
 							</span>
 						</ul>
 					</li>
-					<li class="dropdown menu-large">
+					<li class="dropdown menu-large hide-menu">
 				<a href="#a">Featured</a>
 				<ul class="dropdown-menu megamenu  " id="men-dropdown-menu" >
 					
 				</ul>
 			</li>
-					<li class="dropdown menu-large"><a href="#inspiration">Inspiration</a>
+					<li class="dropdown menu-large hide-menu"><a href="#inspiration">Inspiration</a>
 						<ul class="dropdown-menu megamenu  " id="inspiration-dropdown-menu" >
 					
 						</ul>
@@ -51,7 +61,7 @@
 			
 											
 											
-					<li style="display: none;" id="menu-display" ><a  href="#">ACCOUNT</a>
+					<li style="display: none;" id="menu-display" class="acc-menu" ><a  href="#">ACCOUNT</a>
 											
 											
 						<ul class="dropdown-menu row dropdown-menu"  id="menu-account">

@@ -13,12 +13,12 @@
 				
 	</div>
 	<div class="row" >
-		<div class="col-sm-7 " >
+		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
 			<img  class="img-responsive zoom" src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" data-zoom-image="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" /> 
 		</div>
 		</div>
-		<div class="col-sm-5 " id="indisize1">
+		<div class="col-sm-5 col-xs-12" id="indisize1">
 				  
 			<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
 				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
@@ -50,7 +50,7 @@
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -61,7 +61,7 @@
 				</div >
 				
 				
-				<a><button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
+				<a><button type="button" class="btn btn-primary individual-bag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;margin-bottom: 20%;">ASK DESIGNER</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;">
@@ -101,7 +101,7 @@
 							</div>
 							
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" ng-click="sendMessage()">Send</button>
+								<button type="button" class="btn btn-default" ng-click="sendMessage(productDetail.shop.id)">Send</button>
 							</div>
 						</div>
 
@@ -121,7 +121,7 @@
 			<div class="col-sm-4  custom-divider"><label class="clr customization-border " id="customization"><h3>Customization</h3></label></div>
 			<div class="col-sm-4  custom-divider"><label class="clr shipping-border" id="shipping"><h3>Shipping & Return Policy</h3></label></div>
 		</div>
-		<div class="row one1 individual-tabs">
+		<div class="row one1 individual-tabs" style="display: block;">
 			<h3>{{productDetail.longDesc}}</h3>
 		</div>
 		<div class="row two2 individual-tabs">

@@ -2,6 +2,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
 			$scope.showProgress = false;
+			$scope.subCategory = false;
 			var resImage = [];
 			var promises = [];
 			var tempFiles = [];
@@ -81,6 +82,25 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 					});
 			};
 
+
+			/**
+			*Get SubCategories
+			**/
+
+			$scope.getSubCat = function(){
+	$scope.subCategoryDetail = [];
+	for(var i=0;i < $scope.categoryDetail.length;i++){
+		if($scope.categoryDetail[i].id == $scope.cat.id && $scope.categoryDetail[i].subCategories.length > 0){
+			$scope.subCategoryDetail = $scope.categoryDetail[i].subCategories;
+			console.log($scope.categoryDetail[i]);
+			$scope.subCategory = true;
+		}
+	}
+	if($scope.subCategoryDetail.length == 0){
+		$scope.subCategory = false;
+	}
+	
+}
 
 			$scope.uploadProduct = function(){
 				$scope.uriToFile(cropImageArr);
@@ -178,7 +198,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": '15'
+						"id": '24'
 					},
 					"productVariation": [{
 							"size": "L",
@@ -186,10 +206,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						},{
 							"size": "M",
 							"color": "Red"
-						}/*,{
+						},{
 							"size": "S",
 							"color": "Red"
-						}*/]
+						}]
 				}
 			}
 
@@ -256,11 +276,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				});
 
 
-/*
-*
-Create Shop
-*
-*/
+			/*
+			*
+			Create Shop
+			*
+			*/
 			
 			var createShop = function(){
 				shopPayload = {

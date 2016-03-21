@@ -39,7 +39,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					label:'CATEGORY'
 				}).when('/cart', {
 					templateUrl: 'view/shoppingCart/cart.html', 
-					controller: 'cartCtrl',
+					controller: '',
 					label:'CART'
 				}).when('/cart/payment', {
 					templateUrl: 'view/shoppingCart/payment.html', 
@@ -65,6 +65,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/inspiration/inspiration.html', 
 					controller: 'inspirationCtrl',
 					label:'INSPIRATION'
+				}).when('/thanku', {
+					templateUrl: 'view/shoppingCart/thanku.html', 
+					controller: 'thankuCtrl',
+					label:'Thanku'
+				}).when('/singleinspiration', {
+					templateUrl: 'view/inspiration/single-inspiration-product.html', 
+					controller: 'singleProductInspirationCtrl',
+					label:'PRODUCT INSPIRATION'
 				})
 			.otherwise({ redirectTo: '/' });
 		
