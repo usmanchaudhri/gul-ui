@@ -4,14 +4,14 @@
 		<div class="item active ">
 			<img src="{{fixPath +'Shop/banner-image2.png'+token}}" alt="image" style="background-size: contain; background-attachment: fixed;background: no-repeat; width: 100%;">
 			<div class="row carousel-content text-center">
-				<div class="col-sm-4">
+				<div class="col-sm-4 col-xs-12">
 					<h1>Mughal Art Inspired<br> Bridal</h1>	
 				</div>
 			</div>
-			<div class="row carousel-content text-center" style="bottom: 21%;">
-				<div class="col-sm-9"></div>
-				<div class="col-sm-2" style="border: 1px solid black; padding:10px;font-family: Helvetica,Arial,sans-serif;width:9%;">
-					<h3><a style="color: white;" href="#shop/13">Shop Now</a></h3>
+			<div class="row carousel-content text-center responsive-carousel-btn" style="bottom: 21%;">
+				<div class="col-sm-9 col-xs-4"></div>
+				<div class="col-sm-2 col-xs-2 home-slider-shop-btn">
+					<h3><a  href="#shop/13">Shop Now</a></h3>
 				</div>
         
 			</div>
@@ -26,8 +26,8 @@
 				</div>
 			</div>
 			<div class="row carousel-content text-center" style="bottom: 21%;">
-				<div class="col-sm-10"></div>
-				<div class="col-sm-2" style="border: 1px solid black; padding:10px;font-family: Helvetica,Arial,sans-serif;width:9%;">
+				<div class="col-sm-10 col-xs-4"></div>
+				<div class="col-sm-2 col-xs-4 home-slider-shop-btn-two">
 					<h3><a style="color: white;" href="#shop/14">Shop Now</a></h3>
 				</div>
         
@@ -37,17 +37,17 @@
 		<!--End of Item 2-->
      	
 		<!--Item 3-->
-		<div class="item ">
+		<div class="item">
 			<img src="{{fixPath +'Shop/banner-image4.jpg'+token}}" alt="image" style="background-size: contain; background-attachment: fixed;background: no-repeat; width: 100%;">
 			<div class="row carousel-content text-center" style="bottom: 56%;">
 				<div class="col-sm-6"></div>
-				<div class="col-sm-5">
+				<div class="col-sm-5 col-xs-12 third-slider-desc">
 					<h1>Customize Embroidered Neckline</h1>	
 				</div>
 			</div>
 			<div class="row carousel-content text-center" style="bottom: 46%;">
-				<div class="col-sm-8"></div>
-				<div class="col-sm-2" style="border: 1px solid black; padding:10px;font-family: Helvetica,Arial,sans-serif;width:9%;">
+				<div class="col-sm-8 col-xs-4"></div>
+				<div class="col-sm-2 col-xs-4 home-slider-shop-btn-three">
 					<h3><a style="color: white;" href="#shop/15">Shop Now</a></h3>
 				</div>
         
@@ -60,59 +60,8 @@
 <div class="container">
 	<div class="row text-center" style="padding-bottom: 32px;">
 		<h1 style="font-size: 20px;">We create inspirational designs</h1>
-		<p style="text-align: center;font-size: 15px;">peronalize your favourite designer's dress</p>
+		<p style="text-align: center;font-size: 15px;">personalize your favourite designer's dress</p>
 	</div>
-	
-	<!--<div class="row" style="padding-top: 20px;border-top: 1px solid #EEEEEE;">
-		<div class="col-sm-2">
-			<h2 latestDiv class="product-title" style="margin:0px;">Latest <span style="color:black;">Designs</span></h2>		
-		</div>
-		<div class="col-sm-8"></div>
-	</div>
-	<div class="row info-boxes " >
-		<div class="scroll-wrapper" >
-			<div class="list"
-		infinite-scroll='loadMore()'
-        infinite-scroll-distance='2' 
-        infinite-scroll-disabled='busy'
-       >
-			
-				<div class="col-sm-4 col-xs-6 show-image" id="imagediv" ng-repeat="a in infiniteList | orderBy:sorting track by $index" >
-					<a ng-href="#productDetailPage/{{a.id}}">	
-						<img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.png'+token}}"></a>
-	
-					<div class="row info-boxes" style="margin: 0px;">
-						<div class="col-sm-12 col-xs-12 image-button" style="text-align: center;">
-						
-							
-							<span ng-repeat="x in a.prodVar">
-								<a ><input type="submit" value="{{x.size}}" ng-click="storeProductsInCookie(a,x.size,1)"/></a>	
-							</span>
-				  	
-				  	
-				  
-					
-						</div>
-							
-							
-					</div>
-					<div class="imageText">
-						<a ng-href="#productDetailPage/{{a.id}}" style="font-color:black;">	
-							<span class="proDes">
-								<p>
-									{{a.name}}
-								</p>
-							</span>
-						</a>
-						<span class="proDes">
-							<small>	 <a ng-href="#shop/{{a.shop.id}}" style="color: black;" >{{a.shop.name}}</a></small>
-						</span>
-					</div>
-				</div>
-			</div>
-			<div style='clear: both;'></div>
-		</div>
-	</div>-->
 </div>	
 
 

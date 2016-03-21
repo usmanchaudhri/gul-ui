@@ -20,7 +20,7 @@
 }
 body{
 	
-	font: 9px/9px Arial, Helvetica, sans-serif;
+	font: 9px/9px 'Julius Sans One', sans-serif;
 	color: #050505;
 	min-width: 300px;
 }
@@ -159,7 +159,13 @@ h2 span {
 color:black !important;
 }
 
+.home-menu .cart-label a{
+	color: white !important;
+}
 
+.home-menu:hover .cart-label a {
+	color: black !important;
+}
 
 .home-menu:hover .cart-label {
 	color: black !important;
@@ -275,7 +281,7 @@ color:black !important;
 .main-nav > ul > li > ul a {
 	display: block;
 	padding: 12px 10px 0;
-	color: #c3c1c1;
+	color: #c3c1c1 ;
 	font-size: 15px;
 }
 .main-nav > ul > li > ul ul {
@@ -414,6 +420,7 @@ color:black !important;
 	margin-top: -5px;	
 	padding: 8px;
 	border-top: 1px solid #ddd;
+	background-color: rgba(238, 238, 238, 0.41);
 }
 #footer .container-fluid { 
 	max-width: 805px;}
@@ -768,7 +775,8 @@ font-size: 44px !important;
 	}
 	
 	.mob-logo{
-		margin-top: 5px;
+		    margin-top: 11px;
+    		text-align: left;
 	}
 	
 	.individual-bag-btn{
@@ -780,8 +788,13 @@ font-size: 44px !important;
 	}
 	
 	.cart-label{
-		margin-top: 19px;
+		margin-top: 25px;
+		padding: 2px !important;
+		font-family: 'Quicksand';
 }
+	.cart-block{
+		margin-top: -2px !important;
+	}
 }
 
 /* END 21 NOV 201 */
@@ -832,7 +845,7 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 	}
 	.btn-menu {
 		position: absolute;
-		right: 9px;
+		right: 5px;
 		top: -10px;
 		margin-top: 25px;
 		width: 29px;
@@ -881,10 +894,17 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		width: 100% !important;
 	}
 	.main-nav > ul > li {
-		display: block;
+		display: grid;
+		width: 100%;
 		margin: 0;
 		padding: 5px 0;
+		padding-top: 0px;
 	}
+	
+	.acc-menu{
+		margin-top: 30px;
+	}
+	
 	.main-nav > ul > li:hover > ul { 
 		display: none;}
 	.main-nav > ul > li > a { 
@@ -899,13 +919,28 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		padding: 5px 0;
 	}
 	.main-nav > ul > li > ul ul a { 
-		padding-left: 10px;}
+		padding-left: 2px;
+		padding-top: 2px;
+		}
 	
 	.main-nav > ul > li > ul ul a:hover{
 		cursor: pointer;
 		text-decoration: underline !important;
-		
 	}
+	
+	.main-nav > ul > li > ul a{
+		padding-top: 2px;
+	}
+	
+	.main-nav > ul > li > ul a:hover{
+		cursor: pointer;
+		text-decoration: underline !important;
+	}
+	
+	.main-nav > ul > li > ul a{
+		font-size: 12px;
+	}
+	
 	.main-nav .acc-opener {
 		display: block;
 		position: absolute;
@@ -1005,7 +1040,14 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 .clr h3{
 	font-size:13px;	
 }
-	
+	.cart-label{
+		margin-top: 25px;
+		padding: 2px !important;
+		font-family: 'Quicksand';
+}
+	.cart-block{
+		margin-top: -2px !important;
+	}
 }
 @media screen and (max-width: 479px),
 screen and (orientation: landscape) and (max-width: 479px),
@@ -1033,15 +1075,31 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 		
 	}
 	.main-nav > ul > li > a {
-	font: 22px/26px Arial, Helvetica, sans-serif !important;
+	font: 12px/12px Arial, Helvetica, sans-serif !important;
 	padding: 5px;
+	
 }
+
+	
 .proceed-checkout-btn{
 		font-size:12px;	
 	}
 .cart-elements{
 	padding-left: 5px;
 }
+
+.dropdown-menu li {
+	line-height: 15px;
+	height: 25px;	
+}
+.cart-label{
+		margin-top: 25px;
+		padding: 2px !important;
+		font-family: 'Quicksand';
+}
+	.cart-block{
+		margin-top: -2px !important;
+	}
 
 }
 
@@ -1491,7 +1549,7 @@ html{
 	padding-left: 10px !important;
 }
 .ind-pro-thumbnail{
-	padding-left: 0px !important;	
+	padding-left: 10px !important;	
 }
 
 }
@@ -2003,6 +2061,7 @@ select{
     padding-top: 8px;
     color: white;
     width: auto;
+    font-family: 'Quicksand';
 }
 .cart-label:hover{
 	cursor: pointer;
@@ -2013,7 +2072,7 @@ select{
 	}
 	
 .cart-block{
-	 margin-left: -33.1em;
+	 margin-left: -33.0em;
     z-index: -1;
     margin-top:-1px;
 }	
@@ -2039,11 +2098,19 @@ select{
 }
 /*End of Footer*/
 
-
+.home-slider-shop-btn a{
+	color: white;
+}
 
 
 @media (min-width: 200px) and (max-width: 500px){
+
+.home-menu ul > li > a{
+	color:black !important;
+}
+
 .cart-elements{
+	
 	padding-left: 10px !important;
 	
 }
@@ -2057,7 +2124,7 @@ select{
     bottom: 0;
 }
 .btn,.btn-group {
-        width:100%;
+        width:92%;
     }
     .formstyle{
 		display:inline-flex;
@@ -2071,7 +2138,9 @@ select{
 			display: block;
 			    border: 0px;
             box-shadow: none;
-            
+        	background-color: whitesmoke;
+    border-top: 1px solid rgba(119, 119, 119, 0.46);
+    border-bottom: 1px solid rgba(119, 119, 119, 0.46);
             width: 100%;
            color:#000000;
 			
@@ -2111,9 +2180,95 @@ select{
 		
 
 .cart-label{
-	margin-left: -10px;
+		margin-top: 25px;
+		padding: 2px !important;
+		font-family: 'Quicksand';
+}
+	.cart-block{
+		margin-top: -2px !important;
+		margin-left: -34.8em !important;
+	}
+
+.carousel-content{
+	bottom: 0px;
+	top: 72%;
+	color: black;
+	font-size: 15px;
 }
 
+.responsive-carousel-btn{
+	top:86%;
+}
+
+.home-slider-shop-btn{
+	padding:5px !important;
+	width:30% !important;
+}
+
+.home-slider-shop-btn a{
+	color: black;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.home-slider-shop-btn-three{
+	border: 1px solid black;
+	padding: 7px !important;
+    width: 33% !important;
+    margin-top: 50px;
+}
+
+.carousel-content h1 {
+    font-size: 18px !important;
+}
+
+.carousel .item{
+	background-color: white;
+}
+
+.custom-padding-top{
+	padding-top: 0px !important;
+	max-height: 290px !important;
+}
+
+.shop-img{
+	width: 98% !important;
+}
+
+.shop-desc{
+	margin-top: 5px;
+	padding: 15px;
+}
+#indisize{
+	height: 300px !important;
+}
+
+.ind-pro-thumbnail{
+	padding-left: 10px !important;	
+}
+.acc-menu {
+	padding: 12px 10px !important;
+    border: 1px solid rgba(160, 155, 155, 0.48);
+    border-left: none;
+    border-right: none;
+    background-color: rgba(238, 238, 238, 0.6) !important;
+}
+
+.home-slider-shop-btn-two{
+	border: 1px solid black;
+    padding: 10px;
+    font-family: Helvetica,Arial,sans-serif;
+    width: 33% !important;
+    margin-top: 40px !important;
+}
+
+.third-slider-desc{
+	margin-top:14px;
+}
+
+.cart-label{
+	color: black;
+}
 }
 
 @media (min-width: 400px){
@@ -2121,11 +2276,13 @@ select{
 	padding-left: 15px !important;
 }
 
-
 }
 @media (max-width: 300px){
 	
-	
+	.home-menu ul > li > a{
+	color:black !important;
+}
+
 	.image-button input{
 		font-size: 8px;
 	}
@@ -2151,8 +2308,14 @@ select{
 	overflow: hidden;
 	
 }
-
-
+.carousel-content{
+	bottom: 0px;
+	top: 75%;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+}
+}
 
 @media (min-width: 768px){
 	
@@ -2160,10 +2323,14 @@ select{
 .order-right-table tr td{
 	height: 30px;
 	font-size: 15px;
-	
-	
 }
-
+.home-slider-shop-btn{
+	border: 1px solid black; 
+	padding:10px;
+	font-family: Helvetica,Arial,sans-serif;
+	width:9%;
+	margin-top: 10px;
+}	
 }
 
 
@@ -2172,12 +2339,27 @@ select{
         width:100%;
     }
     
+    .cart-block{
+		margin-left: -34.8em !important;
+	}
   
     .footer-list li{
 	
 	font-size: 12px;
 	
 	
+}
+
+.home-slider-shop-btn{
+	border: 1px solid black; 
+	padding:10px;
+	font-family: Helvetica,Arial,sans-serif;
+	width:33% !important;
+	margin-top: 10px;
+}	
+
+.home-menu ul > li > a{
+	color:black !important;
 }
 
 .social {
@@ -2235,6 +2417,60 @@ select{
 		.signin-label{
 			display: none;
 		}
+		.carousel-content{
+	bottom: 0px;
+	top: 75%;
+	background-color: white;
+	color: black;
+	font-size: 15px;
+}
+.carousel-content h1 {
+    font-size: 18px !important;
+}
+
+.carousel .item{
+	background-color: white;
+}
+
+#indisize{
+	height: 300px !important;
+}
+.ind-pro-thumbnail{
+	padding-left: 10px !important;	
+}
+
+.acc-menu{
+	padding: 12px 10px !important;
+    border: 1px solid rgba(160, 155, 155, 0.48);
+    border-left: none;
+    border-right: none;
+    background-color: rgba(238, 238, 238, 0.6) !important;
+}
+
+.home-slider-shop-btn-two{
+	border: 1px solid black;
+    padding: 10px;
+    font-family: Helvetica,Arial,sans-serif;
+    width: 25% !important;
+    margin-top: 40px;
+    margin-left: 19px;
+}
+
+.cart-label{
+	color: black;
+}
+
+.home-slider-shop-btn-three{
+	border: 1px solid black;
+	padding: 7px !important;
+    width: 33% !important;
+    margin-top: 50px;
+}
+
+.third-slider-desc{
+	margin-top:14px;
+}
+
 }
 
 
@@ -2265,9 +2501,18 @@ select{
 	
 }
 
-	
+.custom-padding-top{
+	padding-top: 110px;
+}
 		
 	
+.home-slider-shop-btn-two, .home-slider-shop-btn-three{
+	border: 1px solid black;
+	padding:10px ;
+	font-family: Helvetica,Arial,sans-serif;
+	width:9%;
+}
+
 
 
 
