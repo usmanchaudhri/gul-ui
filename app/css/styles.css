@@ -159,6 +159,10 @@ h2 span {
 color:black !important;
 }
 
+.home-menu:hover .signin-label a{
+	color: black !important;
+}
+
 .home-menu .cart-label a{
 	color: white !important;
 }
@@ -2191,7 +2195,7 @@ select{
 
 .carousel-content{
 	bottom: 0px;
-	top: 72%;
+	top: 71%;
 	color: black;
 	font-size: 15px;
 }
