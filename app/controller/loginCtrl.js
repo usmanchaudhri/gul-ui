@@ -10,8 +10,11 @@
 			.then(function(response) {
 			
 					$scope.twilioUser = response.data.twilioUser;
+					$scope.customerUrl = response.data.customerUrl;
+					
 					
 				});
+		
 		
 			if(angular.isDefined($cookieStore.get("login"))){
 				$scope.loginUser = $cookieStore.get("login");
@@ -31,12 +34,32 @@
 					$cookieStore.put("login",'login');
 					$cookieStore.put("username",$scope.loginEmail);
 					$scope.loginUser = "login";
-					regUser($scope.loginEmail);
+					checkUser($scope.loginEmail);
+					
+					
 				}
 				
 				console.log("Check: "+$scope.loginUser);
 		
 			};
+			
+			
+			var checkUser = function(email){
+				
+				$http.get($scope.customerUrl)
+				.then(function(response1){
+						for(var i = 0;i< response1.data.length;i++){
+							if(response1.data[i].email == email){
+								$cookieStore.put("userData",response1.data[i]);
+								console.log($cookieStore.get("userData"));
+								regUser($scope.loginEmail);
+							}
+						}
+						console.log(response1);
+						
+					});				
+				
+			}
 			
 			var regUser = function(user){
 				var data = $.param({
@@ -56,4 +79,11 @@
 					});
 			}
 		
+			/*var loadCchat = function(){
+				$http.get($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat")
+				.then(function(response1){
+						console.log(response1);
+					//	regUser($scope.loginEmail);
+					});	
+			}*/
 		}]);
