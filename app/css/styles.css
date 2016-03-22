@@ -2089,7 +2089,9 @@ select{
 
 #acc-dropdown{
 	width: 345px !important;
-	padding:25px;
+	padding:5px;
+	padding-top: 15px;
+	
 }
 /*End of Homepage*/
 
@@ -2195,7 +2197,7 @@ select{
 
 .carousel-content{
 	bottom: 0px;
-	top: 71%;
+	top: 70%;
 	color: black;
 	font-size: 15px;
 }
@@ -2206,24 +2208,25 @@ select{
 
 .home-slider-shop-btn{
 	padding:5px !important;
-	width:30% !important;
+	width:33% !important;
+	margin-top: 5px !important;
 }
 
-.home-slider-shop-btn a{
-	color: black;
+.home-slider-shop-btn a , .home-slider-shop-btn-two a, .home-slider-shop-btn-three a{
+	color: black !important;
 	font-weight: 400;
 	font-size: 14px;
 }
 
 .home-slider-shop-btn-three{
 	border: 1px solid black;
-	padding: 7px !important;
+	padding: 5px !important;
     width: 33% !important;
     margin-top: 50px;
 }
 
 .carousel-content h1 {
-    font-size: 18px !important;
+    font-size: 14px !important;
 }
 
 .carousel .item{
@@ -2260,18 +2263,25 @@ select{
 
 .home-slider-shop-btn-two{
 	border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
     font-family: Helvetica,Arial,sans-serif;
     width: 33% !important;
     margin-top: 40px !important;
 }
 
 .third-slider-desc{
-	margin-top:14px;
+	margin-top:16px;
 }
 
 .cart-label{
 	color: black;
+}
+
+.home-slider-shop-desc{
+	margin-top: 15px;
+}
+.home-menu .cart-label a{
+	color: black !important;
 }
 }
 
@@ -2356,10 +2366,10 @@ select{
 
 .home-slider-shop-btn{
 	border: 1px solid black; 
-	padding:10px;
+	padding:5px;
 	font-family: Helvetica,Arial,sans-serif;
 	width:33% !important;
-	margin-top: 10px;
+	margin-top: 5px;
 }	
 
 .home-menu ul > li > a{
@@ -2453,9 +2463,9 @@ select{
 
 .home-slider-shop-btn-two{
 	border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
     font-family: Helvetica,Arial,sans-serif;
-    width: 25% !important;
+    width: 33% !important;
     margin-top: 40px;
     margin-left: 19px;
 }
@@ -2466,7 +2476,7 @@ select{
 
 .home-slider-shop-btn-three{
 	border: 1px solid black;
-	padding: 7px !important;
+	padding: 5px !important;
     width: 33% !important;
     margin-top: 50px;
 }
@@ -2475,8 +2485,21 @@ select{
 	margin-top:14px;
 }
 
+.carousel-content h1 {
+    font-size: 14px !important;
+}
+.home-slider-shop-desc{
+	margin-top: 15px;
 }
 
+.home-menu .cart-label a{
+	color: black !important;
+}
+}
+
+.home-slider-shop-desc{
+	margin-top: 5px;
+}
 
 .social label{
 	font-size: 13px; 
@@ -2515,6 +2538,19 @@ select{
 	padding:10px ;
 	font-family: Helvetica,Arial,sans-serif;
 	width:9%;
+}
+
+.cart-block{
+	    border-radius: 0px;
+    z-index: -1;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+#acc-dropdown li {
+	border-bottom: 1px solid #ddd;
+    margin: 10px;
+    height: 85px;
 }
 
 
