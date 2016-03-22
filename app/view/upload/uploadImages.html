@@ -6,13 +6,12 @@
 			</div>
 			{{cropImageArray(cropImage,$index)}}
 			<div  ng-controller="imgViewCtrl" style="height: 45px;" >
-				<table>
+				<table style="width: 95%;">
 					<tr class="upload-img-icons">
 						<td><a ng-click="openLightboxModal(allFiles,$index)" ><img class="img-responsive" src="images/Zoom_in.png" alt=""></a></td>
 						<td><a ng-click="openZoomModal(this.file,$index)"><img class="img-responsive" src="images/Edit-icon.png" alt=""></a></td>
 						<td><a><img class="img-responsive" src="images/cross-512.png" ng-click="removeImage($index)" alt=""></a></td>
 					</tr>
-					
 				</table>
 			
 				<span ng-show="showProgress">
@@ -44,9 +43,9 @@
 
 	
 	
-	<div class="row">
+	<div class="row" style="border: 1pxsolid gray;">
 	
-		<div class="col-sm-12">
+		<div class="col-sm-6">
 			<form id="upload-form" role="form" >
 				<table>
 					<tr>
@@ -76,15 +75,15 @@
            		 				ng-change="getSubCat()"
            		 				ng-options="cat.id as cat.name for cat in categoryDetail">
 							</select>
-            			</td>
-            			<td ng-if="subCategory"><label for="quantity">Sub Categories:</label></td>
+						</td>
+						<td ng-if="subCategory"><label for="quantity">Sub Categories:</label></td>
 						<td ng-if="subCategory">
 
 							<select
            		 				ng-model="subcat.id"
            		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail">
 							</select>
-            			</td>
+						</td>
 
 					</tr>
 					<tr>
@@ -102,12 +101,38 @@
 					<tr>
 						<td><label for="quantity">Long Description:</label></td>
 						<td class="upload-form-col" colspan="3">
-							<textarea  type="text" class="form-control" ng-model="proLongDesc" id="shortdesc" ></textarea>
+							<textarea  type="text" class="form-control" ng-model="proLongDesc" id="shortdesc" style="width: 100%;" ></textarea>
 						</td>
 					</tr>
 					
-						</table>
+				</table>
 			</form>
+		</div>
+		
+		
+	</div>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<label style="font-size: 16px;padding: 20px;text-align: center;">Set Featured Image</label>
+			<form id="upload-form" role="form" >
+				<table>
+					<tr>
+						<td></td>
+						<td>
+							<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container text-center" >
+						
+							</div>
+						</td>
+					</tr>
+					<tr style="width: 50%;">
+						<td><label for="title">Title:</label></td>
+						<td class="upload-form-col" colspan="3">
+							<input  type="text" ng-model="proName" class="form-control" id="title" >			
+						</td>
+					</tr>
+				</table>
+			</form>
+			
 		</div>
 	</div>
 	<div class="row">
