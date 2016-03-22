@@ -71,110 +71,7 @@ $('.lightbox_trigger').click(function(e) {
 		
 			};
 	
-			/*function secondLightbox(){
-			lightbox2 = 
-				'<div id="lightbox">' +'<div style="width:auto;text-align:left;"><h1>CUSTOMIZATION'+'<span id="close-it">'+'CLOSE'+'</span>'+'</div>'+'<div style="width:auto;text-align:center;"><h1>Sleeves'+'</h1>'+'</div>'+
-				'<div id="content">' + 
-				'<ul style="display:inline-flex;">' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="sleeves" value="1">'+'<label style="font-size:12px;">Sleeves1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="sleeves" value="1">'+'<label style="font-size:12px;">Sleeves2</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="sleeves" value="2">'+'<label style="font-size:12px;">Sleeves3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>'
-				+ '</ul>' +
-				'<div style="text-align="center">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn2">Previous</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn2">Next</button>'+'</div>'+
-				'</div>' +	
-				'</div>';		
-				$('body').append(lightbox2);
-		
-				$('.hover11').click(function(){
-						$('.tick-img').css("display","block");
-					});
-			$('#next-btn2').click(function(){
-			thirdLightbox();
-				 
-			});
-			$('#pre-btn2').click(function(){
-			firstLightbox();
-			
-		
-			});
-			$('#close-it').click(function(){
-			$('#lightbox').css("display","none");
-			});	
-			
-			};
-		
-		
-		
-		
-			function thirdLightbox(){
-			lightbox3 = 
-				'<div id="lightbox">' +'<div style="width:auto;text-align:left;"><h1>CUSTOMIZATION'+'<span id="close-it">'+'CLOSE'+'</span>'+'</div>'+'<div style="width:auto;text-align:center;"><h1>Dresses'+'</h1>'+'</div>'+
-				'<div id="content">' + 
-				'<ul style="display:inline-flex;">' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="dresses" value="1">'+'<label style="font-size:12px;">Dresses1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="dresses" value="1">'+'<label style="font-size:12px;">Dresses2</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="dresses" value="1">'+'<label style="font-size:12px;">Dresses3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
-				+
-				
-				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="dresses" value="1">'+'<label style="font-size:12px;">Dresses4</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
-				'</tr>'+'</table>'+'</a>' + '</li>'
-				+ '</ul>' +
-				'<div style="text-align="center">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn3">Previous</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn3">Next</button>'+'</div>'+
-				'</div>' +	
-				'</div>';		
-				$('body').append(lightbox3);
-		
-				$('.hover11').click(function(){
-						$('.tick-img').css("display","block");
-					});
-			
-			$('#next-btn3').click(function(){
-			alert("NO More Screen");
-			});
-			$('#pre-btn3').click(function(){
-			secondLightbox();
-			$('#lightbox').hide();
-			});
-			$('#close-it').click(function(){
-			$('#lightbox').css("display","none");
-			});	
-				
-		
-			};
-		*/
-		
+	
 		
 			$('#close-it').click(function(){
 					$('#lightbox').css("display","none");
@@ -344,7 +241,7 @@ $('.lightbox_trigger').click(function(e) {
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown"   min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>

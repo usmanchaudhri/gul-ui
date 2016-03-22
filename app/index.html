@@ -54,21 +54,21 @@
 												<li>
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li>
+														<li ng-repeat="a in items track by $index">
 															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
+																<div class="col-sm-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
 																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">{{a.name}}</label><br>
+																	<span style="font-size: 12px;">{{a.qty}}</span>
 																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
+																<div class="col-sm-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
 																</div>
 															</div>	
 														</li>
-														<li>
+														<!--<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img src="images/img-04.jpg" width="76" height="74">
@@ -275,64 +275,22 @@
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
 												<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart"  style="color: black;">CART</a></label>
-													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li>
+												<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+														<li ng-repeat="a in items track by $index">
 															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
+																<div class="col-sm-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
 																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">{{a.name}}</label><br>
+																	<span style="font-size: 12px;">{{a.qty}}</span>
 																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
+																<div class="col-sm-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
 																</div>
 															</div>	
 														</li>
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
-																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
-																</div>
-															</div>	
-														</li>
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
-																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
-																</div>
-															</div>	
-														</li>
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
-																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
-																</div>
-															</div>	
-														</li>
-														<li>
+														<!--<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img src="images/img-04.jpg" width="76" height="74">
@@ -393,7 +351,6 @@
 													
 													<!--<li><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>-->
 													</ul>
-											
 												</li>
 										    
 											</ul>
@@ -492,36 +449,22 @@
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
 												<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart"  style="color: black;">CART</a></label>
-													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li>
+										<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+														<li ng-repeat="a in items track by $index">
 															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
+																<div class="col-sm-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
 																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
+																<div class="col-sm-6">
+																	<label style="font-size: 13px;">{{a.name}}</label><br>
+																	<span style="font-size: 12px;">{{a.qty}}</span>
 																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
+																<div class="col-sm-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
 																</div>
 															</div>	
 														</li>
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img src="images/img-04.jpg" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-6">
-																	<label style="font-size: 13px;">Description</label><br>
-																	<span style="font-size: 12px;">Quantity:</span>
-																</div>
-																<div class="col-sm-2 col-xs2">
-																	<label style="font-size: 12px;">$79.99</label>
-																</div>
-															</div>	
-														</li>
-														<li>
+														<!--<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img src="images/img-04.jpg" width="76" height="74">

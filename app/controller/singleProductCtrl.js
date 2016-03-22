@@ -353,16 +353,21 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						$(".customization-border").css("border-bottom","none");
 						$(".shipping-border").css("border-bottom","2px solid #D25E00");
 					});
+			
 				$('.spinner .btn:first-of-type').on('click', function() {
+					
 						var btn = $(this);
 						var input = btn.closest('#up').find('input');
 						if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
 							input.val(parseInt(input.val(), 10) + 1);
+							console.log(input.val());
 						} else {
 							btn.next("disabled", true);
+							console.log("else");
 						}
 					});
 				$('.spinner .btn:last-of-type').on('click', function() {
+					console.log("Trigger");
 						var btn = $(this);
 						var input = btn.closest('#up').find('input');
 						if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {    
