@@ -357,7 +357,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				$('.spinner .btn:first-of-type').on('click', function() {
 					
 						var btn = $(this);
-						var input = btn.closest('#up').find('input');
+						var input = btn.closest('#two').find('input');
 						if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
 							input.val(parseInt(input.val(), 10) + 1);
 							console.log(input.val());
@@ -369,7 +369,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				$('.spinner .btn:last-of-type').on('click', function() {
 					console.log("Trigger");
 						var btn = $(this);
-						var input = btn.closest('#up').find('input');
+						var input = btn.closest('#two').find('input');
 						if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {    
 							input.val(parseInt(input.val(), 10) - 1);
 						} else {
