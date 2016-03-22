@@ -179,10 +179,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"
-						/*"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"*/
+						/*"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"*/
+						"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"
 					},
 					"payer":{
 						"payment_method":"paypal"
