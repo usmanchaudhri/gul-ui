@@ -4,10 +4,201 @@
     $('.thumbs-container img').click(function () {
         $blowup.attr('src', this.src);
     });
-   $(".zoom").elevateZoom({ zoomType	: "inner", cursor: "crosshair" });
 });
+
+$('.lightbox_trigger').click(function(e) {
+		
+			var currentIndex = 0;
 	
+			e.preventDefault();
+		
+			var image_href = $('.img-responsive').attr("src");
+			if ($('#lightbox').length > 0) { // #lightbox exists
+				$('#lightbox').css("display","block");
+			}
+		
+			else { //#lightbox does not exist - create and insert (runs 1st time only)
+				$('#lightbox').css("display","block");
+				//create HTML markup for lightbox window
+				firstLightbox();
+			}
+			var lightbox = "";	
+			var lightbox2 = "";	
+			var lightbox3 = "";	
+			function firstLightbox(){
+				lightbox = 
+				'<div id="lightbox">' +'<div style="width:auto;text-align:left;"><h1>CUSTOMIZATION'+'<span id="close-it">'+'CLOSE'+'</span>'+'</div>'+'<div style="width:auto;text-align:center;"><h1>Jackets'+'</h1>'+'</div>'+
+				'<div id="content">' + 
+				'<ul style="display:inline-flex;">' +
+				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				+
+				
+				'<table>'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
+				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'</tr>'+'</table>'+'</a>' + '</li>' +
+				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				+
+				
+				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket2</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
+				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'</tr>'+'</table>'+'</a>' + '</li>' +
+				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				+
+				
+				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
+				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'</tr>'+'</table>'+'</a>' + '</li>'
+				+ '</ul>' +
+				'<div style="text-align="center">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn">Previous</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">Next</button>'+'</div>'+
+				'</div>' +	
+				'</div>';		
+				$('body').append(lightbox);
+		
+				$('.hover11').click(function(){
+						$('.tick-img').css("display","block");
+					});
+		
+				$('#next-btn').click(function(){
+						secondLightbox();
+							
+					});
+				$('#pre-btn').click(function(){
+						alert("NO More Screen");
+					});
+				$('#close-it').click(function(){
+						$('#lightbox').css("display","none");
+					});	
+		
+			};
+	
+	
+		
+			$('#close-it').click(function(){
+					$('#lightbox').css("display","none");
+				});
+	
+	
+		});
 </script>
+
+<style>
+	table{
+		width: 100%;
+	}
+	#lightbox {
+		position: fixed; /* keeps the lightbox window in the current viewport */
+		top: 0; 
+		left: 0; 
+		width: 100%; 
+		height: 100%; 
+		background: rgba(51, 51, 51, 0.79);
+		z-index: 900;
+	}
+
+	#lightbox ul {
+		width: 75% !important;
+		padding-left: 0px;
+	}
+
+	#lightbox ul > li{
+		margin: 10px;
+		
+	}
+
+	#lightbox ul > li > img {
+		box-shadow: 0 0 25px #111;
+		-webkit-box-shadow: 0 0 25px #111;
+		-moz-box-shadow: 0 0 25px #111;
+		max-width: 940px;
+		margin: 20px;
+		width: 330px;
+		margin-top: 10%;
+	}
+
+	#lightbox ul > li > a >img:hover{
+		cursor: pointer;
+		background-color: #e1e1e1;
+	
+	}
+	
+	
+	.hover11 img {
+		opacity: 1;
+		-webkit-transition: .3s ease-in-out;
+		transition: .3s ease-in-out;
+	}
+	.hover11 img:hover {
+		opacity: .9;
+	}
+	
+	.hover11:hover .radio-btn-div{
+		background-color: orange !important;
+		cursor: pointer;
+	} 
+	
+	.radio-btn-div:hover {
+		background-color: orange !important;
+		cursor: pointer;
+	}
+
+	.radio-btn-div {
+		display: block;
+		font-size: 20px;
+		color: white;
+		text-align: left;
+		padding: 5px;
+		width: 100%;
+		background-color: rgba(255, 255, 255, 0.49);
+		cursor: pointer;
+	}
+
+	#content{
+		text-align: center;
+	}
+
+	#lightbox h1{
+		font-size: 25px; 
+		font-family: 'Quicksand' !important;
+		color: white !Important;
+		margin-left: 30px;
+	}
+
+	#next-btn,#next-btn2,#next-btn3{
+		width: 160px;
+		height: 25px;
+	}
+
+	#pre-btn,#pre-btn2,#pre-btn3{
+		
+		
+		width: 160px;
+		height: 25px;
+		
+	}
+	
+	#close-it{
+		font-size: 13px;
+		color: white;
+		cursor: pointer;
+		float: right;
+		padding: 10px;
+	}
+
+	.tick-img{
+		display: none;
+		width: 12px;
+		float: right;
+		margin-top: -2px;
+		margin-left: 10%;
+		height: auto;
+	}
+
+	input[type="radio"]{
+		display: none;
+	}	
+
+</style>
+
 <div class="container" id="marg">
 	<div class="row">
 				
@@ -15,7 +206,7 @@
 	<div class="row" >
 		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
-			<img  class="img-responsive zoom" src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" data-zoom-image="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" /> 
+			<img  class="img-responsive " src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" /> 
 		</div>
 		</div>
 		<div class="col-sm-5 col-xs-12" id="indisize1">
@@ -50,7 +241,7 @@
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown" ng-model="prodQty"   min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -62,23 +253,24 @@
 				
 				
 				<a><button type="button" class="btn btn-primary individual-bag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;margin-bottom: 20%;">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;">
 					<div class="col-sm-2 col-xs-2" >
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-3-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-3-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-4-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-4-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive" ng-src="{{fixPath+'600x600-5-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-5-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-1"></div>
 					
