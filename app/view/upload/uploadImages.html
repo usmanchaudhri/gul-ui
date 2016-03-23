@@ -1,3 +1,12 @@
+<script>
+	var attribute = document.getElementById('attribute').value;
+   
+	if(attribute != "" || attribute != "Enter Attribute" ){
+		$('#attributetwo').css("display","block");
+	}
+	
+</script>
+
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
@@ -113,7 +122,8 @@
 					<tr>
 						<td><h1>Set Featured Image</h1><br>
 							<input  type="text" class="form-control" placeholder="Enter Title" style="background: white;border: 1px solid #D9D9D9;;" ><br>
-							<input  type="text" class="form-control"  placeholder="Enter Attribute" style="background: white;border:1px solid #D9D9D9;" ><br>
+							<input  type="text" class="form-control" id="attribute"  placeholder="Enter Attribute" value="" style="background: white;border:1px solid #D9D9D9;" ><br>
+				<input  type="text" class="form-control" id="attributetwo"  placeholder="Enter sub Attribute" style="display:none; background: white;border:1px solid #D9D9D9;" ><br>
 							<input  type="text" class="form-control"  placeholder="Enter Value" style="background: white;border: 1px solid #D9D9D9;" >
 							
 							
