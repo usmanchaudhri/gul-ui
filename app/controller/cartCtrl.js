@@ -87,11 +87,22 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								console.log(data.links[1].href);
 								$window.location.href = data.links[1].href;
 							}).error(function (data, status) {
+								if(data != null){
+								$scope.dataError = data;
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
 								console.log(data);
 							});
 						console.log(data);
 					}).error(function (data, status) {
-						console.log(data);
+						if(data != null){
+								$scope.dataError = data;
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
+					
+							console.log(data);
 					});
 				}else{
 					alert("Card is Empty");
@@ -194,7 +205,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								"currency":"USD",
 								"details":{
 									"subtotal":$scope.totalPrice,
-									"tax":"0.00",
+									"tax":"0.155",
 									"shipping":"0.00"
 								}
 							},
