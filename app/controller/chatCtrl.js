@@ -1,4 +1,4 @@
- app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams','$rootScope',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams,$rootScope) {
+ app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams) {
 		
 			$scope.cChatNames = [];
 			$scope.chat_name = $routeParams.chatName;
@@ -50,7 +50,6 @@
 					
 						$scope.retrieveChannel();
 					}
-					$rootScope.$emit("CallParentMethod", {});
 								//$scope.shopCustomer = data.id;
 								//updateCustomer();
 							}).error(function (data, status) {
@@ -159,7 +158,6 @@
 						$scope.channelSid = data.entity.sid;
 				
 						//	addMembers();
-						console.log(data);
 						$scope.retrieveMessage();
 						console.log(data.entity.sid);
 					}).error(function (data, status) {

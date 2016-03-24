@@ -1,10 +1,8 @@
-app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location','$rootScope', function($scope,$cookieStore,$http,Base64,$window,$location,$rootScope) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location', function($scope,$cookieStore,$http,Base64,$window,$location) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
-			$scope.showContent = false; 
-			
-			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+		
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -15,23 +13,17 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-					//	checkUrl();
+				//	checkUrl();
 				
 				});
-			
-
-			$rootScope.$on("CallParentMethod", function(){
-				//	$scope.uploadOrder();
-					showContent();
-			});
 			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
 					var tokenID = $cookieStore.get("tokenID");
 					$cookieStore.remove("tokenID");
-					//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
-					console.log(tokenID);
+				//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+				console.log(tokenID);
 					var config = {
 						headers : {
 							'Content-Type': 'application/json',
@@ -49,7 +41,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					).success(function(data, status) {
 							console.log(data);
 							//console.log(data.links[1].href);
-							//			$window.location.href = data.links[1].href;
+					//			$window.location.href = data.links[1].href;
 								
 						}).error(function (data, status) {
 							console.log(data);
@@ -57,59 +49,61 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				}
 			}
 			
+			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+		
 			var paypalData = $.param({
 					grant_type : "client_credentials"
 				});
 			
 			$scope.paypalPayment = function(){
 				if($scope.totalPrice > 0){
-					$scope.prepareCall();
-					var config = {
-						headers : {
-							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-						}
+				$scope.prepareCall();
+				var config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 					}
-					var data = $.param({
-							grant_type : "client_credentials"
-						});
+				}
+				var data = $.param({
+						grant_type : "client_credentials"
+					});
 			
-					$http.post(
-						$scope.paypalToken,  data,config
-					).success(function(data, status) {
-							$cookieStore.put("tokenID",data.access_token);
-							var tokenID = $cookieStore.get("tokenID");
+				$http.post(
+					$scope.paypalToken,  data,config
+				).success(function(data, status) {
+						$cookieStore.put("tokenID",data.access_token);
+						var tokenID = $cookieStore.get("tokenID");
 					
-							$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
-							var config = {
-								headers : {
-									'Content-Type': 'application/json'
-								}
+						$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+						var config = {
+							headers : {
+								'Content-Type': 'application/json'
 							}
+						}
 				
-							$http.post(
-								$scope.paypalPaymentUrl,  paypalPayload(),config
-							).success(function(data, status) {
-									console.log(data);
-									console.log(data.links[1].href);
-									$window.location.href = data.links[1].href;
-								}).error(function (data, status) {
-									if(data != null){
-										$scope.dataError = data;
-									}else{
-										$scope.dataError = "Check Your Internet Connection And Try Again! ";
-									}
-									console.log(data);
-								});
-							console.log(data);
-						}).error(function (data, status) {
-							if(data != null){
+						$http.post(
+							$scope.paypalPaymentUrl,  paypalPayload(),config
+						).success(function(data, status) {
+								console.log(data);
+								console.log(data.links[1].href);
+								$window.location.href = data.links[1].href;
+							}).error(function (data, status) {
+								if(data != null){
 								$scope.dataError = data;
-							}else{
-								$scope.dataError = "Check Your Internet Connection And Try Again! ";
-							}
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
+								console.log(data);
+							});
+						console.log(data);
+					}).error(function (data, status) {
+						if(data != null){
+								$scope.dataError = data;
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
 					
 							console.log(data);
-						});
+					});
 				}else{
 					alert("Card is Empty");
 				}
@@ -135,6 +129,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.removeItem = function(index) {
 				console.log(index);
 				$scope.invoice.items.splice(index, 1);
+			
+				//$cookieStore.remove("invoices");
 				$cookieStore.put("invoices",$scope.invoice.items);
 				$scope.items = [];
 				$scope.items = $cookieStore.get("invoices",$scope.invoices);
@@ -190,14 +186,14 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			var paypalPayload = function(){
 				console.log($scope.totalPrice);
-				//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
+			//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"
-						/*"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"*/
+						/*"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"*/
+						"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -218,10 +214,46 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					]
 				}
 			}
+		
+			$scope.uploadOrder=function(){
+				$scope.showProgress = true;
+				var count = -1;
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+				//	console.log($scope.proUpload());
 			
-			var showContent = function(){
-				console.log("SHOW CONTENT");
-				$scope.showContent = true;
+				for(var i = 0;i<$scope.items.length;i++){
+			
+					$http.post(
+						$scope.orderUrl, $scope.orderPayload($scope.items[i]),config
+					).success(function(data, status) {
+							console.log(data);
+							$scope.newProId = data.id;
+						}).error(function (data, status) {
+							console.log(data);
+							console.log(status);
+						});
+				}
+			};
+		
+			$scope.orderPayload = function(itemDetail){
+				
+				return payload ={
+					"productId": itemDetail.id,
+					"productName": itemDetail.name,
+					"productSku": "Birds Han",
+					"productQuantity": itemDetail.qty,
+					"productPrice": itemDetail.cost,
+					"productImagePath": "/listing",
+					"productCategoryId": itemDetail.category.id,
+					"productShopId": itemDetail.shopID,
+					"customer": {
+						"id": "4"
+					}
+				}
 			}
 			
 			checkItems();

@@ -1,4 +1,4 @@
- app.controller('productCtrl',['$scope','$http','$routeParams' ,'$rootScope', function($scope,$http,$routeParams,$rootScope) {
+ app.controller('productCtrl',['$scope','$http','$routeParams' , function($scope,$http,$routeParams) {
 			$scope.isNumber = angular.isNumber;
 			$scope.shopTemp = [];
 			$scope.records = [];
@@ -7,7 +7,6 @@
 			$scope.busy =false;
 			var first = 0;
 			$scope.sorting = 'price';
-			$scope.showContent = false;
 
 			// Make an API request
 			$http.get("gulgs.properties")
@@ -21,7 +20,6 @@
 							var shopID = -1;
 							var shopName = '';
 							var products = data.data;
-							
 							for(var i = 0; i< products.length; i++){
 								if(angular.isDefined(products[i].shop.id)){
 									var shopVal = {
@@ -59,7 +57,6 @@
 							}
 							$scope.busy = false;
 							first = first + 9;
-						$rootScope.$emit("CallParentMethod", {});
 							
 						});
 			
