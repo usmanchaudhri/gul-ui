@@ -9,8 +9,8 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div class=" col-lg-12 col-md-12 col-sm-12" style="border-left: 1px solid rgba(128, 128, 128, 0.18);margin-left: 0px;border-top: 1px solid rgba(128, 128, 128, 0.18);margin-bottom:5%;padding-right: 0px;">
-					<h1>Conversation Title</h1>
-	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;">Between <label>Amjad</label> and <label>Hunzala</label> from designer</p>
+					<h1 class="text-center">Conversation Title</h1>
+	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;text-align: center;">Between <label>Amjad</label> and <label>Hunzala</label> from designer</p>
 					<div class="chat-box-div">
 						<div class="panel-body chat-box-main" style="height: 350px;">
                         
@@ -39,13 +39,13 @@
 									<div class="col-sm-1">
 										<img src="images/user.gif" alt="bootstrap Chat box user image" class="img-circle" />		
 									</div>
-									<div class="col-sm-2 chatscreen-conversation" style="background-color: rgba(221, 221, 221, 0.87);border-right: none;">
+									<div class="col-sm-2 chatscreen-conversation" style="background-color: white;border-right: none;">
 										{{x.from}}:
 									</div>
-									<div class="col-sm-7 chatscreen-conversation" style="background-color: rgba(221, 221, 221, 0.87);border-left: none;border-right: none;">
+									<div class="col-sm-7 chatscreen-conversation" style="background-color: white;border-left: none;border-right: none;">
 									<p style="font-size:12px;margin:0px;">{{x.body}}</p>
 									</div>
-									<div class="col-sm-2 chatscreen-conversation" style="background-color: rgba(221, 221, 221, 0.87);border-left: none;"><label style="font-size: 12px;margin: 0px;color:gray;">29-jan-2016</label></div>
+									<div class="col-sm-2 chatscreen-conversation" style="background-color: white;border-left: none;"><label style="font-size: 12px;margin: 0px;color:gray;">29-jan-2016</label></div>
 								</div>
 								</div>
 							</div>
@@ -60,7 +60,7 @@
 									 <div class="col-sm-1" style="color: gray;padding-left: 0px;">amjad:</div>
 									 <div class="chat-box-footer col-sm-11">
 							<div class="input-group send-input" style="width: 100%;">
-								<textarea ng-model="msgBody"  placeholder="Enter Text Here..." style="width: 100%;height: 165px;font-size: 12px;padding: 10px;overflow: scroll;" ></textarea>
+								<textarea ng-model="msgBody"  placeholder="Enter Text Here..." style="border:none; width: 100%;height: 165px;font-size: 12px;padding: 10px;overflow: scroll;" ></textarea>
 							</div>
 							<button type="button" class="btn btn-primary" ng-click="sendMessage()" style="height: 25px; text-align: center;float:right;margin:15px;margin-right:0px;">Send</button>
 						</div>

@@ -2565,10 +2565,6 @@ select{
 	text-decoration: underline;
 }
 
-.chat-username:hover p{
-	text-decoration: none;
-}
-
 
 .signin-label{
 	cursor: pointer;
