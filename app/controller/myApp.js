@@ -2,14 +2,14 @@ var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) 
 		{ 
-			//$locationProvider.html5Mode(true);
+		//$locationProvider.html5Mode(true);
 			/*if(window.history && window.history.pushState){
-			$locationProvider.html5Mode({
-			enabled: true,
-			requireBase: false
-			});
+				 $locationProvider.html5Mode({
+                 enabled: true,
+                 requireBase: false
+          });
 			}*/
-			$routeProvider .when('/', { 
+		$routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
 					label:'HOME' 
@@ -60,10 +60,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/allchats', {
 					templateUrl: 'view/chatting/mailscreen.html', 
 					controller: 'chatCtrl',
-					label:'ALL CHATS',
-					resolve: {
-						loadData: chatCtrl.loadData
-					}
+					label:'ALL CHATS'
 				}).when('/inspiration', {
 					templateUrl: 'view/inspiration/inspiration.html', 
 					controller: 'inspirationCtrl',
