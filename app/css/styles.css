@@ -2575,8 +2575,16 @@ select{
 	margin:0px;
 	margin-top:7px;
 	font-size: 11px;
-	font-family:'Quicksand'; 
+	font-family:'Quicksand' !important; 
 	text-align: right;
+}
+
+.header-main-nav .signin-label{
+	font-family:'Quicksand' !important; 
+}
+
+.home-menu .signin-label{
+	font-family:'Quicksand' !important; 
 }
 
 .signin-label a{
