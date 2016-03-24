@@ -146,25 +146,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base6
 			};
 		}]);
 
-chatCtrl.loadData = {
-	
-	datasets : function($q, $http,$cookieStore) {
-        var deferred = $q.defer();
-        
-        $http({method: 'GET', url: '/someUrl'})
-            .success(function(data) {
-                deferred.resolve(data)
-            })
-            .error(function(data){
-                //actually you'd want deffered.reject(data) here
-                //but to show what would happen on success..
-                deferred.resolve("error value");
-            });
-        
-        return "abc";
-    }
-	
-}/*function($http,$cookieStore ){
+chatCtrl.loadData = function($http,$cookieStore ){
 	$http.get("gulgs.properties")
 	.then(function(response) {
 			
@@ -218,4 +200,4 @@ chatCtrl.loadData = {
 		
 		});
 		
-}*/
+}
