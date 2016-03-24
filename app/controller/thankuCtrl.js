@@ -12,6 +12,7 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 				});
 			
 			
+			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				console.log($location.search());
@@ -34,9 +35,9 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 					$http.post(
 						$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
 					).success(function(data, status) {
-						
+						 $rootScope.$emit("CallParentMethod", {});
 							console.log(data);
-							 $location.path("#/");
+					
 						}).error(function (data, status) {
 							console.log(data);
 						});
