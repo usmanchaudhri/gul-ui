@@ -2533,7 +2533,7 @@ select{
 }
 
 .custom-padding-top{
-	padding-top: 110px;
+	padding-top: 84px;
 }
 		
 	
@@ -2561,9 +2561,7 @@ select{
 	width: 20%;
 }
 
-.chat-username:hover{
-	text-decoration: underline;
-}
+
 
 
 .signin-label{
