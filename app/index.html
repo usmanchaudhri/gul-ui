@@ -68,6 +68,9 @@
 																</div>
 															</div>	
 														</li>
+														<div ng-if="items == null" class="text-center">
+														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+													</div>
 													</ul>
 											
 												</li>
@@ -176,7 +179,9 @@
 												<li>
 												<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart"  style="color: black;">CART</a></label>
 												<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+													
 														<li ng-repeat="a in items track by $index">
+															
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
@@ -191,8 +196,10 @@
 															</div>	
 														</li>
 														
+													<div ng-if="items == null" class="text-center">
+														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+													</div>
 													
-													<!--<li><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>-->
 													</ul>
 												</li>
 										    
@@ -310,7 +317,9 @@
 														
 													
 													
-													<!--<li><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>-->
+													<div ng-if="items == null" class="text-center">
+														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+													</div>
 													</ul>
 											
 												</li>
