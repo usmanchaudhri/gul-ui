@@ -19,9 +19,9 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				});
 			
 
-			$rootScope.$on("CallParentMethod", function(){
+		/*	$rootScope.$on("CallParentMethod", function(){
 					$scope.uploadOrder();
-			});
+			});*/
 			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
