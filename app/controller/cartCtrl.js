@@ -221,7 +221,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			var showContent = function(){
 				console.log("SHOW CONTENT");
-				$scope.showContent = !$scope.showcontent;
+				$scope.showContent = true;
 			}
 			
 			checkItems();
