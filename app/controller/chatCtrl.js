@@ -1,14 +1,67 @@
-var chatCtrl =  app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams) {
+ app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams) {
 		
 			$scope.cChatNames = [];
 			$scope.chat_name = $routeParams.chatName;
-		
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 				}
 			};
 			
+			
+			$http.get("gulgs.properties")
+			.then(function(response) {
+			
+					$scope.twilioUser = response.data.twilioUser;
+					$scope.twilioChannel = response.data.twilioChannel;
+					$scope.twilio = response.data.twilio;
+					$scope.customerUrl = response.data.customerUrl;
+				
+				var config = {
+							headers : {
+								'Content-Type': 'application/json'
+							}
+						}
+						//console.log($scope.updateCustomer());
+						$http.get(
+							$scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat",config
+						).success(function(data, status) {
+								var	customerName = $cookieStore.get("userData").email;
+								console.log(data[0].customer);
+								$scope.chatArr = data[0].customer.cchat;
+								for(var i = 0;i< $scope.chatArr.length;i++){
+									var uName = $scope.chatArr[i].uniqueName.split("-");
+									if(uName[0] == customerName){
+										var cName = {
+											"name": uName[1]
+										}
+										console.log("CCHAT NAME:" +cName );
+									}else{
+										var cName = {
+											"name": uName[0]
+										}
+										console.log("CCHAT NAME:" +cName );
+									}
+									console.log(cName);
+									$scope.cChatNames.push(cName);
+								}
+								if(angular.isDefined($scope.chat_name)){
+						console.log("ChatName"+$scope.chat_name);
+					
+						$scope.retrieveChannel();
+					}
+								//$scope.shopCustomer = data.id;
+								//updateCustomer();
+							}).error(function (data, status) {
+								console.log(data);
+								console.log(status);
+							});
+				
+					
+		
+				});
+		
+		
 			$scope.regUser = function(user){
 				var data = $.param({
 						Identity : user
@@ -93,12 +146,12 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base6
 					for(var i =0;i < $scope.cChatNames.length;i++){
 						console.log($scope.cChatNames[i].name);
 						if($scope.cChatNames[i].name == $scope.chat_name){
-							mUnique = $scope.chatArr[i].uniqueName;
-							console.log(mUnique);
+							 mUnique = $scope.chatArr[i].uniqueName;
+							 console.log(mUnique);
 						}
 					}
 				}
-				//	var mUnique = $cookieStore.get("username") + "-" + $scope.chat_name.replace(/ /g, '');
+			//	var mUnique = $cookieStore.get("username") + "-" + $scope.chat_name.replace(/ /g, '');
 				$http.get(
 					$scope.twilioChannel+'/'+mUnique,config
 				).success(function(data, status) {
@@ -144,60 +197,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base6
 						console.log(response);
 					});
 			};
+	
+  
+  
 		}]);
-
-chatCtrl.loadData = function($http,$cookieStore ){
-	$http.get("gulgs.properties")
-	.then(function(response) {
-			
-			/*$scope.twilioUser = response.data.twilioUser;
-			$scope.twilioChannel = response.data.twilioChannel;
-			$scope.twilio = response.data.twilio;
-			$scope.customerUrl = response.data.customerUrl;*/
-				var cChatNames = [];
-			var config = {
-				headers : {
-					'Content-Type': 'application/json'
-				}
-			}
-			//console.log($scope.updateCustomer());
-			$http.get(
-				response.data.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat",config
-			).success(function(data, status) {
-					var	customerName = $cookieStore.get("userData").email;
-					console.log(data[0].customer);
-					var chatArr = data[0].customer.cchat;
-					for(var i = 0;i< chatArr.length;i++){
-						var uName = chatArr[i].uniqueName.split("-");
-						if(uName[0] == customerName){
-							var cName = {
-								"name": uName[1]
-							}
-							console.log("CCHAT NAME:" +cName );
-						}else{
-							var cName = {
-								"name": uName[0]
-							}
-							console.log("CCHAT NAME:" +cName );
-						}
-						console.log(cName);
-						cChatNames.push(cName);
-					}
-					return cChatNames;
-					/*if(angular.isDefined($scope.chat_name)){
-						console.log("ChatName"+$scope.chat_name);
-					
-						$scope.retrieveChannel();
-					}*/
-					//$scope.shopCustomer = data.id;
-					//updateCustomer();
-				}).error(function (data, status) {
-					console.log(data);
-					console.log(status);
-				});
-				
-					
-		
-		});
-		
-}
