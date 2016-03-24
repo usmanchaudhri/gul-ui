@@ -2,9 +2,9 @@
 <div class="container">
    
 	<div class="row">
-		<div class="col-sm-3 col-md-2">
+		<div class="col-sm-3 col-md-2" style="background-color: #F9F9F9;border: 1px solid #DDDDDD; border-right: none;border-left: none;border-bottom: none;">
 			<ul class="nav nav-pills nav-stacked chat-menu">
-				<li><a ng-href="#allchats">Chats</a></li>
+				<li><a ng-href="#allchats" style="padding: 5px;">Chats</a></li>
 			</ul>
 		</div>
 		<div class="col-sm-9 col-md-10">
@@ -13,28 +13,39 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div class="tab-pane fade in active" id="home">
-					<div class="list-group allchats-list">
-					<span ng-repeat="x in cChatNames">
-						<a href="#chat/{{x.name}}" class="list-group-item " >
-							<div class="checkbox">
-								<label>
-									<input type="checkbox">
+				<div class="row list-group allchats-list">
+					<div class="col-sm-12  list-group-item "  ng-repeat="x in cChatNames" style="padding-left: 0px; border-left: none;border-right: none;background-color: rgba(128, 128, 128, 0.05);">
+						<a href="#chat/{{x.name}}">
+						<div class="col-sm-4">
+							<span>
+						
+							<div class="checkbox" style="width: 100%;line-height: 16px;">
+								<label class="chat-username" style="min-width: 120px;display: inline-block;" style="padding-left: 5px;">{{x.name}}<br>
+									<p style="font-size: 12px;color:black;">Designer's Name</p>
 								</label>
 							</div>
-							<span class="name" style="min-width: 120px;display: inline-block;">{{x.name}}</span> 
-							<span class=""></span>
-						</a>
 						</span>
-						<!--<a href="#chat/Gulgs" class="list-group-item ">
-							<div class="checkbox">
-								<label>
-									<input type="checkbox">
-								</label>
-							</div>
-							<span class="name" style="min-width: 120px;display: inline-block;">Gulgs</span> 
-							<span class=""></span>
-						</a>-->
+						</div>
+						<div class="col-sm-4 " style="margin-top: 4px;">
+						<table style="width: 98%;">
+							<tr>
+								<td>
+									<label class="chat-username" style="font-size: 13px;">Conversation</label>
+						<p style="font-size: 12px;line-height: 14px;color:black;">What is your name?</p>
+								</td>
+								<td>
+									<label style="font-size: 12px;text-align: right;">3</label>
+								</td>
+							</tr>
+						</table>
+						
+						</div>
+						<div class="col-sm-4" style="text-align: right;margin-top: 14px;"><label style="text-align: right;font-size: 12px;color:black;">29-jan-2016</label></div>
+						</a>
+						
 					</div>
+				</div>
+					
 				</div>
 			</div>
 		</div>

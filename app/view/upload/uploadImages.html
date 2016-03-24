@@ -1,9 +1,17 @@
 <script>
-	var attribute = document.getElementById('attribute').value;
-   
-	if(attribute != "" || attribute != "Enter Attribute" ){
-		$('#attributetwo').css("display","block");
-	}
+	$('#attribute').focus(function() {
+   	var attributevalue = document.getElementById('attribute').value;
+   	if(attributevalue != null){
+   		$('.attribute').show();
+    $(document).bind('focusin..attribute click..attribute',function(e) {
+        if ($(e.target).closest('..attribute, #.attribute').length) return;
+        $(document).unbind('..attribute');
+        $('div..attribute').fadeOut('medium');
+    });	
+   	}
+    
+});
+$('.attribute').hide();
 	
 </script>
 
@@ -96,6 +104,38 @@
 						</td>
 					</tr>
 					<tr>
+						<td><label for="quantity">Attribute:</label></td>
+						<td>
+							<input  type="text" class="form-control" id="attribute" name="attribute" value="" style="background: white;border:1px solid #D9D9D9;" ><br>
+						</td>
+					</tr>
+					<tr style="width: 50%;">
+						<td ><label for="quantity">Values:</label></td>
+						<td style="width: 25%;">
+							<input  type="text" class="form-control" style="background: white;border: 1px solid #D9D9D9;width:100%;" >
+						</td>
+						<td style="width: 25%;">
+							<input  type="text" class="form-control" style="background: white;border: 1px solid #D9D9D9;width:100%;" >
+						</td>
+						<td style="width: 25%;">
+							<input  type="text" class="form-control" style="background: white;border: 1px solid #D9D9D9;width:100%;" >
+						</td >
+						<td style="width: 25%;">
+							<input  type="text" class="form-control" style="background: white;border: 1px solid #D9D9D9;width:100%;" >
+						</td>
+					</tr>
+					<tr class="attribute">
+						<td><label for="quantity">New Attribute:</label></td>
+						<td>
+							<input  type="text" class="form-control" id="attribute" value="" style="background: white;border:1px solid #D9D9D9;" ><br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input  type="text" class="form-control" id="attributetwo"  placeholder="Enter sub Attribute" style="display:none; background: white;border:1px solid #D9D9D9;" ><br>
+						</td>
+					</tr>
+					<tr>
 						<td><label for="quantity">Short Description:</label></td>
 						<td class="upload-form-col" colspan="3">
 							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" style="height: 150px;" >
@@ -122,11 +162,6 @@
 					<tr>
 						<td><h1>Set Featured Image</h1><br>
 							<input  type="text" class="form-control" placeholder="Enter Title" style="background: white;border: 1px solid #D9D9D9;;" ><br>
-							<input  type="text" class="form-control" id="attribute"  placeholder="Enter Attribute" value="" style="background: white;border:1px solid #D9D9D9;" ><br>
-				<input  type="text" class="form-control" id="attributetwo"  placeholder="Enter sub Attribute" style="display:none; background: white;border:1px solid #D9D9D9;" ><br>
-							<input  type="text" class="form-control"  placeholder="Enter Value" style="background: white;border: 1px solid #D9D9D9;" >
-							
-							
 						</td>
 						<td>
 						<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container">
