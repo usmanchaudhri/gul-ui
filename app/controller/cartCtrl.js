@@ -1,7 +1,8 @@
-app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location', function($scope,$cookieStore,$http,Base64,$window,$location) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location','$rootScope', function($scope,$cookieStore,$http,Base64,$window,$location,$rootScope) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
+			$scope.showContent = false; 
 			
 			$scope.items = $cookieStore.get("invoices",$scope.invoices);
 			
@@ -20,7 +21,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 
 			$rootScope.$on("CallParentMethod", function(){
-					$scope.uploadOrder();
+				//	$scope.uploadOrder();
+					showContent();
 			});
 			
 			var checkUrl = function(){
@@ -192,10 +194,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						/*"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"*/
-						"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"
+						"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"
+						/*"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"*/
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -207,7 +209,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								"currency":"USD",
 								"details":{
 									"subtotal":$scope.totalPrice,
-									"tax":"0.155",
+									"tax":"0.00",
 									"shipping":"0.00"
 								}
 							},
@@ -216,46 +218,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					]
 				}
 			}
-		
-			$scope.uploadOrder=function(){
-				var count = -1;
-				var config = {
-					headers : {
-						'Content-Type': 'application/json'
-					}
-				}
-				//	console.log($scope.proUpload());
 			
-				for(var i = 0;i<$scope.items.length;i++){
-			
-					$http.post(
-						$scope.orderUrl, $scope.orderPayload($scope.items[i]),config
-					).success(function(data, status) {
-							console.log(data);
-							$scope.newProId = data.id;
-									 $location.path("#/");
-						}).error(function (data, status) {
-							console.log(data);
-							console.log(status);
-						});
-				}
-			};
-		
-			$scope.orderPayload = function(itemDetail){
-				
-				return payload ={
-					"productId": itemDetail.id,
-					"productName": itemDetail.name,
-					"productSku": "Birds Han",
-					"productQuantity": itemDetail.qty,
-					"productPrice": itemDetail.cost,
-					"productImagePath": "/listing",
-					"productCategoryId": itemDetail.category.id,
-					"productShopId": itemDetail.shopID,
-					"customer": {
-						"id": "4"
-					}
-				}
+			var showContent = function(){
+				console.log("SHOW CONTENT");
+				$scope.showContent = !$scope.showcontent;
 			}
 			
 			checkItems();

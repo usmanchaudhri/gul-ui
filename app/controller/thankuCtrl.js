@@ -1,4 +1,4 @@
-app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$location', function($scope,$cookieStore,$http,$window,$location) {
+app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$location','$rootScope', function($scope,$cookieStore,$http,$window,$location,$rootScope) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
@@ -8,8 +8,8 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 			.then(function(response) {
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
 					checkUrl();
-				
-				});
+			
+			});
 			
 			
 			
@@ -35,7 +35,7 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 					$http.post(
 						$scope.paypalPaymentUrl+'/'+urlParameters.paymentId+'/execute/',  data,config
 					).success(function(data, status) {
-						 $rootScope.$emit("CallParentMethod", {});
+						 $scope.uploadOrder();
 							console.log(data);
 					
 						}).error(function (data, status) {
@@ -43,6 +43,47 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 						});
 				}
 			};
+				$scope.uploadOrder=function(){
+				//console.log("CONSOLEEE");
+				var count = -1;
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+				//	console.log($scope.proUpload());
+			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+				for(var i = 0;i<$scope.items.length;i++){
+			
+					$http.post(
+						$scope.orderUrl, $scope.orderPayload($scope.items[i]),config
+					).success(function(data, status) {
+							console.log(data);
+							$scope.newProId = data.id;
+									 $location.path("#/");
+						}).error(function (data, status) {
+							console.log(data);
+							console.log(status);
+						});
+				}
+			};
+		
+			$scope.orderPayload = function(itemDetail){
+				
+				return payload ={
+					"productId": itemDetail.id,
+					"productName": itemDetail.name,
+					"productSku": "Birds Han",
+					"productQuantity": itemDetail.qty,
+					"productPrice": itemDetail.cost,
+					"productImagePath": "/listing",
+					"productCategoryId": itemDetail.category.id,
+					"productShopId": itemDetail.shopID,
+					"customer": {
+						"id": "4"
+					}
+				}
+			}
 		
 		}]);
         
