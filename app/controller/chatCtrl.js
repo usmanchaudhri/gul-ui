@@ -1,4 +1,4 @@
- app.controller('chatCtrl',['$scope','$http','DataLoader', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http,DataLoader, Base64,$cookieStore,$q,$routeParams) {
+ app.controller('chatCtrl',['$scope','$http', 'Base64','$cookieStore','$q','$routeParams',function($scope,$http, Base64,$cookieStore,$q,$routeParams) {
 		
 			$scope.cChatNames = [];
 			$scope.chat_name = $routeParams.chatName;
