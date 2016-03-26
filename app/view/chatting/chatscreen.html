@@ -1,3 +1,11 @@
+<script>
+	$(document).ready(function(){
+		$(".clickme").click(function(){
+        alert("hello");
+    });
+	});
+</script>
+
 <div class="container">
    <div class="row">
 		<div class="col-sm-3 col-md-2" style="padding-right: 0px;">
@@ -10,7 +18,7 @@
 			<div class="tab-content">
 				<div class=" col-lg-12 col-md-12 col-sm-12" style="border-left: 1px solid rgba(128, 128, 128, 0.18);margin-left: 0px;border-top: 1px solid rgba(128, 128, 128, 0.18);margin-bottom:5%;padding-right: 0px;">
 					<h1 class="text-center">Conversation Title</h1>
-	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;text-align: center;">Between <label>Amjad</label> and <label>Hunzala</label> from designer</p>
+	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;text-align: center;color:gray;">Between <label>Amjad</label> and <label>Hunzala</label> from designer</p>
 					<div class="chat-box-div">
 						<div class="panel-body chat-box-main">
                         
@@ -18,16 +26,22 @@
 							<div class="chat-box-left" ng-if="x.from != chat_name">
 								<div class="chat-box-name-left">
 								<div class="row">
+									<div class="col-sm-12 clickme">
 									<div class="col-sm-1">
 										<img src="images/user.gif" alt="bootstrap Chat box user image" class="img-circle" />		
 									</div>
+									<div class="chat-wrap">
+									<div class="col-sm-1" style="width: auto;padding: 0px;margin-top: 10px;"><img src="images/arrow-left.jpg" /></div>
 									<div class="col-sm-2 chatscreen-conversation" style="color: gray;border-right: none;">
 										{{x.from}}:
 									</div>
-									<div class="col-sm-7 chatscreen-conversation" style="border-left: none;border-right: none;">
-									<p style="font-size:12px;margin:0px;">{{x.body}}</p>
+									<div class="col-sm-6 chatscreen-conversation " style="border-left: none;border-right: none;">
+								<p id="para" class="" style="font-size:12px;margin:0px;">{{x.body}}</p>
 									</div>
-									<div class="col-sm-2 chatscreen-conversation" style="border-left: none;"><label style="font-size: 12px;margin: 0px;color:gray;">29-jan-2016</label></div>
+						<div class="col-sm-2 chatscreen-conversation" style="border-left: none;"><label style="font-size: 12px;margin: 0px;color:gray;">29-jan-2016</label>
+						</div>
+									</div>
+									</div>
 								</div>
 								
 								
@@ -36,16 +50,21 @@
 							<div class="chat-box-left" ng-if="x.from == chat_name">
 								<div class="chat-box-name-left">
 								<div class="row">
+									<div class="col-sm-12 clickme">
 									<div class="col-sm-1">
 										<img src="images/user.gif" alt="bootstrap Chat box user image" class="img-circle" />		
 									</div>
+									<div class="col-sm-1" style="width: auto;padding: 0px;margin-top: 10px;"><img src="images/arrow-left.jpg" /></div>
+									<div class="chat-wrap" style="width: 100%;">
 									<div class="col-sm-2 chatscreen-conversation" style="background-color: white;border-right: none;">
 										{{x.from}}:
 									</div>
-									<div class="col-sm-7 chatscreen-conversation" style="background-color: white;border-left: none;border-right: none;">
+									<div class="col-sm-6 chatscreen-conversation" style="background-color: white;border-left: none;border-right: none;">
 									<p style="font-size:12px;margin:0px;">{{x.body}}</p>
 									</div>
 									<div class="col-sm-2 chatscreen-conversation" style="background-color: white;border-left: none;"><label style="font-size: 12px;margin: 0px;color:gray;">29-jan-2016</label></div>
+									</div>
+									</div>
 								</div>
 								</div>
 							</div>
@@ -56,7 +75,8 @@
 									<div class="col-sm-1">
 										<img src="images/user.gif" alt="bootstrap Chat box user image" class="img-circle" />		
 									</div>
-									<div class="col-sm-11 chatscreen-conversation">
+									<div class="col-sm-1" style="width: auto;padding: 0px;margin-top: 10px;"><img src="images/arrow-left.jpg" /></div>
+									<div class="col-sm-10 chatscreen-conversation">
 									 <div class="col-sm-1" style="color: gray;padding-left: 0px;">amjad:</div>
 									 <div class="chat-box-footer col-sm-11">
 							<div class="input-group send-input" style="width: 100%;">
