@@ -81,7 +81,8 @@ app.factory('Base64', function() {
 				return output;
 			}
 		};
-	}).factory('DataLoader', function( $http ) {
+	});
+app.factory('DataLoader', function( $http ) {
  
 		return {
 			post: function(url) {
@@ -102,3 +103,314 @@ app.factory('Base64', function() {
 			},
 		}
 	});
+app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($http,$q,$timeout,$cookieStore) {
+			var sdo = {
+				/**
+				List of cchat
+				**/
+				getChat: function() {
+					var deferred = $q.defer();
+					
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					
+					return promise
+					.then(function(one) {
+							
+							console.log('Promise one resolved with ', one);
+							var anotherDeferred = $q.defer();
+							var cChatNames = [];
+							var config = {
+								headers : {
+									'Content-Type': 'application/json'
+								}
+							}
+							var customerUrl = one.data.customerUrl+'/'+$cookieStore.get('userData').id+'';
+							var anotherPromise = $http({
+									method: 'GET',
+									url: customerUrl,
+									cache: 'true'});
+							return anotherPromise.then(function(dataa) {
+								console.log('Promise sdo resolved with ', dataa);
+							
+							
+							var	customerName = $cookieStore.get("userData").email;
+								console.log(dataa.data[0].customer);
+								var chatArr = dataa.data[0].customer.cchat;
+								for(var i = 0;i< chatArr.length;i++){
+									var uName = chatArr[i].uniqueName.split("-");
+									if(uName[0] == customerName){
+										var cName = {
+											"name": uName[1]
+										}
+										console.log("CCHAT NAME:" +cName );
+									}else{
+										var cName = {
+											"name": uName[0]
+										}
+										console.log("CCHAT NAME:" +cName );
+									}
+									console.log(cName);
+									cChatNames.push(cName);
+								}
+								return cChatNames
+							});
+						
+						});
+				},
+
+				/**
+				Get ALL SHOPS
+				**/
+ 				getallShops: function() {
+    var deferred = $q.defer();
+					
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					
+					return promise
+					.then(function(response) {
+						var mFixPath = response.data.fixImagePath;
+						var	mToken = response.data.token;
+						//deferred.resolve();
+						
+						var anotherPromise = $http({
+									method: 'GET',
+									url: response.data.shopUrl,
+									cache: 'true'});
+									
+					return anotherPromise
+					.then(function(response1){
+						//
+					 value = {
+							allShopDetail: response1.data,
+							fixPath:mFixPath,
+							token:mToken
+						};
+						console.log(value);	
+						return value;
+							//return allShopDetail = response1.data;
+						});	
+				
+						
+						
+						});
+    
+    
+     },
+
+				/**
+				GET SPECIFIC SHOP
+				**/
+				getShop: function(shop_id) {
+    var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					console.log("PARAMS",shop_id);
+					return promise
+					.then(function(response) {
+						var mFixPath = response.data.fixImagePath;
+						var	mToken = response.data.token;
+						//deferred.resolve();
+						var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
+				var promise2 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/designers', cache: 'true'});
+				
+			return	$q.all([promise1, promise2]).then(function(data){
+					
+					value = {
+							fixPath:mFixPath,
+							token:mToken,
+							shop: data[0].data,
+						designer:data[1].data
+						};
+						return value;
+					});
+						
+						
+						
+						});
+    
+    
+     },
+
+				/**
+				GET PRODUCT DETAIL
+				**/
+				getProductDetail: function(pro_id) {
+  				  var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					return promise
+					.then(function(response) {
+						var mFixPath = response.data.fixImagePath;
+						var	mToken = response.data.token;
+						//deferred.resolve();
+					return	$http.get(response.data.productUrl + '/' + pro_id)
+					.then(function(response1){
+						value = {
+							urls:response.data,
+							fixPath:mFixPath,
+							token:mToken,
+							productDetail: response1.data,
+							selectedItem: response1.data.productVariation[0].size
+						};
+						console.log("PRoduct Detail: ",value);
+						return value;
+							
+				
+						});
+						
+						
+						
+						});
+    
+    
+     },
+     
+getCategory: function(cat_id) {
+  				  var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					return promise
+					.then(function(response) {
+						var mFixPath = response.data.fixImagePath;
+						var	mToken = response.data.token;
+						//deferred.resolve();
+					return	$http.get(response.data.categoryUrl + '/' + cat_id)
+				.then(function(response1){
+					value = {
+							urls:response.data,
+							fixPath:mFixPath,
+							token:mToken,
+							categoryLength: response1.data.subCategories.length,
+							categoryDetail: response1.data
+						};
+						return value;
+						});
+						
+						
+						
+						});
+    
+    
+     },
+     getCategoryProduct: function(cat_id) {
+  				  var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					return promise
+					.then(function(response) {
+						var mFixPath = response.data.fixImagePath;
+						var	mToken = response.data.token;
+						//deferred.resolve();
+					return	$http.get(response.data.categoryUrl + '/' + cat_id + '/products')
+					.then(function(response1){
+						var categoryIDs = [];
+						categoryProDetail = [];
+							var data = response1.data.products;
+							var dataLength = data.length;
+							for(var i=0;i<dataLength;i++){
+								var shopName = '';
+								if(angular.isObject(data[i].shop)){
+									shopName = data[i].shop.name;
+								var value = {
+									"id": data[i].shop.id,
+									"name": data[i].shop.name
+								};
+								categoryIDs.push(value);
+								}else{
+									shopName = data[i].shop;
+								
+								}
+								var value = {
+									"name": data[i].name,
+									"id": data[i].id,
+									"shortDesc": data[i].shortDesc,
+									"longDesc": data[i].longDesc,
+									"quantity": data[i].quantity,
+									"pricingProduct": data[i].pricingProduct,
+									"category": {
+										"id": data[i].category.id,
+										"code": data[i].category.code,
+										"name": data[i].category.name,
+										"createdOn": data[i].category.createdOn,
+									},
+									"shop": shopName,
+									"productVariation": data[i].productVariation,
+									"attributeDefinitions": data[i].attributeDefinitions,
+									"imageInfo": data[i].imageInfo,
+									"createdOn": data[i].createdOn
+								};
+								categoryProDetail.push(value);
+								data = data[i].category.products;
+							}
+							value = {
+							urls:response.data,
+							fixPath:mFixPath,
+							token:mToken,
+							categoryProDetail: categoryProDetail,
+							categoryIDs: categoryIDs
+						};
+						return value;
+							
+						});
+						
+						
+						
+						});
+    
+    
+     }
+     
+
+			}
+			
+			return sdo;
+		}]);
+
+
+
+/*app.factory('gulHomeService', ['$http','$q', function($http,$q) {
+  var sdo = {
+    getMenu: function() {
+    var deferred = $q.defer();
+					
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					
+					return promise
+					.then(function(response) {
+							
+				var promise1 = $http({method: 'GET', url: response.data.categoryUrl, cache: 'true'});
+				var promise2 = $http({method: 'GET', url: response.data.shopUrl, cache: 'true'});
+				return $q.all([promise1, promise2]).then(function(data){
+						
+						var value = {cat: data[0].data,
+									shop: data[1].data};
+						return value;
+						
+					});
+						
+						
+						});
+    
+    
+     }
+  }
+  return sdo;
+}]);
+*/

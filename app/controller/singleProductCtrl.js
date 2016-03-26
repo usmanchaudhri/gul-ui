@@ -1,4 +1,4 @@
-app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookieStore', function($scope,$http,$q,$timeout,$location,$routeParams,$cookieStore) {
+app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookieStore','productDetail', function($scope,$http,$q,$timeout,$location,$routeParams,$cookieStore,productDetail) {
    
    
 			var config = {
@@ -10,11 +10,18 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			$scope.prodSize = 0;
 			$scope.prodQty = 1;
 			var cChatNames = [];
+			
+			
+			$scope.productDetail = productDetail.productDetail;
+			$scope.selectedItem = productDetail.selectedItem;
+			$scope.fixPath = productDetail.fixPath;
+			$scope.token = productDetail.token;
+			
 			/**
 			Load URL from File
 			**/
 			
-			$http.get("gulgs.properties")
+			/*$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
@@ -30,7 +37,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 							getShopOwner();
 							//$scope.shopName = $cookieStore.get("username") + "-" + $scope.shopCustomer.replace(/ /g, '');
 						});
-				});
+				});*/
 			
 			
 			/**
@@ -275,9 +282,9 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						'Content-Type': 'application/json'
 					}
 				}
-				console.log($scope.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner");
+				console.log(productDetail.urls.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner");
 				$http.get(
-					$scope.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner",config
+					productDetail.urls.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner",config
 				).success(function(data, status) {
 						console.log(data);
 						$scope.shopCustomer = data;
@@ -301,7 +308,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						}
 			//console.log($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat");
 						$http.get(
-							$scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat",config
+							productDetail.urls.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat",config
 						).success(function(data, status) {
 								var	customerName = $cookieStore.get("userData").email;
 						
@@ -380,5 +387,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 	
 			};
 			$scope.load();
+			//getChatList();
+			getShopOwner();
 		}]);
         

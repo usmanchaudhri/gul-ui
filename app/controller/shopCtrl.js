@@ -1,7 +1,9 @@
-app.controller('shopCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('shopCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','getShop', function($scope,$http,$q,$timeout,$location,$routeParams,getShop) {
    
 		$scope.shop_id = $routeParams.shopId;
-		$http.get("gulgs.properties")
+		$scope.shop = getShop.shop;
+		$scope.designer = getShop.designer;
+		/*$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePath;
 				$scope.token = response.data.token;
@@ -11,7 +13,7 @@ app.controller('shopCtrl',['$scope','$http','$q','$timeout','$location','$routeP
 						$scope.shop = data[0].data;
 						$scope.designer = data[1].data;
 					});
-			});
+			});*/
 			
 		
 		$scope.currentPage = 1;
