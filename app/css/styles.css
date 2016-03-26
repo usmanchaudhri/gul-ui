@@ -2548,7 +2548,7 @@ select{
 	    border-radius: 0px;
     z-index: -1;
     overflow-y: scroll;
-    height: 350px;
+    max-height: 230px;
 }
 
 #acc-dropdown li {
@@ -2560,8 +2560,6 @@ select{
 .form-table-columns{
 	width: 20%;
 }
-
-
 
 
 .signin-label{
