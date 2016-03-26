@@ -275,7 +275,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($ht
     
      },
      
-getCategory: function(cat_id) {
+				getCategory: function(cat_id) {
   				  var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
@@ -304,7 +304,8 @@ getCategory: function(cat_id) {
     
     
      },
-     getCategoryProduct: function(cat_id) {
+  			   
+  			   	getCategoryProduct: function(cat_id) {
   				  var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
