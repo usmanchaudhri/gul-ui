@@ -8,7 +8,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			}
 			$scope.pro_id = $routeParams.proId;
 			$scope.prodSize = 0;
-			$scope.prodQty = 1;
+			$scope.productQty = 1;
 			var cChatNames = [];
 			
 			
