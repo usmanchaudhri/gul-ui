@@ -257,7 +257,13 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			}
 			
 			checkItems();
-			
+			$scope.onload = function(){
+						$(window).load(function () {
+   $("body").fadeIn(100);
+});
+console.log("WINDOW");
+			};
+			$scope.onload();
 			
 
 		}]);
