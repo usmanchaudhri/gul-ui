@@ -1,4 +1,4 @@
-app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location','$rootScope', function($scope,$cookieStore,$http,Base64,$window,$location,$rootScope) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location','$rootScope','$timeout', function($scope,$cookieStore,$http,Base64,$window,$location,$rootScope,$timeout) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
@@ -17,7 +17,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				
 				});
 			 $rootScope.$on("CallParentMethod", function(){
-			 	$scope.showContent = true;
+			 	 $timeout(function() {
+    $scope.showContent = true;
+    }, 1500);
+			 	
         });
 			var checkUrl = function(){
 				var urlParameters = $location.search();
