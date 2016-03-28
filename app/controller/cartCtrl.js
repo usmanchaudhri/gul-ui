@@ -2,8 +2,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
-			
-			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+		
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -14,22 +13,17 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-					//	checkUrl();
+				//	checkUrl();
 				
 				});
-			
-
-		/*	$rootScope.$on("CallParentMethod", function(){
-					$scope.uploadOrder();
-			});*/
 			
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
 					var tokenID = $cookieStore.get("tokenID");
 					$cookieStore.remove("tokenID");
-					//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
-					console.log(tokenID);
+				//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+				console.log(tokenID);
 					var config = {
 						headers : {
 							'Content-Type': 'application/json',
@@ -47,7 +41,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					).success(function(data, status) {
 							console.log(data);
 							//console.log(data.links[1].href);
-							//			$window.location.href = data.links[1].href;
+					//			$window.location.href = data.links[1].href;
 								
 						}).error(function (data, status) {
 							console.log(data);
@@ -55,59 +49,61 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				}
 			}
 			
+			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+		
 			var paypalData = $.param({
 					grant_type : "client_credentials"
 				});
 			
 			$scope.paypalPayment = function(){
 				if($scope.totalPrice > 0){
-					$scope.prepareCall();
-					var config = {
-						headers : {
-							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-						}
+				$scope.prepareCall();
+				var config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 					}
-					var data = $.param({
-							grant_type : "client_credentials"
-						});
+				}
+				var data = $.param({
+						grant_type : "client_credentials"
+					});
 			
-					$http.post(
-						$scope.paypalToken,  data,config
-					).success(function(data, status) {
-							$cookieStore.put("tokenID",data.access_token);
-							var tokenID = $cookieStore.get("tokenID");
+				$http.post(
+					$scope.paypalToken,  data,config
+				).success(function(data, status) {
+						$cookieStore.put("tokenID",data.access_token);
+						var tokenID = $cookieStore.get("tokenID");
 					
-							$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
-							var config = {
-								headers : {
-									'Content-Type': 'application/json'
-								}
+						$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+						var config = {
+							headers : {
+								'Content-Type': 'application/json'
 							}
+						}
 				
-							$http.post(
-								$scope.paypalPaymentUrl,  paypalPayload(),config
-							).success(function(data, status) {
-									console.log(data);
-									console.log(data.links[1].href);
-									$window.location.href = data.links[1].href;
-								}).error(function (data, status) {
-									if(data != null){
-										$scope.dataError = data;
-									}else{
-										$scope.dataError = "Check Your Internet Connection And Try Again! ";
-									}
-									console.log(data);
-								});
-							console.log(data);
-						}).error(function (data, status) {
-							if(data != null){
+						$http.post(
+							$scope.paypalPaymentUrl,  paypalPayload(),config
+						).success(function(data, status) {
+								console.log(data);
+								console.log(data.links[1].href);
+								$window.location.href = data.links[1].href;
+							}).error(function (data, status) {
+								if(data != null){
 								$scope.dataError = data;
-							}else{
-								$scope.dataError = "Check Your Internet Connection And Try Again! ";
-							}
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
+								console.log(data);
+							});
+						console.log(data);
+					}).error(function (data, status) {
+						if(data != null){
+								$scope.dataError = data;
+						}else{
+							$scope.dataError = "Check Your Internet Connection And Try Again! ";
+						}
 					
 							console.log(data);
-						});
+					});
 				}else{
 					alert("Card is Empty");
 				}
@@ -133,6 +129,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.removeItem = function(index) {
 				console.log(index);
 				$scope.invoice.items.splice(index, 1);
+			
+				//$cookieStore.remove("invoices");
 				$cookieStore.put("invoices",$scope.invoice.items);
 				$scope.items = [];
 				$scope.items = $cookieStore.get("invoices",$scope.invoices);
@@ -188,7 +186,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			var paypalPayload = function(){
 				console.log($scope.totalPrice);
-				//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
+			//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
@@ -207,7 +205,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								"currency":"USD",
 								"details":{
 									"subtotal":$scope.totalPrice,
-									"tax":"0.155",
+									"tax":"0.00",
 									"shipping":"0.00"
 								}
 							},
@@ -218,6 +216,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			}
 		
 			$scope.uploadOrder=function(){
+				$scope.showProgress = true;
 				var count = -1;
 				var config = {
 					headers : {
@@ -233,7 +232,6 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					).success(function(data, status) {
 							console.log(data);
 							$scope.newProId = data.id;
-									 $location.path("#/");
 						}).error(function (data, status) {
 							console.log(data);
 							console.log(status);
