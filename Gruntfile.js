@@ -330,6 +330,9 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+    	options:{
+			 mangle: false	
+		},
       build: {
         files: [{
             expand: true,
