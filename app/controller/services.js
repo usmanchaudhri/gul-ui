@@ -103,7 +103,7 @@ app.factory('DataLoader', function( $http ) {
 			},
 		}
 	});
-app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($http,$q,$timeout,$cookieStore) {
+app.factory('gulServices', function($http,$q,$timeout,$cookieStore) {
 			var sdo = {
 				/**
 				List of cchat
@@ -379,7 +379,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($ht
 			}
 			
 			return sdo;
-		}]);
+		});
 
 
 

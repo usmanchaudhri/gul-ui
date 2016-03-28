@@ -506,7 +506,7 @@ module.exports = function (grunt) {
     'concat',
     // 'uncss',
     'cssmin',
-    //'uglify',
+    'uglify',
     'copy:dist',
     'modernizr',
     'filerev',
