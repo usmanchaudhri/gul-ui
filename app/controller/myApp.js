@@ -73,6 +73,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/inspiration/single-inspiration-product.html', 
 					controller: 'singleProductInspirationCtrl',
 					label:'PRODUCT INSPIRATION'
+				}).when('/registration', {
+					templateUrl: 'view/registration.html', 
+					controller: 'loginCtrl',
+					label:'REGISTRATION'
+				}).when('/shipping', {
+					templateUrl: 'view/newshipping.html', 
+					controller: 'shipCtrl',
+					label:'SHIPPING'
 				})
 			.otherwise({ redirectTo: '/' });
 		

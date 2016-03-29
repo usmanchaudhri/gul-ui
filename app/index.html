@@ -39,7 +39,7 @@
 						<div class="row">
 							<div class="col-sm-4"></div>
 							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-								<strong style="font-size:45px; color: #e86903; "><a href="#a" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
+								<strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
 							</div>	
 							<div class="col-sm-1"></div>
 							<div class="col-sm-3" style="margin-top: -11px;" >
@@ -82,11 +82,11 @@
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 													<li>
-														<a href="#acc">Settings</a>
+														<a href="#acc">Order</a>
 													</li>
 													
 													<li>
-														<a href="#fav">Order Status</a>
+														<a href="#shipping">Shipping</a>
 													</li>
 													
 													<li>
@@ -130,7 +130,6 @@
 							<div class="modal-body">
 								<div>
 									<div class="card card-container">
-										<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 										<p id="profile-name" class="profile-name-card"></p>
 										<form class="form-signin">
 											<span id="reauth-email" class="reauth-email"></span>
@@ -143,7 +142,8 @@
 													<input type="checkbox" value="remember-me" style="margin-top: 0px;"> Remember me
 												</label>
 											</div>
-											<button class="btn btn-lg btn-block btn-signin" ng-click="checkLogin()" >Sign in</button>
+											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 67px;" >Sign in</button></div>
+											<label style="font-size: 12px;">Not a User? <a href="#registration" ng-click="dismissModal(modal)">Register</a> Here!</label>
 										</form><!-- /form -->
 									
 									</div><!-- /card-container -->
@@ -216,7 +216,7 @@
 													</li>
 													
 													<li>
-														<a href="#fav">Order Status</a>
+														<a href="#shipping">Shipping</a>
 													</li>
 													
 													<li>
@@ -268,6 +268,7 @@
 												</label>
 											</div>
 											<button class="btn btn-lg btn-block btn-signin" ng-click="checkLogin()" >Sign in</button>
+											<label style="font-family: 15px;" >Not a User? <a href="#registration" ng-click="dismissModal(modal)">Register</a> Here!</label>
 										</form><!-- /form -->
 									
 									</div><!-- /card-container -->
@@ -337,7 +338,7 @@
 													</li>
 													
 													<li>
-														<a href="#fav">Order Status</a>
+														<a href="#shipping">Shipping</a>
 													</li>
 													
 													<li>
@@ -389,6 +390,7 @@
 												</label>
 											</div>
 											<button class="btn btn-lg btn-block btn-signin" ng-click="checkLogin()" >Sign in</button>
+											<label style="font-family: 15px;">Not a User? <a href="#registration" ng-click="dismissModal(modal)">Register</a> Here!</label>
 										</form><!-- /form -->
 									
 									</div><!-- /card-container -->
@@ -408,11 +410,13 @@
 			</div>
 			<div ng-view autoscroll="true" style="min-height: 470px;"></div>
 			
+			<div></div>
+			
 			<!--Footer-->
 			<footer id="footer">
 				<div class="container" style="width: 100%;">
 				<div class="row text-center" style="padding-bottom: 32px;">
-		<h1 style="font-size: 30px; font-family: 'Century Schoolbook' !important;">Personalize Your Design </h1>
+		<h1 style="font-size: 30px; font-family: 'Century Schoolbook' !important;">Personalize Your Design</h1>
 		
 	</div>
 					<div class="row" style="padding-bottom: 20px;padding-top: 20px; ">
