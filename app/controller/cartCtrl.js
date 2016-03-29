@@ -1,8 +1,8 @@
-app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location', function($scope,$cookieStore,$http,Base64,$window,$location) {
+app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$location','$rootScope','$timeout', function($scope,$cookieStore,$http,Base64,$window,$location,$rootScope,$timeout) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
-		
+		$scope.showContent = false;
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -13,17 +13,22 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.paypalSecretKey = response.data.paypalSecretKey;
 					$scope.paypalToken = response.data.paypalToken;
 					$scope.paypalPaymentUrl = response.data.paypalPayment;
-				//	checkUrl();
+					//	checkUrl();
 				
 				});
-			
+			 $rootScope.$on("CallParentMethod", function(){
+			 	 $timeout(function() {
+    $scope.showContent = true;
+    }, 1500);
+			 	
+        });
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
 					var tokenID = $cookieStore.get("tokenID");
 					$cookieStore.remove("tokenID");
-				//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
-				console.log(tokenID);
+					//	$http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenID;
+					console.log(tokenID);
 					var config = {
 						headers : {
 							'Content-Type': 'application/json',
@@ -41,7 +46,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					).success(function(data, status) {
 							console.log(data);
 							//console.log(data.links[1].href);
-					//			$window.location.href = data.links[1].href;
+							//			$window.location.href = data.links[1].href;
 								
 						}).error(function (data, status) {
 							console.log(data);
@@ -57,42 +62,53 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			$scope.paypalPayment = function(){
 				if($scope.totalPrice > 0){
-				$scope.prepareCall();
-				var config = {
-					headers : {
-						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-					}
-				}
-				var data = $.param({
-						grant_type : "client_credentials"
-					});
-			
-				$http.post(
-					$scope.paypalToken,  data,config
-				).success(function(data, status) {
-						$cookieStore.put("tokenID",data.access_token);
-						var tokenID = $cookieStore.get("tokenID");
-					
-						$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
-						var config = {
-							headers : {
-								'Content-Type': 'application/json'
-							}
+					$scope.prepareCall();
+					var config = {
+						headers : {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 						}
+					}
+					var data = $.param({
+							grant_type : "client_credentials"
+						});
+			
+					$http.post(
+						$scope.paypalToken,  data,config
+					).success(function(data, status) {
+							$cookieStore.put("tokenID",data.access_token);
+							var tokenID = $cookieStore.get("tokenID");
+					
+							$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+							var config = {
+								headers : {
+									'Content-Type': 'application/json'
+								}
+							}
 				
-						$http.post(
-							$scope.paypalPaymentUrl,  paypalPayload(),config
-						).success(function(data, status) {
-								console.log(data);
-								console.log(data.links[1].href);
-								$window.location.href = data.links[1].href;
-							}).error(function (data, status) {
-								console.log(data);
-							});
-						console.log(data);
-					}).error(function (data, status) {
-						console.log(data);
-					});
+							$http.post(
+								$scope.paypalPaymentUrl,  paypalPayload(),config
+							).success(function(data, status) {
+									console.log(data);
+									console.log(data.links[1].href);
+									$window.location.href = data.links[1].href;
+								}).error(function (data, status) {
+									if(data != null){
+										$scope.dataError = data;
+									}else{
+										$scope.dataError = "Check Your Internet Connection And Try Again! ";
+									}
+									console.log(data);
+								});
+							console.log(data);
+						}).error(function (data, status) {
+							if(data != null){
+								$scope.dataError = data;
+							}else{
+								$scope.dataError = "Check Your Internet Connection And Try Again! ";
+							}
+					
+							console.log(data);
+						});
 				}else{
 					alert("Card is Empty");
 				}
@@ -175,14 +191,14 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			var paypalPayload = function(){
 				console.log($scope.totalPrice);
-			//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
+				//	$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"
-						/*"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"*/
+						/*"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"*/
+						"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -245,8 +261,15 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				}
 			}
 			
-			checkItems();
 			
+			$scope.onload = function(){
+				$(window).load(function () {
+						$("body").fadeIn(100);
+					});
+				console.log("WINDOW");
+			};
+			$scope.onload();
+			checkItems();
 			
 
 		}]);

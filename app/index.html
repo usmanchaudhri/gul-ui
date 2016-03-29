@@ -30,8 +30,8 @@
 		
 		
 	</head>
-	<body>
-		<div class="wrapper" ng-app="myApp" ng-controller="cartCtrl">
+	<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
+		<div class="wrapper" >
 			<!--Navigation Bar-->
 			<div ng-controller="loginCtrl">
 			<nav class="navbar home-menu">
@@ -494,6 +494,7 @@
 			<script src="js/ng-breadcrumbs.js"></script>
 			<script src="js/ngInfiniteScroll.js" ></script>
 			<script src="controller/myApp.js"></script>
+			
 			<script src="controller/productCtrl.js" ></script>
 			<script src="controller/categoryProCtrl.js" ></script>
 			<script src="controller/menuCtrl.js"></script>
@@ -506,6 +507,7 @@
 			<script src="controller/cartCtrl.js"></script>
 			<script src="controller/thankuCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
+			<script src="controller/services.js"></script>
 			<script src="js/smoothproducts.js"></script>
 			<script src="js/jquery-fancybox.js"></script>
 			<script src="js/jquery-fancy-thumb.js"></script>
@@ -515,7 +517,6 @@
 			<script src="js/jquery.elevatezoom.min.js" ></script>
 			<script src="js/ng-file-upload-shim.js" ></script>
 			<script src="controller/uploadCtrl.js" ></script>
-			<script src="js/services.js"></script>
 			<script src="controller/chatCtrl.js" ></script>
 			<script src="js/ng-img-crop.js"></script>
 			<script src="js/angular-image-cropper.min.js"></script>

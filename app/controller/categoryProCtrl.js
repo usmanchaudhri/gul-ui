@@ -1,8 +1,8 @@
-app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams', function($scope,$http,$q,$timeout,$location,$routeParams) {
+app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','categoryPro', function($scope,$http,$q,$timeout,$location,$routeParams,categoryPro) {
 			$scope.cat_id = $routeParams.catId;
-			$scope.categoryProDetail = [];
-			$scope.categoryIDs = [];
-			$http.get("gulgs.properties")
+			$scope.categoryProDetail = categoryPro.categoryProDetail;
+			$scope.categoryIDs = categoryPro.categoryIDs;
+			/*$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
 					$scope.token = response.data.token;
@@ -10,19 +10,6 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 					.then(function(response1){
 							var data = response1.data.products;
 							var dataLength = data.length;
-					/*//		console.log(data.length);
-						for(var i=0;i<dataLength;i++){
-							console.log(data[i]);
-							if(angular.isObject(data[i].shop)){
-								var value = {
-									"id": data[i].shop.id,
-									"name": data[i].shop.name
-								};
-								$scope.categoryIDs.push(value);
-								console.log(value);
-							}
-							
-						}*/
 							for(var i=0;i<dataLength;i++){
 								var shopName = '';
 								if(angular.isObject(data[i].shop)){
@@ -32,7 +19,7 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 									"name": data[i].shop.name
 								};
 								$scope.categoryIDs.push(value);
-								console.log($scope.categoryIDs);
+							//	console.log($scope.categoryIDs);
 								}else{
 									shopName = data[i].shop;
 								
@@ -60,12 +47,12 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 								data = data[i].category.products;
 							}
 						});
-				});
+				});*/
 				 $scope.getShop = function(mName){
-					console.log(mName);
+				//	console.log(mName);
 					for(var i = 0;i < $scope.categoryIDs.length;i++){
 						if(mName == $scope.categoryIDs[i].name){
-							console.log("called");
+						//	console.log("called");
 							return $scope.categoryIDs[i].id;
 						}
 					}
