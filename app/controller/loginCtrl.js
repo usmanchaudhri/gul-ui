@@ -11,7 +11,7 @@
 			
 					$scope.twilioUser = response.data.twilioUser;
 					$scope.customerUrl = response.data.customerUrl;
-					
+					console.log("LOGIN Properties");
 					
 				});
 		
@@ -78,7 +78,7 @@
 						$scope.dismiss();
 					});
 			}
-		
+		console.log("LOGIN CONTROL");
 			/*var loadCchat = function(){
 				$http.get($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat")
 				.then(function(response1){

@@ -70,7 +70,7 @@
 					</table>
 					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="paypalPayment()" >Proceed to Checkout</button>
 					<label>
-						{{dataError}}
+						{{dataError.details[0].issue}}
 					</label>
 					<!--<p class="cart-details"><span style="text-align: right;"> </span></p>
 					<p class="cart-details"><b>Subtotal</b> $1400</p>

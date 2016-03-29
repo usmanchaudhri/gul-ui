@@ -12,7 +12,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 			$routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
-					label:'HOME', 
+					label:'HOME' 
 				}).when('/shop/:shopId', {
 					templateUrl: 'view/shop/shopProducts.html', 
 					controller: 'shopCtrl',
