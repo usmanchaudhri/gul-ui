@@ -11,7 +11,8 @@
 			
 					$scope.twilioUser = response.data.twilioUser;
 					$scope.customerUrl = response.data.customerUrl;
-					console.log("LOGIN Properties");
+					$scope.signupUrl = response.data.signupUrl;
+					
 					
 				});
 		
@@ -43,6 +44,10 @@
 		
 			};
 			
+			$scope.dismissModal = function(modal){
+				modal.dismiss();
+				
+			};
 			
 			var checkUser = function(email){
 				
@@ -56,10 +61,37 @@
 							}
 						}
 						console.log(response1);
+						$scope.dismiss();
 						
 					});				
 				
 			}
+			
+			$scope.regHeroku = function(){
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+				
+				var data11 = {
+					"username": $scope.regUser,
+					"password": $scope.regPass
+				}
+				$http.post(
+					$scope.signupUrl,data11,config
+				).success(function(data, status) {
+						console.log(data);
+						$scope.newProId = data.id;
+						$scope.regUser($scope.regUser);
+						$scope.dismiss();
+					}).error(function (data, status) {
+						console.log("Registration Data".data);
+						console.log(status);
+					});
+				
+			}
+			
 			
 			var regUser = function(user){
 				var data = $.param({
@@ -78,7 +110,6 @@
 						$scope.dismiss();
 					});
 			}
-		console.log("LOGIN CONTROL");
 			/*var loadCchat = function(){
 				$http.get($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat")
 				.then(function(response1){

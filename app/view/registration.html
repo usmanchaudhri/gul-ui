@@ -1,0 +1,39 @@
+<div class="container" style="font-family: 'Quicksand';">
+	<div class="col-sm-12">
+		<div class="row text-center">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 registration-form" >
+		<h1 style="font-family: 'Quicksand';">REGISTRATION</h1>
+		<form class="form-signin">
+											<span id="reauth-email" class="reauth-email"></span>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="col-sm-4"><label style="font-weight:400; font-size: 15px;margin-top:15px;">Email:</label></div>
+													<div class="col-sm-8">
+													<input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="regEmail" style="border: 1px solid rgba(128, 128, 128, 0.42);"/></div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="col-sm-4"><label style="font-weight:400; font-size: 15px;margin-top:15px;">Password:</label></div>
+											<div class="col-sm-8"><input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.42);"/></div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="col-sm-4"><label style="text-align:left; font-weight:400; font-size: 14px;margin-top: 15px;">Confirm Password:</label></div>
+													<div class="col-sm-8"><input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="regConfirmPass" style="border: 1px solid rgba(128, 128, 128, 0.42);"/></div>
+												</div>
+											</div>
+											<div id="remember" class="checkbox">
+												<label style="font-size: 12px;">
+													<input type="checkbox" value="remember-me" style="margin-top: 0px;"> Remember me
+												</label>
+											</div>
+											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()">Sign up</button></div>
+										</form></div>
+		<div class="col-sm-3"></div>		
+	</div>
+	</div>
+	
+</div>
