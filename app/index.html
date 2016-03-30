@@ -68,6 +68,21 @@
 																</div>
 															</div>	
 														</li>
+														<li style="height: 20px;">
+															<div class="row">
+																<div class="col-sm-6 col-xs-5" style="text-align: center;">
+																	<label>Order Subtotal</label>
+																</div>
+																<div class="col-sm-4 col-xs-5">
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
+																</div>
+															</div>	
+														</li>
+														<li style="border-bottom: none;">
+															<button type="button" class="btn btn-primary individual-bag-btn" style="width: 95%;">Proceed to checkout</button>
+														</li>
 														<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
 													</div>
@@ -176,16 +191,16 @@
 											<span id="reauth-email" class="reauth-email"></span>
 											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
 											</div>
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
 									
@@ -239,6 +254,21 @@
 																	<label style="font-size: 12px;">${{a.cost}}</label>
 																</div>
 															</div>	
+														</li>
+														<li style="height: 20px;">
+															<div class="row">
+																<div class="col-sm-6 col-xs-5" style="text-align: center;">
+																	<label>Order Subtotal</label>
+																</div>
+																<div class="col-sm-4 col-xs-5">
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
+																</div>
+															</div>	
+														</li>
+														<li style="border-bottom: none;">
+															<button type="button" class="btn btn-primary individual-bag-btn" style="width: 95%;">Proceed to checkout</button>
 														</li>
 														
 													<div ng-if="items == null" class="text-center">
@@ -345,16 +375,16 @@
 											<span id="reauth-email" class="reauth-email"></span>
 											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
 											</div>
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
 									
@@ -404,7 +434,21 @@
 																</div>
 															</div>	
 														</li>
-														
+														<li style="height: 20px;">
+															<div class="row">
+																<div class="col-sm-6 col-xs-5" style="text-align: center;">
+																	<label>Order Subtotal</label>
+																</div>
+																<div class="col-sm-4 col-xs-5">
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">${{a.cost}}</label>
+																</div>
+															</div>	
+														</li>
+														<li style="border-bottom: none;">
+															<button type="button" class="btn btn-primary individual-bag-btn" style="width: 95%;">Proceed to checkout</button>
+														</li>
 													
 													
 													<div ng-if="items == null" class="text-center">
@@ -512,16 +556,16 @@
 											<span id="reauth-email" class="reauth-email"></span>
 											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
 											</div>
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
 									
