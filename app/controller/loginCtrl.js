@@ -1,4 +1,4 @@
- app.controller('loginCtrl',['$scope' , '$cookieStore','$http' , function($scope,$cookieStore,$http) {
+ app.controller('loginCtrl',['$scope' , '$cookieStore','$http','$location' , function($scope,$cookieStore,$http, $location) {
 		
 			var config = {
 				headers : {
@@ -44,10 +44,7 @@
 		
 			};
 			
-			$scope.dismissModal = function(modal){
-				modal.dismiss();
-				
-			};
+			
 			
 			var checkUser = function(email){
 				
@@ -74,16 +71,15 @@
 				}
 				
 				var data = {
-					"username": $scope.regUser,
+					"username": $scope.regEmail,
 					"password": $scope.regPass
 				}
 				$http.post(
 					$scope.signupUrl,data,config
 				).success(function(data, status) {
 						console.log(data);
-						$scope.newProId = data.id;
-						$scope.regUser($scope.regUser);
-						$scope.dismiss();
+						regUser($scope.regEmail);
+						
 					}).error(function (data, status) {
 						console.log("Registration Data".data);
 						console.log(status);
@@ -111,7 +107,12 @@
 			}
 			
 			
-			
+			$scope.closeModal = function(){
+				
+					$scope.dismiss();
+				/* $location.path("/registration");*/
+				 console.log("hello");
+			}
 		
 			/*var loadCchat = function(){
 				$http.get($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat")

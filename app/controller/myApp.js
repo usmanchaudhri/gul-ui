@@ -117,6 +117,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/newshipping.html', 
 					controller: 'shipCtrl',
 					label:'SHIPPING'
+				}).when('/myorder', {
+					templateUrl: 'view/order.html', 
+					controller: 'orderCtrl',
+					label:'ORDER'
+				}).when('/account', {
+					templateUrl: 'view/editProfile.html', 
+					controller: 'orderCtrl',
+					label:'MY ACCOUNT'
 				})
 			.otherwise({ redirectTo: '/' });
 		
