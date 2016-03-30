@@ -129,8 +129,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 			.otherwise({ redirectTo: '/' });
 		
 		}]);
-
-
 app.directive('progressbar', [function() {
 			return {
 				restrict: 'A',
@@ -159,7 +157,6 @@ app.directive('closeModal', function() {
 			}
 		} 
 	});
-
 app.directive('ngElevateZoom', function() {
 		return {
 			restrict: 'A',

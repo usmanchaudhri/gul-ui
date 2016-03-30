@@ -2,7 +2,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
-		$scope.showContent = false;
+			$scope.showContent = false;
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -16,12 +16,12 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					//	checkUrl();
 				
 				});
-			 $rootScope.$on("CallParentMethod", function(){
-			 	 $timeout(function() {
-    $scope.showContent = true;
-    }, 1500);
+			$rootScope.$on("CallParentMethod", function(){
+					$timeout(function() {
+							$scope.showContent = true;
+						}, 1500);
 			 	
-        });
+				});
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
@@ -81,7 +81,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 							$cookieStore.put("tokenID",data.access_token);
 							var tokenID = $cookieStore.get("tokenID");
 					
-					//		$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+							//		$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
 							var config = {
 								headers : {
 									'Content-Type': 'application/json',
