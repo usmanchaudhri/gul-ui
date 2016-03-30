@@ -1,4 +1,4 @@
- app.controller('loginCtrl',['$scope' , '$cookieStore','$http','$location' , function($scope,$cookieStore,$http, $location) {
+ app.controller('loginCtrl',['$scope' , '$cookieStore','$http','Base64','$location' , function($scope,$cookieStore,$http,Base64, $location) {
 		
 			var config = {
 				headers : {
@@ -12,6 +12,7 @@
 					$scope.twilioUser = response.data.twilioUser;
 					$scope.customerUrl = response.data.customerUrl;
 					$scope.signupUrl = response.data.signupUrl;
+					$scope.loginUrl = response.data.loginUrl;
 					
 					
 				});
@@ -35,9 +36,9 @@
 					$cookieStore.put("login",'login');
 					$cookieStore.put("username",$scope.loginEmail);
 					$scope.loginUser = "login";
-					checkUser($scope.loginEmail);
-					
-					
+				/*	checkUser($scope.loginEmail);
+					*/
+				siginInUser();					
 				}
 				
 				console.log("Check: "+$scope.loginUser);
@@ -47,19 +48,19 @@
 			
 			
 			var checkUser = function(email){
-				
-				$http.get($scope.customerUrl)
+				regUser($scope.loginEmail);
+				/*$http.get($scope.customerUrl)
 				.then(function(response1){
 						for(var i = 0;i< response1.data.length;i++){
 							if(response1.data[i].email == email){
 								$cookieStore.put("userData",response1.data[i]);
 								console.log($cookieStore.get("userData"));
-								regUser($scope.loginEmail);
+								
 							}
 						}
 						console.log(response1);
 						
-					});				
+					});		*/		
 				
 			}
 			
@@ -87,6 +88,32 @@
 				
 			}
 			
+			var siginInUser = function(){
+				
+				var base64 = Base64.encode( $scope.loginEmail + ':' + $scope.loginPass );
+				var loginAuth = 'Basic ' + base64;
+				var config = {
+					headers : {
+						'Authorization': loginAuth
+					}
+				}
+				
+				
+				$http.get(
+					$scope.loginUrl,config
+				).success(function(data, status) {
+						console.log(data);
+						
+						
+					}).error(function (data, status) {
+						console.log("Registration Data".data);
+						console.log(status);
+					});
+				
+			}
+			
+			
+			
 			
 			var regUser = function(user){
 				var data = $.param({
@@ -105,6 +132,8 @@
 						$scope.dismiss();
 					});
 			}
+			
+				
 			
 			
 			$scope.closeModal = function(){
