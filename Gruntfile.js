@@ -330,6 +330,9 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+    	options:{
+			 mangle: false	
+		},
       build: {
         files: [{
             expand: true,
@@ -364,6 +367,8 @@ module.exports = function (grunt) {
             '{,*/}*.html',
             'css/fonts/{,*/}*.*',
             'fonts/**',
+           // 'js/**',
+            //'controller/**',
             'view/**',
             'scripts/**',
             'gulgs.properties',

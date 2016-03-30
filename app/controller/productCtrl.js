@@ -1,5 +1,5 @@
  app.controller('productCtrl',['$scope','$http','$routeParams' , function($scope,$http,$routeParams) {
-			$scope.isNumber = angular.isNumber;
+			/*$scope.isNumber = angular.isNumber;
 			$scope.shopTemp = [];
 			$scope.records = [];
 			$scope.infiniteList = [];
@@ -123,6 +123,7 @@
 					console.log("Load More");
 				}
 			};
+		*/
 			$scope.load = function() {
 				$("#filter-dropdown").click(function(){
 						/*$(".home-filter").addClass("homepage-filter");*/

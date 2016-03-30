@@ -1052,6 +1052,12 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 	.cart-block{
 		margin-top: -2px !important;
 	}
+	#carousel-01{
+	height: 300px;
+}
+.carousel-inner{
+	height: 340px;
+}
 }
 @media screen and (max-width: 479px),
 screen and (orientation: landscape) and (max-width: 479px),
@@ -2201,7 +2207,7 @@ select{
 
 .carousel-content{
 	bottom: 0px;
-	top: 70%;
+	top: 73%;
 	color: black;
 	font-size: 15px;
 }
@@ -2213,7 +2219,7 @@ select{
 .home-slider-shop-btn{
 	padding:5px !important;
 	width:33% !important;
-	margin-top: 5px !important;
+	margin-top: 26px !important;
 }
 
 .home-slider-shop-btn a , .home-slider-shop-btn-two a, .home-slider-shop-btn-three a{
@@ -2282,10 +2288,19 @@ select{
 }
 
 .home-slider-shop-desc{
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 }
 .home-menu .cart-label a{
 	color: black !important;
+}
+#carousel-01{
+	height: 300px;
+}
+.carousel-inner{
+	height: 340px;
+}
+.controlsBlock{
+	margin-top:-140px !important;
 }
 }
 
@@ -2502,7 +2517,7 @@ select{
 }
 
 .home-slider-shop-desc{
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 }
 
 .social label{
@@ -2587,3 +2602,256 @@ select{
 	color: black !important;
 }
 
+.carousel .carousel-control { visibility: visible; }
+
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  	display: block;
+}
+
+.carousel-inner > .active {
+  	left: 0;
+}
+
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+
+.carousel-inner > .next {
+  	left: 100%;
+}
+
+.carousel-inner > .prev {
+  	left: -100%;
+}
+
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  	left: 0;
+}
+
+.carousel-inner > .active.left {
+  left: -100%;
+}
+
+.carousel-inner > .active.right {
+  	left: 100%;
+}
+
+.controlsBlock {
+   	position: relative;
+   	bottom: 0;
+   	left: 0;
+   	top: 10px;
+   	display: block;
+   	width: 177px;
+   	margin: 0 auto;
+   	z-index: 1;
+   	height: 24px;
+   	text-align: center;
+}
+
+.controls {
+   	position: relative;
+   	display: block;
+}
+
+.carousel-control {
+  	position: absolute;
+  	top: 25.5px;
+  	bottom: 0;
+  	left: 0;
+  	background: #000000;
+  	font-size: 5px;
+  	background: none !important;
+  	color: #000 !important;
+  	text-align: center;
+}
+
+.carousel-control i {
+    	font-size: 20px;
+}
+
+.carousel-control.left {
+  	left: 0;
+}
+
+.carousel-control.right {
+  	right: 0;
+  	
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+  	color: #000;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  	position: absolute;
+  	z-index: 5;
+  	display: inline-block;
+}
+
+.carousel-control .glyphicon-chevron-left {
+  	left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right {
+  	right: 0;
+}
+
+.carousel-indicators {
+  	position: relative;
+  	bottom: 0;
+  	left: 50%;
+  	z-index: 15;
+  	width: 60%;
+  	top: 10px;
+  	padding-left: 0;
+  	margin-left: -30%;
+  	text-align: center;
+  	list-style: none;
+}
+
+
+.carousel-indicators li {
+  	display: inline-block;
+   	zoom: 1;
+   	width: 10px;
+   	height: 10px;
+   	margin: 0 2px;
+   	background: transparent;
+   	-webkit-border-radius: 50%;
+   	-moz-border-radius: 50%;
+   	border-radius: 50%;
+   	border: 3px solid transparent;
+   	-webkit-box-shadow: rgba(0,0,0,0.5) 0 0 2px;
+   	-moz-box-shadow: rgba(0,0,0,0.5) 0 0 2px;
+   	box-shadow: rgba(0,0,0,0.5) 0 0 2px;
+   	cursor: pointer;
+}
+
+.carousel-indicators .active {
+  	width: 10px;
+  	height: 10px;
+  	margin: 0;
+  	background-color: #000000;
+}
+
+.registration-form{
+	    margin-top: 6%;
+    	box-shadow: 0px 0px 26px 11px rgba(128, 128, 128, 0.14);
+    	padding-top: 20px;
+}
+
+.shipping-label{
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.shipping-table{
+	width: 100%;
+}
+
+.shipping-table td{
+	padding: 5px;
+}
+
+.shipping-sidebar{
+	font-size: 17px;
+	line-height: 50px;
+	margin-top: 40px;
+}
+
+.shipping-sidebar ul{
+	padding:0px;
+}
+
+.shipping-sidebar ul li a{
+	color: black;
+	font-size: 14px;
+}
+
+.shipping-info-tag{
+	margin: 10%;
+	margin-left:0px; 
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.shipping-info label{
+	width: 100%;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.shipping-name {
+	font-size: 17px;
+	padding: 10px;
+	padding-left: 0px;
+	padding-bottom:0px; 
+	width:100%;
+}
+
+.newship-form label{
+	font-size:13px;
+	font-weight: 400;
+}
+
+.newship-form input{
+	border-radius: 3px;
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) 0 inset;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+ 	border-color: #E1E3DF;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-style: solid;
+    color: #222;
+    background-color: white;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    height: 38px;
+    outline: none;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    line-height: 17px;
+    padding-right: 12px;
+}
+
+.editprofile h1{
+	    font-size: 15px;
+    padding: 20px;
+    padding-left: 0px;
+    padding-bottom: 30px;
+}
+
+.myorders h1{
+	    font-size: 30px;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.myorders label{
+	font-size:12px;
+	padding-bottom: 17px;
+}
+
+.join-btn{
+	width: 80%;
+    padding-top: 5px;
+    background-color: black !Important;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}

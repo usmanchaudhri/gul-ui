@@ -1,4 +1,4 @@
-app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs' ,function($scope, $q, $http, $timeout,breadcrumbs) {
+app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs','$rootScope' ,function($scope, $q, $http, $timeout,breadcrumbs,$rootScope) {
 	 $scope.breadcrumbs = breadcrumbs;
 		$http.get("gulgs.properties")
 		.then(function(response) {
@@ -7,6 +7,8 @@ app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs' ,fu
 				$q.all([promise1, promise2]).then(function(data){
 						$scope.cat = data[0].data;
 						$scope.shop = data[1].data;
+						$rootScope.$emit("CallParentMethod", {});
+						console.log("MENU COMPLETE");
 					});
 			}
 		);

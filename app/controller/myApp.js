@@ -2,25 +2,37 @@ var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) 
 		{ 
-		//$locationProvider.html5Mode(true);
+			//$locationProvider.html5Mode(true);
 			/*if(window.history && window.history.pushState){
-				 $locationProvider.html5Mode({
-                 enabled: true,
-                 requireBase: false
-          });
+			$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+			});
 			}*/
-		$routeProvider .when('/', { 
+			$routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
-					label:'HOME' 
+					label:'HOME', 
 				}).when('/shop/:shopId', {
 					templateUrl: 'view/shop/shopProducts.html', 
 					controller: 'shopCtrl',
-					label:'SHOP'
+					label:'SHOP',
+					resolve: {
+						getShop: function(gulServices,$route) {
+							return gulServices.getShop($route.current.params.shopId);
+						}
+					}
 				}).when('/allShops', {
 					templateUrl: 'view/shop/allShops.html', 
 					controller: 'allShopCtrl',
-					label:'SHOP'
+					label:'SHOP',
+					resolve: {
+						allShopsList: function(gulServices) {
+							return gulServices.getallShops();
+							
+						}
+					}
+					
 				}).when('/designerPage/:shopId', {
 					templateUrl: 'view/designer/designerPage.html', 
 					controller: 'Ctrl1',
@@ -28,15 +40,33 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/productDetailPage/:proId', {
 					templateUrl: 'view/products/individual.html', 
 					controller: 'singleProCtrl',
-					label:'PRODUCT'
+					label:'PRODUCT',
+					resolve: {
+						productDetail: function(gulServices,$route) {
+							return gulServices.getProductDetail($route.current.params.proId);
+							
+						}
+					}
 				}).when('/categoryProducts/:catId', {
 					templateUrl: 'view/categories/categoryProducts.html', 
 					controller: 'categoryProCtrl',
-					label:'CATEGORY'
+					label:'CATEGORY',
+					resolve: {
+						categoryPro: function(gulServices,$route) {
+							return gulServices.getCategoryProduct($route.current.params.catId);
+							
+						}
+					}
 				}).when('/categories/:catId', {
 					templateUrl: 'view/categories/categories.html', 
 					controller: 'singleCatCtrl',
-					label:'CATEGORY'
+					label:'CATEGORY',
+					resolve: {
+						category: function(gulServices,$route) {
+							return gulServices.getCategory($route.current.params.catId);
+							
+						}
+					}
 				}).when('/cart', {
 					templateUrl: 'view/shoppingCart/cart.html', 
 					controller: '',
@@ -60,7 +90,13 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/allchats', {
 					templateUrl: 'view/chatting/mailscreen.html', 
 					controller: 'chatCtrl',
-					label:'ALL CHATS'
+					label:'ALL CHATS',
+					resolve: {
+						chatList: function(gulServices) {
+							return gulServices.getChat();
+							
+						}
+					}
 				}).when('/inspiration', {
 					templateUrl: 'view/inspiration/inspiration.html', 
 					controller: 'inspirationCtrl',
@@ -73,10 +109,27 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/inspiration/single-inspiration-product.html', 
 					controller: 'singleProductInspirationCtrl',
 					label:'PRODUCT INSPIRATION'
+				}).when('/registration', {
+					templateUrl: 'view/registration.html', 
+					controller: 'loginCtrl',
+					label:'REGISTRATION'
+				}).when('/shipping', {
+					templateUrl: 'view/newshipping.html', 
+					controller: 'shipCtrl',
+					label:'SHIPPING'
+				}).when('/myorder', {
+					templateUrl: 'view/order.html', 
+					controller: 'orderCtrl',
+					label:'ORDER'
+				}).when('/account', {
+					templateUrl: 'view/editProfile.html', 
+					controller: 'orderCtrl',
+					label:'MY ACCOUNT'
 				})
 			.otherwise({ redirectTo: '/' });
 		
 		}]);
+
 
 app.directive('progressbar', [function() {
 			return {

@@ -4,6 +4,8 @@
     $('.thumbs-container img').click(function () {
         $blowup.attr('src', this.src);
     });
+    
+   
 });
 
 $('.lightbox_trigger').click(function(e) {
@@ -80,7 +82,12 @@ $('.lightbox_trigger').click(function(e) {
 	
 		});
 
-
+ $('.addtobag-btn').click(function(){
+	$('#acc-dropdown').css("display","block");
+	$('#acc-dropdown li').css("color","black");
+	 $('#acc-dropdown').delay(3000).fadeOut();
+	 
+});
 
 </script>
 
@@ -244,7 +251,7 @@ $('.lightbox_trigger').click(function(e) {
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="prodQty"   min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"   min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -255,7 +262,7 @@ $('.lightbox_trigger').click(function(e) {
 				</div >
 				
 				
-				<a><button type="button" class="btn btn-primary individual-bag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
+				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">

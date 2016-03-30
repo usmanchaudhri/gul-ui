@@ -1,4 +1,4 @@
- app.controller('loginCtrl',['$scope' , '$cookieStore','$http' , function($scope,$cookieStore,$http) {
+ app.controller('loginCtrl',['$scope' , '$cookieStore','$http','$location' , function($scope,$cookieStore,$http, $location) {
 		
 			var config = {
 				headers : {
@@ -11,6 +11,7 @@
 			
 					$scope.twilioUser = response.data.twilioUser;
 					$scope.customerUrl = response.data.customerUrl;
+					$scope.signupUrl = response.data.signupUrl;
 					
 					
 				});
@@ -44,6 +45,7 @@
 			};
 			
 			
+			
 			var checkUser = function(email){
 				
 				$http.get($scope.customerUrl)
@@ -61,6 +63,31 @@
 				
 			}
 			
+			$scope.regHeroku = function(){
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+				
+				var data = {
+					"username": $scope.regEmail,
+					"password": $scope.regPass
+				}
+				$http.post(
+					$scope.signupUrl,data,config
+				).success(function(data, status) {
+						console.log(data);
+						regUser($scope.regEmail);
+						
+					}).error(function (data, status) {
+						console.log("Registration Data".data);
+						console.log(status);
+					});
+				
+			}
+			
+			
 			var regUser = function(user){
 				var data = $.param({
 						Identity : user
@@ -77,6 +104,14 @@
 						console.log(data);
 						$scope.dismiss();
 					});
+			}
+			
+			
+			$scope.closeModal = function(){
+				
+					$scope.dismiss();
+				/* $location.path("/registration");*/
+				 console.log("hello");
 			}
 		
 			/*var loadCchat = function(){
