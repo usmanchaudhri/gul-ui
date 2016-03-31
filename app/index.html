@@ -86,13 +86,29 @@
 														<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
 													</div>
+													<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
+													</div>
 													</ul>
 											
 												</li>
 											</ul>
 									</div>
-				<span ng-show="loginUser == 'logout'"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser"><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="loginUser != 'logout'">
+				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										<div class="main-nav" ng-show="userFlag == true">
 									<ul class="nav account-navbar">
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
@@ -162,7 +178,7 @@
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >LOG IN</button></div>
+			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 										</form><!-- /form -->
 									
@@ -274,14 +290,29 @@
 													<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
 													</div>
-													
+														<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
+													</div>
 													</ul>
 												</li>
 										    
 											</ul>
 									</div>
-									<span ng-show="loginUser == 'logout'"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="loginUser != 'logout'">
+									<span ng-show="userFlag == 'false'"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" ng-model="userFlag" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										<div class="main-nav" ng-show="userFlag == 'true'">
 									<ul class="nav account-navbar">
 											
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
@@ -453,6 +484,22 @@
 													
 													<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 15px;color:#e86903;">The Bag is empty!</label></li>
+													</div>
+														<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
 													</div>
 													</ul>
 											
