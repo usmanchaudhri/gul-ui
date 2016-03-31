@@ -2,7 +2,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
-		$scope.showContent = false;
+			$scope.showContent = false;
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -16,12 +16,12 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					//	checkUrl();
 				
 				});
-			 $rootScope.$on("CallParentMethod", function(){
-			 	 $timeout(function() {
-    $scope.showContent = true;
-    }, 1500);
+			$rootScope.$on("CallParentMethod", function(){
+					$timeout(function() {
+							$scope.showContent = true;
+						}, 1500);
 			 	
-        });
+				});
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
@@ -63,9 +63,12 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.paypalPayment = function(){
 				if($scope.totalPrice > 0){
 					$scope.prepareCall();
+					var base64 = Base64.encode( $scope.paypalClientID + ':' + $scope.paypalSecretKey );
+				
 					var config = {
 						headers : {
-							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+							'Authorization': 'Basic ' + base64
 						}
 					}
 					var data = $.param({
@@ -78,10 +81,11 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 							$cookieStore.put("tokenID",data.access_token);
 							var tokenID = $cookieStore.get("tokenID");
 					
-							$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
+							//		$http.defaults.headers.common['Authorization'] = data.token_type+' ' + tokenID;
 							var config = {
 								headers : {
-									'Content-Type': 'application/json'
+									'Content-Type': 'application/json',
+									'Authorization': data.token_type+' ' + tokenID
 								}
 							}
 				
@@ -186,7 +190,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				var base64 = Base64.encode( $scope.paypalClientID + ':' + $scope.paypalSecretKey );
 				//console.log(base64);
 			
-				$http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
+				//$http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
 			}
 			
 			var paypalPayload = function(){
@@ -210,7 +214,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								"currency":"USD",
 								"details":{
 									"subtotal":$scope.totalPrice,
-									"tax":"0.00",
+									"tax":"0.50",
 									"shipping":"0.00"
 								}
 							},

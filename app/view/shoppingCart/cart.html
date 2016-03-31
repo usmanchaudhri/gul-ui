@@ -69,7 +69,8 @@
 						</tr>
 					</table>
 					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="paypalPayment()" >Proceed to Checkout</button>
-					<label>
+					<img src="images/cartloading.gif" width="25" height="25"/>
+					<label ng-if="{{dataError}}!=null">
 						{{dataError}}
 					</label>
 					<!--<p class="cart-details"><span style="text-align: right;"> </span></p>

@@ -13,6 +13,8 @@ app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs','$r
 			}
 		);
 		
+		console.log("MENU Calle");
+		
 		$scope.checkLength = function(cat){
 				return cat.length;
 				//console.log(cat.length);
