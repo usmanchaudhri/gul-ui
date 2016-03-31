@@ -64,6 +64,7 @@
 							}
 						}
 						console.log(response1);
+						$scope.dismiss();
 						
 					});		
 
@@ -81,7 +82,7 @@
 					"password": $scope.regPass
 				}
 				$http.post(
-					$scope.signupUrl,data,config
+					$scope.signupUrl,data11,config
 				).success(function(data, status) {
 						console.log(data);
 						regUser($scope.regEmail);
@@ -98,16 +99,18 @@
 			$scope.siginInUser = function(){
 				
 				var base64 = Base64.encode( $scope.loginEmail + ':' + $scope.loginPass );
+
 				var loginAuth =  base64;
 				var config = {
 					headers : {
 						'Content-Type': 'application/json',
 						'Authorization': 'Basic ' + loginAuth
+
 					}
 				}
 				
 				
-				$http.get(
+				$http({withCredentials: true}).get(
 					$scope.loginUrl,config
 				).success(function(data, status) {
 							console.log("Email when login"+$cookieStore.get("username"));
@@ -120,7 +123,11 @@
 							console.log("Flag variable"+$scope.userFlag);*/
 							
 					}).error(function (data, status) {
+
 						console.log("Login Data"+data);
+
+					
+						
 						console.log(status);
 						$scope.dismiss();
 					});
@@ -146,17 +153,6 @@
 						$scope.dismiss();
 					});
 			}
-			
-				
-			
-			
-			$scope.closeModal = function(){
-				
-					$scope.dismiss();
-				/* $location.path("/registration");*/
-				 console.log("hello");
-			}
-		
 			/*var loadCchat = function(){
 				$http.get($scope.customerUrl+"/"+$cookieStore.get("userData").id+"/cchat")
 				.then(function(response1){

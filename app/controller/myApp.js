@@ -12,7 +12,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 			$routeProvider .when('/', { 
 					templateUrl: 'view/products/products.html', 
 					controller: 'productCtrl',
-					label:'HOME', 
+					label:'HOME' 
 				}).when('/shop/:shopId', {
 					templateUrl: 'view/shop/shopProducts.html', 
 					controller: 'shopCtrl',
@@ -129,8 +129,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 			.otherwise({ redirectTo: '/' });
 		
 		}]);
-
-
 app.directive('progressbar', [function() {
 			return {
 				restrict: 'A',
@@ -159,7 +157,6 @@ app.directive('closeModal', function() {
 			}
 		} 
 	});
-
 app.directive('ngElevateZoom', function() {
 		return {
 			restrict: 'A',
