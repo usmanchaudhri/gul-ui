@@ -1,3 +1,4 @@
+
 <div class="container">
 	<div class="row" style="margin-top: 3%;">
 		<div class="col-sm-12">
@@ -27,9 +28,18 @@
 				<div class="col-sm-8"><label style="font-weight: 400;line-height: 15px;">{{a.customer.customerShipping[0].firstName}} {{a.customer.customerShipping[0].lastName}}<br>{{a.customer.customerShipping[0].address}}<br>{{a.customer.customerShipping[0].city}},{{a.customer.customerShipping[0].state}}<br>{{a.customer.customerShipping[0].zipcode}}</label></div>	
 			</div>
 			
-			<div class="col-sm-6"><label style="font-weight: 400;line-height: 15px;">Order:{{a.id}}<br>Shipped on:22-12-2015 - Tracking info<br>({{a.productQuantity}}) {{a.productName}}</label></div>
+			<div class="col-sm-6"><label style="font-weight: 400;line-height: 15px;">Order:{{a.id}}<br>Shipped on:<span id="orderDate">{{a.createdOn}}</span> - Tracking info<br>({{a.productQuantity}}) {{a.productName}}</label></div>
 			<div class="col-sm-2" style="padding-left: 20px;"><label style="font-weight: 400;">${{a.productPrice}}</label></div>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+$(window).bind("load", function() {
+ 
+  var orderDate = document.getElementById("orderDate").textContent;
+  orderDate = new Date(document.getElementById("orderDate").innerHTML).toString("MMM dd"); 
+});
+
+	
+</script>

@@ -55,7 +55,34 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			}
 			
 			$scope.items = $cookieStore.get("invoices",$scope.invoices);
+			
+			$scope.getItemSize = function(){
+				if(angular.isDefined($scope.items)){
+					if($scope.items.length == 0 ){
+						return  true;
+					}else{
+						return false;
+					} 
+				}else{
+					return true;
+				}
+			}
+
+			$scope.getCurrentItem = function(){
+				if(angular.isDefined($scope.items)){
+					 var currentItem = $scope.items[$scope.items.length - 1];
+				 return currentItem;
+				}else{
+					return currentItem = 
+				}
+				
+			}
 		
+			$scope.proceedCheckout = function(){
+				
+				$window.alert("Please Login First!");
+			}
+				
 			var paypalData = $.param({
 					grant_type : "client_credentials"
 				});
