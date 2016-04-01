@@ -103,7 +103,7 @@
 				}
 				
 				
-				$http({withCredentials: true}).get(
+				$http.get(
 					$scope.loginUrl,config
 				).success(function(data, status) {
 						console.log(data);
