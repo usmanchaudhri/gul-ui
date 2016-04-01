@@ -210,9 +210,6 @@ $('.lightbox_trigger').click(function(e) {
 </style>
 
 <div class="container" id="marg">
-	<div class="row">
-				
-	</div>
 	<div class="row" >
 		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
@@ -263,7 +260,7 @@ $('.lightbox_trigger').click(function(e) {
 				
 				
 				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;" ng-click="open()">ASK DESIGNER</button>
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;">
@@ -289,7 +286,8 @@ $('.lightbox_trigger').click(function(e) {
 			
 
 				<!-- Modal -->
-				<div id="chatModel" close-modal class="modal fade" role="dialog">
+				<script type="text/ng-template" id="myModalContent.html">
+				<div id="chatModel" close-modal class="modal fade" role="dialog" ng-show="chatWithDesigner">
 					<div class="modal-dialog">
 
 						<!-- Modal content-->
@@ -310,8 +308,22 @@ $('.lightbox_trigger').click(function(e) {
 					</div>
 				</div>
 			</div>
-          
-         			
+          </script>
+         		
+         <script type="text/ng-template" id="errorModal.html">
+				<div id="chatModel" close-modal class="modal" role="dialog" ng-show="chatWithDesigner">
+					 <div class="modal-header">
+            <h3 class="modal-title">Im a modal!</h3>
+        </div>
+        <div class="modal-body">
+            Error!
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>	
+				</div>
+          </script>			
 		</div><!-- /.col-lg-6 --><br>
          	
 	</div><!-- /row -->
@@ -372,7 +384,7 @@ $('.lightbox_trigger').click(function(e) {
 		
 	</div>
 </div>--><!---btn end -->     
-
+</div>
 <script>
 	
 	$(document).ready(function() {
