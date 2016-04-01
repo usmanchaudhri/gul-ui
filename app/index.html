@@ -86,13 +86,29 @@
 														<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
 													</div>
+													<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
+													</div>
 													</ul>
 											
 												</li>
 											</ul>
 									</div>
-				<span ng-show="loginUser == 'logout'"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser"><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="loginUser != 'logout'">
+				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										<div class="main-nav" ng-show="userFlag == true">
 									<ul class="nav account-navbar">
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
@@ -100,7 +116,7 @@
 														<a href="#account">My Account</a>
 													</li>
 													<li>
-														<a href="#myorder">Order</a>
+														<a ng-href="#myorder">My Orders</a>
 													</li>
 													
 													<li>
@@ -158,11 +174,12 @@
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
 											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >LOG IN</button></div>
+			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 										</form><!-- /form -->
 									
@@ -199,7 +216,7 @@
 											</div>
 											
 
-											
+											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
@@ -237,11 +254,9 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
-												<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart"  style="color: black;">CART</a></label>
-												<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-													
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart">CART</a></label>
+													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
 														<li ng-repeat="a in items track by $index">
-															
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
@@ -270,20 +285,33 @@
 														<li style="border-bottom: none;">
 															<button type="button" class="btn btn-primary individual-bag-btn" style="width: 95%;">Proceed to checkout</button>
 														</li>
-														
-													<div ng-if="items == null" class="text-center">
+														<div ng-if="items == null" class="text-center">
 														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
 													</div>
-													
+													<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
+													</div>
 													</ul>
+											
 												</li>
-										    
 											</ul>
 									</div>
-									<span ng-show="loginUser == 'logout'"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="loginUser != 'logout'">
+				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										<div class="main-nav" ng-show="userFlag == true">
 									<ul class="nav account-navbar">
-											
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 													<li>
@@ -298,7 +326,7 @@
 													</li>
 													
 													<li>
-														<a href="#status">Chat</a>
+														<a href="#allchats">Chat</a>
 													</li>
 													
 													<li>
@@ -325,7 +353,7 @@
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
 					</div>
 				</nav>
-				<!--Sign in Modal-->
+				 <!--Sign in Modal-->
 				<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 					<div class="modal-dialog" role="document">
 						<div>
@@ -342,11 +370,12 @@
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
 											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >LOG IN</button></div>
+			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 										</form><!-- /form -->
 									
@@ -383,7 +412,7 @@
 											</div>
 											
 
-											
+											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
@@ -418,8 +447,8 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
-												<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart"  style="color: black;">CART</a></label>
-										<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart">CART</a></label>
+													<ul class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
 														<li ng-repeat="a in items track by $index">
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
@@ -449,21 +478,33 @@
 														<li style="border-bottom: none;">
 															<button type="button" class="btn btn-primary individual-bag-btn" style="width: 95%;">Proceed to checkout</button>
 														</li>
-													
-													
-													<div ng-if="items == null" class="text-center">
-														<li style="height:35px;border-bottom: none;"><label style="font-size: 15px;color:#e86903;">The Bag is empty!</label></li>
+														<div ng-if="items == null" class="text-center">
+														<li style="height:35px;border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+													</div>
+													<div class="text-center single-cartproduct" style="display: none;">
+														<li>
+															<div class="row">
+																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																</div>
+																<div class="col-sm-6 col-xs-5">
+																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<span style="font-size: 12px;">Quantity</span>
+																</div>
+																<div class="col-sm-2 col-xs-2">
+																	<label style="font-size: 12px;">Cost</label>
+																</div>
+															</div>	
+														</li>
 													</div>
 													</ul>
 											
 												</li>
-										    
 											</ul>
 									</div>
-									<span ng-show="loginUser == 'logout'"><h3 class="signin-label"><a data-toggle="modal" close-modal data-target="#myModal" ng-model="loginuser" style="color: black;" ><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="loginUser != 'logout'">
+				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										<div class="main-nav" ng-show="userFlag == true">
 									<ul class="nav account-navbar">
-											
 											<li style="margin:0px;float: right;"><a href="#" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 													<li>
@@ -478,7 +519,7 @@
 													</li>
 													
 													<li>
-														<a href="#status">Chat</a>
+														<a href="#allchats">Chat</a>
 													</li>
 													
 													<li>
@@ -506,7 +547,7 @@
 					</div>
 				</nav>
 			
-				<!--Sign in Modal-->
+				 <!--Sign in Modal-->
 				<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 					<div class="modal-dialog" role="document">
 						<div>
@@ -523,11 +564,12 @@
 											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 												<label style="font-size: 13px;color: gray;">Password</label>
 											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
 											</div>
 											
 
 											
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;" >LOG IN</button></div>
+			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 										</form><!-- /form -->
 									
@@ -564,7 +606,7 @@
 											</div>
 											
 
-											
+											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
 										</form><!-- /form -->
@@ -685,6 +727,8 @@
 			<script src="controller/cartCtrl.js"></script>
 			<script src="controller/thankuCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
+			<script src="controller/shipCtrl.js"></script>
+			<script src="controller/orderCtrl.js"></script>
 			<script src="controller/services.js"></script>
 			<script src="js/smoothproducts.js"></script>
 			<script src="js/jquery-fancybox.js"></script>

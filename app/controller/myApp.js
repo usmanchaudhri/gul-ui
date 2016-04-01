@@ -120,7 +120,13 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/myorder', {
 					templateUrl: 'view/order.html', 
 					controller: 'orderCtrl',
-					label:'ORDER'
+					label:'ORDER',
+					resolve: {
+						orderList: function(gulServices) {
+							return gulServices.getOrder();
+							
+						}
+					}
 				}).when('/account', {
 					templateUrl: 'view/editProfile.html', 
 					controller: 'orderCtrl',

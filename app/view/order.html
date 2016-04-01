@@ -21,14 +21,14 @@
 			<div class="col-sm-6"><label>ORDER & SHIPPMENT INFORMATION</label></div>
 			<div class="col-sm-1"><label>TOTAL</label></div>
 			</div>
-			<div class="col-sm-8 myorders" style="padding-top: 20px;padding-left: 0px;">
+			<div class="col-sm-8 myorders" style="padding-top: 20px;padding-left: 0px;" ng-repeat="a in getOrderDetail">
 			<div class="col-sm-4" style="padding:0px;">
 				<div class="col-sm-4" style="padding:0px;"><label style="font-weight: 400;">25-12-2016</label></div>
-				<div class="col-sm-8"><label style="font-weight: 400;">Usman Ch</label></div>	
+				<div class="col-sm-8"><label style="font-weight: 400;line-height: 15px;">{{a.customer.customerShipping[0].firstName}} {{a.customer.customerShipping[0].lastName}}<br>{{a.customer.customerShipping[0].address}}<br>{{a.customer.customerShipping[0].city}},{{a.customer.customerShipping[0].state}}<br>{{a.customer.customerShipping[0].zipcode}}</label></div>	
 			</div>
 			
-			<div class="col-sm-6"><label style="font-weight: 400;">Lahore</label></div>
-			<div class="col-sm-2" style="padding-left: 20px;"><label style="font-weight: 400;">$3500</label></div>
+			<div class="col-sm-6"><label style="font-weight: 400;line-height: 15px;">Order:{{a.id}}<br>Shipped on:22-12-2015 - Tracking info<br>({{a.productQuantity}}) {{a.productName}}</label></div>
+			<div class="col-sm-2" style="padding-left: 20px;"><label style="font-weight: 400;">${{a.productPrice}}</label></div>
 			</div>
 		</div>
 	</div>

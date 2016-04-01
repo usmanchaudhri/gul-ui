@@ -103,7 +103,7 @@ app.factory('DataLoader', function( $http ) {
 			},
 		}
 	});
-app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($http,$q,$timeout,$cookieStore) {
+app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', function($http,$q,$timeout,$cookies,Base64) {
 			var sdo = {
 				/**
 				List of cchat
@@ -127,7 +127,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($ht
 									'Content-Type': 'application/json'
 								}
 							}
-							var customerUrl = one.data.customerUrl+'/'+$cookieStore.get('userData').id+'';
+							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userData').id+'';
 							var anotherPromise = $http({
 									method: 'GET',
 									url: customerUrl,
@@ -136,7 +136,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($ht
 								console.log('Promise sdo resolved with ', dataa);
 							
 							
-							var	customerName = $cookieStore.get("userData").email;
+							var	customerName = $cookies.get("userData").email;
 								console.log(dataa.data[0].customer);
 								var chatArr = dataa.data[0].customer.cchat;
 								for(var i = 0;i< chatArr.length;i++){
@@ -160,7 +160,49 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookieStore', function($ht
 						
 						});
 				},
+				
+				/*List of Orders*/
+				getOrder: function(){
+					 var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					return promise
+					.then(function(response) {
+					var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
 
+				var loginAuth =  base64;
+				var config = {
+					headers : {
+						'Content-Type': 'application/json',
+						'Authorization': 'Basic ' + loginAuth
+					}
+				}
+						
+					return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/orders" , config)
+					.then(function(response1){
+						/*$scope.showProgress = true;*/
+						console.log("Services Response",response1);
+				  
+					
+						
+						value = {
+							
+							orderDetail: response1.data,
+							
+						};
+						
+						return value;
+							
+				
+						});
+						
+						
+						
+						});
+				},
+				
 				/**
 				Get ALL SHOPS
 				**/
