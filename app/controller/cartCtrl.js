@@ -68,15 +68,6 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				}
 			}
 
-			$scope.getCurrentItem = function(){
-				if(angular.isDefined($scope.items)){
-					 var currentItem = $scope.items[$scope.items.length - 1];
-				 return currentItem;
-				}else{
-					return currentItem = 
-				}
-				
-			}
 		
 			$scope.proceedCheckout = function(){
 				
@@ -89,6 +80,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			$scope.paypalPayment = function(){
 				if($scope.totalPrice > 0){
+					$scope.loadingData = true;
 					$scope.prepareCall();
 					var base64 = Base64.encode( $scope.paypalClientID + ':' + $scope.paypalSecretKey );
 				
@@ -124,6 +116,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 									$window.location.href = data.links[1].href;
 								}).error(function (data, status) {
 									if(data != null){
+										$scope.loadingData = false;
 										$scope.dataError = data;
 									}else{
 										$scope.dataError = "Check Your Internet Connection And Try Again! ";
@@ -193,10 +186,12 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					});
 				$cookieStore.put("invoices",$scope.invoice.items);
 				$scope.items = $cookieStore.get("invoices",$scope.invoices);
+				$scope.currentItem = $scope.items[$scope.items.length - 1];
+				console.log("product price",$scope.currentItem.cost);
 				console.log("Add Product "+$scope.items.length);
 				$scope.abc = $scope.items.length;
 				$scope.totalCost($scope.invoice.items);
-
+				
 			};
 	
 			$scope.totalCost = function(items) {
@@ -291,6 +286,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					}
 				}
 			}
+			
 			
 			
 			$scope.onload = function(){

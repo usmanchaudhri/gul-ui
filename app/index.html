@@ -52,19 +52,20 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
+													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+													<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
 																	<span style="font-size: 12px;">Quantity</span>
 																</div>
-																<div class="col-sm-2 col-xs-2">
-																	<label style="font-size: 12px;">Cost</label>
+																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+													<label style="font-size: 12px;">${{currentItem.cost}}</label>
 																</div>
 															</div>	
 														</li>
@@ -147,10 +148,7 @@
 						</div>
 				
 						<span class="btn-menu visible-xs">menu</span>
-					
-						
-						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
-					</div><!--/ End of container -->
+					</div>
 					<div class="container">
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/header-menuBar.html'" ></div>
 					</div>
@@ -258,19 +256,20 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
+												<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+											<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
 																	<span style="font-size: 12px;">Quantity</span>
 																</div>
-																<div class="col-sm-2 col-xs-2">
-																	<label style="font-size: 12px;">Cost</label>
+																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																	<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
 																</div>
 															</div>	
 														</li>
@@ -311,23 +310,6 @@
 		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
 														</li>
 														</div>
-														
-													<div class="text-center single-cartproduct" style="display: none;">
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
-																	<span style="font-size: 12px;">Quantity</span>
-																</div>
-																<div class="col-sm-2 col-xs-2">
-																	<label style="font-size: 12px;">Cost</label>
-																</div>
-															</div>	
-														</li>
-													</div>
 													</ul>
 											
 												</li>
@@ -471,19 +453,20 @@
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
+												<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
+																	<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
 																	<span style="font-size: 12px;">Quantity</span>
 																</div>
-																<div class="col-sm-2 col-xs-2">
-																	<label style="font-size: 12px;">Cost</label>
+																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																	<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
 																</div>
 															</div>	
 														</li>
@@ -524,23 +507,6 @@
 		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
 														</li>
 														</div>
-														
-													<div class="text-center single-cartproduct" style="display: none;">
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">Name</label><br>
-																	<span style="font-size: 12px;">Quantity</span>
-																</div>
-																<div class="col-sm-2 col-xs-2">
-																	<label style="font-size: 12px;">Cost</label>
-																</div>
-															</div>	
-														</li>
-													</div>
 													</ul>
 											
 												</li>

@@ -2072,7 +2072,7 @@ select{
     padding: 10px;
     padding-bottom: 3px;
     text-align:right;
-    padding-top: 8px;
+    padding-top: 7px;
     color: white;
     width: auto;
     font-family: 'Quicksand';
@@ -2098,7 +2098,7 @@ select{
 }
 
 #acc-dropdown{
-	width: 345px !important;
+	width: 358px !important;
 	padding:5px;
 	padding-top: 15px;
 	
@@ -2581,7 +2581,7 @@ select{
 	cursor: pointer;
 	margin:0px;
 	margin-top:7px;
-	font-size: 11px;
+	font-size: 10px;
 	font-family:'Quicksand' !important; 
 	text-align: right;
 }
