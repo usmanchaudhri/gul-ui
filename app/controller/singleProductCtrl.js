@@ -8,10 +8,9 @@ var config = {
 }
 $scope.pro_id = $routeParams.proId;
 $scope.prodSize = 0;
-$scope.productQty = 1;
 var cChatNames = [];
 			
-			
+	$scope.productQty =1;		
 $scope.productDetail = productDetail.productDetail;
 $scope.selectedItem = productDetail.selectedItem;
 $scope.fixPath = productDetail.fixPath;
@@ -271,6 +270,8 @@ var updateCustomer = function(){
 		});
 }
 		
+		
+		
 /**
 Get Customer id to update CCHAT
 **/
@@ -372,6 +373,8 @@ var getChatList = function(){
 	
 			
 	/*End of Chat with Designer*/
+	
+	
 			
 			
 	$scope.load = function() {
@@ -402,19 +405,21 @@ var getChatList = function(){
 				var btn = $(this);
 				var input = btn.closest('#two').find('input');
 				if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
-					input.val(parseInt(input.val(), 10) + 1);
-					console.log(input.val());
+					$(".spinner").focus();
+					input.val(parseInt(input.val(), 10) + 1);					
 				} else {
 					btn.next("disabled", true);
 					console.log("else");
 				}
 			});
 		$('.spinner .btn:last-of-type').on('click', function() {
-				console.log("Trigger");
+				
 				var btn = $(this);
 				var input = btn.closest('#two').find('input');
 				if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {    
 					input.val(parseInt(input.val(), 10) - 1);
+					
+					console.log("down"+input.val());
 				} else {
 					btn.prev("disabled", true);
 				}
@@ -422,6 +427,7 @@ var getChatList = function(){
 		
 	
 	};
+	
 	$scope.load();
 	//getChatList();
 	getShopOwner();
