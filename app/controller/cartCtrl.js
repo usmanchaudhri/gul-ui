@@ -57,7 +57,6 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.items = $cookieStore.get("invoices",$scope.invoices);
 			
 			$scope.getItemSize = function(){
-				$scope.items = $cookieStore.get("invoices",$scope.invoices);
 				if(angular.isDefined($scope.items)){
 					if($scope.items.length == 0 ){
 						return  true;
