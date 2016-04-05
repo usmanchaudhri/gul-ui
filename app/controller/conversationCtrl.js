@@ -1,11 +1,11 @@
 
-var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies','$q','$routeParams','$timeout','chatList',function($scope,$http, Base64,$cookies,$q,$routeParams,$timeout,chatList) {
+var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$cookieStore','$q','$routeParams','$timeout','conList',function($scope,$http, Base64,$cookieStore,$q,$routeParams,$timeout,conList) {
 		
 			console.log("Checikkkkkkkk");
 			//$scope.chatNames = chatList;
 			$scope.chat_name = $routeParams.chatName;
-			$scope.chatNames = chatList;
-					$cookies.put("chatlist",chatList);
+			$scope.retMsg = conList.data;
+			console.log("RET MSG:",$scope.retMsg);
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -21,7 +21,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 					$scope.twilioUser,  data,config
 				).success(function(data, status) {
 						$scope.data = data;
-						//$cookies.put("userTwilio",data.sid);
+						//$cookieStore.put("userTwilio",data.sid);
 						console.log(data.sid);
 					}).error(function (data, status) {
 						console.log(data);
@@ -41,7 +41,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 					}
 				}
 		
-				var	mFrom = $cookies.get("username").replace(/ /g, '');
+				var	mFrom = $cookieStore.get("username").replace(/ /g, '');
 				var data1 = $.param({
 						Body : $scope.msgBody,
 						From : mFrom
@@ -60,7 +60,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 				
 			};
 	
-			$scope.retrieveMessage = function(){
+			/*$scope.retrieveMessage = function(){
 				console.log("Error");
 				var config = {
 					headers : {
@@ -80,9 +80,9 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 					
 					});
 				
-			};
+			};*/
 
-			$scope.retrieveChannel = function(){
+			/*$scope.retrieveChannel = function(){
 				var config = {
 					headers : {
 						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
@@ -101,7 +101,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 						}
 					}
 				}
-				//	var mUnique = $cookies.get("username") + "-" + $scope.chat_name.replace(/ /g, '');
+				//	var mUnique = $cookieStore.get("username") + "-" + $scope.chat_name.replace(/ /g, '');
 				$http.get(
 					$scope.twilioChannel+'/'+mUnique,config
 				).success(function(data, status) {
@@ -115,9 +115,9 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 						console.log("3rd");
 					});
 				
-			};
+			};*/
 		
-			var addMembers = function(){
+		/*	var addMembers = function(){
 				var data2 = $.param({
 						Identity : 'Amjad'
 					});
@@ -147,7 +147,7 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 						console.log(response);
 					});
 			};
-	
+	*/
   
   
 		}]);

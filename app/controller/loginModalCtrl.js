@@ -20,8 +20,14 @@
  		$uibModalInstance.close(value);
   };
 	
-	$scope.regHeroku = function(){
-		$uibModalInstance.close();
+	$scope.regHeroku = function(regEmail,regPass){
+		console.log("Reg Modal EMail"+loginEmail+loginPass);
+		var value = {
+			"regusername": regEmail,
+			"regpassword": regPass
+		}
+ 		$uibModalInstance.close(value);	
+	
 	};
 	
   $scope.cancel = function () {

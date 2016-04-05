@@ -44,11 +44,11 @@
 				console.log("Email after logout"+$cookies.get("username"));
 			};
 	
-			$scope.checkLogin = function(loginEmail,loginPass){
+			$scope.checkLogin = function(loginUserData){
 				  console.log("method called check login");
-				if(loginPass != '' && loginEmail != ''){
-						$scope.loginEmail = loginEmail;
-						$scope.loginPass = loginPass;
+				if( loginUserData.username != '' && loginUserData.password != ''){
+						$scope.loginEmail = loginUserData.username;
+						$scope.loginPass = loginUserData.password;
 						$scope.siginInUser();					
 				}else{
 					$scope.userFlag = false;
@@ -180,9 +180,8 @@
       
          })
         .result.then(
-        	function (loginEmail){
-				console.log("result email",loginEmail);
-				/*$scope.checkLogin(loginEmail,loginPass);*/
+        	function (loginUserData){
+				$scope.checkLogin(loginUserData);
  			
              
 			}
