@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','imageCropper']);
+var app = angular.module('myApp',['infinite-scroll','ngRoute','ng-breadcrumbs','ngCookies','ngFileUpload','bootstrapLightbox','imageCropper','ui.bootstrap']);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) 
 		{ 
@@ -130,7 +130,13 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/account', {
 					templateUrl: 'view/editProfile.html', 
 					controller: 'orderCtrl',
-					label:'MY ACCOUNT'
+					label:'MY ACCOUNT',
+					resolve: {
+						orderList: function(gulServices) {
+							return gulServices.getOrder();
+							
+						}
+					}
 				})
 			.otherwise({ redirectTo: '/' });
 		

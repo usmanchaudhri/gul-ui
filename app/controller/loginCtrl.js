@@ -1,5 +1,8 @@
- app.controller('loginCtrl',['$scope' , '$cookies','$http','Base64','$location' , function($scope,$cookies,$http,Base64, $location) {
-		
+ app.controller('loginCtrl',['$scope' , '$cookies','$http','Base64','$location','$uibModal' , function($scope,$cookies,$http,Base64, $location,$uibModal) {
+		 
+		   
+		   
+		   
 			var config = {
 				headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -41,8 +44,11 @@
 				console.log("Email after logout"+$cookies.get("username"));
 			};
 	
-			$scope.checkLogin = function(){
-				if($scope.loginPass != '' && $scope.loginEmail != ''){
+			$scope.checkLogin = function(loginEmail,loginPass){
+				  console.log("method called check login");
+				if(loginPass != '' && loginEmail != ''){
+						$scope.loginEmail = loginEmail;
+						$scope.loginPass = loginPass;
 						$scope.siginInUser();					
 				}else{
 					$scope.userFlag = false;
@@ -159,6 +165,33 @@
 			}
 			
 			/*End of SignIn User*/
+			
+			
+			/*Signin Modal*/
+			$scope.signingin = true;
+			$scope.signin = function(){
+		     
+		    console.log("Singin"+$scope.signingin);
+		   
+		var modalInstance = $uibModal.open({
+              templateUrl: 'loginModal.html',
+              controller: 'loginModalCtrl'
+               
+      
+         })
+        .result.then(
+        	function (loginEmail){
+				console.log("result email",loginEmail);
+				/*$scope.checkLogin(loginEmail,loginPass);*/
+ 			
+             
+			}
+        	
+		);
+		
+		
+			}
+			/*End of Signin Modal*/
 			
 			
 			var regUser = function(user){

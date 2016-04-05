@@ -34,7 +34,7 @@
 		<div class="wrapper" >
 			<!--Navigation Bar-->
 			<div ng-controller="loginCtrl">
-			<nav class="navbar home-menu">
+				<nav class="navbar home-menu">
 					<div class="container-fluid" >
 						<div class="row">
 							<div class="col-sm-4"></div>
@@ -49,7 +49,7 @@
 										
 									</div>
 									<div class="col-sm-10 col-xs-7">
-									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+										<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
 											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li>
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
@@ -58,20 +58,20 @@
 														<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
-													<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+																	<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
 																	<span style="font-size: 12px;">Quantity</span>
 																</div>
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-													<label style="font-size: 12px;">${{currentItem.cost}}</label>
+																	<label style="font-size: 12px;">${{currentItem.cost}}</label>
 																</div>
 															</div>	
 														</li>
 													</ul>
 											
-			<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
+													<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
 														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 														</li>
 													</ul>
@@ -91,55 +91,55 @@
 															</div>	
 														</li>
 														<div class="text-center">
-														<li style="height: 20px;">
-															<div class="row">
-																<div class="col-sm-6 col-xs-5" style="text-align: left;">
-																	<label style="font-size: 12px;">Order Subtotal</label>
-																</div>
-																<div class="col-sm-4 col-xs-5">
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">${{totalPrice}}</label>
-																</div>
-															</div>	
-														</li>
-														<li style="border-bottom: none;">
-		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
-														</li>
+															<li style="height: 20px;">
+																<div class="row">
+																	<div class="col-sm-6 col-xs-5" style="text-align: left;">
+																		<label style="font-size: 12px;">Order Subtotal</label>
+																	</div>
+																	<div class="col-sm-4 col-xs-5">
+																	</div>
+																	<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																		<label style="font-size: 12px;">${{totalPrice}}</label>
+																	</div>
+																</div>	
+															</li>
+															<li style="border-bottom: none;">
+																<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+															</li>
 														</div>
 													</ul>
 												</li>
 											</ul>
 											
-									</div>
-				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+										</div>
+										<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
 										<div class="main-nav" ng-show="userFlag == true">
-									<ul class="nav account-navbar">
-											<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
-												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
-													<li>
-														<a href="#account">My Account</a>
-													</li>
-													<li>
-														<a ng-href="#myorder">My Orders</a>
-													</li>
+											<ul class="nav account-navbar">
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
+														<li>
+															<a href="#account">My Account</a>
+														</li>
+														<li>
+															<a ng-href="#myorder">My Orders</a>
+														</li>
 													
-													<li>
-														<a href="#shipping">Shipping</a>
-													</li>
+														<li>
+															<a href="#shipping">Shipping</a>
+														</li>
 													
-													<li>
-														<a href="#allchats">Chat</a>
-													</li>
+														<li>
+															<a href="#allchats">Chat</a>
+														</li>
 													
-													<li>
-														<a href="" ng-click="userLogout()">Logout</a>
-													</li>
-												</ul>
-											</li>
+														<li>
+															<a href="" ng-click="userLogout()">Logout</a>
+														</li>
+													</ul>
+												</li>
 											
-										</ul>
-									</div>	
+											</ul>
+										</div>	
 									</div>
 									
 									
@@ -155,482 +155,475 @@
 				</nav>
 			</div>
 			
-		<div ng-controller="BreadcrumbCtrl" >
+			<div ng-controller="BreadcrumbCtrl" >
 				<div ng-if="breadcrumbs.get().length == 1"  >
-				<div ng-controller="loginCtrl">
-				
-			  <!--Sign in Modal-->
-				<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
-								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
-											</div>
+					<div ng-controller="loginCtrl">
+						<script type="text/ng-template" id="loginModal.html">
+							<div class="card card-container" style="width: 445px;height: 515px;">
+												
+							<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							
+							
+							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
+							
+							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
+													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+												</div>	
+							
+							
+											
+							</div>
+							<div class="modal-body" ng-if="signingin">
+							<form class="form-signin">
+							<span id="reauth-email" class="reauth-email"></span>
+							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Email Adress</label>
+							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+							</div>
+							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Password</label>
+							<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+							</div>
 											
 
 											
-			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
-											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
-										</form><!-- /form -->
-									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#signupModal"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
-								</div>
+							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin(loginEmail,loginPass)" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
+							<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
+							</form>
 							</div>
-						
-						</div>
-					</div>
-				</div>
-				<!--End of Signin Modal-->
-				<!--Signup Modal-->
-				<div class="modal" close-modal id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
-								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-										<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-										<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-										<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-										</div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											</div>
+							
+							
+							
+							<div class="modal-body" ng-if="!signingin">
+								<form class="form-signin">
+													<span id="reauth-email" class="reauth-email"></span>
+													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Email Adress</label>
+														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+													</div>
+													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Password</label>
+														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+													</div>
 											
 
-											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
-										</form><!-- /form -->
-									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#myModal"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
-								</div>
+												</form>
 							</div>
-						
-						</div>
+							
+							
+							
+							</div>
+							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
+							
+							<div ng-if="!signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+							
+						</script>
 					</div>
 				</div>
-				<!--End of Signup Modal-->
-		    	</div>
-		</div>
-		</div>
+			</div>
 
 			<div ng-controller="BreadcrumbCtrl" >
 				<div ng-if="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
-				<div ng-controller="loginCtrl">
-				<nav class="navbar header-main-nav">
-					<div class="container-fluid" >
-						<div class="row">
-							<div class="col-sm-4"></div>
-							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-								<strong style="font-size:45px; color: #e86903; "><a href="#" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
-							</div>	
-							<div class="col-sm-1"></div>
-							<div class="col-sm-3" style="margin-top: -11px;" >
-								<span>
-									<div class="col-sm-2">
-										
-									</div>
-									<div class="col-sm-10 col-xs-7">
-									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
-											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
-												<li>
-												<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
-													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5">
-											<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
-																	<span style="font-size: 12px;">Quantity</span>
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
-																</div>
-															</div>	
-														</li>
-													</ul>
-				<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
-														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
-														</li>
-													</ul>
-													<ul  ng-if="!getItemSize()" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li ng-repeat="a in items track by $index">
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
-																	<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
-																	<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">${{a.cost}}</label>
-																</div>
-															</div>	
-														</li>
-														<div class="text-center">
-														<li style="height: 20px;">
-															<div class="row">
-																<div class="col-sm-6 col-xs-5" style="text-align: left;">
-																	<label style="font-size: 12px;">Order Subtotal</label>
-																</div>
-																<div class="col-sm-4 col-xs-5">
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">${{totalPrice}}</label>
-																</div>
-															</div>	
-														</li>
-														<li style="border-bottom: none;">
-		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
-														</li>
-														</div>
-													</ul>
-											
-												</li>
-											</ul>
-									</div>
-				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="userFlag == true">
-									<ul class="nav account-navbar">
-											<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
-												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
-													<li>
-														<a href="#account">My Account</a>
-													</li>
-													<li>
-														<a href="#myorder">Order</a>
-													</li>
-													
-													<li>
-														<a href="#shipping">Shipping</a>
-													</li>
-													
-													<li>
-														<a href="#allchats">Chat</a>
-													</li>
-													
-													<li>
-														<a href="" ng-click="userLogout()">Logout</a>
-													</li>
-												</ul>
-											</li>
-											
-										</ul>
+					<div ng-controller="loginCtrl">
+						<nav class="navbar header-main-nav">
+							<div class="container-fluid" >
+								<div class="row">
+									<div class="col-sm-4"></div>
+									<div class="col-sm-4 col-xs-5 text-center mob-logo">
+										<strong style="font-size:45px; color: #e86903; "><a href="#" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
 									</div>	
+									<div class="col-sm-1"></div>
+									<div class="col-sm-3" style="margin-top: -11px;" >
+										<span>
+											<div class="col-sm-2">
+										
+											</div>
+											<div class="col-sm-10 col-xs-7">
+												<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+													<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+														<li>
+															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
+															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
+															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
+																<li>
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5">
+																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
+																		</div>
+																	</div>	
+																</li>
+															</ul>
+															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
+																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
+																</li>
+															</ul>
+															<ul  ng-if="!getItemSize()" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+																<li ng-repeat="a in items track by $index">
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
+																			<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">${{a.cost}}</label>
+																		</div>
+																	</div>	
+																</li>
+																<div class="text-center">
+																	<li style="height: 20px;">
+																		<div class="row">
+																			<div class="col-sm-6 col-xs-5" style="text-align: left;">
+																				<label style="font-size: 12px;">Order Subtotal</label>
+																			</div>
+																			<div class="col-sm-4 col-xs-5">
+																			</div>
+																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																				<label style="font-size: 12px;">${{totalPrice}}</label>
+																			</div>
+																		</div>	
+																	</li>
+																	<li style="border-bottom: none;">
+																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+																	</li>
+																</div>
+															</ul>
+											
+														</li>
+													</ul>
+												</div>
+												<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+												<div class="main-nav" ng-show="userFlag == true">
+													<ul class="nav account-navbar">
+														<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+															<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
+																<li>
+																	<a href="#account">My Account</a>
+																</li>
+																<li>
+																	<a href="#myorder">Order</a>
+																</li>
+													
+																<li>
+																	<a href="#shipping">Shipping</a>
+																</li>
+													
+																<li>
+																	<a href="#allchats">Chat</a>
+																</li>
+													
+																<li>
+																	<a href="" ng-click="userLogout()">Logout</a>
+																</li>
+															</ul>
+														</li>
+											
+													</ul>
+												</div>	
+											</div>
+									
+									
+										</span>
 									</div>
-									
-									
-								</span>
-							</div>
-						</div>
+								</div>
 				
-						<a class="btn-menu visible-xs" href="#a">menu</a>
+								<a class="btn-menu visible-xs" href="#a">menu</a>
 					
 						
-						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
-					</div><!--/ End of container -->
-					<div class="container">
-						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
-					</div>
-				</nav>
-				 <!--Sign in Modal-->
-				<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
+								<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
+							</div><!--/ End of container -->
+							<div class="container">
+								<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
+							</div>
+						</nav>
+						<!--Sign in Modal-->
+						<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+							<div class="modal-dialog" role="document">
 								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
-											</div>
+									<div class="modal-body" style="padding-top: 0px;">
+										<div>
+											<div class="card card-container" style="width: 445px;height: 515px;">
+												<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
+												<form class="form-signin">
+													<span id="reauth-email" class="reauth-email"></span>
+													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Email Adress</label>
+														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+													</div>
+													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Password</label>
+														<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+														<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+													</div>
 											
 
 											
-			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
-											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
-										</form><!-- /form -->
+													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
+													<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
+												</form><!-- /form -->
 									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#signupModal"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+											</div><!-- /card-container -->
+											<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#signupModal"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+										</div>
+									</div>
+						
 								</div>
 							</div>
-						
 						</div>
-					</div>
-				</div>
-				<!--End of Signin Modal-->
-				<!--Signup Modal-->
-				<div class="modal" close-modal id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
+						<!--End of Signin Modal-->
+						<!--Signup Modal-->
+						<div class="modal" close-modal id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+							<div class="modal-dialog" role="document">
 								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-										<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-										<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-										<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-										</div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											</div>
+									<div class="modal-body" style="padding-top: 0px;">
+										<div>
+											<div class="card card-container" style="width: 445px;height: 515px;">
+												<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
+													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+												</div>	
+												<form class="form-signin">
+													<span id="reauth-email" class="reauth-email"></span>
+													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Email Adress</label>
+														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+													</div>
+													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Password</label>
+														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+													</div>
 											
 
-											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
-										</form><!-- /form -->
+												</form><!-- /form -->
 									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#myModal"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+											</div><!-- /card-container -->
+											<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#myModal"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+										</div>
+									</div>
+						
 								</div>
 							</div>
-						
 						</div>
+						<!--End of Signup Modal-->
 					</div>
 				</div>
-				<!--End of Signup Modal-->
-			</div>
-            </div>
 				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)">
 					<div ng-controller="loginCtrl">
-				<nav class="navbar header-main-nav">
-					<div class="container-fluid" >
-						<div class="row">
-							<div class="col-sm-4"></div>
-							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-								<strong style="font-size:45px; color: #e86903; "><a href="#" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
-							</div>	
-							<div class="col-sm-1"></div>
-							<div class="col-sm-3" style="margin-top: -11px;" >
-								<span>
-									<div class="col-sm-2">
-										
-									</div>
-									<div class="col-sm-10 col-xs-7">
-									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
-											<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
-												<li>
-												<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
-													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
-														<li>
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-						<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5">
-																	<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
-																	<span style="font-size: 12px;">Quantity</span>
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
-																</div>
-															</div>	
-														</li>
-													</ul>
-				<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
-														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
-														</li>
-													</ul>
-													<ul  ng-if="!getItemSize()" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
-														<li ng-repeat="a in items track by $index">
-															<div class="row">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
-																</div>
-																<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
-																	<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
-																	<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">${{a.cost}}</label>
-																</div>
-															</div>	
-														</li>
-														<div class="text-center">
-														<li style="height: 20px;">
-															<div class="row">
-																<div class="col-sm-6 col-xs-5" style="text-align: left;">
-																	<label style="font-size: 12px;">Order Subtotal</label>
-																</div>
-																<div class="col-sm-4 col-xs-5">
-																</div>
-																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																	<label style="font-size: 12px;">${{totalPrice}}</label>
-																</div>
-															</div>	
-														</li>
-														<li style="border-bottom: none;">
-		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
-														</li>
-														</div>
-													</ul>
-											
-												</li>
-											</ul>
-									</div>
-				<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
-										<div class="main-nav" ng-show="userFlag == true">
-									<ul class="nav account-navbar">
-											<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
-												<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
-													<li>
-														<a href="#account">My Account</a>
-													</li>
-													<li>
-														<a href="#myorder">Order</a>
-													</li>
-													
-													<li>
-														<a href="#shipping">Shipping</a>
-													</li>
-													
-													<li>
-														<a href="#allchats">Chat</a>
-													</li>
-													
-													<li>
-														<a href="" ng-click="userLogout()">Logout</a>
-													</li>
-												</ul>
-											</li>
-											
-										</ul>
+						<nav class="navbar header-main-nav">
+							<div class="container-fluid" >
+								<div class="row">
+									<div class="col-sm-4"></div>
+									<div class="col-sm-4 col-xs-5 text-center mob-logo">
+										<strong style="font-size:45px; color: #e86903; "><a href="#" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>	
 									</div>	
+									<div class="col-sm-1"></div>
+									<div class="col-sm-3" style="margin-top: -11px;" >
+										<span>
+											<div class="col-sm-2">
+										
+											</div>
+											<div class="col-sm-10 col-xs-7">
+												<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+													<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+														<li>
+															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
+															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
+															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" ng-if="!getItemSize()" style="overflow: hidden;display:none;">
+																<li>
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5">
+																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">$ {{currentItem.cost}}</label>
+																		</div>
+																	</div>	
+																</li>
+															</ul>
+															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="getItemSize()" style="overflow: hidden;">
+																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
+																</li>
+															</ul>
+															<ul  ng-if="!getItemSize()" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+																<li ng-repeat="a in items track by $index">
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
+																			<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">${{a.cost}}</label>
+																		</div>
+																	</div>	
+																</li>
+																<div class="text-center">
+																	<li style="height: 20px;">
+																		<div class="row">
+																			<div class="col-sm-6 col-xs-5" style="text-align: left;">
+																				<label style="font-size: 12px;">Order Subtotal</label>
+																			</div>
+																			<div class="col-sm-4 col-xs-5">
+																			</div>
+																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																				<label style="font-size: 12px;">${{totalPrice}}</label>
+																			</div>
+																		</div>	
+																	</li>
+																	<li style="border-bottom: none;">
+																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+																	</li>
+																</div>
+															</ul>
+											
+														</li>
+													</ul>
+												</div>
+												<span ng-show="!userFlag"><h3 class="signin-label"><a data-toggle="modal" data-target="#myModal" style="color: black;" ><b>SIGN IN</b></a></h3></span>
+												<div class="main-nav" ng-show="userFlag == true">
+													<ul class="nav account-navbar">
+														<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+															<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
+																<li>
+																	<a href="#account">My Account</a>
+																</li>
+																<li>
+																	<a href="#myorder">Order</a>
+																</li>
+													
+																<li>
+																	<a href="#shipping">Shipping</a>
+																</li>
+													
+																<li>
+																	<a href="#allchats">Chat</a>
+																</li>
+													
+																<li>
+																	<a href="" ng-click="userLogout()">Logout</a>
+																</li>
+															</ul>
+														</li>
+											
+													</ul>
+												</div>	
+											</div>
+									
+									
+										</span>
 									</div>
-									
-									
-								</span>
-							</div>
-						</div>
+								</div>
 				
-						<a class="btn-menu visible-xs" href="#a">menu</a>
+								<a class="btn-menu visible-xs" href="#a">menu</a>
 					
 						
-						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
-					</div><!--/ End of container -->
-					<div class="container">
-						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
-					</div>
-				</nav>
+								<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
+							</div><!--/ End of container -->
+							<div class="container">
+								<div ng-controller="MenuCtrl"  ng-include src="'view/menu/menuBar.html'" ></div>
+							</div>
+						</nav>
 			
-				 <!--Sign in Modal-->
-				<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
+						<!--Sign in Modal-->
+						<div class="modal" close-modal id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+							<div class="modal-dialog" role="document">
 								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
-											</div>
+									<div class="modal-body" style="padding-top: 0px;">
+										<div>
+											<div class="card card-container" style="width: 445px;height: 515px;">
+												<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
+												<form class="form-signin">
+													<span id="reauth-email" class="reauth-email"></span>
+													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Email Adress</label>
+														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+													</div>
+													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Password</label>
+														<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+														<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+													</div>
 											
 
 											
-			<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
-											<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
-										</form><!-- /form -->
+													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin()" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
+													<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
+												</form><!-- /form -->
 									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#signupModal"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+											</div><!-- /card-container -->
+											<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#signupModal"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+										</div>
+									</div>
+						
 								</div>
 							</div>
-						
 						</div>
-					</div>
-				</div>
-				<!--End of Signin Modal-->
-				<!--Signup Modal-->
-				<div class="modal" close-modal id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body" style="padding-top: 0px;">
+						<!--End of Signin Modal-->
+						<!--Signup Modal-->
+						<div class="modal" close-modal id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+							<div class="modal-dialog" role="document">
 								<div>
-									<div class="card card-container" style="width: 445px;height: 515px;">
-										<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-										<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-										<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-										<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-										</div>	
-										<form class="form-signin">
-											<span id="reauth-email" class="reauth-email"></span>
-											<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-											<label style="font-size: 13px;color: gray;">Email Adress</label>
-											<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-											</div>
-											<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-												<label style="font-size: 13px;color: gray;">Password</label>
-											<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-											</div>
+									<div class="modal-body" style="padding-top: 0px;">
+										<div>
+											<div class="card card-container" style="width: 445px;height: 515px;">
+												<div class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
+													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+												</div>	
+												<form class="form-signin">
+													<span id="reauth-email" class="reauth-email"></span>
+													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Email Adress</label>
+														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+													</div>
+													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+														<label style="font-size: 13px;color: gray;">Password</label>
+														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+													</div>
 											
 
-											<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-											<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku()" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 											
-										</form><!-- /form -->
+												</form><!-- /form -->
 									
-									</div><!-- /card-container -->
-									<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#myModal"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+											</div><!-- /card-container -->
+											<div class="col-sm-12 text-center"><button type="button" class="btn join-btn" data-toggle="modal" data-dismiss="modal" data-target="#myModal"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+										</div>
+									</div>
+						
 								</div>
 							</div>
-						
 						</div>
+						<!--End of Signup Modal-->
 					</div>
-				</div>
-				<!--End of Signup Modal-->
-			</div>
 					
 					<div  ng-include src="'view/header/breadCrumb.html'" class="custom-padding-top" ></div>
 					</span>
@@ -645,61 +638,61 @@
 			<!--Footer-->
 			<footer id="footer">
 				<div class="container" style="width: 100%;">
-				<div class="row text-center" style="padding-bottom: 32px;">
-		<h1 style="font-size: 30px; font-family: 'Century Schoolbook' !important;">Personalize Your Design</h1>
+					<div class="row text-center" style="padding-bottom: 32px;">
+						<h1 style="font-size: 30px; font-family: 'Century Schoolbook' !important;">Personalize Your Design</h1>
 		
-	</div>
+					</div>
 					<div class="row" style="padding-bottom: 20px;padding-top: 20px; ">
 						<div class="col-sm-12">
-						<div class="col-sm-2 col-xs-12" style="margin-top: 10px;padding-left: 0px;">
+							<div class="col-sm-2 col-xs-12" style="margin-top: 10px;padding-left: 0px;">
 								<label style="font-size: 14px; margin-left: 9px; font-weight: 800;margin-bottom: 10px; color: #D25E00;">SUPPORT</label>
-							<ul class="footer-list" style="list-style-type: none;padding-left: 5px;">
-								<li><a href="#a"><label>ABOUT</label></a></li>
-								<li><a href="#a"><label>TERMS &amp; PRIVACY</label></a></li>
-								<li><a href="#a"><label>PRIVACY POLICY</label></a></li>
-								<li><a href="#a"><label>CONTACT US</label></a></li>
-							</ul>
-						</div>
+								<ul class="footer-list" style="list-style-type: none;padding-left: 5px;">
+									<li><a href="#a"><label>ABOUT</label></a></li>
+									<li><a href="#a"><label>TERMS &amp; PRIVACY</label></a></li>
+									<li><a href="#a"><label>PRIVACY POLICY</label></a></li>
+									<li><a href="#a"><label>CONTACT US</label></a></li>
+								</ul>
+							</div>
 						
-						<div class="col-sm-2 col-xs-12" style="margin-top: 10px;padding-left: 0px;">
+							<div class="col-sm-2 col-xs-12" style="margin-top: 10px;padding-left: 0px;">
 								<label style="font-size: 14px; margin-left: 9px;margin-bottom: 10px;    font-weight: 800; color: #D25E00;">SHOP</label>
-							<ul class="footer-list" style="list-style-type: none;padding-left: 5px;">
-								<li><a href="#a"><label>WOMEN</label></a></li>
-								<li><a href="#/categoryProducts/3"><label>TUNIC TOP</label></a></li>
-								<li><a href="#/categoryProducts/4"><label>CASHMARE SCARWES</label></a></li>
-								<li><a href="#/categoryProducts/5"><label>DRESSES</label></a></li>
-							</ul>
-						</div>
+								<ul class="footer-list" style="list-style-type: none;padding-left: 5px;">
+									<li><a href="#a"><label>WOMEN</label></a></li>
+									<li><a href="#/categoryProducts/3"><label>TUNIC TOP</label></a></li>
+									<li><a href="#/categoryProducts/4"><label>CASHMARE SCARWES</label></a></li>
+									<li><a href="#/categoryProducts/5"><label>DRESSES</label></a></li>
+								</ul>
+							</div>
 						
 					
 						
 						
 							<div class="col-sm-6 col-xs-12">
 			
-							<div class="subscribe">
+								<div class="subscribe">
 							
-								<form action="#a">
+									<form action="#a">
 						
-									<div class="form-group">
-										<input id="lbl-01" class="form-control" placeholder="email" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;     height: 35px;">
-									</div>
-									<button class="btn-submit" style="background-color: white;box-shadow: none;height: 35px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
-								</form>
+										<div class="form-group">
+											<input id="lbl-01" class="form-control" placeholder="email" type="email" style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;     height: 35px;">
+										</div>
+										<button class="btn-submit" style="background-color: white;box-shadow: none;height: 35px;border: 2px solid black;padding-top: 2px;font-weight: 600;font-size: 12px;">SUBSCRIBE</button>
+									</form>
+								</div>
 							</div>
-						</div>
 						
 					
 				
 						
 							
-						<div class="col-sm-2 col-xs-12" >
-						<ul class="social" style="display:inline-flex; bottom: 0; margin-top: -15px;">
-		                        <li ><a href="#a"><label><i class="fa fa-facebook fa-2x"></i></label></a></li>
-								<li><a href="#a"><label><i class="fa fa-twitter fa-2x"></i></label></a></li>
-								<li><a href="#a"><label><i class="fa fa-instagram fa-2x"></i></label></a></li><br>
-							</ul>
-						</div>	
-					</div><!-- /row -->
+							<div class="col-sm-2 col-xs-12" >
+								<ul class="social" style="display:inline-flex; bottom: 0; margin-top: -15px;">
+									<li ><a href="#a"><label><i class="fa fa-facebook fa-2x"></i></label></a></li>
+									<li><a href="#a"><label><i class="fa fa-twitter fa-2x"></i></label></a></li>
+									<li><a href="#a"><label><i class="fa fa-instagram fa-2x"></i></label></a></li><br>
+								</ul>
+							</div>	
+						</div><!-- /row -->
 					
 					</div>
 				</div><!-- /container-fluid -->
@@ -740,6 +733,9 @@
 			<script src="controller/shipCtrl.js"></script>
 			<script src="controller/orderCtrl.js"></script>
 			<script src="controller/services.js"></script>
+			<script src="controller/modalCtrl.js"></script>
+			<script src="controller/loginModalCtrl.js"></script>
+			<script src="js/ui-bootstrap-0.11.0.min.js"></script>
 			<script src="js/smoothproducts.js"></script>
 			<script src="js/jquery-fancybox.js"></script>
 			<script src="js/jquery-fancy-thumb.js"></script>
@@ -757,6 +753,6 @@
 			<script src="js/imageupload.js"></script>
 			
 		
-</div><!-- /wrapper -->
+		</div><!-- /wrapper -->
 	</body>
 </html>
