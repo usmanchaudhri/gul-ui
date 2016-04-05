@@ -248,7 +248,7 @@ $('.lightbox_trigger').click(function(e) {
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"  value="0" min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="0" min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -260,7 +260,7 @@ $('.lightbox_trigger').click(function(e) {
 				
 				
 				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;" ng-click="open()">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;">
@@ -286,32 +286,22 @@ $('.lightbox_trigger').click(function(e) {
 			
 
 				<!-- Modal -->
-				<script type="text/ng-template" id="myModalContent.html">
-				<div id="chatModel" close-modal class="modal fade" role="dialog" ng-show="chatWithDesigner">
-					<div class="modal-dialog">
-
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">{{productDetail.name}}</h4>
-							</div>
-							<div class="modal-body">
-								<textarea ng-model="msgBody" style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Something in Textarea!</textarea>
-							</div>
-							
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" ng-click="sendMessage(productDetail.shop.id)">Send</button>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-          </script>
+				
+           <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">{{productDetailName}}</h4>
+        </div>
+        <div class="modal-body">
+            <textarea ng-model="msgBody" style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Something in Textarea!</textarea>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-default" ng-click="send()">Send</button>
+        </div>
+    </script>
          		
          <script type="text/ng-template" id="errorModal.html">
-				<div id="chatModel" close-modal class="modal" role="dialog" ng-show="chatWithDesigner">
+				<div id="chatModel" close-modal class="modal" role="dialog" >
 					 <div class="modal-header">
             <h3 class="modal-title">Im a modal!</h3>
         </div>

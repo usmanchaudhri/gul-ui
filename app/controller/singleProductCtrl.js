@@ -186,6 +186,7 @@ Send Message
 **/
 		
 $scope.sendMessage = function(shopID){
+	console.log("Send msg called");
 	$scope.shopID = shopID;
 	var flag = true;
 	for(var i = 0; i < cChatNames.length ; i++){
@@ -341,37 +342,24 @@ var getChatList = function(){
 
 /*Chat with Designer*/
 	
-	$scope.open = function(){
+	$scope.open = function(name){
 		$scope.animationsEnabled = true;
-		if($cookies.get("username") != null){
-			var modalInstance = $uibModal.open({
-			animation: $scope.animationsEnabled,
-			templateUrl: 'myModalContent.html',
-			controller: 'singleProCtrl'
-		});	
-			console.log("Loggeddin");	
-		}else{
-			$scope.items = ['item1', 'item2', 'item3'];
-			var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'errorModal.html',
-      controller: 'singleProCtrl'
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
-			console.log("Loggeddout");	
+		$uibModal.open({
+              templateUrl: 'myModalContent.html',
+              controller: 'modalCtrl', 
+               resolve: {
+        name: function () {
+          return name;
+        }
+      }
+         })
+        .result.then(
+            function (shopid) {
+                $scope.sendMessage(shopid);
+            }
+            
+        );
 		}
-	
-			
 	/*End of Chat with Designer*/
 	
 	
@@ -432,4 +420,5 @@ var getChatList = function(){
 	//getChatList();
 	getShopOwner();
 }]);
-        
+
+ 

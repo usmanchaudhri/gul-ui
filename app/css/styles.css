@@ -2855,3 +2855,9 @@ select{
     font-weight: 400;
     cursor: pointer;
 }
+
+.modal-content{
+    background: transparent;
+    box-shadow: none;
+    border: none;	
+}
