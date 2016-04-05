@@ -85,8 +85,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					label:'SHIPPMENT'
 				}).when('/chat/:chatName', {
 					templateUrl: 'view/chatting/chatscreen.html', 
-					controller: 'chatCtrl',
-					label:'CHAT'
+					controller: 'conversationCtrl',
+					label:'CHAT',
+					resolve: {
+						conList: function(gulServices,$route) {
+							return gulServices.getConversation($route.current.params.chatName);
+							
+						}
+					}
 				}).when('/allchats', {
 					templateUrl: 'view/chatting/mailscreen.html', 
 					controller: 'chatCtrl',

@@ -9,7 +9,7 @@ app.controller('orderCtrl',['$scope' , '$cookies','$location','$http','Base64','
 				$location.path("#/");
 			}
 	
-	 $scope.dateValue = new Date(dateInMilliSeconds);
+	
 	
 	
 	

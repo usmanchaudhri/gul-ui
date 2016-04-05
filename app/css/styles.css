@@ -2857,7 +2857,7 @@ select{
 }
 
 .modal-content{
-    background: transparent;
+    background: white;
     box-shadow: none;
     border: none;	
 }

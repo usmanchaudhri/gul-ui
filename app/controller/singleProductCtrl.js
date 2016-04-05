@@ -34,7 +34,7 @@ $scope.productDetail = response1.data;
 $scope.selectedItem = response1.data.productVariation[0].size;
 getChatList();
 getShopOwner();
-//$scope.shopName = $cookies.get("username") + "-" + $scope.shopCustomer.replace(/ /g, '');
+//$scope.shopName = JSON.parse($cookies.get("username")) + "-" + $scope.shopCustomer.replace(/ /g, '');
 });
 });*/
 			
@@ -42,7 +42,8 @@ getShopOwner();
 /**
 Total Number of images Count
 **/
-			
+$scope.customerUrl = productDetail.urls.customerUrl;
+$scope.twilioChannel = productDetail.urls.twilioChannel;
 $scope.getNumber = function(num) {
 	var numDrop = [];
 	for(var i = 1; i<=num; i++){
@@ -60,7 +61,7 @@ CREATE CHANNEL
 **/
 			
 var createChannel = function(){
-	$scope.shopName = $cookies.get("userData").email + "-" + $scope.shopCustomer.email.replace(/ /g, '');
+	$scope.shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
 	console.log("Create Channel: "+ $scope.shopName);
 	var data1 = $.param({
 			UniqueName : $scope.shopName,
@@ -101,7 +102,7 @@ var retrieveChannel = function(){
 	}
 		
 	
-	var shopName = $cookies.get("userData").email + "-" + $scope.shopCustomer.email.replace(/ /g, '');
+	var shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
 	$http.get(
 		$scope.twilioChannel+'/'+ shopName,config
 	).success(function(data, status) {
@@ -109,7 +110,7 @@ var retrieveChannel = function(){
 			$scope.channelSid = data.entity.sid;
 			var flag = true;
 			for(var i = 0; i < cChatNames.length ; i++){
-				if($scope.shopCustomer.email == cChatNames[i].name){
+				if($scope.shopCustomer.username == cChatNames[i].name){
 					flag = false;
 				}
 			}
@@ -131,8 +132,8 @@ Add Members
 **/
 	
 var addMembers = function(){
-	var mName = $cookies.get("username").replace(/ /g, '');
-	var mDesigner = $scope.shopCustomer.email.replace(/ /g, '');
+	var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+	var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 	var data2 = $.param({
 			Identity : mDesigner
 		});
@@ -164,7 +165,7 @@ var addMembers = function(){
 			//	composeMsg();
 			var flag = true;
 			for(var i = 0; i < cChatNames.length ; i++){
-				if($scope.shopCustomer.email == cChatNames[i].name){
+				if($scope.shopCustomer.username == cChatNames[i].name){
 					flag = false;
 				}
 			}
@@ -191,7 +192,7 @@ $scope.sendMessage = function(shopID){
 	var flag = true;
 	for(var i = 0; i < cChatNames.length ; i++){
 					
-		if($scope.shopCustomer.email == cChatNames[i].name){
+		if($scope.shopCustomer.username == cChatNames[i].name){
 			console.log();
 			flag = false;
 		}
@@ -203,7 +204,6 @@ $scope.sendMessage = function(shopID){
 		retrieveChannel();
 	}
 				
-	$scope.dismiss();
 				
 				
 }
@@ -214,7 +214,7 @@ Compose Message
 **/
 			
 var composeMsg = function(){
-	var	mFrom = $cookies.get("userData").email.replace(/ /g, '');
+	var	mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 	var data1 = $.param({
 			Body : $scope.productDetail.name+","+$scope.msgBody,
 			From : mFrom
@@ -237,8 +237,8 @@ Add Cchat in customer
 **/
 			
 var updateCustomer = function(){
-	var mName = $cookies.get("userData").email.replace(/ /g, '');
-	var mDesigner = $scope.shopCustomer.email.replace(/ /g, '');
+	var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+	var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 	console.log("MNAME: "+mName);
 	var data1 = {"cchat": [
 			{"uniqueName":  mName +"-"+ mDesigner}
@@ -254,7 +254,7 @@ var updateCustomer = function(){
 			cache: 'false'});
 	var promise2 = $http({
 			method: 'PUT',
-			url: $scope.customerUrl+'/'+$cookies.get("userData").id,
+			url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id,
 			data: data1,
 			headers : {
 				'Content-Type': 'application/json'
@@ -308,11 +308,11 @@ var getChatList = function(){
 			'Content-Type': 'application/json'
 		}
 	}
-	//console.log($scope.customerUrl+"/"+$cookies.get("userData").id+"/cchat");
+	//console.log($scope.customerUrl+"/"+JSON.parse($cookies.get("username")).id+"/cchat");
 	$http.get(
-		productDetail.urls.customerUrl+"/"+$cookies.get("userData").id+"/cchat",config
+		productDetail.urls.customerUrl+"/"+JSON.parse($cookies.get("username")).id+"/cchat",config
 	).success(function(data, status) {
-			var	customerName = $cookies.get("userData").email;
+			var	customerName = JSON.parse(JSON.parse($cookies.get("username"))).username;
 						
 			if(angular.isDefined(data[0])){
 				console.log(data[0].customer);

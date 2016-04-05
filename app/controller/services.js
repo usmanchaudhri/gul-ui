@@ -108,6 +108,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 				/**
 				List of cchat
 				**/
+				
 				getChat: function() {
 					var deferred = $q.defer();
 					
@@ -127,7 +128,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 									'Content-Type': 'application/json'
 								}
 							}
-							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userData').id+'';
+							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat';
 							var anotherPromise = $http({
 									method: 'GET',
 									url: customerUrl,
@@ -136,7 +137,8 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 								console.log('Promise sdo resolved with ', dataa);
 							
 							
-							var	customerName = $cookies.get("userData").email;
+							var	customerName = JSON.parse($cookies.get("username")).username;
+								
 								console.log(dataa.data[0].customer);
 								var chatArr = dataa.data[0].customer.cchat;
 								for(var i = 0;i< chatArr.length;i++){
@@ -161,6 +163,77 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 						});
 				},
 				
+				
+				/*List of Conversation*/
+					getConversation: function(chatNames) {
+					var deferred = $q.defer();
+					
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'true'});
+					
+					return promise
+					.then(function(one) {
+							
+							console.log('Promise one resolved with ', one);
+							var anotherDeferred = $q.defer();
+							var cChatNames = [];
+							var config = {
+								headers : {
+									'Content-Type': 'application/json'
+								}
+							}
+							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat';
+							var anotherPromise = $http({
+									method: 'GET',
+									url: customerUrl,
+									cache: 'true'});
+							return anotherPromise.then(function(dataa) {
+								console.log('Promise sdo resolved with ', dataa);
+							
+							
+							var	customerName = JSON.parse($cookies.get("username")).username;
+								
+								console.log(dataa.data[0].customer);
+								var chatArr = dataa.data[0].customer.cchat;
+								var mChatName;
+								for(var i = 0;i< chatArr.length;i++){
+									var uName = chatArr[i].uniqueName.split("-");
+									if(uName[0] == chatNames || uName[1] == chatNames ){
+										mChatName = chatArr[i].uniqueName;
+									}
+								}
+								config = {
+					headers : {
+						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+					}
+				}
+				
+						return $http.get(
+
+					one.data.twilioChannel+'/'+mChatName,config
+				).then(function(data, status) {
+						console.log("SID",data);
+						var channelSid = data.data.entity.sid;
+				
+						//	addMembers();
+					return	$http.get(
+					one.data.twilioChannel+'/'+channelSid+'/Messages',config
+				).then(function(data, status) {
+						console.log("SSID",data);
+						return data;
+						
+				});
+						console.log(data.entity.sid);
+					
+					});
+								
+								
+							});
+						
+						});
+				},
 				/*List of Orders*/
 				getOrder: function(){
 					 var deferred = $q.defer();
