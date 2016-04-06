@@ -215,6 +215,7 @@ Compose Message
 **/
 			
 var composeMsg = function(){
+	console.log("mFrom: "+JSON.parse($cookies.get("username")).username);
 	var	mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 	var data1 = $.param({
 			Body : $scope.productDetail.name+","+$scope.msgBody,

@@ -1,7 +1,7 @@
  app.controller('modalCtrl',['$scope','$uibModalInstance','name', function($scope,$uibModalInstance,name) {
- 	$scope.send = function (shopid) {
+ 	$scope.send = function (msg) {
  		
-    $uibModalInstance.close(shopid);
+    $uibModalInstance.close(msg);
   };
 	
 	$scope.productDetailName = name;
