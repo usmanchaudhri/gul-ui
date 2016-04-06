@@ -2368,7 +2368,7 @@ select{
 	width:9%;
 	margin-top: 10px;
 }	
-}
+
 
 
 @media (max-width: 768px) {
@@ -2854,7 +2854,7 @@ select{
 .join-btn{
 	width: 80%;
     padding-top: 5px;
-    background-color: black !Important;
+    background-color: black;
     color: white;
     font-weight: 400;
     cursor: pointer;
