@@ -29,7 +29,7 @@
 	
 	
 			$scope.userLogout = function(){
-				if($cookies.get("username")!= null && $cookies.get("password")!= null){
+				if($cookies.get("username") != null && $cookies.get("password") != null){
 					$cookies.remove("username");
 					$cookies.remove("password");
 					
@@ -82,87 +82,22 @@
 			$scope.showSignupError = false;
 			
 			/*SignUp User*/
-			$scope.regHeroku = function(){
-				var config = {
-					headers : {
-						'Content-Type': 'application/json'
-					}
-				}
-				
-				var data = {
-					"username": $scope.regEmail,
-					"password": $scope.regPass
-				}
-				$http.post(
-					$scope.signupUrl,data,config
-				).success(function(data, status) {
-						console.log(data);
-						$scope.loginEmail = $scope.regEmail;
-						$scope.loginPass = $scope.regPass;
-						regUser($scope.regEmail);
-						$scope.siginInUser();
-						
-					}).error(function (data, status) {
-						$scope.showSignupError = true;
-						console.log("Registration Erro"+data);
-						console.log(status);
-					});
-				
-			}
+			
 			/*ENd of SignUp User*/
 			
 			
 			/*SignIn User*/
 			if($cookies.get("username") != null){
 				$scope.userFlag = true;	
-				console.log("User Logged in:"+$cookies.get("username"));
+				//console.log("User Logged in:"+J$cookies.get("username")).username);
 			}else{
 				$scope.userFlag = false;	
-				console.log("User Logged out:"+ $cookies.get("username"));
+		//		console.log("User Logged out:"+ JSON.parse($cookies.get("username")).username);
 			}
 			
 			$scope.showError = false;
 			
-			$scope.siginInUser = function(){
-				
-				var base64 = Base64.encode( $scope.loginEmail + ':' + $scope.loginPass );
-
-				var loginAuth =  base64;
-				var config = {
-					headers : {
-						'Content-Type': 'application/json',
-						'Authorization': 'Basic ' + loginAuth
-
-					}
-				}
-				
-				
-				$http.get(
-					$scope.loginUrl,config
-				).success(function(data, status) {
-							console.log("Data here",data);
-							if($cookies.get("username") != $scope.loginEmail){
-							$cookies.put("username",JSON.stringify(data));
-							$cookies.put("password",$scope.loginPass);
-							$cookies.put("userId",data.id);
-							console.log(data);
-							$scope.userFlag = true;	
-								
-							}else{
-								console.log($cookies.get("username")+"already exist!");
-								$scope.userFlag = false;
-							}
-							
-							console.log("Email when login"+$cookies.get("username"));
-							console.log("Flag variable"+$scope.userFlag);
-							
-					}).error(function (data, status) {
-						
-						$scope.showError = true;
-						console.log("Login Data"+data);
-						
-					});
-			}
+			
 			
 			/*End of SignIn User*/
 			
@@ -180,11 +115,12 @@
       
          })
         .result.then(
-        	function (loginUserData){
-				$scope.checkLogin(loginUserData);
- 			
-             
-			}
+        		function (userFlag){
+        			$scope.userFlag = userFlag;
+					
+}
+        		
+        		
         	
 		);
 		
@@ -193,7 +129,7 @@
 			/*End of Signin Modal*/
 			
 			
-			var regUser = function(user){
+			/*var regUser = function(user){
 				var data = $.param({
 						Identity : user
 					});
@@ -203,12 +139,12 @@
 				).success(function(data, status) {
 						$scope.data = data;
 						/*$cookies.put("userTwilio",data.sid);*/
-						$scope.dismiss();
-					}).error(function (data, status) {
+						
+					/*}).error(function (data, status) {
 						console.log(data);
-						$scope.dismiss();
+						
 					});
-			}
+			}*/
 			/*var loadCchat = function(){
 				$http.get($scope.customerUrl+"/"+$cookies.get("userData").id+"/cchat")
 				.then(function(response1){

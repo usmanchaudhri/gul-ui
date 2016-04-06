@@ -85,7 +85,7 @@ $('.lightbox_trigger').click(function(e) {
  $('.addtobag-btn').click(function(){
 	$('.single-cartproduct').css("display","block");
 	$('.single-cartproduct').css("color","black");
-	 $('.single-cartproduct').delay(3000).fadeOut();
+	 $('.single-cartproduct').delay(1000).fadeOut();
 	 
 });
 
@@ -288,6 +288,7 @@ $('.lightbox_trigger').click(function(e) {
 				<!-- Modal -->
 				
            <script type="text/ng-template" id="myModalContent.html">
+        <div class="card card-container" style="background-color:white;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h4 class="modal-title">{{productDetailName}}</h4>
@@ -297,6 +298,7 @@ $('.lightbox_trigger').click(function(e) {
         </div>
         <div class="modal-footer">
            <button type="button" class="btn btn-default" ng-click="send(msgBody)">Send</button>
+        </div>
         </div>
     </script>
          		
