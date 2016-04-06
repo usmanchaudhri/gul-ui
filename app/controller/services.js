@@ -139,7 +139,9 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							
 							var	customerName = JSON.parse($cookies.get("username")).username;
 								
-								console.log(dataa.data[0].customer);
+								if(dataa.data.length > 0){
+								console.log(dataa);
+									
 								var chatArr = dataa.data[0].customer.cchat;
 								for(var i = 0;i< chatArr.length;i++){
 									var uName = chatArr[i].uniqueName.split("-");
@@ -156,6 +158,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 									}
 									console.log(cName);
 									cChatNames.push(cName);
+								}
 								}
 								return cChatNames
 							});

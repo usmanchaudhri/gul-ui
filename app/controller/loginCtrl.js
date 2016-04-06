@@ -29,7 +29,7 @@
 	
 	
 			$scope.userLogout = function(){
-				if($cookies.get("username")!= null && $cookies.get("password")!= null){
+				if($cookies.get("username") != null && $cookies.get("password") != null){
 					$cookies.remove("username");
 					$cookies.remove("password");
 					
@@ -89,10 +89,11 @@
 			/*SignIn User*/
 			if($cookies.get("username") != null){
 				$scope.userFlag = true;	
-				console.log("User Logged in:"+$cookies.get("username"));
+
+				
 			}else{
 				$scope.userFlag = false;	
-				console.log("User Logged out:"+ $cookies.get("username"));
+	
 			}
 			
 			$scope.showError = false;

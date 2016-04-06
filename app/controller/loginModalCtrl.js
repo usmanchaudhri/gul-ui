@@ -1,6 +1,6 @@
  app.controller('loginModalCtrl',['$scope','$uibModalInstance','$http','Base64','$cookies', function($scope,$uibModalInstance,$http,Base64,$cookies) {
  	
- 	
+ 	$scope.signingin = true;
  	$http.get("gulgs.properties")
 			.then(function(response) {
 			
@@ -68,21 +68,21 @@
 				$http.get(
 					$scope.loginUrl,config
 				).success(function(data, status) {
-							console.log("Data here",data);
+						//	console.log("Data here",data);
 							if($cookies.get("username") != $scope.loginEmail){
 							$cookies.put("username",JSON.stringify(data));
 							$cookies.put("password",$scope.loginPass);
 							$cookies.put("userId",data.id);
-							console.log(data);
+						//	console.log(data);
 							 var userFlag = true;	
 							$uibModalInstance.close(userFlag);		
 							}else{
-								console.log($cookies.get("username")+"already exist!");
+						//		console.log($cookies.get("username")+"already exist!");
 								$scope.userFlag = false;
 							}
 							
-							console.log("Email when login"+$cookies.get("username"));
-							console.log("Flag variable"+$scope.userFlag);
+						//	console.log("Email when login"+$cookies.get("username"));
+					//		console.log("Flag variable"+$scope.userFlag);
 							
 					}).error(function (data, status) {
 						
@@ -117,7 +117,10 @@
 						$scope.loginEmail = $scope.regEmail;
 						$scope.loginPass = $scope.regPass;
 						regUser($scope.regEmail);
-						$scope.siginInUser();
+					$cookies.put("username",JSON.stringify(data));
+							$cookies.put("password",$scope.loginPass);
+							$cookies.put("userId",data.id);
+					//	$scope.siginInUser();
 						 var userFlag = true;	
 						$uibModalInstance.close(userFlag);	
 						

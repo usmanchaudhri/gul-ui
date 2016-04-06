@@ -185,8 +185,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					
 					});
 				$cookieStore.put("invoices",$scope.invoice.items);
-				$scope.items = $cookieStore.get("invoices",$scope.invoices);
+				$scope.items = $cookieStore.get("invoices");
+					
 				$scope.currentItem = $scope.items[$scope.items.length - 1];
+			
 				console.log("product price",$scope.currentItem.cost);
 				console.log("Add Product "+$scope.items.length);
 				$scope.abc = $scope.items.length;
@@ -236,7 +238,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 								"currency":"USD",
 								"details":{
 									"subtotal":$scope.totalPrice,
-									"tax":"0.50",
+									"tax":"0.00",
 									"shipping":"0.00"
 								}
 							},
