@@ -61,6 +61,7 @@ CREATE CHANNEL
 **/
 			
 var createChannel = function(){
+	console.log(JSON.parse($cookies.get("username")).username);
 	$scope.shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
 	console.log("Create Channel: "+ $scope.shopName);
 	var data1 = $.param({

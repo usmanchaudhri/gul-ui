@@ -41,7 +41,7 @@ var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$c
 					}
 				}
 		
-				var	mFrom = $cookieStore.get("username").replace(/ /g, '');
+				var	mFrom = JSON.parse($cookieStore.get("username")).username.replace(/ /g, '');
 				var data1 = $.param({
 						Body : $scope.msgBody,
 						From : mFrom
