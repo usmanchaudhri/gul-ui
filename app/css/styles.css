@@ -2856,8 +2856,8 @@ select{
     cursor: pointer;
 }
 
-.modal-content{
-    background: white;
+.custom-modal{
+    background: transparent;
     box-shadow: none;
     border: none;	
 }
