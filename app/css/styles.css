@@ -158,7 +158,7 @@ h2 span {
 color:black !important;
 }
 
-.home-menu:hover .signin-label a{
+.home-menu:hover .signin-label span{
 	color: black !important;
 }
 
@@ -190,6 +190,10 @@ color:black !important;
 }
 
 .navbar.scroll .cart-label {
+	color: black !important;
+}
+
+.navbar.scroll .signin-label {
 	color: black !important;
 }
 
@@ -2098,7 +2102,7 @@ select{
 }
 
 #acc-dropdown{
-	width: 358px !important;
+	width: 359px !important;
 	padding:5px;
 	padding-top: 15px;
 	
@@ -2598,7 +2602,7 @@ select{
 	color: white !important;
 }
 
-.header-main-nav .signin-label a{
+.header-main-nav .signin-label span{
 	color: black !important;
 }
 
@@ -2856,8 +2860,12 @@ select{
     cursor: pointer;
 }
 
-.custom-modal{
+.modal-content{
     background: transparent;
     box-shadow: none;
     border: none;	
+}
+
+.join-gulgs, .already-member{
+	width: 75% !important;
 }

@@ -168,10 +168,10 @@
 							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
 							
 							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-												</div>	
+							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+							</div>	
 							
 							
 											
@@ -199,30 +199,30 @@
 							
 							
 							<div class="modal-body" ng-if="!signingin">
-								<form class="form-signin">
-													<span id="reauth-email" class="reauth-email"></span>
-													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Email Adress</label>
-														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-													</div>
-													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Password</label>
-														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-													</div>
+							<form class="form-signin">
+							<span id="reauth-email" class="reauth-email"></span>
+							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Email Adress</label>
+							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							</div>
+							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Password</label>
+							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+							</div>
 											
 
-													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 										
-												</form>
+							</form>
 							</div>
 							
 							
 							
 							</div>
-							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
+							<div ng-if="signingin" class="col-sm-12 text-center join-gulgs"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
 							
-							<div ng-if="!signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
+							<div ng-if="!signingin" class="col-sm-12 text-center already-member"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
 							
 						</script>
 					</div>
@@ -308,7 +308,7 @@
 														</li>
 													</ul>
 												</div>
-						<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
+												<span ng-show="!userFlag" ng-click="signin()" style="color: black;"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
 												<div class="main-nav" ng-show="userFlag == true">
 													<ul class="nav account-navbar">
 														<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
@@ -362,10 +362,10 @@
 							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
 							
 							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-												</div>	
+							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+							</div>	
 							
 							
 											
@@ -393,22 +393,22 @@
 							
 							
 							<div class="modal-body" ng-if="!signingin">
-								<form class="form-signin">
-													<span id="reauth-email" class="reauth-email"></span>
-													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Email Adress</label>
-														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-													</div>
-													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Password</label>
-														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-													</div>
+							<form class="form-signin">
+							<span id="reauth-email" class="reauth-email"></span>
+							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Email Adress</label>
+							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							</div>
+							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Password</label>
+							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+							</div>
 											
 
-													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 										
-												</form>
+							</form>
 							</div>
 							
 							
@@ -499,7 +499,7 @@
 														</li>
 													</ul>
 												</div>
-												<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
+												<span ng-show="!userFlag" ng-click="signin()" style="color: black;"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
 												<div class="main-nav" ng-show="userFlag == true">
 													<ul class="nav account-navbar">
 														<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
@@ -553,10 +553,10 @@
 							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
 							
 							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-													<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-													<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-													<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-												</div>	
+							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
+							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
+							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
+							</div>	
 							
 							
 											
@@ -584,22 +584,22 @@
 							
 							
 							<div class="modal-body" ng-if="!signingin">
-								<form class="form-signin">
-													<span id="reauth-email" class="reauth-email"></span>
-													<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Email Adress</label>
-														<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
-													</div>
-													<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-														<label style="font-size: 13px;color: gray;">Password</label>
-														<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-													</div>
+							<form class="form-signin">
+							<span id="reauth-email" class="reauth-email"></span>
+							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Email Adress</label>
+							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							</div>
+							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
+							<label style="font-size: 13px;color: gray;">Password</label>
+							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
+							</div>
 											
 
-													<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-													<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
+							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
+							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="regHeroku(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 										
-												</form>
+							</form>
 							</div>
 							
 							
