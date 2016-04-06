@@ -33,7 +33,11 @@
 	<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
 		<div class="wrapper" >
 			<!--Navigation Bar-->
-			<div ng-controller="loginCtrl">
+			
+			
+			<div ng-controller="BreadcrumbCtrl" >
+				<div ng-if="breadcrumbs.get().length == 1"  >
+					<div ng-controller="loginCtrl">
 				<nav class="navbar home-menu">
 					<div class="container-fluid" >
 						<div class="row">
@@ -154,9 +158,6 @@
 					</div>
 				</nav>
 			</div>
-			
-			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length == 1"  >
 					<div ng-controller="loginCtrl">
 						<script type="text/ng-template" id="loginModal.html">
 							<div class="card card-container" style="width: 445px;height: 515px;">

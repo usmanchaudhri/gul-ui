@@ -87,12 +87,12 @@
 			
 			
 			/*SignIn User*/
-			if(JSON.parse($cookies.get("username")).username != null){
+			if($cookies.get("username") != null){
 				$scope.userFlag = true;	
-				console.log("User Logged in:"+JSON.parse($cookies.get("username")).username);
+				console.log("User Logged in:"+$cookies.get("username"));
 			}else{
 				$scope.userFlag = false;	
-				console.log("User Logged out:"+ JSON.parse($cookies.get("username")).username);
+				console.log("User Logged out:"+ $cookies.get("username"));
 			}
 			
 			$scope.showError = false;
@@ -117,8 +117,12 @@
         .result.then(
         		function (userFlag){
         			$scope.userFlag = userFlag;
-					
-}
+					/*if(getData.status == "login"){
+						$scope.checkLogin(getData);		
+					}else{
+						$scope.regHeroku(getData);
+					}*/
+				}
         		
         		
         	
