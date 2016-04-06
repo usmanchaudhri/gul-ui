@@ -89,7 +89,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					label:'CHAT',
 					resolve: {
 						conList: function(gulServices,$route) {
-							return gulServices.getConversation($route.current.params.chatName);
+							if($cookies.get("username") != null){
+								return gulServices.getConversation($route.current.params.chatName);
+							
+							}else{
+								$location.path("#/");
+							}
+							
+							
 							
 						}
 					}
@@ -98,8 +105,14 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					controller: 'chatCtrl',
 					label:'ALL CHATS',
 					resolve: {
-						chatList: function(gulServices) {
-							return gulServices.getChat();
+						chatList: function(gulServices,$cookies,$location) {
+							if($cookies.get("username") != null){
+								return gulServices.getChat();
+							
+							}else{
+								$location.path("#/");
+							}
+							
 							
 						}
 					}
@@ -128,8 +141,13 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					controller: 'orderCtrl',
 					label:'ORDER',
 					resolve: {
-						orderList: function(gulServices) {
-							return gulServices.getOrder();
+						orderList: function(gulServices,$cookies,$location) {
+							if($cookies.get("username") != null){
+								return gulServices.getOrder();
+							}else{
+								$location.path("#/");
+							}
+							
 							
 						}
 					}
@@ -138,8 +156,13 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					controller: 'orderCtrl',
 					label:'MY ACCOUNT',
 					resolve: {
-						orderList: function(gulServices) {
-							return gulServices.getOrder();
+						orderList: function(gulServices,$cookies,$location) {
+							if($cookies.get("username") != null){
+								return gulServices.getOrder();
+							}else{
+								$location.path("#/");
+							}
+							
 							
 						}
 					}

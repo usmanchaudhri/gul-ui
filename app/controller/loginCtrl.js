@@ -35,6 +35,7 @@
 					
 					$scope.userFlag = false;
 					
+					$location.path("#/");
 					console.log("user Logged out!"+$cookies.get("username"));
 				}else{
 					$scope.userFlag = true;
