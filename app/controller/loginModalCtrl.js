@@ -27,14 +27,21 @@
 
 
 	$scope.checkLogin = function (loginEmail,loginPass) {
-		$scope.siginInUser(loginEmail,loginPass);
-		console.log("Modal EMail"+loginEmail+loginPass);
+		if(loginEmail != null && loginPass != null){
+			$scope.siginInUser(loginEmail,loginPass);
+		console.log("Modal EMail"+loginEmail+loginPass);	
+		}
+		
 		
  		
   };
 	
 	$scope.registerUser = function(regEmail,regPass){
-		$scope.regHeroku(regEmail,regPass);
+			if(regEmail != null && regPass != null){
+			$scope.regHeroku(regEmail,regPass);
+		console.log("Modal EMail"+regEmail+regPass);	
+		}
+		
 		
  		
 	

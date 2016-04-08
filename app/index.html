@@ -180,7 +180,7 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="regEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>
@@ -199,12 +199,13 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="loginEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>
 							<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
 											
 
@@ -372,12 +373,13 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="loginEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>
 							<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
 											
 
@@ -394,7 +396,7 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="regEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>
@@ -561,12 +563,13 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="loginEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="loginEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>
 							<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
+							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
 											
 
@@ -583,7 +586,7 @@
 							<span id="reauth-email" class="reauth-email"></span>
 							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="text" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" required autofocus ng-model="regEmail"/>
+							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="regEmail"/>
 							</div>
 							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
 							<label style="font-size: 13px;color: gray;">Password</label>

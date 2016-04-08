@@ -81,7 +81,7 @@
 			}
 			
 			$scope.showSignupError = false;
-			
+			$scope.showEmptyFieldError = false;
 			/*SignUp User*/
 			
 			/*ENd of SignUp User*/
