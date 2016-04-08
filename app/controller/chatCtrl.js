@@ -1,4 +1,4 @@
-
+ 
 var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies','$q','$routeParams','$timeout','chatList',function($scope,$http, Base64,$cookies,$q,$routeParams,$timeout,chatList) {
 		
 			console.log("Checikkkkkkkk");
