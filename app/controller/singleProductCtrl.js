@@ -61,17 +61,15 @@ CREATE CHANNEL
 **/
 			
 var createChannel = function(){
-	console.log(JSON.parse($cookies.get("username")).username);
-	$scope.shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
-	console.log("Create Channel: "+ $scope.shopName);
 	var data1 = $.param({
-			UniqueName : $scope.shopName,
+			FriendlyName: $scope.productDetail.name,
 			Type: 'private'
 		});	
+		console.log("Product Name : "+$scope.productDetail.name);
 	$http.post(
 		$scope.twilioChannel,  data1,config
 	).success(function(data, status) {
-			console.log(data);
+			console.log("create channel",data);
 			if(data == ''){
 				retrieveChannel();
 			}else{
@@ -133,7 +131,9 @@ Add Members
 **/
 	
 var addMembers = function(){
+	console.log("cookie username",JSON.parse($cookies.get("username")));
 	var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+	
 	var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 	var data2 = $.param({
 			Identity : mDesigner
