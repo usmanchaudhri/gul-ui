@@ -1,4 +1,4 @@
-app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookies','productDetail','$uibModal', function($scope,$http,$q,$timeout,$location,$routeParams,$cookies,productDetail,$uibModal) {
+app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$routeParams','$cookies','productDetail','$uibModal','Base64', function($scope,$http,$q,$timeout,$location,$routeParams,$cookies,productDetail,$uibModal,Base64) {
    
 
 var config = {
@@ -75,6 +75,7 @@ var createChannel = function(){
 			}else{
 				$scope.data = data;
 				$scope.channelSid = data.sid;
+				$scope.channelFriendlyName = data.friendly_name;
 							
 				addMembers();
 					
@@ -107,6 +108,7 @@ var retrieveChannel = function(){
 	).success(function(data, status) {
 					
 			$scope.channelSid = data.entity.sid;
+			
 			var flag = true;
 			for(var i = 0; i < cChatNames.length ; i++){
 				if($scope.shopCustomer.username == cChatNames[i].name){
@@ -189,23 +191,8 @@ Send Message
 		
 $scope.sendMessage = function(shopID){
 	console.log("Send msg called");
-	$scope.shopID = shopID;
-	var flag = true;
-	for(var i = 0; i < cChatNames.length ; i++){
-					
-		if($scope.shopCustomer.username == cChatNames[i].name){
-			console.log();
-			flag = false;
-		}
-	}
-	console.log(flag);
-	if(flag){
+	
 		createChannel();
-	}else{
-		retrieveChannel();
-	}
-				
-				
 				
 }
 			
@@ -242,21 +229,26 @@ var updateCustomer = function(){
 	var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 	var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 	console.log("MNAME: "+mName);
-	var data1 = {"cchat": [
-			{"uniqueName":  mName +"-"+ mDesigner}
-		]};
+	var data1 = {
+				"uniqueName":  $scope.channelSid,
+				"customerUsername": $scope.channelFriendlyName,
+				"shopOwnerUsername": mDesigner
+			};
+				
+				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password"));
+				var loginAuth =  base64;
 				
 	var promise1 = $http({
-			method: 'PUT',
-			url: $scope.customerUrl+'/'+$scope.shopCustomer.id,
+			method: 'POST',
+			url: $scope.customerUrl+'/'+$scope.shopCustomer.id+'/cchat',
 			data: data1,
 			headers : {
 				'Content-Type': 'application/json'
 			},
 			cache: 'false'});
 	var promise2 = $http({
-			method: 'PUT',
-			url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id,
+			method: 'POST',
+			url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',
 			data: data1,
 			headers : {
 				'Content-Type': 'application/json'

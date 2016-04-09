@@ -88,7 +88,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					controller: 'conversationCtrl',
 					label:'CHAT',
 					resolve: {
-						conList: function(gulServices,$route) {
+						conList: function(gulServices,$route,$cookies) {
 							if($cookies.get("username") != null){
 								return gulServices.getConversation($route.current.params.chatName);
 							

@@ -112,12 +112,9 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 				getChat: function() {
 					var deferred = $q.defer();
 					
-					var promise = $http({
-							method: 'GET',
-							url: 'gulgs.properties',
-							cache: 'true'});
 					
-					return promise
+					
+					return $http.get('gulgs.properties')
 					.then(function(one) {
 							
 							console.log('Promise one resolved with ', one);
@@ -128,53 +125,54 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 									'Content-Type': 'application/json'
 								}
 							}
-							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat';
-							var anotherPromise = $http({
-									method: 'GET',
-									url: customerUrl,
-									cache: 'true'});
-							return anotherPromise.then(function(dataa) {
-								console.log('Promise sdo resolved with ', dataa);
+							
+							//$http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat',)
+							return $http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat').then(function(dataa) {
+									console.log('Promise sdo resolved with ', dataa);
 							
 							
-							var	customerName = JSON.parse($cookies.get("username")).username;
+									var	customerName = JSON.parse($cookies.get("username")).username;
 								
-								if(dataa.data.length > 0){
-								console.log(dataa);
+									if(dataa.data.length > 0){
+										console.log(dataa);
 									
-								var chatArr = dataa.data[0].customer.cchat;
-								for(var i = 0;i< chatArr.length;i++){
-									var uName = chatArr[i].uniqueName.split("-");
-									if(uName[0] == customerName){
-										var cName = {
+										var chatArr = dataa.data[0].customer.cchat;
+										for(var i = 0;i< chatArr.length;i++){
+											//	var uName = chatArr[i].customerUsername.split("-");
+											/*if(uName[0] == customerName){
+											var cName = {
 											"name": uName[1]
-										}
-										console.log("CCHAT NAME:" +cName );
-									}else{
-										var cName = {
+											}
+											console.log("CCHAT NAME:" +cName );
+											}else{
+											var cName = {
 											"name": uName[0]
+											}
+											console.log("CCHAT NAME:" +cName );
+											}*/
+											var cName = {
+												"uniqueName": chatArr[i].uniqueName,
+												"product": chatArr[i].customerUsername,
+												"designer": chatArr[i].shopOwnerUsername
+											}
+											cChatNames.push(cName);
 										}
-										console.log("CCHAT NAME:" +cName );
 									}
-									console.log(cName);
-									cChatNames.push(cName);
-								}
-								}
-								return cChatNames
-							});
+									return cChatNames
+								});
 						
 						});
 				},
 				
 				
 				/*List of Conversation*/
-					getConversation: function(chatNames) {
+				getConversation: function(chatNames) {
 					var deferred = $q.defer();
 					
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
-							cache: 'true'});
+							cache: 'false'});
 					
 					return promise
 					.then(function(one) {
@@ -187,92 +185,52 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 									'Content-Type': 'application/json'
 								}
 							}
-							var customerUrl = one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat';
-							var anotherPromise = $http({
-									method: 'GET',
-									url: customerUrl,
-									cache: 'true'});
-							return anotherPromise.then(function(dataa) {
-								console.log('Promise sdo resolved with ', dataa);
-							
-							
-							var	customerName = JSON.parse($cookies.get("username")).username;
-								
-								console.log(dataa.data[0].customer);
-								var chatArr = dataa.data[0].customer.cchat;
-								var mChatName;
-								for(var i = 0;i< chatArr.length;i++){
-									var uName = chatArr[i].uniqueName.split("-");
-									if(uName[0] == chatNames || uName[1] == chatNames ){
-										mChatName = chatArr[i].uniqueName;
-									}
-								}
-								config = {
-					headers : {
-						'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-					}
-				}
-				
-						return $http.get(
-
-					one.data.twilioChannel+'/'+mChatName,config
-				).then(function(data, status) {
-						console.log("SID",data);
-						var channelSid = data.data.entity.sid;
-				
-						//	addMembers();
-					return	$http.get(
-					one.data.twilioChannel+'/'+channelSid+'/Messages',config
-				).then(function(data, status) {
-						console.log("SSID",data);
-						return data;
+											return	$http.get(
+												one.data.twilioChannel+'/'+chatNames+'/Messages',config
+											).then(function(data, status) {
+													console.log("SSID",data);
+													return data;
 						
-				});
-						console.log(data.entity.sid);
-					
-					});
-								
-								
-							});
-						
+												});
+										
 						});
 				},
 				/*List of Orders*/
 				getOrder: function(){
-					 var deferred = $q.defer();
+					var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
-							cache: 'true'});
+							cache: 'false'});
 					return promise
 					.then(function(response) {
-					var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
+							var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
 
-				var loginAuth =  base64;
-				var config = {
-					headers : {
-						'Content-Type': 'application/json',
-						'Authorization': 'Basic ' + loginAuth
-					}
-				}
+							var loginAuth =  base64;
+							var config = {
+								headers : {
+									'Content-Type': 'application/json',
+									'Authorization': 'Basic ' + loginAuth
+								}
+							}
 						
-					return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/orders" , config)
-					.then(function(response1){
-						/*$scope.showProgress = true;*/
-						console.log("Services Response",response1);
+							return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/orders" , config)
+							.then(function(response1){
+									/*$scope.showProgress = true;*/
+									console.log("Services Response",response1);
 				  
 					
 						
-						value = {
+									value = {
 							
-							orderDetail: response1.data,
+										orderDetail: response1.data,
 							
-						};
+									};
 						
-						return value;
+									return value;
 							
 				
-						});
+								});
 						
 						
 						
@@ -282,8 +240,8 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 				/**
 				Get ALL SHOPS
 				**/
- 				getallShops: function() {
-    var deferred = $q.defer();
+				getallShops: function() {
+					var deferred = $q.defer();
 					
 					var promise = $http({
 							method: 'GET',
@@ -292,40 +250,40 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					
 					return promise
 					.then(function(response) {
-						var mFixPath = response.data.fixImagePath;
-						var	mToken = response.data.token;
-						//deferred.resolve();
+							var mFixPath = response.data.fixImagePath;
+							var	mToken = response.data.token;
+							//deferred.resolve();
 						
-						var anotherPromise = $http({
+							var anotherPromise = $http({
 									method: 'GET',
 									url: response.data.shopUrl,
 									cache: 'true'});
 									
-					return anotherPromise
-					.then(function(response1){
-						//
-					 value = {
-							allShopDetail: response1.data,
-							fixPath:mFixPath,
-							token:mToken
-						};
-						console.log(value);	
-						return value;
-							//return allShopDetail = response1.data;
-						});	
+							return anotherPromise
+							.then(function(response1){
+									//
+									value = {
+										allShopDetail: response1.data,
+										fixPath:mFixPath,
+										token:mToken
+									};
+									console.log(value);	
+									return value;
+									//return allShopDetail = response1.data;
+								});	
 				
 						
 						
 						});
     
     
-     },
+				},
 
 				/**
 				GET SPECIFIC SHOP
 				**/
 				getShop: function(shop_id) {
-    var deferred = $q.defer();
+					var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
@@ -333,165 +291,165 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					console.log("PARAMS",shop_id);
 					return promise
 					.then(function(response) {
-						var mFixPath = response.data.fixImagePath;
-						var	mToken = response.data.token;
-						//deferred.resolve();
-						var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
-				var promise2 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/designers', cache: 'true'});
+							var mFixPath = response.data.fixImagePath;
+							var	mToken = response.data.token;
+							//deferred.resolve();
+							var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
+							var promise2 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/designers', cache: 'true'});
 				
-			return	$q.all([promise1, promise2]).then(function(data){
+							return	$q.all([promise1, promise2]).then(function(data){
 					
-					value = {
-							fixPath:mFixPath,
-							token:mToken,
-							shop: data[0].data,
-						designer:data[1].data
-						};
-						return value;
-					});
+									value = {
+										fixPath:mFixPath,
+										token:mToken,
+										shop: data[0].data,
+										designer:data[1].data
+									};
+									return value;
+								});
 						
 						
 						
 						});
     
     
-     },
+				},
 
 				/**
 				GET PRODUCT DETAIL
 				**/
 				getProductDetail: function(pro_id) {
-  				  var deferred = $q.defer();
+					var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
 							cache: 'true'});
 					return promise
 					.then(function(response) {
-						var mFixPath = response.data.fixImagePath;
-						var	mToken = response.data.token;
-						//deferred.resolve();
-					return	$http.get(response.data.productUrl + '/' + pro_id)
-					.then(function(response1){
-						value = {
-							urls:response.data,
-							fixPath:mFixPath,
-							token:mToken,
-							productDetail: response1.data,
-							selectedItem: response1.data.productVariation[0].size
-						};
-						console.log("PRoduct Detail: ",value);
-						return value;
+							var mFixPath = response.data.fixImagePath;
+							var	mToken = response.data.token;
+							//deferred.resolve();
+							return	$http.get(response.data.productUrl + '/' + pro_id)
+							.then(function(response1){
+									value = {
+										urls:response.data,
+										fixPath:mFixPath,
+										token:mToken,
+										productDetail: response1.data,
+										selectedItem: response1.data.productVariation[0].size
+									};
+									console.log("PRoduct Detail: ",value);
+									return value;
 							
 				
-						});
+								});
 						
 						
 						
 						});
     
     
-     },
+				},
      
 				getCategory: function(cat_id) {
-  				  var deferred = $q.defer();
+					var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
 							cache: 'true'});
 					return promise
 					.then(function(response) {
-						var mFixPath = response.data.fixImagePath;
-						var	mToken = response.data.token;
-						//deferred.resolve();
-					return	$http.get(response.data.categoryUrl + '/' + cat_id)
-				.then(function(response1){
-					value = {
-							urls:response.data,
-							fixPath:mFixPath,
-							token:mToken,
-							categoryLength: response1.data.subCategories.length,
-							categoryDetail: response1.data
-						};
-						return value;
-						});
+							var mFixPath = response.data.fixImagePath;
+							var	mToken = response.data.token;
+							//deferred.resolve();
+							return	$http.get(response.data.categoryUrl + '/' + cat_id)
+							.then(function(response1){
+									value = {
+										urls:response.data,
+										fixPath:mFixPath,
+										token:mToken,
+										categoryLength: response1.data.subCategories.length,
+										categoryDetail: response1.data
+									};
+									return value;
+								});
 						
 						
 						
 						});
     
     
-     },
+				},
   			   
-  			   	getCategoryProduct: function(cat_id) {
-  				  var deferred = $q.defer();
+				getCategoryProduct: function(cat_id) {
+					var deferred = $q.defer();
 					var promise = $http({
 							method: 'GET',
 							url: 'gulgs.properties',
 							cache: 'true'});
 					return promise
 					.then(function(response) {
-						var mFixPath = response.data.fixImagePath;
-						var	mToken = response.data.token;
-						//deferred.resolve();
-					return	$http.get(response.data.categoryUrl + '/' + cat_id + '/products')
-					.then(function(response1){
-						var categoryIDs = [];
-						categoryProDetail = [];
-							var data = response1.data.products;
-							var dataLength = data.length;
-							for(var i=0;i<dataLength;i++){
-								var shopName = '';
-								if(angular.isObject(data[i].shop)){
-									shopName = data[i].shop.name;
-								var value = {
-									"id": data[i].shop.id,
-									"name": data[i].shop.name
-								};
-								categoryIDs.push(value);
-								}else{
-									shopName = data[i].shop;
+							var mFixPath = response.data.fixImagePath;
+							var	mToken = response.data.token;
+							//deferred.resolve();
+							return	$http.get(response.data.categoryUrl + '/' + cat_id + '/products')
+							.then(function(response1){
+									var categoryIDs = [];
+									categoryProDetail = [];
+									var data = response1.data.products;
+									var dataLength = data.length;
+									for(var i=0;i<dataLength;i++){
+										var shopName = '';
+										if(angular.isObject(data[i].shop)){
+											shopName = data[i].shop.name;
+											var value = {
+												"id": data[i].shop.id,
+												"name": data[i].shop.name
+											};
+											categoryIDs.push(value);
+										}else{
+											shopName = data[i].shop;
 								
-								}
-								var value = {
-									"name": data[i].name,
-									"id": data[i].id,
-									"shortDesc": data[i].shortDesc,
-									"longDesc": data[i].longDesc,
-									"quantity": data[i].quantity,
-									"pricingProduct": data[i].pricingProduct,
-									"category": {
-										"id": data[i].category.id,
-										"code": data[i].category.code,
-										"name": data[i].category.name,
-										"createdOn": data[i].category.createdOn,
-									},
-									"shop": shopName,
-									"productVariation": data[i].productVariation,
-									"attributeDefinitions": data[i].attributeDefinitions,
-									"imageInfo": data[i].imageInfo,
-									"createdOn": data[i].createdOn
-								};
-								categoryProDetail.push(value);
-								data = data[i].category.products;
-							}
-							value = {
-							urls:response.data,
-							fixPath:mFixPath,
-							token:mToken,
-							categoryProDetail: categoryProDetail,
-							categoryIDs: categoryIDs
-						};
-						return value;
+										}
+										var value = {
+											"name": data[i].name,
+											"id": data[i].id,
+											"shortDesc": data[i].shortDesc,
+											"longDesc": data[i].longDesc,
+											"quantity": data[i].quantity,
+											"pricingProduct": data[i].pricingProduct,
+											"category": {
+												"id": data[i].category.id,
+												"code": data[i].category.code,
+												"name": data[i].category.name,
+												"createdOn": data[i].category.createdOn,
+											},
+											"shop": shopName,
+											"productVariation": data[i].productVariation,
+											"attributeDefinitions": data[i].attributeDefinitions,
+											"imageInfo": data[i].imageInfo,
+											"createdOn": data[i].createdOn
+										};
+										categoryProDetail.push(value);
+										data = data[i].category.products;
+									}
+									value = {
+										urls:response.data,
+										fixPath:mFixPath,
+										token:mToken,
+										categoryProDetail: categoryProDetail,
+										categoryIDs: categoryIDs
+									};
+									return value;
 							
-						});
+								});
 						
 						
 						
 						});
     
     
-     }
+				}
      
 
 			}
@@ -502,34 +460,34 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 
 
 /*app.factory('gulHomeService', ['$http','$q', function($http,$q) {
-  var sdo = {
-    getMenu: function() {
-    var deferred = $q.defer();
+var sdo = {
+getMenu: function() {
+var deferred = $q.defer();
 					
-					var promise = $http({
-							method: 'GET',
-							url: 'gulgs.properties',
-							cache: 'true'});
+var promise = $http({
+method: 'GET',
+url: 'gulgs.properties',
+cache: 'true'});
 					
-					return promise
-					.then(function(response) {
+return promise
+.then(function(response) {
 							
-				var promise1 = $http({method: 'GET', url: response.data.categoryUrl, cache: 'true'});
-				var promise2 = $http({method: 'GET', url: response.data.shopUrl, cache: 'true'});
-				return $q.all([promise1, promise2]).then(function(data){
+var promise1 = $http({method: 'GET', url: response.data.categoryUrl, cache: 'true'});
+var promise2 = $http({method: 'GET', url: response.data.shopUrl, cache: 'true'});
+return $q.all([promise1, promise2]).then(function(data){
 						
-						var value = {cat: data[0].data,
-									shop: data[1].data};
-						return value;
+var value = {cat: data[0].data,
+shop: data[1].data};
+return value;
 						
-					});
+});
 						
 						
-						});
+});
     
     
-     }
-  }
-  return sdo;
+}
+}
+return sdo;
 }]);
 */
