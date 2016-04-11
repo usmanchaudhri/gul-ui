@@ -2869,3 +2869,12 @@ select{
 .join-gulgs, .already-member{
 	width: 75% !important;
 }
+
+.bootstrap-touchspin-up{
+	margin-left: 14px !important;
+	font-size: 15px;
+}
+
+.bootstrap-touchspin-down{
+	font-size: 15px;
+}
