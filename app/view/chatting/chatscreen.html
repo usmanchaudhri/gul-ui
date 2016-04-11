@@ -23,7 +23,7 @@
 						<div class="panel-body chat-box-main" >
                         
                         <span  ng-repeat="x in retMsg">
-							<div class="chat-box-left" ng-if="x.from != mFrom">
+							<div class="chat-box-left" ng-if="x.from != sender">
 								<div class="chat-box-name-left">
 								<div class="row">
 									<div class="col-sm-12 clickme">
@@ -47,7 +47,7 @@
 								
 								</div>
 							</div>
-							<div class="chat-box-left" ng-if="x.from == mFrom">
+							<div class="chat-box-left" ng-if="x.from == sender">
 								<div class="chat-box-name-left">
 								<div class="row">
 									<div class="col-sm-12 clickme">
