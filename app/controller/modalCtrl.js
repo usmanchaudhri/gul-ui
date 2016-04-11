@@ -1,6 +1,5 @@
  app.controller('modalCtrl',['$scope','$uibModalInstance','name', function($scope,$uibModalInstance,name) {
  	$scope.send = function (msg) {
- 		
     $uibModalInstance.close(msg);
   };
 	

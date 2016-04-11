@@ -17,8 +17,8 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div class=" col-lg-12 col-md-12 col-sm-12" style="border-left: 1px solid rgba(128, 128, 128, 0.18);margin-left: 0px;border-top: 1px solid rgba(128, 128, 128, 0.18);margin-bottom:5%;padding-right: 0px;">
-					<h1 class="text-center">Conversation Title</h1>
-	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;text-align: center;color:gray;">Between <label>Amjad</label> and <label>Hunzala</label> from designer</p>
+					<h1 class="text-center">{{msgTitle.customerUsername}}</h1>
+	<p  style="font-size: 12px;padding: 10px;padding-left: 0px;text-align: center;color:gray;">Between <label>{{msgTitle.customer}}</label> and <label>{{msgTitle.designer}}</label></p>
 					<div class="chat-box-div">
 						<div class="panel-body chat-box-main" >
                         
@@ -77,7 +77,7 @@
 									</div>
 									<div class="col-sm-1" style="width: auto;padding: 0px;margin-top: 10px;"><img src="images/arrow-left.jpg" /></div>
 									<div class="col-sm-10 chatscreen-conversation">
-									 <div class="col-sm-1" style="color: gray;padding-left: 0px;">amjad:</div>
+									 <div class="col-sm-1" style="color: gray;padding-left: 0px;">{{sender}}:</div>
 									 <div class="chat-box-footer col-sm-11">
 							<div class="input-group send-input" style="width: 100%;">
 								<textarea ng-model="$parent.msgBody"  placeholder="Enter Text Here..." style="border:none; width: 100%;height: 165px;font-size: 12px;padding: 10px;overflow: scroll;" ></textarea>

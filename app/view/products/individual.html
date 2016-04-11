@@ -242,13 +242,18 @@ $('.lightbox_trigger').click(function(e) {
 						</div>
 					</div>
 				</div>
+        <script>
+            $("input[name='demo3_21']").TouchSpin({
+                initval: 40
+            });
+        </script>
           
 				<div class="row" id="margi" style="margin-bottom: 50px;">
 					<div class="col-sm-12">
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="0" min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -297,6 +302,7 @@ $('.lightbox_trigger').click(function(e) {
             <textarea ng-model="msgBody" style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Something in Textarea!</textarea>
         </div>
         <div class="modal-footer">
+        
            <button type="button" class="btn btn-default" ng-click="send(msgBody)">Send</button>
         </div>
         </div>

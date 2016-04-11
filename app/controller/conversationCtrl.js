@@ -4,7 +4,9 @@ var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$c
 			console.log("Checikkkkkkkk");
 			//$scope.chatNames = chatList;
 			$scope.chat_name = $routeParams.chatName;
-			$scope.retMsg = conList.data;
+			console.log("Converation CTRL: ",conList);
+			$scope.retMsg = conList.chatData;
+			$scope.msgTitle = conList.cchat;
 			console.log("RET MSG:",$scope.retMsg);
 			var config = {
 				headers : {
@@ -12,6 +14,8 @@ var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$c
 				}
 			};
 			$scope.mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+			var mSender = JSON.parse($cookies.get("username")).username.split('@');
+			$scope.sender = mSender[0];
 			$http.get('gulgs.properties')
 			.then(function(one) {
 					console.log(one);
@@ -46,7 +50,7 @@ var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$c
 					}
 				}
 		
-				
+			//	var mUsername = $scope.mFrom.split('@');
 				var data1 = $.param({
 						Body : $scope.msgBody,
 						From : $scope.mFrom
@@ -75,8 +79,21 @@ var chatCtrl = app.controller('conversationCtrl',['$scope','$http', 'Base64','$c
 		
 				$http.get(
 					$scope.twilioChannel+'/'+$scope.chat_name+'/Messages',config
-				).success(function(data, status) {
-						$scope.retMsg = data;
+							 ).success(function(data, status) {
+							 	console.log("RET MESSAGE: " , data);
+					var chatData = [];
+													
+													for(var i = 0;i<data.length ; i++){
+														
+														var from = data[i].from.split('@');
+														var value = {
+															"from": from[0],
+															"body":	data[i].body
+														}
+														chatData.push(value);
+														
+													}
+						$scope.retMsg = chatData;
 						console.log(data);
 				
 					}).error(function (data, status) {

@@ -133,7 +133,7 @@ Add Members
 **/
 	
 var addMembers = function(){
-	console.log("cookie username",JSON.parse($cookies.get("username")));
+	console.log("cookie username",$scope.shopCustomer);
 	var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 	
 	var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
@@ -189,9 +189,8 @@ var addMembers = function(){
 Send Message
 **/
 		
-$scope.sendMessage = function(shopID){
-	console.log("Send msg called");
-	
+$scope.sendMessage = function(msg){
+	$scope.msgBody = msg;
 		createChannel();
 				
 }
@@ -203,9 +202,9 @@ Compose Message
 			
 var composeMsg = function(){
 	console.log("mFrom: "+JSON.parse($cookies.get("username")).username);
-	var	mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+	var	mFrom = JSON.parse($cookies.get("username")).username;
 	var data1 = $.param({
-			Body : $scope.productDetail.name+","+$scope.msgBody,
+			Body : $scope.msgBody,
 			From : mFrom
 		});
 	$scope.msgBody = "";
@@ -348,8 +347,8 @@ var getChatList = function(){
       }
          })
         .result.then(
-            function (shopid) {
-                $scope.sendMessage(shopid);
+            function (msg) {
+            	$scope.sendMessage(msg);
             }
             
         );

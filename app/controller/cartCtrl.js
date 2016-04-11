@@ -58,14 +58,16 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 			$scope.getItemSize = function(){
 				if(angular.isDefined($scope.items)){
-					if($scope.items.length <= 0 ){
-						return  true;
+					$scope.items = $cookieStore.get("invoices",$scope.invoices);
+					if($scope.abc <= 0 ){
+						$scope.itemSize = true;
 					}else{
-						return false;
+						$scope.itemSize = false;
 					} 
 				}else{
-					return true;
+					$scope.itemSize = true;
 				}
+				console.log($scope.itemSize);
 			}
 
 		
@@ -166,6 +168,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				$scope.totalCost($scope.invoice.items);
 				$scope.abc = $scope.items.length;
 				console.log("Remove Method "+$scope.items.length);
+				$scope.getItemSize();
 			
 			};
 
@@ -193,6 +196,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				console.log("Add Product "+$scope.items.length);
 				$scope.abc = $scope.items.length;
 				$scope.totalCost($scope.invoice.items);
+			$scope.getItemSize();
 				
 			};
 	
@@ -299,6 +303,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 			$scope.onload();
 			checkItems();
+			$scope.getItemSize();
 			
 
 		}]);

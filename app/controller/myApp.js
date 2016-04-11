@@ -187,7 +187,6 @@ app.directive('progressbar', [function() {
 				}
 			}
 		}]);
-
 app.directive('closeModal', function() {
 		return {
 			restrict: 'A',
