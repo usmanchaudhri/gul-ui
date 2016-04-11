@@ -2873,8 +2873,13 @@ select{
 .bootstrap-touchspin-up{
 	margin-left: 14px !important;
 	font-size: 15px;
+	background-color: #EEEEEE;
+	margin-left: 20px !important;
+
 }
 
 .bootstrap-touchspin-down{
 	font-size: 15px;
+	background-color: #EEEEEE;
+	margin-right: 5px !important;
 }
