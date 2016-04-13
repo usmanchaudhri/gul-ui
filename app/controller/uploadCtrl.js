@@ -10,7 +10,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			var resizeMaxHeight = 300;
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
-			
+			if($cookies.get("username") == null){
+				$location.path("#/");
+			}
 			$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.productUrl = response.data.productUrl;
@@ -62,24 +64,28 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			
 	
 			$scope.upload=function(){
-				$scope.showProgress = true;
-				var count = -1;
-				var config = {
-					headers : {
-						'Content-Type': 'application/json'
+				if($scope.allFiles.length > 0 ){
+					$scope.showProgress = true;
+					var count = -1;
+					var config = {
+						headers : {
+							'Content-Type': 'application/json'
+						}
 					}
+					console.log("Product Payload: ",$scope.proUpload());
+					$http.post(
+						$scope.productUrl, $scope.proUpload(),config
+					).success(function(data, status) {
+							console.log(data);
+							$scope.newProId = data.id;
+							$scope.uploadProduct();
+						}).error(function (data, status) {
+							console.log(data);
+							console.log(status);
+						});
+				}else{
+					alert("Upload atleast one Image");
 				}
-				console.log($scope.proUpload());
-				$http.post(
-					$scope.productUrl, $scope.proUpload(),config
-				).success(function(data, status) {
-						console.log(data);
-						$scope.newProId = data.id;
-						$scope.uploadProduct();
-					}).error(function (data, status) {
-						console.log(data);
-						console.log(status);
-					});
 			};
 
 
@@ -88,19 +94,19 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			**/
 
 			$scope.getSubCat = function(){
-	$scope.subCategoryDetail = [];
-	for(var i=0;i < $scope.categoryDetail.length;i++){
-		if($scope.categoryDetail[i].id == $scope.cat.id && $scope.categoryDetail[i].subCategories.length > 0){
-			$scope.subCategoryDetail = $scope.categoryDetail[i].subCategories;
-			console.log($scope.categoryDetail[i]);
-			$scope.subCategory = true;
-		}
-	}
-	if($scope.subCategoryDetail.length == 0){
-		$scope.subCategory = false;
-	}
+				$scope.subCategoryDetail = [];
+				for(var i=0;i < $scope.categoryDetail.length;i++){
+					if($scope.categoryDetail[i].id == $scope.cat.id && $scope.categoryDetail[i].subCategories.length > 0){
+						$scope.subCategoryDetail = $scope.categoryDetail[i].subCategories;
+						console.log($scope.categoryDetail[i]);
+						$scope.subCategory = true;
+					}
+				}
+				if($scope.subCategoryDetail.length == 0){
+					$scope.subCategory = false;
+				}
 	
-}
+			}
 
 			$scope.uploadProduct = function(){
 				$scope.uriToFile(cropImageArr);
@@ -132,9 +138,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 				//console.log($scope.resImage);
 				console.log("Image Upload: " + tempFiles.length);
 				var uploadImgs = [];
-			//	angular.forEach(resImage, function (myItem) {
-						uploadImgs.push(resImage[0].resized.dataURL);
-			//		});
+				//	angular.forEach(resImage, function (myItem) {
+				uploadImgs.push(resImage[0].resized.dataURL);
+				//		});
 				$scope.uriToFile(uploadImgs);
 				console.log("Image Upload: " + tempFiles.length);
 				angular.forEach(tempFiles, function(value, key){
@@ -183,7 +189,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			$scope.proUpload = function(){
 				
 				return proPayload = {
-					"sku": $scope.proSku,
+					"sku": $scope.proName,
 					"name": $scope.proName,
 					"shortDesc":  $scope.proShortDesc,
 					"longDesc": $scope.proLongDesc,
@@ -198,7 +204,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 						"storedValue": $scope.proPrice
 					},
 					"shop": {
-						"id": '24'
+						"id": "26"
 					},
 					"productVariation": [{
 							"size": "L",
@@ -288,7 +294,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 					"designers":{
 						"name":"HUMA MANZOOR"	
 					}
-					}
+				}
 				
 				
 			}

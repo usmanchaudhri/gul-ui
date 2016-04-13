@@ -1,7 +1,7 @@
-app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64' , function($scope,$cookies,$location,$http,Base64) {
+app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList' , function($scope,$cookies,$location,$http,Base64,shippingList) {
 			
 			if($cookies.get("username") != null){
-				$scope.getShippingDetails = JSON.parse($cookies.get("username")).customerShipping;	
+				$scope.getShippingDetails = shippingList;	
 			}else{
 				$location.path("#/");
 			}
@@ -10,6 +10,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64' , 
 			$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.shippingUrl = response.data.shippingUrl;
+					$scope.customerUrl = response.data.customerUrl;
 				});
 		
 			
@@ -29,7 +30,13 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64' , 
 					$scope.shippingUrl, $scope.shippingData(),config
 				).success(function(data, status) {
 						console.log("Succesfully Added"+ data);
-						$scope.dismiss();
+						$http.get(
+							$scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',config
+						).then(function(data, status) {
+							console.log("Shipping Detail",data.data[0]);
+							$scope.getShippingDetails = data.data[0].customer.customerShipping;
+								$scope.dismiss();
+							});
 					}).error(function (data, status) {
 						console.log(data);
 						console.log(status);
@@ -37,17 +44,17 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64' , 
 			}
 			
 			$scope.shippingData = function(){
-					return allShippingData={
-						"firstName": $scope.firstName,
-						"lastName": $scope.lastName,
-						"address": $scope.streetAddress1,
-						"city": $scope.city,
-						"state": $scope.state,
-						"zipcode": $scope.zip,
-						"country": $scope.country
-					}
+				return allShippingData={
+					"firstName": $scope.firstName,
+					"lastName": $scope.lastName,
+					"address": $scope.streetAddress1,
+					"city": $scope.city,
+					"state": $scope.state,
+					"zipcode": $scope.zip,
+					"country": $scope.country
+				}
 		
-				}	
+			}	
 	
 	
 	

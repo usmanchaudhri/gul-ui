@@ -1,4 +1,4 @@
-<script>
+<!--<script>
 	$('#attribute').focus(function() {
    	var attributevalue = document.getElementById('attribute').value;
    	if(attributevalue != null){
@@ -14,12 +14,12 @@
 $('.attribute').hide();
 	
 </script>
-
+-->
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
 			<div  href="#" class="upload-container-img">
-				<image-cropper image="{{file.url}}" dest-width="750" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
+				<image-cropper image="{{file.url}}" dest-width="600" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
 			</div>
 			{{cropImageArray(cropImage,$index)}}
 			<div  ng-controller="imgViewCtrl" style="height: 45px;" >

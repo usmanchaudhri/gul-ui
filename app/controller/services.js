@@ -222,6 +222,40 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										
 						});
 				},
+	
+					getShippingList: function(){
+					var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'false'});
+					return promise
+					.then(function(response) {
+							var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
+
+							var loginAuth =  base64;
+							var config = {
+								headers : {
+									'Content-Type': 'application/json',
+									'Authorization': 'Basic ' + loginAuth
+								}
+							}
+						
+							return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/cchat" , config)
+							.then(function(response1){
+									/*$scope.showProgress = true;*/
+									console.log("Services Response",response1);
+				  
+									return response1.data[0].customer.customerShipping;
+							
+				
+								});
+						
+						
+						
+						});
+				},
+	
 				/*List of Orders*/
 				getOrder: function(){
 					var deferred = $q.defer();

@@ -222,13 +222,7 @@ $('.lightbox_trigger').click(function(e) {
 				<strong>{{productDetail.name}}</strong>- {{productDetail.shortDesc}}</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by <a ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a><br /><br /> <b>$ {{productDetail.pricingProduct.storedValue}}</b></font><br><br><br><br>
 				
-             
-			<div class="quantity-wrapper">
-            	
-			</div>                 
-			
-          
-			<div class="row mainBox buttonBox">
+            <div class="row mainBox buttonBox">
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
 				<div class="row" id="margi">
 					<div class="col-sm-12">
@@ -331,7 +325,9 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="row" style="border-bottom: 1px solid #c1c1c1;padding:20px;">
 		<div class="col-sm-12 text-center">
 			<label style="font-size: 18px;padding:10px;">Item Details</label>
-			<p style="text-align: center;font-size: 15px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p style="text-align: center;font-size: 15px;line-height: 20px;">
+			{{productDetail.longDesc}}
+			</p>
 		</div>
 	</div>
 	<div class="row" style="padding: 20px;border-bottom: 1px solid #c1c1c1;">

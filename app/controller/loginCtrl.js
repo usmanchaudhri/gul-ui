@@ -32,7 +32,7 @@
 				if($cookies.get("username") != null && $cookies.get("password") != null){
 					$cookies.remove("username");
 					$cookies.remove("password");
-					
+					$cookies.remove("invoices");
 					$scope.userFlag = false;
 					
 					$location.path("#/");

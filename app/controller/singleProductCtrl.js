@@ -336,6 +336,8 @@ var getChatList = function(){
 /*Chat with Designer*/
 	
 	$scope.open = function(name){
+		
+		if($cookies.get("username") != null){
 		$scope.animationsEnabled = true;
 		$uibModal.open({
               templateUrl: 'myModalContent.html',
@@ -352,6 +354,9 @@ var getChatList = function(){
             }
             
         );
+        }else{
+			alert("Please Login First");
+		}
 		}
 	/*End of Chat with Designer*/
 	

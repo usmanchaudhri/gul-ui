@@ -135,7 +135,19 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 				}).when('/shipping', {
 					templateUrl: 'view/newshipping.html', 
 					controller: 'shipCtrl',
-					label:'SHIPPING'
+					label:'SHIPPING',
+					resolve: {
+						shippingList: function(gulServices,$cookies,$location) {
+							if($cookies.get("username") != null){
+								return gulServices.getShippingList();
+							
+							}else{
+								$location.path("#/");
+							}
+							
+							
+						}
+					}
 				}).when('/myorder', {
 					templateUrl: 'view/order.html', 
 					controller: 'orderCtrl',
