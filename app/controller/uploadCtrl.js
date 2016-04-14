@@ -10,9 +10,20 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var resizeMaxHeight = 300;
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
-			if($cookies.get("username") == null){
+		if(JSON.parse($cookies.get("username")) != null){
+					if(angular.isDefined(JSON.parse($cookies.get("username")).shop)){
+						shopId = JSON.parse($cookies.get("username")).shop.id;
+						console.log("SHOP ID: "+shopId);
+					}else{
+						$location.path("/newShop");
+					}
+				}else{
+					$rootScope.$emit("signin", {});
+				}
+		/*	if($cookies.get("username") == null){
+				
 				$location.path("#/");
-			}
+			}*/
 			$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.productUrl = response.data.productUrl;

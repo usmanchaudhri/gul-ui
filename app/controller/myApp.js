@@ -37,6 +37,10 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					templateUrl: 'view/designer/designerPage.html', 
 					controller: 'Ctrl1',
 					label:'DESIGNER'
+				}).when('/newShop', {
+					templateUrl: 'view/upload/createShop.html', 
+					controller: 'newShopCtrl',
+					label:'SHOP'
 				}).when('/productDetailPage/:proId', {
 					templateUrl: 'view/products/individual.html', 
 					controller: 'singleProCtrl',
