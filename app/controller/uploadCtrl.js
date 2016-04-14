@@ -1,4 +1,4 @@
-app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', function($scope, Upload, $timeout,$q,$http) {
+app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cookies','$location', function($scope, Upload, $timeout,$q,$http,$cookies,$location) {
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
 			$scope.showProgress = false;
@@ -52,6 +52,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http', functi
 			*/
 			$scope.getNumber = function(num) {
 				num = num-$scope.allFiles.length;
+				console.log(new Array(num));
 				return new Array(num);   
 			}
 			

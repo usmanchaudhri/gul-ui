@@ -110,7 +110,7 @@
 																</div>	
 															</li>
 															<li style="border-bottom: none;">
-																<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+																<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="paypalPayment()">Proceed to checkout</button>
 															</li>
 														</div>
 													</ul>
@@ -160,72 +160,8 @@
 					</div>
 				</nav>
 			</div>
-									<script type="text/ng-template" id="loginModal.html">
-							<div class="card card-container" style="width: 445px;height: 515px;">
-												
-							<div class="modal-header">
-							<div ng-show="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-							
-							<div ng-show="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-							</div>	
-							
-							
-											
-							</div>
-							<div class="modal-body" ng-show="!signingin">
-							<form class="form-signin">
-							<span id="reauth-email" class="reauth-email"></span>
-							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="regEmail"/>
-							</div>
-							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-							<label style="font-size: 13px;color: gray;">Password</label>
-							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-							</div>
-											
-
-							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="registerUser(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
-										
-							</form>
-							</div>
-							
-							<div class="modal-body" ng-show="signingin">
-							<form class="form-signin">
-							<span id="reauth-email" class="reauth-email"></span>
-							<div class="col-sm-12" style="padding-left: 0px;margin: 25px 0px;padding-right: 0px;">
-							<label style="font-size: 13px;color: gray;">Email Adress</label>
-							<input type="email" id="inputEmail" class="form-control" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;text-transform: lowercase;" required autofocus ng-model="loginEmail"/>
-							</div>
-							<div class="col-sm-12" style="padding-left: 0px;padding-right: 0px;">
-							<label style="font-size: 13px;color: gray;">Password</label>
-							<input type="password" id="inputPassword" class="form-control" required ng-model="loginPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
-							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
-							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
-							</div>
-											
-
-											
-							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin(loginEmail,loginPass)" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
-							<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
-							</form>
-							</div>
-							
-							
-							
-							
-							
-							
-							</div>
-							<div ng-show="signingin" class="col-sm-12 text-center join-gulgs"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
-							
-							<div ng-show="!signingin" class="col-sm-12 text-center already-member"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
-							
-						</script>
+								
+				<div  ng-include src="'view/login/loginModal.html'" ></div>
 					</div>
 				</div>
 			</div>
@@ -301,7 +237,7 @@
 																		</div>	
 																	</li>
 																	<li style="border-bottom: none;">
-																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="paypalPayment()">Proceed to checkout</button>
 																	</li>
 																</div>
 															</ul>
@@ -490,7 +426,7 @@
 																		</div>	
 																	</li>
 																	<li style="border-bottom: none;">
-																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="proceedCheckout()">Proceed to checkout</button>
+																		<button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;" ng-click="paypalPayment()">Proceed to checkout</button>
 																	</li>
 																</div>
 															</ul>

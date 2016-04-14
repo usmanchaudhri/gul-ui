@@ -262,11 +262,11 @@ $('.lightbox_trigger').click(function(e) {
 				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
-				<div class="row text-center" style="bottom: 0px;">
-					<div class="col-sm-2 col-xs-2" >
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+				<div class="row text-center" style="bottom: 0px;" >
+					<div class="col-sm-2 col-xs-2" ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" >
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
-					<div class="col-sm-2 col-xs-2"> 
+					<!--<div class="col-sm-2 col-xs-2"> 
 						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
 					</div>
 					<div class="col-sm-2 col-xs-2"> 
@@ -280,7 +280,7 @@ $('.lightbox_trigger').click(function(e) {
 					</div>
 					<div class="col-sm-1"></div>
 					
-				</div>
+				</div>-->
 			</div>
 			
 
@@ -332,7 +332,7 @@ $('.lightbox_trigger').click(function(e) {
 	</div>
 	<div class="row" style="padding: 20px;border-bottom: 1px solid #c1c1c1;">
 		<div class="col-sm-12 text-center" style="padding-bottom: 25px;">
-			<h1>Designed By <strong>Ayesha Mumtaz</strong></h1>
+			<h1>Designed By <strong>{{productDetail.shop.name}}</strong></h1>
 		</div>
 		
 		<div class="col-sm-12" style="margin-bottom:30px; ">
@@ -341,7 +341,10 @@ $('.lightbox_trigger').click(function(e) {
 					<img src="images/Sania.jpg" width="175" height="200"/>
 				</div>
 				<div class="col-sm-8">
-					<p style="text-align: left;font-size: 15px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p style="text-align: left;font-size: 15px;line-height: 20px;">
+						{{productDetail.shop.details}}
+						
+					</p>
 					<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;">Read More</button>
 				</div>
 			</div>	

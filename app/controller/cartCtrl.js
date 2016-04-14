@@ -71,16 +71,18 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			}
 
 		
-			$scope.proceedCheckout = function(){
+			/*$scope.proceedCheckout = function(){
 				
 				$window.alert("Please Login First!");
-			}
+			}*/
 				
 			var paypalData = $.param({
 					grant_type : "client_credentials"
 				});
 			
 			$scope.paypalPayment = function(){
+				
+				if($cookieStore.get("username") != null){
 				if($scope.totalPrice > 0){
 					$scope.loadingData = true;
 					$scope.prepareCall();
@@ -137,6 +139,9 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 						});
 				}else{
 					alert("Card is Empty");
+				}
+				}else{
+					$rootScope.$emit("signin", {});
 				}
 			}
 			
