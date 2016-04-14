@@ -54,28 +54,28 @@ $('.attribute').hide();
 		<!--<img ng-repeat="cropImg in tempFiles track by $index" ng-src="{{cropImg.url}}" />-->
 		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
 			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
-			{{a}}
+			
 		</div>
 	
 	</div>
 
 	
-	
-	<div class="row">
+		<form id="upload-form" ng-submit="upload()" role="form" >
+		<div class="row">
+		
 		<div class="col-sm-1"></div>	
 		<div class="col-sm-10">
-			<form id="upload-form" novalidate ng-submit="upload()" role="form" >
 				<table>
 					<tr>
 						<td><label for="title">Title:</label></td>
 						<td class="upload-form-col" colspan="3">
-							<input  type="text" ng-model="proName" class="form-control" id="title" >			
+							<input  type="text" ng-model="proName" class="form-control" id="title" required >			
 						</td>
 					</tr>
 					<tr>
 						<td><label for="price">Price:</label></td>
 						<td style="width: 50%;" colspan="3">
-							<input type="text" ng-model="proPrice" class="form-control" id="price" style="width: 27%;"  >
+							<input type="text" ng-model="proPrice" class="form-control" id="price" style="width: 27%;" required >
 						</td>
 					</tr>
 					<tr>
@@ -85,7 +85,8 @@ $('.attribute').hide();
 							<select
            		 				ng-model="cat.id"
            		 				ng-change="getSubCat()"
-           		 				ng-options="cat.id as cat.name for cat in categoryDetail">
+           		 				ng-options="cat.id as cat.name for cat in categoryDetail" required>
+           		 				 <option value="">-- Select Category --</option>
 							</select>
             			</td>
             			<td ng-if="subCategory"><label for="quantity">Sub Categories:</label></td>
@@ -93,7 +94,9 @@ $('.attribute').hide();
 
 							<select
            		 				ng-model="subcat.id"
-           		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail">
+           		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail" required>
+           		 							 <option value="">-- Select Sub Category --</option>
+					
 							</select>
             			</td>
 
@@ -101,7 +104,7 @@ $('.attribute').hide();
 					<tr>
 						<td><label for="quantity">Quantity:</label></td>
 						<td style="width: 50%;" colspan="3">
-							<input  type="text" ng-model="proQty" class="form-control" id="quantity" style="width: 27%;">
+							<input  type="text" ng-model="proQty" class="form-control" id="quantity" style="width: 27%;" required>
 						</td>
 					</tr>
 					<tr>
@@ -139,7 +142,7 @@ $('.attribute').hide();
 					<tr>
 						<td><label for="quantity">Short Description:</label></td>
 						<td class="upload-form-col" colspan="3">
-							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" style="height: 150px;" >
+							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" style="height: 150px;" required >
 						</td>
 					</tr>
 					<tr>
@@ -150,7 +153,7 @@ $('.attribute').hide();
 					</tr>
 					
 						</table>
-			</form>
+			
 		</div>
         <div class="col-sm-2"></div>	
 	</div>
@@ -173,12 +176,15 @@ $('.attribute').hide();
 				</table>
 				
 			</div>
+	
 			<div class="col-sm-2"></div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-5 "></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="upload()">UPLOAD</button></div>
+		<div class="col-sm-2 text-center"><button type="submit" class="btn btn-success upload-btn">UPLOAD</button></div>
 		<div class="col-sm-5"></div>
 	</div>
+		</form>
+	
 </div>

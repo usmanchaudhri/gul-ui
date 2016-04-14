@@ -9,7 +9,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			$scope.pro_id = $routeParams.proId;
 			$scope.prodSize = 0;
 			var cChatNames = [];
-			
+			$scope.imgNumber = 1;
 			$scope.productQty =1;		
 			$scope.productDetail = productDetail.productDetail;
 			$scope.selectedItem = productDetail.selectedItem;
@@ -337,7 +337,9 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			/*End of Chat with Designer*/
 	
 	
-			
+			$scope.setImage = function(num){
+				$scope.imgNumber = num+1;
+			};
 			
 			$scope.load = function() {
 		

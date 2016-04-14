@@ -213,7 +213,7 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="row" >
 		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
-			<img  class="img-responsive " src="{{fixPath+'600x600-1-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" /> 
+			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.png'+ token}}" alt="img" id="indisize" /> 
 		</div>
 		</div>
 		<div class="col-sm-5 col-xs-12" id="indisize1">
@@ -264,7 +264,7 @@ $('.lightbox_trigger').click(function(e) {
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;" >
 					<div class="col-sm-2 col-xs-2" ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" >
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
 					</div>
 					<!--<div class="col-sm-2 col-xs-2"> 
 						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
