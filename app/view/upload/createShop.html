@@ -1,11 +1,71 @@
 <div class="container">
 	<div class="row">
 		<table>
-			<tr>
+			<tr >
 				<td><label for="title">SHOP</label></td>
 				<td class="upload-form-col">
-					<input  type="text" ng-model="shopName" class="form-control" id="sku" >			
+					<input  type="text" ng-model="shopName" class="form-control" id="sku"  style=" background: white;border:1px solid #D9D9D9;" ><br></td>
+			</tr>
+			<br/><br/><br/>
+			<tr>
+				<td><label for="title">Designer</label></td>
+				<td class="upload-form-col">
+					<input  type="text" class="form-control"  ng-model="designerName"  style=" background: white;border:1px solid #D9D9D9;" ><br>		
 				</td>
+			</tr>
+			
+			<tr>
+				<td><label for="title">Detail</label></td>
+				<td class="upload-form-col">
+					<input  type="text"  class="form-control" ng-model="detail" style=" background: white;border:1px solid #D9D9D9;">	<br>		
+				</td>
+			</tr>
+			
+			
+			
+			<tr>
+				<td><label for="Image">Image:</label><br /></td>
+				<td>
+					<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
+						<div  href="#" class="upload-container-img">
+							<image-cropper image="{{file.url}}" dest-width="300" dest-height="300" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
+						</div>
+						{{cropImageArray(cropImage,$index)}}
+						<div  ng-controller="imgViewCtrl" style="height: 45px;" >
+							<table style="width: 95%;">
+								<tr class="upload-img-icons">
+									<td><a ng-click="openLightboxModal(allFiles,$index)" ><img class="img-responsive" src="images/Zoom_in.png" alt=""></a></td>
+									<td><a ng-click="openZoomModal(this.file,$index)"><img class="img-responsive" src="images/Edit-icon.png" alt=""></a></td>
+									<td><a><img class="img-responsive" src="images/cross-512.png" ng-click="removeImage($index)" alt=""></a></td>
+								</tr>
+							</table>
+			
+							<span ng-show="showProgress">
+								<div class="progress">
+			
+									<div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progressArr[$index].imgProgress" aria-valuemin="0" aria-valuemax="100" data-value="progressArr[$index].imgProgress" style="width: 100%">
+										{{progressShop}}
+									</div>
+					
+								</div>
+					
+					
+							</span>	
+				
+				
+							<span ng-hide="showProgress">
+								<br/>
+								<br/>
+								<br/>
+							</span>	
+						</div>
+					</div>
+		
+								<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(1) track by $index">
+			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
+			
+		</div>
+						</td>
 			</tr>
 		</table>
 	</div>
