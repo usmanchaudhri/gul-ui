@@ -140,10 +140,17 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										for(var i = 0;i< chatArr.length;i++){
 											
 											var name = chatArr[i].shopOwnerUsername.split("@"); 
+											var conversation = getConversationCustom(chatArr[i].uniqueName);
+											var lastMsg = conversation.chatData[chatData.length-1].body;
+											console.log("custom conversation array",conversation);
+											console.log("Last Message",lastMsg);
+											
 											var cName = {
 												"uniqueName": chatArr[i].uniqueName,
 												"product": chatArr[i].customerUsername,
-												"designer": name[0]
+												"designer": name[0],
+												"lastMessage": lastMsg 
+												
 											}
 											cChatNames.push(cName);
 										}
@@ -219,6 +226,73 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 						
 										});
 								});
+										
+						});
+				},
+				/*Custom Function - List of Conversation*/
+				getConversationCustom: function(chatNames) {
+					var deferred = $q.defer();
+					var chatTitle = '';
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'false'});
+					
+					return promise
+					.then(function(one) {
+							
+							console.log('Promise one resolved with ', one);
+							var anotherDeferred = $q.defer();
+							var cChatNames = [];
+							var config = {
+								headers : {
+									'Content-Type': 'application/json'
+								}
+							}
+							
+							/*
+							return $http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat').then(function(dataa) {
+												
+									console.log("Channel DATA: ",dataa);
+									
+									for(var i = 0;i < dataa.data.length ; i++){
+										if(dataa.data[i].uniqueName == chatNames){
+											var	designerName = JSON.parse($cookies.get("username")).username.split('@');
+											var from = dataa.data[i].shopOwnerUsername.split('@');
+											chatTitle = {
+												"customerUsername": dataa.data[i].customerUsername,
+												"customer": designerName[0],
+												"designer": from[0]
+											};
+										}
+									} */
+							
+									return	$http.get(
+										one.data.twilioChannel+'/'+chatNames+'/Messages',config
+									).then(function(data, status) {
+											console.log("SSID",data);
+											var chatData = [];
+													
+											for(var i = 0;i<data.data.length ; i++){
+														
+												var from = data.data[i].from.split('@');
+												var value = {
+													"from": from[0],
+													"body":	data.data[i].body
+												}
+												chatData.push(value);
+											}
+													
+												
+													
+											return {
+												"chatData": chatData,
+												"cchat": chatTitle
+												
+											};
+						
+										});
+								//});
 										
 						});
 				},
