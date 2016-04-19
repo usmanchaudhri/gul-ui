@@ -56,17 +56,29 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 		
 			}	
 	
-	$scope.open = function(){
-		
+	$scope.open = function(shippingDetail,position){
+				console.log("Getting User Shipping Address:",shippingDetail);
+				console.log("Index of Shipping Detail:",position);
+				
 				if($cookies.get("username") != null){
 					$scope.animationsEnabled = true;
 					$uibModal.open({
 							templateUrl: 'myModalContent.html',
 							controller: 'modalShipCtrl',
+							    resolve: {
+       								 updateDetail: function () {
+							         var value = {
+							         		"position": position,
+							         		"shippingDetail": shippingDetail
+							         };
+							         return value;
+							    }
+							}
 
 						})
 					.result.then(
-						function () {
+						function (shippingDetail) {
+							$scope.getShippingDetails = shippingDetail;
 						}
             
 					);

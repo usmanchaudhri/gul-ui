@@ -15,21 +15,21 @@
 				<h1>Shipping Information</h1>
 			<label class="shipping-info-tag">Manage and add new shipping addresses.</label>
 			</div>
-				<div class="col-sm-3" ng-repeat="x in getShippingDetails" style="padding: 10px;line-height: 15px;
+				<div class="col-sm-3" ng-repeat="x in getShippingDetails track by $index" style="padding: 10px;line-height: 15px;
 }">
 					<div >
 				<div style="margin-bottom:8px; border-bottom: 1px solid black;" ><u><label class="shipping-name"><strong>{{x.firstName}} {{x.lastName}} </strong><img src="images/closebtn.png" style="float: right;"/></label></u></div><br>
 				<label style="font-size: 14px;">{{x.address}}</label><br>
 				<label style="font-size: 14px;">{{x.city}}, {{x.state}} {{x.zipcode}}</label><br>
 				<label style="font-size: 12px;color: gray;" ><i>(selected)</i></label>
-				<label style="font-size: 12px;color: gray;" data-toggle="modal" data-target="#shipUpdateModal" ><i>(Edit)</i></label>
-				
+				<!-- <label style="font-size: 12px;color: gray;" data-toggle="modal" data-target="#shipUpdateModal" ><i>(Edit)</i></label> -->
+				<label style="font-size: 12px;color: gray;" ng-click = "open(x,$index)" ><i>(Edit)</i></label>
 				
 					</div>
 				</div><br>
 		</div>
 		<div class="col-sm-push-4 col-sm-3">
-			<button class="btn btn-primary individual-bag-btn" style="margin-top: 5%;width:100%;" ng-click="open()">Add New Address</button>
+			<button class="btn btn-primary individual-bag-btn" style="margin-top: 5%;width:100%;" ng-click="open('','')">Add New Address</button>
 		</div>
 	</div>
  <script type="text/ng-template" id="myModalContent.html">
@@ -80,7 +80,7 @@
 							 </div>
 							 <div class="row" style="margin-bottom: 20px;">
 								 <div class="col-sm-3"><button class="btn btn-primary individual-bag-btn" data-target="dismiss" >Cancel </button></div>
-								 <div class="col-sm-9 text-right"><button class="btn btn-primary individual-bag-btn" ng-click="newShipping()">Create Shipping Address</button></div>
+								 <div class="col-sm-9 text-right"><button class="btn btn-primary individual-bag-btn" ng-click="send()">Create Shipping Address</button></div>
 							 </div>
 
 
