@@ -2883,3 +2883,8 @@ select{
 	background-color: #EEEEEE;
 	margin-right: 5px !important;
 }
+
+.ship-container{
+	-webkit-box-shadow: none !important;
+ box-shadow: none !important;
+}
