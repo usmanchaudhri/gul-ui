@@ -257,8 +257,10 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							cache: 'false'});
 					return promise
 					.then(function(response) {
-							var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
+							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password") );
 
+
+console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("password") );
 							var loginAuth =  base64;
 							var config = {
 								headers : {
@@ -267,12 +269,12 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 								}
 							}
 						
-							return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/cchat" , config)
+							return	$http.get(response.data.loginUrl , config)
 							.then(function(response1){
 									/*$scope.showProgress = true;*/
 									console.log("Services Response",response1);
 				  
-									return response1.data[0].customer.customerShipping;
+									return response1.data.customerShipping;
 							
 				
 								});

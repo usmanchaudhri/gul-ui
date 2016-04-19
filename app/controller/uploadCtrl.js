@@ -4,6 +4,8 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			
 			$scope.showProgress = false;
 			$scope.subCategory = false;
+			$scope.categoryList = [];
+			
 			var resImage = [];
 			var promises = [];
 			var tempFiles = [];
@@ -33,6 +35,13 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 					$http.get(response.data.categoryUrl)
 					.then(function(response1){
 							$scope.categoryDetail = response1.data;
+							
+							for(var i = 0;i<response1.data.length;i++){
+								if(response1.data[i].subCategories.length>0){
+									$scope.categoryList.push(response1.data[i]);	
+								}
+							}
+							console.log("catergoryDetail: ",$scope.categoryDetail);
 						});
 				});
 		
