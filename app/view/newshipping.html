@@ -15,7 +15,7 @@
 				<h1>Shipping Information</h1>
 			<label class="shipping-info-tag">Manage and add new shipping addresses.</label>
 			</div>
-				<div class="col-sm-3" ng-repeat="x in getShippingDetails" style="padding: 10px;line-height: 15px;
+				<div class="col-sm-3" ng-repeat="x in getShippingDetails track by $index" style="padding: 10px;line-height: 15px;
 }">
 					<div >
 				<div style="margin-bottom:8px; border-bottom: 1px solid black;" ><u><label class="shipping-name"><strong>{{x.firstName}} {{x.lastName}} </strong><img src="images/closebtn.png" style="float: right;"/></label></u></div><br>
