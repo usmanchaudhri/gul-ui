@@ -56,6 +56,29 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 		
 			}	
 	
+	$scope.open = function(name){
+		
+				if($cookies.get("username") != null){
+					$scope.animationsEnabled = true;
+					$uibModal.open({
+							templateUrl: 'myModalContent.html',
+							controller: 'modalCtrl', 
+							resolve: {
+								name: function () {
+									return name;
+								}
+							}
+						})
+					.result.then(
+						function (msg) {
+							$scope.sendMessage(msg);
+						}
+            
+					);
+				}else{
+					$rootScope.$emit("signin", {});
+				}
+			};
 	
 	
 		}]);
