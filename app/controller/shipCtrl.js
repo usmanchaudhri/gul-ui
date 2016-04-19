@@ -1,4 +1,4 @@
-app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList' , function($scope,$cookies,$location,$http,Base64,shippingList) {
+app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal' , function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal) {
 			
 			if($cookies.get("username") != null){
 				$scope.getShippingDetails = shippingList;	
@@ -56,22 +56,17 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 		
 			}	
 	
-	$scope.open = function(name){
+	$scope.open = function(){
 		
 				if($cookies.get("username") != null){
 					$scope.animationsEnabled = true;
 					$uibModal.open({
 							templateUrl: 'myModalContent.html',
-							controller: 'modalCtrl', 
-							resolve: {
-								name: function () {
-									return name;
-								}
-							}
+							controller: 'modalShipCtrl',
+
 						})
 					.result.then(
-						function (msg) {
-							$scope.sendMessage(msg);
+						function () {
 						}
             
 					);

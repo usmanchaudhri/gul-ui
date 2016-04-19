@@ -11,12 +11,11 @@
  	
  }]);
  
-  app.controller('modalShipCtrl',['$scope','$uibModalInstance','name', function($scope,$uibModalInstance,name) {
- 	$scope.send = function (msg) {
-    $uibModalInstance.close(msg);
+  app.controller('modalShipCtrl',['$scope','$uibModalInstance', function($scope,$uibModalInstance) {
+ 	$scope.send = function () {
+    $uibModalInstance.close();
   };
 	
-	$scope.productDetailName = name;
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');

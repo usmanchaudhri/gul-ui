@@ -633,7 +633,8 @@ var getConversationCustom = function(obj,$q,$http){
 									).then(function(data, status) {
 											console.log("SSID",data);
 											var chatData = [];
-													
+
+										console.log("Message DATA",data);
 											for(var i = 0;i<data.data.length ; i++){
 														
 												var from = data.data[i].from.split('@');
