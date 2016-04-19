@@ -139,13 +139,38 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										var chatArr = dataa.data[0].customer.cchat;
 										for(var i = 0;i< chatArr.length;i++){
 											
-											var name = chatArr[i].shopOwnerUsername.split("@"); 
-											var cName = {
+										//	var name = chatArr[i].shopOwnerUsername.split("@"); 
+											
+											//	var conversation = getConversationCustom(chatArr[i].uniqueName,$q,$http);
+											var promise = getConversationCustom(chatArr[i],$q,$http);
+											console.log("Promise is : ",promise);
+											promise.then(function(data) {
+													
+													console.log("Success : ",i);
+													
+													
+												//	cName.lastMessage = lastMsg;
+													cChatNames.push(data);
+													
+													console.log("lastMsg : ",data);
+												}, function(reason) {
+										
+													console.log("Success : ",data);
+												});
+											//
+											console.log("custom conversation array",promise);
+										//	console.log("Updated Value of User",cName);
+											
+											//console.log("Last Message",lastMsg);
+										
+											/*var cName = {
 												"uniqueName": chatArr[i].uniqueName,
 												"product": chatArr[i].customerUsername,
 												"designer": name[0]
-											}
-											cChatNames.push(cName);
+												//,"lastMessage": lastMsg 
+												
+											}*/
+											//cChatNames.push(cName);
 										}
 									}
 									return cChatNames
@@ -222,6 +247,41 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										
 						});
 				},
+				
+	
+				getShippingList: function(){
+					var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'false'});
+					return promise
+					.then(function(response) {
+							var base64 = Base64.encode( $cookies.get("username").username + ':' + $cookies.get("username").password );
+
+							var loginAuth =  base64;
+							var config = {
+								headers : {
+									'Content-Type': 'application/json',
+									'Authorization': 'Basic ' + loginAuth
+								}
+							}
+						
+							return	$http.get(response.data.customerUrl +'/' + $cookies.get("userId") + "/cchat" , config)
+							.then(function(response1){
+									/*$scope.showProgress = true;*/
+									console.log("Services Response",response1);
+				  
+									return response1.data[0].customer.customerShipping;
+							
+				
+								});
+						
+						
+						
+						});
+				},
+	
 				/*List of Orders*/
 				getOrder: function(){
 					var deferred = $q.defer();
@@ -484,37 +544,124 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			return sdo;
 		}]);
 
-
-
-/*app.factory('gulHomeService', ['$http','$q', function($http,$q) {
-var sdo = {
-getMenu: function() {
-var deferred = $q.defer();
+/*
+var getConversationCustom = function(chatNames,$q,$http){
+	return function() {
+		var defer = $q.defer()
+		var chatTitle = '';
+		var promise = $http({
+				method: 'GET',
+				url: 'gulgs.properties',
+				cache: 'false'});
 					
-var promise = $http({
-method: 'GET',
-url: 'gulgs.properties',
-cache: 'true'});
-					
-return promise
-.then(function(response) {
+		return promise
+		.then(function(one) {
 							
-var promise1 = $http({method: 'GET', url: response.data.categoryUrl, cache: 'true'});
-var promise2 = $http({method: 'GET', url: response.data.shopUrl, cache: 'true'});
-return $q.all([promise1, promise2]).then(function(data){
+				console.log('Promise one resolved with ', one);
+				
+				var cChatNames = [];
+				var config = {
+					headers : {
+						'Content-Type': 'application/json'
+					}
+				}
+							
+							
+				return	$http.get(
+					one.data.twilioChannel+'/'+chatNames+'/Messages',config
+				).then(function(data, status) {
+						console.log("SSID",data);
+						var chatData = [];
+													
+						for(var i = 0;i<data.data.length ; i++){
+														
+							var from = data.data[i].from.split('@');
+							var value = {
+								"from": from[0],
+								"body":	data.data[i].body
+							}
+							chatData.push(value);
+						}
+													
+												
+						console.log("chatData",chatData);	
+					//	return {
+					//	"chatData": chatData,
+					//	"cchat": chatTitle							
+					//	};
+						var data = {
+							"chatData": chatData,
+							"cchat": chatTitle
+						};
+						deferred.resolve(data);
+						//return data;
+						//return $q.resolve(data);
+						//return $q.promise;
 						
-var value = {cat: data[0].data,
-shop: data[1].data};
-return value;
-						
-});
-						
-						
-});
-    
-    
-}
-}
-return sdo;
-}]);
-*/
+					});
+				//});
+										
+			});
+		return defer.promise
+	}
+} */
+var getConversationCustom = function(obj,$q,$http){
+			
+				//return function() {
+				var chatNames =	obj.uniqueName;
+					var deferred = $q.defer();
+					var chatTitle = '';
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'false'});
+					
+					return promise
+					.then(function(one) {
+							
+							console.log('Promise one resolved with ', one);
+							var anotherDeferred = $q.defer();
+							var cChatNames = [];
+							var config = {
+								headers : {
+									'Content-Type': 'application/json'
+								}
+							}														
+							
+									return	$http.get(
+										one.data.twilioChannel+'/'+chatNames+'/Messages',config
+									).then(function(data, status) {
+											console.log("SSID",data);
+											var chatData = [];
+
+										console.log("Message DATA",data);
+											for(var i = 0;i<data.data.length ; i++){
+														
+												var from = data.data[i].from.split('@');
+												var value = {
+													"from": from[0],
+													"body":	data.data[i].body
+												}
+												chatData.push(value);
+											}
+													
+												
+												console.log("chatData",chatData);
+												var lastMsg = chatData[(chatData.length-1)].body;	
+										
+											var name = obj.shopOwnerUsername.split("@"); 
+											return cName = {
+												"uniqueName": obj.uniqueName,
+												"product": obj.customerUsername,
+												"designer": name[0],
+												"lastMessage": lastMsg
+												
+											}
+										});
+			
+						});
+		
+				// return deferred.promise
+  			//}
+		}
+

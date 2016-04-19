@@ -1,10 +1,9 @@
 
-
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
 			<div  href="#" class="upload-container-img">
-				<image-cropper image="{{file.url}}" dest-width="750" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
+				<image-cropper image="{{file.url}}" dest-width="600" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
 			</div>
 			{{cropImageArray(cropImage,$index)}}
 			<div  ng-controller="imgViewCtrl" style="height: 45px;" >
@@ -39,27 +38,28 @@
 		<!--<img ng-repeat="cropImg in tempFiles track by $index" ng-src="{{cropImg.url}}" />-->
 		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
 			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
+			
 		</div>
 	
 	</div>
 
 	
-	
-	<div class="row">
+		<form id="upload-form" ng-submit="upload()" role="form" >
+		<div class="row">
+		
 		<div class="col-sm-1"></div>	
 		<div class="col-sm-10">
-			<form id="upload-form" role="form" >
 				<table>
 					<tr>
 						<td><label for="title">Title:</label></td>
 						<td class="upload-form-col" colspan="3">
-							<input  type="text" ng-model="proName" class="form-control" id="title" >			
+							<input  type="text" ng-model="proName" class="form-control" id="title" required >			
 						</td>
 					</tr>
 					<tr>
 						<td><label for="price">Price:</label></td>
 						<td style="width: 50%;" colspan="3">
-							<input type="text" ng-model="proPrice" class="form-control" id="price" style="width: 27%;"  >
+							<input type="text" ng-model="proPrice" class="form-control" id="price" style="width: 27%;" required >
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +69,8 @@
 							<select
            		 				ng-model="cat.id"
            		 				ng-change="getSubCat()"
-           		 				ng-options="cat.id as cat.name for cat in categoryDetail">
+           		 				ng-options="cat.id as cat.name for cat in categoryDetail" required>
+           		 				 <option value="">-- Select Category --</option>
 							</select>
             			</td>
             			<td ng-if="subCategory"><label for="quantity">Sub Categories:</label></td>
@@ -77,7 +78,9 @@
 
 							<select
            		 				ng-model="subcat.id"
-           		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail">
+           		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail" required>
+           		 							 <option value="">-- Select Sub Category --</option>
+					
 							</select>
             			</td>
 
@@ -85,7 +88,7 @@
 					<tr>
 						<td><label for="quantity">Quantity:</label></td>
 						<td style="width: 50%;" colspan="3">
-							<input  type="text" ng-model="proQty" class="form-control" id="quantity" style="width: 27%;">
+							<input  type="text" ng-model="proQty" class="form-control" id="quantity" style="width: 27%;" required>
 						</td>
 					</tr>
 					<tr>
@@ -129,7 +132,7 @@
 					<tr>
 						<td><label for="quantity">Short Description:</label></td>
 						<td class="upload-form-col" colspan="3">
-							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" style="height: 150px;" >
+							<input  type="text" ng-model="proShortDesc" class="form-control" id="shortdesc" style="height: 150px;" required >
 						</td>
 					</tr>
 					<tr>
@@ -140,20 +143,25 @@
 					</tr>
 					
 						</table>
-			</form>
+			
 		</div>
         <div class="col-sm-2"></div>	
 	</div>
-	
+	<div style="border-bottom-style: ridge;"> </div>
+	<div class="container"><h1 style="text-align: center;">Set Featured Image</h1></div>
 	<div class="row">
 		<div class="col-sm-12">
-			<div class="col-sm-3"></div>
+			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<table style="width: 100%;">
 					<tr>
-						<td><h1>Set Featured Image</h1><br>
-							<input  type="text" class="form-control" placeholder="Enter Title" style="background: white;border: 1px solid #D9D9D9;;" ><br>
+					<td><label for="Tittle">Title:</label><br /></td>
+						<td>
+							<input  type="text" class="form-control" placeholder="Enter Title" style="background: white;border: 1px solid #D9D9D9;;" ><br />
 						</td>
+						</tr>
+						<tr>
+						<td><label for="Image">Image:</label><br /></td>
 						<td>
 						<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container">
 						<input class="custom-file-input" type="file" ng-model="files"  />
@@ -163,14 +171,17 @@
 				</table>
 				
 			</div>
+	
 			<div class="col-sm-2"></div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-5 "></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="upload()">UPLOAD</button></div>
+		<div class="col-sm-2 text-center"><button type="submit" class="btn btn-success upload-btn">UPLOAD</button></div>
 		<div class="col-sm-5"></div>
 	</div>
+		</form>
+	
 </div>
 <!--<script>
 

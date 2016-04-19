@@ -147,7 +147,11 @@ var chatCtrl =  app.controller('chatCtrl',['$scope','$http', 'Base64','$cookies'
 						console.log(response);
 					});
 			};
-	
-  
+
+/*	var d = new Date(1460446637257);
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth() + 1; //Months are zero based
+	var curr_year = d.getFullYear();
+	console.log(curr_date + "-" + curr_month + "-" + curr_year);*/
   
 		}]);

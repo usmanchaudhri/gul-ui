@@ -1,4 +1,4 @@
- app.controller('loginCtrl',['$scope' , '$cookies','$http','Base64','$location','$uibModal' , function($scope,$cookies,$http,Base64, $location,$uibModal) {
+ app.controller('loginCtrl',['$scope' , '$cookies','$http','Base64','$location','$uibModal' , '$rootScope' ,function($scope,$cookies,$http,Base64, $location,$uibModal,$rootScope) {
 		 
 		   
 		   
@@ -8,6 +8,9 @@
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 				}
 			}
+			 $rootScope.$on("signin", function(){
+           $scope.signin();
+        });
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -32,7 +35,7 @@
 				if($cookies.get("username") != null && $cookies.get("password") != null){
 					$cookies.remove("username");
 					$cookies.remove("password");
-					
+					$cookies.remove("invoices");
 					$scope.userFlag = false;
 					
 					$location.path("#/");
