@@ -1,18 +1,19 @@
-app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList' , function($scope,$cookies,$location,$http,Base64,shippingList) {
+app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal' , function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal) {
 			
 			if($cookies.get("username") != null){
 				$scope.getShippingDetails = shippingList;	
 			}else{
 				$location.path("#/");
 			}
-
-
+			
+	
 			$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.shippingUrl = response.data.shippingUrl;
 					$scope.customerUrl = response.data.customerUrl;
 				});
-
+		
+			
 	
 	
 	
@@ -42,10 +43,12 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 						function (shippingDetail) {
 							$scope.getShippingDetails = shippingDetail;
 						}
-
+            
 					);
 				}else{
 					$rootScope.$emit("signin", {});
 				}
 			};
-	}]);
+	
+	
+		}]);
