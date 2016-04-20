@@ -66,8 +66,8 @@
 					"country": $scope.country
 				};
  		
- 		var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password") );
-				console.log("username"+JSON.parse($cookies.get("username")).username + 'Password' + $cookies.get("password"));
+ 		var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password );
+				console.log("username"+JSON.parse($cookies.get("username")).username + 'Password' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				var config = {
 					headers : {
@@ -95,8 +95,8 @@
   	
   };
   		var newShipping = function(){
-				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password") );
-				console.log("username"+JSON.parse($cookies.get("username")).username + 'Password' + $cookies.get("password"));
+				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password );
+				console.log("username"+JSON.parse($cookies.get("username")).username + 'Password' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				var config = {
 					headers : {
@@ -112,8 +112,8 @@
 						$http.get(
 							$scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',config
 						).then(function(data, status) {
-							console.log("Shipping Detail",data.data[0]);
-							var getShippingDetails = data.data[0].customer.customerShipping;
+							console.log("Shipping Detail",data.data);
+							var getShippingDetails = data.data.customer.customerShipping;
 							$uibModalInstance.close(getShippingDetails);
 					
 							});

@@ -77,19 +77,24 @@
 				).success(function(data, status) {
 						//	console.log("Data here",data);
 							if($cookies.get("username") != $scope.loginEmail){
-							$cookies.put("username",JSON.stringify(data));
-							$cookies.put("password",$scope.loginPass);
+							
+							var value = {
+								"username": data.username,
+								"password": $scope.loginPass,
+								"id": data.id,
+								"shopId": JSON.stringify(data.shop)
+							};
+							$cookies.put("username",JSON.stringify(value)); 
+							console.log("New User Object: ",$cookies.get("username"));
+							
+							//$cookies.put("password",$scope.loginPass);
 							$cookies.put("userId",data.id);
 						//	console.log(data);
 							 var userFlag = true;	
 							$uibModalInstance.close(userFlag);		
 							}else{
-						//		console.log($cookies.get("username")+"already exist!");
 								$scope.userFlag = false;
 							}
-							
-						//	console.log("Email when login"+$cookies.get("username"));
-					//		console.log("Flag variable"+$scope.userFlag);
 							
 					}).error(function (data, status) {
 						
@@ -124,10 +129,22 @@
 						$scope.loginEmail = $scope.regEmail;
 						$scope.loginPass = $scope.regPass;
 						regUser($scope.regEmail);
-					$cookies.put("username",JSON.stringify(data));
-							$cookies.put("password",$scope.loginPass);
-							$cookies.put("userId",data.id);
-					//	$scope.siginInUser();
+						//$cookies.put("username",JSON.stringify(data));
+							var shopId;
+							if(angular.isDefined(data.shop)){
+								shopId = data.shop.id;
+							}else{
+								shopId = 0;
+								} 
+							var value = {
+								"username": data.username,
+								"password": $scope.loginPass,
+								"id": data.id,
+								//"shopId": data.shop.id
+								"shopId": shopId
+							}; 
+							$cookies.put("username",JSON.stringify(value));
+							console.log("New User Object: ",$cookies.get("username"));
 						 var userFlag = true;	
 						$uibModalInstance.close(userFlag);	
 						

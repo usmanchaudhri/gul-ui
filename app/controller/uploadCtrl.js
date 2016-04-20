@@ -15,8 +15,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var imgSize = 0;
 			$scope.shopImage = [];
 		if(JSON.parse($cookies.get("username")) != null){
-					if(angular.isDefined(JSON.parse($cookies.get("username")).shop)){
-						shopId = JSON.parse($cookies.get("username")).shop.id;
+					if(angular.isDefined(JSON.parse($cookies.get("username")).shopId)){
+					//if(JSON.parse($cookies.get("username")).shopId != 0){	
+						shopId = JSON.parse($cookies.get("username")).shopId;
 					}else{
 						$location.path("/newShop");
 					}

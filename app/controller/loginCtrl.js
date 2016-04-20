@@ -32,10 +32,8 @@
 	
 	
 			$scope.userLogout = function(){
-				if($cookies.get("username") != null && $cookies.get("password") != null){
+				if($cookies.get("username") != null){
 					$cookies.remove("username");
-					$cookies.remove("password");
-					$cookies.remove("invoices");
 					$scope.userFlag = false;
 					
 					$location.path("#/");
@@ -64,7 +62,7 @@
 			};
 			
 			
-			
+			/*
 			var checkUser = function(email){
 				
 				$http.get($scope.customerUrl)
@@ -82,15 +80,15 @@
 					});		
 
 			}
-			
+			*/
 			$scope.showSignupError = false;
 			$scope.showEmptyFieldError = false;
-			/*SignUp User*/
+			//SignUp User
 			
-			/*ENd of SignUp User*/
+			//ENd of SignUp User
 			
 			
-			/*SignIn User*/
+			//SignIn User
 			if($cookies.get("username") != null){
 				$scope.userFlag = true;	
 
@@ -104,10 +102,10 @@
 			
 			
 			
-			/*End of SignIn User*/
+			//End of SignIn User
 			
 			
-			/*Signin Modal*/
+			//Signin Modal
 			$scope.signingin = true;
 			$scope.signin = function(){
 		     
