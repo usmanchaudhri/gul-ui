@@ -142,6 +142,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					label:'SHIPPING',
 					resolve: {
 						shippingList: function(gulServices,$cookies,$location) {
+							console.log($cookies.get("username"));
 							if($cookies.get("username") != null){
 								return gulServices.getShippingList();
 							
