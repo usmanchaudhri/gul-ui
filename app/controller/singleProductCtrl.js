@@ -210,7 +210,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 					"shopOwnerUsername": mDesigner
 				};
 				
-				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password"));
+				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				
 				var promise1 = $http({

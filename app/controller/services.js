@@ -127,7 +127,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							}
 							
 							//$http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat',)
-							return $http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat').then(function(dataa) {
+							return $http.get(one.data.customerUrl+'/'+JSON.parse($cookies.get('username')).id+'/cchat').then(function(dataa) {
 									console.log('Promise sdo resolved with ', dataa);
 							
 							
@@ -257,10 +257,10 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							cache: 'false'});
 					return promise
 					.then(function(response) {
-							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + $cookies.get("password") );
+							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' +JSON.parse($cookies.get("username")).password );
 
 
-console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("password") );
+//console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
 							var loginAuth =  base64;
 							var config = {
 								headers : {
