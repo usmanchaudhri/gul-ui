@@ -3,9 +3,10 @@ app.controller('shopCtrl',['$scope','$http','$q','$timeout','$location','$routeP
 		$scope.shop_id = $routeParams.shopId;
 		$scope.shop = getShop.shop;
 		$scope.designer = getShop.designer;
+		$scope.fixPath = getShop.fixPath;
 		/*$http.get("gulgs.properties")
 		.then(function(response) {
-				$scope.fixPath = response.data.fixImagePath;
+				$scope.fixPath = response.data.fixImagePathShop;
 				$scope.token = response.data.token;
 				var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+$scope.shop_id+'/products', cache: 'true'});
 				var promise2 = $http({method: 'GET', url: response.data.shopUrl+'/'+$scope.shop_id+'/designers', cache: 'true'});

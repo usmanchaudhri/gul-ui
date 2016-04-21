@@ -169,12 +169,12 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					}
 				}).when('/account', {
 					templateUrl: 'view/editProfile.html', 
-					controller: 'orderCtrl',
+					controller: 'accountCtrl',
 					label:'MY ACCOUNT',
 					resolve: {
-						orderList: function(gulServices,$cookies,$location) {
+						accountDetails: function(gulServices,$cookies,$location) {
 							if($cookies.get("username") != null){
-								return gulServices.getOrder();
+								return gulServices.getAccount();
 							}else{
 								$location.path("#/");
 							}

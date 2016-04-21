@@ -112,7 +112,7 @@
 						$http.get(
 							$scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',config
 						).then(function(data, status) {
-							console.log("Shipping Detail",data.data);
+							console.log("Shipping Detail",data.data.customer);
 							var getShippingDetails = data.data.customer.customerShipping;
 							$uibModalInstance.close(getShippingDetails);
 					

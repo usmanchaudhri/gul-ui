@@ -17,28 +17,28 @@
 				<form class="form-signin newship-form">
 					<div class="row" style="margin-bottom: 20px;">
 						<div class="col-sm-6"><label>First Name</label>
-							<input type="text" name="first" /></div>
+							<input ng-model="firstName" type="text" name="first" /></div>
 						<div class="col-sm-6">
 							<label>Last Name</label>
-							<input type="text" name="last" />
+							<input ng-model="lastName" type="text" name="last" />
 						</div>
 					</div>
 					<div class="row" style="margin-bottom: 20px;">
-						<div class="col-sm-12"><label>Email Address</label><input type="email" name="email" /></div>
+						<div class="col-sm-12"><label>Email Address</label><input ng-model="email" type="email" name="email" /></div>
 					</div>
 					<div class="row" style="margin-bottom: 20px;">
 						<div class="col-sm-12"><label>Password</label>
-							<input type="password" name="password" />
+							<input ng-model="password" type="password" name="password" />
 						</div>
 					</div>
 					<div class="row" style="margin-bottom: 20px;">
 						<div class="col-sm-6">
 							<label>Female</label>
-							<input type="radio" name="gender" id="female" style="height: 15px;"/>
+							<input ng-model="female" type="radio" name="gender" id="female" style="height: 15px;"/>
 						</div>
 						<div class="col-sm-6">
 							<label>Male</label>
-							<input type="radio" name="gender" id="male" style="height: 15px;" />
+							<input type="radio" ng-model="male" name="gender" id="male" style="height: 15px;" />
 						</div>
 					</div>
 					<div class="row" style="margin-bottom: 20px;">
