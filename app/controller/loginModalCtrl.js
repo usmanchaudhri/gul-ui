@@ -75,7 +75,7 @@
 				$http.get(
 					$scope.loginUrl,config
 				).success(function(data, status) {
-						//	console.log("Data here",data);
+							console.log("Data here",data);
 							if($cookies.get("username") != $scope.loginEmail){
 							
 							var value = {
@@ -85,7 +85,9 @@
 								"shopId": JSON.stringify(data.shop)
 							};
 							$cookies.put("username",JSON.stringify(value)); 
-							console.log("New User Object: ",$cookies.get("username"));
+						//console.log("New User Object: ",JSON.stringify(data));
+												
+						console.log("New User Object: ",$cookies.get("username"));
 							
 							//$cookies.put("password",$scope.loginPass);
 							$cookies.put("userId",data.id);

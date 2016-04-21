@@ -24,8 +24,26 @@
 				<label style="font-size: 12px;color: gray;" ><i>(selected)</i></label>
 				<!-- <label style="font-size: 12px;color: gray;" data-toggle="modal" data-target="#shipUpdateModal" ><i>(Edit)</i></label> -->
 				<label style="font-size: 12px;color: gray;" ng-click = "open(x,$index,1)" ><i>(Edit)</i></label>
-				
-					</div>
+				<!-- <span ng-if="x.isActive=='y'">
+					<input type="radio" ng-model="isActive"  name="default" value="y" ng-change="isActiveChange(x.id)"  />
+					Y Case {{x.id}}</span>
+				<span ng-if="x.isActive=='n'">
+					<input type="radio" ng-model="isActive"  name="default" value="n" ng-change="isActiveChange(x.id)"  />
+					N Case {{x.id}}</span> -->
+			<!--	<span ng-show="x.isActive=='y'">
+					<input type="radio" ng-model="isActive" name="isActive" value="y" ng-change="isActiveChange(x.id)" ng-checked />
+					Y Case {{x.id}}</span>
+				<span ng-show="x.isActive=='n'">
+					<input type="radio" ng-model="isActive"  name="isActive" value="x.id" ng-change="isActiveChange(x.id)"  />
+					N Case {{x.id}}</span> -->
+					<!--<span ng-if="x.isActive=='y'">
+					<input type="radio" ng-model="isActive"  name="default" value="x.id" ng-change="isActiveChange(x.id)"  />
+					Y Case {{x.id}}</span>
+				<span ng-if="x.isActive=='n'">
+					<input type="radio" ng-model="isActive"  name="default" value="x.id" ng-change="isActiveChange(x.id)"  />
+					N Case {{x.id}}</span> -->
+					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="isActiveChange($index)"  />
+					</div> 
 				</div><br>
 		</div>
 		<div class="col-sm-push-4 col-sm-3">
@@ -50,8 +68,7 @@
 							 <div class="row" style="margin-bottom: 20px;">
 
 								 <div class="col-sm-12"><label>Street Address</label><input type="text" name="street1" ng-model="streetAddress1" /></div>
-								 <div class="col-sm-12"><input type="text" required name="street2" ng-model="streetAddress1" /></div>
-							 </div>
+							</div>
 							 <div class="row" style="margin-bottom: 20px;">
 								 <div class="col-sm-6"><label>City</label>
 									 <input type="text" required name="city" ng-model="city" /></div>

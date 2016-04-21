@@ -309,7 +309,42 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 						
 						});
 				},
+				/*Get Account*/
+				getAccount: function(){
 				
+						var deferred = $q.defer();
+					var promise = $http({
+							method: 'GET',
+							url: 'gulgs.properties',
+							cache: 'false'});
+					return promise
+					.then(function(response) {
+							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' +JSON.parse($cookies.get("username")).password );
+
+
+//console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
+							var loginAuth =  base64;
+							var config = {
+								headers : {
+									'Content-Type': 'application/json',
+									'Authorization': 'Basic ' + loginAuth
+								}
+							}
+						
+							return	$http.get(response.data.loginUrl , config)
+							.then(function(response1){
+									/*$scope.showProgress = true;*/
+									console.log("Get Account Services Response",response1);
+				  
+									return response1.data;
+							
+				
+								});
+						
+						
+						
+						});
+				},
 				/**
 				Get ALL SHOPS
 				**/
@@ -323,7 +358,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					
 					return promise
 					.then(function(response) {
-							var mFixPath = response.data.fixImagePath;
+							var mFixPath = response.data.fixImagePathShop;
 							var	mToken = response.data.token;
 							//deferred.resolve();
 						
@@ -364,7 +399,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					console.log("PARAMS",shop_id);
 					return promise
 					.then(function(response) {
-							var mFixPath = response.data.fixImagePath;
+							var mFixPath = response.data.fixImagePathShop;
 							var	mToken = response.data.token;
 							//deferred.resolve();
 							var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
