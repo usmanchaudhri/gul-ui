@@ -66,7 +66,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				
 			
 			$scope.isActiveChange = function(position){
-				
+				console.log("Object",position);
 				var activePosition;
 				// Removing Previous Default Shipping Address
 				for(var i=0;i<$scope.getShippingDetails.length;i++){
@@ -91,7 +91,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				
 			};
 			
-			$scope.updateIsActive = function(shippingId1,shippingId2,isActive1,isActive2){
+			$scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
 				/*
 				var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 				var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
