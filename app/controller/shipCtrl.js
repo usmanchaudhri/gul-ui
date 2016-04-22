@@ -72,6 +72,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				for(var i=0;i<$scope.getShippingDetails.length;i++){
 					if($scope.getShippingDetails[i].isActive == "y"){
 							$scope.updateIsActive($scope.getShippingDetails[i].id,"n",$scope.getShippingDetails[position].id,"y");
+						//	$scope.getShippingDetails = getShippingList();
 							
 					} 
 				}
@@ -86,25 +87,28 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 									//console.log("in for loop",$scope.getShippingDetails[i].isActive);
 				} 
 				}*/
-				
+				console.log("Exiting isActiveChangeFunction");
 
 				
 			};
 			
 			$scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
+				console.log("Starting updateIsActive: ","Some Value");
 				/*
 				var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 				var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 				console.log("MNAME: "+mName);*/
 				var data1 = {
-					"id":  shippingId1,
+					//"id":  shippingId1,
 					"isActive": isActive1
 				};
+				console.log("Data1: ",data1);
+				
 				var data2 = {
-					"id":  shippingId2,
+					//"id":  shippingId2,
 					"isActive": isActive2
 				};
-				
+				console.log("Data2: ", data2);
 				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				
@@ -130,7 +134,8 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				$q.all([promise1,promise2]).then(function(data){
 						console.log(data[0],data[1]);
 						console.log("Success:",data[0] + data[1]);
-						composeMsg();
+						//$scope.getShippingDetails = data[1].data.customer.customerShipping;
+						//$scope.isActive = "y";
 					}, function onError(response) {
 						console.log("onError",response);
 						
