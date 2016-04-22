@@ -42,7 +42,7 @@
 				<span ng-if="x.isActive=='n'">
 					<input type="radio" ng-model="isActive"  name="default" value="x.id" ng-change="isActiveChange(x.id)"  />
 					N Case {{x.id}}</span> -->
-					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="isActiveChange($index)"  />
+					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="confirm($index)"  />
 					<span>({{x.id +":" + x.isActive }})</span></div> 
 				</div><br>
 		</div>
@@ -99,6 +99,41 @@
 
 
 						 </form><!-- /form -->
+
+					 </div><!-- /card-container -->
+				 </div>
+			 </div>
+
+
+
+		 </div>
+
+ </script> <script type="text/ng-template" id="confirm.html">
+		 <div class="card ship-container">
+			 <div class="modal-body">
+				 <div>
+					 <div class="">
+						 <h1 style="text-align: center;padding: 20px;">Are You Sure?</h1>
+						 <h2 style="text-align: center;padding: 20px;">Changing Default Shipping</h2>
+						 
+						 
+							 
+						
+							<!--
+							<form class="form-signin newship-form" ng-submit="updateDefaultShippingAddress()" role="form">
+						
+							 <div class="row" style="margin-bottom: 20px;">
+								 <div class="col-sm-3"><button class="btn btn-primary individual-bag-btn" ng-onclick="cancel()" data-target="dismiss" >Cancel </button></div>
+								 <div class="col-sm-9 text-right"><button class="btn btn-primary individual-bag-btn" type="submit">Confirm</button></div>
+							 </div>
+							-->
+							<div class="row" style="margin-bottom: 20px;">
+								 <div class="col-sm-3"><input type="button" class="btn btn-primary individual-bag-btn" ng-click= "cancel()" value= "Cancel"/></div>
+								 <div class="col-sm-9 text-right"><input type="button" class="btn btn-primary individual-bag-btn" ng-click="updateDefaultShippingAddress()" value = "Confirm"/></div>
+							 </div>
+							
+
+						<!-- /form -->
 
 					 </div><!-- /card-container -->
 				 </div>
