@@ -13,6 +13,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var resizeMaxHeight = 300;
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
+			var imageResizeFlag = true;
 			$scope.shopImage = [];
 		if(JSON.parse($cookies.get("username")) != null){
 					if(angular.isDefined(JSON.parse($cookies.get("username")).shopId)){
@@ -129,8 +130,11 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			}
 
 			$scope.uploadProduct = function(){
+				
 				$scope.uriToFile(cropImageArr);
+				console.log("tempfiles in UploadProduct",tempFiles);
 				$scope.resizeUpload(tempFiles);
+				
 			}
 			$scope.uploadShop = function(){
 				$scope.uriToFileShop(cropImageArr);
@@ -146,7 +150,23 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						resizeImg(myItem,deferred);
 					});
 				$q.all(promises).then(function () {
+						console.log("");
+						/*	
+						if(imageResizeFlag == false){
+							console.log("if Part in resizeUpload");	
+							console.log("After 2nd Run ResImage",resImage);
+							
+							$scope.uploadImages();
+						}else{
+							//Resize Image Again
+							console.log("Else Part: resizeUpload(resImage)");
+							console.log("After 1st Run ResImage",resImage);
+							
+							$scope.resizeUpload(resImage);
+							imageResizeFlag = false;
+						} */
 						$scope.uploadImages();
+						
 					});
 			}
 			
@@ -345,6 +365,8 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 				}
 				count = 0;
 				angular.forEach(uriArray, function (item) {
+						console.log("Item:",item);
+							
 						count++;
 						countIndex++;
 						var flag = false;

@@ -87,7 +87,8 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 					.result.then(
 						//function (shippingDetail) {
 						function (flag) {
-
+							$scope.$apply("true");
+							
 							//$scope.getShippingDetails = shippingList;
 							if(flag=="1"){
 							
