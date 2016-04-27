@@ -47,6 +47,7 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 			
 			$scope.uploadOrder=function(){
 				$scope.showProgress = true;
+				
 				var base64 = Base64.encode( "abc" + ':' + "123" );
 
 				var loginAuth =  base64;

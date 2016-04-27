@@ -395,6 +395,44 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 		
 	
 			};
+			$scope.addToCart = function(prod,size,qty){
+				//call here add product to cookies
+				//storeProductsInCookie(productDetail,selectedItem,productQty)
+				//$rootScope.$on.storeProductsInCookie(prod,price,qty);
+			var data = {
+				"prod":prod,
+				"size":size,
+				"qty":qty
+				};
+				$rootScope.$emit("addToBag",{"data":data});
+			}
+			/*
+			$scope.addToBag = function(prod,size,qty){
+					$scope.animationsEnabled = true;
+					$uibModal.open({
+							templateUrl: 'confirm.html',
+							controller: 'modalAddToBagCtrl',
+							    resolve: {
+       								 data: function () {
+							         var data = {
+										"prod":prod,
+										"size":size,
+										"qty":qty
+									};
+									 return data;
+							    }
+							}
+
+						})
+					.result.then(
+						function (flag) {
+							
+						}
+            
+					);
+				
+			
+			} */
 			
 		
 	
@@ -402,4 +440,29 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			//getChatList();
 			getShopOwner();
 		}]);
+	/*	
+app.controller('modalAddToBagCtrl',['$scope','$uibModalInstance','data','$http','$q','$cookies','Base64',"$rootScope", function($scope,$uibModalInstance,data,$http,$q,$cookies,Base64,$rootScope) {				
+	
+
+  $scope.cancel = function () {
+	  console.log("In Cancel Function");
+      $uibModalInstance.dismiss('cancel');
+  };
+  
+  $scope.addToCart = function(){
+		console.log("Data in AddtoCartCtrl",data);
+		var data = {
+				"prod":data.prod,
+				"size":data.size,
+				"qty":data.qty
+				};
+				$rootScope.$emit("addToBag",{"data":data});
+			
+  };
+	
+
+		
+			
+ 	
+ }]); */
 

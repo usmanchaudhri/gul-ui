@@ -22,6 +22,11 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 						}, 1500);
 			 	
 				});
+				
+				$rootScope.$on("addToBag", function(event,args){
+						console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+						$scope.storeProductsInCookie(args.data.prod,args.data.size,args.data.qty);
+				}); 
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
@@ -178,10 +183,13 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 
 			$scope.storeProductsInCookie=function(prod,size,qty){
-				
 				console.log("Product",prod);
+				
 				if(prod.quantity >qty){
-					
+				if(qty<1){
+					qty = 1;
+				}
+				console.log("Quantity Check:",qty);
 					$scope.invoice.items.push({
 							id:prod.id,
 							qty: qty,
@@ -318,5 +326,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 
 		}]);
+		
+
         
 
