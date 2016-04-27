@@ -28,8 +28,11 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				}
 					
 				return numDrop; */  
-				console.log(new Array(parseInt(num)));
-				return new Array(parseInt(num));  
+			
+				if(angular.isDefined(num)){
+					console.log(new Array(parseInt(num)));
+					return new Array(parseInt(num));  
+				}
 			}
 			
 			/**
@@ -64,6 +67,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 						console.log("RET Channel");
 					});
 			}
+			
 	
 			/**
 			Retrieve Channel
@@ -391,6 +395,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 		
 	
 			};
+			
+		
 	
 			$scope.load();
 			//getChatList();

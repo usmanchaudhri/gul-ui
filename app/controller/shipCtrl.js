@@ -2,6 +2,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 			
 			if($cookies.get("username") != null){
 				$scope.getShippingDetails = shippingList;	
+				
 			}else{
 				$location.path("#/");
 			}
@@ -87,7 +88,8 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 					.result.then(
 						//function (shippingDetail) {
 						function (flag) {
-							$scope.$apply("true");
+							//console.log("Flag.data",flag.data)
+							//$scope.$apply();
 							
 							//$scope.getShippingDetails = shippingList;
 							if(flag=="1"){
@@ -179,6 +181,9 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				$q.all([promise1,promise2]).then(function(data){
 						console.log(data[0],data[1]);
 						console.log("Success:",data[0] + data[1]);
+						
+						
+
 						//$scope.getShippingDetails = data[1].data.customer.customerShipping;
 						//$scope.isActive = "y";
 					}, function onError(response) {
@@ -210,8 +215,7 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 
   $scope.cancel = function () {
 	  console.log("In Cancel Function");
-    $uibModalInstance.dismiss('cancel');
-
+      $uibModalInstance.dismiss('cancel');
   };
   
   $scope.updateDefaultShippingAddress = function(){
@@ -277,6 +281,8 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 				$q.all([promise1,promise2]).then(function(data){
 						console.log(data[0],data[1]);
 						console.log("Success:",data[0] + data[1]);
+						//console.log("New Shipping List",shippingList);
+						//$scope.$apply();
 						$uibModalInstance.dismiss("1");
 						//$scope.getShippingDetails = data[1].data.customer.customerShipping;
 						//$scope.isActive = "y";

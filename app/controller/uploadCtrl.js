@@ -7,6 +7,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			$scope.categoryList = [];
 			
 			var resImage = [];
+			var resImageUri= [];
 			var promises = [];
 			var tempFiles = [];
 			var cropImageArr = [];
@@ -130,11 +131,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			}
 
 			$scope.uploadProduct = function(){
-				
+				console.log("cropImageArr at Line 132:",cropImageArr);
 				$scope.uriToFile(cropImageArr);
-				console.log("tempfiles in UploadProduct",tempFiles);
+				console.log("Temp Files at Line 134:",tempFiles);
 				$scope.resizeUpload(tempFiles);
-				
 			}
 			$scope.uploadShop = function(){
 				$scope.uriToFileShop(cropImageArr);
@@ -148,24 +148,23 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						var deferred = $q.defer();
 						promises.push(deferred.promise);		
 						resizeImg(myItem,deferred);
+						//console.log("in foreach loop at line 149");
 					});
 				$q.all(promises).then(function () {
-						console.log("");
-						/*	
-						if(imageResizeFlag == false){
-							console.log("if Part in resizeUpload");	
-							console.log("After 2nd Run ResImage",resImage);
-							
-							$scope.uploadImages();
-						}else{
-							//Resize Image Again
-							console.log("Else Part: resizeUpload(resImage)");
-							console.log("After 1st Run ResImage",resImage);
-							
-							$scope.resizeUpload(resImage);
-							imageResizeFlag = false;
-						} */
+						console.log("resImage at Line 151:",resImage);
+						if(imageResizeFlag==false){
 						$scope.uploadImages();
+						}else{
+							
+							angular.forEach(resImage, function (myItem) {
+								resImageUri.push(myItem.resized.dataURL);
+							});
+							console.log("resImageUri at 162:",resImageUri);
+							cropImageArr = resImageUri;
+							console.log("cropImageArr at 164:",cropImageArr);
+							$scope.uploadProduct();
+							imageResizeFlag = false;
+						}
 						
 					});
 			}
@@ -365,8 +364,6 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 				}
 				count = 0;
 				angular.forEach(uriArray, function (item) {
-						console.log("Item:",item);
-							
 						count++;
 						countIndex++;
 						var flag = false;
@@ -664,9 +661,6 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 							});
 			};
 		}]);
-
-
-
 
 
 
