@@ -2,6 +2,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 			
 			if($cookies.get("username") != null){
 				$scope.getShippingDetails = shippingList;	
+				
 			}else{
 				$location.path("#/");
 			}
@@ -63,15 +64,61 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				}
 			};
 			
+			
+			
+			$scope.confirm = function(position){
+				
+				if($cookies.get("username") != null){
+					$scope.animationsEnabled = true;
+					$uibModal.open({
+							templateUrl: 'confirm.html',
+							controller: 'modalDefaultShipCtrl',
+							    resolve: {
+       								 data: function () {
+							         var data= {
+										 "shippingDetail": shippingList,
+										 "position":position
+									 }
+									 console.log("Returning Data to Other Ctrl",data)
+									 return data;
+							    }
+							}
+
+						})
+					.result.then(
+						//function (shippingDetail) {
+						function (flag) {
+							//console.log("Flag.data",flag.data)
+							//$scope.$apply();
+							
+							//$scope.getShippingDetails = shippingList;
+							if(flag=="1"){
+							
+								console.log("Default Shipping Address Sucessfully Updated.");	
+							}else if(flag=="0"){
+								console.log("Default Shipping Address failed to Update.");
+							}
+							//Show Message Here
+							//$scope.getShippingDetails = shippingDetail;
+						}
+            
+					);
+				}else{
+					
+					$rootScope.$emit("signin", {});
+				}
+			};
 				
 			
 			$scope.isActiveChange = function(position){
+				
 				console.log("Object",position);
 				var activePosition;
 				// Removing Previous Default Shipping Address
 				for(var i=0;i<$scope.getShippingDetails.length;i++){
 					if($scope.getShippingDetails[i].isActive == "y"){
 							$scope.updateIsActive($scope.getShippingDetails[i].id,"n",$scope.getShippingDetails[position].id,"y");
+						//	$scope.getShippingDetails = getShippingList();
 							
 					} 
 				}
@@ -86,25 +133,29 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 									//console.log("in for loop",$scope.getShippingDetails[i].isActive);
 				} 
 				}*/
-				
+				console.log("Exiting isActiveChangeFunction");
+			
 
 				
 			};
 			
 			$scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
+				console.log("Starting updateIsActive: ","Some Value");
 				/*
 				var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
 				var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
 				console.log("MNAME: "+mName);*/
 				var data1 = {
-					"id":  shippingId1,
+					//"id":  shippingId1,
 					"isActive": isActive1
 				};
+				console.log("Data1: ",data1);
+				
 				var data2 = {
-					"id":  shippingId2,
+					//"id":  shippingId2,
 					"isActive": isActive2
 				};
-				
+				console.log("Data2: ", data2);
 				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				
@@ -130,15 +181,118 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				$q.all([promise1,promise2]).then(function(data){
 						console.log(data[0],data[1]);
 						console.log("Success:",data[0] + data[1]);
-						composeMsg();
+						
+						
+
+						//$scope.getShippingDetails = data[1].data.customer.customerShipping;
+						//$scope.isActive = "y";
 					}, function onError(response) {
 						console.log("onError",response);
 						
 					});
-			};
+			}; 
 			
 			
 			
 	
 	
 		}]);
+		
+
+		
+app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$http','$q','$cookies','Base64', function($scope,$uibModalInstance,data,$http,$q,$cookies,Base64) {
+ 
+	$scope.getShippingDetails = data.shippingDetail;
+			console.log("In modalDefualtShip Ctrl",data);
+					
+	
+ 	$http.get("gulgs.properties")
+			.then(function(response) {
+					$scope.shippingUrl = response.data.shippingUrl;
+				});
+
+	
+
+  $scope.cancel = function () {
+	  console.log("In Cancel Function");
+      $uibModalInstance.dismiss('cancel');
+  };
+  
+  $scope.updateDefaultShippingAddress = function(){
+  		isActiveChange(data.position);
+  	
+  };
+  
+ var isActiveChange = function(position){
+				
+				console.log("Object",position);
+				// Removing Previous Default Shipping Address
+				for(var i=0;i<$scope.getShippingDetails.length;i++){
+					if($scope.getShippingDetails[i].isActive == "y"){
+							$scope.updateIsActive($scope.getShippingDetails[i].id,"n",$scope.getShippingDetails[position].id,"y");
+							
+					} 
+				}
+				
+				console.log("Exiting isActiveChangeFunction");
+			
+
+				
+			};
+  $scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
+				console.log("Starting updateIsActive: ","Some Value");
+				/*
+				var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+				var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
+				console.log("MNAME: "+mName);*/
+				var data1 = {
+					//"id":  shippingId1,
+					"isActive": isActive1
+				};
+				console.log("Data1: ",data1);
+				
+				var data2 = {
+					//"id":  shippingId2,
+					"isActive": isActive2
+				};
+				console.log("Data2: ", data2);
+				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+				var loginAuth =  base64;
+				
+				var promise1 = $http({
+						method: 'PUT',
+						url: $scope.shippingUrl+'/'+shippingId1,
+						data: data1,
+						headers : {
+							'Content-Type': 'application/json',
+							'Authorization': 'Basic ' + loginAuth
+						},
+						cache: 'false'});
+				var promise2 = $http({
+						method: 'PUT',
+						url: $scope.shippingUrl+'/'+shippingId2,
+						data: data2,
+						headers : {
+							'Content-Type': 'application/json',
+							'Authorization': 'Basic ' + loginAuth
+						},
+						cache: 'false'});
+
+				$q.all([promise1,promise2]).then(function(data){
+						console.log(data[0],data[1]);
+						console.log("Success:",data[0] + data[1]);
+						//console.log("New Shipping List",shippingList);
+						//$scope.$apply();
+						$uibModalInstance.dismiss("1");
+						//$scope.getShippingDetails = data[1].data.customer.customerShipping;
+						//$scope.isActive = "y";
+					}, function onError(response) {
+						console.log("onError",response);
+						$uibModalInstance.dismiss("0");
+					});
+			};
+			
+			
+ 	
+ }]);
+ 

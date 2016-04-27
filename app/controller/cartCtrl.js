@@ -178,30 +178,36 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 
 			$scope.storeProductsInCookie=function(prod,size,qty){
-				console.log(prod);
-				$scope.invoice.items.push({
-						id:prod.id,
-						qty: qty,
-						totalQty: prod.quantity,
-						name:prod.name,
-						size: size,
-						shop: prod.shop.name,
-						shopID: prod.shop.id,
-						cost: prod.pricingProduct.storedValue,
-						category: prod.category,
-						imagePath: prod.imagePath
+				
+				console.log("Product",prod);
+				if(prod.quantity >qty){
 					
+					$scope.invoice.items.push({
+							id:prod.id,
+							qty: qty,
+							totalQty: prod.quantity,
+							name:prod.name,
+							size: size,
+							shop: prod.shop.name,
+							shopID: prod.shop.id,
+							cost: prod.pricingProduct.storedValue,
+							category: prod.category,
+							imagePath: prod.imagePath
+						
 					});
-				$cookieStore.put("invoices",$scope.invoice.items);
-				$scope.items = $cookieStore.get("invoices");
 					
-				$scope.currentItem = $scope.items[$scope.items.length - 1];
-			
-				console.log("product price",$scope.currentItem.cost);
-				console.log("Add Product "+$scope.items.length);
-				$scope.abc = $scope.items.length;
-				$scope.totalCost($scope.invoice.items);
-			$scope.getItemSize();
+					$cookieStore.put("invoices",$scope.invoice.items);
+				
+					$scope.items = $cookieStore.get("invoices");
+						
+					$scope.currentItem = $scope.items[$scope.items.length - 1];
+				
+					console.log("product price",$scope.currentItem.cost);
+					console.log("Add Product "+$scope.items.length);
+					$scope.abc = $scope.items.length;
+					$scope.totalCost($scope.invoice.items);
+					$scope.getItemSize();
+				}
 				
 			};
 	
