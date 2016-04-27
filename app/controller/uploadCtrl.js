@@ -14,7 +14,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var resizeMaxHeight = 300;
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
-			var imageResizeFlag = true;
+			//var imageResizeFlag = true;
 			$scope.shopImage = [];
 		if(JSON.parse($cookies.get("username")) != null){
 					if(angular.isDefined(JSON.parse($cookies.get("username")).shopId)){
@@ -152,9 +152,9 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 					});
 				$q.all(promises).then(function () {
 						console.log("resImage at Line 151:",resImage);
-						if(imageResizeFlag==false){
+						//if(imageResizeFlag==false){
 						$scope.uploadImages();
-						}else{
+						/*}else{
 							
 							angular.forEach(resImage, function (myItem) {
 								resImageUri.push(myItem.resized.dataURL);
@@ -164,7 +164,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 							console.log("cropImageArr at 164:",cropImageArr);
 							$scope.uploadProduct();
 							imageResizeFlag = false;
-						}
+						} */
 						
 					});
 			}
