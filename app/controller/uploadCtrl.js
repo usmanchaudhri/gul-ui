@@ -1,4 +1,4 @@
-app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cookies','$location', function($scope, Upload, $timeout,$q,$http,$cookies,$location) {
+app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cookies','$location','$rootScope', function($scope, Upload, $timeout,$q,$http,$cookies,$location,$rootScope) {
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
 			
@@ -14,14 +14,17 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var resizeMaxWidth = 300;
 			var imgSize = 0;
 			$scope.shopImage = [];
-		if(JSON.parse($cookies.get("username")) != null){
+	console.log("upload page shop id",$cookies.get("username"));
+		if(angular.isDefined($cookies.get("username"))){
 					if(angular.isDefined(JSON.parse($cookies.get("username")).shopId)){
-					//if(JSON.parse($cookies.get("username")).shopId != 0){	
+					//if(JSON.parse($cookies.get("username")).shopId != 0){
+						console.log("upload page shop id",JSON.parse($cookies.get("username")).shopId);
 						shopId = JSON.parse($cookies.get("username")).shopId;
 					}else{
 						$location.path("/newShop");
 					}
 				}else{
+			$location.path("#a");
 					$rootScope.$emit("signin", {});
 				}
 		/*	if($cookies.get("username") == null){
@@ -351,10 +354,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						if(!flag){
 							console.log(resolution);
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.png');
+							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.jpeg');
 							var value = {
 								// File Name 
-								name: resolution + '-'+count+'-img-'+$scope.newProId+'.png',
+								name: resolution + '-'+count+'-img-'+$scope.newProId+'.jpeg',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
@@ -380,10 +383,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						var flag = false;
 						if(!flag){
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],'shop-' + $scope.shopId+'.png');
+							var file1 = new File([fileCheck],'shop-' + $scope.shopId+'.jpeg');
 							var value = {
 								// File Name 
-								name: 'shop-'+$scope.shopId+'.png',
+								name: 'shop-'+$scope.shopId+'.jpeg',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
@@ -457,7 +460,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 				ctx.drawImage(oc,0,0,oc.width, oc.height,
 					0,0,canvas.width,canvas.height);
 				
-				return canvas.toDataURL('image/png',1);
+				return canvas.toDataURL('image/jpeg',1);
 			};
 
 			var createImage = function(url, callback) {
