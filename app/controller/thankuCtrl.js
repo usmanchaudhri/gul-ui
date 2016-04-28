@@ -77,7 +77,7 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 				}
 				$cookieStore.remove("invoices");
 				$scope.items = {};
-				$scope.$apply();
+				//$scope.$apply();
 			};
 		
 			$scope.orderPayload = function(itemDetail){
