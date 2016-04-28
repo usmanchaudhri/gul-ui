@@ -370,10 +370,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						if(!flag){
 							console.log(resolution);
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.png');
+							var file1 = new File([fileCheck],resolution + '-'+count+'-img-'+$scope.newProId+'.jpg');
 							var value = {
 								// File Name 
-								name: resolution + '-'+count+'-img-'+$scope.newProId+'.png',
+								name: resolution + '-'+count+'-img-'+$scope.newProId+'.jpg',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
@@ -399,10 +399,10 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 						var flag = false;
 						if(!flag){
 							var fileCheck = $scope.dataURItoBlob(item);
-							var file1 = new File([fileCheck],'shop-' + $scope.shopId+'.png');
+							var file1 = new File([fileCheck],'shop-' + $scope.shopId+'.jpg');
 							var value = {
 								// File Name 
-								name: 'shop-'+$scope.shopId+'.png',
+								name: 'shop-'+$scope.shopId+'.jpg',
 								//File Size 
 								size: file1.size,
 								//File URL to view 
