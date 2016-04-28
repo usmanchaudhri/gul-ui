@@ -399,7 +399,8 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					console.log("PARAMS",shop_id);
 					return promise
 					.then(function(response) {
-							var mFixPath = response.data.fixImagePathShop;
+							var mFixPathShop = response.data.fixImagePathShop;
+							var mFixPath = response.data.fixImagePath;
 							var	mToken = response.data.token;
 							//deferred.resolve();
 							var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
@@ -409,6 +410,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					
 									value = {
 										fixPath:mFixPath,
+										fixPathShop:mFixPathShop,
 										token:mToken,
 										shop: data[0].data,
 										designer:data[1].data
