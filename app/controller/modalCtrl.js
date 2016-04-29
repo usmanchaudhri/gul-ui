@@ -130,6 +130,7 @@
 					"address": $scope.streetAddress1,
 					"city": $scope.city,
 					"state": $scope.state,
+					"isActive": "n",
 					"zipcode": $scope.zip,
 					"country": $scope.country
 				}
