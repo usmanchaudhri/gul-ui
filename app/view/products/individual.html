@@ -81,13 +81,13 @@ $('.lightbox_trigger').click(function(e) {
 	
 	
 		});
-
+/*
  $('.addtobag-btn').click(function(){
 	$('.single-cartproduct').css("display","block");
 	$('.single-cartproduct').css("color","black");
 	 $('.single-cartproduct').delay(1000).fadeOut();
 	 
-});
+}); */
 
 </script>
 
@@ -213,7 +213,7 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="row" >
 		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
-			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpeg'+ token}}" alt="img" id="indisize" />
+			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" />
 		</div>
 		</div>
 		<div class="col-sm-5 col-xs-12" id="indisize1">
@@ -258,13 +258,15 @@ $('.lightbox_trigger').click(function(e) {
 				</div >
 				
 				
-				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
+				<!-- <a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a> -->
+				 <a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="addToCart(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a> 
+<!--				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="addToBag(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO Cart</button></a>  -->
 				<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 20%;">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;" >
 					<div class="col-sm-2 col-xs-2" ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" >
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
 					</div>
 					<!--<div class="col-sm-2 col-xs-2"> 
 						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
@@ -380,7 +382,33 @@ $('.lightbox_trigger').click(function(e) {
 		
 		
 	</div>
-</div>--><!---btn end -->     
+</div>--><!---btn end -->   
+<!--
+<script type="text/ng-template" id="confirm.html">
+		 <div class="card ship-container">
+			 <div class="modal-body">
+				 <div>
+					 <div class="">
+						 <h1 style="text-align: center;padding: 20px;">Are You Sure?</h1>
+						 <h2 style="text-align: center;padding: 20px;">Product Already Exist in the Cart</h2>
+						 
+							<div class="row" style="margin-bottom: 20px;">
+								 <div class="col-sm-3"><input type="button" class="btn btn-primary individual-bag-btn" ng-click= "cancel()" value= "Cancel"/></div>
+								 <div class="col-sm-9 text-right"><input type="button" class="btn btn-primary individual-bag-btn" ng-click="addToCart()" 
+value = "Confirm"/></div>
+							 </div>
+							
+
+	
+					 </div>
+				 </div>
+			 </div>
+
+
+
+		 </div>
+
+ </script>   -->
 </div>
 <script>
 	

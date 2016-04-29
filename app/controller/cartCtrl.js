@@ -22,6 +22,11 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 						}, 1500);
 			 	
 				});
+				
+				$rootScope.$on("addToBag", function(event,args){
+						console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+						$scope.storeProductsInCookie(args.data.prod,args.data.size,args.data.qty);
+				}); 
 			var checkUrl = function(){
 				var urlParameters = $location.search();
 				if(angular.isDefined(urlParameters.paymentId)){
@@ -178,10 +183,35 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 
 			$scope.storeProductsInCookie=function(prod,size,qty){
-				
+				console.log(size+ "=Size////qty="+qty);
 				console.log("Product",prod);
+				console.log("Invoices",$cookieStore.get("invoices"));				
+				var prodExistFlag = false;
 				if(prod.quantity >qty){
+				if(qty<1){
+					qty = 1;
+				}
+				if(angular.isDefined($cookieStore.get("invoices"))){
+				
+					angular.forEach($cookieStore.get("invoices"), function (myProd) {
+							if(myProd.id==prod.id && myProd.size == size){
+								prodExistFlag = true;
+							}
+						});
+				}
 					
+				if(prodExistFlag){
+							var itemsList = $cookieStore.get("invoices");
+						angular.forEach(itemsList, function (myProd) {
+							if(myProd.id==prod.id && myProd.size == size){
+								console.log("Product Matched");
+								myProd.qty = parseInt(myProd.qty) + parseInt(qty);
+							}
+						});
+						$cookieStore.put("invoices",itemsList);
+					
+				}else{
+					console.log("Quantity Check:",qty);
 					$scope.invoice.items.push({
 							id:prod.id,
 							qty: qty,
@@ -197,7 +227,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					});
 					
 					$cookieStore.put("invoices",$scope.invoice.items);
-				
+				}
 					$scope.items = $cookieStore.get("invoices");
 						
 					$scope.currentItem = $scope.items[$scope.items.length - 1];
@@ -238,10 +268,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						/*"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"*/
-						"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"
+						"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"
+					/*	"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"*/
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -318,5 +348,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			
 
 		}]);
+		
+
         
 

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/cartCtrl.js" afterPath="$PROJECT_DIR$/app/controller/cartCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/singleProductCtrl.js" afterPath="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/thankuCtrl.js" afterPath="$PROJECT_DIR$/app/controller/thankuCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/uploadCtrl.js" afterPath="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/categories/categoryProducts.html" afterPath="$PROJECT_DIR$/app/view/categories/categoryProducts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/products/individual.html" afterPath="$PROJECT_DIR$/app/view/products/individual.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shop/allShops.html" afterPath="$PROJECT_DIR$/app/view/shop/allShops.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shop/shopProducts.html" afterPath="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shoppingCart/cart.html" afterPath="$PROJECT_DIR$/app/view/shoppingCart/cart.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,57 +34,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/services.js">
+      <file leaf-file-name="uploadCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="358" column="34" selection-start-line="358" selection-start-column="27" selection-end-line="358" selection-end-column="34" />
+            <state relative-caret-position="1336">
+              <caret line="647" column="64" selection-start-line="647" selection-start-column="64" selection-end-line="647" selection-end-column="64" />
               <folding>
-                <element signature="e#33#2098#0" expanded="false" />
-                <element signature="e#2145#2494#0" expanded="false" />
-                <element signature="e#6273#7200#0" expanded="false" />
+                <marker date="1461913568550" expanded="true" signature="184:369" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newShopCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/newShopCtrl.js">
+      <file leaf-file-name="categories.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/categories/categories.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="singleProductCtrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-289">
-              <caret line="143" column="64" selection-start-line="143" selection-start-column="64" selection-end-line="143" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="558" column="37" selection-start-line="558" selection-start-column="37" selection-end-line="558" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="357">
+              <caret line="21" column="66" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -94,14 +70,15 @@
         <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/myApp.js" />
         <option value="$PROJECT_DIR$/app/controller/shipCtrl.js" />
-        <option value="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
         <option value="$PROJECT_DIR$/app/js/angular-image-cropper.min.js" />
         <option value="$PROJECT_DIR$/app/view/newshipping.html" />
         <option value="$PROJECT_DIR$/app/controller/shopCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/services.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
+        <option value="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
-        <option value="$PROJECT_DIR$/app/index.html" />
       </list>
     </option>
   </component>
@@ -219,47 +196,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gul-ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gul-ui" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="products" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gul-ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gul-ui" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="categories" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,7 +257,7 @@
       <workItem from="1461049415872" duration="1889000" />
       <workItem from="1461056626188" duration="10375000" />
       <workItem from="1461159455181" duration="3936000" />
-      <workItem from="1461574711371" duration="13517000" />
+      <workItem from="1461574711371" duration="15726000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -333,10 +270,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29717000" />
+    <option name="totallyTimeSpent" value="31926000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -415,7 +352,7 @@
         <state relative-caret-position="765">
           <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
           <folding>
-            <marker date="1461753650944" expanded="true" signature="184:369" placeholder="{...}" />
+            <marker date="1461913568550" expanded="true" signature="184:369" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -591,16 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7121">
-          <caret line="480" column="16" selection-start-line="480" selection-start-column="16" selection-end-line="480" selection-end-column="16" />
-          <folding>
-            <marker date="1461753650944" expanded="true" signature="184:369" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gulgs.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -625,52 +552,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/shop/shopProducts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="84" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/products/individual.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="215" column="109" selection-start-line="215" selection-start-column="109" selection-end-line="215" selection-end-column="109" />
-          <folding>
-            <marker date="1461838882378" expanded="true" signature="771:2545" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="788:815" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="899:928" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="983:2531" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1005:1025" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1026:2286" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1055:1442" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1063:1432" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1080:1091" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1245:1260" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1310:1321" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1471:1857" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1479:1847" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1496:1507" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1660:1675" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1725:1736" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1886:2272" placeholder="..." />
-            <marker date="1461838882378" expanded="true" signature="1894:2262" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="1911:1922" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="2075:2090" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="2140:2151" placeholder="..." />
-            <marker date="1461838882378" expanded="false" signature="2308:2319" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="558" column="37" selection-start-line="558" selection-start-column="37" selection-end-line="558" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -704,8 +590,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="143" column="64" selection-start-line="143" selection-start-column="64" selection-end-line="143" selection-end-column="64" />
+        <state relative-caret-position="-187">
+          <caret line="206" column="44" selection-start-line="206" selection-start-column="44" selection-end-line="206" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/thankuCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1098">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/shop/shopProducts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/products/individual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding>
+            <marker date="1461913661272" expanded="true" signature="771:2545" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="788:815" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="899:928" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="983:2531" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1005:1025" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1026:2286" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1055:1442" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1063:1432" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1080:1091" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1245:1260" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1310:1321" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1471:1857" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1479:1847" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1496:1507" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1660:1675" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1725:1736" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1886:2272" placeholder="..." />
+            <marker date="1461913661272" expanded="true" signature="1894:2262" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="1911:1922" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="2075:2090" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="2140:2151" placeholder="..." />
+            <marker date="1461913661272" expanded="false" signature="2308:2319" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1336">
+          <caret line="647" column="64" selection-start-line="647" selection-start-column="64" selection-end-line="647" selection-end-column="64" />
+          <folding>
+            <marker date="1461913568550" expanded="true" signature="184:369" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/categories/categories.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="66" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="66" />
           <folding />
         </state>
       </provider>

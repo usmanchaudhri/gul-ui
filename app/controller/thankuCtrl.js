@@ -1,4 +1,4 @@
-app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$location','Base64', function($scope,$cookieStore,$http,$window,$location,Base64) {
+app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$location','Base64',"$cookies", function($scope,$cookieStore,$http,$window,$location,Base64,$cookies) {
 			$scope.isNumber = angular.isNumber;
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
@@ -47,8 +47,10 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 			
 			$scope.uploadOrder=function(){
 				$scope.showProgress = true;
-				var base64 = Base64.encode( "abc" + ':' + "123" );
-
+				
+				//var base64 = Base64.encode( "amjad@gmail.com" + ':' + "Islam" );
+				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+				
 				var loginAuth =  base64;
 				
 				var count = -1;
@@ -73,6 +75,9 @@ app.controller('thankuCtrl',['$scope','$cookieStore','$http','$window','$locatio
 							console.log(status);
 						});
 				}
+				$cookieStore.remove("invoices");
+				$scope.items = {};
+				//$scope.$apply();
 			};
 		
 			$scope.orderPayload = function(itemDetail){
