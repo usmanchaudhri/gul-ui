@@ -2136,6 +2136,14 @@ select{
 #respone{
 		    
     margin-top: 75% !important;
+    margin-left: 54-px !important;
+	}
+	#respone2{
+		margin-top:280px !important;
+		font-size:27px !important;
+	}
+	#mob-create-margin{
+		margin-left:100px;
 	}
 	#lab4{
 		font-size:9px !important ;
@@ -2431,9 +2439,7 @@ select{
 {
 	margin-top:0px !important;
 }
-#lab5{
-	margin-top: 56px !important;
-}
+
 
 #lab4{
 	margin-left: 0px !important; 
@@ -2475,10 +2481,10 @@ select{
     color: #bcbcbc;
 }
 #respon2{
-	    font-size: 23px !important;
+	    font-size: 24px !important;
    
     color: #f6ccb1;
-    margin-top: 21px;
+    margin-top: 280px !important;
 }
 
     
