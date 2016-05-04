@@ -36,7 +36,7 @@
 			<!--Navigation Bar-->
 
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="breadcrumbs.get().length == 1"  >
+				<div ng-show="breadcrumbs.get().length == 1"  >
 					<div >
 
 			<div >
@@ -168,7 +168,7 @@
 			</div>
 
 			<div ng-controller="BreadcrumbCtrl" >
-				<div ng-if="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
+				<div ng-show="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
 					<div >
 						<nav class="navbar header-main-nav">
 							<div class="container-fluid" >
@@ -359,7 +359,7 @@
 						</script>
 					</div>
 				</div>
-				<div ng-if="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)">
+				<div ng-show="breadcrumbs.get().length > 1 && getPosition(breadcrumbs)">
 					<div >
 						<nav class="navbar header-main-nav">
 							<div class="container-fluid" >

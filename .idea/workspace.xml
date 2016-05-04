@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/modalCtrl.js" afterPath="$PROJECT_DIR$/app/controller/modalCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/newshipping.html" afterPath="$PROJECT_DIR$/app/view/newshipping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shop/shopProducts.html" afterPath="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shopCtrl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shopCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/shopCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+            <state relative-caret-position="323">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -96,8 +94,18 @@
       <file leaf-file-name="modalCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+            <state relative-caret-position="85">
+              <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="626" column="4" selection-start-line="626" selection-start-column="4" selection-end-line="626" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -129,13 +137,13 @@
         <option value="$PROJECT_DIR$/app/js/angular-image-cropper.min.js" />
         <option value="$PROJECT_DIR$/app/controller/shopCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/services.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
-        <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/newshipping.html" />
         <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
+        <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
       </list>
     </option>
   </component>
@@ -354,7 +362,7 @@
       <workItem from="1461049415872" duration="1889000" />
       <workItem from="1461056626188" duration="10375000" />
       <workItem from="1461159455181" duration="3936000" />
-      <workItem from="1461574711371" duration="17601000" />
+      <workItem from="1461574711371" duration="19549000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -367,11 +375,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33801000" />
+    <option name="totallyTimeSpent" value="35749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -621,14 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="558" column="37" selection-start-line="558" selection-start-column="37" selection-end-line="558" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -708,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/newshipping.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -756,8 +748,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/shopCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+        <state relative-caret-position="323">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="626" column="4" selection-start-line="626" selection-start-column="4" selection-end-line="626" selection-end-column="4" />
           <folding />
         </state>
       </provider>
