@@ -1,18 +1,21 @@
 <div class="content-container">
 <div class="container">
 	<div class="row info-boxes">
-		<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in allShopDetail">
+		<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in allShopDetail" style="margin-top:26px;">
 		
 		<br/>
 			
 			<a ng-href="#shop/{{a.id}}">		
-			<img bn-lazy-src= "{{fixPath + 'shop-'+ a.id +'.jpg'+ token }}">
+
+			<img bn-lazy-src= "{{fixPath + 'shop-'+ a.id +'.png'+ token }}" style="margin-top: -27px;">
+
+
 			</a>
 		
 			<div class="imageText">
 				<span class="proDes">
-					<p>
-					<a ng-href="#shop/{{a.id}}">
+					<p style="margin-top:23px;">
+					<a ng-href="#shop/{{a.id}}" style="font-family: lato-regular;">
 						{{a.name}}
 					</a>
 					</p>
@@ -22,3 +25,4 @@
 	</div>
 </div>
 </div>
+<div  class="container-fluid" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 8px;margin-top: -20px" id="mob-margin"></div>
