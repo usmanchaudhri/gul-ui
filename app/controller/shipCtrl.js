@@ -12,6 +12,8 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 			.then(function(response) {
 					$scope.shippingUrl = response.data.shippingUrl;
 					$scope.customerUrl = response.data.customerUrl;
+					$scope.loginUrl = response.data.loginUrl;
+				
 				});
 			
 			/*for(var i=0;i<=$scope.getShippingDetails.length;i++){
@@ -46,7 +48,8 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 							         var value = {
 							         		"position": position,
 							         		"shippingDetail": shippingDetail,
-							         		"flag": flag
+							         		"flag": flag,
+											"shippingListSize":$scope.getShippingDetails.length
 							         };
 							         return value;
 							    }
