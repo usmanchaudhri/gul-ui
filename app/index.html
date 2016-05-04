@@ -12,7 +12,7 @@
 		<link href="css/chat.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/mail.css" />
 		<link rel="stylesheet" href="css/jquery-ui.css">
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+		<!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/> -->
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="css/dropdown.css">
 		<link rel="stylesheet" href="css/user-dropdown.css">
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" href="css/angular-bootstrap-lightbox.css">
 		<link rel="stylesheet" href="css/jquery-fancy-box.css">
 		<link rel="stylesheet" href="css/jquery-fancybox-thumb.css">
-		<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<!-- <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" /> -->
 		<link href='https://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
 		<link href="fonts/Lato-Hairline.ttf" rel="stylesheet" type="text/css" />
 		<link  href="fonts/Lato-Black.ttf" rel="stylesheet" type="text/css"/>
@@ -68,7 +68,7 @@
 														<li>
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
 																	<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
@@ -89,7 +89,7 @@
 														<li ng-repeat="a in items track by $index">
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.png' + token}}" width="76" height="74">
+																	<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
 																	<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
@@ -193,6 +193,7 @@
 													<label class="cart-lable1" style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
+<<<<<<< HEAD
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
@@ -203,6 +204,61 @@
 																</div>
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
+=======
+															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
+															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
+															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
+																<li>
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5">
+																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">$ {{currentItem.cost*currentItem.qty}}</label>
+																		</div>
+																	</div>	
+																</li>
+															</ul>
+															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
+																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
+																</li>
+															</ul>
+															<ul  ng-if="!itemSize" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+																<li ng-repeat="a in items track by $index">
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
+																			<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
+																		</div>
+																	</div>	
+																</li>
+																<div class="text-center">
+																	<li style="height: 20px;">
+																		<div class="row">
+																			<div class="col-sm-6 col-xs-5" style="text-align: left;">
+																				<label style="font-size: 12px;">Order Subtotal</label>
+																			</div>
+																			<div class="col-sm-4 col-xs-5">
+																			</div>
+																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																				<label style="font-size: 12px;">${{totalPrice}}</label>
+																			</div>
+																		</div>	
+																	</li>
+																	<li style="border-bottom: none;">
+																		<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
+																	</li>
+>>>>>>> 46bface7d14a219880b04e4943331915fdbdd61f
 																</div>
 															</div>	
 														</li>
@@ -387,6 +443,7 @@
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="font-family: lato-light;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
+<<<<<<< HEAD
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
@@ -397,6 +454,61 @@
 																</div>
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
+=======
+															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
+															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
+															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" style="overflow: hidden;display:none;">
+																<li>
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5">
+																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">$ {{currentItem.cost*currentItem.qty}}</label>
+																		</div>
+																	</div>	
+																</li>
+															</ul>
+															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
+																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
+																</li>
+															</ul>
+															<ul  ng-if="!itemSize" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+																<li ng-repeat="a in items track by $index">
+																	<div class="row">
+																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																			<img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="76" height="74">
+																		</div>
+																		<div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
+																			<label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
+																			<span style="font-size: 12px;">Quantity: {{a.qty}}</span>
+																		</div>
+																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																			<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
+																		</div>
+																	</div>	
+																</li>
+																<div class="text-center">
+																	<li style="height: 20px;">
+																		<div class="row">
+																			<div class="col-sm-6 col-xs-5" style="text-align: left;">
+																				<label style="font-size: 12px;">Order Subtotal</label>
+																			</div>
+																			<div class="col-sm-4 col-xs-5">
+																			</div>
+																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+																				<label style="font-size: 12px;">${{totalPrice}}</label>
+																			</div>
+																		</div>	
+																	</li>
+																	<li style="border-bottom: none;">
+																		<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
+																	</li>
+>>>>>>> 46bface7d14a219880b04e4943331915fdbdd61f
 																</div>
 															</div>	
 														</li>
@@ -661,7 +773,7 @@
 			<script src="bower_components/jquery/dist/jquery.min.js"></script>
 			<script src="js/scripts.js"></script>
 			<script src="js/spiner.js"></script>
-			<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+			<!-- <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script> -->
 			<script src="js/jquery-ui.min.js"></script>
 			<script src="js/jquery-2.1.3.min.js"></script>
 			<script src="js/bootstrap.js"></script>
@@ -686,6 +798,8 @@
 			<script src="controller/shopCtrl.js"></script>
 			<script src="controller/allShopCtrl.js"></script>
 			<script src="controller/cartCtrl.js"></script>
+			<script src="controller/modalAddToBagCtrl.js"></script>
+			
 			<script src="controller/thankuCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
 			<script src="controller/shipCtrl.js"></script>
