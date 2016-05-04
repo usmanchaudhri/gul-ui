@@ -1,4 +1,4 @@
-app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cookies','$location', function($scope, Upload, $timeout,$q,$http,$cookies,$location) {
+app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cookies','$location','$rootScope', function($scope, Upload, $timeout,$q,$http,$cookies,$location,$rootScope) {
 			$scope.allFiles = [];
 			$scope.progressArr = []; 
 			
@@ -16,14 +16,17 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 			var imgSize = 0;
 			//var imageResizeFlag = true;
 			$scope.shopImage = [];
-		if(JSON.parse($cookies.get("username")) != null){
+	console.log("upload page shop id",$cookies.get("username"));
+		if(angular.isDefined($cookies.get("username"))){
 					if(angular.isDefined(JSON.parse($cookies.get("username")).shopId)){
-					//if(JSON.parse($cookies.get("username")).shopId != 0){	
+					//if(JSON.parse($cookies.get("username")).shopId != 0){
+						console.log("upload page shop id",JSON.parse($cookies.get("username")).shopId);
 						shopId = JSON.parse($cookies.get("username")).shopId;
 					}else{
 						$location.path("/newShop");
 					}
 				}else{
+			$location.path("#a");
 					$rootScope.$emit("signin", {});
 				}
 		/*	if($cookies.get("username") == null){
@@ -374,7 +377,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 							var value = {
 								// File Name 
 								name: resolution + '-'+count+'-img-'+$scope.newProId+'.jpg',
-								//File Size 
+								//File Size
 								size: file1.size,
 								//File URL to view 
 								url: URL.createObjectURL(file1),
@@ -403,7 +406,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 							var value = {
 								// File Name 
 								name: 'shop-'+$scope.shopId+'.jpg',
-								//File Size 
+								//File Size
 								size: file1.size,
 								//File URL to view 
 								url: URL.createObjectURL(file1),
@@ -476,7 +479,7 @@ app.controller('uploadCtrl',['$scope', 'Upload', '$timeout','$q','$http','$cooki
 				ctx.drawImage(oc,0,0,oc.width, oc.height,
 					0,0,canvas.width,canvas.height);
 				
-				return canvas.toDataURL('image/png',1);
+				return canvas.toDataURL('image/jpeg',1);
 			};
 
 			var createImage = function(url, callback) {

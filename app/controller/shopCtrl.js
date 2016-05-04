@@ -4,6 +4,7 @@ app.controller('shopCtrl',['$scope','$http','$q','$timeout','$location','$routeP
 		$scope.shop = getShop.shop;
 		$scope.designer = getShop.designer;
 		$scope.fixPath = getShop.fixPath;
+		$scope.fixPathShop = getShop.fixPathShop;
 		/*$http.get("gulgs.properties")
 		.then(function(response) {
 				$scope.fixPath = response.data.fixImagePathShop;

@@ -152,7 +152,7 @@
 				).success(function(data, status) {
 						console.log("Succesfully Added"+ data);
 						$http.get(
-							$scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',config
+							$scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/login',config
 						).then(function(data, status) {
 							console.log("Response",data);
 							//var getShippingDetails = data.data.customer.customerShipping;
@@ -175,6 +175,7 @@
 					"address": $scope.streetAddress1,
 					"city": $scope.city,
 					"state": $scope.state,
+					"isActive": "n",
 					"zipcode": $scope.zip,
 					"country": $scope.country,
 					"isActive":isActiveValue

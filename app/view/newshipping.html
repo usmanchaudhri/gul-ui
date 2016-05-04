@@ -42,9 +42,8 @@
 				<span ng-if="x.isActive=='n'">
 					<input type="radio" ng-model="isActive"  name="default" value="x.id" ng-change="isActiveChange(x.id)"  />
 					N Case {{x.id}}</span> -->
-					<!--<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="confirm($index)"  /> -->
-					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="isActiveChange($index)"  />
-					<span>({{x.id +":" + x.isActive }})</span></div> 
+					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="confirm($index)"  />
+					<span></span></div>
 				</div><br>
 		</div>
 		<div class="col-sm-push-4 col-sm-3">
@@ -104,9 +103,6 @@
 					 </div><!-- /card-container -->
 				 </div>
 			 </div>
-
-
-
 		 </div>
 
  </script> <script type="text/ng-template" id="confirm.html">
@@ -145,72 +141,7 @@
 		 </div>
 
  </script>
-	<div class="modal fade" close-modal id="shipModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
 
-						
-						</div>
-					</div>
-				</div>
-				</script>
-<!--	<div class="modal fade" close-modal id="shipUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-					<div class="modal-dialog" role="document">
-						<div>
-							<div class="modal-body">
-								<div>
-									<div class="card card-container">
-										<h1 style="text-align: center;padding: 20px;">Update Shipping Address</h1>
-										<form class="form-signin newship-form">
-											<div class="row" style="margin-bottom: 20px;">
-												<div class="col-sm-6"><label>First Name</label>
-											<input type="text" required name="firstname" ng-model="firstName" /></div>
-												<div class="col-sm-6">
-													<label>Last Name</label>
-											<input type="text" required name="lastname" ng-model="lastName" />
-												</div>
-											</div>
-											<div class="row" style="margin-bottom: 20px;">
-												
-												<div class="col-sm-12"><label>Street Address</label><input type="text" name="street1" ng-model="streetAddress1" /></div>
-											</div>
-											<div class="row" style="margin-bottom: 20px;">
-												<div class="col-sm-6"><label>City</label>
-											<input type="text" required name="city" ng-model="city" /></div>
-												<div class="col-sm-6">
-													<label>Country</label>
-											<select name="country" ng-model="country" style="width: 100%;">
-												<option>TA</option>
-												<option>CA</option>
-												<option>MA</option>
-												<option>SA</option>
-												<option>FA</option>
-											</select>
-												</div>
-											</div>
-											<div class="row" style="margin-bottom: 20px;">
-												<div class="col-sm-6"><label>State/Province/Region</label>
-											<input required type="text" name="state" ng-model="state"/></div>
-												<div class="col-sm-6">
-													<label>Postal Code</label>
-											<input required type="text" name="postal" ng-model="zip" />
-												</div>
-											</div>
-											<div class="row" style="margin-bottom: 20px;">
-												<div class="col-sm-3"><button class="btn btn-primary individual-bag-btn" data-target="dismiss" >Cancel </button></div>
-		<div class="col-sm-9 text-right"><button class="btn btn-primary individual-bag-btn" ng-click="newShipping()">Update Shipping Address</button></div>
-											</div>
-											
-											
-											
-										</form><!-- /form -->
-									
-									</div><!-- /card-container -->
-								</div>
-							</div>
-						
-						</div>
-					</div>
-				</div>-->
+
 
 </div>

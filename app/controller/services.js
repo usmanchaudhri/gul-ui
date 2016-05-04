@@ -147,9 +147,6 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 											promise.then(function(data) {
 													
 													console.log("Success : ",i);
-													
-													
-												//	cName.lastMessage = lastMsg;
 													cChatNames.push(data);
 													
 													console.log("lastMsg : ",data);
@@ -157,20 +154,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										
 													console.log("Success : ",data);
 												});
-											//
 											console.log("custom conversation array",promise);
-										//	console.log("Updated Value of User",cName);
-											
-											//console.log("Last Message",lastMsg);
-										
-											/*var cName = {
-												"uniqueName": chatArr[i].uniqueName,
-												"product": chatArr[i].customerUsername,
-												"designer": name[0]
-												//,"lastMessage": lastMsg 
-												
-											}*/
-											//cChatNames.push(cName);
 										}
 									}
 									return cChatNames
@@ -415,7 +399,8 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					console.log("PARAMS",shop_id);
 					return promise
 					.then(function(response) {
-							var mFixPath = response.data.fixImagePathShop;
+							var mFixPathShop = response.data.fixImagePathShop;
+							var mFixPath = response.data.fixImagePath;
 							var	mToken = response.data.token;
 							//deferred.resolve();
 							var promise1 = $http({method: 'GET', url: response.data.shopUrl+'/'+shop_id+'/products', cache: 'true'});
@@ -425,6 +410,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					
 									value = {
 										fixPath:mFixPath,
+										fixPathShop:mFixPathShop,
 										token:mToken,
 										shop: data[0].data,
 										designer:data[1].data
@@ -581,67 +567,6 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			return sdo;
 		}]);
 
-/*
-var getConversationCustom = function(chatNames,$q,$http){
-	return function() {
-		var defer = $q.defer()
-		var chatTitle = '';
-		var promise = $http({
-				method: 'GET',
-				url: 'gulgs.properties',
-				cache: 'false'});
-					
-		return promise
-		.then(function(one) {
-							
-				console.log('Promise one resolved with ', one);
-				
-				var cChatNames = [];
-				var config = {
-					headers : {
-						'Content-Type': 'application/json'
-					}
-				}
-							
-							
-				return	$http.get(
-					one.data.twilioChannel+'/'+chatNames+'/Messages',config
-				).then(function(data, status) {
-						console.log("SSID",data);
-						var chatData = [];
-													
-						for(var i = 0;i<data.data.length ; i++){
-														
-							var from = data.data[i].from.split('@');
-							var value = {
-								"from": from[0],
-								"body":	data.data[i].body
-							}
-							chatData.push(value);
-						}
-													
-												
-						console.log("chatData",chatData);	
-					//	return {
-					//	"chatData": chatData,
-					//	"cchat": chatTitle							
-					//	};
-						var data = {
-							"chatData": chatData,
-							"cchat": chatTitle
-						};
-						deferred.resolve(data);
-						//return data;
-						//return $q.resolve(data);
-						//return $q.promise;
-						
-					});
-				//});
-										
-			});
-		return defer.promise
-	}
-} */
 var getConversationCustom = function(obj,$q,$http){
 			
 				//return function() {
