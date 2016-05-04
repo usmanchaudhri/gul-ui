@@ -3,6 +3,9 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
 			$scope.showContent = false;
+			//$scope.inStock = true;
+			//$scope.outOfStock = false;
+
 			
 			$http.get("gulgs.properties")
 			.then(function(response) {
@@ -189,6 +192,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				console.log("Invoices",$cookieStore.get("invoices"));				
 				var prodExistFlag = false;
 				if(prod.quantity >qty){
+					//$scope.inStock = true;
+					//$scope.outOfStock = false;
 				if(qty<1){
 					qty = 1;
 				}
@@ -238,6 +243,9 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$scope.abc = $scope.items.length;
 					$scope.totalCost($scope.invoice.items);
 					$scope.getItemSize();
+				}else{
+				//	$scope.inStock=false;
+				//	$scope.outOfStock=true;
 				}
 				
 			};
