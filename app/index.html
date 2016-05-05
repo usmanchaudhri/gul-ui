@@ -37,36 +37,19 @@
 		
 	</head>
 	<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
-<<<<<<< HEAD
-
-	<div class="wrapper" ng-controller="loginCtrl" >
-=======
 		<div class="wrapper" ng-controller="loginCtrl">
->>>>>>> 861cab0046643dce0a760cc680f276ab7eadb6d3
 			<!--Navigation Bar-->
 			
 			
 			<div ng-controller="BreadcrumbCtrl" >
-<<<<<<< HEAD
-				<div ng-show="breadcrumbs.get().length == 1"  >
-					<div >
-
-			<div >
-
-=======
 			
 					<div ng-show="(breadcrumbs.get().length == 1)">
->>>>>>> 861cab0046643dce0a760cc680f276ab7eadb6d3
 				<nav class="navbar home-menu">
 					<div class="container-fluid" >
 						<div class="row">
 							<div class="col-sm-4"></div>
 							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-<<<<<<< HEAD
-								<strong style="font-size:45px; color: #e86903; "><a ng-href="#a" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong>
-=======
-								<strong style="font-size:50px; color: #e86903; font-family:lato-light; "><a ng-href="#upload" style="color: #e86903;"><span style=" font-weight: 400;color: #e86903; ">G</span><span style="color: #e86903; font-weight: 400; ">U</span><span style="font-weight: 400;color: #e86903;">L</span></a></strong>	
->>>>>>> 861cab0046643dce0a760cc680f276ab7eadb6d3
+								<strong style="font-size:50px; color: #e86903; font-family:lato-light; "><a ng-href="#a" style="color: #e86903;"><span style=" font-weight: 400;color: #e86903; ">G</span><span style="color: #e86903; font-weight: 400; ">U</span><span style="font-weight: 400;color: #e86903;">L</span></a></strong>	
 							</div>	
 							<div class="col-sm-1"></div>
 							<div class="col-sm-3" style="margin-top: -11px;" >
@@ -184,18 +167,7 @@
 						<div ng-controller="MenuCtrl"  ng-include src="'view/menu/header-menuBar1.html'" ></div>
 					</div>
 				</nav>
-<<<<<<< HEAD
-			</div>
-								
-				<div  ng-include src="'view/login/loginModal.html'" ></div>
-					</div>
-				</div>
-			</div>
-
-			<div ng-controller="BreadcrumbCtrl" >
-=======
 </div>
->>>>>>> 861cab0046643dce0a760cc680f276ab7eadb6d3
 				<div ng-show="(breadcrumbs.get().length > 1 && !getPosition(breadcrumbs)) ">
 					<div >
 						<div ng-controller="loginCtrl">
@@ -221,7 +193,6 @@
 													<label class="cart-lable1" style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
-<<<<<<< HEAD
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
@@ -285,7 +256,6 @@
 																	<li style="border-bottom: none;">
 																		<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
 																	</li>
->>>>>>> 46bface7d14a219880b04e4943331915fdbdd61f
 																</div>
 															</div>	
 														</li>
@@ -407,7 +377,6 @@
 							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
 											
-
 											
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin(loginEmail,loginPass)" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 							<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
@@ -428,7 +397,6 @@
 							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							</div>
 											
-
 							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="registerUser(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
 										
@@ -470,7 +438,6 @@
 													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="font-family: lato-light;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
-<<<<<<< HEAD
 															<div class="row">
 																<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.png' + token}}" width="76" height="74">
@@ -484,7 +451,7 @@
 															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
 															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
 															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" style="overflow: hidden;display:none;">
-																<li>
+																<li ng-show="true">
 																	<div class="row">
 																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
 																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
@@ -497,6 +464,15 @@
 																			<label style="font-size: 12px;">$ {{currentItem.cost*currentItem.qty}}</label>
 																		</div>
 																	</div>	
+																</li>
+																<li ng-show="false">
+																		
+																		<div class="col-sm-6 col-xs-5">
+																			<label style="font-size: 13px;line-height: 15px;">Out of Stock</label><br>
+								
+																		</div>
+																		
+																		
 																</li>
 															</ul>
 															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
@@ -701,14 +677,14 @@
 					
 				
 			</div>
-			<div ng-view autoscroll="true" style="min-height: 718px;"></div>
+			<div ng-view autoscroll="true" style="min-height: 470px;"></div>
 			
 			
 			
 			<!--subscription --->
 			<div class="container" style="width: 100%;">
 					<div class="row text-center">
-						<h1 id="respon2" style="font-size: 42px;  color: #EE6900; margin-top:21px ; font-family:lato-hairline !important; margin-bottom: 18px;margin-left:40px; font-weight: 600;" id="lab4">PERSONALIZE YOUR DESIGN</h1>
+						<h1 id="respon2" style="font-size: 42px;  color: #EE6900; margin-top:21px ; font-family:lato-hairline !important; margin-bottom: 18px;margin-left:40px;" id="lab4">PERSONALIZE YOUR DESIGN</h1>
 		
 					</div>
 					<div class="row" >
@@ -791,8 +767,8 @@
 									
 				</div>	<!-- /container -->
 			</footer><!-- /footer -->
-		</div>	<!--End of Footer-->
-	
+			<!--End of Footer-->
+	</div>
 			<!-- javascript -->
 			<script src="bower_components/jquery/dist/jquery.min.js"></script>
 			<script src="js/scripts.js"></script>
@@ -852,7 +828,5 @@
 			<script src="js/angular-bootstrap-lightbox.js"></script>
 			<script src="js/imageupload.js"></script>
 			
-		</div>
-		</div><!-- /wrapper -->
 	</body>
 </html>
