@@ -3036,3 +3036,7 @@ select{
   	 border-bottom: 1px solid #e1e1e1;
   	 font-family: lato-regular;
   }
+  .mob-logo{
+		    margin-top: 17px;
+		    margin-bottom: 12px;
+   	}
