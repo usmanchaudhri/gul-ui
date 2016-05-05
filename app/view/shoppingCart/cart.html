@@ -3,39 +3,40 @@
 <div class="row" style="padding-left: 0px;margin-bottom: 40px;">
 	<div class="col-sm-12">
 		<div class="col-sm-4 col-xs-7 items-title" style="padding-left:0px;">
-			<h1 style="font-size: 20px;margin-left: 45px;" >{{abc}} ITEMS IN YOUR CART</h1>
+			<h1 id ="item-heading"  >{{abc}} ITEMS IN YOUR CART</h1>
 			
 		</div>
-		<div class="col-sm-5"></div>
-		<div class="col-sm-3 col-xs-5" style="float: right;padding-right: 0px;">
-			<button type="button" class="btn btn-primary keep-shopping-btn" >KEEP SHOPING</button>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3 col-xs-5" >
+			<button type="button" class="btn btn-primary keep-shopping-btn" id="item-buttton1" style="margin-top: 28px;margin-left: 56px; width: 236px;">KEEP SHOPING</button>
 		</div>
+		<div class="col-sm-2"></div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-8">
-			<div class="row cart-products" ng-repeat="a in items track by $index" style="border-bottom:1px solid rgba(128, 128, 128, 0.08);margin-top:20px; ">
+			<div class="row cart-products" ng-repeat="a in items track by $index" >
 				
 				<div class="col-sm-1 col-xs-5" style="width: 130px; height: 125px;margin-bottom: 20px;">
-					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="130" height="125"/>
+					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="130" height="125" style="margin-left: -9px;"/>
 				</div>
 				
-				<div class="col-sm-7 col-xs-8 cart-elements">
-					<p class="cart-title">{{a.name}}</p>
-					<p class="cart-title"><span style="color: black;"><b>{{a.shop}}</b></span></p>
-					<div style="margin-top: 12%;">
-						<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-							<p style="font-size: 14px">Size</p>
-							<p class="cart-details">{{a.size}}</p>
+				<div class="col-sm-7 col-xs-7 cart-elements" style="border-bottom:1px solid #e1e1e1; ">
+					<p class="cart-title" style="font-family: lato-regular; color:#e86701;" id="item-bar2">{{a.name}}</p>
+					<p class="cart-title"><span style="    color: #707070; font-family: lato-light; text-transform: uppercase;border-bottom: 1px solid #e1e1e1;"><b id="item-shop-size">{{a.shop}}</b></span></p>
+					<div style="    margin-top: 24px;">
+						<div class="col-sm-2 col-xs-2" style="padding-left: 0px;    margin-left: 18px;">
+							<p style="font-size: 14px;font-family: lato-light !important;">Size</p>
+							<p style="    margin-top: 16px;font-family: lato-light !important;" class="cart-details">{{a.size}}</p>
 						</div>
 						<div class="col-sm-3 col-xs-5 text-center">
-							<p style="font-size: 14px">Quantity</p>
-							<input type="text" maxlength="2" value="{{a.qty}}" style="width: 25px;height: 22px;font-size: 12px; border: 2px solid black;text-align: center;" readonly/>
+							<p style="font-size: 14px;font-family: lato-light !important;">Quantity</p>
+							<input type="text" maxlength="2" value="{{a.qty}}" style="width: 25px;height: 22px;font-size: 12px; border: 1px solid #e1e1e1e;text-align: center;margin-top: 7px;font-family: lato-light !important;" readonly/>
 						</div>
 						<div class="col-sm-3 col-xs-3 text-center ">
-							<p style="font-size: 14px">Price</p>
-							<p class="cart-details">${{a.cost*a.qty}}</p>
+							<p style="font-size: 14px;font-family: lato-light !important;">Price</p>
+							<p  style="    margin-top: 16px;font-family: lato-light !important;" class="cart-details">${{a.cost*a.qty}}</p>
 						</div>
 					</div>
 				</div>
@@ -47,18 +48,18 @@
 			</div>
 		</div>
 			<div class="col-sm-1"></div>
-			<div class="col-sm-3 col-xs-6 cart-right-table">
+			<div class="col-sm-3 col-xs-12 cart-right-table" style="margin-left: 12px;">
 				<div class="row">
 			
-					<table width="100%" class="order-right-table">
+					<table width="100%" class="order-right-table" style="margin-left: -24px;">
 						<tr style="border-bottom: 1px grey solid;">
-							<td style="padding-left: 0px;">Number of Items</td>
+							<td style="padding-left: 0px; font-family: lato-regular;">Number of Items</td>
 							<td style="text-align: right;padding-right: 5px;">{{abc}}</td>
 						</tr>
 				
 						<tr style="padding: 10px;background-color: #f5f5f5;">
-							<td style="padding: 20px;padding-left: 0px;"><b>Subtotal</b></td>
-							<td style="text-align: right;padding-right: 5px;"><b>${{totalPrice}}</b></td>
+							<td style="padding: 20px;padding-left: 0px; font-family: lato-regular;"><b>Subtotal</b></td>
+							<td style="text-align: right;padding-right: 5px;"><b style="font-family: lato-regular;">${{totalPrice}}</b></td>
 						</tr>
 						<tr>
 							<td style="padding: 10px;">
@@ -69,7 +70,7 @@
 							<td style="padding: 10px;"><input  type="radio" value="visa" name="pay" /><img src="/images/payment-methods.png" style="vertical-align: middle;"/></td>
 						</tr>
 					</table>
-					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="paypalPayment()" >Proceed to Checkout</button>
+					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="paypalPayment()" style="margin-left: -24px;font-family: lato-regular;" >Proceed to Checkout</button>
 					<div class="col-sm-12 text-center"><img ng-show="loadingData" src="images/cartloading.gif" width="25" height="25"/></div>
 					<label ng-if="!loadingData" style="font-size: 11px;line-height: 16px;color: red;">
 						{{dataError.details[0].issue}}
@@ -82,3 +83,5 @@
 	</div>
 </div>
 </div>
+<div  class="container-fluid" style="border-bottom: 1px solid #e1e1e1;    margin-top: 31px;
+    margin-bottom: -339px;" id="mob-margin"></div>

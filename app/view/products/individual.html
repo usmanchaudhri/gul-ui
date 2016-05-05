@@ -29,30 +29,36 @@ $('.lightbox_trigger').click(function(e) {
 			var lightbox3 = "";	
 			function firstLightbox(){
 				lightbox = 
-				'<div id="lightbox">' +'<div style="width:auto;text-align:left;"><h1>CUSTOMIZATION'+'<span id="close-it">'+'CLOSE'+'</span>'+'</div>'+'<div style="width:auto;text-align:center;"><h1>Jackets'+'</h1>'+'</div>'+
+				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it">'+'Back'+'<br><img src="images/arrow.png" width="40" / style="padding:5px;"></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
+				'<div class="col-sm-12 col-xs-12" style="text-align:center;"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1 style="border:none;">JACKETS'+'</h1></div></div>'+'</div>'+
 				'<div id="content">' + 
 				'<ul style="display:inline-flex;">' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket2</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
+				+
+				
+				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
+				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'</tr>'+'</table>'+'</a>' + '</li>'+
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'
 				+ '</ul>' +
-				'<div style="text-align="center">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn">Previous</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">Next</button>'+'</div>'+
-				'</div>' +	
+				'<div style="text-align:center;margin-top:10px;margin-left:2%;">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn" style="margin-right:5px;">PREVIOUS</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">NEXT</button>'+'</div></div><div class="row" style="padding-top:20px;"><div class="col-sm-12 text-center description"><div class="col-sm-6 col-sm-offset-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.18);padding-bottom: 15px;">DESCRIPTION</div><div class="col-sm-12"><div class="col-sm-6 col-sm-offset-3 description-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p></div></div></div></div>'+
 				'</div>';		
 				$('body').append(lightbox);
 		
@@ -102,17 +108,21 @@ $('.lightbox_trigger').click(function(e) {
 		left: 0; 
 		width: 100%; 
 		height: 100%; 
-		background: rgba(51, 51, 51, 0.79);
+		background: #898989;
 		z-index: 900;
 	}
 
 	#lightbox ul {
-		width: 75% !important;
-		padding-left: 0px;
+		
 	}
 
 	#lightbox ul > li{
-		margin: 10px;
+		
+		
+	}
+	
+	.back-button{
+		width:9%;
 		
 	}
 
@@ -137,6 +147,7 @@ $('.lightbox_trigger').click(function(e) {
 		opacity: 1;
 		-webkit-transition: .3s ease-in-out;
 		transition: .3s ease-in-out;
+		width:265px;
 	}
 	.hover11 img:hover {
 		opacity: .9;
@@ -162,42 +173,80 @@ $('.lightbox_trigger').click(function(e) {
 		background-color: rgba(255, 255, 255, 0.49);
 		cursor: pointer;
 	}
+	
+	.description{
+		font-family: 'lato-light' !important;
+		font-size: 18px;
+		color: white;
+		margin-left: 1%;
+	}
+	
+	.description-text{
+		    line-height: 25px;
+    text-align: center;
+    font-size: 12pt;
+    padding-top: 5px;
+	}
+	
+	.hover11{
+		width:265px;
+		margin-right: 5px;
+	}
 
 	#content{
 		text-align: center;
 	}
 
 	#lightbox h1{
-		font-size: 25px; 
-		font-family: 'Quicksand' !important;
+		font-size: 30px; 
+		font-family: 'lato-light' !important;
 		color: white !Important;
-		margin-left: 30px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+		padding-bottom: 15px;
+		margin-top:0px;
 	}
 
 	#next-btn,#next-btn2,#next-btn3{
-		width: 160px;
-		height: 25px;
+		width: 80px;
+    height: 20px;
+    font-family: 'lato-light' !important;
+    font-size: 9pt;
+     margin: 0px;
+     padding: 0px;
+     border:none;
+	}
+	
+	#next-btn:hover,#pre-btn:hover{
+		background-color: #ffa500 !important;
+		color:gray;
+		
 	}
 
 	#pre-btn,#pre-btn2,#pre-btn3{
 		
 		
-		width: 160px;
-		height: 25px;
+		width: 80px;
+    height: 20px;
+    font-family: 'lato-light' !important;
+    font-size: 9pt;
+    margin: 0px;
+    padding: 0px;
+    border:none;
 		
 	}
 	
 	#close-it{
-		font-size: 13px;
+		font-size: 14px;
 		color: white;
 		cursor: pointer;
-		float: right;
+		float: left;
 		padding: 10px;
+		font-family:'lato-light' !important;
 	}
 
 	.tick-img{
 		display: none;
-		width: 12px;
+		width: 10px !important;
 		float: right;
 		margin-top: -2px;
 		margin-left: 10%;
@@ -211,8 +260,8 @@ $('.lightbox_trigger').click(function(e) {
 </style>
 
 <div class="container" id="marg">
-	<div class="row" >
-		<div class="col-sm-7 col-xs-12 " >
+	<div class="row" style="  margin-top: 37px;">
+		<div class="col-sm-7 col-xs-12 ">
 		<div class="blowup">
 			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" />
 		</div>
@@ -220,18 +269,18 @@ $('.lightbox_trigger').click(function(e) {
 		
 		<div class="col-sm-5 col-xs-12" id="indisize1">
 				 
-			<p style="font-size: 16px;margin-bottom: 10px; line-height: 22px;margin-left: 44px;margin-top: 80px;margin-bottom: 27px; font-family: lato-italic">
+			<p style="font-size: 16px;margin-bottom: 10px; line-height: 22px;margin-left: 38px;margin-top: 74px;margin-bottom: 27px; font-family: lato-italic">
 				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;">{{productDetail.name}}</strong>
-				<br /><p style="font-family: lato-lightitalic;margin-left: 44px; font-size: 15px; margin-top: -16px; line-height: 15px;color:#838383;"> {{productDetail.shortDesc}}</p></p><br/>
+				<br /><p style="font-family: lato-lightitalic;margin-left: 38px; font-size: 15px; margin-top: -16px; line-height: 15px;color:#838383;"> {{productDetail.shortDesc}}</p></p><br/>
 			
-			<font size="2" class="clr1" style=" margin-left: 44px;color:#838383;"><span style="color:#838383;font-family: lato-light;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
-			 <p style="margin-left:65px; line-height: 49px; font-family: lato-light;font-size: 15px; color:#838383;">$ {{productDetail.pricingProduct.storedValue}}</p>
+			<font size="2" class="clr1" style=" margin-left: 38px;color:#838383;"><span style="color:#838383;font-family: lato-light;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
+			 <p style="margin-left:38px; line-height: 49px; font-family: lato-light;font-size: 15px; color:#838383;">$ {{productDetail.pricingProduct.storedValue}}</p>
 			
             <div class="row mainBox buttonBox">
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
 				<div class="row" id="margi">
 					<div class="col-sm-12">
-						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 44px;font-family: lato-regular;margin-top: 11px;"> SIZE</h3></label>
+						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 38px;font-family: lato-regular;margin-top: 11px;"> SIZE</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 7px;">
 							<div class="input-group spinner" id="one">
 								<select ng-model="selectedItem" class="size-dropdown">
@@ -249,9 +298,9 @@ $('.lightbox_trigger').click(function(e) {
           
 				<div class="row" id="margi" style="margin-bottom: 35px;">
 					<div class="col-sm-12">
-						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 44px; font-family: lato-regular; margin-top: 20px;">QUANTITY</h3></label>
+						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 38px; font-family: lato-regular; margin-top: 26px;">QUANTITY</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
-							<div class="input-group spinner" id="two" style="    margin-left: 44px;    margin-top: 10px;">
+							<div class="input-group spinner" id="two" style="    margin-left: 38px;    margin-top: 10px;">
 								<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
 								<!--<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
@@ -267,9 +316,9 @@ $('.lightbox_trigger').click(function(e) {
 				
 				
 
-				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn" style="height: 27px; text-align: center; margin-left: 44px; font-family: lato-light;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" style="height: 27px; margin-left: 77px; font-family: lato-light;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
-				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px;margin-left: 44px; text-align: center;margin-bottom: 20%; font-family: lato-light;">CUSTOMIZE</button>
+				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn" style="height: 27px; text-align: center; margin-left: 58px; font-family: lato-light;">ADD TO BAG</button></a>
+				<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" style="height: 27px; margin-left:58px; font-family: lato-light;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px;margin-left: 58px; text-align: center;margin-bottom: 20%; font-family: lato-light;">CUSTOMIZE</button>
 
 			
 				<div class="row text-center" style="bottom: 0px;" >
@@ -332,7 +381,7 @@ $('.lightbox_trigger').click(function(e) {
 </div><!-- /container -->
 </div>
 <!-items list -->
-	<div class="container-fluid" style="border-bottom: 1px solid #c1c1c1;padding:20px;">
+	<div class="container" style="border-bottom: 1px solid #e1e1e1;padding:20px;">
 		<div class="col-sm-12 text-center" id="mob-left">
 			<label style="font-size: 18px;padding: 1px;font-family: lato-regular;font-weight: normal;color: #464646; margin-right: 66px;">ITEM DETAILS</label>
 			
@@ -343,10 +392,10 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="row">
 		<div class="col-sm-12" >
 			<div class="col-sm-10 col-sm-push-1">
-				<div class="col-sm-3">
-					<img src="images/Sania.jpg" width="175" height="200" style="margin-top: 31px; margin-bottom :32px;"/>
+				<div class="col-sm-3 col-xs-12">
+					<img src="images/Sania.jpg" width="175" height="200" style="margin-top: 34px; margin-bottom :34px;"/>
 				</div>
-				<div class="col-sm-8" style="padding: 20px;font-size: 16px; font-family: lato-regular;margin-left: 12px; margin-top: 38px;">
+				<div class="col-sm-8 col-xs-12" style="padding: 20px;font-size: 16px; font-family: lato-regular;margin-left: 6px; margin-top: 38px;">
 		    <div class="col-sm-12 " style="padding-bottom: 25px; font-family: lato-regular;">
 			<p style="color:#464646;">DESIGNED BY</p><br/>
 			 <p  style="color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
@@ -365,12 +414,12 @@ $('.lightbox_trigger').click(function(e) {
 	</div>
 	</div>
   </div>
-<div  class="container-fluid" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 4px;"></div>
+<div  class="container" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 4px;"></div>
 	<div class="container">
 	<div class="row" style="padding: 20px;margin-bottom: 20px;">
 		<div class="col-sm-12 text-center" >
 			<h2 style="margin-bottom: 8px;font-family: lato-regular;margin-top: 0px;color: #464646;margin-right: 49px;font-weight: normal;">SHIPPING & PAYMENT POLICIES</h2>
-			<p style="text-align: left;font-size: 15px;line-height: 20px; font-family:lato-light;color: #9c9c9c; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			
 			
 		</div>
 	</div>
@@ -379,6 +428,8 @@ $('.lightbox_trigger').click(function(e) {
 
 
 
+
+</div>
 <script>
 	
 	$(document).ready(function() {

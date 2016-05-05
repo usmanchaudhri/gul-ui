@@ -208,11 +208,17 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					
 				if(prodExistFlag){
 							var itemsList = $cookieStore.get("invoices");
+							var i= 0;
 						angular.forEach(itemsList, function (myProd) {
 							if(myProd.id==prod.id && myProd.size == size){
-								console.log("Product Matched");
 								myProd.qty = parseInt(myProd.qty) + parseInt(qty);
+								console.log("Product Matched",myProd);
+								
+								itemsList.splice(i, 1,myProd );
+								$scope.totalCost(itemsList);
+						
 							}
+							i++;
 						});
 						$cookieStore.put("invoices",itemsList);
 					
@@ -241,7 +247,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					console.log("product price",$scope.currentItem.cost);
 					console.log("Add Product "+$scope.items.length);
 					$scope.abc = $scope.items.length;
-					$scope.totalCost($scope.invoice.items);
+					$scope.totalCost($scope.items);
 					$scope.getItemSize();
 				}else{
 				//	$scope.inStock=false;

@@ -749,15 +749,27 @@ font-size: 44px !important;
 	}
 	
 	.keep-shopping-btn{
-		font-size: 12px;
-		padding-left: 5px;
-		color:#ebb398;
-		font-family:lato-regular; 
+		    font-size: 12px;
+    padding-left: 5px;
+    margin-left: -11px !important;
+    color: #ebb398;
+    margin-top: 20px;
+    font-family: lato-regular; 
 	}
 	
 	.items-title h1{
-		font-size:16px !important;
+		font-size:12px !important;
 		margin-left: 5px;
+	}
+	#item-buttton1{
+		width: 149px !important;
+	}
+	#item-bar2{
+		    font-size: 16px;
+	}
+	#item-shop-size{
+		
+		font-size: 14px !important;
 	}
 	.megamenu{
 		margin-left: 0 ;
@@ -1251,7 +1263,7 @@ button.btn:active,button.btn.active{
 }
 
 #imagediv{
-	margin-bottom: 30px;
+	margin-bottom: 18px;
 }
 #indisize{
 	height: 600px;
@@ -2005,6 +2017,7 @@ select{
 	font-size: 17px;
 	color: orange;
 	line-height: 15px;
+	    margin-left: 19px;
 }
 
 .cart-products{
@@ -2040,6 +2053,7 @@ select{
 	height: 25px;
 	 color:#E86903;
 	 margin-left: 3px;
+	 font-family: lato-regular !important;;
 }
 .proceed-checkout-btn
 {
@@ -2484,7 +2498,7 @@ select{
 	    font-size: 24px !important;
    
     color: #f6ccb1;
-    margin-top: 280px !important;
+    margin-left: -33px !important;
 }
 
     
@@ -3013,3 +3027,16 @@ select{
     margin-top: 17px;
     font-family: lato-light;
   }
+  #item-heading{
+  	font-size: 20px;
+  	margin-left: 45px;
+  	line-height: 47px;
+  	margin-left: 0;
+  	 margin-right: 88px;
+  	 border-bottom: 1px solid #e1e1e1;
+  	 font-family: lato-regular;
+  }
+  .mob-logo{
+		    margin-top: 17px;
+		    margin-bottom: 12px;
+   	}
