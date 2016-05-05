@@ -29,30 +29,36 @@ $('.lightbox_trigger').click(function(e) {
 			var lightbox3 = "";	
 			function firstLightbox(){
 				lightbox = 
-				'<div id="lightbox">' +'<div style="width:auto;text-align:left;"><h1>CUSTOMIZATION'+'<span id="close-it">'+'CLOSE'+'</span>'+'</div>'+'<div style="width:auto;text-align:center;"><h1>Jackets'+'</h1>'+'</div>'+
+				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it">'+'Back'+'<br><img src="images/arrow.png" width="40" / style="padding:5px;"></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
+				'<div class="col-sm-12 col-xs-12" style="text-align:center;"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1 style="border:none;">JACKETS'+'</h1></div></div>'+'</div>'+
 				'<div id="content">' + 
 				'<ul style="display:inline-flex;">' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket2</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>' +
-				'<li class="hover11">' + '<a> '+'<img style="width:100%;" src="' + image_href +'" />'
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
+				+
+				
+				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
+				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'</tr>'+'</table>'+'</a>' + '</li>'+
+				'<li class="hover11">' + '<a> '+'<img style="width:265px;height:225px;" src="' + image_href +'" />'
 				+
 				
 				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'
 				+ '</ul>' +
-				'<div style="text-align="center">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn">Previous</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">Next</button>'+'</div>'+
-				'</div>' +	
+				'<div style="text-align:center;margin-top:10px;margin-left:2%;">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn" style="margin-right:5px;">PREVIOUS</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">NEXT</button>'+'</div></div><div class="row" style="padding-top:20px;"><div class="col-sm-12 text-center description"><div class="col-sm-6 col-sm-offset-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.18);padding-bottom: 15px;">DESCRIPTION</div><div class="col-sm-12"><div class="col-sm-6 col-sm-offset-3 description-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p></div></div></div></div>'+
 				'</div>';		
 				$('body').append(lightbox);
 		
@@ -81,13 +87,13 @@ $('.lightbox_trigger').click(function(e) {
 	
 	
 		});
-/*
+
  $('.addtobag-btn').click(function(){
 	$('.single-cartproduct').css("display","block");
 	$('.single-cartproduct').css("color","black");
 	 $('.single-cartproduct').delay(1000).fadeOut();
 	 
-}); */
+}); 
 
 
 </script>
@@ -102,17 +108,21 @@ $('.lightbox_trigger').click(function(e) {
 		left: 0; 
 		width: 100%; 
 		height: 100%; 
-		background: rgba(51, 51, 51, 0.79);
+		background: #898989;
 		z-index: 900;
 	}
 
 	#lightbox ul {
-		width: 75% !important;
-		padding-left: 0px;
+		
 	}
 
 	#lightbox ul > li{
-		margin: 10px;
+		
+		
+	}
+	
+	.back-button{
+		width:9%;
 		
 	}
 
@@ -137,6 +147,7 @@ $('.lightbox_trigger').click(function(e) {
 		opacity: 1;
 		-webkit-transition: .3s ease-in-out;
 		transition: .3s ease-in-out;
+		width:265px;
 	}
 	.hover11 img:hover {
 		opacity: .9;
@@ -162,42 +173,80 @@ $('.lightbox_trigger').click(function(e) {
 		background-color: rgba(255, 255, 255, 0.49);
 		cursor: pointer;
 	}
+	
+	.description{
+		font-family: 'lato-light' !important;
+		font-size: 18px;
+		color: white;
+		margin-left: 1%;
+	}
+	
+	.description-text{
+		    line-height: 25px;
+    text-align: center;
+    font-size: 12pt;
+    padding-top: 5px;
+	}
+	
+	.hover11{
+		width:265px;
+		margin-right: 5px;
+	}
 
 	#content{
 		text-align: center;
 	}
 
 	#lightbox h1{
-		font-size: 25px; 
-		font-family: 'Quicksand' !important;
+		font-size: 30px; 
+		font-family: 'lato-light' !important;
 		color: white !Important;
-		margin-left: 30px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+		padding-bottom: 15px;
+		margin-top:0px;
 	}
 
 	#next-btn,#next-btn2,#next-btn3{
-		width: 160px;
-		height: 25px;
+		width: 80px;
+    height: 20px;
+    font-family: 'lato-light' !important;
+    font-size: 9pt;
+     margin: 0px;
+     padding: 0px;
+     border:none;
+	}
+	
+	#next-btn:hover,#pre-btn:hover{
+		background-color: #ffa500 !important;
+		color:gray;
+		
 	}
 
 	#pre-btn,#pre-btn2,#pre-btn3{
 		
 		
-		width: 160px;
-		height: 25px;
+		width: 80px;
+    height: 20px;
+    font-family: 'lato-light' !important;
+    font-size: 9pt;
+    margin: 0px;
+    padding: 0px;
+    border:none;
 		
 	}
 	
 	#close-it{
-		font-size: 13px;
+		font-size: 14px;
 		color: white;
 		cursor: pointer;
-		float: right;
+		float: left;
 		padding: 10px;
+		font-family:'lato-light' !important;
 	}
 
 	.tick-img{
 		display: none;
-		width: 12px;
+		width: 10px !important;
 		float: right;
 		margin-top: -2px;
 		margin-left: 10%;
