@@ -22,7 +22,7 @@
 								<ul>
 									<li class="hide-menu">
 										<span>
-											<a style="font-family: lato-light;" href="#shop/{{x.id}}">{{x.name}}</a> 
+											<a style="font-family: lato-light; color:black;" href="#shop/{{x.id}}">{{x.name}}</a> 
 										</span> 
 								
 									</li>
@@ -36,10 +36,10 @@
 							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
 									<li ng-repeat = "a in x.subCategories" class="hide-menu">
 										<span ng-if="checkLength(a.subCategories) == '0'">
-											<a style="font-family: lato-light;" href="#categoryProducts/{{a.id}}">{{a.name}}</a>
+											<a style="font-family: lato-light;color:black;" href="#categoryProducts/{{a.id}}">{{a.name}}</a>
 										</span>
 										<span ng-if="checkLength(a.subCategories) != '0'">
-											<a style="font-family:lato-light;" href="#categories/{{a.id}}">{{a.name}}</a>
+											<a style="font-family:lato-light;color:black;" href="#categories/{{a.id}}">{{a.name}}</a>
 										</span>
 					
 									</li>

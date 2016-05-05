@@ -211,7 +211,7 @@ $('.lightbox_trigger').click(function(e) {
 </style>
 
 <div class="container" id="marg">
-	<div class="row" >
+	<div class="row" style="    margin-top: 37px;">
 		<div class="col-sm-7 col-xs-12 " >
 		<div class="blowup">
 			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" /> 
@@ -225,7 +225,7 @@ $('.lightbox_trigger').click(function(e) {
 				<br /><p style="font-family: lato-lightitalic;margin-left: 44px; font-size: 15px; margin-top: -16px; line-height: 15px;color:#838383;"> {{productDetail.shortDesc}}</p></p><br/>
 			
 			<font size="2" class="clr1" style=" margin-left: 44px;color:#838383;"><span style="color:#838383;font-family: lato-light;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
-			 <p style="margin-left:65px; line-height: 49px; font-family: lato-light;font-size: 15px; color:#838383;">$ {{productDetail.pricingProduct.storedValue}}</p>
+			 <p style="margin-left:44px; line-height: 49px; font-family: lato-light;font-size: 15px; color:#838383;">$ {{productDetail.pricingProduct.storedValue}}</p>
 			
             <div class="row mainBox buttonBox">
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
@@ -249,7 +249,7 @@ $('.lightbox_trigger').click(function(e) {
           
 				<div class="row" id="margi" style="margin-bottom: 35px;">
 					<div class="col-sm-12">
-						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 44px; font-family: lato-regular; margin-top: 20px;">QUANTITY</h3></label>
+						<label class="col-sm-3 col-xs-3 clr"><h3 style="margin-left: 44px; font-family: lato-regular; margin-top: 26px;">QUANTITY</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two" style="    margin-left: 44px;    margin-top: 10px;">
 								<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
@@ -264,9 +264,9 @@ $('.lightbox_trigger').click(function(e) {
 				
 				
 
-				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn" style="height: 27px; text-align: center; margin-left: 44px; font-family: lato-light;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" style="height: 27px; margin-left: 77px; font-family: lato-light;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
-				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px;margin-left: 44px; text-align: center;margin-bottom: 20%; font-family: lato-light;">CUSTOMIZE</button>
+				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn" style="height: 27px; text-align: center; margin-left: 58px; font-family: lato-light;">ADD TO BAG</button></a>
+				<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" style="height: 27px; margin-left:58px; font-family: lato-light;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
+				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px;margin-left: 58px; text-align: center;margin-bottom: 20%; font-family: lato-light;">CUSTOMIZE</button>
 
 			
 				<div class="row text-center" style="bottom: 0px;" >
@@ -329,7 +329,7 @@ $('.lightbox_trigger').click(function(e) {
 </div><!-- /container -->
 </div>
 <!-items list -->
-	<div class="container-fluid" style="border-bottom: 1px solid #c1c1c1;padding:20px;">
+	<div class="container" style="border-bottom: 1px solid #e1e1e1;padding:20px;">
 		<div class="col-sm-12 text-center" id="mob-left">
 			<label style="font-size: 18px;padding: 1px;font-family: lato-regular;font-weight: normal;color: #464646; margin-right: 66px;">ITEM DETAILS</label>
 			
@@ -340,10 +340,10 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="row">
 		<div class="col-sm-12" >
 			<div class="col-sm-10 col-sm-push-1">
-				<div class="col-sm-3">
+				<div class="col-sm-3 col-xs-12">
 					<img src="images/Sania.jpg" width="175" height="200" style="margin-top: 31px; margin-bottom :32px;"/>
 				</div>
-				<div class="col-sm-8" style="padding: 20px;font-size: 16px; font-family: lato-regular;margin-left: 12px; margin-top: 38px;">
+				<div class="col-sm-8 col-xs-12" style="padding: 20px;font-size: 16px; font-family: lato-regular;margin-left: 12px; margin-top: 38px;">
 		    <div class="col-sm-12 " style="padding-bottom: 25px; font-family: lato-regular;">
 			<p style="color:#464646;">DESIGNED BY</p><br/>
 			 <p  style="color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
@@ -362,12 +362,12 @@ $('.lightbox_trigger').click(function(e) {
 	</div>
 	</div>
   </div>
-<div  class="container-fluid" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 4px;"></div>
+<div  class="container" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 4px;"></div>
 	<div class="container">
 	<div class="row" style="padding: 20px;margin-bottom: 20px;">
 		<div class="col-sm-12 text-center" >
 			<h2 style="margin-bottom: 8px;font-family: lato-regular;margin-top: 0px;color: #464646;margin-right: 49px;font-weight: normal;">SHIPPING & PAYMENT POLICIES</h2>
-			<p style="text-align: left;font-size: 15px;line-height: 20px; font-family:lato-light;color: #9c9c9c; text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			
 			
 		</div>
 	</div>
@@ -399,8 +399,8 @@ $('.lightbox_trigger').click(function(e) {
 </div>--><!---btn end -->     
 
 
-=======
-</div>--><!---btn end -->   
+
+<!---btn end -->   
 <!--
 <script type="text/ng-template" id="confirm.html">
 		 <div class="card ship-container">
@@ -428,7 +428,7 @@ value = "Confirm"/></div>
 
  </script>   -->
 </div>
->>>>>>> 46bface7d14a219880b04e4943331915fdbdd61f
+
 <script>
 	
 	$(document).ready(function() {
