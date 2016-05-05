@@ -4,13 +4,13 @@
 		<div class="col-sm-10">
 			<div class="main-nav  header-main-nav">
 				<ul class="nav">
-					<li class="has-drop dropdown menu-large hide-menu" >
+					<li class="has-drop dropdown menu-large" >
 						<a href="#allShops" class="dropdown-toggle">Shop</a>
 				
 						<ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
 							<li class="col-sm-4" ng-repeat="x in shop" >
 								<ul>
-									<li class="hide-menu">
+									<li class="">
 										<span>
 											<a href="#shop/{{x.id}}">{{x.name}}</a> 
 										</span> 
@@ -21,7 +21,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="dropdown menu-large hide-menu"><a href="#categories/1">Women</a>
+					<li class="dropdown menu-large"><a href="#categories/1">Women</a>
 						<ul class="dropdown-menu megamenu  " id="women-dropdown-menu" >
 							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
 									<li ng-repeat = "a in x.subCategories" class="hide-menu">

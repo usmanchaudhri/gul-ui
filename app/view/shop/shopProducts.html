@@ -1,45 +1,50 @@
 <div class="container" ng-cloak>
 
 	<div class="row info-boxes">
-		<div class="row">
+		<div class="row" style="margin-top: 37px;">
 			<div class="col-sm-4 designerpage-image">
 					<img  class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img"  />
 				</div>
-				<div class="col-sm-8 shop-desc">
-			
-					<p style=" font-size: 18px;"><span style="color: black;">{{shop.name}}</span></p><br>	  
-					<h4>
-						<p style="font-size: 13px; color: black;text-align: justify;">
+				<div class="col-sm-8 shop-desc" >
+			 <div class="col-sm-12">
+					<h4 style="	border-bottom: 1px solid #e1e1e1; width: 277px;"><p style=" font-size: 18px; margin-top: 40px;text-transform: uppercase;color: #e86701; font-family: lato-regular;margin-bottom: 11px;">{{shop.name}}</p></h4><br></div>
+					<div class="col-sm-12"> 
+					 
+					<h4 >
+						<p style="font-size: 12px; color: black;font-family: lato-regular;line-height: 16px;">
 							{{shop.details}}
-							</p></h4>
+							</p></h4>	
 				</div>
 		</div>
 	</div>
 	
 	<div class="row">
-		<div class="col-sm-3" style="margin-left: 8px;">
-			<h2 latestDiv class="product-title" style="margin:0px;">{{designer[0].name}}'s <span style="color:black;">Product</span></h2>		
+		<div class="col-sm-4"style="margin-top: 11px;  ">
+			<h2  class="product-title latestDiv" style="text-transform: uppercase;font-family: lato-regular;font-weight: normal;margin-bottom: 28px; margin-top:30px;border-bottom:1px solid #e1e1e1;font-size: 16px;"><p style=";color: #e86701;">{{designer[0].name}}'S <span style="color:black;">PRODUCT</span></P></h2>		
 		</div>
 	</div>
-	
-	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 15px !important;">
+	<div class="row">
+	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;">
 		
 
 		<a ng-href="#productDetailPage/{{a.id}}">		
 			<img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}"   ></a>
 		<div class="imageText">
 			<span class="proDes">
-				<p>
+				<p style="font-family: lato-regular;margin-top: 19px;">
 					{{a.name}}
 				</p>
 			</span>
 			
 		</div>
     		
-	</div>
+	</div></div>
 	<div class="other-controller">
 		<div class="text-center">
 			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html"></dir-pagination-controls>
 		</div>
 	</div>
+	
 </div>
+</div>
+<div  class="container-fluid" style="border-bottom: 1px solid #e1e1e1;margin-top: -4px;margin-bottom: 8px;" id="mob-margin"></div>

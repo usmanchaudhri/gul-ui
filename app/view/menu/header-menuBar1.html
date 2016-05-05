@@ -15,14 +15,14 @@
 			<div class="main-nav">
 				<ul class="nav " ">
 					<li class="has-drop dropdown menu-large hide-menu">
-						<a href="#allShops" class="dropdown-toggle" style="font-family: lato-light;font-size: 20px;color:black;">Shop</a>
+						<a href="#allShops" class="dropdown-toggle" style="font-family: lato-light; color:#cbc9c6; font-size: 20px;">Shop</a>
 				
 						<ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
 							<li class="col-sm-4 hide-menu" ng-repeat="x in shop" >
 								<ul>
 									<li class="hide-menu">
 										<span>
-											<a style="font-family: lato-light; color:black;" href="#shop/{{x.id}}" >{{x.name}}</a> 
+											<a style="font-family: lato-light; color:black;" href="#shop/{{x.id}}">{{x.name}}</a> 
 										</span> 
 								
 									</li>
@@ -31,7 +31,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categories/1" style="font-family: lato-light;font-size: 20px;color:black;">Women</a>
+					<li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categories/1" style="font-family: lato-light; color:#cbc9c6; font-size: 20px">Women</a>
 						<ul class="dropdown-menu megamenu  " id="women-dropdown-menu" >
 							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
 									<li ng-repeat = "a in x.subCategories" class="hide-menu">
@@ -39,7 +39,7 @@
 											<a style="font-family: lato-light;color:black;" href="#categoryProducts/{{a.id}}">{{a.name}}</a>
 										</span>
 										<span ng-if="checkLength(a.subCategories) != '0'">
-											<a href="#categories/{{a.id}}">{{a.name}}</a>
+											<a style="font-family:lato-light;color:black;" href="#categories/{{a.id}}">{{a.name}}</a>
 										</span>
 					
 									</li>
@@ -48,12 +48,12 @@
 						</ul>
 					</li>
 					<li class="dropdown menu-large hide-menu">
-				<a href="#a" style="font-family: lato-light;font-size: 20px; color:black;">Featured</a>
+				<a href="#a" style="font-family: lato-light;color:#cbc9c6; font-size: 20px;">Featured</a>
 				<ul class="dropdown-menu megamenu  " id="men-dropdown-menu" >
 					
 				</ul>
 			</li>
-					<li class="dropdown menu-large hide-menu"><a href="#inspiration" style="font-family: lato-light;font-size: 20px;color:black;">Inspiration</a>
+					<li class="dropdown menu-large hide-menu"><a href="#inspiration" style="font-family: lato-light;color:#cbc9c6;font-size: 20px;">Inspiration</a>
 						<ul class="dropdown-menu megamenu  " id="inspiration-dropdown-menu" >
 					
 						</ul>
@@ -61,24 +61,24 @@
 			
 											
 											
-					<li style="display: none;" id="menu-display" ><a class="acc-menu"  href="#" style="font-family: lato-light;color:black">ACCOUNT</a>
+					<li style="display: none;" id="menu-display" ><a class="acc-menu"style="font-family: lato-light;"  href="#">ACCOUNT</a>
 											
 											
 						<ul class="dropdown-menu row dropdown-menu"  id="menu-account" style="font-family: lato-light;">
 							<li>
-								<a href="#acc" style="font-family: lato-light;">Settings</a>
+								<a href="#acc" style="font-family: lato-light; ">Settings</a>
 							</li>
 													
 							<li>
-								<a href="#fav style="font-family: lato-light;"">Order Status</a>
+								<a href="#fav">Order Status</a>
 							</li>
 													
 							<li>
-								<a href="#status" style="font-family: lato-light;">Chat</a>
+								<a href="#status">Chat</a>
 							</li>
 													
 							<li>
-								<a href="" ng-click="userLogout()"style="font-family: lato-light;">Logout</a>
+								<a href="" ng-click="userLogout()">Logout</a>
 							</li>
 						</ul>
 					</li>
