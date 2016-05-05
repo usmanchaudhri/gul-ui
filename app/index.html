@@ -203,24 +203,6 @@
 																</div>
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
-															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
-															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
-																<li>
-																	<div class="row">
-																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
-																		</div>
-																		<div class="col-sm-6 col-xs-5">
-																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
-																			<span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
-																		</div>
-																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																			<label style="font-size: 12px;">$ {{currentItem.cost*currentItem.qty}}</label>
-																		</div>
-																	</div>	
-																</li>
-															</ul>
 															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
 																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 																</li>
@@ -448,33 +430,6 @@
 																</div>
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
-															<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-															<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="color: black;">CART</a></label>
-															<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" style="overflow: hidden;display:none;">
-																<li ng-show="true">
-																	<div class="row">
-																		<div class="col-sm-4 col-xs-4" style="text-align: center;">
-																			<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
-																		</div>
-																		<div class="col-sm-6 col-xs-5">
-																			<label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
-																			<span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
-																		</div>
-																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
-																			<label style="font-size: 12px;">$ {{currentItem.cost*currentItem.qty}}</label>
-																		</div>
-																	</div>
-																</li>
-																<li ng-show="false">
-																		
-																		<div class="col-sm-6 col-xs-5">
-																			<label style="font-size: 13px;line-height: 15px;">Out of Stock</label><br>
-								
-																		</div>
-																		
-																		
-																</li>
-															</ul>
 															<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
 																<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 																</li>
