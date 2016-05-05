@@ -638,7 +638,7 @@ body {
 	-webkit-transform: translateZ(0);
 	font-size: 13px;  
 	font-weight: 500;
-	color: black;
+	color: white;
 }	
 .navbar{
 	padding-top: 24px;
@@ -3037,6 +3037,25 @@ select{
   	 font-family: lato-regular;
   }
   .mob-logo{
-		    margin-top: 17px;
-		    margin-bottom: 12px;
+		    margin-top: 8px;
+		    margin-bottom: 3px;
    	}
+   	
+  .menu-logo{
+  	 font-weight: 500;
+  	 color: #e86903;
+  	 font-size: 54.46px;
+  }
+  
+  .secondary-nav{
+  	font-family: lato-light;
+  	font-size: 20px !Important;
+  	color:black;
+  }
+  
+  .primary-nav{
+  	font-family: lato-light;
+  	font-size: 20px !Important;
+  	color:#cbc9c6;
+  	
+  }
