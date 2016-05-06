@@ -163,7 +163,7 @@ color:black !important;
 }
 
 .home-menu .cart-label a{
-	color: black ;
+	color: white ;
 }
 
 .home-menu:hover .cart-label a {
@@ -457,7 +457,7 @@ color:black !important;
 /* subscribe */
 .subscribe {
 	position: relative;
-	padding: 4px 139px 0 5px;
+	padding: 0px;
 }
 .subscribe label {
 	float: left;
@@ -1279,7 +1279,6 @@ button.btn:active,button.btn.active{
 }
 
 .clr{
-	margin-left: 2px;
 	padding-top: 8px;
 }
 #btm{
@@ -1927,10 +1926,10 @@ select{
     display: block;
     font-family: inherit;
     font-size: 14px;
-    height: 38px;
+    height: 29px;
     outline: none;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 12px;
     line-height: 17px;
     padding-right: 12px;
@@ -1951,8 +1950,8 @@ select{
 
 .size-dropdown{
     font-weight: 600;
-       width: 209%;
-    margin-left: 43px;
+       width: 96%;
+
         border-radius: 0;}
 
 .quantity-dropdown{
@@ -1963,7 +1962,17 @@ select{
 .footer-list li a label {
     font-weight: 400;
     color: #e1e1e1;
+	font-family:lato-regular;
+	font-size:12px;
 }
+
+.footer-list li a{
+	font-weight: 400;
+	color: #e1e1e1;
+	font-family:lato-regular;
+	font-size:12px;
+}
+
 
 .size-dropdown option{
 	font-weight: 600;
@@ -2004,8 +2013,8 @@ select{
     width: 61.5%;
     height: 25px;
     color: lato-light !important;
-    margin-left: 12px;
-    margin: 10px;
+
+    margin: 8px;
     background-color: #fff !important;
     border: 1px solid gainsboro;
 }
@@ -2017,7 +2026,6 @@ select{
 	font-size: 17px;
 	color: orange;
 	line-height: 15px;
-	    margin-left: 19px;
 }
 
 .cart-products{
@@ -2050,10 +2058,14 @@ select{
 
 .keep-shopping-btn{
 	width:100%;
-	height: 25px;
+	height: 32px !important;
 	 color:#E86903;
 	 margin-left: 3px;
-	 font-family: lato-regular !important;;
+	font-size: 16px;
+	font-weight: 400 !important;
+	text-align: left;
+	margin-top: 16px;
+	 font-family: lato-regular !important;
 }
 .proceed-checkout-btn
 {
@@ -2424,6 +2436,14 @@ select{
 	.btn,.btn-group {
         width:100%;
     }
+
+	.keep-shopping-button{
+		width:auto !Important;
+	}
+
+	.ind-desc{
+		margin-left: 0px;
+	}
     
     .cart-block{
 		margin-left: -34.8em !important;
@@ -2438,8 +2458,13 @@ select{
 #mob-margin{
 	margin-top:-57px !important;
 }
-#mob-btn{
+.mob-btn{
 	margin-left:0px !important;
+	height: 27px !important;
+	text-align: center;
+	font-family: lato-light !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
 }
 #mob-left{
 	    margin-top: -97px;
@@ -2491,8 +2516,9 @@ select{
 
 	#respone1{
     text-align: center;
-    font-size: 12px !important;
+    font-size: 18.32px !important;
     color: #bcbcbc;
+		font-family:lato-light;
 }
 #respon2{
 	    font-size: 24px !important;
@@ -2638,13 +2664,13 @@ select{
 
 	.order-right-table tr td{
 	height: 30px !important;
-	font-size: 15px !important;
+	font-size: 14px !important;
 	
 	
 }
 
 .custom-padding-top{
-	padding-top: 84px;
+	padding-top: 100px;
 }
 		
 	
@@ -2747,6 +2773,7 @@ select{
    	display: block;
    	width: 177px;
    	margin: 0 auto;
+	margin-bottom: 6px;
    	z-index: 1;
    	height: 24px;
    	text-align: center;
@@ -2964,17 +2991,16 @@ select{
 }
 
 .bootstrap-touchspin-up{
-	margin-left: 14px !important;
+
 	font-size: 15px;
-	background-color: #fffffff;
-	margin-left: 20px !important;
+	background-color: transparent;
+
 
 }
 
 .bootstrap-touchspin-down{
 	font-size: 15px;
 	background-color: #ffffff;
-	margin-right: 5px !important;
 }
 
 .ship-container{
@@ -3011,30 +3037,27 @@ select{
    }
   #demo3_21{
   	background-color: white;
-  	height: 41px;
-  	width: 169%;
+  	height: 37px;
+  	width: 40px;
   	padding-top: 0;
-  	text-align: left;
+  	text-align: center;
   	border-color: gainsboro;
   	color: #D25E00;
   	 font-family: lato-light;
-  	font-size:20px;
+  	font-size:15px;
   	}
   #respone1{
   	text-align: center;
-    font-size: 14px;
+    font-size: 18.32px;
     color: gray;
     margin-top: 17px;
     font-family: lato-light;
   }
   #item-heading{
-  	font-size: 20px;
-  	margin-left: 45px;
-  	line-height: 47px;
-  	margin-left: 0;
-  	 margin-right: 88px;
-  	 border-bottom: 1px solid #e1e1e1;
-  	 font-family: lato-regular;
+  	font-size: 16px;
+  	line-height: 42px;
+  	border-bottom: 1px solid #e1e1e1;
+	  font-family: lato-regular;
   }
   .mob-logo{
 		    margin-top: 8px;
@@ -3050,7 +3073,7 @@ select{
   .secondary-nav{
   	font-family: lato-light;
   	font-size: 20px !Important;
-  	color:black;
+  	color:black !important;
   }
   
   .primary-nav{
@@ -3058,4 +3081,63 @@ select{
   	font-size: 20px !Important;
   	color:#cbc9c6;
   	
+  }
+
+  .create-heading{
+	  font-size: 35px;
+	  font-weight:500;
+	  margin-bottom: 16px;
+	  font-family: lato-hairline !important;
+	  color: #EE6900;
+	  font-smooth: auto;
+  }
+
+  .footer-title{
+	  font-size: 41.65px;
+	  color: rgba(238, 105, 0, 0.5);
+	  margin:0px ;
+	  font-family:lato-hairline !important;
+	  font-weight:600;
+	  margin-left:40px;
+  }
+
+  #indisize1 p{
+	  font-size: 20px;
+	  margin-bottom: 10px;
+	  line-height: 22px;
+  }
+
+  .ind-desc{
+	  margin-left: 38px;
+  }
+
+  .cart-img{
+	  width: 160px;
+	  height: 140px;
+	  padding: 0px;
+  }
+
+  .cart-pro-title{
+	  font-family: lato-light;
+	  color: #e86701;
+	  font-size: 20.06px;
+  }
+
+  .cart-elements{
+	  padding-left: 0px !important;
+	  margin-left:20px;
+	  border-bottom: 1px solid #e1e1e1;
+	  margin-top:5px;
+  }
+
+  .cart-hr{
+	  text-align: left;
+	  margin-right: 40%;
+	  margin-bottom: 0px;
+  }
+
+  .keep-shopping-button{
+	  float: right;
+	  width: 233px;
+	  padding: 0px;
   }
