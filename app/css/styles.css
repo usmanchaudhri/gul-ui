@@ -636,7 +636,6 @@ body {
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/ 
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
-	font-size: 13px;  
 	font-weight: 500;
 	color: white;
 }	
