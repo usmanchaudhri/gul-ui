@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="" />
+    <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/products/products.html" afterPath="$PROJECT_DIR$/app/view/products/products.html" />
+    </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -71,6 +73,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="products.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/products/products.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="allShops.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/shop/allShops.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,7 +147,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="218">
@@ -187,6 +199,7 @@
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/view/shop/allShops.html" />
+        <option value="$PROJECT_DIR$/app/view/products/products.html" />
       </list>
     </option>
   </component>
@@ -430,7 +443,7 @@
       <workItem from="1461574711371" duration="19549000" />
       <workItem from="1462435156746" duration="228000" />
       <workItem from="1462437490425" duration="5478000" />
-      <workItem from="1462478240444" duration="18699000" />
+      <workItem from="1462478240444" duration="19240000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -443,10 +456,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60154000" />
+    <option name="totallyTimeSpent" value="60695000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -493,13 +506,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8619">
-          <caret line="507" column="43" selection-start-line="507" selection-start-column="43" selection-end-line="507" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/shopCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -945,6 +951,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/shop/allShops.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+          <folding>
+            <element signature="e#44420#44470#0" expanded="false" />
+            <element signature="e#44481#44542#0" expanded="false" />
+            <element signature="e#44556#44587#0" expanded="false" />
+            <element signature="e#44595#44629#0" expanded="false" />
+            <element signature="e#44635#44669#0" expanded="false" />
+            <element signature="e#44675#44709#0" expanded="false" />
+            <element signature="e#44715#44749#0" expanded="false" />
+            <element signature="e#44771#44858#0" expanded="false" />
+            <element signature="e#44883#44911#0" expanded="false" />
+            <element signature="e#44921#45063#0" expanded="false" />
+            <element signature="e#45075#45183#0" expanded="false" />
+            <element signature="e#45192#45287#0" expanded="false" />
+            <element signature="e#45312#45334#0" expanded="false" />
+            <element signature="e#45348#45518#0" expanded="false" />
+            <element signature="e#45532#45567#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
@@ -992,35 +1030,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/shop/allShops.html">
+    <entry file="file://$PROJECT_DIR$/app/view/products/products.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="508">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-          <folding>
-            <element signature="e#44420#44470#0" expanded="false" />
-            <element signature="e#44481#44542#0" expanded="false" />
-            <element signature="e#44556#44587#0" expanded="false" />
-            <element signature="e#44595#44629#0" expanded="false" />
-            <element signature="e#44635#44669#0" expanded="false" />
-            <element signature="e#44675#44709#0" expanded="false" />
-            <element signature="e#44715#44749#0" expanded="false" />
-            <element signature="e#44771#44858#0" expanded="false" />
-            <element signature="e#44883#44911#0" expanded="false" />
-            <element signature="e#44921#45063#0" expanded="false" />
-            <element signature="e#45075#45183#0" expanded="false" />
-            <element signature="e#45192#45287#0" expanded="false" />
-            <element signature="e#45312#45334#0" expanded="false" />
-            <element signature="e#45348#45518#0" expanded="false" />
-            <element signature="e#45532#45567#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
