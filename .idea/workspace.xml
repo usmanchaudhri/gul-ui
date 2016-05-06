@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shop/allShops.html" afterPath="$PROJECT_DIR$/app/view/shop/allShops.html" />
-    </list>
+    <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="" />
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -433,7 +430,7 @@
       <workItem from="1461574711371" duration="19549000" />
       <workItem from="1462435156746" duration="228000" />
       <workItem from="1462437490425" duration="5478000" />
-      <workItem from="1462478240444" duration="18575000" />
+      <workItem from="1462478240444" duration="18699000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -446,7 +443,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60030000" />
+    <option name="totallyTimeSpent" value="60154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
