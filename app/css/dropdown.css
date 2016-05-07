@@ -32,10 +32,20 @@
 .proDes{
 	line-height: 10px;
 	color: black;
-	font-family: "Gill Sans MT";
-	font-size: 18px;
+    font-family: lato-regular;
+
+	font-size: 16px;
 	margin-left: 0px;
 }
+
+/*.proDes a{
+	line-height: 10px;
+	color: black;
+    font-family: lato-regular;
+
+	font-size: 16px;
+	margin-left: 0px;
+}*/
 
 .proAuth{
 	line-height: 10px;

@@ -259,19 +259,19 @@ $('.lightbox_trigger').click(function(e) {
 
 </style>
 
-<div class="container" id="marg" style="margin-top: 10px;">
+<div class="container-fluid" id="marg" style="margin-top: 10px;">
 	<div class="row" >
-		<div class="col-sm-7 col-xs-12 ">
+		<div class="col-sm-5 col-xs-12 col-sm-offset-1">
 		<div class="blowup">
 			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" />
 		</div>
 		</div>
 		
-		<div class="col-sm-5 col-xs-12" id="indisize1">
+		<div class="col-sm-4 col-xs-12" id="indisize1">
 			<div class="ind-desc" style="margin-top: 77px;">	 
 			<p>
-				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;">{{productDetail.name}}</strong>
-				<br /><p style="font-family: lato-lightitalic; font-size: 20px;color:#838383;"> {{productDetail.shortDesc}}</p></p><br/>
+				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
+				<br /><p style="font-family: lato-lightitalic; font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc}}</p></p><br/>
 			
 			<font size="2" class="clr1" style=" color:#838383;"><span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
 			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>

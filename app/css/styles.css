@@ -193,7 +193,7 @@ h2 span {
 	color: black !important;
 }
 
-.navbar.scroll .signin-label {
+.scroll .signin-label {
 	color: black !important;
 }
 
@@ -657,7 +657,7 @@ body {
 }
 
 .carousel-content h1{
-	font-size: 44px !important;
+	font-size: 55.56px !important;
 
 }
 
@@ -1405,7 +1405,6 @@ button.btn:active,button.btn.active{
 	padding: 7px;
 	font-size: 14px;
 	border: 0px;
-
 }*/
 
 /*Payment&shipping Form*/
@@ -2637,9 +2636,6 @@ select{
 	}
 }
 
-.home-slider-shop-desc{
-	/*margin-top: 5px;*/
-}
 
 .social label{
 	font-size: 13px;
@@ -2713,7 +2709,7 @@ select{
 
 .home-menu .signin-label{
 	font-family:lato-light !important;
-	color:black;
+	color:white;
 }
 
 .signin-label a{
