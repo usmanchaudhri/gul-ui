@@ -64,7 +64,7 @@
 												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li style="float: left; margin-left: -8px;">
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;font-family: lato-light;">{{abc}}</label>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart" >CART</a></label>
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart" style="color: white;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
@@ -122,11 +122,11 @@
 												</li>
 											</ul>
 									</div>
-									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="color:#black;">SIGN IN</b></h3></span>
+									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
 										
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:white; " id="control-nav" >ACCOUNT</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -191,7 +191,7 @@
 												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li style="float: left; margin-left: -8px;">
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-													<label class="cart-lable1" style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;color:black !important;"><a href="#cart">CART</a></label>
+													<label class="cart-lable1" style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
@@ -288,7 +288,7 @@
 										
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:black; " id="control-nav">ACCOUNT</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -418,7 +418,7 @@
 												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li style="float: left; margin-left: -8px;">
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="font-family: lato-light;color:black;">CART</a></label>
+													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: 'Quicksand', sans-serif;"><a href="#cart" style="font-family: lato-light;">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
 															<div class="row">
@@ -515,7 +515,7 @@
 										
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:black; " id="control-nav">ACCOUNT</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -638,19 +638,17 @@
 			
 			
 			<!--subscription --->
-			<div ng-controller="BreadcrumbCtrl" >
-			<div ng-show="(breadcrumbs.get().length == 1)">
-			<div class="container" style="width: 100%;padding-top: 20px;">
-					<div class="row text-center" style="margin-top: 5px;margin-bottom: 20px;">
-						<h1 class="footer-title" id="lab4">PERSONALIZE YOUR DESIGN</h1>
+			<div class="container" style="width: 100%;">
+					<div class="row text-center">
+						<h1 id="respon2" style="font-size: 42px;  color: #EE6900; margin-top:21px ; font-family:lato-hairline !important; margin-bottom: 18px;margin-left:40px;" id="lab4">PERSONALIZE YOUR DESIGN</h1>
 		
 					</div>
 					<div class="row" >
 					<div class="col-sm-3"></div>
-						<div class="col-sm-6 col-col-xs-12">
+						<div class="col-sm-8 col-col-xs-10">
 							<div class="subscribe">
 							
-									<form action="#a" id="input-lab">
+									<form action="#a"style="width: 715px;margin-left: -12px;"id="input-lab">
 						
 										<div class="form-group">
 										<div class="input-group">
@@ -665,7 +663,7 @@
 									</form>
 								</div>
 							</div>
-							<div class="col-sm-2"></div>
+							<div class="col-sm-1"></div>
 						
 					
 				</div><!-- /row -->
@@ -673,43 +671,7 @@
 							
 								
 						</div>
-				</div>
-			<div ng-show="(breadcrumbs.get().length != 1)">
-				<div class="container" style="width: 100%;border-top: 1px solid #E1E1E1;padding-top: 20px;">
-					<div class="row text-center" style="margin-top: 5px;margin-bottom: 20px;">
-						<h1 class="footer-title" id="lab4">PERSONALIZE YOUR DESIGN</h1>
-
-					</div>
-					<div class="row" >
-						<div class="col-sm-3"></div>
-						<div class="col-sm-6 col-col-xs-12">
-							<div class="subscribe">
-
-								<form action="#a" id="input-lab">
-
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" class="form-control " placeholder="Email" aria-describedby="basic-addon2"  style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;     height: 40px; ">
-											<span class="input-group-addon" id="basic-addon2" style="background-color: #707070; border-radius: 0;box-shadow: none;border: 1px solid #707070;padding-top: 2px;font-weight: 600;font-size: 12px;"><button  type="button "style="background-color:#707070; border: 0px;color: #e1e1e1;margin-top: 6px;    font-weight: 500;font-family: lato-regular;"> SUBSCRIBE</button></span>
-										</div>
-
-
-
-									</div>
-
-								</form>
-							</div>
-						</div>
-						<div class="col-sm-2"></div>
-
-
-					</div><!-- /row -->
-
-
-
-				</div>
-			</div>
-			</div>
+			
 			<!--Footer-->
 			<footer   id="footer" style="background-color: #707070 ;margin-top: 25px; ">
 			
