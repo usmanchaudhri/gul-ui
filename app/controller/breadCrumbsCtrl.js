@@ -1,5 +1,7 @@
 app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcrumbs) {
 			$scope.breadcrumbs = breadcrumbs;
+			
+			
 			$scope.getPosition = function(data){
 				if(angular.isDefined(data)){
 					//console.log(data.breadcrumbs[0].label);
@@ -16,5 +18,19 @@ app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcr
 				}
 				
 			};
+			
+			$scope.breadcrumbsCalling = function(){
+				$scope.enableBorder;
+			 $scope.breadcrumbLength = $scope.breadcrumbs.get().length;
+			 console.log("bread",$scope.breadcrumbLength);
+			if( $scope.breadcrumbLength > 1){
+				$scope.enableBorder = "1px solid #E2E2E2";
+			}else{
+				$scope.enableBorder = "none";
+				
+			}
+			}
+			
+			
 		
 		}]);
