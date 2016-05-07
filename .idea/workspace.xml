@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/styles.css" afterPath="$PROJECT_DIR$/app/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/shop/shopProducts.html" afterPath="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -147,28 +149,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-156">
-              <caret line="638" column="4" selection-start-line="638" selection-start-column="4" selection-end-line="638" selection-end-column="4" />
-              <folding>
-                <element signature="e#44400#44450#0" expanded="false" />
-                <element signature="e#44461#44522#0" expanded="false" />
-                <element signature="e#44536#44567#0" expanded="false" />
-                <element signature="e#44575#44609#0" expanded="false" />
-                <element signature="e#44615#44649#0" expanded="false" />
-                <element signature="e#44655#44689#0" expanded="false" />
-                <element signature="e#44695#44729#0" expanded="false" />
-                <element signature="e#44751#44838#0" expanded="false" />
-                <element signature="e#44863#44891#0" expanded="false" />
-                <element signature="e#44901#45043#0" expanded="false" />
-                <element signature="e#45055#45163#0" expanded="false" />
-                <element signature="e#45172#45267#0" expanded="false" />
-                <element signature="e#45292#45314#0" expanded="false" />
-                <element signature="e#45328#45498#0" expanded="false" />
-                <element signature="e#45512#45547#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="354">
+              <caret line="635" column="45" selection-start-line="635" selection-start-column="45" selection-end-line="635" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shopProducts.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/shop/shopProducts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="636">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -192,7 +188,6 @@
         <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/newshipping.html" />
-        <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
         <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/menu/header-menuBar.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
@@ -200,6 +195,7 @@
         <option value="$PROJECT_DIR$/app/view/products/products.html" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
         <option value="$PROJECT_DIR$/app/css/styles.css" />
+        <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
       </list>
     </option>
   </component>
@@ -443,7 +439,7 @@
       <workItem from="1461574711371" duration="19549000" />
       <workItem from="1462435156746" duration="228000" />
       <workItem from="1462437490425" duration="5478000" />
-      <workItem from="1462478240444" duration="20259000" />
+      <workItem from="1462478240444" duration="21586000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -456,10 +452,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61714000" />
+    <option name="totallyTimeSpent" value="63041000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -517,6 +513,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="84" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -866,13 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/shop/shopProducts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="84" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4692">
@@ -1016,25 +1006,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="638" column="4" selection-start-line="638" selection-start-column="4" selection-end-line="638" selection-end-column="4" />
-          <folding>
-            <element signature="e#44400#44450#0" expanded="false" />
-            <element signature="e#44461#44522#0" expanded="false" />
-            <element signature="e#44536#44567#0" expanded="false" />
-            <element signature="e#44575#44609#0" expanded="false" />
-            <element signature="e#44615#44649#0" expanded="false" />
-            <element signature="e#44655#44689#0" expanded="false" />
-            <element signature="e#44695#44729#0" expanded="false" />
-            <element signature="e#44751#44838#0" expanded="false" />
-            <element signature="e#44863#44891#0" expanded="false" />
-            <element signature="e#44901#45043#0" expanded="false" />
-            <element signature="e#45055#45163#0" expanded="false" />
-            <element signature="e#45172#45267#0" expanded="false" />
-            <element signature="e#45292#45314#0" expanded="false" />
-            <element signature="e#45328#45498#0" expanded="false" />
-            <element signature="e#45512#45547#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="354">
+          <caret line="635" column="45" selection-start-line="635" selection-start-column="45" selection-end-line="635" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/shop/shopProducts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
