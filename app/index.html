@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
-	
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,16 +33,16 @@
 		<link  href="fonts/Lato-Italic.ttf" rel="stylesheet" type="text/css"/>
 		<!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="css/style.css">-->
-		
-		
+
+
 	</head>
 	<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
 		<div class="wrapper" ng-controller="loginCtrl">
 			<!--Navigation Bar-->
-			
-			
+
+
 			<div ng-controller="BreadcrumbCtrl" >
-			
+
 					<div ng-show="(breadcrumbs.get().length == 1)">
 				<nav class="navbar home-menu">
 					<div class="container-fluid" >
@@ -57,7 +57,7 @@
 
 								<span>
 									<div class="col-sm-2">
-										
+
 									</div>
 									<div class="col-sm-10 col-xs-7">
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
@@ -78,10 +78,10 @@
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
 																</div>
-															</div>	
+															</div>
 														</li>
 													</ul>
-											
+
 													<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
 														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 														</li>
@@ -99,7 +99,7 @@
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
 																</div>
-															</div>	
+															</div>
 														</li>
 														<div class="text-center">
 															<li style="height: 20px;">
@@ -112,7 +112,7 @@
 																	<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																		<label style="font-size: 12px;">${{totalPrice}}</label>
 																	</div>
-																</div>	
+																</div>
 															</li>
 															<li style="border-bottom: none;">
 																<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
@@ -123,7 +123,7 @@
 											</ul>
 									</div>
 									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="color:#black;">SIGN IN</b></h3></span>
-										
+
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
 												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
@@ -134,34 +134,34 @@
 														<li>
 															<a ng-href="#myorder">My Orders</a>
 														</li>
-													
+
 														<li>
 															<a href="#shipping">Shipping</a>
 														</li>
-													
+
 														<li>
 															<a href="#allchats">Chat</a>
 														</li>
-													
+
 														<li>
 															<a href="" ng-click="userLogout()">Logout</a>
 														</li>
 													</ul>
 												</li>
-											
+
 											</ul>
-										</div>	
+										</div>
 									</div>
-									
-									
+
+
 								</span>
 							</div>
-							
+
 						</div>
-				
+
 						<span class="btn-menu visible-xs">menu</span>
-					
-						
+
+
 						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
 					</div><!--/ End of container -->
 					<div class="container">
@@ -178,13 +178,13 @@
 							<div class="col-sm-4"></div>
 							<div class="col-sm-4 col-xs-5 text-center mob-logo">
 								<strong style="color: #e86903; font-family:lato-light; "><a ng-href="#a style="color: #e86903;"><span class="menu-logo">G</span><span class="menu-logo">U</span><span class="menu-logo">L</span></a></strong>
-							</div>	
+							</div>
 							<div class="col-sm-1"></div>
 							<div class="col-sm-3" style="margin-top: -11px;" >
-								
+
 								<span>
 									<div class="col-sm-2">
-										
+
 									</div>
 									<div class="col-sm-10 col-xs-7">
 									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
@@ -221,7 +221,7 @@
 																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																			<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
 																		</div>
-																	</div>	
+																	</div>
 																</li>
 																<div class="text-center">
 																	<li style="height: 20px;">
@@ -234,16 +234,16 @@
 																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																				<label style="font-size: 12px;">${{totalPrice}}</label>
 																			</div>
-																		</div>	
+																		</div>
 																	</li>
 																	<li style="border-bottom: none;">
 																		<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
 																	</li>
 																</div>
-															</div>	
+															</div>
 														</li>
 													</ul>
-											
+
 													<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
 														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 														</li>
@@ -261,7 +261,7 @@
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
 																</div>
-															</div>	
+															</div>
 														</li>
 														<div class="text-center">
 															<li style="height: 20px;">
@@ -274,7 +274,7 @@
 																	<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																		<label style="font-size: 12px;">${{totalPrice}}</label>
 																	</div>
-																</div>	
+																</div>
 															</li>
 															<li style="border-bottom: none;">
 																<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
@@ -285,7 +285,7 @@
 											</ul>
 									</div>
 									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
-										
+
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
 												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:black; " id="control-nav">ACCOUNT</label></a>
@@ -296,34 +296,34 @@
 														<li>
 															<a ng-href="#myorder">My Orders</a>
 														</li>
-													
+
 														<li>
 															<a href="#shipping">Shipping</a>
 														</li>
-													
+
 														<li>
 															<a href="#allchats">Chat</a>
 														</li>
-													
+
 														<li>
 															<a href="" ng-click="userLogout()">Logout</a>
 														</li>
 													</ul>
 												</li>
-											
+
 											</ul>
-										</div>	
+										</div>
 									</div>
-									
-									
+
+
 								</span>
 							</div>
-							
+
 						</div>
-				
+
 						<span class="btn-menu visible-xs">menu</span>
-					
-						
+
+
 						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
 					</div><!--/ End of container -->
 					<div class="container">
@@ -333,18 +333,18 @@
 			</div>
 						<script type="text/ng-template" id="loginModal.html">
 							<div class="card card-container" style="width: 445px;height: 515px;">
-												
+
 							<div class="modal-header">
-							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-							
+							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>
+
 							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
 							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
 							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
 							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-							</div>	
-							
-							
-											
+							</div>
+
+
+
 							</div>
 							<div class="modal-body " ng-if="signingin">
 							<form class="form-signin">
@@ -359,15 +359,15 @@
 							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
 							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
-											
-											
+
+
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin(loginEmail,loginPass)" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 							<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 							</form>
 							</div>
-							
-							
-							
+
+
+
 							<div class="modal-body" ng-if="!signingin">
 							<form class="form-signin">
 							<span id="reauth-email" class="reauth-email"></span>
@@ -379,20 +379,20 @@
 							<label style="font-size: 13px;color: gray;">Password</label>
 							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							</div>
-											
+
 							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="registerUser(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
-										
+
 							</form>
 							</div>
-							
-							
-							
+
+
+
 							</div>
-							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
-							
+							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+
 							<div ng-if="!signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
-							
+
 						</script>
 					</div>
 				</div>
@@ -448,7 +448,7 @@
 																		<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																			<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
 																		</div>
-																	</div>	
+																	</div>
 																</li>
 																<div class="text-center">
 																	<li style="height: 20px;">
@@ -461,16 +461,16 @@
 																			<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																				<label style="font-size: 12px;">${{totalPrice}}</label>
 																			</div>
-																		</div>	
+																		</div>
 																	</li>
 																	<li style="border-bottom: none;">
 																		<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
 																	</li>
 																</div>
-															</div>	
+															</div>
 														</li>
 													</ul>
-											
+
 													<ul  class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
 														<li  class="text-center" style="height:35px;border-bottom: none;" ><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label>
 														</li>
@@ -488,7 +488,7 @@
 																<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																	<label style="font-size: 12px;">${{a.cost*a.qty}}</label>
 																</div>
-															</div>	
+															</div>
 														</li>
 														<div class="text-center">
 															<li style="height: 20px;">
@@ -501,7 +501,7 @@
 																	<div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
 																		<label style="font-size: 12px;">${{totalPrice}}</label>
 																	</div>
-																</div>	
+																</div>
 															</li>
 															<li style="border-bottom: none;">
 																<a href="#cart"><button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button></a>
@@ -512,7 +512,7 @@
 											</ul>
 									</div>
 									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="font-family: lato-light;">SIGN IN</b></h3></span>
-										
+
 										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
 												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:black; " id="control-nav">ACCOUNT</label></a>
@@ -523,34 +523,34 @@
 														<li>
 															<a ng-href="#myorder">My Orders</a>
 														</li>
-													
+
 														<li>
 															<a href="#shipping">Shipping</a>
 														</li>
-													
+
 														<li>
 															<a href="#allchats">Chat</a>
 														</li>
-													
+
 														<li>
 															<a href="" ng-click="userLogout()">Logout</a>
 														</li>
 													</ul>
 												</li>
-											
+
 											</ul>
-										</div>	
+										</div>
 									</div>
-									
-									
+
+
 								</span>
 							</div>
-							
+
 						</div>
-				
+
 						<span class="btn-menu visible-xs">menu</span>
-					
-						
+
+
 						<!--<a class="cart" href="#cart"><label class="cart-items-label">{{abc}}</label><img src="images/ico-01.png" alt="image"></a>-->
 					</div><!--/ End of container -->
 					<div class="container">
@@ -560,19 +560,19 @@
 			</div>
 						<script type="text/ng-template" id="loginModal.html">
 							<div class="card card-container" style="width: 445px;height: 515px;">
-												
+
 							<div class="modal-header">
-							
-							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>	
-							
+
+							<div ng-if="signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>
+
 							<div ng-if="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
 							<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
 							<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
 							<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-							</div>	
-							
-							
-											
+							</div>
+
+
+
 							</div>
 							<div class="modal-body" ng-if="signingin">
 							<form class="form-signin">
@@ -587,16 +587,16 @@
 							<label ng-show="showError" style="color: red;font-size: 12px;">"Incorrect Username or Password"</label>
 							<label ng-show="showEmptyFieldError" style="color: red;font-size: 12px;">"Please Fill All Fields"</label>
 							</div>
-											
 
-											
+
+
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="checkLogin(loginEmail,loginPass)" style="margin-left: 0px;width: 100%;">LOG IN</button></div>
 							<div class="col-sm-12 text-center" style="padding-left: 0px;"><label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label></div>
 							</form>
 							</div>
-							
-							
-							
+
+
+
 							<div class="modal-body" ng-if="!signingin">
 							<form class="form-signin">
 							<span id="reauth-email" class="reauth-email"></span>
@@ -608,70 +608,70 @@
 							<label style="font-size: 13px;color: gray;">Password</label>
 							<input type="password" id="inputPassword" class="form-control" required ng-model="regPass" style="border: 1px solid rgba(128, 128, 128, 0.44);border-radius: 4px;" />
 							</div>
-											
+
 
 							<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
 							<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="registerUser(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
-										
+
 							</form>
 							</div>
-							
-							
-							
+
+
+
 							</div>
-							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>	
-							
+							<div ng-if="signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button></div>
+
 							<div ng-if="!signingin" class="col-sm-12 text-center"><button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button></div>
-							
+
 						</script>
-					
+
 					</div>
-					
+
 					<div  ng-include src="'view/header/breadCrumb.html'" class="custom-padding-top" ></div>
-					
+
 				</div>
-					
-				
+
+
 			</div>
 			<div ng-view autoscroll="true" style="min-height: 470px;"></div>
-			
-			
-			
+
+
+
 			<!--subscription --->
 			<div ng-controller="BreadcrumbCtrl" >
 			<div ng-show="(breadcrumbs.get().length == 1)">
 			<div class="container" style="width: 100%;padding-top: 20px;">
 					<div class="row text-center" style="margin-top: 5px;margin-bottom: 20px;">
 						<h1 class="footer-title" id="lab4">PERSONALIZE YOUR DESIGN</h1>
-		
+
 					</div>
 					<div class="row" >
 					<div class="col-sm-3"></div>
 						<div class="col-sm-6 col-col-xs-12">
 							<div class="subscribe">
-							
+
 									<form action="#a" id="input-lab">
-						
+
 										<div class="form-group">
 										<div class="input-group">
                             <input type="text" class="form-control " placeholder="Email" aria-describedby="basic-addon2"  style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;     height: 40px; ">
                           <span class="input-group-addon" id="basic-addon2" style="background-color: #707070; border-radius: 0;box-shadow: none;border: 1px solid #707070;padding-top: 2px;font-weight: 600;font-size: 12px;"><button  type="button "style="background-color:#707070; border: 0px;color: #e1e1e1;margin-top: 6px;    font-weight: 500;font-family: lato-regular;"> SUBSCRIBE</button></span>
 </div>
-										
-										
-											
+
+
+
 										</div>
-									
+
 									</form>
 								</div>
 							</div>
 							<div class="col-sm-2"></div>
-						
-					
+
+
 				</div><!-- /row -->
-						
-							
-								
+
+
+
 						</div>
 				</div>
 			<div ng-show="(breadcrumbs.get().length != 1)">
@@ -712,10 +712,10 @@
 			</div>
 			<!--Footer-->
 			<footer   id="footer" style="background-color: #707070 ;margin-top: 25px; ">
-			
+
 			     <div class="row"  >
 			     	     <div class="col-sm-2"></div>
-							<div class="col-sm-6 col-xs-12">	
+							<div class="col-sm-6 col-xs-12">
 								<ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px; margin-top: 35px; font-family: lato-regular !important; ">
 									<li><a href="#a"><label style="margin-left: -65px; font-weight: 700; font-family: lato-bold;color: white;" id="lab1">SHOP</label></a></li>
 									<li><a href="#a"><label  id="lab2" >WOMEN </label></a></li>
@@ -726,10 +726,10 @@
 									<li style="color: #e1e1e1">|</li>
 									<li><a href="#a"><label>DRESSES </label></a></li>
 								</ul>
-								
+
 								<ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px;">
 									<li><a href="#a"><label style="margin-left: -65px;font-weight: 700; font-family: lato-bold !important;color: white;"id="lab1"> SUPPORT </label></a></li>
-									
+
 									<li><a href="#a"><label style=" font-family: lato-regular;" id="lab4"> ABOUT&nbsp; </label></a></li><li style="color: white;">|</li>
 									<li><a href="#a"><label style=" font-family: lato-regular;"> TERMS &amp; PRIVACY</label></a></li><li style="color: white;">|</li>
 									<li><a href="#a"><label style=" font-family: lato-regular;">PRIVACY POLICY</label></a></li><li style="color: white;">|</li>
@@ -737,7 +737,7 @@
 								</ul>
 						   </div>
 						   <div class="col-sm-4 col-xs-12">
-						   
+
 						   <ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px; margin-top: 18px;     margin-bottom: -4px;" id="boot-margin" >
 									<li><label style="margin-left: 88px;color: white; font-family: lato-bold !important;" id="lab1" > FOLLOW US </label></li>
 									<li><a href="#a"><img src="img/ins_34.jpg "/></a></li>
@@ -745,20 +745,20 @@
 									<li><a href="#a"><img src="img/facebook.jpg"  style="margin-left: -13px;"/></a></li>
 									<li style="color: #e1e1e1;margin-left: -13px;font-size: 18px;font-family: lato-light;">|</li>
 									<li><a href="#a"><img src="img/t.jpg"  style="margin-left: -12px;"/></a></li>
-									
+
 								</ul>
-								
+
 								<ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px;" >
 									<li><label style="margin-left: 75px;color: #e1e1e1; font-family: lato-light;"id="lab1" >&copy;2016GULS.COM ALL RIGHTS RESERVED</label></li>
-									
-									
+
+
 								</ul>
-						   
-						   	
+
+
 						   </div>
-							
-			    
-									
+
+
+
 				</div>	<!-- /container -->
 			</footer><!-- /footer -->
 			<!--End of Footer-->
@@ -771,7 +771,7 @@
 			<script src="js/jquery-ui.min.js"></script>
 			<script src="js/jquery-2.1.3.min.js"></script>
 			<script src="js/bootstrap.js"></script>
-			<script type="text/javascript" src="js/angular-animate.js"></script>
+			<!--<script type="text/javascript" src="js/angular-animate.js"></script>-->
 			<script src="bower_components/angular/angular.min.js"></script>
 			<script src="bower_components/angular-route/angular-route.min.js"></script>
 			<script src="bower_components/angular-resource/angular-resource.min.js"></script>
@@ -781,7 +781,7 @@
 			<script src="js/ng-breadcrumbs.js"></script>
 			<script src="js/ngInfiniteScroll.js" ></script>
 			<script src="controller/myApp.js"></script>
-			
+
 			<script src="controller/productCtrl.js" ></script>
 			<script src="controller/categoryProCtrl.js" ></script>
 			<script src="controller/menuCtrl.js"></script>
@@ -792,8 +792,8 @@
 			<script src="controller/shopCtrl.js"></script>
 			<script src="controller/allShopCtrl.js"></script>
 			<script src="controller/cartCtrl.js"></script>
-			<script src="controller/modalAddToBagCtrl.js"></script>
-			
+			<!--<script src="controller/modalAddToBagCtrl.js"></script>-->
+
 			<script src="controller/thankuCtrl.js"></script>
 			<script src="controller/loginCtrl.js"></script>
 			<script src="controller/shipCtrl.js"></script>
@@ -821,6 +821,6 @@
 			<script src="js/ui-bootstrap-tpls.js"></script>
 			<script src="js/angular-bootstrap-lightbox.js"></script>
 			<script src="js/imageupload.js"></script>
-			
+
 	</body>
 </html>
