@@ -119,11 +119,11 @@
 									<!--End Cart Popup-->
 									
 									<!--SignIn & Account Nav-->
-									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
+									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>{{userFlag}}</b></h3></span>
 										
-										<div class="main-nav" ng-show="userFlag == true">
+										<div class="main-nav" ng-show="userFlag">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:white; " id="control-nav" >ACCOUNT</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:white; " id="control-nav" >{{userFlag}}</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -171,7 +171,6 @@
 				<!--Secondary Menu-->
 					<div ng-show="breadcrumbs.get().length > 1">
 					<div>
-						<div ng-controller="loginCtrl">
 				<nav class="navbar">
 					<div class="container-fluid" >
 						<div class="row">
@@ -289,11 +288,12 @@
 									</div>
 									<!--End Cart Popup-->
 							<!--Signin & Account Nav-->
-					<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="font-family: lato-light;">SIGN IN</b></h3></span>
+							
+					<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="font-family: lato-light;">{{userFlag}}</b></h3></span>
 										
-										<div class="main-nav" ng-show="userFlag == true">
+										<div class="main-nav" ng-show="userFlag">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">ACCOUNT</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">{{userFlag}}</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -336,8 +336,7 @@
 					</div>
 					<!--End Menubar-->
 				</nav>
-			</div>
-               		<!--Login Popup-->
+	           		<!--Login Popup-->
 						<script type="text/ng-template" id="loginModal.html">
 							<div class="card card-container" style="width: 445px;height: 515px;">
 												
