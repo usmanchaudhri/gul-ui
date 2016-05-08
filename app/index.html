@@ -54,7 +54,7 @@
 									<div class="col-sm-2"></div>
 									<div class="col-sm-10 col-xs-7">
 									<!--Cart Popup-->
-									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+									<div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-11 cart-label">
 												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li style="float: left;">
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;font-family: lato-light;">{{abc}}</label>
@@ -119,11 +119,11 @@
 									<!--End Cart Popup-->
 									
 									<!--SignIn & Account Nav-->
-									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>{{userFlag}}</b></h3></span>
+									<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
 										
-										<div class="main-nav" ng-show="userFlag">
+										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px;color:white; " id="control-nav" >{{userFlag}}</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -5px;"><label style="padding: 0px;font-size: 10px; " id="control-nav" >ACCOUNT</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -171,6 +171,7 @@
 				<!--Secondary Menu-->
 					<div ng-show="breadcrumbs.get().length > 1">
 					<div>
+						<div>
 				<nav class="navbar">
 					<div class="container-fluid" >
 						<div class="row">
@@ -189,7 +190,7 @@
 									<div class="col-sm-10 col-xs-7">
 									
 									<!--Cart Popup-->
-									<div class="col-sm-6 col-xs-1 col-sm-push-7 col-xs-push-11 cart-label">
+									<div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-11 cart-label">
 												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
 												<li style="float: left;">
 													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;">{{abc}}</label>
@@ -288,12 +289,11 @@
 									</div>
 									<!--End Cart Popup-->
 							<!--Signin & Account Nav-->
-							
-					<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="font-family: lato-light;">{{userFlag}}</b></h3></span>
+					<span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b style="font-family: lato-light;">SIGN IN</b></h3></span>
 										
-										<div class="main-nav" ng-show="userFlag">
+										<div class="main-nav" ng-show="userFlag == true">
 											<ul class="nav account-navbar">
-												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -2px;"><label style="padding: 0px;font-size: 10px; " id="control-nav">{{userFlag}}</label></a>
+												<li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -5px;"><label style="padding: 0px;font-size: 10px;color:black; " id="control-nav">ACCOUNT</label></a>
 													<ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
 														<li>
 															<a href="#account">My Account</a>
@@ -336,7 +336,8 @@
 					</div>
 					<!--End Menubar-->
 				</nav>
-	           		<!--Login Popup-->
+			</div>
+               		<!--Login Popup-->
 						<script type="text/ng-template" id="loginModal.html">
 							<div class="card card-container" style="width: 445px;height: 515px;">
 												
