@@ -331,7 +331,9 @@ h2 span {
 	display: none;}
 /* carousel */
 .carousel {
-	margin: 0 0 20px;}
+	margin: 0 0 20px;
+	
+	}
 .carousel .item {
 	max-height: 725px;
 	background-position: 50% 50%;
