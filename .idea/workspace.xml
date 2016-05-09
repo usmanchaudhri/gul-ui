@@ -40,8 +40,8 @@
       <file leaf-file-name="breadCrumbsCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -325,7 +325,7 @@
       <workItem from="1462437490425" duration="5478000" />
       <workItem from="1462478240444" duration="23354000" />
       <workItem from="1462684433080" duration="883000" />
-      <workItem from="1462789410385" duration="1663000" />
+      <workItem from="1462789410385" duration="1819000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -338,10 +338,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67355000" />
+    <option name="totallyTimeSpent" value="67511000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -763,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="364">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
           <folding />
         </state>
       </provider>
