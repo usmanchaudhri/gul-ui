@@ -1,14 +1,11 @@
-
-
-<div ng-if="bannerFlag">
-<div id="carousel-01" class="carousel slide carousel-fade custom-padding-top" data-ride="carousel">
+<div id="carousel-01" class="carousel slide carousel-fade custom-padding-top" data-ride="carousel" style="margin-top: -127px;" ng-if="bannerFlag">
 	<div class="carousel-inner" role="listbox" style="height: 400px;">
 		<div class="item active">
 			<img src="{{fixPath +'category/banner_'+cat_id+'.jpg'+token}}" alt="image">
 		</div>
 	</div>
 </div>
-</div>
+
 <!--<div ng-controller="BreadcrumbCtrl" >
 	<div ng-if="breadcrumbs.get().length > 1">
 		<div  ng-include src="'view/header/breadCrumb.html'" ></div>
