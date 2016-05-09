@@ -5,6 +5,8 @@
         $blowup.attr('src', this.src);
     });
     $('.size-dropdown :selected').html();
+    
+    
    
 });
 
@@ -93,7 +95,13 @@ $('.lightbox_trigger').click(function(e) {
 	$('.single-cartproduct').css("color","black");
 	 $('.single-cartproduct').delay(1000).fadeOut();
 	 
+	
+    
+
+   
+	 
 }); 
+ 
 
 
 </script>
@@ -184,7 +192,8 @@ $('.lightbox_trigger').click(function(e) {
 	.description-text{
 		    line-height: 25px;
     text-align: center;
-    font-size: 12pt;
+    font-size: 14px;
+    font-family: 'lato-light' !important;;
     padding-top: 5px;
 	}
 	
@@ -273,10 +282,11 @@ $('.lightbox_trigger').click(function(e) {
 				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
 				<br /><p style="font-family: lato-lightitalic; font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc}}{{productDetail.shortDesc}}{{productDetail.shortDesc}}</p></p><br/>
 			
-			<font size="2" class="clr1" style=" color:#838383;"><span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
-			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>
+			
 			
             <div class="row mainBox buttonBox">
+            <font size="2" class="clr1" style=" color:#838383;"><span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
+			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
 				<div class="row" id="margi">
 					<div class="col-sm-12">
@@ -400,14 +410,14 @@ $('.lightbox_trigger').click(function(e) {
 			<p style="color:#464646;">DESIGNED BY</p><br/>
 			 <p  style="color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
 			 
-		      <p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
+		      <span class="" style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
 						{{productDetail.shop.details}}
 						
-					</p>
-					<p style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
+					</span>
+					<p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
 			{{productDetail.longDesc}}
 			</p>
-					<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
+					<button class="more" type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
 				</div>
 			</div>	
 		</div>
@@ -448,6 +458,40 @@ $('.lightbox_trigger').click(function(e) {
 					$('.three3').toggle();
         
 				});
+				
+				
+				 var showChar = 100;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "Read More more >";
+    var lesstext = "Read less";
+    
+    $('.more').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
     
 		});
 </script>
