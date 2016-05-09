@@ -474,7 +474,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							//deferred.resolve();
 							return	$http.get(response.data.categoryUrl + '/' + cat_id)
 							.then(function(response1){
-								Utils.isImage($scope.source).then(function(result) {
+								return isImage(mFixPath+'category/banner_'+cat_id+'.jpg'+mToken,$q).then(function(result) {
 
 									value = {
 										urls:response.data,
@@ -548,7 +548,10 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										categoryProDetail.push(value);
 										data = data[i].category.products;
 									}
+								return isImage(mFixPath+'category/banner_'+cat_id+'.jpg'+mToken,$q).then(function(result) {
+
 									value = {
+										banner:result,
 										urls:response.data,
 										fixPath:mFixPath,
 										token:mToken,
@@ -556,6 +559,9 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										categoryIDs: categoryIDs
 									};
 									return value;
+
+								});
+
 							
 								});
 						
@@ -571,9 +577,8 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			
 			return sdo;
 		}]);
-app.factory('Utils', function($q) {
-	return {
-		isImage: function(src) {
+
+	var	isImage = function(src,$q) {
 
 			var deferred = $q.defer();
 
@@ -588,8 +593,7 @@ app.factory('Utils', function($q) {
 
 			return deferred.promise;
 		}
-	};
-});
+
 
 var getConversationCustom = function(obj,$q,$http){
 			
