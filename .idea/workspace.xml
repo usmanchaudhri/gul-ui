@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/products/products.html" afterPath="$PROJECT_DIR$/app/view/products/products.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="7174">
               <caret line="465" column="129" selection-start-line="465" selection-start-column="129" selection-end-line="465" selection-end-column="129" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -84,14 +84,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="products.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/products/products.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="77" column="50" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="50" />
+            <state relative-caret-position="309">
+              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <marker date="1462798495852" expanded="false" signature="1155:1263" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="1322:1334" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="1413:1478" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="1576:1588" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="1648:1661" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="1753:1777" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2048:2156" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2215:2227" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2334:2387" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2505:2517" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2576:2589" placeholder="..." />
+                <marker date="1462798495852" expanded="false" signature="2683:2707" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -160,7 +173,6 @@
         <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/menu/header-menuBar.html" />
         <option value="$PROJECT_DIR$/app/view/shop/allShops.html" />
-        <option value="$PROJECT_DIR$/app/view/products/products.html" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
         <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
         <option value="$PROJECT_DIR$/app/css/styles.css" />
@@ -171,6 +183,7 @@
         <option value="$PROJECT_DIR$/app/controller/services.js" />
         <option value="$PROJECT_DIR$/app/view/categories/categoryProducts.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/view/products/products.html" />
       </list>
     </option>
   </component>
@@ -404,7 +417,7 @@
       <workItem from="1462437490425" duration="5478000" />
       <workItem from="1462478240444" duration="23354000" />
       <workItem from="1462684433080" duration="883000" />
-      <workItem from="1462789410385" duration="6646000" />
+      <workItem from="1462789410385" duration="7292000" />
     </task>
     <task id="LOCAL-00001" summary="qty multiplication">
       <created>1461219129724</created>
@@ -417,10 +430,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72338000" />
+    <option name="totallyTimeSpent" value="72984000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -769,17 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/products/products.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="77" column="50" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/menu/header-menuBar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-762">
@@ -842,7 +844,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
+        <state relative-caret-position="7174">
           <caret line="465" column="129" selection-start-line="465" selection-start-column="129" selection-end-line="465" selection-end-column="129" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -862,6 +864,30 @@
             <element signature="n#style#0;n#label#0;n#a#0;n#li#7;n#ul#0;n#div#1;n#div#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#1;n#div#2;n#div#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#li#0;n#ul#1;n#div#2;n#div#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/products/products.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <marker date="1462798495852" expanded="false" signature="1155:1263" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="1322:1334" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="1413:1478" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="1576:1588" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="1648:1661" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="1753:1777" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2048:2156" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2215:2227" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2334:2387" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2505:2517" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2576:2589" placeholder="..." />
+            <marker date="1462798495852" expanded="false" signature="2683:2707" placeholder="..." />
           </folding>
         </state>
       </provider>
