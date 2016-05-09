@@ -244,8 +244,8 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 						
 					$scope.currentItem = $scope.items[$scope.items.length - 1];
 				
-					console.log("product price",$scope.currentItem.cost);
-					console.log("Add Product "+$scope.items.length);
+					/*console.log("product price",$scope.currentItem.cost);
+					console.log("Add Product "+$scope.items.length);*/
 					$scope.abc = $scope.items.length;
 					$scope.totalCost($scope.items);
 					$scope.getItemSize();
@@ -257,17 +257,17 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 	
 			$scope.totalCost = function(items) {
-				console.log("TOTAL COST: " + items.length);
+				//.log("TOTAL COST: " + items.length);
 				$scope.totalPrice = 0;
 				for(var i =0; i< items.length ;i++){
 					$scope.totalPrice = $scope.totalPrice + (items[i].cost*items[i].qty);
-					console.log("Len: " + $scope.totalPrice);
+			//		console.log("Len: " + $scope.totalPrice);
 				}
 				if(items.length == 0){
 					$scope.totalPrice = 0;
 				}
 				$scope.totalPrice = Math.round($scope.totalPrice * 100) / 100; 
-				console.log("CHANGE QTY: " + $scope.qtyModel);
+			//	console.log("CHANGE QTY: " + $scope.qtyModel);
 			};
 			
 			$scope.prepareCall = function(){
@@ -283,10 +283,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				return paypalLoad = {
 					"intent":"sale",
 					"redirect_urls":{
-						"return_url":"http://localhost:9000/#/thanku",
-						"cancel_url":"http://localhost:9000/#/cancel"
-					/*	"return_url":"http://www.gulgs.com/#/thanku",
-						"cancel_url":"http://www.gulgs.com/#/cancel"*/
+					/*	"return_url":"http://localhost:9000/#/thanku",
+						"cancel_url":"http://localhost:9000/#/cancel"*/
+						"return_url":"http://www.gulgs.com/#/thanku",
+						"cancel_url":"http://www.gulgs.com/#/cancel"
 					},
 					"payer":{
 						"payment_method":"paypal"
@@ -323,7 +323,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 					$http.post(
 						$scope.orderUrl, $scope.orderPayload($scope.items[i]),config
 					).success(function(data, status) {
-							console.log(data);
+						//	console.log(data);
 							$scope.newProId = data.id;
 						}).error(function (data, status) {
 							console.log(data);
@@ -355,7 +355,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 				$(window).load(function () {
 						$("body").fadeIn(100);
 					});
-				console.log("WINDOW");
+		//		console.log("WINDOW");
 			};
 			$scope.onload();
 			checkItems();

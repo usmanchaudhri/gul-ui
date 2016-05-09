@@ -320,6 +320,9 @@ module.exports = function (grunt) {
     // wish to use the Usemin blocks.
    
     cssmin: {
+    	options:{
+			restructuring: false
+		},
       dist: {
         files: [{
             expand: true,
