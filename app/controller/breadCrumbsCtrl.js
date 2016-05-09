@@ -24,7 +24,7 @@ app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcr
 			 $scope.breadcrumbLength = $scope.breadcrumbs.get().length;
 		//	 console.log("bread",$scope.breadcrumbLength);
 
-				if(data.breadcrumbs[1].label != 'HOME'){
+				if($scope.breadcrumbs[1].label != 'HOME'){
 					$scope.enableBorder = "1px solid #E2E2E2";
 				}else{
 					$scope.enableBorder = "none";
