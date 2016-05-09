@@ -23,12 +23,19 @@ app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcr
 				$scope.enableBorder;
 			 $scope.breadcrumbLength = $scope.breadcrumbs.get().length;
 		//	 console.log("bread",$scope.breadcrumbLength);
-			if( $scope.breadcrumbLength > 1){
+
+				if(data.breadcrumbs[1].label == 'HOME'){
+					$scope.enableBorder = "1px solid #E2E2E2";
+				}else{
+					$scope.enableBorder = "none";
+				}
+
+			/*			if( $scope.breadcrumbLength > 1){
 				$scope.enableBorder = "1px solid #E2E2E2";
 			}else{
 				$scope.enableBorder = "none";
 				
-			}
+			}*/
 			}
 			
 			
