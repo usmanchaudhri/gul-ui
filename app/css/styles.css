@@ -1299,7 +1299,8 @@ button.btn:active,button.btn.active{
 
 }
 #indisize1{
-	height: 600px;
+	max-height: 600px;
+	margin-top: 77px;
 }
 
 #indisize2{
@@ -1324,7 +1325,6 @@ button.btn:active,button.btn.active{
 .buttonBox {
 	bottom: 0;
 	left: -12px;
-	margin-left: -20px;
 	padding: 11px;
 
 }
