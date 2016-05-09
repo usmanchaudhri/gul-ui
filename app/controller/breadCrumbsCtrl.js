@@ -22,7 +22,7 @@ app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcr
 			$scope.breadcrumbsCalling = function(){
 				$scope.enableBorder;
 			 $scope.breadcrumbLength = $scope.breadcrumbs.get().length;
-			 console.log("bread",$scope.breadcrumbLength);
+		//	 console.log("bread",$scope.breadcrumbLength);
 			if( $scope.breadcrumbLength > 1){
 				$scope.enableBorder = "1px solid #E2E2E2";
 			}else{
