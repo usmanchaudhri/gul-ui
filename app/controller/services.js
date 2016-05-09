@@ -474,14 +474,19 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							//deferred.resolve();
 							return	$http.get(response.data.categoryUrl + '/' + cat_id)
 							.then(function(response1){
+								return isImage(mFixPath+'category/banner_'+cat_id+'.jpg'+mToken,$q).then(function(result) {
+
 									value = {
 										urls:response.data,
+										banner: result,
 										fixPath:mFixPath,
 										token:mToken,
 										categoryLength: response1.data.subCategories.length,
 										categoryDetail: response1.data
 									};
 									return value;
+								});
+
 								});
 						
 						
@@ -543,7 +548,10 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										categoryProDetail.push(value);
 										data = data[i].category.products;
 									}
+								return isImage(mFixPath+'category/banner_'+cat_id+'.jpg'+mToken,$q).then(function(result) {
+
 									value = {
+										banner:result,
 										urls:response.data,
 										fixPath:mFixPath,
 										token:mToken,
@@ -551,6 +559,9 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 										categoryIDs: categoryIDs
 									};
 									return value;
+
+								});
+
 							
 								});
 						
@@ -566,6 +577,23 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			
 			return sdo;
 		}]);
+
+	var	isImage = function(src,$q) {
+
+			var deferred = $q.defer();
+
+			var image = new Image();
+			image.onerror = function() {
+				deferred.resolve(false);
+			};
+			image.onload = function() {
+				deferred.resolve(true);
+			};
+			image.src = src;
+
+			return deferred.promise;
+		}
+
 
 var getConversationCustom = function(obj,$q,$http){
 			
@@ -622,7 +650,8 @@ var getConversationCustom = function(obj,$q,$http){
 										});
 			
 						});
-		
+
+
 				// return deferred.promise
   			//}
 		}

@@ -3,6 +3,7 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			$scope.totalPrice = 0;
 			$scope.qty = 0;
 			$scope.showContent = false;
+			$scope.popFlag = false;
 			//$scope.inStock = true;
 			//$scope.outOfStock = false;
 
@@ -187,9 +188,10 @@ app.controller('cartCtrl',['$scope','$cookieStore','$http','Base64','$window','$
 			};
 
 			$scope.storeProductsInCookie=function(prod,size,qty){
-				console.log(size+ "=Size////qty="+qty);
+				/*console.log(size+ "=Size////qty="+qty);
 				console.log("Product",prod);
-				console.log("Invoices",$cookieStore.get("invoices"));				
+				console.log("Invoices",$cookieStore.get("invoices"));*/
+				$scope.popFlag = true;				
 				var prodExistFlag = false;
 				if(prod.quantity >qty){
 					//$scope.inStock = true;

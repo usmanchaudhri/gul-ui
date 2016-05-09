@@ -2,6 +2,8 @@ app.controller('categoryProCtrl',['$scope','$http','$q','$timeout','$location','
 			$scope.cat_id = $routeParams.catId;
 			$scope.categoryProDetail = categoryPro.categoryProDetail;
 			$scope.categoryIDs = categoryPro.categoryIDs;
+	$scope.bannerFlag = categoryPro.banner;
+	console.log("BANNER IMAGE: " + $scope.bannerFlag);
 			/*$http.get("gulgs.properties")
 			.then(function(response) {
 					$scope.fixPath = response.data.fixImagePath;
