@@ -203,7 +203,7 @@ h2 span {
 }
 
 .home-menu  .cart-label:hover{
-	border: 1px solid #A09D93;
+	/*border: 1px solid #A09D93;*/
 }
 
 .navbar.scroll {
@@ -2141,7 +2141,7 @@ select{
 	text-align:right;
 	padding-top: 7px;
 	color: white;
-	width: 68px;
+	width: 69px;
 	font-family: 'Quicksand';
 }
 .cart-label:hover{
@@ -2150,10 +2150,11 @@ select{
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	background-color: white;
 	color: black;
+	z-index: 4;
 }
 
 .cart-block{
-	margin-left: -33.0em;
+	margin-left: -33.1em;
 	z-index: -1;
 	margin-top:-1px;
 }
@@ -2164,10 +2165,15 @@ select{
 	display: block;
 }
 
+.cart-block:hover{
+	display: block;
+}
+
 #acc-dropdown{
 	width: 364px !important;
 	padding:5px;
 	padding-top: 15px;
+	border: none !important;
 
 }
 /*End of Homepage*/
