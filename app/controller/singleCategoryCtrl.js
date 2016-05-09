@@ -5,6 +5,7 @@ app.controller('singleCatCtrl',['$scope','$http','$q','$timeout','$location','$r
 		$scope.categoryDetail = category.categoryDetail;
 		$scope.fixPath = category.fixPath;
 				$scope.token = category.token;
+	console.log(""+category.banner);
 		
 		
 		/*$http.get("gulgs.properties")

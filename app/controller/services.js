@@ -474,14 +474,19 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 							//deferred.resolve();
 							return	$http.get(response.data.categoryUrl + '/' + cat_id)
 							.then(function(response1){
+								Utils.isImage($scope.source).then(function(result) {
+
 									value = {
 										urls:response.data,
+										banner: result,
 										fixPath:mFixPath,
 										token:mToken,
 										categoryLength: response1.data.subCategories.length,
 										categoryDetail: response1.data
 									};
 									return value;
+								});
+
 								});
 						
 						
@@ -566,6 +571,25 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			
 			return sdo;
 		}]);
+app.factory('Utils', function($q) {
+	return {
+		isImage: function(src) {
+
+			var deferred = $q.defer();
+
+			var image = new Image();
+			image.onerror = function() {
+				deferred.resolve(false);
+			};
+			image.onload = function() {
+				deferred.resolve(true);
+			};
+			image.src = src;
+
+			return deferred.promise;
+		}
+	};
+});
 
 var getConversationCustom = function(obj,$q,$http){
 			
@@ -622,7 +646,8 @@ var getConversationCustom = function(obj,$q,$http){
 										});
 			
 						});
-		
+
+
 				// return deferred.promise
   			//}
 		}
