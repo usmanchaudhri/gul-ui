@@ -31,7 +31,7 @@ $('.lightbox_trigger').click(function(e) {
 			var lightbox3 = "";	
 			function firstLightbox(){
 				lightbox = 
-				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it">'+'Back'+'<br><img src="images/arrow.png" width="40" / style="padding:5px;"></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
+				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it"><img src="images/back-arrow.jpg" width="auto"  style="padding:5px;" /></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
 				'<div class="col-sm-12 col-xs-12" style="text-align:center;"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1 style="border:none;">JACKETS'+'</h1></div></div>'+'</div>'+
 				'<div id="content">' + 
 				'<ul style="display:inline-flex;">' +
@@ -59,7 +59,7 @@ $('.lightbox_trigger').click(function(e) {
 				'<table>'+'<tr class="radio-btn-div">'+'<td>'+'<input type="radio" name="jacket" value="1">'+'<label style="font-size:12px;">Jacket3</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'
-				+ '</ul>' +
+				+ '</ul><div class="row"><img class="slider-img" src="images/slider.jpg" width="auto" /></div>' +
 				'<div style="text-align:center;margin-top:10px;margin-left:2%;">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn" style="margin-right:5px;">PREVIOUS</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">NEXT</button>'+'</div></div><div class="row" style="padding-top:20px;"><div class="col-sm-12 text-center description"><div class="col-sm-6 col-sm-offset-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.18);padding-bottom: 15px;">DESCRIPTION</div><div class="col-sm-12"><div class="col-sm-6 col-sm-offset-3 description-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p></div></div></div></div>'+
 				'</div>';		
 				$('body').append(lightbox);
@@ -109,6 +109,12 @@ $('.lightbox_trigger').click(function(e) {
 <style>
 	table{
 		width: 100%;
+	}
+	
+	.slider-img{
+		    margin-left: 35px;
+    margin-top: -6px;
+    width: 78.5%;
 	}
 	#lightbox {
 		position: fixed; /* keeps the lightbox window in the current viewport */
