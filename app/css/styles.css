@@ -1309,6 +1309,7 @@ button.btn:active,button.btn.active{
 
 .clr{
 	padding-top: 8px;
+	padding-left: 0px;
 }
 #btm{
 	text-align-last: 100px;
