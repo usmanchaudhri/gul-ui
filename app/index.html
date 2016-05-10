@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="css/mail.css" />
 		<link rel="stylesheet" href="css/jquery-ui.css">
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/index-css.css">
 		<link rel="stylesheet" href="css/dropdown.css">
 		<link rel="stylesheet" href="css/user-dropdown.css">
 		<link rel="stylesheet" href="css/login.css">
@@ -22,17 +23,11 @@
 		<link rel="stylesheet" href="css/jquery-fancy-box.css">
 		<link rel="stylesheet" href="css/jquery-fancybox-thumb.css">
 		<link href='https://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
-		
-		
-		
-		
 	</head>
 	
-	<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
+	<body ng-app="myApp" ng-controller="cartCtrl" class="ind-display-none" ng-show="showContent">
 		<div class="wrapper" ng-controller="loginCtrl">
 			<!--Navigation Bar-->
-			
-			
 			<div ng-controller="BreadcrumbCtrl" >
 				<!--Homepage Menu (Primary Menu)-->
 					<div ng-show="(breadcrumbs.get().length == 1)">
@@ -43,7 +38,7 @@
 							
 							<!--Logo-->
 							<div class="col-sm-4 col-xs-5 text-center mob-logo">
-                              	<strong style="color: #e86903; font-family:lato-light; "><a ng-href="#a" style="color: #e86903;"><span class="menu-logo">G</span><span class="menu-logo">U</span><span class="menu-logo">L</span></a></strong>
+                              	<strong class="ind-logo"><a ng-href="#a" class="ind-orange"><span class="menu-logo">G</span><span class="menu-logo">U</span><span class="menu-logo">L</span></a></strong>
 							</div>
 							<!--End Logo-->
 							
@@ -55,14 +50,14 @@
 									<div class="col-sm-10 col-xs-7">
 									<!--Cart Popup-->
 									<div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-11 cart-label">
-												<ul style="list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;">
+												<ul class="ind-cart">
 												<li style="float: left;">
-													<label style="color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;font-family: lato-light;">{{abc}}</label>
-													<label style="padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;"><a href="#cart" style="color: white">CART</a></label>
+													<label class="ind-cart-item">{{abc}}</label>
+													<label class="ind-cart-text"><a href="#cart">CART</a></label>
 													<ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
 														<li>
 															<div class="row" ng-if="popFlag">
-																<div class="col-sm-4 col-xs-4" style="text-align: center;">
+																<div class="col-sm-4 col-xs-4">
 																	<img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
 																</div>
 																<div class="col-sm-6 col-xs-5">
@@ -454,14 +449,7 @@
 				 <div class="row"  >
 			     	     <div class="col-sm-2"></div>
 							<div class="col-sm-6 col-xs-12">	
-								<!--<ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px; margin-top: 35px; font-family: lato-regular !important; ">
-									<li><a href="#a"><label style="margin-left: -65px;font-weight: 400; font-family: lato-light !important;color: white;"id="lab1">  </label></a></li>
-
-									<li><a href="#a"><label style=" font-family: lato-regular;" id="lab4"> ABOUT&nbsp; </label></a></li><li style="color: white;">|</li>
-									<li><a href="#a"><label style=" font-family: lato-regular;"> TERMS &amp; PRIVACY</label></a></li><li style="color: white;">|</li>
-									<li><a href="#a"><label style=" font-family: lato-regular;">PRIVACY POLICY</label></a></li><li style="color: white;">|</li>
-									<li><a href="#a"><label style=" font-family: lato-regular;"> CONTACT US</label></a></li>
-								</ul>-->
+						
 								
 								<ul class="footer-list list-inline" style="list-style-type: none;padding-left: 5px;margin-top: 70px; font-family: lato-regular !important;">
 									<li><a href="#a"><label style="margin-left: -65px;font-weight: 400; font-family: lato-light !important;color: white;"id="lab1"> SUPPORT </label></a></li>
