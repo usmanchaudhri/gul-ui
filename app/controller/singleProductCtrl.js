@@ -15,6 +15,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			$scope.selectedItem = productDetail.selectedItem;
 			$scope.fixPath = productDetail.fixPath;
 			$scope.token = productDetail.token;
+	$scope.readMore = 180;
 
 			$scope.customerUrl = productDetail.urls.customerUrl;
 			$scope.twilioChannel = productDetail.urls.twilioChannel;
@@ -314,7 +315,9 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			}
 
 			/*Chat with Designer*/
-	
+			$scope.setReadMore = function () {
+				$scope.readMore = 1500;
+			}
 			$scope.open = function(name){
 		
 				if($cookies.get("username") != null){
