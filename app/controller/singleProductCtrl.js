@@ -14,6 +14,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			$scope.productDetail = productDetail.productDetail;
 			$scope.selectedItem = productDetail.selectedItem;
 			$scope.fixPath = productDetail.fixPath;
+			$scope.fixPathShop = productDetail.fixPathShop;
 			$scope.token = productDetail.token;
 	$scope.readMore = 180;
 	$scope.readBtn = "READ MORE";
