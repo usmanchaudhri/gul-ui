@@ -190,15 +190,15 @@ h2 span {
 	color: black !important;
 }
 
-.home-menu .cart-label a{
-	color: white ;
+.home-menu  a{
+
 }
 
-.home-menu:hover .cart-label a {
+.home-menu:hover  a {
 	color: black !important;
 }
 
-.home-menu:hover .cart-label {
+.home-menu:hover  {
 	color: black !important;
 }
 
@@ -316,7 +316,7 @@ h2 span {
 .main-nav > ul > li > ul a {
 	display: block;
 	padding: 12px 10px 0;
-	color: #c3c1c1 ;
+	color: #000 ;
 	font-size: 15px;
 }
 .main-nav > ul > li > ul ul {
@@ -666,7 +666,7 @@ body {
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
 	-webkit-transform: translateZ(0);
 	font-weight: 500;
-	color: white;
+
 }
 .navbar{
 	padding-top: 24px;
@@ -3088,7 +3088,7 @@ select{
 .primary-nav{
 	font-family: lato-light;
 	font-size: 18px !Important;
-	color:#cbc9c6;
+
 
 }
 

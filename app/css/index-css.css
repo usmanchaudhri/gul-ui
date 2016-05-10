@@ -1,14 +1,15 @@
-.ind-display-none{
-    display: none;
-}
-.ind-logo{
-    color: #e86903; font-family:lato-light;
-}
-.ind-orange{
-    color: #e86903;
-}
+.ind-display-none{display: none;}
+.ind-logo{color: #e86903; font-family:lato-light;}
+.ind-orange{color: #e86903;}
 .ind-cart{list-style-type:none;width: auto;padding: 0px;margin-bottom: 0px;}
-.ind-cart-item{color: white;background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;font-family: lato-light;}
-.ind-cart-text{padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;color: white;}
+.ind-cart-item{background-color:#E86903;border-radius:5px;font-size: 10px;padding:1px;padding-left: 2px;padding-right: 2px;font-family: lato-light;}
+.ind-cart-text{padding: 0px;padding-bottom:5px; font-size: 10px;cursor: pointer;font-family: lato-light;}
 .ind-overflow{overflow: hidden;}
 .ind-cart-display{overflow: hidden;display:none;}
+.ind-cart-content{font-size: 13px;line-height: 15px;}
+.ind-cart-empty{height:35px;border-bottom: none;font-size: 14px;color:#e86903;}
+.ind-padding-0{padding-left: 0px;}
+.ind-cart-btn{width: 100%;margin-left: 0px;padding-left: 0px;}
+.ind-account{padding: 0px;font-size: 10px;font-family:'lato-light';}
+.ind-white{color: white;}
+.ind-black{  color: #000;}

@@ -1,6 +1,6 @@
  app.controller('loginCtrl',['$scope' , '$cookies','$http','Base64','$location','$uibModal' , '$rootScope' ,function($scope,$cookies,$http,Base64, $location,$uibModal,$rootScope) {
 		 
-		   
+		   $scope.menuClass = true;
 		   
 		   
 			var config = {
