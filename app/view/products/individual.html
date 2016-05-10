@@ -274,17 +274,25 @@ $('.lightbox_trigger').click(function(e) {
 		<div class="blowup">
 			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" />
 		</div>
+		<div class="col-sm-12" style="padding: 20px;">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-2 col-xs-4" ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" >
+						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
+					</div>
+					<div class="col-sm-1"></div>
+					</div>
 		</div>
 		
 		<div class="col-sm-4 col-xs-12" id="indisize1">
-			<div class="ind-desc" style="margin-top: 77px;">	 
+			<div class="ind-desc" >	 
+			<div style="bottom: 0;">
 			<p>
 				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
 				<br /><p style="font-family: lato-lightitalic; font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc}}{{productDetail.shortDesc}}{{productDetail.shortDesc}}</p></p><br/>
 			
+			</div>
 			
-			
-            <div class="row mainBox buttonBox">
+            <div class="row mainBox buttonBox" style="height: 400px;bottom:0;">
             <font size="2" class="clr1" style=" color:#838383;"><span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
 			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
@@ -331,27 +339,6 @@ $('.lightbox_trigger').click(function(e) {
 				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px; text-align: center;margin-bottom: 7%; font-family: lato-light;font-size:14px;font-weight:400;padding-top: 0px;">CUSTOMIZE</button>
 
 			
-				<div class="row text-center" style="bottom: 0px;margin-left: 3px;" >
-					<div class="col-sm-2 col-xs-2" ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" >
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
-					</div>
-					<!--<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-2-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
-					</div>
-					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-3-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
-					</div>
-					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-4-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
-					</div>
-					<div class="col-sm-2 col-xs-2"> 
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-5-img-'+productDetail.id+'.png'+ token}}" width="76" height="74" alt="img" /> 
-					</div>
-					<div class="col-sm-1"></div>
-					
-				</div>-->
-			</div>
-			
 
 				<!-- Modal -->
 				
@@ -388,7 +375,10 @@ $('.lightbox_trigger').click(function(e) {
 		</div><!-- /.col-lg-6 --><br>
          	</div>
 	</div><!-- /row -->
-</div><!-- /container -->
+     </div><!-- /container -->
+    <div class="row text-center" style="bottom: 0px;margin-left: 3px;" >
+					
+				</div>
 </div>
 <!-items list -->
 	<div class="container" style="border-bottom: 1px solid #e1e1e1;padding:20px;">
@@ -410,14 +400,14 @@ $('.lightbox_trigger').click(function(e) {
 			<p style="color:#464646;">DESIGNED BY</p><br/>
 			 <p  style="color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
 			 
-		      <span class="" style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
+		      <span  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
 						{{productDetail.shop.details}}
 						
 					</span>
 					<p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
 			{{productDetail.longDesc}}
 			</p>
-					<button class="more" type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
+					<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
 				</div>
 			</div>	
 		</div>

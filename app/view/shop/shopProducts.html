@@ -2,7 +2,7 @@
 
 	<div class="row info-boxes">
 		<div class="row" style="margin-top: 37px;">
-			<div class="col-sm-4 designerpage-image" style="width: 300px;padding:0px;">
+			<div class="col-sm-4 designerpage-image" >
 					<img  class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img" width="275" height="255"  />
 				</div>
 				<div class="col-sm-8 shop-desc" >
@@ -19,12 +19,15 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-sm-4"style="margin-top: 11px; padding:0px; width: 300px">
+		<div class="col-sm-12">
+		<div class="col-sm-4"style="margin-top: 11px;">
 			<h2  class="product-title latestDiv"  style="text-transform: uppercase;font-family: lato-regular;font-weight: normal;margin-bottom: 28px; margin-top:30px;border-bottom:1px solid #e1e1e1;font-size: 16px;"><p style=";color: #e86701;">{{designer[0].name}}'S <span style="color:black;">PRODUCT</span></P></h2>		
+		</div>
 		</div>
 	</div>
 	<div class="row">
-	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;margin-right: 20px;width: auto;padding: 0px;">
+	<div class="col-sm-12">
+	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;width: auto; ">
 		
 
 		<a ng-href="#productDetailPage/{{a.id}}">		
@@ -38,7 +41,9 @@
 			
 		</div>
     		
-	</div></div>
+	</div>
+	</div>
+	</div>
 	<div class="other-controller">
 		<div class="text-center">
 			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html"></dir-pagination-controls>
