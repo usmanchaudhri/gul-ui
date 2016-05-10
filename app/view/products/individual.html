@@ -291,7 +291,7 @@ $('.lightbox_trigger').click(function(e) {
 		
 		<div class="col-sm-4 col-xs-12" id="indisize1">
 			<div class="ind-desc" >	 
-			<div style="bottom: 0;">
+			<div style="bottom: 0;margin-left: 1px;">
 			<p>
 				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
 				<p style="font-family: lato-lightitalic; text-transform: capitalize;  font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc | limitTo:400}}</p>
@@ -412,7 +412,7 @@ $('.lightbox_trigger').click(function(e) {
 					<p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
 
 			</p>
-					<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
+					<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">{{readBtn}}</button>
 				</div>
 			</div>	
 		</div>
