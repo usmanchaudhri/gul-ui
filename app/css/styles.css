@@ -3155,3 +3155,15 @@ select{
 .showFooterBorder{
 	width: 100%;
 }
+
+.image-wrapper{
+	display: inline-flex;
+}
+
+.item-detail-desc{
+	    font-size: 16px;
+    font-family: lato-light;
+    line-height: 22px;
+    color: #9c9c9c;
+    margin-top: 8px;
+}
