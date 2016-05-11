@@ -291,15 +291,15 @@ $('.lightbox_trigger').click(function(e) {
 		
 		<div class="col-sm-4 col-xs-12" id="indisize1">
 			<div class="ind-desc" >	 
-			<div style="bottom: 0;">
+			<div style="bottom: 0;margin-left: 1px;">
 			<p>
 				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
-				<br /><p style="font-family: lato-lightitalic; font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc}}{{productDetail.shortDesc}}{{productDetail.shortDesc}}</p></p><br/>
+				<p style="font-family: lato-lightitalic; text-transform: capitalize;  font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc | limitTo:400}}</p>
 			
 			</div>
 			
             <div class="row mainBox buttonBox" style="height: 400px;bottom:0;">
-            <font size="2" class="clr1" style=" color:#838383;"><span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></font><br />
+            <span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a>
 			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>
 				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
 				<div class="row" id="margi">
@@ -388,9 +388,9 @@ $('.lightbox_trigger').click(function(e) {
 </div>
 <!-items list -->
 	<div class="container" style="border-bottom: 1px solid #e1e1e1;padding:20px;">
-		<div class="col-sm-12 text-center" id="mob-left">
-			<label style="font-size: 18px;padding: 1px;font-family: lato-regular;font-weight: normal;color: #464646; margin-right: 66px;">ITEM DETAILS</label>
-			
+		<br class="col-sm-12 text-center" id="mob-left">
+			<label style="font-size: 18px;letter-spacing: 1px;padding: 1px;font-family: lato-regular;font-weight: normal;color: #464646; margin-right: 66px;">ITEM DETAILS</label>
+		</br><p>{{productDetail.longDesc}}</p>
 		</div>
 	</div>
 	
@@ -399,21 +399,21 @@ $('.lightbox_trigger').click(function(e) {
 		<div class="col-sm-12" >
 			<div class="col-sm-10 col-sm-push-1">
 				<div class="col-sm-3 col-xs-12">
-					<img src="images/Sania.jpg" width="175" height="200" style="margin-top: 34px; margin-bottom :34px;"/>
+					<img src="{{fixPathShop + 'shop-'+ productDetail.shop.id +'.jpg'+ token }}" width="175" height="200" style="margin-top: 34px; margin-bottom :34px;"/>
 				</div>
 				<div class="col-sm-8 col-xs-12" style="padding: 20px;font-size: 16px; font-family: lato-regular;margin-left: 6px; margin-top: 38px;">
 		    <div class="col-sm-12 " style="padding-bottom: 25px; font-family: lato-regular;">
-			<p style="color:#464646;">DESIGNED BY</p><br/>
-			 <p  style="color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
+			<p style="color:#464646;letter-spacing: 1px;">DESIGNED BY</p><br/>
+			 <p  style="letter-spacing: 1px;color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
 			 
 		      <span  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
-						{{productDetail.shop.details}}
+						{{productDetail.shop.details | limitTo:readMore}}
 						
 					</span>
 					<p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
-			{{productDetail.longDesc}}
+
 			</p>
-					<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">READ MORE</button>
+					<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">{{readBtn}}</button>
 				</div>
 			</div>	
 		</div>
@@ -424,7 +424,7 @@ $('.lightbox_trigger').click(function(e) {
 	<div class="container">
 	<div class="row" style="padding: 20px;margin-bottom: 20px;">
 		<div class="col-sm-12 text-center" >
-			<h2 style="margin-bottom: 8px;font-family: lato-regular;margin-top: 0px;color: #464646;margin-right: 49px;font-weight: normal;">SHIPPING & PAYMENT POLICIES</h2>
+			<h2 style="margin-bottom: 8px;font-family: lato-regular;margin-top: 0px;letter-spacing: 1px;color: #464646;margin-right: 49px;font-weight: normal;">SHIPPING & PAYMENT POLICIES</h2>
 			
 			
 		</div>

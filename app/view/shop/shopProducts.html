@@ -3,9 +3,9 @@
 	<div class="row info-boxes">
 		<div class="row" style="margin-top: 37px;">
 			<div class="col-sm-4 designerpage-image" >
-					<img  class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img" width="275" height="255"  />
+					<img  class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img" width="300" height="300"  />
 				</div>
-				<div class="col-sm-8 shop-desc" >
+				<div class="col-sm-8 shop-desc" style="padding-left: 0px;" >
 			 <div class="col-sm-12">
 					<h4 style="	border-bottom: 1px solid #e1e1e1; width: 277px;"><p style=" font-size: 18px; margin-top: 40px;text-transform: uppercase;color: #e86701; font-family: lato-regular;margin-bottom: 11px;">{{shop.name}}</p></h4><br></div>
 					<div class="col-sm-12"> 
@@ -27,7 +27,7 @@
 	</div>
 	<div class="row">
 	<div class="col-sm-12">
-	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;width: auto; ">
+	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;">
 		
 
 		<a ng-href="#productDetailPage/{{a.id}}">		

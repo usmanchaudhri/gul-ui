@@ -437,6 +437,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					return promise
 					.then(function(response) {
 							var mFixPath = response.data.fixImagePath;
+							var mFixPathShop = response.data.fixImagePathShop;
 							var	mToken = response.data.token;
 							//deferred.resolve();
 							return	$http.get(response.data.productUrl + '/' + pro_id)
@@ -444,6 +445,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 									value = {
 										urls:response.data,
 										fixPath:mFixPath,
+										fixPathShop:mFixPathShop,
 										token:mToken,
 										productDetail: response1.data,
 										selectedItem: response1.data.productVariation[0].size

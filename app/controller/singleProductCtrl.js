@@ -14,7 +14,11 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			$scope.productDetail = productDetail.productDetail;
 			$scope.selectedItem = productDetail.selectedItem;
 			$scope.fixPath = productDetail.fixPath;
+			$scope.fixPathShop = productDetail.fixPathShop;
 			$scope.token = productDetail.token;
+	$scope.readMore = 180;
+	$scope.readBtn = "READ MORE";
+
 
 			$scope.customerUrl = productDetail.urls.customerUrl;
 			$scope.twilioChannel = productDetail.urls.twilioChannel;
@@ -314,7 +318,16 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 			}
 
 			/*Chat with Designer*/
-	
+			$scope.setReadMore = function () {
+				if($scope.readMore == 180){
+					$scope.readMore = 1500;
+					$scope.readBtn = "READ LESS";
+				}else{
+					$scope.readMore = 180;
+					$scope.readBtn = "READ MORE";
+				}
+
+			}
 			$scope.open = function(name){
 		
 				if($cookies.get("username") != null){
