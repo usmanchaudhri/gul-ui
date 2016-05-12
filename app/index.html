@@ -29,15 +29,12 @@
 		<div class="wrapper" ng-controller="loginCtrl">
 			<!--Navigation Bar-->
 			<div ng-controller="BreadcrumbCtrl">
+				{{breadcrumbsCalling()}}
 				<!--Homepage Menu (Primary Menu)-->
 				<div  ng-include src="'view/menu/index-header.html'" class="navbar" style="padding-top: 0px;" ></div>
 
 				<!--End of Homepage Menu (Primary Menu)-->
-				
-				<!--Secondary Menu-->
 
-				<!--End Secondary Menu-->
-			</div>
 			<script type="text/ng-template" id="loginModal.html">
 				<div class="card card-container" style="width: 445px;height: 515px;">
 
@@ -105,12 +102,12 @@
 
 			</script>
 			<!--Add Views-->
-			<div ng-view autoscroll="true" style="min-height: 470px;"></div>
-			<!--End Views-->
+
+			<div ng-view autoscroll="true" style="min-height: 470px;" ng-style="{'padding-top': menuMargin }"></div>
+				<!--End Views-->
 			
 			<!--Personalize Section --->
-			<div ng-controller="BreadcrumbCtrl" >
-			{{breadcrumbsCalling()}}
+
 			<div class=" showFooterBorder" ng-style="{'border-top': enableBorder }">
 					<div class="row text-center">
 						<h1 id="respon2" style="font-size: 42px;  color: rgba(238, 105, 0, 0.48); margin-top:21px ; font-family:lato-hairline !important; margin-bottom: 18px;margin-left:40px;font-weight: 600;" id="lab4">PERSONALIZE YOUR DESIGN</h1>
@@ -140,7 +137,7 @@
 			<!--End Personalize Section-->
 			
 			<!--Footer-->
-			<footer   id="footer" style="background-color: #707070 ;margin-top: 25px; ">
+			<footer   id="footer" style="background-color: #707070 ;margin-top: 25px;">
 				 <div class="row"  >
 			     	     <div class="col-sm-2"></div>
 							<div class="col-sm-6 col-xs-12">	
@@ -182,7 +179,7 @@
 			</footer>
 			<!--End of Footer-->
 	</div>
-			
+
 			
 			<!--Angular Components-->
 			<script src="bower_components/jquery/dist/jquery.min.js"></script>

@@ -205,6 +205,7 @@ h2 span {
 .home-menu  .cart-label:hover{
 	/*border: 1px solid #A09D93;*/
 	background-color: white;
+	color: black;
 }
 
 .navbar.scroll {
@@ -2147,7 +2148,7 @@ select{
 .cart-label:hover{
 	cursor: pointer;
 	/*/*border-bottom: 0px !important;
-	border: 1px solid rgba(0, 0, 0, 0.15);*/*/
+	border: 1px solid rgba(0, 0, 0, 0.15);*/
 	background-color: white;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.175);
 	color: black;

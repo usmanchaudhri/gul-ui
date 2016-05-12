@@ -25,10 +25,16 @@ app.controller('BreadcrumbCtrl',['$scope','breadcrumbs', function($scope,breadcr
 		//	 console.log("bread",$scope.breadcrumbLength);
 			if( $scope.breadcrumbLength > 1){
 				$scope.enableBorder = "1px solid #E2E2E2";
+				$scope.menuColor="black";
+				$scope.menuMargin = "125px";
+
 			}else{
+				$scope.menuColor="white";
 				$scope.enableBorder = "none";
+				$scope.menuMargin = "0px";
 				
 			}
+
 			}
 			
 			

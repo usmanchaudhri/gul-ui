@@ -1,5 +1,4 @@
-<div ng-show="(breadcrumbs.get().length == 1)">
-    <nav  style="padding-top: 24px;" ng-class="">
+    <nav  style="padding-top: 24px;" class="home-menu">
         <div class="container-fluid " >
             <div class="row">
                 <div class="col-sm-4"></div>
@@ -22,7 +21,7 @@
                                             <ul class="ind-cart">
                                                 <li style="float: left;">
                                                     <label class="ind-cart-item ind-white">{{abc}}</label>
-                                                    <label class="ind-cart-text ind-white"><a href="#cart" class="ind-black">CART</a></label>
+                                                    <label class="ind-cart-text ind-white"><a href="#cart" class="ind-black" ng-style="{'color': menuColor }">CART</a></label>
                                                     <ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown"  style="overflow: hidden;display:none;">
                                                         <li>
                                                             <div class="row" ng-if="popFlag">
@@ -89,11 +88,11 @@
 
 
                                         <!--SignIn & Account Nav-->
-                                        <span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label"><b>SIGN IN</b></h3></span>
+                                        <span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label" ng-style="{'color': menuColor }"><b>SIGN IN</b></h3></span>
 
                                         <div class="main-nav" ng-show="userFlag == true">
                                             <ul class="nav account-navbar">
-                                                <li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -4px;"><label class="ind-account" id="control-nav" >ACCOUNT</label></a>
+                                                <li style="margin:0px;float: right;"><a href="#account" style="padding:0px;margin-top: -4px;"><label class="ind-account" id="control-nav" ng-style="{'color': menuColor }" >ACCOUNT</label></a>
                                                     <ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
                                                         <li>
                                                             <a href="#account">My Account</a>
@@ -139,7 +138,7 @@
                             <div class="main-nav">
                                 <ul class="nav ">
                                     <li class="has-drop dropdown menu-large hide-menu">
-                                        <a href="#allShops" class="dropdown-toggle primary-nav" >Shop</a>
+                                        <a href="#allShops" class="dropdown-toggle primary-nav" ng-style="{'color': menuColor }" >Shop</a>
 
                                         <ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
                                             <li class="col-sm-4 hide-menu" ng-repeat="x in shop" >
@@ -155,7 +154,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categories/1" class="primary-nav" >Women</a>
+                                    <li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categories/1" class="primary-nav" ng-style="{'color': menuColor }">Women</a>
                                         <ul class="dropdown-menu megamenu  " id="women-dropdown-menu" >
 							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
 									<li ng-repeat = "a in x.subCategories" class="hide-menu">
@@ -172,12 +171,12 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown menu-large hide-menu">
-                                        <a href="#a" class="primary-nav">Featured</a>
+                                        <a href="#a" class="primary-nav" ng-style="{'color': menuColor }">Featured</a>
                                         <ul class="dropdown-menu megamenu  " id="men-dropdown-menu" >
 
                                         </ul>
                                     </li>
-                                    <li class="dropdown menu-large hide-menu"><a href="#inspiration" class="primary-nav">Inspiration</a>
+                                    <li class="dropdown menu-large hide-menu"><a href="#inspiration" ng-style="{'color': menuColor }" class="primary-nav">Inspiration</a>
                                         <ul class="dropdown-menu megamenu  " id="inspiration-dropdown-menu" >
 
                                         </ul>
@@ -222,4 +221,3 @@
         </div>
         <!--End Menubar-->
     </nav>
-</div>

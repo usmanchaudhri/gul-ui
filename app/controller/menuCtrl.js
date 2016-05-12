@@ -13,8 +13,16 @@ app.controller('MenuCtrl',['$scope', '$q', '$http', '$timeout','breadcrumbs','$r
 			}
 		);
 		
-		console.log("MENU Calle");
+		/*console.log("MENU Calle",breadcrumbs.get().length);
+		if(angular.isDefined(breadcrumbs.get().length)){
+			
 		
+		if(breadcrumbs[0].label == "HOME"){
+		$scope.menuColor="white";	
+		}else{
+			$scope.menuColor="black";
+		}
+		}*/
 		$scope.checkLength = function(cat){
 				return cat.length;
 				//console.log(cat.length);
