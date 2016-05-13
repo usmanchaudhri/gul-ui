@@ -189,6 +189,9 @@ h2 span {
 .home-menu:hover .signin-label{
 	color: black !important;
 }
+.home-menu:hover .ind-account{
+	color: black !important;
+}
 
 .home-menu  a{
 
