@@ -2520,7 +2520,7 @@ select{
 @media (max-width: 768px) {
 	
 	.personalize-section{
-		margin-top:315px;
+		
 	}
 	.btn,.btn-group {
 		width:100%;
@@ -3238,7 +3238,7 @@ select{
 .footer-list{
 	list-style-type: none;
 	padding-left: 5px;
-	margin-top: 70px; 
+	margin-top: 38px; 
 	font-family: lato-regular !important;
 }
 
