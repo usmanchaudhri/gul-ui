@@ -11,7 +11,7 @@
 					<div class="col-sm-12"> 
 					 
 					<h4 style="margin: 0px;padding:0px;">
-						<p style="font-size: 12px; color: black;font-family: lato-regular;line-height: 16px;">
+						<p style="font-size: 12px; color: #9a9a9a;font-family: lato-regular;line-height: 16px;">
 							{{shop.details}}
 							</p></h4>	
 				</div>
@@ -27,9 +27,8 @@
 	</div>
 	<div class="row">
 	<div class="col-sm-12">
+	<div style="width: 100%;text-align: center;">
 	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;">
-		
-
 		<a ng-href="#productDetailPage/{{a.id}}">		
 			<img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}"  width="300" height="300" ></a>
 		<div class="imageText">
@@ -41,6 +40,7 @@
 			
 		</div>
     		
+	</div>
 	</div>
 	</div>
 	</div>
