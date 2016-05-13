@@ -769,7 +769,48 @@ body {
 	font-size: 18px;
 }
 @media (max-width: 768px) {
+	
+	.card-container{
+	width: 350px !important;
+	height: auto !important;
+}
+	
+	.lightbox-ul{
+	display:block !important;
+	list-style-type:none;	
+	padding-left: 15%;
+	}
 
+	#lightbox{
+		overflow-x: scroll;
+	}
+
+	#imagediv{
+		margin-left: 30px;
+	}	
+	
+	.shop-desc{
+		padding-left: 10px !important;
+	}
+	
+	.footer-list{
+		margin-top: 0px !important;
+	}
+	
+	#footer{
+		margin-bottom:25px;
+	}
+	.cart-label{
+		margin-left: 7px;
+	}
+	
+	.inspirational-title{
+		font-size: 18px !important;
+	}
+	
+	#respone1{
+		font-size:13px !important;
+	}
 
 	.account-navbar li .acc-nav
 	{
@@ -2316,7 +2357,7 @@ select{
 	.home-slider-shop-btn{
 		padding:5px !important;
 		width:33% !important;
-		margin-top: 26px !important;
+		margin-top: 105px !important;
 	}
 
 	.home-slider-shop-btn a , .home-slider-shop-btn-two a, .home-slider-shop-btn-three a{
@@ -2386,7 +2427,7 @@ select{
 	}
 
 	.home-slider-shop-desc{
-		/*margin-top: 15px;*/
+		text-align: center;
 	}
 	.home-menu .cart-label a{
 		color: black !important;
@@ -2395,7 +2436,7 @@ select{
 		height: 300px;
 	}
 	.carousel-inner{
-		height: 340px;
+		height: 410px;
 	}
 	.controlsBlock{
 		margin-top:-140px !important;
@@ -2470,6 +2511,10 @@ select{
 
 
 @media (max-width: 768px) {
+	
+	.personalize-section{
+		margin-top:315px;
+	}
 	.btn,.btn-group {
 		width:100%;
 	}
@@ -2479,7 +2524,7 @@ select{
 	}
 
 	.ind-desc{
-		margin-left: 0px;
+		margin-left: 0px !important;
 	}
 
 	.cart-block{
@@ -2553,7 +2598,7 @@ select{
 
 	#respone1{
 		text-align: center;
-		font-size: 18.32px !important;
+		
 		color: #bcbcbc;
 		font-family:lato-light;
 	}
@@ -2611,8 +2656,7 @@ select{
 	}
 	.carousel-content{
 		bottom: 0px;
-		top: 75%;
-		background-color: white;
+		top: 90%;
 		color: black;
 		font-size: 15px;
 	}
@@ -2667,7 +2711,9 @@ select{
 		font-size: 14px !important;
 	}
 	.home-slider-shop-desc{
-		margin-top: 15px;
+		margin-top: 0px !important;
+		text-align: center !important;
+		
 	}
 
 	.home-menu .cart-label a{
@@ -3166,4 +3212,45 @@ select{
     line-height: 22px;
     color: #9c9c9c;
     margin-top: 8px;
+}
+
+.homepage-slider-img{
+	background-size: contain; 
+	background-attachment: fixed;
+	background: no-repeat; 
+	width: 100%;
+	min-height: 725px;
+}
+
+.inspirational-title{
+	font-size: 26.2px;
+	color: #bcbcbc ;
+	font-family: lato-light !important;
+	color:#9a9a9a;
+}
+
+.footer-list{
+	list-style-type: none;
+	padding-left: 5px;
+	margin-top: 70px; 
+	font-family: lato-regular !important;
+}
+
+.home-slider-shop-desc{
+	font-family: lato-hairline !important; 
+		text-align: left;
+		 color:#cbc9c6;
+}
+
+.shop-desc{
+	padding-left: 0px;
+}
+
+.lightbox-ul{
+	display:inline-flex;
+}
+
+.card-container{
+	width: 445px;
+	height: 515px;
 }
