@@ -770,6 +770,17 @@ body {
 }
 @media (max-width: 768px) {
 	
+	.slider-img{
+	 margin-left: 0px !important;
+    width: 50% !important;
+	}
+	
+	.cart-elements{
+	
+	margin-left:0px !Important;
+	
+}
+	
 	#respon2{
 		margin-top: 30px !important;
 	}
@@ -859,10 +870,7 @@ body {
 	.navbar-nav.navbar-center:last-child{
 
 	}
-	.cart-right-table
-	{
-		padding-left:20px !important;
-	}
+	
 
 	.mob-logo{
 		margin-top: 11px;

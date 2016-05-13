@@ -17,11 +17,11 @@
 		<div class="col-sm-8">
 			<div class="row cart-products" ng-repeat="a in items track by $index" >
 				
-				<div class="col-sm-1 col-xs-5 cart-img">
+				<div class="col-sm-1 col-xs-12 cart-img">
 					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="160" height="140"/>
 				</div>
 				
-				<div class="col-sm-8 col-xs-7 cart-elements">
+				<div class="col-sm-8 col-xs-10 cart-elements">
 					<a ng-href="#productDetailPage/{{a.id}}"><p class="cart-title cart-pro-title" id="item-bar2">{{a.name}}</p></a>
 					<a ng-href="#shop/{{a.shopID}}"><p class="cart-title"><span style="color: black; font-family: lato-light;font-size:14px; text-transform: uppercase;"><span id="item-shop-size">{{a.shop}}</span></span></p></a>
 					<hr class="cart-hr">
