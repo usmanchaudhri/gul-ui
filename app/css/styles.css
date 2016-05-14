@@ -770,6 +770,10 @@ body {
 }
 @media (max-width: 768px) {
 	
+	.email-box{
+	margin-left: 0px !important;
+}
+	
 	.slider-img{
 	 margin-left: 0px !important;
     width: 50% !important;
@@ -918,9 +922,12 @@ screen and (orientation: portrait ) and (max-width: 767px) {
 		position: relative;
 		overflow: hidden;
 	}
+	#carousel-01{
+		margin-top:45px;
+	}
 	.wrapper {
 		left: 0;
-		padding-top: 92px;
+		padding-top: 40px;
 		transition: all .3s;
 		-webkit-transition: all .3s;
 	}
@@ -3238,7 +3245,7 @@ select{
 .footer-list{
 	list-style-type: none;
 	padding-left: 5px;
-	margin-top: 38px; 
+	margin-top: 64px; 
 	font-family: lato-regular !important;
 }
 
@@ -3269,4 +3276,9 @@ select{
 	margin-bottom: 24px;
 	margin-left:40px;
 	font-weight: 600;
+}
+
+
+.email-box{
+	margin-left: 1%;
 }
