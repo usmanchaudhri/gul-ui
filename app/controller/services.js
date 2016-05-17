@@ -585,6 +585,108 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', fun
     return sdo;
 }]);
 
+app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
+    var sdo = {
+
+        getUrls: function () {
+            return $http.get('gulgs.properties')
+                .then(function (one) {
+                    console.log("ONE", one);
+                    return one;
+                });
+        },
+
+        paypalApi: function (mUrls, paypalPayloads) {
+
+            var base64 = Base64.encode(mUrls.paypalClientID + ':' + mUrls.paypalSecretKey);
+
+            var config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                    'Authorization': 'Basic ' + base64
+                }
+            }
+
+            var data = $.param({
+                grant_type: "client_credentials"
+            });
+
+            return $http.post(
+                mUrls.paypalToken, data, config
+            ).success(function (data, status) {
+                $cookies.put("tokenID", data.access_token);
+                var tokenID = $cookies.get("tokenID");
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token_type + ' ' + tokenID
+                    }
+                }
+                return $http.post(
+                    mUrls.paypalPayment, paypalPayloads, config
+                ).success(function (data, status) {
+                    $window.location.href = data.links[1].href;
+                }).error(function (data, status) {
+                    if (data != null) {
+                        return obj = {
+                            loadingData: false,
+                            dataError: data
+                        };
+                    } else {
+                        return obj = {
+                            loadingData: false,
+                            dataError: "Check Your Internet Connection And Try Again! "
+                        };
+                    }
+                })
+            }).error(function (data, status) {
+                if (data != null) {
+                    return obj = {
+                        loadingData: false,
+                        dataError: data
+                    };
+                } else {
+                    return obj = {
+                        loadingData: false,
+                        dataError: "Check Your Internet Connection And Try Again! "
+                    };
+                }
+
+            });
+
+
+        },
+
+        regUserTwilio: function (user) {
+
+            var data = $.param({
+                Identity: user
+            });
+            sdo.getUrls().then(function (response) {
+
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                };
+                return $http.post(
+                    response.data.twilioUser, data, config
+                ).success(function (data, status) {
+                    return data;
+                 }).error(function (data, status) {
+                    console.log(data);
+                });
+            });
+
+        }
+
+
+    }
+
+    return sdo;
+}]);
+
+
 var isImage = function (src, $q) {
 
     var deferred = $q.defer();

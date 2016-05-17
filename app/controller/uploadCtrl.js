@@ -96,6 +96,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             gulApis.uploadProduct(proUpload(),$scope.productUrl).then(function (data) {
               //  console.log("UPLOAD",data.data.id);
                 $scope.newProId = data.data.id;
+                $scope.uploadProduct();
             });
         } else {
             alert("Upload atleast one Image");
@@ -103,7 +104,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     };
 
     /**
-     *Get SubCategories
+     *Get SubCategories of category which is selected to upload product
      **/
 
     $scope.getSubCat = function () {
@@ -120,11 +121,23 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     }
 
+
     $scope.uploadProduct = function () {
-        console.log("cropImageArr at Line 132:", cropImageArr);
-        $scope.uriToFile(cropImageArr);
-        console.log("Temp Files at Line 134:", tempFiles);
-        $scope.resizeUpload(tempFiles);
+        //console.log("cropImageArr at Line 132:", cropImageArr,tempFiles.length);
+
+        var promise = {
+            tempFilee: gulApis.uriToFile(cropImageArr,$scope.newProId,tempFiles.length)
+        };
+         $q.all(promise).then(function(values) {
+             tempFiles = values;
+             console.log("Upload Product ," ,tempFiles);
+             console.log("Temp Files at Line 134:", tempFiles);
+             $scope.resizeUpload(tempFiles);
+
+        });
+        //var mTempFiles = gulApis.uriToFile(cropImageArr,$scope.newProId,tempFiles.length);
+
+      //  $scope.resizeUpload(tempFiles);
     }
 
     $scope.uploadShop = function () {
@@ -366,8 +379,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
                 tempFiles.push(value);
             }
         });
-        //console.log("TEMP");
-        console.log(tempFiles);
+
 
     }
 
@@ -511,6 +523,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     var resizeImg = function (files, deferred) {
         //create a result object for each file in files
+        console.log(files._file);
         var imageResult = {
             file: files._file,
             url: URL.createObjectURL(files._file)
