@@ -676,6 +676,26 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
 
             });
 
+        },
+
+        uploadOrder: function(orderPayload){
+            var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth =  base64;
+            var config = {
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                }
+            }
+            gulServiceCall.getUrls().then(function(response){
+                return $http.post(
+                    response.data.orderUrl,orderPayload,config
+                ).then(function(data) {
+                    return "success";
+
+                });
+            });
+
         }
     }
 

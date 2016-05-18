@@ -91,6 +91,7 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
             });
             return tempFiles;
         },
+
         dataURItoBlob: function(dataURI){
             var binary = atob(dataURI.split(',')[1]);
             var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
