@@ -32,7 +32,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							
 						}
 					}
-					
 				}).when('/designerPage/:shopId', {
 					templateUrl: 'view/designer/designerPage.html', 
 					controller: 'Ctrl1',
@@ -99,9 +98,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							}else{
 								$location.path("#/");
 							}
-							
-							
-							
 						}
 					}
 				}).when('/allchats', {
@@ -116,8 +112,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							}else{
 								$location.path("#/");
 							}
-							
-							
 						}
 					}
 				}).when('/inspiration', {
@@ -145,12 +139,9 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							console.log($cookies.get("username"));
 							if($cookies.get("username") != null){
 								return gulServices.getShippingList();
-							
 							}else{
 								$location.path("#/");
 							}
-							
-							
 						}
 					}
 				}).when('/myorder', {
@@ -164,8 +155,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							}else{
 								$location.path("#/");
 							}
-							
-							
 						}
 					}
 				}).when('/account', {
@@ -179,8 +168,6 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 							}else{
 								$location.path("#/");
 							}
-							
-							
 						}
 					}
 				})

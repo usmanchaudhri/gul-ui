@@ -11,10 +11,7 @@
 					
 					
 				});
- 	
- 	
- 	
- 	
+
 	$scope.showSignUp = function(){
 		$scope.signingin = false;
 		console.log("modal signup:"+$scope.signingin);
@@ -68,16 +65,11 @@
 
 					}
 				}
-				
-				
-				
-				
 				$http.get(
 					$scope.loginUrl,config
 				).success(function(data, status) {
 							console.log("Data here",data);
 							if($cookies.get("username") != $scope.loginEmail){
-							
 							var value = {
 								"username": data.username,
 								"password": $scope.loginPass,
@@ -85,14 +77,8 @@
 								"shopId": JSON.stringify(data.shop)
 							};
 							$cookies.put("username",JSON.stringify(value)); 
-						//console.log("New User Object: ",JSON.stringify(data));
-												
-						console.log("New User Object: ",$cookies.get("username"));
-							
-							//$cookies.put("password",$scope.loginPass);
 							$cookies.put("userId",data.id);
-						//	console.log(data);
-							 var userFlag = true;	
+							 var userFlag = true;
 							$uibModalInstance.close(userFlag);		
 							}else{
 								$scope.userFlag = false;

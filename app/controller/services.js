@@ -89,7 +89,6 @@ app.factory('DataLoader', function ($http) {
             return $http.jsonp(url);
         },
         getAuth: function (base64, url, postData) {
-            console.log(postData);
             $http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
 
             var req = {
@@ -103,57 +102,30 @@ app.factory('DataLoader', function ($http) {
         },
     }
 });
-app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', function ($http, $q, $timeout, $cookies, Base64) {
+app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, gulServiceCall) {
+
     var sdo = {
+
         /**
          List of cchat
          **/
 
         getChat: function () {
-            var deferred = $q.defer();
-
 
             return $http.get('gulgs.properties')
                 .then(function (one) {
-
-                    console.log('Promise one resolved with ', one);
-                    var anotherDeferred = $q.defer();
                     var cChatNames = [];
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
-
-                    //$http.get(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat',)
                     return $http.get(one.data.customerUrl + '/' + JSON.parse($cookies.get('username')).id + '/cchat').then(function (dataa) {
-                        console.log('Promise sdo resolved with ', dataa);
-
-
                         var customerName = JSON.parse($cookies.get("username")).username;
-
                         if (dataa.data.length > 0) {
-                            console.log(dataa);
-
                             var chatArr = dataa.data[0].customer.cchat;
                             for (var i = 0; i < chatArr.length; i++) {
-
-                                //	var name = chatArr[i].shopOwnerUsername.split("@");
-
-                                //	var conversation = getConversationCustom(chatArr[i].uniqueName,$q,$http);
                                 var promise = getConversationCustom(chatArr[i], $q, $http);
-                                console.log("Promise is : ", promise);
                                 promise.then(function (data) {
-
-                                    console.log("Success : ", i);
                                     cChatNames.push(data);
-
-                                    console.log("lastMsg : ", data);
                                 }, function (reason) {
-
-                                    console.log("Success : ", data);
+                                    console.log("Success : ", reason);
                                 });
-                                console.log("custom conversation array", promise);
                             }
                         }
                         return cChatNames
@@ -166,68 +138,22 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', fun
         /*List of Conversation*/
         getConversation: function (chatNames) {
             var deferred = $q.defer();
-            var chatTitle = '';
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
 
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (one) {
 
-                    console.log('Promise one resolved with ', one);
-                    var anotherDeferred = $q.defer();
-                    var cChatNames = [];
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
+                    return gulServiceCall.getMessageTitle(one, chatNames)
+                        .then(function (chatTitle) {
 
+                            return gulServiceCall.retrieveMessageTwilio(chatNames)
+                                .then(function (data) {
+                                    return {
+                                        "chatData": data,
+                                        "cchat": chatTitle
 
-                    return $http.get(one.data.customerUrl + '/' + $cookies.get('userId') + '/cchat').then(function (dataa) {
-
-                        console.log("Channel DATA: ", dataa);
-
-                        for (var i = 0; i < dataa.data.length; i++) {
-                            if (dataa.data[i].uniqueName == chatNames) {
-                                var designerName = JSON.parse($cookies.get("username")).username.split('@');
-                                var from = dataa.data[i].shopOwnerUsername.split('@');
-                                chatTitle = {
-                                    "customerUsername": dataa.data[i].customerUsername,
-                                    "customer": designerName[0],
-                                    "designer": from[0]
-                                };
-                            }
-                        }
-
-                        return $http.get(
-                            one.data.twilioChannel + '/' + chatNames + '/Messages', config
-                        ).then(function (data, status) {
-                            console.log("SSID", data);
-                            var chatData = [];
-
-                            for (var i = 0; i < data.data.length; i++) {
-
-                                var from = data.data[i].from.split('@');
-                                var value = {
-                                    "from": from[0],
-                                    "body": data.data[i].body
-                                }
-                                chatData.push(value);
-                            }
-
-
-                            return {
-                                "chatData": chatData,
-                                "cchat": chatTitle
-
-                            };
-
+                                    };
+                                });
                         });
-                    });
-
                 });
         },
 
@@ -584,14 +510,13 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', fun
 
     return sdo;
 }]);
-
 app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
             return $http.get('gulgs.properties')
                 .then(function (one) {
-                    console.log("ONE", one);
+                    // console.log("ONE", one);
                     return one;
                 });
         },
@@ -673,20 +598,89 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
                     response.data.twilioUser, data, config
                 ).success(function (data, status) {
                     return data;
-                 }).error(function (data, status) {
+                }).error(function (data, status) {
                     console.log(data);
                 });
             });
 
+        },
+
+        sendMessageTwilio: function (msgBody, channelSid) {
+
+            return sdo.getUrls().then(function (response) {
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                }
+
+                var mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+                var data1 = $.param({
+                    Body: msgBody,
+                    From: mFrom
+                });
+                return $http.post(
+                    response.data.twilioChannel + '/' + channelSid + '/Messages', data1, config
+                ).then(function (data) {
+                    console.log("POST DATA: ", data);
+                    return data;
+                    /*return sdo.retrieveMessageTwilio(channelSid).then(function (dataaa){
+                     console.log("retrieveMessageTwilio",dataaa);
+                     // return data;
+                     });*/
+                });
+
+            });
+        },
+
+        retrieveMessageTwilio: function (channelSid) {
+            var chatData = [];
+            return sdo.getUrls().then(function (response) {
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                }
+                return $http.get(
+                    response.data.twilioChannel + '/' + channelSid + '/Messages', config
+                ).then(function (data) {
+                    var chatMsg = data.data;
+                    for (var i = 0; i < chatMsg.length; i++) {
+                        var from = chatMsg[i].from.split('@');
+                        var value = {
+                            "from": from[0],
+                            "body": chatMsg[i].body
+                        }
+                        chatData.push(value);
+                    }
+                    return chatData;
+                });
+            });
+        },
+
+        getMessageTitle: function (one, chatNames) {
+            var chatTitle = '';
+            return $http.get(one.data.customerUrl + '/' + $cookies.get('userId') + '/cchat').then(function (dataa) {
+                for (var i = 0; i < dataa.data.length; i++) {
+                    if (dataa.data[i].uniqueName == chatNames) {
+                        var designerName = JSON.parse($cookies.get("username")).username.split('@');
+                        var from = dataa.data[i].shopOwnerUsername.split('@');
+                        chatTitle = {
+                            "customerUsername": dataa.data[i].customerUsername,
+                            "customer": designerName[0],
+                            "designer": from[0]
+                        };
+                    }
+                }
+                return chatTitle;
+
+            });
+
         }
-
-
     }
 
     return sdo;
 }]);
-
-
 var isImage = function (src, $q) {
 
     var deferred = $q.defer();
@@ -702,14 +696,8 @@ var isImage = function (src, $q) {
 
     return deferred.promise;
 }
-
-
 var getConversationCustom = function (obj, $q, $http) {
-
-    //return function() {
     var chatNames = obj.uniqueName;
-    var deferred = $q.defer();
-    var chatTitle = '';
     var promise = $http({
         method: 'GET',
         url: 'gulgs.properties',
@@ -718,23 +706,15 @@ var getConversationCustom = function (obj, $q, $http) {
 
     return promise
         .then(function (one) {
-
-            console.log('Promise one resolved with ', one);
-            var anotherDeferred = $q.defer();
-            var cChatNames = [];
             var config = {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }
-
             return $http.get(
                 one.data.twilioChannel + '/' + chatNames + '/Messages', config
             ).then(function (data, status) {
-                console.log("SSID", data);
                 var chatData = [];
-
-                console.log("Message DATA", data);
                 for (var i = 0; i < data.data.length; i++) {
 
                     var from = data.data[i].from.split('@');
@@ -744,24 +724,14 @@ var getConversationCustom = function (obj, $q, $http) {
                     }
                     chatData.push(value);
                 }
-
-
-                console.log("chatData", chatData);
                 var lastMsg = chatData[(chatData.length - 1)].body;
-
                 var name = obj.shopOwnerUsername.split("@");
                 return cName = {
                     "uniqueName": obj.uniqueName,
                     "product": obj.customerUsername,
                     "designer": name[0],
                     "lastMessage": lastMsg
-
                 }
             });
-
         });
-
-
-    // return deferred.promise
-    //}
 }
