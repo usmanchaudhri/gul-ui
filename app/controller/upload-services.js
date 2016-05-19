@@ -98,6 +98,19 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
                 array.push(binary.charCodeAt(i));
             }
             return new Blob([new Uint8Array(array)], {type: mimeString});
+        },
+
+        createShop: function(shopUrl,shopUpload){
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            $http.post(
+                shopUrl, shopUpload, config
+            ).then(function (data) {
+                return data.id;
+            });
         }
 
     };
