@@ -36,7 +36,7 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
                 });
         },
 
-        uploadProduct: function (proPayload,productUrl) {
+        uploadProduct: function (productUrl,proPayload) {
             var config = {
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,8 +46,6 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
                 productUrl, proPayload, config
             ).success(function (data, status) {
                 return data;
-
-              //  $scope.uploadProduct();
             }).error(function (data, status) {
                 console.log(data);
                 console.log(status);
@@ -101,6 +99,7 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
             }
             return new Blob([new Uint8Array(array)], {type: mimeString});
         }
+
     };
 
 

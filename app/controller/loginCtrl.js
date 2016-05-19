@@ -12,6 +12,21 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$http', 'Base64', '$location
         $scope.userFlag = false;
     }
 
+    $scope.userLogout = function(){
+        if($cookies.get("username") != null){
+            $cookies.remove("username");
+            $scope.userFlag = false;
+
+            $location.path("#/");
+            console.log("user Logged out!"+$cookies.get("username"));
+        }else{
+            $scope.userFlag = true;
+        }
+
+
+        console.log("Email after logout"+$cookies.get("username"));
+    };
+
     $rootScope.$on("signin", function () {
         $scope.signin();
     });
@@ -21,6 +36,7 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$http', 'Base64', '$location
         $scope.customerUrl = response.data.customerUrl;
         $scope.signupUrl = response.data.signupUrl;
         $scope.loginUrl = response.data.loginUrl;
+
     });
 
     $scope.signin = function () {
@@ -34,4 +50,5 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$http', 'Base64', '$location
                 }
             );
     }
+
 }]);

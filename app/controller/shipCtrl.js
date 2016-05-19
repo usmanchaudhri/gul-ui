@@ -1,12 +1,12 @@
-app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal','$q' , function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal,$q) {
+app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal','$q','gulServiceCall', function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal,$q,gulServiceCall) {
 
 			if($cookies.get("username") != null){
 				$scope.getShippingDetails = shippingList;	
 			}else{
 				$location.path("#/");
 			}
-			$http.get("gulgs.properties")
-			.then(function(response) {
+	gulServiceCall.getUrls()
+	.then(function(response) {
 					$scope.shippingUrl = response.data.shippingUrl;
 					$scope.customerUrl = response.data.customerUrl;
 					$scope.loginUrl = response.data.loginUrl;
@@ -14,12 +14,9 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 				});
 
 			$scope.isActive = "y";
-			
 			$scope.open = function(shippingDetail,position,flag){
-				console.log("Getting User Shipping Address:",shippingDetail);
-				console.log("Index of Shipping Detail:",position);
+
 				var message = "";
-				
 				if($cookies.get("username") != null){
 					$scope.animationsEnabled = true;
 					$uibModal.open({
@@ -48,9 +45,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 					$rootScope.$emit("signin", {});
 				}
 			};
-			
-			
-			
+
 			$scope.confirm = function(position){
 				
 				if($cookies.get("username") != null){
@@ -84,6 +79,7 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 					$rootScope.$emit("signin", {});
 				}
 			};
+
 			$scope.isActiveChange = function(position){
 				console.log("Object",position);
 				for(var i=0;i<$scope.getShippingDetails.length;i++){
@@ -95,43 +91,10 @@ app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','s
 			};
 			
 			$scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
-				console.log("Starting updateIsActive: ","Some Value");
-				var data1 = {
-					"isActive": isActive1
-				};
-				console.log("Data1: ",data1);
-				var data2 = {
-					"isActive": isActive2
-				};
-				console.log("Data2: ", data2);
-				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-				var loginAuth =  base64;
-				
-				var promise1 = $http({
-						method: 'PUT',
-						url: $scope.shippingUrl+'/'+shippingId1,
-						data: data1,
-						headers : {
-							'Content-Type': 'application/json',
-							'Authorization': 'Basic ' + loginAuth
-						},
-						cache: 'false'});
-				var promise2 = $http({
-						method: 'PUT',
-						url: $scope.shippingUrl+'/'+shippingId2,
-						data: data2,
-						headers : {
-							'Content-Type': 'application/json',
-							'Authorization': 'Basic ' + loginAuth
-						},
-						cache: 'false'});
+				gulServiceCall.updateIsActive(shippingId1,isActive1,shippingId2,isActive2,$scope.shippingUrl).then(function(data){
+					console.log("DATA DATA: " , data);
+				});
 
-				$q.all([promise1,promise2]).then(function(data){
-
-				}, function onError(response) {
-						console.log("onError",response);
-						
-					});
 			}; 
 			
 			
@@ -150,7 +113,7 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 	
  	$http.get("gulgs.properties")
 			.then(function(response) {
-					$scope.shippingUrl = response.data.shippingUrl;
+					$scope.customerUrl = response.data.customerUrl;
 				});
 
 	
@@ -171,16 +134,14 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 				// Removing Previous Default Shipping Address
 				for(var i=0;i<$scope.getShippingDetails.length;i++){
 					if($scope.getShippingDetails[i].isActive == "y"){
+						console.log("ISACTIVE CHANGE: " + $scope.getShippingDetails[i].id + " n " + $scope.getShippingDetails[position].id +  " y ");
 							$scope.updateIsActive($scope.getShippingDetails[i].id,"n",$scope.getShippingDetails[position].id,"y");
 							
 					} 
 				}
 				
 				console.log("Exiting isActiveChangeFunction");
-			
-
-				
-			};
+ };
   $scope.updateIsActive = function(shippingId1,isActive1,shippingId2,isActive2){
 				console.log("Starting updateIsActive: ","Some Value");
 				var data1 = {
@@ -189,11 +150,12 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 				var data2 = {
 					"isActive": isActive2
 				};
+	  console.log("CUSTOMER: " ,JSON.parse($cookies.get("username")) );
 				var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
 				var loginAuth =  base64;
 				var promise1 = $http({
 						method: 'PUT',
-						url: $scope.shippingUrl+'/'+shippingId1,
+						url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/customershipping/'+shippingId1,
 						data: data1,
 						headers : {
 							'Content-Type': 'application/json',
@@ -202,7 +164,7 @@ app.controller('modalDefaultShipCtrl',['$scope','$uibModalInstance','data','$htt
 						cache: 'false'});
 				var promise2 = $http({
 						method: 'PUT',
-						url: $scope.shippingUrl+'/'+shippingId2,
+						url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/customershipping/'+shippingId2,
 						data: data2,
 						headers : {
 							'Content-Type': 'application/json',

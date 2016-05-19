@@ -1,7 +1,4 @@
  app.controller('productCtrl',['$scope', function($scope) {
-			
-			
-			
 			$scope.load = function() {
 				console.log("PRODUCTS CONTROLLER");
 				$("#filter-dropdown").click(function(){
