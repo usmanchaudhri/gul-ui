@@ -42,7 +42,7 @@
 				<span ng-if="x.isActive=='n'">
 					<input type="radio" ng-model="isActive"  name="default" value="x.id" ng-change="isActiveChange(x.id)"  />
 					N Case {{x.id}}</span> -->
-					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="confirm($index)"  />
+					<input type="radio" ng-model="isActive"  name="default" value="{{x.isActive}}" ng-change="isActiveChange($index)"  />
 					<span></span></div>
 				</div><br>
 		</div>

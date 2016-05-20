@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/upload-services.js" afterPath="$PROJECT_DIR$/app/controller/upload-services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/uploadCtrl.js" afterPath="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/modalCtrl.js" afterPath="$PROJECT_DIR$/app/controller/modalCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/myApp.js" afterPath="$PROJECT_DIR$/app/controller/myApp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/services.js" afterPath="$PROJECT_DIR$/app/controller/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/shipCtrl.js" afterPath="$PROJECT_DIR$/app/controller/shipCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/newshipping.html" afterPath="$PROJECT_DIR$/app/view/newshipping.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,50 +28,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-69.75862">
+              <caret line="470" column="34" selection-start-line="470" selection-start-column="34" selection-end-line="470" selection-end-column="34" />
+              <folding>
+                <element signature="e#34#2752#0" expanded="false" />
+                <element signature="e#2798#3204#0" expanded="false" />
+                <element signature="e#3395#3434#0" expanded="false" />
+                <element signature="e#3464#4552#0" expanded="false" />
+                <element signature="e#4563#4703#0" expanded="false" />
+                <element signature="e#4754#5442#0" expanded="false" />
+                <element signature="e#4877#5430#0" expanded="false" />
+                <element signature="e#5453#5544#0" expanded="false" />
+                <element signature="e#5582#6497#0" expanded="false" />
+                <element signature="e#6508#6596#0" expanded="false" />
+                <element signature="e#6627#7667#0" expanded="false" />
+                <element signature="e#7678#7755#0" expanded="false" />
+                <element signature="e#7788#8683#0" expanded="false" />
+                <element signature="e#8694#8763#0" expanded="false" />
+                <element signature="e#8797#9768#0" expanded="false" />
+                <element signature="e#9779#9842#0" expanded="false" />
+                <element signature="e#9880#11346#0" expanded="false" />
+                <element signature="e#11357#11401#0" expanded="false" />
+                <element signature="e#11446#12494#0" expanded="false" />
+                <element signature="e#12536#13810#0" expanded="false" />
+                <element signature="e#18354#18553#0" expanded="false" />
+                <element signature="e#18608#20728#0" expanded="false" />
+                <element signature="e#18729#18932#0" expanded="false" />
+                <element signature="e#18965#19029#0" expanded="false" />
+                <element signature="e#20770#21416#0" expanded="false" />
+                <element signature="e#20936#21099#0" expanded="false" />
+                <element signature="e#21477#22478#0" expanded="false" />
+                <element signature="e#22534#23466#0" expanded="false" />
+                <element signature="e#23520#24329#0" expanded="false" />
+                <element signature="e#24377#25046#0" expanded="false" />
+                <element signature="e#25092#26009#0" expanded="false" />
+                <element signature="e#26061#27304#0" expanded="false" />
+                <element signature="e#27402#28927#0" expanded="false" />
+                <element signature="e#28964#28976#0" expanded="false" />
+                <element signature="e#29044#29306#0" expanded="false" />
+                <element signature="e#29361#30619#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myApp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding>
+                <element signature="e#6092#6480#0" expanded="false" />
+                <element signature="e#6524#6723#0" expanded="false" />
+                <element signature="e#6769#6974#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulgs.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/gulgs.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.4074073">
+              <caret line="7" column="99" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="shipCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/shipCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.518518">
-              <caret line="166" column="113" selection-start-line="166" selection-start-column="113" selection-end-line="166" selection-end-column="113" />
-              <folding>
-                <element signature="e#402#567#0" expanded="false" />
-                <element signature="e#652#1413#0" expanded="false" />
-                <element signature="e#2302#2581#0" expanded="false" />
-                <element signature="e#3316#3402#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upload-services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/upload-services.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+              <caret line="23" column="46" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modalCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.56567425">
+              <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
               <folding>
-                <element signature="e#191#229#0" expanded="false" />
-                <element signature="e#262#458#0" expanded="false" />
-                <element signature="e#509#1217#0" expanded="false" />
-                <element signature="e#1276#1717#0" expanded="false" />
-                <element signature="e#1303#1418#0" expanded="false" />
-                <element signature="e#1773#3101#0" expanded="false" />
-                <element signature="e#3144#3509#0" expanded="false" />
+                <element signature="e#111#320#0" expanded="false" />
+                <element signature="e#146#191#0" expanded="false" />
+                <element signature="e#264#316#0" expanded="false" />
+                <element signature="e#648#833#0" expanded="false" />
+                <element signature="e#1731#1783#0" expanded="false" />
+                <element signature="e#1865#2147#0" expanded="false" />
+                <element signature="e#2820#3211#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadCtrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
+      <file leaf-file-name="newshipping.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/newshipping.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60333335">
-              <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
-              <folding>
-                <element signature="e#1661#2018#0" expanded="false" />
-                <element signature="e#2286#2727#0" expanded="false" />
-                <element signature="e#7047#7877#0" expanded="false" />
-                <element signature="e#8678#9635#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="58" column="79" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="79" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,7 +161,6 @@
         <option value="$PROJECT_DIR$/app/view/chatting/chatscreen.html" />
         <option value="$PROJECT_DIR$/app/js/angular-image-cropper.min.js" />
         <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
-        <option value="$PROJECT_DIR$/app/view/newshipping.html" />
         <option value="$PROJECT_DIR$/app/view/menu/header-menuBar.html" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
         <option value="$PROJECT_DIR$/app/view/shop/shopProducts.html" />
@@ -119,7 +182,6 @@
         <option value="$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/categoryProCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/conversationCtrl.js" />
-        <option value="$PROJECT_DIR$/app/controller/myApp.js" />
         <option value="$PROJECT_DIR$/app/controller/chatCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/designerCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/shopCtrl.js" />
@@ -128,17 +190,19 @@
         <option value="$PROJECT_DIR$/app/controller/cartCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/thankuCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/imgViewCtrl.js" />
-        <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/loginCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/newShopCtrl.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/controller/productCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/loginModalCtrl.js" />
         <option value="$PROJECT_DIR$/app/gulgs.properties" />
-        <option value="$PROJECT_DIR$/app/controller/services.js" />
-        <option value="$PROJECT_DIR$/app/controller/shipCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/upload-services.js" />
         <option value="$PROJECT_DIR$/app/controller/uploadCtrl.js" />
+        <option value="$PROJECT_DIR$/app/controller/shipCtrl.js" />
+        <option value="$PROJECT_DIR$/app/view/newshipping.html" />
+        <option value="$PROJECT_DIR$/app/controller/myApp.js" />
+        <option value="$PROJECT_DIR$/app/controller/services.js" />
+        <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
       </list>
     </option>
   </component>
@@ -215,6 +279,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gul-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gul-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,12 +402,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1604" height="867" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21599497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17040952" sideWeight="0.5025189" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.5025189" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17040952" sideWeight="0.4974811" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -553,37 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/shopCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="78" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/singleCategoryCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="206" column="44" selection-start-line="206" selection-start-column="44" selection-end-line="206" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/orderCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="104" selection-start-line="0" selection-start-column="95" selection-end-line="0" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/thankuCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -595,11 +646,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/accountCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/menu/index-header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.7272725">
+          <caret line="203" column="72" selection-start-line="203" selection-start-column="72" selection-end-line="203" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7454545">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/upload-services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <element signature="e#191#229#0" expanded="false" />
+            <element signature="e#262#458#0" expanded="false" />
+            <element signature="e#509#1217#0" expanded="false" />
+            <element signature="e#1276#1717#0" expanded="false" />
+            <element signature="e#1303#1418#0" expanded="false" />
+            <element signature="e#1773#3101#0" expanded="false" />
+            <element signature="e#3144#3509#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.405">
+          <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
+          <folding>
+            <element signature="e#1661#2018#0" expanded="false" />
+            <element signature="e#2286#2727#0" expanded="false" />
+            <element signature="e#7047#7877#0" expanded="false" />
+            <element signature="e#8678#9635#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -607,14 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -692,68 +780,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/menuCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10625">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#770#1840#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/menu/index-header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7272725">
-          <caret line="203" column="72" selection-start-line="203" selection-start-column="72" selection-end-line="203" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/loginCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
-            <element signature="e#111#320#0" expanded="false" />
-            <element signature="e#146#191#0" expanded="false" />
-            <element signature="e#264#316#0" expanded="false" />
-            <element signature="e#622#807#0" expanded="false" />
-            <element signature="e#1250#1367#0" expanded="false" />
-            <element signature="e#1532#1665#0" expanded="false" />
-            <element signature="e#1700#1752#0" expanded="false" />
-            <element signature="e#1834#2116#0" expanded="false" />
-            <element signature="e#2364#3723#0" expanded="false" />
-            <element signature="e#3776#4167#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7454545">
-          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/productCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-          <folding>
-            <element signature="e#88#406#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="58" selection-start-line="140" selection-start-column="58" selection-end-line="140" selection-end-column="58" />
-          <folding>
-            <element signature="e#5751#5904#0" expanded="false" />
-            <element signature="e#5949#6118#0" expanded="false" />
+            <element signature="e#429#468#0" expanded="false" />
+            <element signature="e#550#917#0" expanded="false" />
+            <element signature="e#1049#1269#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -775,59 +809,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/loginCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/menuCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding>
-            <element signature="e#429#468#0" expanded="false" />
-            <element signature="e#550#917#0" expanded="false" />
-            <element signature="e#1049#1269#0" expanded="false" />
+            <element signature="e#770#1840#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/newshipping.html">
+    <entry file="file://$PROJECT_DIR$/app/controller/orderCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6923077">
-          <caret line="114" column="8" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="104" selection-start-line="0" selection-start-column="95" selection-end-line="0" selection-end-column="104" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/services.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/productCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="766" column="71" selection-start-line="766" selection-start-column="71" selection-end-line="766" selection-end-column="71" />
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
           <folding>
-            <element signature="e#34#2752#0" expanded="false" />
-            <element signature="e#2798#3204#0" expanded="false" />
-            <element signature="e#3395#3434#0" expanded="false" />
-            <element signature="e#3465#4553#0" expanded="false" />
-            <element signature="e#4636#5324#0" expanded="false" />
-            <element signature="e#5365#6535#0" expanded="false" />
-            <element signature="e#6595#7818#0" expanded="false" />
-            <element signature="e#7876#9068#0" expanded="false" />
-            <element signature="e#9151#10359#0" expanded="false" />
-            <element signature="e#10450#11922#0" expanded="false" />
-            <element signature="e#12022#13118#0" expanded="false" />
-            <element signature="e#13160#14434#0" expanded="false" />
-            <element signature="e#14483#18016#0" expanded="false" />
-            <element signature="e#18244#18443#0" expanded="false" />
-            <element signature="e#18498#20618#0" expanded="false" />
-            <element signature="e#18619#18822#0" expanded="false" />
-            <element signature="e#18855#18919#0" expanded="false" />
-            <element signature="e#20660#21306#0" expanded="false" />
-            <element signature="e#20826#20989#0" expanded="false" />
-            <element signature="e#21367#22368#0" expanded="false" />
-            <element signature="e#22424#23356#0" expanded="false" />
-            <element signature="e#23410#24219#0" expanded="false" />
-            <element signature="e#24265#24932#0" expanded="false" />
-            <element signature="e#24976#25758#0" expanded="false" />
-            <element signature="e#25807#27043#0" expanded="false" />
-            <element signature="e#28550#28812#0" expanded="false" />
-            <element signature="e#28867#30125#0" expanded="false" />
+            <element signature="e#88#406#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/accountCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14166667">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/shopCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="78" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/singleCategoryCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19833334">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.745">
+          <caret line="244" column="12" selection-start-line="207" selection-start-column="16" selection-end-line="244" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -841,42 +879,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/shipCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.518518">
-          <caret line="166" column="113" selection-start-line="166" selection-start-column="113" selection-end-line="166" selection-end-column="113" />
-          <folding>
-            <element signature="e#402#567#0" expanded="false" />
-            <element signature="e#652#1413#0" expanded="false" />
-            <element signature="e#2302#2581#0" expanded="false" />
-            <element signature="e#3316#3402#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/upload-services.js">
+    <entry file="file://$PROJECT_DIR$/app/view/newshipping.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="58" column="79" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding>
-            <element signature="e#191#229#0" expanded="false" />
-            <element signature="e#262#458#0" expanded="false" />
-            <element signature="e#509#1217#0" expanded="false" />
-            <element signature="e#1276#1717#0" expanded="false" />
-            <element signature="e#1303#1418#0" expanded="false" />
-            <element signature="e#1773#3101#0" expanded="false" />
-            <element signature="e#3144#3509#0" expanded="false" />
+            <element signature="e#6092#6480#0" expanded="false" />
+            <element signature="e#6524#6723#0" expanded="false" />
+            <element signature="e#6769#6974#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/uploadCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/controller/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60333335">
-          <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
+        <state vertical-scroll-proportion="-69.75862">
+          <caret line="470" column="34" selection-start-line="470" selection-start-column="34" selection-end-line="470" selection-end-column="34" />
           <folding>
-            <element signature="e#1661#2018#0" expanded="false" />
-            <element signature="e#2286#2727#0" expanded="false" />
-            <element signature="e#7047#7877#0" expanded="false" />
-            <element signature="e#8678#9635#0" expanded="false" />
+            <element signature="e#34#2752#0" expanded="false" />
+            <element signature="e#2798#3204#0" expanded="false" />
+            <element signature="e#3395#3434#0" expanded="false" />
+            <element signature="e#3464#4552#0" expanded="false" />
+            <element signature="e#4563#4703#0" expanded="false" />
+            <element signature="e#4754#5442#0" expanded="false" />
+            <element signature="e#4877#5430#0" expanded="false" />
+            <element signature="e#5453#5544#0" expanded="false" />
+            <element signature="e#5582#6497#0" expanded="false" />
+            <element signature="e#6508#6596#0" expanded="false" />
+            <element signature="e#6627#7667#0" expanded="false" />
+            <element signature="e#7678#7755#0" expanded="false" />
+            <element signature="e#7788#8683#0" expanded="false" />
+            <element signature="e#8694#8763#0" expanded="false" />
+            <element signature="e#8797#9768#0" expanded="false" />
+            <element signature="e#9779#9842#0" expanded="false" />
+            <element signature="e#9880#11346#0" expanded="false" />
+            <element signature="e#11357#11401#0" expanded="false" />
+            <element signature="e#11446#12494#0" expanded="false" />
+            <element signature="e#12536#13810#0" expanded="false" />
+            <element signature="e#18354#18553#0" expanded="false" />
+            <element signature="e#18608#20728#0" expanded="false" />
+            <element signature="e#18729#18932#0" expanded="false" />
+            <element signature="e#18965#19029#0" expanded="false" />
+            <element signature="e#20770#21416#0" expanded="false" />
+            <element signature="e#20936#21099#0" expanded="false" />
+            <element signature="e#21477#22478#0" expanded="false" />
+            <element signature="e#22534#23466#0" expanded="false" />
+            <element signature="e#23520#24329#0" expanded="false" />
+            <element signature="e#24377#25046#0" expanded="false" />
+            <element signature="e#25092#26009#0" expanded="false" />
+            <element signature="e#26061#27304#0" expanded="false" />
+            <element signature="e#27402#28927#0" expanded="false" />
+            <element signature="e#28964#28976#0" expanded="false" />
+            <element signature="e#29044#29306#0" expanded="false" />
+            <element signature="e#29361#30619#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/modalCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56567425">
+          <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
+          <folding>
+            <element signature="e#111#320#0" expanded="false" />
+            <element signature="e#146#191#0" expanded="false" />
+            <element signature="e#264#316#0" expanded="false" />
+            <element signature="e#648#833#0" expanded="false" />
+            <element signature="e#1731#1783#0" expanded="false" />
+            <element signature="e#1865#2147#0" expanded="false" />
+            <element signature="e#2820#3211#0" expanded="false" />
           </folding>
         </state>
       </provider>
