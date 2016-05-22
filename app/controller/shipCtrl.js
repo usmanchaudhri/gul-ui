@@ -1,50 +1,48 @@
-app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal','$q','gulServiceCall', function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal,$q,gulServiceCall) {
+app.controller('shipCtrl',['$scope' , '$cookies','$location','$http','Base64','shippingList','$uibModal','$q','gulServiceCall', 
+	function($scope,$cookies,$location,$http,Base64,shippingList,$uibModal,$q,gulServiceCall) {
 
-			if($cookies.get("username") != null){
-				$scope.getShippingDetails = shippingList;	
-			}else{
-				$location.path("#/");
-			}
-	gulServiceCall.getUrls()
-	.then(function(response) {
-					$scope.shippingUrl = response.data.shippingUrl;
-					$scope.customerUrl = response.data.customerUrl;
-					$scope.loginUrl = response.data.loginUrl;
-				
-				});
+	if($cookies.get("username") != null){
+		$scope.getShippingDetails = shippingList;	
+	}else{
+		$location.path("#/");
+	}
+	gulServiceCall.getUrls().then(function(response) {
+		$scope.shippingUrl = response.data.shippingUrl;
+		$scope.customerUrl = response.data.customerUrl;
+		$scope.loginUrl = response.data.loginUrl;				
+	});
 
-			$scope.isActive = "y";
-			$scope.open = function(shippingDetail,position,flag){
-
-				var message = "";
-				if($cookies.get("username") != null){
-					$scope.animationsEnabled = true;
-					$uibModal.open({
-							templateUrl: 'myModalContent.html',
-							controller: 'modalShipCtrl',
-							    resolve: {
-       								 updateDetail: function () {
-							         var value = {
-							         		"position": position,
-							         		"shippingDetail": shippingDetail,
-							         		"flag": flag,
-											"shippingListSize":$scope.getShippingDetails.length
-							         };
-							         return value;
-							    }
-							}
-
-						})
-					.result.then(
-						function (shippingDetail) {
-							$scope.getShippingDetails = shippingDetail;
-						}
-            
-					);
-				}else{
-					$rootScope.$emit("signin", {});
+	$scope.isActive = "y";
+	$scope.open = function(shippingDetail,position,flag){
+	var message = "";
+	if($cookies.get("username") != null){
+		$scope.animationsEnabled = true;
+		$uibModal.open({
+				templateUrl: 'myModalContent.html',
+				controller: 'modalShipCtrl',
+				    resolve: {
+							 updateDetail: function () {
+				         var value = {
+				         		"position": position,
+				         		"shippingDetail": shippingDetail,
+				         		"flag": flag,
+								"shippingListSize":$scope.getShippingDetails.length
+				         };
+				         return value;
+				    }
 				}
-			};
+
+			})
+		.result.then(
+			function (shippingDetail) {
+				$scope.getShippingDetails = shippingDetail;
+			}
+
+		);
+	}else{
+		$rootScope.$emit("signin", {});
+	}
+	};
 
 			$scope.confirm = function(position){
 				
