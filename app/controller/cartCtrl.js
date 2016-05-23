@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$timeout', 'gulServiceCall', function ($scope, $cookieStore, $http, $rootScope, $timeout, gulServiceCall) {
+app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$timeout', 'gulServiceCall','cartFactory', function ($scope, $cookieStore, $http, $rootScope, $timeout, gulServiceCall,cartFactory) {
     $scope.isNumber = angular.isNumber;
     $scope.totalPrice = 0;
     $scope.qty = 0;
@@ -46,16 +46,9 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     $scope.getItemSize = function () {
-        if (angular.isDefined($scope.items)) {
-            $scope.items = $cookieStore.get("invoices", $scope.invoices);
-            if ($scope.abc <= 0) {
-                $scope.itemSize = true;
-            } else {
-                $scope.itemSize = false;
-            }
-        } else {
-            $scope.itemSize = true;
-        }
+        cartFactory.getItemSize($scope.items).then(function(data){
+            $scope.itemSize = data;
+        });
     }
 
     /**
@@ -63,7 +56,9 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     $scope.paypalPayment = function () {
-        if ($cookieStore.get("username") != null) {
+
+
+        /*if ($cookieStore.get("username") != null) {
             if ($scope.totalPrice > 0) {
                 $scope.loadingData = true;
                 gulServiceCall.paypalApi($scope.mUrls, paypalPayload()).then(function (response) {
@@ -74,7 +69,7 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
             }
         } else {
             $rootScope.$emit("signin", {});
-        }
+        }*/
     };
 
     /**

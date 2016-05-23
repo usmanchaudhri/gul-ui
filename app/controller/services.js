@@ -458,7 +458,7 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
 
         },
 
-        addNewShipping: function(customerUrl,shippingData){
+        addNewShipping: function (customerUrl, shippingData) {
             var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
             var config = {
                 headers: {
@@ -467,9 +467,9 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                 }
             }
             return $http.post(
-                customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/customershipping', shippingData, config
+                customerUrl + '/' + JSON.parse($cookies.get("username")).id + '/customershipping', shippingData, config
             ).then(function (data) {
-                return sdo.getShippingList().then(function(data){
+                return sdo.getShippingList().then(function (data) {
 
                     return data;
                 });
@@ -480,7 +480,7 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
     return sdo;
 
 }]);
-app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window ) {
+app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
@@ -492,63 +492,69 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
         },
 
         paypalApi: function (mUrls, paypalPayloads) {
+            if ($cookieStore.get("username") != null) {
+                if ($scope.totalPrice > 0) {
+                    var base64 = Base64.encode(mUrls.paypalClientID + ':' + mUrls.paypalSecretKey);
 
-            var base64 = Base64.encode(mUrls.paypalClientID + ':' + mUrls.paypalSecretKey);
-
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-                    'Authorization': 'Basic ' + base64
-                }
-            }
-
-            var data = $.param({
-                grant_type: "client_credentials"
-            });
-
-            return $http.post(
-                mUrls.paypalToken, data, config
-            ).success(function (data, status) {
-                $cookies.put("tokenID", data.access_token);
-                var tokenID = $cookies.get("tokenID");
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': data.token_type + ' ' + tokenID
+                    var config = {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                            'Authorization': 'Basic ' + base64
+                        }
                     }
-                }
-                return $http.post(
-                    mUrls.paypalPayment, paypalPayloads, config
-                ).success(function (data, status) {
-                    $window.location.href = data.links[1].href;
-                }).error(function (data, status) {
-                    if (data != null) {
-                        return obj = {
-                            loadingData: false,
-                            dataError: data
-                        };
-                    } else {
-                        return obj = {
-                            loadingData: false,
-                            dataError: "Check Your Internet Connection And Try Again! "
-                        };
-                    }
-                })
-            }).error(function (data, status) {
-                if (data != null) {
-                    return obj = {
-                        loadingData: false,
-                        dataError: data
-                    };
+
+                    var data = $.param({
+                        grant_type: "client_credentials"
+                    });
+
+                    return $http.post(
+                        mUrls.paypalToken, data, config
+                    ).success(function (data, status) {
+                        $cookies.put("tokenID", data.access_token);
+                        var tokenID = $cookies.get("tokenID");
+                        var config = {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': data.token_type + ' ' + tokenID
+                            }
+                        }
+                        return $http.post(
+                            mUrls.paypalPayment, paypalPayloads, config
+                        ).success(function (data, status) {
+                            $window.location.href = data.links[1].href;
+                        }).error(function (data, status) {
+                            if (data != null) {
+                                return obj = {
+                                    loadingData: false,
+                                    dataError: data
+                                };
+                            } else {
+                                return obj = {
+                                    loadingData: false,
+                                    dataError: "Check Your Internet Connection And Try Again! "
+                                };
+                            }
+                        })
+                    }).error(function (data, status) {
+                        if (data != null) {
+                            return obj = {
+                                loadingData: false,
+                                dataError: data
+                            };
+                        } else {
+                            return obj = {
+                                loadingData: false,
+                                dataError: "Check Your Internet Connection And Try Again! "
+                            };
+                        }
+
+                    });
                 } else {
-                    return obj = {
-                        loadingData: false,
-                        dataError: "Check Your Internet Connection And Try Again! "
-                    };
+                    alert("Cart is Empty");
                 }
-
-            });
-
+            } else {
+                $rootScope.$emit("signin", {});
+            }
 
         },
 
@@ -670,7 +676,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
 
         updateShippingAddress: function () {
 
-            sdo.getUrls().then(function(data){
+            sdo.getUrls().then(function (data) {
                 var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
                 var loginAuth = base64;
                 var config = {
@@ -745,7 +751,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
 
             var promise1 = $http({
                 method: 'PUT',
-                url: customerUrl + '/'+mId+'/customershipping/' + shippingId1,
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId1,
                 data: data1,
                 headers: {
                     'Content-Type': 'application/json',
@@ -755,7 +761,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
             });
             var promise2 = $http({
                 method: 'PUT',
-                url: customerUrl + '/'+mId+'/customershipping/' + shippingId2,
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId2,
                 data: data2,
                 headers: {
                     'Content-Type': 'application/json',
@@ -773,12 +779,44 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
             });
         },
 
-        updateCustomer: function(){
+        updateCustomer: function () {
 
+        }
+    }
+
+    return sdo;
+}]);
+
+app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window','$rootScope','gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, $window , $rootScope ,gulServiceCall) {
+    var sdo = {
+        getItemSize: function (items) {
+            var deferred = $q.defer();
+            if (angular.isDefined(items)) {
+                items = $cookies.get("invoices");
+                if ($scope.abc <= 0) {
+                    deferred.resolve(true);
+                } else {
+                    deferred.resolve(false);
+                }
+            } else {
+                deferred.resolve(true);
+            }
+            return deferred.promise;
         },
 
-
-
+        paypalPayment: function(){
+            if ($cookies.get("username") != null) {
+                if (totalPrice > 0) {
+                    gulServiceCall.paypalApi(mUrls, paypalPayload()).then(function (response) {
+                        console.log(response);
+                    });
+                } else {
+                    alert("Cart is Empty");
+                }
+            } else {
+                $rootScope.$emit("signin", {});
+            }
+        }
 
     }
 
