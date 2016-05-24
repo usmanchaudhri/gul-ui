@@ -106,7 +106,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         resolve: {
             chatList: function (gulServices, $cookies, $location) {
                 if ($cookies.get("username") != null) {
-                    return gulServices.getChat();
+                    return gulServices.getChatList();
 
                 } else {
                     $location.path("#/");

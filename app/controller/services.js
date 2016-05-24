@@ -109,7 +109,7 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
         /**
          List of cchat
          **/
-        getChat: function () {
+        getChatList: function () {
 
             return $http.get('gulgs.properties')
                 .then(function (one) {
@@ -787,7 +787,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
     return sdo;
 }]);
 
-app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window','$rootScope','gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, $window , $rootScope ,gulServiceCall) {
+app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', '$rootScope', 'gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, $window, $rootScope, gulServiceCall) {
     var sdo = {
         getItemSize: function (items) {
             var deferred = $q.defer();
@@ -804,7 +804,7 @@ app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$w
             return deferred.promise;
         },
 
-        paypalPayment: function(){
+        paypalPayment: function () {
             if ($cookies.get("username") != null) {
                 if (totalPrice > 0) {
                     gulServiceCall.paypalApi(mUrls, paypalPayload()).then(function (response) {
@@ -820,8 +820,33 @@ app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$w
 
     }
 
+
     return sdo;
 }]);
+
+app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', 'gulServiceCall', function ($http, $q, $cookies, Base64, gulServiceCall) {
+    var sdo = {
+        categoryApi: function (cat_id) {
+
+            return gulServiceCall.getUrls()
+                .then(function (response) {
+                    return $http.get(response.data.categoryUrl + '/' + cat_id)
+                        .then(function (data) {
+                            return data;
+                        });
+                });
+        },
+
+        categoryProductApi: function(){
+
+        }
+
+
+    }
+
+    return sdo;
+}]);
+
 
 var isImage = function (src, $q) {
 
