@@ -341,7 +341,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    var createShop = function () {
+    var createShopp = function () {
         shopPayload = {
             "name": $scope.proName,
             "designers": {
@@ -611,6 +611,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     }
 
     $scope.createShop = function () {
+
         if ($scope.getShopDecision) {
             $scope.showProgress = true;
             var count = -1;
@@ -622,11 +623,10 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             $http.post(
                 $scope.shopUrl, $scope.shopUpload(), config
             ).success(function (data, status) {
+                console.log("SHOP UPLOAD DATA: ", data);
                 $scope.shopId = data.id;
                 $scope.uploadShop();
             }).error(function (data, status) {
-
-
                 console.log(data);
                 console.log(status);
             });

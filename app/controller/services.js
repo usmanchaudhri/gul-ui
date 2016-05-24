@@ -242,9 +242,6 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					return promise
 					.then(function(response) {
 							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' +JSON.parse($cookies.get("username")).password );
-
-
-//console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
 							var loginAuth =  base64;
 							var config = {
 								headers : {
@@ -302,11 +299,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 						
 									return value;
 							
-				
-								});
-						
-						
-						
+							});
 						});
 				},
 				/*Get Account*/
@@ -320,9 +313,6 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 					return promise
 					.then(function(response) {
 							var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' +JSON.parse($cookies.get("username")).password );
-
-
-//console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
 							var loginAuth =  base64;
 							var config = {
 								headers : {
@@ -580,7 +570,7 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 			return sdo;
 		}]);
 
-	var	isImage = function(src,$q) {
+var	isImage = function(src,$q) {
 
 			var deferred = $q.defer();
 
@@ -595,8 +585,6 @@ app.factory('gulServices', ['$http','$q','$timeout','$cookies','Base64', functio
 
 			return deferred.promise;
 		}
-
-
 var getConversationCustom = function(obj,$q,$http){
 			
 				//return function() {

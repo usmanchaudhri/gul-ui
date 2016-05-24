@@ -503,7 +503,7 @@ h2 span {
 	overflow: hidden;
 	margin: 0;
 }
-.form-control {
+/*.form-control {
 
 	padding: 1px 10px;
 	border: 0;
@@ -513,7 +513,7 @@ h2 span {
 	font: 18px/24px 'corbel-regular', sans-serif;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-}
+}*/
 .form-control:focus {
 	-webkit-box-shadow: none;
 	box-shadow: none;
