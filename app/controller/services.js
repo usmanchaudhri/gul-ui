@@ -102,7 +102,7 @@ app.factory('DataLoader', function ($http) {
         },
     }
 });
-app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, gulServiceCall) {
+app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 'apiFactory', function ($http, $q, $timeout, $cookies, Base64, gulServiceCall, apiFactory) {
 
     var sdo = {
 
@@ -111,24 +111,26 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          **/
         getChatList: function () {
 
-            return $http.get('gulgs.properties')
+            return gulServiceCall.getUrls()
                 .then(function (one) {
-                    var cChatNames = [];
-                    return $http.get(one.data.customerUrl + '/' + JSON.parse($cookies.get('username')).id + '/cchat').then(function (dataa) {
-                        var customerName = JSON.parse($cookies.get("username")).username;
-                        if (dataa.data.length > 0) {
-                            var chatArr = dataa.data[0].customer.cchat;
-                            for (var i = 0; i < chatArr.length; i++) {
-                                var promise = getConversationCustom(chatArr[i], $q, $http);
-                                promise.then(function (data) {
-                                    cChatNames.push(data);
-                                }, function (reason) {
-                                    console.log("Success : ", reason);
-                                });
+                    var url = one.data.customerUrl + '/' + JSON.parse($cookies.get('username')).id + '/cchat';
+                    return apiFactory.getApiData(url)
+                        .then(function (dataa) {
+                            var cChatNames = [];
+                            var customerName = JSON.parse($cookies.get("username")).username;
+                            if (dataa.data.length > 0) {
+                                var chatArr = dataa.data[0].customer.cchat;
+                                for (var i = 0; i < chatArr.length; i++) {
+                                    var promise = getConversationCustom(chatArr[i], $q, $http);
+                                    promise.then(function (data) {
+                                        cChatNames.push(data);
+                                    }, function (reason) {
+                                        console.log("Success : ", reason);
+                                    });
+                                }
                             }
-                        }
-                        return cChatNames
-                    });
+                            return cChatNames
+                        });
 
                 });
         },
@@ -139,11 +141,8 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          * @returns {*|{get}}
          */
         getConversationList: function (chatNames) {
-            var deferred = $q.defer();
-
             return gulServiceCall.getUrls()
                 .then(function (one) {
-
                     return gulServiceCall.getMessageTitle(one, chatNames)
                         .then(function (chatTitle) {
 
@@ -164,23 +163,11 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          * @returns {*}
          */
         getShippingList: function () {
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
-            return promise
-                .then(function (response) {
-                    var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-                    var loginAuth = base64;
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
 
-                    return $http.get(response.data.loginUrl, config)
+            return gulServiceCall.getUrls()
+                .then(function (response) {
+                    var url = response.data.loginUrl;
+                    return apiFactory.getApiAuthData(url)
                         .then(function (response1) {
                             return response1.data.customerShipping;
                         });
@@ -192,30 +179,16 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          * @returns {*}
          */
         getOrder: function () {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var loginAuth = Base64.encode($cookies.get("username").username + ':' + $cookies.get("username").password);
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
-                    return $http.get(response.data.customerUrl + '/' + $cookies.get("userId") + "/orders", config)
+                    var url = response.data.customerUrl + '/' + $cookies.get("userId") + "/orders";
+                    return apiFactory.getApiAuthData(url)
                         .then(function (response1) {
                             value = {
                                 orderDetail: response1.data,
                             };
                             return value;
                         });
-
-
                 });
         },
 
@@ -224,22 +197,10 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          * @returns {*}
          */
         getAccount: function () {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
-                    return $http.get(response.data.loginUrl, config)
+                    var url = response.data.loginUrl;
+                    return apiFactory.getApiAuthData(url)
                         .then(function (response1) {
                             return response1.data;
                         });
@@ -251,26 +212,16 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          * @returns {*}
          */
         getallShops: function () {
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePathShop;
-                    var mToken = response.data.token;
-                    var anotherPromise = $http({
-                        method: 'GET',
-                        url: response.data.shopUrl,
-                        cache: 'true'
-                    });
-                    return anotherPromise
+                    var url = response.data.shopUrl;
+                    return apiFactory.getApiData(url)
                         .then(function (response1) {
                             value = {
                                 allShopDetail: response1.data,
-                                fixPath: mFixPath,
-                                token: mToken
+                                fixPath: response.data.fixImagePathShop,
+                                token: response.data.token
                             };
                             return value;
                         });
@@ -282,19 +233,8 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          **/
 
         getShop: function (shop_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            console.log("PARAMS", shop_id);
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPathShop = response.data.fixImagePathShop;
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
                     var promise1 = $http({
                         method: 'GET',
                         url: response.data.shopUrl + '/' + shop_id + '/products',
@@ -307,9 +247,9 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                     });
                     return $q.all([promise1, promise2]).then(function (data) {
                         value = {
-                            fixPath: mFixPath,
-                            fixPathShop: mFixPathShop,
-                            token: mToken,
+                            fixPath: response.data.fixImagePath,
+                            fixPathShop: response.data.fixImagePathShop,
+                            token: response.data.token,
                             shop: data[0].data,
                             designer: data[1].data
                         };
@@ -322,24 +262,18 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
          GET PRODUCT DETAIL
          **/
         getProductDetail: function (pro_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    return $http.get(response.data.productUrl + '/' + pro_id)
-                        .then(function (response1) {
+                    var url = response.data.productUrl + '/' + pro_id;
+                    return apiFactory.getApiData(url)
+                        .then(function (data) {
                             value = {
                                 urls: response.data,
-                                fixPath: mFixPath,
-                                token: mToken,
-                                productDetail: response1.data,
-                                selectedItem: response1.data.productVariation[0].size
+                                fixPath: response.data.fixImagePath,
+                                token: response.data.token,
+                                productDetail: data.data,
+                                selectedItem: data.data.productVariation[0].size
                             };
                             console.log("PRoduct Detail: ", value);
                             return value;
@@ -348,53 +282,32 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
         },
 
         getCategory: function (cat_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+            gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    return $http.get(response.data.categoryUrl + '/' + cat_id)
-                        .then(function (response1) {
+                    var url = response.data.categoryUrl + '/' + cat_id;
+                    return apiFactory.getApiData(url)
+                        .then(function (data) {
                             return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
-
                                 value = {
                                     urls: response.data,
                                     banner: result,
-                                    fixPath: mFixPath,
-                                    token: mToken,
-                                    categoryLength: response1.data.subCategories.length,
-                                    categoryDetail: response1.data
+                                    fixPath: response.data.fixImagePath,
+                                    token: response.data.token,
+                                    categoryLength: data.data.subCategories.length,
+                                    categoryDetail: data.data
                                 };
                                 return value;
                             });
-
                         });
-
-
                 });
-
-
         },
 
         getCategoryProduct: function (cat_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+
+            gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    return $http.get(response.data.categoryUrl + '/' + cat_id + '/products')
+                    var url = response.data.categoryUrl + '/' + cat_id + '/products';
+                    return apiFactory.getApiData(url)
                         .then(function (response1) {
                             var categoryIDs = [];
                             categoryProDetail = [];
@@ -440,8 +353,8 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                                 value = {
                                     banner: result,
                                     urls: response.data,
-                                    fixPath: mFixPath,
-                                    token: mToken,
+                                    fixPath: response.data.fixImagePath,
+                                    token: response.data.token,
                                     categoryProDetail: categoryProDetail,
                                     categoryIDs: categoryIDs
                                 };
@@ -459,21 +372,13 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
         },
 
         addNewShipping: function (customerUrl, shippingData) {
-            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                }
-            }
-            return $http.post(
-                customerUrl + '/' + JSON.parse($cookies.get("username")).id + '/customershipping', shippingData, config
-            ).then(function (data) {
-                return sdo.getShippingList().then(function (data) {
+            apiFactory.postApiAuthData(customerUrl, shippingData)
+                .then(function (data) {
+                    return sdo.getShippingList().then(function (data) {
 
-                    return data;
+                        return data;
+                    });
                 });
-            });
         }
 
     }
@@ -826,19 +731,46 @@ app.factory('cartFactory', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$w
 
 app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', 'gulServiceCall', function ($http, $q, $cookies, Base64, gulServiceCall) {
     var sdo = {
-        categoryApi: function (cat_id) {
+
+
+        getApiData: function (url) {
 
             return gulServiceCall.getUrls()
                 .then(function (response) {
-                    return $http.get(response.data.categoryUrl + '/' + cat_id)
+                    return $http.get(url)
                         .then(function (data) {
                             return data;
                         });
                 });
         },
 
-        categoryProductApi: function(){
+        getApiAuthData: function (url) {
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                }
+            }
+            return $http.get(url, config)
+                .then(function (data) {
+                    return data;
+                });
 
+        },
+
+        postApiAuthData: function (url, data) {
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                }
+            }
+            return $http.post(url, data, config
+            ).then(function (data) {
+                return data;
+            });
         }
 
 
