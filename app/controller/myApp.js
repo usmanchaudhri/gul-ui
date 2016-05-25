@@ -90,9 +90,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         controller: 'conversationCtrl',
         label: 'CHAT',
         resolve: {
-            conList: function (gulServices, $route, $cookies) {
+            conList: function (chatFactory, $route, $cookies) {
                 if ($cookies.get("username") != null) {
-                    return gulServices.getConversationList($route.current.params.chatName);
+                    return chatFactory.getConversationList($route.current.params.chatName);
 
                 } else {
                     $location.path("#/");
@@ -104,10 +104,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         controller: 'chatCtrl',
         label: 'ALL CHATS',
         resolve: {
-            chatList: function (gulServices, $cookies, $location) {
+            chatList: function (chatFactory, $cookies, $location) {
                 if ($cookies.get("username") != null) {
-                    return gulServices.getChatList();
-
+                    return chatFactory.getChatList();
                 } else {
                     $location.path("#/");
                 }
