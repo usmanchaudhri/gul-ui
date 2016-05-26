@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$timeout', 'gulServiceCall','cartFactory', function ($scope, $cookieStore, $http, $rootScope, $timeout, gulServiceCall,cartFactory) {
+app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeout', 'gulServiceCall','cartFactory','commonFactory', function ($scope, $cookies, $http, $rootScope, $timeout, gulServiceCall,cartFactory,commonFactory) {
     $scope.isNumber = angular.isNumber;
     $scope.totalPrice = 0;
     $scope.qty = 0;
@@ -9,7 +9,10 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      * getting Cart Item From Cookies
      */
 
-    $scope.items = $cookieStore.get("invoices", $scope.invoices);
+    if($cookies.get("invoices")!= null){
+        $scope.items = JSON.parse($cookies.get("invoices"));
+    }
+
 
     /**
      * CAll Service Method getUrls to get all urls from .properties file
@@ -37,7 +40,7 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
 
     $rootScope.$on("addToBag", function (event, args) {
         $scope.storeProductsInCookie(args.data.prod, args.data.size, args.data.qty);
-        $scope.totalCost($cookieStore.get("invoices"));
+        $scope.totalCost(JSON.parse($cookies.get("invoices")));
     });
 
 
@@ -46,9 +49,21 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     $scope.getItemSize = function () {
-        cartFactory.getItemSize($scope.items).then(function(data){
+            if(angular.isDefined($scope.items)){
+                $scope.items = JSON.parse($cookies.get("invoices"));
+                if($scope.abc <= 0 ){
+                    $scope.itemSize = true;
+                }else{
+                    $scope.itemSize = false;
+                }
+            }else{
+                $scope.itemSize = true;
+            }
+            console.log($scope.itemSize);
+
+        /* commonFactory.getItemSize($scope.items).then(function(data){
             $scope.itemSize = data;
-        });
+        });*/
     }
 
     /**
@@ -58,7 +73,7 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
     $scope.paypalPayment = function () {
 
 
-        /*if ($cookieStore.get("username") != null) {
+        /*if ($cookies.get("username") != null) {
             if ($scope.totalPrice > 0) {
                 $scope.loadingData = true;
                 gulServiceCall.paypalApi($scope.mUrls, paypalPayload()).then(function (response) {
@@ -77,20 +92,12 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     var checkItems = function () {
-        if (angular.isUndefined($scope.items)) {
-            $scope.invoice = {
-                items: []
-            };
-            $scope.abc = 0;
-        }
-        else {
-            $scope.invoice = {
-                items: $cookieStore.get("invoices", $scope.invoices)
-            };
-            $scope.abc = $scope.items.length;
-
-            $scope.totalCost($scope.invoice.items);
-        }
+        cartFactory.checkItems().then(function(data){
+            $scope.abc = data.abc;
+            $scope.totalPrice = data.totalPrice;
+            $scope.items = data.items;
+            console.log("checkItems: ",data);
+        });
     }
 
     /**
@@ -99,15 +106,16 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     $scope.removeItem = function (index) {
-        $scope.invoice.items.splice(index, 1);
-        $cookieStore.put("invoices", $scope.invoice.items);
+        $scope.items.splice(index, 1);
+        $cookies.put("invoices", JSON.stringify($scope.items));
         $scope.items = [];
-        $scope.items = $cookieStore.get("invoices", $scope.invoices);
-        $scope.totalCost($scope.invoice.items);
+        $scope.items = JSON.parse($cookies.get("invoices"));
+        $scope.totalCost($scope.items);
         $scope.abc = $scope.items.length;
         $scope.getItemSize();
 
     };
+
 
     /**
      * Store product in cart
@@ -118,63 +126,12 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
 
     $scope.storeProductsInCookie = function (prod, size, qty) {
         $scope.popFlag = true;
-        var prodExistFlag = false;
-        if (prod.quantity > qty) {
-            if (qty < 1) {
-                qty = 1;
-            }
-            if (angular.isDefined($cookieStore.get("invoices"))) {
-                angular.forEach($cookieStore.get("invoices"), function (myProd) {
-                    if (myProd.id == prod.id && myProd.size == size) {
-                        prodExistFlag = true;
-                    }
-                });
-            }
-            if (prodExistFlag) {
-                var itemsList = $cookieStore.get("invoices");
-                var i = 0;
-                angular.forEach(itemsList, function (myProd) {
-                    if (myProd.id == prod.id && myProd.size == size) {
-                        myProd.qty = parseInt(myProd.qty) + parseInt(qty);
-                        itemsList.splice(i, 1, myProd);
-                        $scope.totalCost(itemsList);
-                    }
-                    i++;
-                });
-                $cookieStore.put("invoices", itemsList);
-
-            } else {
-                console.log("Quantity Check:", qty);
-                $scope.invoice.items.push({
-                    id: prod.id,
-                    qty: qty,
-                    totalQty: prod.quantity,
-                    name: prod.name,
-                    size: size,
-                    shop: prod.shop.name,
-                    shopID: prod.shop.id,
-                    cost: prod.pricingProduct.storedValue,
-                    category: prod.category,
-                    imagePath: prod.imagePath
-
-                });
-
-                $cookieStore.put("invoices", $scope.invoice.items);
-            }
-            $scope.items = $cookieStore.get("invoices");
-
-            $scope.currentItem = $scope.items[$scope.items.length - 1];
-
-            /*console.log("product price",$scope.currentItem.cost);
-             console.log("Add Product "+$scope.items.length);*/
-            $scope.abc = $scope.items.length;
-            $scope.totalCost($scope.items);
-            $scope.getItemSize();
-        } else {
-            //	$scope.inStock=false;
-            //	$scope.outOfStock=true;
-        }
-
+        cartFactory.storeProductsInCookie(prod,size,qty).then(function(data){
+            $scope.abc = data.abc;
+            $scope.totalPrice = data.totalPrice;
+            $scope.currentItem = data.currentItem;
+            $scope.items = data.invoice;
+        });
     };
 
     /**
@@ -183,15 +140,12 @@ app.controller('cartCtrl', ['$scope', '$cookieStore', '$http', '$rootScope', '$t
      */
 
     $scope.totalCost = function (items) {
-        $scope.totalPrice = 0;
-        for (var i = 0; i < items.length; i++) {
-            $scope.totalPrice = $scope.totalPrice + (items[i].cost * items[i].qty);
-        }
-        if (items.length == 0) {
-            $scope.totalPrice = 0;
-        }
-        $scope.totalPrice = Math.round($scope.totalPrice * 100) / 100;
+        cartFactory.totalCost(items).then(function (data) {
+            $scope.totalPrice = data;
+
+        });
     };
+
 
     /**
      * Payload Structure for Paypal

@@ -192,7 +192,7 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
         getShop: function (shop_id) {
             return gulServiceCall.getUrls()
                 .then(function (response) {
-                    apiFactory.getShop().then(function (data) {
+                    return apiFactory.getShop(shop_id).then(function (data) {
                         var value =
                         {
                             fixPath: response.data.fixImagePath,
@@ -350,25 +350,6 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
                 });
         },
 
-        uploadOrder: function (orderPayload) {
-            var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-            var loginAuth = base64;
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                }
-            }
-            gulServiceCall.getUrls().then(function (response) {
-                return $http.post(
-                    response.data.orderUrl, orderPayload, config
-                ).then(function (data) {
-                    return "success";
-
-                });
-            });
-
-        },
 
         updateShippingAddress: function () {
 
@@ -483,24 +464,137 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
     return sdo;
 }]);
 
-app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', function ($cookies, $rootScope, gulServiceCall) {
+app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFactory', '$q', function ($cookies, $rootScope, gulServiceCall, apiFactory, $q) {
     var sdo = {
 
-
-        paypalPayment: function () {
+        paypalPayment: function (totalPrice, paypalPayload) {
             if ($cookies.get("username") != null) {
                 if (totalPrice > 0) {
-                    gulServiceCall.paypalApi(mUrls, paypalPayload()).then(function (response) {
-                        console.log(response);
+                    return apiFactory.paypalToken(paypalPayload).then(function (data) {
+                        $cookies.put("tokenID", data.access_token);
+                        var tokenID = $cookies.get("tokenID");
+                        return apiFactory.paypalPayment(function (data) {
+                            return data;
+                        });
                     });
+
                 } else {
                     alert("Cart is Empty");
                 }
             } else {
                 $rootScope.$emit("signin", {});
             }
-        }
+        },
 
+        uploadOrder: function (orderPayload) {
+            apiFactory.getUrls().then(function (response) {
+                return apiFactory.postApiAuthData(
+                    response.data.orderUrl, orderPayload
+                ).then(function (data) {
+                    return "success";
+
+                });
+            });
+
+        },
+
+        totalCost: function (items) {
+            var deferred = $q.defer();
+            //var items = $cookies.get("invoices");
+            console.log("PRINT PRINT: ", items.length);
+            var totalPrice = 0;
+            for (var i = 0; i < items.length; i++) {
+                //    console.log(items[i]);
+                totalPrice = totalPrice + (items[i].cost * items[i].qty);
+            }
+            if (items.length == 0) {
+                totalPrice = 0;
+            }
+            totalPrice = Math.round(totalPrice * 100) / 100;
+            console.log(totalPrice);
+            deferred.resolve(totalPrice);
+            return deferred.promise;
+        },
+
+        storeProductsInCookie: function (prod, size, qty) {
+            var deferred = $q.defer();
+            var invoice = JSON.parse($cookies.get("invoices"));
+            var prodExistFlag = false;
+            if (prod.quantity > qty) {
+                if (qty < 1) {
+                    qty = 1;
+                }
+                if (angular.isDefined($cookies.get("invoices"))) {
+                    angular.forEach(JSON.parse($cookies.get("invoices")), function (myProd) {
+                        if (myProd.id == prod.id && myProd.size == size) {
+                            prodExistFlag = true;
+                        }
+                    });
+                }
+                if (prodExistFlag) {
+                    var itemsList = JSON.parse($cookies.get("invoices"));
+                    var i = 0;
+                    angular.forEach(itemsList, function (myProd) {
+                        if (myProd.id == prod.id && myProd.size == size) {
+                            myProd.qty = parseInt(myProd.qty) + parseInt(qty);
+                            itemsList.splice(i, 1, myProd);
+                        }
+                        i++;
+                    });
+                    $cookies.put("invoices", JSON.stringify(itemsList));
+                } else {
+                    invoice.push({
+                        id: prod.id,
+                        qty: qty,
+                        totalQty: prod.quantity,
+                        name: prod.name,
+                        size: size,
+                        shop: prod.shop.name,
+                        shopID: prod.shop.id,
+                        cost: prod.pricingProduct.storedValue,
+                        category: prod.category,
+                        imagePath: prod.imagePath
+
+                    });
+                    $cookies.put("invoices", JSON.stringify(invoice));
+                }
+                invoice = JSON.parse($cookies.get("invoices"));
+                sdo.totalCost(invoice).then(function (data) {
+                    var value = {
+                        "currentItem": invoice[invoice.length - 1],
+                        "abc": invoice.length,
+                        "totalPrice": data,
+                        "invoice": invoice
+                    };
+                    deferred.resolve(value);
+                    return deferred.promise;
+                });
+            }
+            return deferred.promise;
+        },
+
+        checkItems: function () {
+            var deferred = $q.defer();
+            var abc;
+            var items = JSON.parse($cookies.get("invoices"));
+            if (angular.isUndefined(items)) {
+                items = [];
+                abc = 0;
+            }
+            else {
+                items = JSON.parse($cookies.get("invoices"))
+                abc = items.length;
+            }
+            return sdo.totalCost(items).then(function (data) {
+                var value = {
+                    "items": items,
+                    "abc": abc,
+                    "totalPrice": data
+                }
+                deferred.resolve(value);
+                return deferred.promise;
+            });
+        }
 
     }
 
@@ -710,12 +804,36 @@ app.factory('commonFactory', ['$q', function ($q) {
             image.src = src;
 
             return deferred.promise;
+        },
+
+        menuColor: function (breadcrumbs) {
+            var deferred = $q.defer();
+            var breadcrumbLength = breadcrumbs.get().length;
+            if (breadcrumbLength > 1) {
+                var value = {
+                    "enableBorder": "1px solid #E2E2E2",
+                    "menuColor": "black",
+                    "menuMargin": "125px"
+                }
+                deferred.resolve(value);
+
+            } else {
+                var value = {
+                    "enableBorder": "none",
+                    "menuColor": "white",
+                    "menuMargin": "0px"
+                }
+                deferred.resolve(value);
+            }
+            console.log("CALLED");
+            return deferred.promise;
         }
+
     }
     return sdo;
 }]);
 
-app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', function ($http, $q, $cookies, Base64) {
+app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
@@ -778,8 +896,73 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', function ($http,
             });
         },
 
-        getShop: function () {
-            sdo.getUrls().
+        paypalToken: function (data) {
+            return sdo.getUrls.then(function (response) {
+                var base64 = Base64.encode(response.data.paypalClientID + ':' + response.data.paypalSecretKey);
+
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                        'Authorization': 'Basic ' + base64
+                    }
+                }
+                var data = $.param({
+                    grant_type: "client_credentials"
+                });
+                return $http.post(response.data.paypalToken).success(function (data) {
+                    return data;
+
+                }).error(function (data, status) {
+                    if (data != null) {
+                        return obj = {
+                            loadingData: false,
+                            dataError: data
+                        };
+                    } else {
+                        return obj = {
+                            loadingData: false,
+                            dataError: "Check Your Internet Connection And Try Again! "
+                        };
+                    }
+
+                });
+
+
+            });
+
+
+        },
+
+        pyapalPayment: function () {
+            sdo.getUrls().then(function () {
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token_type + ' ' + tokenID
+                    }
+                }
+                return $http.post(
+                    mUrls.paypalPayment, paypalPayloads, config
+                ).success(function (data, status) {
+                    $window.location.href = data.links[1].href;
+                }).error(function (data, status) {
+                    if (data != null) {
+                        return obj = {
+                            loadingData: false,
+                            dataError: data
+                        };
+                    } else {
+                        return obj = {
+                            loadingData: false,
+                            dataError: "Check Your Internet Connection And Try Again! "
+                        };
+                    }
+                })
+            });
+        },
+
+        getShop: function (shop_id) {
+            return sdo.getUrls().
             then(function (response) {
                 var promise1 = $http({
                     method: 'GET',
