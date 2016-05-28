@@ -82,36 +82,34 @@ app.factory('Base64', function () {
         }
     };
 });
-app.factory('DataLoader', function ($http) {
 
+/* TODO */
+app.factory('DataLoader', function ($http) {
     return {
         post: function (url) {
             return $http.jsonp(url);
         },
         getAuth: function (base64, url, postData) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + base64;
-
             var req = {
                 method: 'POST',
                 url: url,
                 data: postData
-
             }
-
             return $http(req);
         },
     }
 });
-app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', function ($http, $q, $timeout, $cookies, Base64, gulServiceCall) {
 
+/* TODO */
+app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 
+    function ($http, $q, $timeout, $cookies, Base64, gulServiceCall) {
     var sdo = {
 
         /**
          List of cchat
          **/
-
         getChat: function () {
-
             return $http.get('gulgs.properties')
                 .then(function (one) {
                     var cChatNames = [];
@@ -138,7 +136,6 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
         /*List of Conversation*/
         getConversation: function (chatNames) {
             var deferred = $q.defer();
-
             return gulServiceCall.getUrls()
                 .then(function (one) {
 
@@ -247,8 +244,7 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                 .then(function (response) {
                     var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
 
-
-//console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
+                    //console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
                     var loginAuth = base64;
                     var config = {
                         headers: {
@@ -270,6 +266,7 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
 
                 });
         },
+
         /**
          Get ALL SHOPS
          **/
@@ -511,7 +508,9 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
 
     return sdo;
 }]);
-app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
+
+app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', 
+    function ($http, $q, $timeout, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
@@ -802,9 +801,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
 }]);
 
 var isImage = function (src, $q) {
-
     var deferred = $q.defer();
-
     var image = new Image();
     image.onerror = function () {
         deferred.resolve(false);
