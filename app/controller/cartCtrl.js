@@ -5,6 +5,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
     $scope.showContent = false;
     $scope.popFlag = false;
 
+
     /**
      * getting Cart Item From Cookies
      */
@@ -47,7 +48,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
     /**
      * Getting Item size to show products in  Cart of menu on hover
      */
-
     $scope.getItemSize = function () {
             if(angular.isDefined($scope.items)){
                 $scope.items = JSON.parse($cookies.get("invoices"));
@@ -59,38 +59,21 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
             }else{
                 $scope.itemSize = true;
             }
-            console.log($scope.itemSize);
-
-        /* commonFactory.getItemSize($scope.items).then(function(data){
-            $scope.itemSize = data;
-        });*/
     }
 
     /**
      * Paypal Payment Api calling
      */
-
     $scope.paypalPayment = function () {
 
-
-        /*if ($cookies.get("username") != null) {
-            if ($scope.totalPrice > 0) {
-                $scope.loadingData = true;
-                gulServiceCall.paypalApi($scope.mUrls, paypalPayload()).then(function (response) {
-                    console.log(response);
-                });
-            } else {
-                alert("Card is Empty");
-            }
-        } else {
-            $rootScope.$emit("signin", {});
-        }*/
+        cartFactory.paypalPayment().then(function(data){
+            console.log(data);
+        });
     };
 
     /**
      * Checking for total Items in Cart
      */
-
     var checkItems = function () {
         cartFactory.checkItems().then(function(data){
             $scope.abc = data.abc;
@@ -104,7 +87,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
      * Remove item from Cart
      * @param index
      */
-
     $scope.removeItem = function (index) {
         $scope.items.splice(index, 1);
         $cookies.put("invoices", JSON.stringify($scope.items));
@@ -123,7 +105,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
      * @param size
      * @param qty
      */
-
     $scope.storeProductsInCookie = function (prod, size, qty) {
         $scope.popFlag = true;
         cartFactory.storeProductsInCookie(prod,size,qty).then(function(data){
@@ -138,7 +119,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
      * Calculating total cost of products in cart
      * @param items
      */
-
     $scope.totalCost = function (items) {
         cartFactory.totalCost(items).then(function (data) {
             $scope.totalPrice = data;
@@ -151,7 +131,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
      * Payload Structure for Paypal
      * @returns {{intent: string, redirect_urls: {return_url: string, cancel_url: string}, payer: {payment_method: string}, transactions: *[]}}
      */
-
     var paypalPayload = function () {
         return paypalLoad = {
             "intent": "sale",
@@ -184,7 +163,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
     /**
      * Method to call on load
      */
-
     $scope.onload = function () {
         $(window).load(function () {
             $("body").fadeIn(100);
@@ -194,7 +172,6 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
     /**
      * Method call on Controller load
      */
-
     $scope.onload();
     checkItems();
     $scope.getItemSize();

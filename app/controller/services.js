@@ -101,7 +101,7 @@ app.factory('DataLoader', function ($http) {
     }
 });
 
-app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 'apiFactory', 'chatFactory', function ($q, $timeout, $cookies, Base64, gulServiceCall, apiFactory, chatFactory) {
+app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 'apiFactory', 'chatFactory','commonFactory', function ($q, $timeout, $cookies, Base64, gulServiceCall, apiFactory, chatFactory , commonFactory) {
     var sdo = {
 
         /**
@@ -273,7 +273,7 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
                     var url = response.data.categoryUrl + '/' + cat_id;
                     return apiFactory.getApiData(url)
                         .then(function (data) {
-                            return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
+                            return commonFactory.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
                                 value = {
                                     urls: response.data,
                                     banner: result,
@@ -506,19 +506,23 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFact
     var sdo = {
 
         paypalPayment: function (totalPrice, paypalPayload) {
-            if ($cookies.get("username") != null) {
-                if (totalPrice > 0) {
-                    return apiFactory.paypalToken(paypalPayload).then(function (data) {
-                        $cookies.put("tokenID", data.access_token);
-                        var tokenID = $cookies.get("tokenID");
-                        return apiFactory.paypalPayment(function (data) {
-                            return data;
-                        });
-                    });
 
-                } else {
-                    alert("Cart is Empty");
-                }
+            if ($cookies.get("username") != null) {
+                var invoice = JSON.parse($cookies.get("invoices"));
+                return sdo.totalCost(invoice).then(function(data){
+                    if (data > 0) {
+                        return apiFactory.paypalToken(paypalPayload).then(function (data) {
+                            $cookies.put("tokenID", data.access_token);
+                            var tokenID = $cookies.get("tokenID");
+                            return apiFactory.paypalPayment(function (data) {
+                                return data;
+                            });
+                        });
+
+                    } else {
+                        alert("Cart is Empty");
+                    }
+                });
             } else {
                 $rootScope.$emit("signin", {});
             }
@@ -865,6 +869,14 @@ app.factory('commonFactory', ['$q', function ($q) {
             }
             console.log("CALLED");
             return deferred.promise;
+        },
+
+        getShop: function(mName,categoryIDs){
+            for (var i = 0; i < categoryIDs.length; i++) {
+                if (mName == categoryIDs[i].name) {
+                    return categoryIDs[i].id;
+                }
+            }
         }
 
     }
@@ -961,7 +973,7 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
         },
 
         paypalToken: function (data) {
-            return sdo.getUrls.then(function (response) {
+            return sdo.getUrls().then(function (response) {
                 var base64 = Base64.encode(response.data.paypalClientID + ':' + response.data.paypalSecretKey);
 
                 var config = {
