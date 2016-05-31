@@ -138,17 +138,6 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             console.log("resImage at Line 151:", resImage);
             //if(imageResizeFlag==false){
             $scope.uploadImages();
-            /*}else{
-
-             angular.forEach(resImage, function (myItem) {
-             resImageUri.push(myItem.resized.dataURL);
-             });
-             console.log("resImageUri at 162:",resImageUri);
-             cropImageArr = resImageUri;
-             console.log("cropImageArr at 164:",cropImageArr);
-             $scope.uploadProduct();
-             imageResizeFlag = false;
-             } */
 
         });
     }
@@ -584,6 +573,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      //console.log("Value"+value);
      $scope.shopImage.push(value);
      };*/
+
     $scope.getShopDecision = function () {
         if ($scope.shopImage.length > 0) {
             return true;

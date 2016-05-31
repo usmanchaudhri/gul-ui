@@ -101,9 +101,7 @@ app.factory('DataLoader', function ($http) {
     }
 });
 
-/* TODO */
-app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 
-    function ($http, $q, $timeout, $cookies, Base64, gulServiceCall) {
+app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 'apiFactory', 'chatFactory', function ($q, $timeout, $cookies, Base64, gulServiceCall, apiFactory, chatFactory) {
     var sdo = {
 
         /**
@@ -155,291 +153,147 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
         },
 
 
+        /**
+         * Get list of all shipping address of user
+         * @returns {*}
+         */
         getShippingList: function () {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
 
-            console.log("Shipping ",JSON.parse($cookies.get("username")));
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-
-
-                    var loginAuth = base64;
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
-
-                    return $http.get(response.data.loginUrl, config)
+                    var url = response.data.loginUrl;
+                    return apiFactory.getApiAuthData(url)
                         .then(function (response1) {
-                            /*$scope.showProgress = true;*/
-                            console.log("Services Response", response1);
-
                             return response1.data.customerShipping;
-
-
                         });
-
-
-                });
-        },
-
-        /*List of Orders*/
-        getOrder: function () {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
-            return promise
-                .then(function (response) {
-                    var base64 = Base64.encode($cookies.get("username").username + ':' + $cookies.get("username").password);
-
-                    var loginAuth = base64;
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
-
-                    return $http.get(response.data.customerUrl + '/' + $cookies.get("userId") + "/orders", config)
-                        .then(function (response1) {
-                            /*$scope.showProgress = true;*/
-                            console.log("Services Response", response1);
-
-
-                            value = {
-
-                                orderDetail: response1.data,
-
-                            };
-
-                            return value;
-
-
-                        });
-
-
-                });
-        },
-        /*Get Account*/
-        getAccount: function () {
-
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'false'
-            });
-            return promise
-                .then(function (response) {
-                    var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-
-                    //console.log("BASE64",$cookies.get("username").username + ':' + $cookies.get("username").password );
-                    var loginAuth = base64;
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + loginAuth
-                        }
-                    }
-
-                    return $http.get(response.data.loginUrl, config)
-                        .then(function (response1) {
-                            /*$scope.showProgress = true;*/
-                            console.log("Get Account Services Response", response1);
-
-                            return response1.data;
-
-
-                        });
-
-
                 });
         },
 
         /**
-         Get ALL SHOPS
-         **/
-        getallShops: function () {
-            var deferred = $q.defer();
-
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-
-            return promise
+         * Get list of all orders placed by user
+         * @returns {*}
+         */
+        getOrder: function () {
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePathShop;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-
-                    var anotherPromise = $http({
-                        method: 'GET',
-                        url: response.data.shopUrl,
-                        cache: 'true'
-                    });
-
-                    return anotherPromise
+                    var url = response.data.customerUrl + '/' + $cookies.get("userId") + "/orders";
+                    return apiFactory.getApiAuthData(url)
                         .then(function (response1) {
-                            //
+                            value = {
+                                orderDetail: response1.data,
+                            };
+                            return value;
+                        });
+                });
+        },
+
+        /**
+         * Get Account Detail of user
+         * @returns {*}
+         */
+        getAccount: function () {
+            return gulServiceCall.getUrls()
+                .then(function (response) {
+                    var url = response.data.loginUrl;
+                    return apiFactory.getApiAuthData(url)
+                        .then(function (response1) {
+                            return response1.data;
+                        });
+                });
+        },
+
+        /**
+         * Get All shop exist
+         * @returns {*}
+         */
+        getallShops: function () {
+
+            return gulServiceCall.getUrls()
+                .then(function (response) {
+                    var url = response.data.shopUrl;
+                    return apiFactory.getApiData(url)
+                        .then(function (response1) {
                             value = {
                                 allShopDetail: response1.data,
-                                fixPath: mFixPath,
-                                token: mToken
+                                fixPath: response.data.fixImagePathShop,
+                                token: response.data.token
                             };
-                            console.log(value);
                             return value;
-                            //return allShopDetail = response1.data;
                         });
-
-
                 });
-
-
         },
 
         /**
-         GET SPECIFIC SHOP
+         GET SPECIFIC SHOP on which user click
          **/
+
         getShop: function (shop_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            console.log("PARAMS", shop_id);
-            return promise
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPathShop = response.data.fixImagePathShop;
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    var promise1 = $http({
-                        method: 'GET',
-                        url: response.data.shopUrl + '/' + shop_id + '/products',
-                        cache: 'true'
-                    });
-                    var promise2 = $http({
-                        method: 'GET',
-                        url: response.data.shopUrl + '/' + shop_id + '/designers',
-                        cache: 'true'
-                    });
-
-                    return $q.all([promise1, promise2]).then(function (data) {
-
-                        value = {
-                            fixPath: mFixPath,
-                            fixPathShop: mFixPathShop,
-                            token: mToken,
+                    return apiFactory.getShop(shop_id).then(function (data) {
+                        var value =
+                        {
+                            fixPath: response.data.fixImagePath,
+                            fixPathShop: response.data.fixImagePathShop,
+                            token: response.data.token,
                             shop: data[0].data,
                             designer: data[1].data
                         };
                         return value;
                     });
-
-
                 });
-
-
         },
 
         /**
          GET PRODUCT DETAIL
          **/
         getProductDetail: function (pro_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+
+            return gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    return $http.get(response.data.productUrl + '/' + pro_id)
-                        .then(function (response1) {
+                    var url = response.data.productUrl + '/' + pro_id;
+                    return apiFactory.getApiData(url)
+                        .then(function (data) {
                             value = {
                                 urls: response.data,
-                                fixPath: mFixPath,
-                                token: mToken,
-                                productDetail: response1.data,
-                                selectedItem: response1.data.productVariation[0].size
+                                fixPath: response.data.fixImagePath,
+                                token: response.data.token,
+                                productDetail: data.data,
+                                selectedItem: data.data.productVariation[0].size
                             };
                             console.log("PRoduct Detail: ", value);
                             return value;
-
-
                         });
-
-
                 });
-
-
         },
 
         getCategory: function (cat_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+            gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    return $http.get(response.data.categoryUrl + '/' + cat_id)
-                        .then(function (response1) {
+                    var url = response.data.categoryUrl + '/' + cat_id;
+                    return apiFactory.getApiData(url)
+                        .then(function (data) {
                             return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
-
                                 value = {
                                     urls: response.data,
                                     banner: result,
-                                    fixPath: mFixPath,
-                                    token: mToken,
-                                    categoryLength: response1.data.subCategories.length,
-                                    categoryDetail: response1.data
+                                    fixPath: response.data.fixImagePath,
+                                    token: response.data.token,
+                                    categoryLength: data.data.subCategories.length,
+                                    categoryDetail: data.data
                                 };
                                 return value;
                             });
-
                         });
-
-
                 });
-
-
         },
 
         getCategoryProduct: function (cat_id) {
-            var deferred = $q.defer();
-            var promise = $http({
-                method: 'GET',
-                url: 'gulgs.properties',
-                cache: 'true'
-            });
-            return promise
+
+            gulServiceCall.getUrls()
                 .then(function (response) {
-                    var mFixPath = response.data.fixImagePath;
-                    var mToken = response.data.token;
-                    //deferred.resolve();
-                    return $http.get(response.data.categoryUrl + '/' + cat_id + '/products')
+                    var url = response.data.categoryUrl + '/' + cat_id + '/products';
+                    return apiFactory.getApiData(url)
                         .then(function (response1) {
                             var categoryIDs = [];
                             categoryProDetail = [];
@@ -485,8 +339,8 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                                 value = {
                                     banner: result,
                                     urls: response.data,
-                                    fixPath: mFixPath,
-                                    token: mToken,
+                                    fixPath: response.data.fixImagePath,
+                                    token: response.data.token,
                                     categoryProDetail: categoryProDetail,
                                     categoryIDs: categoryIDs
                                 };
@@ -501,16 +355,29 @@ app.factory('gulServices', ['$http', '$q', '$timeout', '$cookies', 'Base64', 'gu
                 });
 
 
+        },
+
+        /**
+         * Adding user New Shipping Address
+         * @param customerUrl
+         * @param shippingData
+         */
+        addNewShipping: function (customerUrl, shippingData) {
+            apiFactory.postApiAuthData(customerUrl, shippingData)
+                .then(function (data) {
+                    return sdo.getShippingList().then(function (data) {
+
+                        return data;
+                    });
+                });
         }
 
-
     }
-
     return sdo;
+
 }]);
 
-app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', 
-    function ($http, $q, $timeout, $cookies, Base64, $window) {
+app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
@@ -521,26 +388,617 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
                 });
         },
 
-        paypalApi: function (mUrls, paypalPayloads) {
 
-            var base64 = Base64.encode(mUrls.paypalClientID + ':' + mUrls.paypalSecretKey);
+        updateShippingAddress: function () {
 
+            sdo.getUrls().then(function (data) {
+                var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+                var loginAuth = base64;
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + loginAuth
+                    }
+                }
+                return $http.put(
+                    data.data.shippingUrl + '/' + updateDetail.shippingDetail.id, updateShippingAddress, config
+                ).then(function (data) {
+                    return $http.get(
+                        data.data.loginUrl, config
+                    ).then(function (data, status) {
+                        return data.data.customerShipping;
+                    });
+                });
+            });
+
+        },
+
+        signIn: function (loginEmail, loginPass) {
+            var base64 = Base64.encode(loginEmail + ':' + loginPass);
+
+            var loginAuth = base64;
             var config = {
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-                    'Authorization': 'Basic ' + base64
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+
                 }
             }
 
-            var data = $.param({
-                grant_type: "client_credentials"
+            return sdo.getUrls().then(function (data) {
+                return $http.get(
+                    data.data.loginUrl, config
+                ).then(function (data) {
+                    console.log(data);
+                    if ($cookies.get("username") != loginEmail) {
+                        var value = {
+                            "username": data.data.username,
+                            "password": loginPass,
+                            "id": data.data.id,
+                            "shopId": JSON.stringify(data.data.shop)
+                        };
+                        $cookies.put("username", JSON.stringify(value));
+                        $cookies.put("userId", data.data.id);
+                        console.log("VALUE: ", value);
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+
+                });
             });
 
-            return $http.post(
-                mUrls.paypalToken, data, config
-            ).success(function (data, status) {
-                $cookies.put("tokenID", data.access_token);
-                var tokenID = $cookies.get("tokenID");
+        },
+
+        updateIsActive: function (shippingId1, isActive1, shippingId2, isActive2, customerUrl) {
+            var data1 = {
+                "isActive": isActive1
+            };
+            console.log("Data1: ", data1);
+            var data2 = {
+                "isActive": isActive2
+            };
+            console.log("Data2: ", JSON.parse($cookies.get("username")));
+
+            var mId = JSON.parse($cookies.get("username")).id;
+            var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth = base64;
+
+            var promise1 = $http({
+                method: 'PUT',
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId1,
+                data: data1,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                },
+                cache: 'false'
+            });
+            var promise2 = $http({
+                method: 'PUT',
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId2,
+                data: data2,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                },
+                cache: 'false'
+            });
+
+            return $q.all([promise1, promise2]).then(function (data) {
+                return 1;
+            }, function onError(response) {
+                return 0;
+                console.log("onError", response);
+
+            });
+        },
+
+        updateCustomer: function () {
+
+        }
+    }
+
+    return sdo;
+}]);
+
+app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFactory', '$q', function ($cookies, $rootScope, gulServiceCall, apiFactory, $q) {
+    var sdo = {
+
+        paypalPayment: function (totalPrice, paypalPayload) {
+            if ($cookies.get("username") != null) {
+                if (totalPrice > 0) {
+                    return apiFactory.paypalToken(paypalPayload).then(function (data) {
+                        $cookies.put("tokenID", data.access_token);
+                        var tokenID = $cookies.get("tokenID");
+                        return apiFactory.paypalPayment(function (data) {
+                            return data;
+                        });
+                    });
+
+                } else {
+                    alert("Cart is Empty");
+                }
+            } else {
+                $rootScope.$emit("signin", {});
+            }
+        },
+
+        uploadOrder: function (orderPayload) {
+            apiFactory.getUrls().then(function (response) {
+                return apiFactory.postApiAuthData(
+                    response.data.orderUrl, orderPayload
+                ).then(function (data) {
+                    return "success";
+
+                });
+            });
+
+        },
+
+        totalCost: function (items) {
+            var deferred = $q.defer();
+            //var items = $cookies.get("invoices");
+            console.log("PRINT PRINT: ", items.length);
+            var totalPrice = 0;
+            for (var i = 0; i < items.length; i++) {
+                //    console.log(items[i]);
+                totalPrice = totalPrice + (items[i].cost * items[i].qty);
+            }
+            if (items.length == 0) {
+                totalPrice = 0;
+            }
+            totalPrice = Math.round(totalPrice * 100) / 100;
+            console.log(totalPrice);
+            deferred.resolve(totalPrice);
+            return deferred.promise;
+        },
+
+        storeProductsInCookie: function (prod, size, qty) {
+            var deferred = $q.defer();
+            var invoice = JSON.parse($cookies.get("invoices"));
+            var prodExistFlag = false;
+            if (prod.quantity > qty) {
+                if (qty < 1) {
+                    qty = 1;
+                }
+                if (angular.isDefined($cookies.get("invoices"))) {
+                    angular.forEach(JSON.parse($cookies.get("invoices")), function (myProd) {
+                        if (myProd.id == prod.id && myProd.size == size) {
+                            prodExistFlag = true;
+                        }
+                    });
+                }
+                if (prodExistFlag) {
+                    var itemsList = JSON.parse($cookies.get("invoices"));
+                    var i = 0;
+                    angular.forEach(itemsList, function (myProd) {
+                        if (myProd.id == prod.id && myProd.size == size) {
+                            myProd.qty = parseInt(myProd.qty) + parseInt(qty);
+                            itemsList.splice(i, 1, myProd);
+                        }
+                        i++;
+                    });
+                    $cookies.put("invoices", JSON.stringify(itemsList));
+                } else {
+                    invoice.push({
+                        id: prod.id,
+                        qty: qty,
+                        totalQty: prod.quantity,
+                        name: prod.name,
+                        size: size,
+                        shop: prod.shop.name,
+                        shopID: prod.shop.id,
+                        cost: prod.pricingProduct.storedValue,
+                        category: prod.category,
+                        imagePath: prod.imagePath
+
+                    });
+                    $cookies.put("invoices", JSON.stringify(invoice));
+                }
+                invoice = JSON.parse($cookies.get("invoices"));
+                sdo.totalCost(invoice).then(function (data) {
+                    var value = {
+                        "currentItem": invoice[invoice.length - 1],
+                        "abc": invoice.length,
+                        "totalPrice": data,
+                        "invoice": invoice
+                    };
+                    deferred.resolve(value);
+                    return deferred.promise;
+                });
+            }
+            return deferred.promise;
+        },
+
+        checkItems: function () {
+            var deferred = $q.defer();
+            var abc;
+            var items = JSON.parse($cookies.get("invoices"));
+            if (angular.isUndefined(items)) {
+                items = [];
+                abc = 0;
+            }
+            else {
+                items = JSON.parse($cookies.get("invoices"))
+                abc = items.length;
+            }
+            return sdo.totalCost(items).then(function (data) {
+                var value = {
+                    "items": items,
+                    "abc": abc,
+                    "totalPrice": data
+                }
+                deferred.resolve(value);
+                return deferred.promise;
+            });
+        }
+
+    }
+
+
+    return sdo;
+}]);
+
+app.factory('loginFactory', ['$cookies', '$rootScope', 'apiFactory', function ($cookies, $rootScope, apiFactory) {
+
+    var sdo = {
+        regUserTwilio: function (user) {
+            var data = $.param({
+                Identity: user
+            });
+            apiFactory.getUrls().then(function (response) {
+                var url = response.data.twilioUser;
+                apiFactory.postTwilioData(url, data)
+                    .then(function (data) {
+                        return data;
+                    });
+            });
+        }
+    }
+    return sdo;
+}]);
+
+app.factory('chatFactory', ['apiFactory', '$cookies', function (apiFactory, $cookies) {
+    var sdo = {
+
+        /**
+         * Get List of user and first msg of chat to show
+         * @returns {*|{get}}
+         */
+        getChatList: function () {
+            return apiFactory.getUrls()
+                .then(function (one) {
+                    var url = one.data.customerUrl + '/' + JSON.parse($cookies.get('username')).id + '/cchat';
+                    return apiFactory.getApiData(url)
+                        .then(function (dataa) {
+                            var cChatNames = [];
+                            var customerName = JSON.parse($cookies.get("username")).username;
+                            if (dataa.data.length > 0) {
+                                var chatArr = dataa.data[0].customer.cchat;
+                                for (var i = 0; i < chatArr.length; i++) {
+                                    var promise = sdo.getConversationCustom(chatArr[i]);
+                                    promise.then(function (data) {
+                                        cChatNames.push(data);
+                                    }, function (reason) {
+                                        console.log("Success : ", reason);
+                                    });
+                                }
+                            }
+                            return cChatNames
+                        });
+                });
+        },
+
+        /**
+         * Getting Chat Title and call a method to get Messages list
+         * @param chatNames
+         * @returns {*|{get}}
+         */
+        getConversationList: function (chatNames) {
+            return apiFactory.getUrls()
+                .then(function (one) {
+                    return sdo.getMessageTitle(one, chatNames)
+                        .then(function (chatTitle) {
+                            return sdo.retrieveMessageTwilio(chatNames)
+                                .then(function (data) {
+                                    return {
+                                        "chatData": data,
+                                        "cchat": chatTitle
+
+                                    };
+
+                                });
+                        });
+                });
+        },
+
+        /**
+         * Getting Messages list from server
+         * @param channelSid
+         * @returns {*|{get}}
+         */
+        retrieveMessageTwilio: function (channelSid) {
+            var chatData = [];
+            return apiFactory.getUrls().then(function (response) {
+                var url = response.data.twilioChannel + '/' + channelSid + '/Messages';
+
+                console.log("retrieveMessageTwilio", response);
+                return apiFactory.getApiData(url)
+                    .then(function (data) {
+                        var chatMsg = data.data;
+                        for (var i = 0; i < chatMsg.length; i++) {
+                            var from = chatMsg[i].from.split('@');
+                            var value = {
+                                "from": from[0],
+                                "body": chatMsg[i].body
+                            }
+                            chatData.push(value);
+                        }
+                        return chatData;
+                    });
+            });
+        },
+
+        /**
+         * Getting Message Title
+         * @param one
+         * @param chatNames
+         * @returns {*}
+         */
+        getMessageTitle: function (one, chatNames) {
+            var url = one.data.customerUrl + '/' + $cookies.get('userId') + '/cchat';
+            var chatTitle = '';
+
+            return apiFactory.getApiData(url).then(function (dataa) {
+                for (var i = 0; i < dataa.data.length; i++) {
+                    if (dataa.data[i].uniqueName == chatNames) {
+                        var designerName = JSON.parse($cookies.get("username")).username.split('@');
+                        var from = dataa.data[i].shopOwnerUsername.split('@');
+                        chatTitle = {
+                            "customerUsername": dataa.data[i].customerUsername,
+                            "customer": designerName[0],
+                            "designer": from[0]
+                        };
+                    }
+                }
+                return chatTitle;
+
+            });
+
+        },
+
+        /**
+         * Method to get Last message of every chat
+         * @param obj
+         * @returns {*|{get}}
+         */
+        getConversationCustom: function (obj) {
+            var chatNames = obj.uniqueName;
+            return apiFactory.getUrls()
+                .then(function (one) {
+                    var url = one.data.twilioChannel + '/' + chatNames + '/Messages';
+                    return apiFactory.getApiData(url)
+                        .then(function (data) {
+                            var chatData = [];
+                            for (var i = 0; i < data.data.length; i++) {
+
+                                var from = data.data[i].from.split('@');
+                                var value = {
+                                    "from": from[0],
+                                    "body": data.data[i].body
+                                }
+                                chatData.push(value);
+                            }
+                            var lastMsg = chatData[(chatData.length - 1)].body;
+                            var name = obj.shopOwnerUsername.split("@");
+                            return cName = {
+                                "uniqueName": obj.uniqueName,
+                                "product": obj.customerUsername,
+                                "designer": name[0],
+                                "lastMessage": lastMsg
+                            }
+                        });
+                });
+        },
+
+        /**
+         * Send User Message to Server
+         * @param msgBody
+         * @param channelSid
+         * @returns {*}
+         */
+        sendMessageTwilio: function (msgBody, channelSid) {
+
+            return apiFactory.getUrls().then(function (response) {
+                var mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+                var data1 = $.param({
+                    Body: msgBody,
+                    From: mFrom
+                });
+                var url = response.data.twilioChannel + '/' + channelSid + '/Messages';
+                return apiFactory.postTwilioData(url, data1)
+                    .then(function (data) {
+                        return data;
+                    });
+            });
+        },
+    }
+    return sdo;
+}]);
+
+app.factory('commonFactory', ['$q', function ($q) {
+    var sdo = {
+        isImage: function (src) {
+            var deferred = $q.defer();
+
+            var image = new Image();
+            image.onerror = function () {
+                deferred.resolve(false);
+            };
+            image.onload = function () {
+                deferred.resolve(true);
+            };
+            image.src = src;
+
+            return deferred.promise;
+        },
+
+        menuColor: function (breadcrumbs) {
+            var deferred = $q.defer();
+            var breadcrumbLength = breadcrumbs.get().length;
+            if (breadcrumbLength > 1) {
+                var value = {
+                    "enableBorder": "1px solid #E2E2E2",
+                    "menuColor": "black",
+                    "menuMargin": "125px"
+                }
+                deferred.resolve(value);
+
+            } else {
+                var value = {
+                    "enableBorder": "none",
+                    "menuColor": "white",
+                    "menuMargin": "0px"
+                }
+                deferred.resolve(value);
+            }
+            console.log("CALLED");
+            return deferred.promise;
+        }
+
+    }
+    return sdo;
+}]);
+
+// <<<<<<< HEAD
+// var isImage = function (src, $q) {
+//     var deferred = $q.defer();
+//     var image = new Image();
+//     image.onerror = function () {
+//         deferred.resolve(false);
+//     };
+//     image.onload = function () {
+//         deferred.resolve(true);
+//     };
+//     image.src = src;
+
+//     return deferred.promise;
+// }
+// var getConversationCustom = function (obj, $q, $http) {
+//     var chatNames = obj.uniqueName;
+//     var promise = $http({
+//         method: 'GET',
+//         url: 'gulgs.properties',
+//         cache: 'false'
+//     });
+
+//     return promise
+//         .then(function (one) {
+// =======
+
+app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
+    var sdo = {
+
+        getUrls: function () {
+            return $http.get('gulgs.properties')
+                .then(function (one) {
+                    // console.log("ONE", one);
+                    return one;
+                });
+        },
+
+        getApiData: function (url) {
+
+            return sdo.getUrls()
+                .then(function (response) {
+                    return $http.get(url)
+                        .then(function (data) {
+                            return data;
+                        });
+                });
+        },
+
+        getApiAuthData: function (url) {
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                }
+            }
+            return $http.get(url, config)
+                .then(function (data) {
+                    return data;
+                });
+
+        },
+
+        postApiAuthData: function (url, data) {
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                }
+            }
+            return $http.post(url, data, config
+            ).then(function (data) {
+                return data;
+            });
+        },
+
+        postTwilioData: function (url, data) {
+            var config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+            return $http.post(url, data, config
+            ).then(function (data) {
+                return data;
+            });
+        },
+
+        paypalToken: function (data) {
+            return sdo.getUrls.then(function (response) {
+                var base64 = Base64.encode(response.data.paypalClientID + ':' + response.data.paypalSecretKey);
+
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                        'Authorization': 'Basic ' + base64
+                    }
+                }
+                var data = $.param({
+                    grant_type: "client_credentials"
+                });
+                return $http.post(response.data.paypalToken).success(function (data) {
+                    return data;
+
+                }).error(function (data, status) {
+                    if (data != null) {
+                        return obj = {
+                            loadingData: false,
+                            dataError: data
+                        };
+                    } else {
+                        return obj = {
+                            loadingData: false,
+                            dataError: "Check Your Internet Connection And Try Again! "
+                        };
+                    }
+
+                });
+
+
+            });
+
+
+        },
+
+        pyapalPayment: function () {
+            sdo.getUrls().then(function () {
                 var config = {
                     headers: {
                         'Content-Type': 'application/json',
@@ -564,291 +1022,30 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
                         };
                     }
                 })
-            }).error(function (data, status) {
-                if (data != null) {
-                    return obj = {
-                        loadingData: false,
-                        dataError: data
-                    };
-                } else {
-                    return obj = {
-                        loadingData: false,
-                        dataError: "Check Your Internet Connection And Try Again! "
-                    };
-                }
-
             });
-
-
         },
 
-        regUserTwilio: function (user) {
-
-            var data = $.param({
-                Identity: user
-            });
-            sdo.getUrls().then(function (response) {
-
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                    }
-                };
-                return $http.post(
-                    response.data.twilioUser, data, config
-                ).success(function (data, status) {
+        getShop: function (shop_id) {
+            return sdo.getUrls().
+            then(function (response) {
+                var promise1 = $http({
+                    method: 'GET',
+                    url: response.data.shopUrl + '/' + shop_id + '/products',
+                    cache: 'true'
+                });
+                var promise2 = $http({
+                    method: 'GET',
+                    url: response.data.shopUrl + '/' + shop_id + '/designers',
+                    cache: 'true'
+                });
+                return $q.all([promise1, promise2]).then(function (data) {
                     return data;
-                }).error(function (data, status) {
-                    console.log(data);
                 });
-            });
-
-        },
-
-        sendMessageTwilio: function (msgBody, channelSid) {
-
-            return sdo.getUrls().then(function (response) {
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                    }
-                }
-
-                var mFrom = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
-                var data1 = $.param({
-                    Body: msgBody,
-                    From: mFrom
-                });
-                return $http.post(
-                    response.data.twilioChannel + '/' + channelSid + '/Messages', data1, config
-                ).then(function (data) {
-                    console.log("POST DATA: ", data);
-                    return data;
-                    /*return sdo.retrieveMessageTwilio(channelSid).then(function (dataaa){
-                     console.log("retrieveMessageTwilio",dataaa);
-                     // return data;
-                     });*/
-                });
-
-            });
-        },
-
-        retrieveMessageTwilio: function (channelSid) {
-            var chatData = [];
-            return sdo.getUrls().then(function (response) {
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                    }
-                }
-                return $http.get(
-                    response.data.twilioChannel + '/' + channelSid + '/Messages', config
-                ).then(function (data) {
-                    var chatMsg = data.data;
-                    for (var i = 0; i < chatMsg.length; i++) {
-                        var from = chatMsg[i].from.split('@');
-                        var value = {
-                            "from": from[0],
-                            "body": chatMsg[i].body
-                        }
-                        chatData.push(value);
-                    }
-                    return chatData;
-                });
-            });
-        },
-
-        getMessageTitle: function (one, chatNames) {
-            var chatTitle = '';
-            return $http.get(one.data.customerUrl + '/' + $cookies.get('userId') + '/cchat').then(function (dataa) {
-                for (var i = 0; i < dataa.data.length; i++) {
-                    if (dataa.data[i].uniqueName == chatNames) {
-                        var designerName = JSON.parse($cookies.get("username")).username.split('@');
-                        var from = dataa.data[i].shopOwnerUsername.split('@');
-                        chatTitle = {
-                            "customerUsername": dataa.data[i].customerUsername,
-                            "customer": designerName[0],
-                            "designer": from[0]
-                        };
-                    }
-                }
-                return chatTitle;
-
-            });
-
-        },
-
-        uploadOrder: function(orderPayload){
-            var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-            var loginAuth =  base64;
-            var config = {
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                }
-            }
-            gulServiceCall.getUrls().then(function(response){
-                return $http.post(
-                    response.data.orderUrl,orderPayload,config
-                ).then(function(data) {
-                    return "success";
-
-                });
-            });
-
-        },
-
-        updateShippingAddress: function(){
-            var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-            var loginAuth = base64;
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                }
-            }
-            return $http.put(
-                $scope.shippingUrl + '/' + updateDetail.shippingDetail.id, updateShippingAddress, config
-            ).then(function (data) {
-                return $http.get(
-                    $scope.loginUrl, config
-                ).then(function (data, status) {
-                    return data.data.customerShipping;
-                    });
-            });
-        },
-
-        signIn: function(loginEmail,loginPass){
-            var base64 = Base64.encode( loginEmail + ':' + loginPass );
-
-            var loginAuth =  base64;
-            var config = {
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-
-                }
-            }
-
-           return sdo.getUrls().then(function(data){
-                return $http.get(
-                    data.data.loginUrl,config
-                ).then(function(data) {
-                    console.log(data);
-                    if($cookies.get("username") != loginEmail){
-                        var value = {
-                            "username": data.data.username,
-                            "password": loginPass,
-                            "id": data.data.id,
-                            "shopId": JSON.stringify(data.data.shop)
-                        };
-                        $cookies.put("username",JSON.stringify(value));
-                        $cookies.put("userId",data.data.id);
-                        console.log("VALUE: ", value);
-                        return 0;
-                    }else{
-                        return 1;
-                    }
-
-                });
-            });
-
-        },
-
-        updateIsActive: function(shippingId1,isActive1,shippingId2,isActive2,shippingUrl){
-            var data1 = {
-                "isActive": isActive1
-            };
-            console.log("Data1: ",data1);
-            var data2 = {
-                "isActive": isActive2
-            };
-            console.log("Data2: ", JSON.parse($cookies.get("username")));
-
-            var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-            var loginAuth =  base64;
-
-            var promise1 = $http({
-                method: 'PUT',
-                url: shippingUrl+'/'+shippingId1,
-                data: data1,
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                },
-                cache: 'false'});
-            var promise2 = $http({
-                method: 'PUT',
-                url: $scope.shippingUrl+'/'+shippingId2,
-                data: data2,
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + loginAuth
-                },
-                cache: 'false'});
-
-            $q.all([promise1,promise2]).then(function(data){
-                return 0;
-            }, function onError(response) {
-                console.log("onError",response);
-
             });
         }
+
 
     }
 
     return sdo;
 }]);
-
-var isImage = function (src, $q) {
-    var deferred = $q.defer();
-    var image = new Image();
-    image.onerror = function () {
-        deferred.resolve(false);
-    };
-    image.onload = function () {
-        deferred.resolve(true);
-    };
-    image.src = src;
-
-    return deferred.promise;
-}
-var getConversationCustom = function (obj, $q, $http) {
-    var chatNames = obj.uniqueName;
-    var promise = $http({
-        method: 'GET',
-        url: 'gulgs.properties',
-        cache: 'false'
-    });
-
-    return promise
-        .then(function (one) {
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-            return $http.get(
-                one.data.twilioChannel + '/' + chatNames + '/Messages', config
-            ).then(function (data, status) {
-                var chatData = [];
-                for (var i = 0; i < data.data.length; i++) {
-
-                    var from = data.data[i].from.split('@');
-                    var value = {
-                        "from": from[0],
-                        "body": data.data[i].body
-                    }
-                    chatData.push(value);
-                }
-                var lastMsg = chatData[(chatData.length - 1)].body;
-                var name = obj.shopOwnerUsername.split("@");
-                return cName = {
-                    "uniqueName": obj.uniqueName,
-                    "product": obj.customerUsername,
-                    "designer": name[0],
-                    "lastMessage": lastMsg
-                }
-            });
-        });
-}

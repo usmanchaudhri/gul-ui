@@ -1,13 +1,8 @@
-app.controller('accountCtrl','$location','$cookies','accountDetails',['$scope', function($scope,$location,$cookies,accountDetails) {
+app.controller('accountCtrl',['$scope','accountDetails', function($scope,accountDetails) {
 
 	/**
 	 * Getting Name and info from Account Detail var and display to edit and update
 	 */
-	if($cookies.get("username") != null){
-					$scope.firstName = "abc";
-					$scope.lastName = "abc";
-					$scope.email = accountDetails.username;
-			}else{
-				$location.path("#/");
-			}
+				$scope.email = accountDetails.username;
+
 }]);

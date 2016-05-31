@@ -406,35 +406,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 				};
 				$rootScope.$emit("addToBag",{"data":data});
 			}
-			/*
-			$scope.addToBag = function(prod,size,qty){
-					$scope.animationsEnabled = true;
-					$uibModal.open({
-							templateUrl: 'confirm.html',
-							controller: 'modalAddToBagCtrl',
-							    resolve: {
-       								 data: function () {
-							         var data = {
-										"prod":prod,
-										"size":size,
-										"qty":qty
-									};
-									 return data;
-							    }
-							}
 
-						})
-					.result.then(
-						function (flag) {
-							
-						}
-            
-					);
-				
-			
-			} */
-			
-		
 	
 			$scope.load();
 			//getChatList();

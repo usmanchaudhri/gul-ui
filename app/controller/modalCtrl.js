@@ -11,7 +11,7 @@ app.controller('modalCtrl', ['$scope', '$uibModalInstance', 'name', function ($s
 
 }]);
 
-app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', '$http', '$cookies', 'Base64', '$q', 'gulServiceCall', function ($scope, $uibModalInstance, updateDetail, $http, $cookies, Base64, $q, gulServiceCall) {
+app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', '$http', '$cookies', 'Base64', '$q', 'gulServices','gulServiceCall', function ($scope, $uibModalInstance, updateDetail, $http, $cookies, Base64, $q, gulServices,gulServiceCall) {
 
     gulServiceCall.getUrls()
         .then(function (response) {
@@ -19,6 +19,7 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
             $scope.shippingUrl = response.data.shippingUrl;
             $scope.customerUrl = response.data.customerUrl;
         });
+
 
     $scope.firstName = updateDetail.shippingDetail.firstName;
     $scope.lastName = updateDetail.shippingDetail.lastName;
@@ -32,7 +33,8 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
     if (updateDetail.flag == 0) {
         $scope.updateMessage = "Add New Address"
         $scope.submitButtonText = "Create Shipping Address";
-    } else {
+    }
+    else {
         $scope.updateMessage = "Update Shipping Address";
         $scope.submitButtonText = "Update Shipping Address";
     }
@@ -68,34 +70,14 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
 
     var newShipping = function () {
         var isActiveValue = "n";
-        console.log("ShippingListSize", updateDetail.shippingListSize);
         if (updateDetail.shippingListSize == 0) {
             isActiveValue = "y";
         }
-        var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-        console.log("username" + JSON.parse($cookies.get("username")).username + 'Password' + JSON.parse($cookies.get("username")).password);
-        var loginAuth = base64;
-        var config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + loginAuth
-            }
-        }
-        console.log("Config" + loginAuth);
-        $http.post(
-            $scope.shippingUrl, $scope.shippingData(isActiveValue), config
-        ).success(function (data, status) {
-            console.log("Succesfully Added" + data);
-            $http.get(
-                $scope.loginUrl, config
-            ).then(function (data, status) {
-                console.log("Shipping Detail", data.data);
-                var getShippingDetails = data.data.customerShipping;
-                $uibModalInstance.close(getShippingDetails);
-            });
-        }).error(function (data, status) {
-            console.log(data);
-            console.log(status);
+
+        gulServices.addNewShipping($scope.customerUrl, $scope.shippingData(isActiveValue)).then(function (data) {
+           
+            var getShippingDetails = data;
+            $uibModalInstance.close(getShippingDetails);
         });
     }
 
@@ -112,6 +94,7 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
             "isActive": isActiveValue
         }
     };
+
 }]);
  
  
