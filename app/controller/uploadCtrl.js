@@ -83,7 +83,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             $scope.showProgress = true;
 
 
-            gulApis.uploadProduct($scope.productUrl = response.data.productUrl, $scope.proUpload()).then(function (data) {
+            gulApis.uploadProduct($scope.productUrl, $scope.proUpload()).then(function (data) {
                 console.log("UPLOAD DATA: ", data);
                 $scope.newProId = data.id;
                 $scope.uploadProduct();
