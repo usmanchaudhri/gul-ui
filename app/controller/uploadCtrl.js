@@ -32,7 +32,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             $scope.productUrl = response.data.productUrl;
             $scope.categoryUrl = response.data.categoryUrl;
             $scope.shopUrl = response.data.shopUrl;
-            gulApis.getCategoryData()
+            gulApis.getCategoryData($scope.categoryUrl)
                 .then(function (response1) {
                     $scope.categoryDetail = response1.categoryDetail;
                     $scope.categoryList = response1.categoryList;
@@ -586,7 +586,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             $scope.showProgress = true;
 
             gulApis.createShop($scope.shopUrl,$scope.shopUpload()).then(function(data){
-                $scope.shopId = data.id;
+                $scope.shopId = data;
                 $scope.uploadShop();
             });
 

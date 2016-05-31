@@ -106,7 +106,7 @@ app.factory('gulApis', ['$http', '$q', '$timeout', '$cookies', 'Base64', functio
                     'Content-Type': 'application/json'
                 }
             }
-            $http.post(
+            return $http.post(
                 shopUrl, shopUpload, config
             ).then(function (data) {
                 return data.id;
