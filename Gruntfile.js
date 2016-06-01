@@ -459,13 +459,27 @@ module.exports = function (grunt) {
           branch: 'build'
         }
       }
-    }   
+    },  
+
+    karma: {
+      options: {
+        files: ['test/**/*.js']
+      },
+      unit: {
+        configFile: 'karma.conf.js',
+        port: 9999,
+        singleRun: true,
+        browsers: ['PhantomJS'],
+        logLevel: 'ERROR',
+        autoWatch: true        
+      }
+    } 
       
   });
 
   grunt.loadNpmTasks('grunt-uncss');
   grunt.loadNpmTasks('grunt-build-control');
-  // grunt.loadNpmTasks('grunt-uncss');
+  grunt.loadNpmTasks('grunt-karma');
   
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
