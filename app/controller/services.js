@@ -338,3 +338,128 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
     return sdo;
 
 }]);
+
+app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
+    var sdo = {
+
+        getUrls: function () {
+            return $http.get('gulgs.properties')
+                .then(function (one) {
+                    // console.log("ONE", one);
+                    return one;
+                });
+        },
+
+
+        updateShippingAddress: function () {
+
+            sdo.getUrls().then(function (data) {
+                var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+                var loginAuth = base64;
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + loginAuth
+                    }
+                }
+                return $http.put(
+                    data.data.shippingUrl + '/' + updateDetail.shippingDetail.id, updateShippingAddress, config
+                ).then(function (data) {
+                    return $http.get(
+                        data.data.loginUrl, config
+                    ).then(function (data, status) {
+                        return data.data.customerShipping;
+                    });
+                });
+            });
+
+        },
+
+        signIn: function (loginEmail, loginPass) {
+            var base64 = Base64.encode(loginEmail + ':' + loginPass);
+
+            var loginAuth = base64;
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+
+                }
+            }
+
+            return sdo.getUrls().then(function (data) {
+                return $http.get(
+                    data.data.loginUrl, config
+                ).then(function (data) {
+                    console.log(data);
+                    if ($cookies.get("username") != loginEmail) {
+                        var value = {
+                            "username": data.data.username,
+                            "password": loginPass,
+                            "id": data.data.id,
+                            "shopId": JSON.stringify(data.data.shop)
+                        };
+                        $cookies.put("username", JSON.stringify(value));
+                        $cookies.put("userId", data.data.id);
+                        console.log("VALUE: ", value);
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+
+                });
+            });
+
+        },
+
+        updateIsActive: function (shippingId1, isActive1, shippingId2, isActive2, customerUrl) {
+            var data1 = {
+                "isActive": isActive1
+            };
+            console.log("Data1: ", data1);
+            var data2 = {
+                "isActive": isActive2
+            };
+            console.log("Data2: ", JSON.parse($cookies.get("username")));
+
+            var mId = JSON.parse($cookies.get("username")).id;
+            var base64 = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth = base64;
+
+            var promise1 = $http({
+                method: 'PUT',
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId1,
+                data: data1,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                },
+                cache: 'false'
+            });
+            var promise2 = $http({
+                method: 'PUT',
+                url: customerUrl + '/' + mId + '/customershipping/' + shippingId2,
+                data: data2,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + loginAuth
+                },
+                cache: 'false'
+            });
+
+            return $q.all([promise1, promise2]).then(function (data) {
+                return 1;
+            }, function onError(response) {
+                return 0;
+                console.log("onError", response);
+
+            });
+        },
+
+        updateCustomer: function () {
+
+        }
+    }
+
+    return sdo;
+}]);
