@@ -1,4 +1,4 @@
-app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$cookies', '$location', '$rootScope', function ($scope, Upload, $timeout, $q, $http, $cookies, $location, $rootScope) {
+app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$cookies', '$location', '$rootScope', 'gulApis', function ($scope, Upload, $timeout, $q, $http, $cookies, $location, $rootScope, gulApis) {
     $scope.allFiles = [];
     $scope.progressArr = [];
 
@@ -16,10 +16,8 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     var imgSize = 0;
     //var imageResizeFlag = true;
     $scope.shopImage = [];
-    console.log("upload page shop id", $cookies.get("username"));
     if (angular.isDefined($cookies.get("username"))) {
         if (angular.isDefined(JSON.parse($cookies.get("username")).shopId)) {
-            //if(JSON.parse($cookies.get("username")).shopId != 0){
             console.log("upload page shop id", JSON.parse($cookies.get("username")).shopId);
             shopId = JSON.parse($cookies.get("username")).shopId;
         } else {
@@ -29,25 +27,15 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         $location.path("#a");
         $rootScope.$emit("signin", {});
     }
-    /*	if($cookies.get("username") == null){
-
-     $location.path("#/");
-     }*/
-    $http.get("gulgs.properties")
+    gulApis.getUrls()
         .then(function (response) {
             $scope.productUrl = response.data.productUrl;
             $scope.categoryUrl = response.data.categoryUrl;
             $scope.shopUrl = response.data.shopUrl;
-            $http.get(response.data.categoryUrl)
+            gulApis.getCategoryData($scope.categoryUrl)
                 .then(function (response1) {
-                    $scope.categoryDetail = response1.data;
-
-                    for (var i = 0; i < response1.data.length; i++) {
-                        if (response1.data[i].subCategories.length > 0) {
-                            $scope.categoryList.push(response1.data[i]);
-                        }
-                    }
-                    console.log("catergoryDetail: ", $scope.categoryDetail);
+                    $scope.categoryDetail = response1.categoryDetail;
+                    $scope.categoryList = response1.categoryList;
                 });
         });
 
@@ -93,21 +81,15 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     $scope.upload = function () {
         if ($scope.allFiles.length > 0) {
             $scope.showProgress = true;
-            var count = -1;
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-            $http.post(
-                $scope.productUrl, $scope.proUpload(), config
-            ).success(function (data, status) {
+
+
+            gulApis.uploadProduct($scope.productUrl, $scope.proUpload()).then(function (data) {
+                console.log("UPLOAD DATA: ", data);
                 $scope.newProId = data.id;
                 $scope.uploadProduct();
-            }).error(function (data, status) {
-                console.log(data);
-                console.log(status);
+
             });
+
         } else {
             alert("Upload atleast one Image");
         }
@@ -156,17 +138,6 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             console.log("resImage at Line 151:", resImage);
             //if(imageResizeFlag==false){
             $scope.uploadImages();
-            /*}else{
-
-             angular.forEach(resImage, function (myItem) {
-             resImageUri.push(myItem.resized.dataURL);
-             });
-             console.log("resImageUri at 162:",resImageUri);
-             cropImageArr = resImageUri;
-             console.log("cropImageArr at 164:",cropImageArr);
-             $scope.uploadProduct();
-             imageResizeFlag = false;
-             } */
 
         });
     }
@@ -240,7 +211,6 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     $scope.proUpload = function () {
 
-
         return proPayload = {
             "sku": $scope.proName,
             "name": $scope.proName,
@@ -257,7 +227,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
                 "storedValue": $scope.proPrice
             },
             "shop": {
-                "id": "60"
+                "id": "26"
             },
             "productVariation": [{
                 "size": "L",
@@ -341,7 +311,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    var createShopp = function () {
+    var createShop = function () {
         shopPayload = {
             "name": $scope.proName,
             "designers": {
@@ -603,6 +573,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      //console.log("Value"+value);
      $scope.shopImage.push(value);
      };*/
+
     $scope.getShopDecision = function () {
         if ($scope.shopImage.length > 0) {
             return true;
@@ -611,25 +582,15 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     }
 
     $scope.createShop = function () {
-
         if ($scope.getShopDecision) {
             $scope.showProgress = true;
-            var count = -1;
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-            $http.post(
-                $scope.shopUrl, $scope.shopUpload(), config
-            ).success(function (data, status) {
-                console.log("SHOP UPLOAD DATA: ", data);
-                $scope.shopId = data.id;
+
+            gulApis.createShop($scope.shopUrl,$scope.shopUpload()).then(function(data){
+                $scope.shopId = data;
                 $scope.uploadShop();
-            }).error(function (data, status) {
-                console.log(data);
-                console.log(status);
             });
+
+
         } else {
             alert("Upload atleast one Image");
         }
@@ -665,6 +626,3 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         });
     };
 }]);
-
-
-
