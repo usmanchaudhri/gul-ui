@@ -104,7 +104,7 @@ app.factory('DataLoader', function ($http) {
 	}
 });
 
-app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceCall', 'apiFactory','commonFactory', function ($q, $timeout, $cookies, Base64, gulServiceCall, apiFactory , commonFactory) {
+app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory','commonFactory', function ( $cookies, Base64, gulServiceCall, apiFactory , commonFactory) {
 
 	var sdo = {
 
@@ -237,12 +237,15 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
 		},
 
 		getCategory: function (cat_id) {
-			gulServiceCall.getUrls()
+			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.categoryUrl + '/' + cat_id;
 						return apiFactory.getApiData(url)
 								.then(function (data) {
-									return commonFactory.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
+									console.log("SINGLE CAT before: ",data);
+
+									return commonFactory.isImage(response.data.fixImagePath + 'category/banner_' + cat_id + '.jpg' + response.data.token).then(function (result) {
+										console.log("SINGLE CAT CTRL: ",result);
 										value = {
 											urls: response.data,
 											banner: result,
@@ -251,6 +254,7 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
 											categoryLength: data.data.subCategories.length,
 											categoryDetail: data.data
 										};
+										console.log("SINGLE CAT CTRL: ",value);
 										return value;
 									});
 								});
@@ -303,7 +307,7 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
 										categoryProDetail.push(value);
 										data = data[i].category.products;
 									}
-									return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken, $q).then(function (result) {
+									return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
 
 										value = {
 											banner: result,
@@ -346,7 +350,7 @@ app.factory('gulServices', ['$q', '$timeout', '$cookies', 'Base64', 'gulServiceC
 
 }]);
 
-app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', '$window', function ($http, $q, $timeout, $cookies, Base64, $window) {
+app.factory('gulServiceCall', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
 	var sdo = {
 
 		getUrls: function () {
@@ -356,7 +360,6 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
 						return one;
 					});
 		},
-
 
 		updateShippingAddress: function () {
 

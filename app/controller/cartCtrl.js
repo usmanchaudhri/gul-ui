@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeout', 'gulServiceCall','cartFactory','commonFactory', function ($scope, $cookies, $http, $rootScope, $timeout, gulServiceCall,cartFactory,commonFactory) {
+app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gulServiceCall','cartFactory', function ($scope, $cookies, $rootScope, $timeout, gulServiceCall,cartFactory) {
 	$scope.isNumber = angular.isNumber;
 	$scope.totalPrice = 0;
 	$scope.qty = 0;
@@ -49,16 +49,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$http', '$rootScope', '$timeo
 	 * Getting Item size to show products in  Cart of menu on hover
 	 */
 	$scope.getItemSize = function () {
-		if(angular.isDefined($scope.items)){
-			$scope.items = JSON.parse($cookies.get("invoices"));
-			if($scope.abc <= 0 ){
-				$scope.itemSize = true;
-			}else{
-				$scope.itemSize = false;
-			}
-		}else{
-			$scope.itemSize = true;
-		}
+		cartFactory.getItemSize($scope.items,$scope.abc).then(function(data){$scope.itemSize = data});
 	}
 
 	/**

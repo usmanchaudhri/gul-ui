@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFactory', '$q', function ($cookies, $rootScope, gulServiceCall, apiFactory, $q) {
+app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q', function ($cookies, $rootScope, apiFactory, $q) {
     var sdo = {
 
         paypalPayment: function (totalPrice, paypalPayload) {
@@ -135,6 +135,20 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFact
                 deferred.resolve(value);
                 return deferred.promise;
             });
+        },
+
+        getItemSize: function(items,abc){
+            var deferred = $q.defer();
+            if(angular.isDefined(items)){
+                if(abc <= 0 ){
+                    deferred.resolve(true);
+                }else{
+                    deferred.resolve(false);
+                }
+            }else{
+                deferred.resolve(true);
+            }
+            return deferred.promise;
         }
 
     }

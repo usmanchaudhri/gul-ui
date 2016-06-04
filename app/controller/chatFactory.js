@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('loginFactory', ['$cookies', '$rootScope', 'apiFactory', function ($cookies, $rootScope, apiFactory) {
+app.factory('loginFactory', [ '$rootScope', 'apiFactory', function ( $rootScope, apiFactory) {
 
     var sdo = {
         regUserTwilio: function (user) {

@@ -1,4 +1,4 @@
-app.controller('loginCtrl', ['$scope', '$cookies', '$http', 'Base64', '$location', '$uibModal', '$rootScope','gulServiceCall', function ($scope, $cookies, $http, Base64, $location, $uibModal, $rootScope,gulServiceCall) {
+app.controller('loginCtrl', ['$scope', '$cookies', '$location', '$uibModal', '$rootScope','loginFactory', function ($scope, $cookies, $location, $uibModal, $rootScope,loginFactory) {
 
 	$scope.menuClass = true;
 	$scope.showSignupError = false;
@@ -13,25 +13,22 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$http', 'Base64', '$location
 	}
 
 	$scope.userLogout = function(){
-		if($cookies.get("username") != null){
-			$cookies.remove("username");
-			$scope.userFlag = false;
+		loginFactory.userLogout().then(function(data){
+			if(!data){
+				$scope.userFlag = data
+				$location.path("#/");
+			}
 
-			$location.path("#/");
-			console.log("user Logged out!"+$cookies.get("username"));
-		}else{
-			$scope.userFlag = true;
-		}
+		});
 
-
-		console.log("Email after logout"+$cookies.get("username"));
-	};
+				$location.path("#/");
+			};
 
 	$rootScope.$on("signin", function () {
 		$scope.signin();
 	});
 
-	gulServiceCall.getUrls().then(function(response){
+	loginFactory.getUrls().then(function(response){
 		$scope.twilioUser = response.data.twilioUser;
 		$scope.customerUrl = response.data.customerUrl;
 		$scope.signupUrl = response.data.signupUrl;
