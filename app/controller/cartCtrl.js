@@ -49,7 +49,10 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 * Getting Item size to show products in  Cart of menu on hover
 	 */
 	$scope.getItemSize = function () {
-		cartFactory.getItemSize($scope.items,$scope.abc).then(function(data){$scope.itemSize = data});
+		console.log("Item Soo",$scope.abc);
+		cartFactory.getItemSize($scope.items,$scope.abc).then(function(data){
+			console.log("Item Soo",data);
+			$scope.itemSize = data});
 	}
 
 	/**
@@ -70,7 +73,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 			$scope.abc = data.abc;
 			$scope.totalPrice = data.totalPrice;
 			$scope.items = data.items;
-			console.log("checkItems: ",data);
+			$scope.getItemSize();
 		});
 	}
 
@@ -165,7 +168,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 */
 	$scope.onload();
 	checkItems();
-	$scope.getItemSize();
+
 
 
 }]);
