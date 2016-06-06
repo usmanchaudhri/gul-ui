@@ -37,6 +37,7 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$location', '$uibModal', '$r
 	});
 
 	$scope.signin = function () {
+		console.log("HELLO WORLD");
 		var modalInstance = $uibModal.open({
 					templateUrl: 'loginModal.html',
 					controller: 'loginModalCtrl'

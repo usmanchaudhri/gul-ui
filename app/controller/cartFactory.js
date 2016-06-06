@@ -117,7 +117,7 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q', functi
         checkItems: function () {
             var deferred = $q.defer();
             var abc;
-            var items = JSON.parse($cookies.get("invoices"));
+            var items = $cookies.get("invoices");
             if (angular.isUndefined(items)) {
                 items = [];
                 abc = 0;
