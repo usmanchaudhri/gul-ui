@@ -1,4 +1,15 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ng-breadcrumbs', 'ngCookies', 'ngFileUpload', 'bootstrapLightbox', 'imageCropper', 'ui.bootstrap']);
+
+'use strict';
+
+var app = angular.module('myApp', [
+    'infinite-scroll', 
+    'ngRoute', 
+    'ng-breadcrumbs', 
+    'ngCookies', 
+    'ngFileUpload', 
+    'bootstrapLightbox', 
+    'imageCropper', 
+    'ui.bootstrap']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     //$locationProvider.html5Mode(true);
