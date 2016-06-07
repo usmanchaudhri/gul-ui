@@ -1,28 +1,17 @@
 
 'use strict';
 
-describe('gulTestService', function() {
+describe('gulTestServiceFactory', function() {
 
-	var scope, 
-		factory, 
-		q,
-		deferred,
-		timeout;
+	var factory, $timeout;
 
 	beforeEach(function() {
-		module('testApp', 'ngMock');
-		module(function($provide) {
-			$provide.decorator('$timeout', function($delegate) {
-				return sinon.spy($delegate);				
-		      	// return jasmine.spyOn();			
-			});						
-			// jasmine.createSpyObj('$timeout', ['cancel']);   // creating cookies mock object for get and put calls.			
-	    });
+		module('testApp');		
 	});
 
-	beforeEach(inject(function ($injector) {
-		timeout = $injector.get('$timeout');
+	beforeEach(inject(function ($injector, _$timeout_) {
 		factory = $injector.get('gulTestServices');
+		$timeout = _$timeout_;
 	}));
 
 	describe('TestServiceFactory test', function() {

@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
 			<div  href="#" class="upload-container-img">
@@ -28,7 +28,7 @@
 				</span>	
 			</div>
 		</div>
-		<!--<img ng-repeat="cropImg in tempFiles track by $index" ng-src="{{cropImg.url}}" />-->
+		&lt;!&ndash;<img ng-repeat="cropImg in tempFiles track by $index" ng-src="{{cropImg.url}}" />&ndash;&gt;
 		<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(5) track by $index">
 			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
 		</div>
@@ -62,7 +62,7 @@
            		 				ng-model="cat.id"
            		 				ng-change="getSubCat()"
            		 				ng-options="cat.id as cat.name for cat in categoryList" required>
-           		 				 <option value="">-- Select Category --</option>
+           		 				 <option value="">&#45;&#45; Select Category &#45;&#45;</option>
 							</select>
             			</td>
             			<td ng-if="subCategory"><label for="quantity">Sub Categories:</label></td>
@@ -71,7 +71,7 @@
 							<select
            		 				ng-model="subcat.id"
            		 				ng-options="subcat.id as subcat.name for subcat in subCategoryDetail" required>
-           		 							 <option value="">-- Select Sub Category --</option>
+           		 							 <option value="">&#45;&#45; Select Sub Category &#45;&#45;</option>
 					
 							</select>
             			</td>
@@ -174,7 +174,7 @@
 	</div>
 		</form>
 	
-</div>
+</div>-->
 <!--<script>
 
    if($('.attribute-field').val().length > 0){
@@ -184,34 +184,61 @@
 </script>-->
 <div class="mMainContainer mCustomForm">
 	<div class="mCreatNew mpgSize">
-		<form class="form-inline" role="form">
+		<form class="form-inline" role="form" ng-submit="upload()">
 			<div class="row">
-				<h2 class="mFormHeading col-lg-12 text-uppercase">Create new shop</h2>
+				<h2 class="mFormHeading col-lg-12 text-uppercase">Upload new Product</h2>
 			</div>
-			<div class="row mUploadImages">
-				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle">
-				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle">
-				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle">
-				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle">
-				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle">
+			<div class="row mUploadImages" >
+				<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
+					<div  href="#" class="upload-container-img">
+						<image-cropper image="{{file.url}}" dest-width="600" dest-height="600" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
+					</div>
+					{{cropImageArray(cropImage,$index)}}
+					<div  ng-controller="imgViewCtrl" style="height: 45px;" >
+						<table style="width: 95%;">
+							<tr class="upload-img-icons">
+								<td><a ng-click="openLightboxModal(allFiles,$index)" ><img class="img-responsive" src="images/Zoom_in.png" alt=""></a></td>
+								<td><a ng-click="openZoomModal(this.file,$index)"><img class="img-responsive" src="images/Edit-icon.png" alt=""></a></td>
+								<td><a><img class="img-responsive" src="images/cross-512.png" ng-click="removeImage($index)" alt=""></a></td>
+							</tr>
+						</table>
+
+				<span ng-show="showProgress">
+					<div class="progress">
+						<div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progressArr[$index].imgProgress" aria-valuemin="0" aria-valuemax="100" data-value="progressArr[$index].imgProgress" style="width: 100%">
+							{{progressArr[$index].imgProgress}}
+						</div>
+					</div>
+				</span>
+				<span ng-hide="showProgress">
+					<br/>
+					<br/>
+					<br/>
+				</span>
+					</div>
+				</div>
+				<div ng-repeat="a in getNumber(5) track by $index">
+				<input name="addImg" type="file" class="col-lg-15 col-md-15 col-xs-15 mCustom-file-input mcustom-file-input mTitle" ng-model="files" ngf-select="addImages(this.files)">
+				</div>
+
+				</div>
+			<div class="row">
+				<input type="text" class="col-lg-12 col-md-12 col-xs-12 mTitle form-control" ng-model="proName" name="title" placeholder="title:" >
 			</div>
 			<div class="row">
-				<input type="text" class="col-lg-12 col-md-12 col-xs-12 mTitle form-control" name="title" placeholder="title:" >
+				<input type="number" class="col-lg-12 col-md-12 col-xs-12 mPrice form-control" ng-model="proPrice" name="price" placeholder="price:" >
 			</div>
 			<div class="row">
-				<input type="number" class="col-lg-12 col-md-12 col-xs-12 mPrice form-control" name="price" placeholder="price:" >
+					<select name="categories" class="col-lg-6 col-md-6 col-xs-6 mCat"
+							ng-model="cat.id"
+							ng-change="getSubCat()"
+							ng-options="cat.id as cat.name for cat in categoryList" required>
+						<option value="">-- Select Category --</option>
+					</select>
+
 			</div>
 			<div class="row">
-				<select name="categories" class="col-lg-6 col-md-6 col-xs-6 mCat">
-					<option>SELECT CATEGORIES:</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-			<div class="row">
-				<input type="number" name="quantity" class="col-lg-6 col-md-6 col-xs-6 mQuantity" placeholder="quantity:" >
+				<input type="number" ng-model="proQty" name="quantity" class="col-lg-6 col-md-6 col-xs-6 mQuantity" placeholder="quantity:" >
 			</div>
 
 			<div class="row mAttrPnl">
@@ -228,10 +255,10 @@
 				<div class="col-lg-6"></div>
 			</div>
 			<div class="row">
-				<textarea name="shortDescription" class="col-lg-12 mDetail form-control mShortDesc" placeholder="short description:"></textarea>
+				<textarea name="shortDescription" ng-model="proShortDesc" class="col-lg-12 mDetail form-control mShortDesc" placeholder="short description:"></textarea>
 			</div>
 			<div class="row">
-				<textarea name="longDescription" class="col-lg-12 mDetail form-control mShortDesc" placeholder="long description:"></textarea>
+				<textarea name="longDescription" ng-model="proLongDesc" class="col-lg-12 mDetail form-control mShortDesc" placeholder="long description:"></textarea>
 			</div>
 			<div class="row">
 				<h2 class="mformHeading mForm col-lg-12 text-uppercase">Set featured image</h2>

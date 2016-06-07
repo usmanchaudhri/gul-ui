@@ -500,6 +500,7 @@ app.factory('gulServiceCall', ['$http', '$q', '$timeout', '$cookies', 'Base64', 
     }
 
     return sdo;
+<<<<<<< HEAD
 }]);
 
 app.factory('cartFactory', ['$cookies', '$rootScope', 'gulServiceCall', 'apiFactory', '$q', function ($cookies, $rootScope, gulServiceCall, apiFactory, $q) {
@@ -1061,3 +1062,6 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
 
     return sdo;
 }]);
+=======
+}]);
+>>>>>>> ui-code-clean
