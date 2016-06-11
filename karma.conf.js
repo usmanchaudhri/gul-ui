@@ -12,7 +12,6 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
     // list of files / patterns to load in the browser
     files: [
         'bower_components/jquery/dist/jquery.js',        
@@ -21,18 +20,25 @@ module.exports = function(config) {
         'bower_components/angular-resource/angular-resource.js',
         'bower_components/angular-cookies/angular-cookies.js',
         'bower_components/angular-route/angular-route.js',
+        // 'bower_components/ng-infinite-scroll/ng-infinite-scroll.js',
+        'app/js/ngInfiniteScroll.js',       
+        'app/js/ng-breadcrumbs.js',
+        'app/js/ng-file-upload.js',
+        'app/js/angular-bootstrap-lightbox.js',
+        'app/js/ui-bootstrap-0.11.0.min.js',
+        'app/js/angular-image-cropper.min.js',        
         // 'bower_components/angular-sanitize/angular-sanitize.js',
         // 'bower_components/angular-touch/angular-touch.js',
-        // 'app/controller/*.js',
-        'app/controller/services-test.js',
-        'test/**/testTestServiceFactory.js'
+        
+        'app/controller/myApp.js',
+        'app/controller/apiFactory.js',
+        // 'app/controller/apiFactoryExample.js',
+        'test/**/cartFactorySpec.js'
     ],
-
 
     // list of files to exclude
     exclude: [
     ],
-
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor

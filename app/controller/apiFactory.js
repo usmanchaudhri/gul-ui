@@ -1,15 +1,24 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
+// app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
+app.factory('apiFactory', ['$http','$q', function ($http, $q) {
+
     var sdo = {
+        
+        getValue: function() {
+            return 10;
+        },
 
         getUrls: function () {
+            console.log("Get Url");                    
             return $http.get('gulgs.properties')
                 .then(function (one) {
-                    // console.log("ONE", one);
+                    console.log("One", one);                    
                     return one;
-                });
+                }, function errorCallBack(response) {
+                    console.log("Error");                    
+                });                
         },
 
         getApiData: function (url) {

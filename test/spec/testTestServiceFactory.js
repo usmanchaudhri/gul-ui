@@ -18,6 +18,8 @@ describe('gulTestServiceFactory', function() {
 		it('should return the default service factory value', function() {
 			var value = factory.getValue();
     		expect(value).toBe(10);
+			var secondValue = factory.setValue();			
+    		expect(secondValue).toBe(11);
 		});
 	});
 
