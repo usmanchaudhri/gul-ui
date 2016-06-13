@@ -3,5 +3,6 @@ app.controller('chatCtrl', ['$scope', '$routeParams', 'chatList','$cookies', fun
 	$scope.chat_name = $routeParams.chatName;
 	$scope.chatNames = chatList;
 	$cookies.put("chatlist", chatList);
+	
 
 }]);
