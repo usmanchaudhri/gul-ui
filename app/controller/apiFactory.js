@@ -11,14 +11,15 @@ app.factory('apiFactory', ['$http','$q', function ($http, $q) {
         },
 
         getUrls: function () {
-            console.log("Get Url");                    
+            console.log("Get Url"); 
             return $http.get('gulgs.properties')
                 .then(function (one) {
-                    console.log("One", one);                    
+                    console.log("One", one);
+                    console.log("One data", one.data.shopUrl);
                     return one;
                 }, function errorCallBack(response) {
                     console.log("Error");                    
-                });                
+                });                  
         },
 
         getApiData: function (url) {
@@ -152,11 +153,13 @@ app.factory('apiFactory', ['$http','$q', function ($http, $q) {
                     cache: 'true'
                 });
                 return $q.all([promise1, promise2]).then(function (data) {
+                    console.log("Data:" + data);
+                    console.log("Promise-1 data:" + data[0]);
+                    console.log("Promise-2 data:" + data[1]);                    
                     return data;
                 });
             });
         }
-
 
     }
 

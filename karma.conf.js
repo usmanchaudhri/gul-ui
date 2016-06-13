@@ -30,10 +30,12 @@ module.exports = function(config) {
         // 'bower_components/angular-sanitize/angular-sanitize.js',
         // 'bower_components/angular-touch/angular-touch.js',
         
-        'app/controller/myApp.js',
-        'app/controller/apiFactory.js',
-        // 'app/controller/apiFactoryExample.js',
-        'test/**/cartFactorySpec.js'
+        // 'app/controller/myApp.js',
+        // 'app/controller/apiFactory.js',
+        'app/controller/services-test.js',
+
+        // 'test/**/cartFactorySpec.js',
+        'test/**/testPromiseSpec.js'        
     ],
 
     // list of files to exclude
