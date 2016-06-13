@@ -23,7 +23,6 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
                 });
         },
 
-
         getApiAuthData: function (url) {
             var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
             var config = {
@@ -38,6 +37,7 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
                 });
 
         },
+
         getApiAuthDataHeroku: function (url,username,pass) {
             var loginAuth = Base64.encode(username + ':' + pass);
             var config = {
@@ -64,6 +64,7 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
             });
 
         },
+
         postApiAuthData: function (url, data) {
             var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
             var config = {
