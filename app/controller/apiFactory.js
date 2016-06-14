@@ -153,14 +153,11 @@ app.factory('apiFactory', ['$http','$q', function ($http, $q) {
                     cache: 'true'
                 });
                 return $q.all([promise1, promise2]).then(function (data) {
-                    console.log("Data:" + data);
-                    console.log("Promise-1 data:" + data[0]);
-                    console.log("Promise-2 data:" + data[1]);                    
+                    console.log("Data:" + data[0].status);
                     return data;
                 });
             });
         }
-
     }
 
     return sdo;
