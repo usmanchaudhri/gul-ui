@@ -59,13 +59,16 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q', functi
 
         storeProductsInCookie: function (prod, size, qty) {
             var deferred = $q.defer();
-            var invoice = JSON.parse($cookies.get("invoices"));
+            //console.log("LATEST LOG: ",$cookies.get("invoices"));
+            var invoice = [];
             var prodExistFlag = false;
             if (prod.quantity > qty) {
                 if (qty < 1) {
                     qty = 1;
                 }
                 if (angular.isDefined($cookies.get("invoices"))) {
+                    var invoice = JSON.parse($cookies.get("invoices"));
+
                     angular.forEach(JSON.parse($cookies.get("invoices")), function (myProd) {
                         if (myProd.id == prod.id && myProd.size == size) {
                             prodExistFlag = true;

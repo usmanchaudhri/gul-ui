@@ -226,6 +226,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 									value = {
 										urls: response.data,
 										fixPath: response.data.fixImagePath,
+										fixPathShop: response.data.fixImagePathShop,
 										token: response.data.token,
 										productDetail: data.data,
 										selectedItem: data.data.productVariation[0].size

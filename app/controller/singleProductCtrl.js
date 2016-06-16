@@ -14,6 +14,7 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 	$scope.productDetail = productDetail.productDetail;
 	$scope.selectedItem = productDetail.selectedItem;
 	$scope.fixPath = productDetail.fixPath;
+	$scope.fixPathShop = productDetail.fixPathShop;
 	$scope.token = productDetail.token;
 
 	$scope.customerUrl = productDetail.urls.customerUrl;
@@ -412,26 +413,3 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 	//getChatList();
 	getShopOwner();
 }]);
-/*
- app.controller('modalAddToBagCtrl',['$scope','$uibModalInstance','data','$http','$q','$cookies','Base64',"$rootScope", function($scope,$uibModalInstance,data,$http,$q,$cookies,Base64,$rootScope) {
-
- $scope.cancel = function () {
- console.log("In Cancel Function");
- $uibModalInstance.dismiss('cancel');
- };
-
- $scope.addToCart = function(){
- console.log("Data in AddtoCartCtrl",data);
- var data = {
- "prod":data.prod,
- "size":data.size,
- "qty":data.qty
- };
- $rootScope.$emit("addToBag",{"data":data});
-
- };
-
-
-
-
- }]); */
