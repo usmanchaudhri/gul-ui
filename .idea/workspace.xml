@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/cartFactory.js" afterPath="$PROJECT_DIR$/app/controller/cartFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/services.js" afterPath="$PROJECT_DIR$/app/controller/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/myApp.js" afterPath="$PROJECT_DIR$/app/controller/myApp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/singleProductCtrl.js" afterPath="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/products/individual.html" afterPath="$PROJECT_DIR$/app/view/products/individual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,31 +27,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.923077">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="individual.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/products/individual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.076923">
+            <state vertical-scroll-proportion="0.0">
               <caret line="406" column="89" selection-start-line="406" selection-start-column="89" selection-end-line="406" selection-end-column="89" />
-              <folding>
-                <marker date="1466067477051" expanded="true" signature="818:4319" placeholder="..." />
-                <marker date="1466067477051" expanded="true" signature="847:892" placeholder="..." />
-                <marker date="1466067477051" expanded="true" signature="1047:1059" placeholder="..." />
-                <marker date="1466067477051" expanded="true" signature="1202:1220" placeholder="..." />
-                <marker date="1466067477051" expanded="true" signature="1281:1325" placeholder="..." />
-                <marker date="1466067477051" expanded="true" signature="1388:3737" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="1495:1576" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="1771:1782" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="1975:2056" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="2251:2262" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="2455:2536" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="2731:2742" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="2935:3016" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="3211:3222" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="3451:3500" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="3590:3607" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="3762:3779" placeholder="..." />
-                <marker date="1466067477051" expanded="false" signature="3873:3945" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,19 +50,19 @@
       <file leaf-file-name="singleProductCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="71.72414">
-              <caret line="80" column="74" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="74" />
+            <state vertical-scroll-proportion="-185.11111">
+              <caret line="294" column="50" selection-start-line="294" selection-start-column="50" selection-end-line="294" selection-end-column="50" />
               <folding>
-                <element signature="e#7744#9323#0" expanded="false" />
+                <element signature="e#8004#9583#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13892908">
+            <state vertical-scroll-proportion="0.0">
               <caret line="229" column="54" selection-start-line="229" selection-start-column="53" selection-end-line="229" selection-end-column="54" />
               <folding>
                 <element signature="e#5706#6546#0" expanded="false" />
@@ -84,7 +72,28 @@
                 <element signature="e#9309#9960#0" expanded="false" />
                 <element signature="e#10006#10815#0" expanded="false" />
                 <element signature="e#10907#12026#0" expanded="false" />
-                <marker date="1466067371083" expanded="false" signature="34:36" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myApp.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33888888">
+              <caret line="174" column="3" selection-start-line="174" selection-start-column="3" selection-end-line="174" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartFactory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/cartFactory.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#39#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,7 +102,7 @@
       <file leaf-file-name="gulgs.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/gulgs.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5555553">
+            <state vertical-scroll-proportion="0.0">
               <caret line="12" column="17" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
               <folding />
             </state>
@@ -148,7 +157,6 @@
         <option value="$PROJECT_DIR$/app/controller/modalCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/allShopCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/shipCtrl.js" />
-        <option value="$PROJECT_DIR$/app/controller/myApp.js" />
         <option value="$PROJECT_DIR$/app/controller/accountCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/breadCrumbsCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/cartCtrl.js" />
@@ -161,13 +169,14 @@
         <option value="$PROJECT_DIR$/app/controller/commonFactory.js" />
         <option value="$PROJECT_DIR$/app/controller/loginFactory.js" />
         <option value="$PROJECT_DIR$/app/controller/chatFactory.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/test/spec/testPromiseSpec.js" />
         <option value="$PROJECT_DIR$/app/controller/services-test.js" />
-        <option value="$PROJECT_DIR$/app/controller/cartFactory.js" />
-        <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/services.js" />
         <option value="$PROJECT_DIR$/app/view/products/individual.html" />
+        <option value="$PROJECT_DIR$/app/controller/singleProductCtrl.js" />
+        <option value="$PROJECT_DIR$/app/controller/cartFactory.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/controller/myApp.js" />
       </list>
     </option>
   </component>
@@ -216,6 +225,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -300,7 +310,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,15 +391,14 @@
     <option name="totallyTimeSpent" value="108411000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1598" height="858" extended-state="1" />
-    <editor active="false" />
+    <frame x="1" y="1" width="1598" height="858" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21744627" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.5050378" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.49496222" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -404,6 +412,7 @@
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.49496222" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -453,6 +462,48 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/view/products/individual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="406" column="89" selection-start-line="406" selection-start-column="89" selection-end-line="406" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="74" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="74" />
+          <folding>
+            <element signature="e#8004#9583#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#5706#6546#0" expanded="false" />
+            <element signature="e#6589#8598#0" expanded="false" />
+            <element signature="e#8841#8938#0" expanded="false" />
+            <element signature="e#9096#12084#0" expanded="false" />
+            <element signature="e#9309#9960#0" expanded="false" />
+            <element signature="e#10006#10815#0" expanded="false" />
+            <element signature="e#10907#12026#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gulgs.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/shop/allShops.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -628,14 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.896552">
-          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/cartCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-29.896551">
@@ -682,11 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="196" column="12" selection-start-line="196" selection-start-column="12" selection-end-line="196" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -743,22 +781,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="178" column="34" selection-start-line="178" selection-start-column="34" selection-end-line="178" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/apiFactory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61388886">
           <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <marker date="1466060975319" expanded="true" signature="5942:5948" placeholder="{...}" />
-            <marker date="1466060975319" expanded="true" signature="5942:5967" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -771,19 +799,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/cartFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33055556">
-          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gulgs.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5555553">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
           <folding />
         </state>
@@ -791,44 +809,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/products/individual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.076923">
+        <state vertical-scroll-proportion="0.0">
           <caret line="406" column="89" selection-start-line="406" selection-start-column="89" selection-end-line="406" selection-end-column="89" />
-          <folding>
-            <marker date="1466067477051" expanded="true" signature="818:4319" placeholder="..." />
-            <marker date="1466067477051" expanded="true" signature="847:892" placeholder="..." />
-            <marker date="1466067477051" expanded="true" signature="1047:1059" placeholder="..." />
-            <marker date="1466067477051" expanded="true" signature="1202:1220" placeholder="..." />
-            <marker date="1466067477051" expanded="true" signature="1281:1325" placeholder="..." />
-            <marker date="1466067477051" expanded="true" signature="1388:3737" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="1495:1576" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="1771:1782" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="1975:2056" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="2251:2262" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="2455:2536" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="2731:2742" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="2935:3016" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="3211:3222" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="3451:3500" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="3590:3607" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="3762:3779" placeholder="..." />
-            <marker date="1466067477051" expanded="false" signature="3873:3945" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/singleProductCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="71.72414">
-          <caret line="80" column="74" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="74" />
+        <state vertical-scroll-proportion="-185.11111">
+          <caret line="294" column="50" selection-start-line="294" selection-start-column="50" selection-end-line="294" selection-end-column="50" />
           <folding>
-            <element signature="e#7744#9323#0" expanded="false" />
+            <element signature="e#8004#9583#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13892908">
+        <state vertical-scroll-proportion="0.0">
           <caret line="229" column="54" selection-start-line="229" selection-start-column="53" selection-end-line="229" selection-end-column="54" />
           <folding>
             <element signature="e#5706#6546#0" expanded="false" />
@@ -838,8 +837,33 @@
             <element signature="e#9309#9960#0" expanded="false" />
             <element signature="e#10006#10815#0" expanded="false" />
             <element signature="e#10907#12026#0" expanded="false" />
-            <marker date="1466067371083" expanded="false" signature="34:36" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/cartFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/myApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33888888">
+          <caret line="174" column="3" selection-start-line="174" selection-start-column="3" selection-end-line="174" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

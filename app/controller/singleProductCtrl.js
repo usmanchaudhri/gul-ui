@@ -19,6 +19,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 
 	$scope.customerUrl = productDetail.urls.customerUrl;
 	$scope.twilioChannel = productDetail.urls.twilioChannel;
+	$scope.readMore = 180;
+	$scope.readBtn = "READ MORE";
 	$scope.getNumber = function(num) {
 		/*var numDrop = [];
 		 for(var i = 1; i<=num; i++){
@@ -247,6 +249,17 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 
 
 
+	$scope.setReadMore = function () {
+		if($scope.readMore == 180){
+			$scope.readMore = 1500;
+			$scope.readBtn = "READ LESS";
+		}else{
+			$scope.readMore = 180;
+			$scope.readBtn = "READ MORE";
+		}
+
+	}
+
 	/**
 	 Get Customer id to update CCHAT
 	 **/
@@ -345,6 +358,8 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 	$scope.setImage = function(num){
 		$scope.imgNumber = num+1;
 	};
+
+
 
 	$scope.load = function() {
 

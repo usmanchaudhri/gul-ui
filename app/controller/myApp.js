@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ng-breadcrumbs', 'ngCookies', 'ngFileUpload', 'bootstrapLightbox', 'imageCropper', 'ui.bootstrap']);
+var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ng-breadcrumbs', 'ngCookies', 'ngFileUpload', 'bootstrapLightbox', 'imageCropper', 'ui.bootstrap','cfp.loadingBar']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	//$locationProvider.html5Mode(true);
@@ -170,6 +170,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 			})
 			.otherwise({redirectTo: '/'});
 
+}]).config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+	cfpLoadingBarProvider.includeSpinner = false;
 }]);
 
 app.directive('progressbar', [function () {

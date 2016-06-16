@@ -25,14 +25,15 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
     <link href='css/mystyle.css' rel='stylesheet' type='text/css'>
     <link href='css/inline-style.css' rel='stylesheet' type='text/css'>
+    <link href='css/loading-bar.min.css' rel='stylesheet' type='text/css'>
 
 
 </head>
 
-<body ng-app="myApp" ng-controller="cartCtrl" style="display: none;" ng-show="showContent">
+<body ng-app="myApp" ng-controller="cartCtrl" >
 <div class="wrapper" ng-controller="loginCtrl">
     <!--Navigation Bar-->
-
+<div ng-show="showContent">
 
     <div ng-controller="BreadcrumbCtrl">
         {{breadcrumbsCalling()}}
@@ -134,6 +135,7 @@
 
         </div>
     </footer>
+</div>
     <!--End of Footer-->
 </div>
 
@@ -154,6 +156,7 @@
 <script src="bower_components/lodash/lodash.min.js"></script>
 <script src="js/ng-breadcrumbs.js"></script>
 <script src="js/ngInfiniteScroll.js"></script>
+<script src="js/loading-bar.min.js"></script>
 <!--End Angular Components-->
 
 <!--All Controllers-->

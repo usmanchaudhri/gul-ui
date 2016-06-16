@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q', function ($cookies, $rootScope, apiFactory, $q) {
+app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoadingBar', function ($cookies, $rootScope, apiFactory, $q,cfpLoadingBar) {
     var sdo = {
 
         paypalPayment: function (totalPrice, paypalPayload) {
@@ -40,6 +40,7 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q', functi
         },
 
         totalCost: function (items) {
+            cfpLoadingBar.start();
             var deferred = $q.defer();
             //var items = $cookies.get("invoices");
             console.log("PRINT PRINT: ", items.length);
