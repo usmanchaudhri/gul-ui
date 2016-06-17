@@ -6,10 +6,14 @@ app.controller('categoryProCtrl', ['$scope','$routeParams', 'categoryPro','commo
 	$scope.categoryIDs = categoryPro.categoryIDs;
 	$scope.bannerFlag = categoryPro.banner;
 
-	$scope.getShop = function (mName) {
-		commonFactory.getShop(mName,$scope.categoryIDs).then(function(data){
-			console.log("categoryProCtrl",data);
-			return data;
-		});
+	$scope.getShop = function(mName){
+		//	console.log(mName);
+		for(var i = 0;i < $scope.categoryIDs.length;i++){
+			if(mName == $scope.categoryIDs[i].name){
+				//	console.log("called");
+				return $scope.categoryIDs[i].id;
+			}
+		}
+
 	}
 }]);

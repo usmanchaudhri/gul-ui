@@ -22,18 +22,9 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 	$scope.readMore = 180;
 	$scope.readBtn = "READ MORE";
 	$scope.getNumber = function(num) {
-		/*var numDrop = [];
-		 for(var i = 1; i<=num; i++){
-		 var value = {
-		 id: i
-		 }
-		 numDrop.push(value);
-		 }
-
-		 return numDrop; */
 
 		if(angular.isDefined(num)){
-			console.log(new Array(parseInt(num)));
+			//console.log(new Array(parseInt(num)));
 			return new Array(parseInt(num));
 		}
 	}
