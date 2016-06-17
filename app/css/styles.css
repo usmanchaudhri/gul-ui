@@ -1758,9 +1758,9 @@ html{
 /*Upload Image*/
 
 .upload-container{
-	margin: 10px;
 	width: 166px;
-	height: 200px;
+	height: 204px;
+	margin-bottom: 10px;
 	padding: 0px;
 	background-color: aliceblue;
 	border: 1px solid rgba(128, 128, 128, 0.49);
@@ -3307,4 +3307,13 @@ select{
 	letter-spacing: 1px;
 	color: #464646;
 	font-weight: normal;
+}
+
+.home-menu:hover .header-account-label a label{
+	color: black !important;
+}
+
+.scroll .header-account-label a label{
+	color: black !important;
+	
 }
