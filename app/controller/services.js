@@ -264,9 +264,11 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 
 		getCategoryProduct: function (cat_id) {
 
-			gulServiceCall.getUrls()
+			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.categoryUrl + '/' + cat_id + '/products';
+						var mFixPath = response.data.fixPath;
+						var mToken = response.data.token;
 						return apiFactory.getApiData(url)
 								.then(function (response1) {
 									var categoryIDs = [];
@@ -308,8 +310,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 										categoryProDetail.push(value);
 										data = data[i].category.products;
 									}
-									return isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
-
+									return commonFactory.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
 										value = {
 											banner: result,
 											urls: response.data,

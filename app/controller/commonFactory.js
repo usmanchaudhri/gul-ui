@@ -42,11 +42,14 @@ app.factory('commonFactory', ['$q', function ($q) {
         },
 
         getShop: function(mName,categoryIDs){
+            var deferred = $q.defer();
             for (var i = 0; i < categoryIDs.length; i++) {
                 if (mName == categoryIDs[i].name) {
-                    return categoryIDs[i].id;
+                    //return categoryIDs[i].id;
+                    deferred.resolve(categoryIDs[i].id);
                 }
             }
+            return deferred.promise;
         }
 
     }
