@@ -84,7 +84,7 @@
 	/*text-transform: uppercase;*/
 }
 img[ bn-lazy-src ] {
-	background-image: url('../images/ajax-loader.gif') ;
+	background-image: url('../assets/images/ajax-loader.gif') ;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 300px;

@@ -235,7 +235,7 @@ h2 span {
 	display: block;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url(../images/logo.png) no-repeat;
+	background: url(../assets/images/logo.png) no-repeat;
 	width: 155px;
 	height: 67px;
 	padding: 0;
@@ -1709,7 +1709,7 @@ html{
 }
 
 .field-icon{
-	background-image: url('../images/lock-icon_03.jpg');
+	background-image: url('../assets/images/lock-icon_03.jpg');
 	background-repeat: no-repeat;
 	background-position: right;
 	padding-right: 5px;
