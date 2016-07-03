@@ -1,4 +1,4 @@
-app.controller('categoryProCtrl', ['$scope','$routeParams', 'categoryPro','commonFactory', function ($scope, $routeParams, categoryPro , commonFactory) {
+app.controller('categoryProCtrl', ['$scope','$routeParams', 'categoryPro','sharedServices', function ($scope, $routeParams, categoryPro , sharedServices) {
 
 
 	$scope.cat_id = $routeParams.catId;

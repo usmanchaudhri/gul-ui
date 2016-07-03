@@ -1,8 +1,8 @@
-app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base64', '$cookies', 'loginFactory', function ($scope, $uibModalInstance, $http, Base64, $cookies, loginFactory) {
+app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base64', '$cookies', 'loginServices', function ($scope, $uibModalInstance, $http, Base64, $cookies, loginServices) {
 
     $scope.signingin = true;
 
-    loginFactory.getUrls()
+    loginServices.getUrls()
         .then(function (response) {
             $scope.twilioUser = response.data.twilioUser;
             $scope.customerUrl = response.data.customerUrl;
@@ -44,7 +44,7 @@ app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base6
         $scope.loginEmail = loginEmail;
         $scope.loginPass = loginPass;
 
-        loginFactory.signIn($scope.loginEmail, $scope.loginPass).then(function (data) {
+        loginServices.signIn($scope.loginEmail, $scope.loginPass).then(function (data) {
             if (data == 0) {
                 var userFlag = true;
                 $uibModalInstance.close(userFlag);
@@ -59,7 +59,7 @@ app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base6
 
     /*User Signup*/
     $scope.regHeroku = function (regEmail, regPass) {
-        loginFactory.regHeroku(regEmail, regPass).then(function (data) {
+        loginServices.regHeroku(regEmail, regPass).then(function (data) {
             if (data)
                 $uibModalInstance.close(data);
         });

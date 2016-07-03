@@ -1,0 +1,265 @@
+<?php
+require_once('config.php');
+mysql_query("START TRANSACTION");
+$jsonObj= array(); 
+$jsonObj2=array();
+$nameArray=array();
+$userarray=array();
+$senderID=$_POST['sender_id'];
+$loginid=$_POST['login_id'];
+$barcode_value=$_POST['barcode_value'];
+if($senderID !=NULL && $loginid !=NULL){
+	$result = mysql_query("select * FROM order_master WHERE login_id='$senderID' AND order_active='0'"); 
+	if(mysql_num_rows($result)>0){
+		$resultRow=mysql_fetch_assoc($result);
+		$orderid = $resultRow['order_id'];
+		$detailQy = mysql_query("select * FROM order_detail where order_id ='$orderid' AND detail_status = '1'");
+		if(mysql_num_rows($detailQy)>0){	
+		
+			$price = 0; 
+			$countDish = 0;
+			while($detailRow=mysql_fetch_assoc($detailQy)){
+				$countDish = $detailRow['detail_quantity'];
+				$priceQry= mysql_query("select * FROM rest_items where items_id ='".$detailRow['item_id']."'");
+				$priceRow=mysql_fetch_assoc($priceQry);	
+				if($detailRow['splitted'] == 'yes'){
+					$countQry= mysql_query("select count(*) as split FROM order_detail where detail_split ='".$detailRow['detail_split']."'");	
+					$countRow=mysql_fetch_assoc($countQry);
+					$price = $price + (($priceRow['item_price'] * $countDish)/($countRow['split']+1));	
+				}
+				else{
+					$countQry= mysql_query("select count(*) as split FROM order_detail where detail_split ='".$detailRow['detail_id']."'");	
+					$countRow=mysql_fetch_assoc($countQry);
+					$price = $price + (($priceRow['item_price'] * $countDish)/($countRow['split']+1));	
+					/*
+					$userpricelogin=($priceRowlogin['item_price']*$countDishlogin);
+					$pricelog=$pricelog+$userpricelogin;	*/
+								
+				}	
+			}
+		}else{
+			$price = 0;
+		}
+		$json=explode(",",$loginid);
+			
+		foreach($json as $random){	
+			$id=trim($random);
+			
+			$reslog = mysql_query("select * FROM order_master WHERE login_id='".$id."' AND order_active='0'") or die (mysql_error()); 
+			if(mysql_num_rows($reslog)>0){
+					
+				$orderRow=mysql_fetch_assoc($reslog);
+				$resupdate = mysql_query("UPDATE table_users  SET user_billpaid =0,user_active =1 WHERE login_id='".$id."' AND  user_active=0");
+				if($resupdate==TRUE){
+					$resorde = mysql_query("UPDATE order_master SET payfor='$orderid',order_active =1 WHERE  login_id='".$id."' AND order_active='0'"); 
+					if($resorde==TRUE){
+						sendnotification($senderID);
+						$resnot= mysql_query("DELETE FROM notifications WHERE sender_id='".$id."'");
+						if($resnot==TRUE){
+							//		mysql_query("COMMIT");
+						}else{
+							//			mysql_query("ROLLBACK");
+						}
+							
+					}else{
+						$jsonObj2=array('status'=>'1',
+							'message'=>"order is not update");
+						//	mysql_query("ROLLBACK");									
+					}
+				}else{
+					
+					$jsonObj2=array('status'=>'1',
+						'message'=>"tableuser is not update");
+					//	mysql_query("ROLLBACK");
+				}
+				
+			}else{
+				//mysql_query("ROLLBACK");
+										
+			}
+		}	
+		$resorder = mysql_query("select order_id FROM order_master WHERE payfor='$orderid'"); 
+			
+				
+		if(mysql_num_rows($resorder)>0){
+				
+				
+			$return = array();
+			while($rows=mysql_fetch_array($resorder)){
+				$return[] = $rows;
+			}
+			$payforArray = [];
+			
+			while(count($return) > 0){
+				
+				$resorders = mysql_query("select * FROM order_master WHERE payfor='".$return[0]['order_id']."'");
+				if(mysql_num_rows($resorders)>0){
+					
+					while($rowss=mysql_fetch_array($resorders)){
+				$return[] = $rowss;
+			}
+				}
+				$payforArray[] = $return[0];
+				array_splice($return, 0, 1);
+				 
+			}
+			$pricelog=0;
+			foreach($payforArray as $rows){
+				$order=$rows['order_id'];
+					
+				$detailqry = mysql_query("select * FROM order_detail where order_id ='$order' AND detail_status = '1'"); 
+				if(mysql_num_rows($detailqry)>0){	
+					$countDishlogin=0;
+					while($detaillogin=mysql_fetch_assoc($detailqry)){
+						$countDishlogin= $detaillogin['detail_quantity'];
+						$priceQrylogin= mysql_query("select * FROM rest_items where items_id ='".$detaillogin['item_id']."'"); 
+						$priceRowlogin=mysql_fetch_assoc($priceQrylogin);
+						$name=$priceRowlogin['item_name'];
+						$thumb=$priceRowlogin['item_thumbnail'];
+						if($detaillogin['splitted'] == 'yes'){
+							$countQry= mysql_query("select count(*) as split FROM order_detail where detail_split ='".$detaillogin['detail_split']."'");	
+							$countRow=mysql_fetch_assoc($countQry);
+							$pricelog = $pricelog + (($priceRowlogin['item_price'] * $countDishlogin)/($countRow['split']+1));	
+							$userpricelogin=$userpricelogin+$pricelog;
+						}
+						else{
+							$countQry= mysql_query("select count(*) as split FROM order_detail where detail_split ='".$detaillogin['detail_id']."'");	
+							$countRow=mysql_fetch_assoc($countQry);
+							$pricelog = $pricelog + (($priceRowlogin['item_price'] * $countDishlogin)/($countRow['split']+1));	
+							$userpricelogin=$userpricelogin+$pricelog;
+						}
+						$jsonObj[]=array(
+							'name'=>$name,
+							'profile'=>$thumb,
+							'user_price'=>$userpricelogin
+				
+						);					
+					}
+				}
+			}
+			$jsonObj2=array(
+				'status'=>'0',
+				'price'=>$price,
+				'totalprice'=>$pricelog,
+				'user_price'=>$jsonObj			
+			);
+			mysql_query("COMMIT");	
+				
+		}else{
+			$jsonObj2=array('status'=>'1',
+				'message'=>"No Order Placed From This User",
+				'totalprice'=>0);
+			mysql_query("ROLLBACK");
+		}
+			
+		/*}else{
+		$jsonObj2=array('status'=>'1',
+		'message'=>"order is not send to kitchen");
+		mysql_query("ROLLBACK");
+		}*/
+	}else{
+		$jsonObj2=array('status'=>'1',
+			'message'=>"Your Order is not Placed");
+		mysql_query("ROLLBACK");
+	}
+	
+}else{
+	$message = mysql_query("select * FROM login_log WHERE login_id='$senderID' AND active = '0'");
+	$messageRow=mysql_fetch_assoc($message);
+	$msg = $messageRow['login_name']." has already paid his bill";
+	$jsonObj2=array('status'=>'1',
+		'message'=>$msg);
+	mysql_query("ROLLBACK");
+}
+
+$final_res =json_encode($jsonObj2);
+echo $final_res;
+mysql_close($dbhandle);
+die;
+function sendGoogleCloudMessage( $data, $ids, $gKey,$num ){
+	// Insert real GCM API key from Google APIs Console
+	// https://code.google.com/apis/console/        
+	$apiKey = $gKey;
+
+	// Define URL to GCM endpoint
+	$url = 'https://gcm-http.googleapis.com/gcm/send';
+
+	// Set GCM post variables (device IDs and push payload)     
+		if($num == 0){
+	$notifi = array(
+	 "title" => "Yourder", "body" =>$data['message'], "badge" => 3,"type" =>$data['type'], "sound" => "default" ,"icon"=> "@drawable/pin_map"
+	);
+	$post = array(
+	'data' => $data,
+	'notification' => $notifi,
+		'registration_ids'  => $ids,
+		'content_available' => true,
+		'priority' => 'high'
+		);
+}else{
+		$post = array(
+	'data' => $data,
+		'registration_ids'  => $ids,
+		'content_available' => true,
+		'priority' => 'high'
+		);
+}
+	
+	
+	// Set CURL request headers (authentication and type)    
+										   
+	$headers = array( 
+		'Authorization: key=' . $gKey,
+		'Content-Type: application/json'
+	);
+ 
+	// Initialize curl handle       
+	$ch = curl_init();
+
+	// Set URL to GCM endpoint      
+	curl_setopt( $ch, CURLOPT_URL, $url );
+ 
+	// Set request method to POST       
+	curl_setopt( $ch, CURLOPT_POST, true );
+
+	// Set our custom headers       
+	curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
+
+	// Get the response back as string instead of printing it       
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+	// Set JSON post data
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode( $post ) );
+
+	// Actually send the push   
+	$result = curl_exec( $ch );
+	//echo "CALL";
+	// Error handling
+	if( curl_errno( $ch ) ){
+		//		echo 'GCM error: ' . curl_error( $ch );
+	}
+
+	// Close curl handle
+	curl_close( $ch );
+
+	// Debug GCM response       
+	/*echo $result;*/
+}
+
+function sendnotification($loginID){
+						$gcmQry= mysql_query("select * FROM user_gcm where login_id='$loginID'");
+						$rowsqry=mysql_fetch_assoc($gcmQry);
+						$regid=$rowsqry['gcm_registration_id'];
+						$type=$rowsqry['type'];
+						$data= array( 
+							'type' => '30',		
+						);
+					    
+						$ids = array($regid);   
+						if($type =='200'){  
+							sendGoogleCloudMessage($data,$ids,"AIzaSyDdT60o_FF_JsxLdVVsT1DuHM4_g6gep_A",0);
+						}else{
+							sendGoogleCloudMessage($data,$ids,"AIzaSyAaxuuuz2F7vsEENTIggk38dbGDRtJZQL8",1);
+						}
+					}	
+?>

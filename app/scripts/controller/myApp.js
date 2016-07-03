@@ -90,9 +90,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'conversationCtrl',
 		label: 'CHAT',
 		resolve: {
-			conList: function (chatFactory, $route, $cookies) {
+			conList: function (chatServices, $route, $cookies) {
 				if ($cookies.get("username") != null) {
-					return chatFactory.getConversationList($route.current.params.chatName);
+					return chatServices.getConversationList($route.current.params.chatName);
 
 				} else {
 					$location.path("#/");
@@ -104,9 +104,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'chatCtrl',
 		label: 'ALL CHATS',
 		resolve: {
-			chatList: function (chatFactory, $cookies, $location) {
+			chatList: function (chatServices, $cookies, $location) {
 				if ($cookies.get("username") != null) {
-					return chatFactory.getChatList();
+					return chatServices.getChatList();
 				} else {
 					$location.path("#/");
 				}
@@ -124,12 +124,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		templateUrl: 'view/inspiration/single-inspiration-product.html',
 		controller: 'singleProductInspirationCtrl',
 		label: 'PRODUCT INSPIRATION'
-	}).when('/registration', {
-		templateUrl: 'view/registration.html',
-		controller: 'loginCtrl',
-		label: 'REGISTRATION'
 	}).when('/shipping', {
-		templateUrl: 'view/newshipping.html',
+		templateUrl: 'view/userInfo/newshipping.html',
 		controller: 'shipCtrl',
 		label: 'SHIPPING',
 		resolve: {
@@ -142,7 +138,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 			}
 		}
 	}).when('/myorder', {
-		templateUrl: 'view/order.html',
+		templateUrl: 'view/userInfo/order.html',
 		controller: 'orderCtrl',
 		label: 'ORDER',
 		resolve: {
@@ -155,7 +151,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 			}
 		}
 	}).when('/account', {
-				templateUrl: 'view/editProfile.html',
+				templateUrl: 'view/userInfo/editProfile.html',
 				controller: 'accountCtrl',
 				label: 'MY ACCOUNT',
 				resolve: {

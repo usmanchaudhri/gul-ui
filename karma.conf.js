@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine-jquery','jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -21,21 +21,31 @@ module.exports = function(config) {
         'bower_components/angular-cookies/angular-cookies.js',
         'bower_components/angular-route/angular-route.js',
         // 'bower_components/ng-infinite-scroll/ng-infinite-scroll.js',
-        'app/js/ngInfiniteScroll.js',       
-        'app/js/ng-breadcrumbs.js',
-        'app/js/ng-file-upload.js',
-        'app/js/angular-bootstrap-lightbox.js',
-        'app/js/ui-bootstrap-0.11.0.min.js',
-        'app/js/angular-image-cropper.min.js',        
+        'app/scripts/js/ngInfiniteScroll.js',
+        'app/scripts/js/ng-breadcrumbs.js',
+        'app/scripts/js/ng-file-upload.js',
+        'app/scripts/js/angular-bootstrap-lightbox.js',
+        'app/scripts/js/ui-bootstrap-0.11.0.min.js',
+        'app/scripts/js/angular-image-cropper.min.js',
+        'app/scripts/js/loading-bar.min.js',
         // 'bower_components/angular-sanitize/angular-sanitize.js',
         // 'bower_components/angular-touch/angular-touch.js',
-        
-        // 'app/controller/myApp.js',
-        // 'app/controller/apiFactory.js',
-        'app/controller/services-test.js',
 
-        // 'test/**/cartFactorySpec.js',
-        'test/**/testPromiseSpec.js'        
+        'app/scripts/controller/myApp.js',
+        'app/scripts/services/restServices.js',
+        'app/scripts/services/cartServices.js',
+       //  'app/controller/services-test.js',
+         'app/scripts/services/services.js',
+       //  'app/controller/services.js',
+
+
+        //'app/controller/restServices.js',
+
+        // 'test/**/cartServicesSpec.js',
+        //'test/**/testPromiseSpec.js',
+        //'test/**/cartPromiseSpec.js',
+        'test/**/cartServicesSpec.js',
+        {pattern: 'test/mock/*.json', watched: true, served: true, included: false}
     ],
 
     // list of files to exclude

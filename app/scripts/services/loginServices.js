@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('loginFactory', ['$rootScope', 'apiFactory','$cookies','$q', function ($rootScope, apiFactory,$cookies,$q) {
+app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', function ($rootScope, restServices,$cookies,$q) {
 
     var sdo = {
 
@@ -9,16 +9,16 @@ app.factory('loginFactory', ['$rootScope', 'apiFactory','$cookies','$q', functio
             var data = $.param({
                 Identity: user
             });
-            apiFactory.getUrls().then(function (response) {
+            restServices.getUrls().then(function (response) {
                 var url = response.data.twilioUser;
-                apiFactory.postTwilioData(url, data)
+                restServices.postTwilioData(url, data)
                     .then(function (data) {
                         return data;
                     });
             });
         },
         getUrls: function () {
-            return apiFactory.getUrls().then(function (data) {
+            return restServices.getUrls().then(function (data) {
                 return data;
             });
         },
@@ -36,9 +36,9 @@ app.factory('loginFactory', ['$rootScope', 'apiFactory','$cookies','$q', functio
         signIn: function (loginEmail,loginPass) {
 
 
-            return apiFactory.getUrls().then(function (data) {
+            return restServices.getUrls().then(function (data) {
                 var url = data.data.loginUrl;
-                return apiFactory.getApiAuthDataHeroku(url,loginEmail,loginPass)
+                return restServices.getApiAuthDataHeroku(url,loginEmail,loginPass)
                     .then(function (data) {
                         if ($cookies.get("username") != loginEmail) {
                             var value = {
@@ -61,8 +61,8 @@ app.factory('loginFactory', ['$rootScope', 'apiFactory','$cookies','$q', functio
             var postData = $.param({
                 Identity: user
             });
-            return apiFactory.getUrls().then(function (data) {
-                apiFactory.postTwilioData(data.data.twilioUser, postData).then(function (data) {
+            return restServices.getUrls().then(function (data) {
+                restServices.postTwilioData(data.data.twilioUser, postData).then(function (data) {
                     return data;
                 });
             });
@@ -73,8 +73,8 @@ app.factory('loginFactory', ['$rootScope', 'apiFactory','$cookies','$q', functio
                 "username": email ,
                 "password": pass
             }
-            return apiFactory.getUrls().then(function(response){
-               return apiFactory.postApiData(response.data.signupUrl,data).then(function(responseData){
+            return restServices.getUrls().then(function(response){
+               return restServices.postApiData(response.data.signupUrl,data).then(function(responseData){
                    return sdo.regUser(email,email,pass).then(function(){
                        var shopId;
                        if (angular.isDefined(responseData.shop)) {

@@ -6,15 +6,15 @@ app.controller('thankuCtrl', ['$scope', '$location', 'Base64', '$cookies', 'gulS
 	$scope.items = $cookies.get("invoices", $scope.invoices);
 
 	gulServiceCall.getUrls().then(function (response) {
-		$scope.paypalPaymentUrl = response.data.paypalPayment;
-		$scope.uploadOrder();
+		$scope.submitPaymentUrl = response.data.submitPayment;
+		$scope.submitOrder();
 	});
-	$scope.uploadOrder = function () {
+	$scope.submitOrder = function () {
 		var promises = [];
 		$scope.showProgress = true;
 		for (var i = 0; i < $scope.items.length; i++) {
 			console.log($scope.items);
-			promises.push(gulServiceCall.uploadOrder($scope.orderPayload($scope.items[i])));
+			promises.push(gulServiceCall.submitOrder($scope.orderPayload($scope.items[i])));
 		}
 		$q.all(promises).then(function () {
 			console.log("ORDER SUBMIT");

@@ -1,13 +1,12 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
+app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', function ($http, $q, $cookies, Base64, $window) {
     var sdo = {
 
         getUrls: function () {
             return $http.get('gulgs.properties')
                 .then(function (one) {
-                    // console.log("ONE", one);
                     return one;
                 });
         },
@@ -62,7 +61,6 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
             ).then(function (data) {
                 return data;
             });
-
         },
 
         postApiAuthData: function (url, data) {
@@ -124,8 +122,6 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
 
 
             });
-
-
         },
 
         pyapalPayment: function () {
@@ -137,7 +133,7 @@ app.factory('apiFactory', ['$http', '$q', '$cookies', 'Base64', '$window', funct
                     }
                 }
                 return $http.post(
-                    mUrls.paypalPayment, paypalPayloads, config
+                    mUrls.submitPayment, paypalPayloads, config
                 ).success(function (data, status) {
                     $window.location.href = data.links[1].href;
                 }).error(function (data, status) {

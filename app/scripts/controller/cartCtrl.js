@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gulServiceCall','cartFactory', function ($scope, $cookies, $rootScope, $timeout, gulServiceCall,cartFactory) {
+app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gulServiceCall','cartServices', function ($scope, $cookies, $rootScope, $timeout, gulServiceCall,cartServices) {
 	$scope.isNumber = angular.isNumber;
 	$scope.totalPrice = 0;
 	$scope.qty = 0;
@@ -41,16 +41,16 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 
 	$rootScope.$on("addToBag", function (event, args) {
 		$scope.storeProductsInCookie(args.data.prod, args.data.size, args.data.qty);
-		$scope.totalCost(JSON.parse($cookies.get("invoices")));
+		$scope.cartItemsTotalPrice(JSON.parse($cookies.get("invoices")));
 	});
 
 
 	/**
 	 * Getting Item size to show products in  Cart of menu on hover
 	 */
-	$scope.getItemSize = function () {
-		console.log("Item Soo",$scope.abc);
-		cartFactory.getItemSize($scope.items,$scope.abc).then(function(data){
+	$scope.isCartEmpty = function () {
+		console.log("Item Soo",$scope.noOfCartItems);
+		cartServices.isCartEmpty($scope.items,$scope.noOfCartItems).then(function(data){
 			console.log("Item Soo",data);
 			$scope.itemSize = data});
 	}
@@ -58,9 +58,9 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	/**
 	 * Paypal Payment Api calling
 	 */
-	$scope.paypalPayment = function () {
+	$scope.submitPayment = function () {
 
-		cartFactory.paypalPayment().then(function(data){
+		cartServices.submitPayment().then(function(data){
 			console.log(data);
 		});
 	};
@@ -68,12 +68,12 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	/**
 	 * Checking for total Items in Cart
 	 */
-	var checkItems = function () {
-		cartFactory.checkItems().then(function(data){
-			$scope.abc = data.abc;
+	var getCartInfo = function () {
+		cartServices.getCartInfo().then(function(data){
+			$scope.noOfCartItems = data.noOfCartItems;
 			$scope.totalPrice = data.totalPrice;
 			$scope.items = data.items;
-			$scope.getItemSize();
+			$scope.isCartEmpty();
 		});
 	}
 
@@ -86,9 +86,9 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 		$cookies.put("invoices", JSON.stringify($scope.items));
 		$scope.items = [];
 		$scope.items = JSON.parse($cookies.get("invoices"));
-		$scope.totalCost($scope.items);
-		$scope.abc = $scope.items.length;
-		$scope.getItemSize();
+		$scope.cartItemsTotalPrice($scope.items);
+		$scope.noOfCartItems = $scope.items.length;
+		$scope.isCartEmpty();
 
 	};
 
@@ -101,11 +101,12 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 */
 	$scope.storeProductsInCookie = function (prod, size, qty) {
 		$scope.popFlag = true;
-		cartFactory.storeProductsInCookie(prod,size,qty).then(function(data){
-			$scope.abc = data.abc;
+		cartServices.storeProductsInCookie(prod,size,qty).then(function(data){
+			$scope.noOfCartItems = data.noOfCartItems;
 			$scope.totalPrice = data.totalPrice;
 			$scope.currentItem = data.currentItem;
 			$scope.items = data.invoice;
+			$scope.isCartEmpty();
 		});
 	};
 
@@ -113,8 +114,8 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 * Calculating total cost of products in cart
 	 * @param items
 	 */
-	$scope.totalCost = function (items) {
-		cartFactory.totalCost(items).then(function (data) {
+	$scope.cartItemsTotalPrice = function (items) {
+		cartServices.cartItemsTotalPrice(items).then(function (data) {
 			$scope.totalPrice = data;
 
 		});
@@ -167,7 +168,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 * Method call on Controller load
 	 */
 	$scope.onload();
-	checkItems();
+	getCartInfo();
 
 
 

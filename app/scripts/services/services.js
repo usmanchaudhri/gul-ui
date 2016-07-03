@@ -104,7 +104,7 @@ app.factory('DataLoader', function ($http) {
 	}
 });
 
-app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory','commonFactory', function ( $cookies, Base64, gulServiceCall, apiFactory , commonFactory) {
+app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'restServices','sharedServices', function ( $cookies, Base64, gulServiceCall, restServices , sharedServices) {
 
 	var sdo = {
 
@@ -131,7 +131,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.loginUrl;
-						return apiFactory.getApiAuthData(url)
+						return restServices.getApiAuthData(url)
 								.then(function (response1) {
 									return response1.data.customerShipping;
 								});
@@ -146,9 +146,9 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.customerUrl + '/' + $cookies.get("userId") + "/orders";
-						return apiFactory.getApiAuthData(url)
+						return restServices.getApiAuthData(url)
 								.then(function (response1) {
-									value = {
+									var value = {
 										orderDetail: response1.data,
 									};
 									return value;
@@ -164,7 +164,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.loginUrl;
-						return apiFactory.getApiAuthData(url)
+						return restServices.getApiAuthData(url)
 								.then(function (response1) {
 									return response1.data;
 								});
@@ -180,9 +180,9 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.shopUrl;
-						return apiFactory.getApiData(url)
+						return restServices.getApiData(url)
 								.then(function (response1) {
-									value = {
+									var value = {
 										allShopDetail: response1.data,
 										fixPath: response.data.fixImagePathShop,
 										token: response.data.token
@@ -199,7 +199,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 		getShop: function (shop_id) {
 			return gulServiceCall.getUrls()
 					.then(function (response) {
-						return apiFactory.getShop(shop_id).then(function (data) {
+						return restServices.getShop(shop_id).then(function (data) {
 							var value =
 							{
 								fixPath: response.data.fixImagePath,
@@ -221,9 +221,9 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.productUrl + '/' + pro_id;
-						return apiFactory.getApiData(url)
+						return restServices.getApiData(url)
 								.then(function (data) {
-									value = {
+								var	value = {
 										urls: response.data,
 										fixPath: response.data.fixImagePath,
 										fixPathShop: response.data.fixImagePathShop,
@@ -241,11 +241,11 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 			return gulServiceCall.getUrls()
 					.then(function (response) {
 						var url = response.data.categoryUrl + '/' + cat_id;
-						return apiFactory.getApiData(url)
+						return restServices.getApiData(url)
 								.then(function (data) {
 									console.log("SINGLE CAT before: ",data);
 
-									return commonFactory.isImage(response.data.fixImagePath + 'category/banner_' + cat_id + '.jpg' + response.data.token).then(function (result) {
+									return sharedServices.isImage(response.data.fixImagePath + 'category/banner_' + cat_id + '.jpg' + response.data.token).then(function (result) {
 										console.log("SINGLE CAT CTRL: ",result);
 										value = {
 											urls: response.data,
@@ -269,10 +269,10 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 						var url = response.data.categoryUrl + '/' + cat_id + '/products';
 						var mFixPath = response.data.fixPath;
 						var mToken = response.data.token;
-						return apiFactory.getApiData(url)
+						return restServices.getApiData(url)
 								.then(function (response1) {
 									var categoryIDs = [];
-									categoryProDetail = [];
+									var categoryProDetail = [];
 									var data = response1.data.products;
 									var dataLength = data.length;
 									for (var i = 0; i < dataLength; i++) {
@@ -310,7 +310,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 										categoryProDetail.push(value);
 										data = data[i].category.products;
 									}
-									return commonFactory.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
+									return sharedServices.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
 										value = {
 											banner: result,
 											urls: response.data,
@@ -338,7 +338,7 @@ app.factory('gulServices', [ '$cookies', 'Base64', 'gulServiceCall', 'apiFactory
 		 * @param shippingData
 		 */
 		addNewShipping: function (customerUrl, shippingData) {
-			apiFactory.postApiAuthData(customerUrl, shippingData)
+			restServices.postApiAuthData(customerUrl, shippingData)
 					.then(function (data) {
 						return sdo.getShippingList().then(function (data) {
 

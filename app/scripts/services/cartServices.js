@@ -1,19 +1,19 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoadingBar', function ($cookies, $rootScope, apiFactory, $q,cfpLoadingBar) {
+app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', function ($cookies, $rootScope, restServices, $q) {
     var sdo = {
 
-        paypalPayment: function (totalPrice, paypalPayload) {
+        submitPayment: function (totalPrice, payload) {
 
             if ($cookies.get("username") != null) {
                 var invoice = JSON.parse($cookies.get("invoices"));
-                return sdo.totalCost(invoice).then(function(data){
+                return sdo.cartItemsTotalPrice(invoice).then(function(data){
                     if (data > 0) {
-                        return apiFactory.paypalToken(paypalPayload).then(function (data) {
+                        return restServices.paypalToken(payload).then(function (data) {
                             $cookies.put("tokenID", data.access_token);
                             var tokenID = $cookies.get("tokenID");
-                            return apiFactory.paypalPayment(function (data) {
+                            return restServices.submitPayment(function (data) {
                                 return data;
                             });
                         });
@@ -27,9 +27,9 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
             }
         },
 
-        uploadOrder: function (orderPayload) {
-            apiFactory.getUrls().then(function (response) {
-                return apiFactory.postApiAuthData(
+        submitOrder: function (orderPayload) {
+            restServices.getUrls().then(function (response) {
+                return restServices.postApiAuthData(
                     response.data.orderUrl, orderPayload
                 ).then(function (data) {
                     return "success";
@@ -39,8 +39,7 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
 
         },
 
-        totalCost: function (items) {
-            cfpLoadingBar.start();
+        cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
             //var items = $cookies.get("invoices");
             console.log("PRINT PRINT: ", items.length);
@@ -104,10 +103,10 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
                     $cookies.put("invoices", JSON.stringify(invoice));
                 }
                 invoice = JSON.parse($cookies.get("invoices"));
-                sdo.totalCost(invoice).then(function (data) {
+                sdo.cartItemsTotalPrice(invoice).then(function (data) {
                     var value = {
                         "currentItem": invoice[invoice.length - 1],
-                        "abc": invoice.length,
+                        "noOfCartItems": invoice.length,
                         "totalPrice": data,
                         "invoice": invoice
                     };
@@ -118,22 +117,22 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
             return deferred.promise;
         },
 
-        checkItems: function () {
+        getCartInfo: function () {
             var deferred = $q.defer();
-            var abc;
+            var noOfCartItems;
             var items = $cookies.get("invoices");
             if (angular.isUndefined(items)) {
                 items = [];
-                abc = 0;
+                noOfCartItems = 0;
             }
             else {
                 items = JSON.parse($cookies.get("invoices"))
-                abc = items.length;
+                noOfCartItems = items.length;
             }
-            return sdo.totalCost(items).then(function (data) {
+            return sdo.cartItemsTotalPrice(items).then(function (data) {
                 var value = {
                     "items": items,
-                    "abc": abc,
+                    "noOfCartItems": noOfCartItems,
                     "totalPrice": data
                 }
                 deferred.resolve(value);
@@ -141,10 +140,10 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
             });
         },
 
-        getItemSize: function(items,abc){
+        isCartEmpty: function(items,noOfCartItems){
             var deferred = $q.defer();
             if(angular.isDefined(items)){
-                if(abc <= 0 ){
+                if(noOfCartItems <= 0 ){
                     deferred.resolve(true);
                 }else{
                     deferred.resolve(false);
@@ -152,11 +151,10 @@ app.factory('cartFactory', ['$cookies', '$rootScope', 'apiFactory', '$q','cfpLoa
             }else{
                 deferred.resolve(true);
             }
+            console.log("isCart","YES");
             return deferred.promise;
         }
 
     }
-
-
     return sdo;
 }]);

@@ -1,48 +1,48 @@
 @font-face {
 	font-family: 'helveticaneue-bold';
-	src: url('../fonts/helveticaneue-bold-webfont.eot');
-	src: url('../fonts/helveticaneue-bold-webfont.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/helveticaneue-bold-webfont.woff') format('woff'),
-	url('../fonts/helveticaneue-bold-webfont.ttf') format('truetype'),
-	url('../fonts/helveticaneue-bold-webfont.svg#helvetica_neueregular') format('svg');
+	src: url('../assets/fonts/helveticaneue-bold-webfont.eot');
+	src: url('../assets/fonts/helveticaneue-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../assets/fonts/helveticaneue-bold-webfont.woff') format('woff'),
+	url('../assets/fonts/helveticaneue-bold-webfont.ttf') format('truetype'),
+	url('../assets/fonts/helveticaneue-bold-webfont.svg#helvetica_neueregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'corbel-regular';
-	src: url('../fonts/corbel-webfont.eot');
-	src: url('../fonts/corbel-webfont.eot#iefix') format('embedded-opentype'),
-	url('../fonts/corbel-webfont.woff') format('woff'),
-	url('../fonts/corbel-webfont.ttf') format('truetype'),
-	url('../fonts/corbel-webfont.svg#CorbelRegular') format('svg');
+	src: url('../assets/fonts/corbel-webfont.eot');
+	src: url('../assets/fonts/corbel-webfont.eot#iefix') format('embedded-opentype'),
+	url('../assets/fonts/corbel-webfont.woff') format('woff'),
+	url('../assets/fonts/corbel-webfont.ttf') format('truetype'),
+	url('../assets/fonts/corbel-webfont.svg#CorbelRegular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: lato-light;
-	src: url(../fonts/Lato-Light.ttf);
+	src: url(../assets/fonts/Lato-Light.ttf);
 }
 
 @font-face {
 	font-family: lato-hairline;
-	src: url(../fonts/Lato-Hairline.ttf);
+	src: url(../assets/fonts/Lato-Hairline.ttf);
 }
 @font-face {
 	font-family: lato-bold;
-	src: url(../fonts/Lato-Bold.ttf);
+	src: url(../assets/fonts/Lato-Bold.ttf);
 }
 @font-face {
 	font-family: lato-regular;
-	src: url(../fonts/Lato-Regular.ttf);
+	src: url(../assets/fonts/Lato-Regular.ttf);
 }
 @font-face {
 	font-family: lato-italic;
-	src: url(../fonts/Lato-Italic.ttf);
+	src: url(../assets/fonts/Lato-Italic.ttf);
 }
 @font-face {
 	font-family: lato-lightitalic;
-	src: url(../fonts/Lato-LightItalic.ttf);
+	src: url(../assets/fonts/Lato-LightItalic.ttf);
 }
 
 

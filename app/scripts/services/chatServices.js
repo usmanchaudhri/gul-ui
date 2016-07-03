@@ -1,14 +1,14 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $rootScope, apiFactory,$cookies) {
+app.factory('chatServices', [ '$rootScope', 'restServices','$cookies', function ( $rootScope, restServices,$cookies) {
 
     var sdo = {
         getChatList: function() {
 
 
 
-            return apiFactory.getUrls()
+            return restServices.getUrls()
                 .then(function(one) {
 
                     console.log('Promise one resolved with ', one);
@@ -20,7 +20,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
                     }
 
                     var url = one.data.customerUrl+'/'+JSON.parse($cookies.get('username')).id+'/cchat';
-                    return apiFactory.getApiData(url).then(function(dataa) {
+                    return restServices.getApiData(url).then(function(dataa) {
                         var	customerName = JSON.parse($cookies.get("username")).username;
                         if(dataa.data.length > 0){
                             console.log(dataa);
@@ -52,7 +52,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
             var chatTitle = '';
 
 
-            return apiFactory.getUrls()
+            return restServices.getUrls()
                 .then(function(one) {
 
                     console.log('Promise one resolved with ', one);
@@ -64,7 +64,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
                     }
 
 
-                    return apiFactory.getApiData(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat').then(function(dataa) {
+                    return restServices.getApiData(one.data.customerUrl+'/'+$cookies.get('userId')+'/cchat').then(function(dataa) {
 
                         console.log("Channel DATA: ",dataa);
 
@@ -80,7 +80,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
                             }
                         }
 
-                        return	apiFactory.getApiAuthData(
+                        return	restServices.getApiAuthData(
                             one.data.twilioChannel+'/'+chatNames+'/Messages'
                         ).then(function(data, status) {
                             console.log("SSID",data);
@@ -116,7 +116,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
         var chatTitle = '';
 
 
-        return apiFactory.getUrls()
+        return restServices.getUrls()
             .then(function(one) {
 
                 console.log('Promise one resolved with ', one);
@@ -127,7 +127,7 @@ app.factory('chatFactory', [ '$rootScope', 'apiFactory','$cookies', function ( $
                     }
                 }
 
-                return	 apiFactory.getApiAuthData(one.data.twilioChannel+'/'+chatNames+'/Messages').then(function(data, status) {
+                return	 restServices.getApiAuthData(one.data.twilioChannel+'/'+chatNames+'/Messages').then(function(data, status) {
                     console.log("SSID",data);
                     var chatData = [];
 
