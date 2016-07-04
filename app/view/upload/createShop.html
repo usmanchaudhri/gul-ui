@@ -1,69 +1,77 @@
-<div class="mMainContainer mCustomForm">
-    <div class="mCreatNew mpgSize">
-        <form class="form-inline" role="form">
-            <div class="row">
-                <h2 class="mFormHeading col-lg-12 text-uppercase">Create new shop</h2>
-            </div>
-            <div class="row">
-                <input type="text" name="shopName" ng-model="shopName"
-                       class="col-lg-12 col-md-12 col-xs-12 form-control" placeholder="shop name">
-            </div>
-            <div class="row">
-                <textarea class="col-lg-12 col-md-12 col-xs-12 detail form-control" ng-model="detail" name="shopDetail"
-                          placeholder="detail"></textarea>
-            </div>
-            <div class="row">
-                <input type="text" class="col-lg-12 col-md-12 col-xs-12 form-control" ng-model="designerName"
-                       name="shopDesigner" placeholder="designer">
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
-                    <div href="#" class="upload-container-img">
-                        <image-cropper image="{{file.url}}" dest-width="300" dest-height="300" show-controls="false"
-                                       cropped-image="cropImage" fit-on-init="true"></image-cropper>
-                    </div>
-                    {{cropImageArray(cropImage,$index)}}
-                    <div ng-controller="imgViewCtrl" style="height: 45px;">
-                        <table style="width: 95%;">
-                            <tr class="upload-img-icons">
-                                <td><a ng-click="openLightboxModal(allFiles,$index)"><img class="img-responsive"
-                                                                                          src="images/Zoom_in.png"
-                                                                                          alt=""></a></td>
-                                <td><a ng-click="openZoomModal(this.file,$index)"><img class="img-responsive"
-                                                                                       src="images/Edit-icon.png"
-                                                                                       alt=""></a></td>
-                                <td><a><img class="img-responsive" src="images/cross-512.png"
-                                            ng-click="removeImage($index)"
-                                            alt=""></a></td>
-                            </tr>
-                        </table>
+<div class="container">
+	<div class="row">
+		<table>
+			<tr >
+				<td><label for="title">SHOP</label></td>
+				<td class="upload-form-col">
+					<input  type="text" ng-model="shopName" class="form-control" id="sku"  style=" background: white;border:1px solid #D9D9D9;" ><br></td>
+			</tr>
+			<br/><br/><br/>
+			<tr>
+				<td><label for="title">Designer</label></td>
+				<td class="upload-form-col">
+					<input  type="text" class="form-control"  ng-model="designerName"  style=" background: white;border:1px solid #D9D9D9;" ><br>		
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label for="title">Detail</label></td>
+				<td class="upload-form-col">
+					<input  type="text"  class="form-control" ng-model="detail" style=" background: white;border:1px solid #D9D9D9;">	<br>		
+				</td>
+			</tr>
+			
+			
+			
+			<tr>
+				<td><label for="Image">Image:</label><br /></td>
+				<td>
+					<div class="col-lg-2 col-md-3 col-xs-5 upload-container" ng-repeat="file in allFiles track by $index">
+						<div  href="#" class="upload-container-img">
+							<image-cropper image="{{file.url}}" dest-width="300" dest-height="300" show-controls="false" cropped-image="cropImage" fit-on-init="true"></image-cropper>
+						</div>
+						{{cropImageArray(cropImage,$index)}}
+						<div  ng-controller="imgViewCtrl" style="height: 45px;" >
+							<table style="width: 95%;">
+								<tr class="upload-img-icons">
+									<td><a ng-click="openLightboxModal(allFiles,$index)" ><img class="img-responsive" src="images/Zoom_in.png" alt=""></a></td>
+									<td><a ng-click="openZoomModal(this.file,$index)"><img class="img-responsive" src="images/Edit-icon.png" alt=""></a></td>
+									<td><a><img class="img-responsive" src="images/cross-512.png" ng-click="removeImage($index)" alt=""></a></td>
+								</tr>
+							</table>
+			
 							<span ng-show="showProgress">
 								<div class="progress">
-                                    <div id="progress-bar" class="progress-bar progress-bar-striped active"
-                                         role="progressbar" aria-valuenow="progressArr[$index].imgProgress"
-                                         aria-valuemin="0" aria-valuemax="100"
-                                         data-value="progressArr[$index].imgProgress" style="width: 100%">
-                                        {{progressShop}}
-                                    </div>
-                                </div>
-							</span>
+			
+									<div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progressArr[$index].imgProgress" aria-valuemin="0" aria-valuemax="100" data-value="progressArr[$index].imgProgress" style="width: 100%">
+										{{progressShop}}
+									</div>
+					
+								</div>
+					
+					
+							</span>	
+				
+				
 							<span ng-hide="showProgress">
 								<br/>
 								<br/>
 								<br/>
-							</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row" ng-repeat="a in getNumber(1) track by $index">
-                <input name="addImg" type="file" ng-model="files" ngf-select="addImages(this.files)"
-                       class="col-lg-12 mCustom-file-input mPhoto mTitle" placeholder="ADD PHOTO:">
-            </div>
-            <div class="row">
-                <button type="button" name="submit" class="col-lg-2 col-md-2 col-xs-2 mSubmit text-uppercase"
-                        ng-click="createShop()">Create
-                </button>
-            </div>
-        </form>
-    </div>
+							</span>	
+						</div>
+					</div>
+		
+								<div class="col-lg-2 col-md-2 col-xs-4 thumb upload-container" ng-repeat="a in getNumber(1) track by $index">
+			<input class="custom-file-input" type="file" ng-model="files" ngf-select="addImages(this.files)" />
+			
+		</div>
+						</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-sm-5 "></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-success upload-btn" ng-click="createShop()">CREATE</button></div>
+		<div class="col-sm-5"></div>
+	</div>
 </div>

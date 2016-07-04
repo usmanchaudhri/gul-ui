@@ -212,6 +212,7 @@ h2 span {
 	top: 0;
 	border-radius: 0px;
 	background-color: white;
+	display: none;
 }
 
 .navbar.scroll a{
@@ -503,7 +504,7 @@ h2 span {
 	overflow: hidden;
 	margin: 0;
 }
-/*.form-control {
+.form-control {
 
 	padding: 1px 10px;
 	border: 0;
@@ -513,7 +514,7 @@ h2 span {
 	font: 18px/24px 'corbel-regular', sans-serif;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-}*/
+}
 .form-control:focus {
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -770,6 +771,24 @@ body {
 }
 @media (max-width: 768px) {
 	
+	.gallery-carousel-content{
+		bottom: 20% !important;
+	}
+	
+	.homepage-gallery-left-tiles .left-image{
+		height: auto !important;
+	}
+	
+	.slider-heading-mobile{
+	    margin-top: -41%;
+    color: white;
+    text-align: left;
+}
+
+.slider-heading-mobile h3{
+	font-size: 13px !important;
+} 
+
 	.email-box{
 	margin-left: 0px !important;
 }
@@ -1758,9 +1777,9 @@ html{
 /*Upload Image*/
 
 .upload-container{
+	margin: 10px;
 	width: 166px;
-	height: 204px;
-	margin-bottom: 10px;
+	height: 200px;
 	padding: 0px;
 	background-color: aliceblue;
 	border: 1px solid rgba(128, 128, 128, 0.49);
@@ -2091,6 +2110,7 @@ select{
 	box-shadow: none;
 }
 
+
 .individual-bag-btn {
 	width: 61.5%;
 	height: 25px;
@@ -2370,7 +2390,7 @@ select{
 	.home-slider-shop-btn{
 		padding:5px !important;
 		width:33% !important;
-		margin-top: 105px !important;
+		margin-top: -54% !important;
 	}
 
 	.home-slider-shop-btn a , .home-slider-shop-btn-two a, .home-slider-shop-btn-three a{
@@ -2449,11 +2469,13 @@ select{
 		height: 300px;
 	}
 	.carousel-inner{
-		height: 410px;
+		height: 280px;
 	}
 	.controlsBlock{
 		margin-top:-140px !important;
 	}
+	
+	
 }
 
 @media (min-width: 400px){
@@ -2513,7 +2535,7 @@ select{
 	font-size: 15px;
 }
 .home-slider-shop-btn{
-	border: 1px solid black;
+	border: 1px solid #e56804;
 	padding:10px;
 	font-family: Helvetica,Arial,sans-serif;
 	width:9%;
@@ -2524,6 +2546,26 @@ select{
 
 
 @media (max-width: 768px) {
+	
+	.carousel-001{
+		margin-top: 375px !important;
+	}
+	
+	.carousel-003{
+		margin-top: 365px !important;
+	}
+	
+	.carousel-004{
+		margin-top: 22px !important;
+	}
+	
+	.carousel-005{
+		margin-top: 364px !important;
+	}
+	
+	.gallery1{
+		margin-top: -72px !important;
+	}
 	
 	.personalize-section{
 		
@@ -2587,7 +2629,7 @@ select{
 		margin-left:-13px !important;
 	}
 	.home-slider-shop-btn{
-		border: 1px solid black;
+		border: 1px solid #e86903;
 		padding:5px;
 
 		width:33% !important;
@@ -2742,6 +2784,7 @@ select{
 		color: black !important;
 	}
 }
+
 
 
 .social label{
@@ -3309,11 +3352,120 @@ select{
 	font-weight: normal;
 }
 
-.home-menu:hover .header-account-label a label{
-	color: black !important;
+.homepage-gallery{
+	margin-top:5px;
+	margin-left: 5px;
+	padding: 0px;
 }
 
-.scroll .header-account-label a label{
-	color: black !important;
+.homepage-gallery-tiles{
+	padding:0px;
+}
+
+.homepage-gallery-left-tiles{
+	padding-left: 5px;
+}
+
+.homepage-gallery-left-tiles .left-image1{
+	width: 100%;
+	height: 1000px;
+	margin-bottom: 5px;
+}
+
+.homepage-gallery-left-tiles .left-image2{
+	width: 100%;
+	height: 662px;
+	margin-bottom: 5px;
+}
+
+.homepage-gallery-right-tiles{
+	padding:0px;
+}
+
+.homepage-gallery-right-tiles .right-image1{
+	width: 97%;
+	height: 1118px;
+	margin-left: 5px;
+	margin-bottom: 5px;
 	
 }
+
+.homepage-gallery-right-tiles .right-image2{
+	width: 97%;
+	height: 1000px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	
+}
+.homepage-gallery-right-tiles .right-image3{
+	width: 97%;
+	height: 350px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	
+}
+
+.gallery-carousel-content {
+	position: absolute;
+	bottom: 5%;
+	left:5%;
+	width: 100%;
+	z-index: 20;
+	color: white;
+	font-family: lato-hairline !important;
+}
+
+.gallery-carousel-content h1{
+	font-size: 25px;
+	font-weight: lighter;
+	height: 18px;
+	
+}
+
+.home-slider-shop-desc2{
+	font-family: lato-hairline !important;
+	font-size: 25px !important;
+	font-weight: lighter;
+	
+}
+
+.category_banner1{
+	margin: 0px 10px .5em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 671px;
+}
+
+.category_banner2{
+	margin: 0px 10px .5em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 662px;
+}
+
+.category_banner3{
+	margin: 0px 10px .5em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 319px;
+}
+
+.category_banner4{
+	margin: 0px 10px .5em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 660px;
+}
+
+.category_banner5{
+	margin: 0px 10px .5em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+	
