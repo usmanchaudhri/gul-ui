@@ -1,0 +1,55 @@
+{"cartProducts":[
+    {
+      "id": "1",
+      "qty": "1",
+      "totalQty": "4",
+      "name": "White Suit",
+      "size": "L",
+      "shop": "gulgs",
+      "shopID": "33",
+      "cost": "25",
+      "category": "2",
+      "imagePath": "imagePath"
+    }
+],
+  "cartProducts1":[
+    {
+      "id": "1",
+      "qty": "2",
+      "totalQty": "4",
+      "name": "White Suit",
+      "size": "L",
+      "shop": "gulgs",
+      "shopID": "33",
+      "cost": "22",
+      "category": "2",
+      "imagePath": "imagePath"
+    }
+  ],
+  "cartProducts2":[
+    {
+      "id": "1",
+      "qty": "2",
+      "totalQty": "4",
+      "name": "White Suit",
+      "size": "L",
+      "shop": "gulgs",
+      "shopID": "33",
+      "cost": "29",
+      "category": "2",
+      "imagePath": "imagePath"
+    },
+    {
+      "id": "1",
+      "qty": "3",
+      "totalQty": "4",
+      "name": "White Suit",
+      "size": "L",
+      "shop": "gulgs",
+      "shopID": "33",
+      "cost": "25",
+      "category": "2",
+      "imagePath": "imagePath"
+    }
+  ]
+}

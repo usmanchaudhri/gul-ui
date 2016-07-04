@@ -41,6 +41,7 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
 
         cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
+            console.log("ITEMS : ", items.toString());
             console.log("PRINT PRINT: ", items.length);
             var totalPrice = 0;
             for (var i = 0; i < items.length; i++) {
@@ -166,7 +167,6 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
             console.log("isCart","YES");
             return deferred.promise;
         }
-
     }
     return sdo;
 }]);
