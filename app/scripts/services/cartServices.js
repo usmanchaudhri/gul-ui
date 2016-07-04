@@ -41,11 +41,9 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
 
         cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
-            //var items = $cookies.get("invoices");
             console.log("PRINT PRINT: ", items.length);
             var totalPrice = 0;
             for (var i = 0; i < items.length; i++) {
-                //    console.log(items[i]);
                 totalPrice = totalPrice + (items[i].cost * items[i].qty);
             }
             if (items.length == 0) {

@@ -3,67 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bf4874-32bb-440e-8f40-d508fc3920fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/dropdown.css" afterPath="$PROJECT_DIR$/app/css/dropdown.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/styles.css" afterPath="$PROJECT_DIR$/app/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/-untitled- 64.jpg" afterPath="$PROJECT_DIR$/app/assets/images/-untitled- 64.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/001-jacket.jpg" afterPath="$PROJECT_DIR$/app/assets/images/001-jacket.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/001.jpg" afterPath="$PROJECT_DIR$/app/assets/images/001.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/1.png" afterPath="$PROJECT_DIR$/app/assets/images/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/9405.png" afterPath="$PROJECT_DIR$/app/assets/images/9405.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Category_banner.jpg" afterPath="$PROJECT_DIR$/app/assets/images/Category_banner.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Category_banner_3.jpg" afterPath="$PROJECT_DIR$/app/assets/images/Category_banner_3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Edit-icon.png" afterPath="$PROJECT_DIR$/app/assets/images/Edit-icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Originals/001.jpg" afterPath="$PROJECT_DIR$/app/assets/images/Originals/001.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Originals/arrow-left.jpg" afterPath="$PROJECT_DIR$/app/assets/images/Originals/arrow-left.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Originals/tick.png" afterPath="$PROJECT_DIR$/app/assets/images/Originals/tick.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Paypal-Logo-PNG.png" afterPath="$PROJECT_DIR$/app/assets/images/Paypal-Logo-PNG.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Sania.jpg" afterPath="$PROJECT_DIR$/app/assets/images/Sania.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/Zoom_in.png" afterPath="$PROJECT_DIR$/app/assets/images/Zoom_in.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/app/assets/images/ajax-loader.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/arrow-left.jpg" afterPath="$PROJECT_DIR$/app/assets/images/arrow-left.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/arrow.png" afterPath="$PROJECT_DIR$/app/assets/images/arrow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/back-arrow.jpg" afterPath="$PROJECT_DIR$/app/assets/images/back-arrow.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/back2 .PNG" afterPath="$PROJECT_DIR$/app/assets/images/back2 .PNG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/banner-image2.jpg" afterPath="$PROJECT_DIR$/app/assets/images/banner-image2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/banner-image3.jpg" afterPath="$PROJECT_DIR$/app/assets/images/banner-image3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/banner-image4.jpg" afterPath="$PROJECT_DIR$/app/assets/images/banner-image4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/button copy.PNG" afterPath="$PROJECT_DIR$/app/assets/images/button copy.PNG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/cartloading.gif" afterPath="$PROJECT_DIR$/app/assets/images/cartloading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/cartnew.jpg" afterPath="$PROJECT_DIR$/app/assets/images/cartnew.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/close-button.png" afterPath="$PROJECT_DIR$/app/assets/images/close-button.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/close.png" afterPath="$PROJECT_DIR$/app/assets/images/close.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/closebtn.png" afterPath="$PROJECT_DIR$/app/assets/images/closebtn.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/cross-512.png" afterPath="$PROJECT_DIR$/app/assets/images/cross-512.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/down.png" afterPath="$PROJECT_DIR$/app/assets/images/down.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/facebook.jpg" afterPath="$PROJECT_DIR$/app/assets/images/facebook.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/ico-01.png" afterPath="$PROJECT_DIR$/app/assets/images/ico-01.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/ico-facebook.png" afterPath="$PROJECT_DIR$/app/assets/images/ico-facebook.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/ico-twitter.png" afterPath="$PROJECT_DIR$/app/assets/images/ico-twitter.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-01.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-01_old.png" afterPath="$PROJECT_DIR$/app/assets/images/img-01_old.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-02.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-02.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-03.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-03.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-04.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-04.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-05.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-05.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-06.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-06.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-07.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-07.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-08.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-08.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-09.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-09.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img-10.jpg" afterPath="$PROJECT_DIR$/app/assets/images/img-10.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/img.PNG" afterPath="$PROJECT_DIR$/app/assets/images/img.PNG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/ins_34.jpg" afterPath="$PROJECT_DIR$/app/assets/images/ins_34.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/kk.PNG" afterPath="$PROJECT_DIR$/app/assets/images/kk.PNG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/loading.gif" afterPath="$PROJECT_DIR$/app/assets/images/loading.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/logo.png" afterPath="$PROJECT_DIR$/app/assets/images/logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/payment-methods.png" afterPath="$PROJECT_DIR$/app/assets/images/payment-methods.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/right.png" afterPath="$PROJECT_DIR$/app/assets/images/right.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/slider.jpg" afterPath="$PROJECT_DIR$/app/assets/images/slider.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/t.jpg" afterPath="$PROJECT_DIR$/app/assets/images/t.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/tick.png" afterPath="$PROJECT_DIR$/app/assets/images/tick.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/user.gif" afterPath="$PROJECT_DIR$/app/assets/images/user.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/user.png" afterPath="$PROJECT_DIR$/app/assets/images/user.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/images/visa.png" afterPath="$PROJECT_DIR$/app/assets/images/visa.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/cartServices.js" afterPath="$PROJECT_DIR$/app/scripts/services/cartServices.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/spec/cartServicesSpec.js" afterPath="$PROJECT_DIR$/test/spec/cartServicesSpec.js" />
     </list>
     <ignored path="gul-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,7 +25,53 @@
     <favorites_list name="gul-ui" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="cart.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/mock/cart.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.65384614">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartServicesSpec.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/spec/cartServicesSpec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63166666">
+              <caret line="36" column="50" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="karma.conf.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/karma.conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartServices.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/cartServices.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="60" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
+              <folding>
+                <element signature="e#240#1100#0" expanded="false" />
+                <element signature="e#1148#1448#0" expanded="false" />
+                <element signature="e#4630#5370#0" expanded="false" />
+                <element signature="e#5423#5837#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,7 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controller/singleCategoryCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/thankuCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/imgViewCtrl.js" />
         <option value="$PROJECT_DIR$/app/controller/loginCtrl.js" />
@@ -143,7 +129,6 @@
         <option value="$PROJECT_DIR$/.tmp/scripts/services/cartFactory.js" />
         <option value="$PROJECT_DIR$/.tmp/scripts/controller/categoryProCtrl.js" />
         <option value="$PROJECT_DIR$/.tmp/scripts/controller/thankuCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/cartServices.js" />
         <option value="$PROJECT_DIR$/app/view/menu/index-header.html" />
         <option value="$PROJECT_DIR$/app/scripts/controller/cartCtrl.js" />
         <option value="$PROJECT_DIR$/app/view/shoppingCart/cart.html" />
@@ -151,7 +136,9 @@
         <option value="$PROJECT_DIR$/app/scripts/controller/myApp.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/services.js" />
         <option value="$PROJECT_DIR$/karma.conf.js" />
+        <option value="$PROJECT_DIR$/test/mock/cart.json" />
         <option value="$PROJECT_DIR$/test/spec/cartServicesSpec.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/cartServices.js" />
       </list>
     </option>
   </component>
@@ -247,6 +234,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gul-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gul-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mock" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -391,7 +396,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1612" height="867" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.50751877" order="10" side_tool="true" content_ui="tabs" />
@@ -497,14 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/mock/gulgs.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5078236">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9928775">
@@ -561,14 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/scripts/services/cartFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20987654">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/restServices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06995885">
@@ -597,67 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25651577">
           <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controller/singleProductCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="404" column="46" selection-start-line="404" selection-start-column="46" selection-end-line="404" selection-end-column="46" />
-          <folding>
-            <element signature="e#1116#1690#0" expanded="false" />
-            <element signature="e#1757#2506#0" expanded="false" />
-            <element signature="e#2562#3763#0" expanded="false" />
-            <element signature="e#4453#5535#0" expanded="false" />
-            <element signature="e#5573#5740#0" expanded="false" />
-            <element signature="e#5818#6270#0" expanded="false" />
-            <element signature="e#6366#7286#0" expanded="false" />
-            <element signature="e#7342#7740#0" expanded="false" />
-            <element signature="e#7806#7838#0" expanded="false" />
-            <element signature="e#7869#9448#0" expanded="false" />
-            <element signature="e#9493#9768#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/scripts/services/cartFactory.js.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7876447">
-          <caret line="0" column="10335" selection-start-line="0" selection-start-column="10335" selection-end-line="0" selection-end-column="10335" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/scripts/js/ui-bootstrap-tpls.js.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33204633">
-          <caret line="0" column="375364" selection-start-line="0" selection-start-column="375364" selection-end-line="0" selection-end-column="375364" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/scripts/js/ui-bootstrap-0.js.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33204633">
-          <caret line="0" column="130177" selection-start-line="0" selection-start-column="130177" selection-end-line="0" selection-end-column="130177" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/scripts/js/ng-file-upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="2119" column="59" selection-start-line="2119" selection-start-column="59" selection-end-line="2119" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -692,14 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.290909">
           <caret line="34" column="48" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controller/cartCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1754386">
-          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -799,44 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.24138">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/cartServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.793103">
-          <caret line="143" column="24" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="24" />
-          <folding>
-            <element signature="e#240#1100#0" expanded="false" />
-            <element signature="e#1148#1448#0" expanded="false" />
-            <element signature="e#1497#2133#0" expanded="false" />
-            <element signature="e#2194#4691#0" expanded="false" />
-            <element signature="e#4727#5467#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/spec/testPromiseSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/spec/cartServicesSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/images/1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -885,6 +767,87 @@
     <entry file="file://$PROJECT_DIR$/app/assets/images/user.gif">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/spec/testPromiseSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68833333">
+          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mock/gulgs.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controller/singleProductCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding>
+            <element signature="e#1116#1690#0" expanded="false" />
+            <element signature="e#1757#2506#0" expanded="false" />
+            <element signature="e#2562#3763#0" expanded="false" />
+            <element signature="e#4453#5535#0" expanded="false" />
+            <element signature="e#5573#5740#0" expanded="false" />
+            <element signature="e#5818#6270#0" expanded="false" />
+            <element signature="e#6366#7286#0" expanded="false" />
+            <element signature="e#7342#7740#0" expanded="false" />
+            <element signature="e#7806#7838#0" expanded="false" />
+            <element signature="e#7869#9448#0" expanded="false" />
+            <element signature="e#9493#9768#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controller/cartCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.108333334">
+          <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/cartServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="60" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
+          <folding>
+            <element signature="e#240#1100#0" expanded="false" />
+            <element signature="e#1148#1448#0" expanded="false" />
+            <element signature="e#4630#5370#0" expanded="false" />
+            <element signature="e#5423#5837#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mock/cart.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65384614">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/spec/cartServicesSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63166666">
+          <caret line="36" column="50" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="50" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
