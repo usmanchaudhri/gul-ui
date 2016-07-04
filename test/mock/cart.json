@@ -61,5 +61,68 @@
     "imageCount": "2"
   },
   "createdOn": 1463990924563
+},
+  "product2":{
+  "name": "Tea Pink Net Shirt with Plain Sharara",
+  "id": 335,
+  "sku": "Tea Pink Net Shirt with Plain Sharara",
+  "shortDesc": "Tea Pink net Shirt with Plain Sharara Shirt is embellished with beautiful stonework.",
+  "longDesc": "Tea Pink net Shirt with Plain Sharara Shirt is embellished with beautiful stonework, along with dabka\nand nakshi ornaments. The dupatta has beautiful work on two longer sides.",
+  "quantity": 0,
+  "pricingProduct": {
+    "id": 335,
+    "storedValue": 1909.99,
+    "pricingProductId": 335
+  },
+  "category": {
+    "id": 14,
+    "code": "1006",
+    "name": "Bridal Dresses",
+    "products": null,
+    "subCategories": []
+  },
+  "shop": {
+    "name": "Asifa & Nabeel",
+    "id": 60,
+    "products": null,
+    "designers": null,
+    "shopOwner": {
+      "username": "asifa@gmail.com",
+      "id": 116,
+      "customerShipping": [],
+      "shop": "Asifa & Nabeel",
+      "order": null,
+      "cchat": null,
+      "createdOn": 1463990236435
+    },
+    "createdOn": 1463990308493
+  },
+  "productVariation": [
+    {
+      "id": 661,
+      "size": "L",
+      "color": "Red",
+      "product": "Tea Pink Net Shirt with Plain Sharara"
+    },
+    {
+      "id": 662,
+      "size": "M",
+      "color": "Red",
+      "product": "Tea Pink Net Shirt with Plain Sharara"
+    },
+    {
+      "id": 663,
+      "size": "S",
+      "color": "Red",
+      "product": "Tea Pink Net Shirt with Plain Sharara"
+    }
+  ],
+  "attributeDefinitions": null,
+  "imageInfo": {
+    "id": 335,
+    "imagePath": "/listing/",
+    "imageCount": "2"
+  },
+  "createdOn": 1463990924563
 }
 }
