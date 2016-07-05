@@ -23,7 +23,8 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
         },
 
         getApiAuthData: function (url) {
-            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username +
+                ':' + JSON.parse($cookies.get("username")).password);
             var config = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +65,8 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
         },
 
         postApiAuthData: function (url, data) {
-            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth = Base64.encode(JSON.parse($cookies.get("username")).username +
+                ':' + JSON.parse($cookies.get("username")).password);
             var config = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,8 +93,9 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
 
         paypalToken: function (data) {
             return sdo.getUrls().then(function (response) {
-                var base64 = Base64.encode(response.data.paypalClientID + ':' + response.data.paypalSecretKey);
-
+                var base64 = Base64.encode(response.data.paypalClientID + ':' +
+                    response.data.paypalSecretKey);
+                var obj;
                 var config = {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',

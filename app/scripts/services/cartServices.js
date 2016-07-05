@@ -28,15 +28,13 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
         },
 
         submitOrder: function (orderPayload) {
-            restServices.getUrls().then(function (response) {
+            return restServices.getUrls().then(function (response) {
                 return restServices.postApiAuthData(
                     response.data.orderUrl, orderPayload
                 ).then(function (data) {
                     return "success";
-
                 });
             });
-
         },
 
         cartItemsTotalPrice: function (items) {

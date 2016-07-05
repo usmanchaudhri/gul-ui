@@ -23,6 +23,7 @@ describe('gulTestServicesSpec', function() {
             var shop = {"id": "101"};
             return [200, shop, {}];
         });
+
     }));
 
     describe('get test url', function() {

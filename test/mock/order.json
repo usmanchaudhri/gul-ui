@@ -1,0 +1,13 @@
+{
+  "productId": "12",
+  "productName": "White suit",
+  "productSku": "Birds Han",
+  "productQuantity": "2",
+  "productPrice": "52",
+  "productImagePath": "/listing",
+  "productCategoryId": "5",
+  "productShopId": "5",
+  "customer": {
+    "id": "54"
+  }
+}

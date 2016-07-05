@@ -5,7 +5,7 @@ describe('cartServicesSpec', function() {
     var factory, 
         $httpBackend,
         $q,
-        deferred,
+        $cookies,
         $scope;
     
     beforeEach(function() {
@@ -14,23 +14,39 @@ describe('cartServicesSpec', function() {
     beforeEach(inject(function($rootScope, $injector, _$q_) {
         factory = $injector.get('cartServices');
         $httpBackend = $injector.get('$httpBackend');
+        $cookies = $injector.get('$cookies');
         jasmine.getJSONFixtures().fixturesPath='base/test/mock';
         $scope = $rootScope.$new();
         $q = _$q_;
-
         // mock http calls
+        var value = {
+            "username": "amjad@gmail.com",
+            "password": "abc",
+            "id": "1",
+            "shopId": JSON.stringify("20")
+        };
+        $cookies.put("username", JSON.stringify(value));
+        $cookies.put("userId", "1");
         $httpBackend
             .whenGET('gulgs.properties').respond(function(method, url, data) {
             return [200, getJSONFixture('gulgs.json'), {}];
         });
+        $httpBackend.whenPOST(getJSONFixture('gulgs.json').orderUrl).respond(function(method, url, data, headers){
+          //  return [400, "Error", {}];
+            return [200, data, {}];
+        });
+
+
      }));
 
     describe('get test url', function() {
+
 
         /**
          * IsCartEmpty Method Test cases
          */
         it("should return true because cart is empty", function() {
+            //console.log("Check",$cookies.get("username"));
             factory.isCartEmpty(undefined,0).then(function(result){
                 expect(result).toBe(true);
             });
@@ -108,8 +124,32 @@ describe('cartServicesSpec', function() {
             $httpBackend.flush();
         });
 
+        /**
+         * submitOrder Test cases
+         */
 
+        it("should return Success when HTTP response is 200 ", function() {
+            factory.submitOrder(getJSONFixture('order.json')).then(
+                function(result){
+                    console.log("submitOrder",result);
+                    expect(result).toBe("success");
+                },function(data) {
+                    console.log("Error");
+                });
+            $httpBackend.flush();
+        });
 
+        it("should return Error when HTTP response is not 200 ", function() {
+            factory.submitOrder(getJSONFixture('order.json')).then(
+                function(result){
+                    console.log("submitOrder",$cookies.get("username"));
+                    expect(result).toBe("success");
+                },function(result) {
+                    console.log($cookies.get("username"));
+                    expect(result.data).toBe("Error");
+                });
+            $httpBackend.flush();
+        });
     });
 
 });
