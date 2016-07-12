@@ -36,11 +36,15 @@ describe('cartServicesSpec', function() {
             return [200, data, {}];
         });
 
-        $httpBackend.whenPOST(getJSONFixture('gulgs.json').paypalToken).respond(function(method, url, data, headers){
+        $httpBackend.whenPOST(getJSONFixture('gulgs.json').getToken).respond(function(method, url, data, headers){
             //  return [400, "Error", {}];
             return [200, data, {}];
         });
 
+        $httpBackend.whenPOST(getJSONFixture('gulgs.json').submitPayment).respond(function(method, url, data, headers){
+            //  return [400, "Error", {}];
+            return [200, data, {}];
+        });
      }));
 
     describe('get test url', function() {

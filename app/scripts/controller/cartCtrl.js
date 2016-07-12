@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gulServiceCall','cartServices', function ($scope, $cookies, $rootScope, $timeout, gulServiceCall,cartServices) {
+app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'restServices','cartServices', function ($scope, $cookies, $rootScope, $timeout, restServices,cartServices) {
 	$scope.isNumber = angular.isNumber;
 	$scope.totalPrice = 0;
 	$scope.qty = 0;
@@ -20,7 +20,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 * @type {*|{local: string, external: string}}
 	 */
 
-	var getUrls = gulServiceCall.getUrls();
+	var getUrls = restServices.getUrls();
 	getUrls.then(function (response) {
 		$scope.fixPath = response.data.fixImagePath;
 		$scope.token = response.data.token;
@@ -60,7 +60,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 */
 	$scope.submitPayment = function () {
 
-		cartServices.submitPayment($scope.totalPrice,paypalPayload).then(function(data){
+		cartServices.submitPayment($scope.totalPrice,paypalPayload()).then(function(data){
 			console.log(data);
 		});
 	};
@@ -127,6 +127,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 * @returns {{intent: string, redirect_urls: {return_url: string, cancel_url: string}, payer: {payment_method: string}, transactions: *[]}}
 	 */
 	var paypalPayload = function () {
+		var paypalLoad = {};
 		return paypalLoad = {
 			"intent": "sale",
 			"redirect_urls": {

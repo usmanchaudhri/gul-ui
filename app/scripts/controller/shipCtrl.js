@@ -51,7 +51,7 @@ app.controller('shipCtrl', ['$scope', '$cookies', '$location', '$http', 'Base64'
 			console.log("Object", position);
 			for (var i = 0; i < $scope.getShippingDetails.length; i++) {
 				if ($scope.getShippingDetails[i].isActive == "y") {
-					$scope.updateIsActive($scope.getShippingDetails[i].id, "n", $scope.getShippingDetails[position].id, "y");
+					$scope.updateDefaultShippingAddress($scope.getShippingDetails[i].id, "n", $scope.getShippingDetails[position].id, "y");
 
 				}
 			}
@@ -60,8 +60,8 @@ app.controller('shipCtrl', ['$scope', '$cookies', '$location', '$http', 'Base64'
 		}
 	};
 
-	$scope.updateIsActive = function (shippingId1, isActive1, shippingId2, isActive2) {
-		gulServiceCall.updateIsActive(shippingId1, isActive1, shippingId2, isActive2, $scope.customerUrl).then(function (data) {
+	$scope.updateDefaultShippingAddress = function (shippingId1, isActive1, shippingId2, isActive2) {
+		gulServiceCall.updateDefaultShippingAddress(shippingId1, isActive1, shippingId2, isActive2, $scope.customerUrl).then(function (data) {
 			console.log("DATA DATA: ", data);
 		});
 

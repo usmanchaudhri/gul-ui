@@ -17,8 +17,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'shopCtrl',
 		label: 'SHOP',
 		resolve: {
-			getShop: function (gulServices, $route) {
-				return gulServices.getShop($route.current.params.shopId);
+			getShop: function (shopServices, $route) {
+				return shopServices.getShop($route.current.params.shopId);
 			}
 		}
 	}).when('/allShops', {
@@ -26,8 +26,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'allShopCtrl',
 		label: 'SHOP',
 		resolve: {
-			allShopsList: function (gulServices) {
-				return gulServices.getallShops();
+			allShopsList: function (shopServices) {
+				return shopServices.getallShops();
 
 			}
 		}
@@ -44,8 +44,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'singleProCtrl',
 		label: 'PRODUCT',
 		resolve: {
-			productDetail: function (gulServices, $route) {
-				return gulServices.getProductDetail($route.current.params.proId);
+			productDetail: function (productServices, $route) {
+				return productServices.getProductDetail($route.current.params.proId);
 
 			}
 		}
@@ -54,8 +54,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'categoryProCtrl',
 		label: 'CATEGORY',
 		resolve: {
-			categoryPro: function (gulServices, $route) {
-				return gulServices.getCategoryProduct($route.current.params.catId);
+			categoryPro: function (categoryServices, $route) {
+				return categoryServices.getCategoryProduct($route.current.params.catId);
 
 			}
 		}
@@ -64,8 +64,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'singleCatCtrl',
 		label: 'CATEGORY',
 		resolve: {
-			category: function (gulServices, $route) {
-				return gulServices.getCategory($route.current.params.catId);
+			category: function (categoryServices, $route) {
+				return categoryServices.getCategory($route.current.params.catId);
 
 			}
 		}
@@ -129,9 +129,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'shipCtrl',
 		label: 'SHIPPING',
 		resolve: {
-			shippingList: function (gulServices, $cookies, $location) {
+			shippingList: function (shippingServices, $cookies, $location) {
 				if ($cookies.get("username") != null) {
-					return gulServices.getShippingList();
+					return shippingServices.getShippingList();
 				} else {
 					$location.path("#/");
 				}
@@ -142,9 +142,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		controller: 'orderCtrl',
 		label: 'ORDER',
 		resolve: {
-			orderList: function (gulServices, $cookies, $location) {
+			orderList: function (orderServices, $cookies, $location) {
 				if ($cookies.get("username") != null) {
-					return gulServices.getOrder();
+					return orderServices.getOrder();
 				} else {
 					$location.path("#/");
 				}
@@ -155,9 +155,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 				controller: 'accountCtrl',
 				label: 'MY ACCOUNT',
 				resolve: {
-					accountDetails: function (gulServices, $cookies, $location) {
+					accountDetails: function (accountServices, $cookies, $location) {
 						if ($cookies.get("username") != null) {
-							return gulServices.getAccount();
+							return accountServices.getAccount();
 						} else {
 							$location.path("#/");
 						}

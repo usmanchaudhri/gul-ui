@@ -15,7 +15,7 @@
   "twilioUser": "https://gul-product-service.herokuapp.com/gul-product-service/twillio/Users",
   "twilioChannel": "https://gul-product-service.herokuapp.com/gul-product-service/twillio/Channels",
   "twilio": "https://gul-product-service.herokuapp.com/gul-product-service/twillio/",
-  "paypalToken":"https://api.sandbox.paypal.com/v1/oauth2/token",
+  "getToken":"https://api.sandbox.paypal.com/v1/oauth2/token",
   "submitPayment":"https://api.sandbox.paypal.com/v1/payments/payment"
 }
 

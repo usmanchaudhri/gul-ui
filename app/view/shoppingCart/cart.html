@@ -63,15 +63,15 @@
 						</tr>
 						<tr>
 							<td style="padding: 10px;">
-								<input  type="radio" value="paypal" name="pay" checked/><img src="images/Paypal-Logo-PNG.png" style="vertical-align: middle;"/><br />
+								<input  type="radio" value="paypal" name="pay" checked/><img src="assets/images/Paypal-Logo-PNG.png" style="vertical-align: middle;"/><br />
 							</td>
 						</tr>
 						<tr>
-							<td style="padding: 10px;"><input  type="radio" value="visa" name="pay" /><img src="/images/payment-methods.png" style="vertical-align: middle;"/></td>
+							<td style="padding: 10px;"><input  type="radio" value="visa" name="pay" /><img src="assets/images/payment-methods.png" style="vertical-align: middle;"/></td>
 						</tr>
 					</table>
 					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="submitPayment()" style="font-family: lato-regular;font-size: 14px;font-weight: 400;" >Proceed to Checkout</button>
-					<div class="col-sm-12 text-center"><img ng-show="loadingData" src="images/cartloading.gif" width="25" height="25"/></div>
+					<div class="col-sm-12 text-center"><img ng-show="loadingData" src="assets/images/cartloading.gif" width="25" height="25"/></div>
 					<label ng-if="!loadingData" style="font-size: 11px;line-height: 16px;color: red;">
 						{{dataError.details[0].issue}}
 					</label>

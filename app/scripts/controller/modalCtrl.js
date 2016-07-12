@@ -11,9 +11,9 @@ app.controller('modalCtrl', ['$scope', '$uibModalInstance', 'name', function ($s
 
 }]);
 
-app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', '$http', '$cookies', 'Base64', '$q', 'gulServices','gulServiceCall', function ($scope, $uibModalInstance, updateDetail, $http, $cookies, Base64, $q, gulServices,gulServiceCall) {
+app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', '$http', '$cookies', 'Base64', '$q', 'restServices','shippingServices', function ($scope, $uibModalInstance, updateDetail, $http, $cookies, Base64, $q, restServices,shippingServices) {
 
-	gulServiceCall.getUrls()
+	restServices.getUrls()
 			.then(function (response) {
 				$scope.loginUrl = response.data.loginUrl;
 				$scope.shippingUrl = response.data.shippingUrl;
@@ -62,7 +62,7 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
 			"zipcode": $scope.zip,
 			"country": $scope.country
 		};
-		gulServiceCall.updateShippingAddress().then(function (data) {
+		shippingServices.updateShippingAddress().then(function (data) {
 			var getShippingDetails = data.data.customerShipping;
 			$uibModalInstance.close(getShippingDetails);
 		});
@@ -74,7 +74,7 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
 			isActiveValue = "y";
 		}
 
-		gulServices.addNewShipping($scope.customerUrl, $scope.shippingData(isActiveValue)).then(function (data) {
+		shippingServices.addNewShipping($scope.customerUrl, $scope.shippingData(isActiveValue)).then(function (data) {
 
 			var getShippingDetails = data;
 			$uibModalInstance.close(getShippingDetails);

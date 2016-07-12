@@ -10,31 +10,25 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
                 var invoice = JSON.parse($cookies.get("invoices"));
                 return sdo.cartItemsTotalPrice(invoice).then(function(data){
                     if (data > 0) {
-                        return restServices.paypalToken(payload).then(function (data) {
+                        return restServices.getToken().then(function (data) {
+                            console.log("Paypal Data",data.access_token);
                             $cookies.put("tokenID", data.access_token);
                             var tokenID = $cookies.get("tokenID");
-                            return restServices.submitPayment(function (data) {
+                            return restServices.submitPayment(data,payload,tokenID).then(function (data) {
+                                console.log("response data"+data);
                                 return data;
                             });
                         });
 
                     } else {
                         alert("Cart is Empty");
+                        return "";
                     }
                 });
             } else {
                 $rootScope.$emit("signin", {});
+                return "";
             }
-        },
-
-        submitOrder: function (orderPayload) {
-            return restServices.getUrls().then(function (response) {
-                return restServices.postApiAuthData(
-                    response.data.orderUrl, orderPayload
-                ).then(function (data) {
-                    return "success";
-                });
-            });
         },
 
         cartItemsTotalPrice: function (items) {
