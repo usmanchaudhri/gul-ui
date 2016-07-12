@@ -107,7 +107,6 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                 });
                 return $http.post(response.data.paypalToken).success(function (data) {
                     return data;
-
                 }).error(function (data, status) {
                     if (data != null) {
                         return obj = {
@@ -120,10 +119,7 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                             dataError: "Check Your Internet Connection And Try Again! "
                         };
                     }
-
                 });
-
-
             });
         },
 
@@ -173,8 +169,6 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                 });
             });
         }
-
-
     }
 
     return sdo;

@@ -39,8 +39,6 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
 
         cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
-            console.log("ITEMS : ", items.toString());
-            console.log("PRINT PRINT: ", items.length);
             var totalPrice = 0;
             for (var i = 0; i < items.length; i++) {
                 totalPrice = totalPrice + (items[i].cost * items[i].qty);
@@ -49,7 +47,6 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
                 totalPrice = 0;
             }
             totalPrice = Math.round(totalPrice * 100) / 100;
-            console.log(totalPrice);
             deferred.resolve(totalPrice);
             return deferred.promise;
         },
@@ -101,7 +98,8 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
                         $cookies.put("invoices", JSON.stringify(invoice));
                     }
                     invoice = JSON.parse($cookies.get("invoices"));
-                    sdo.cartItemsTotalPrice(invoice).then(function (data) {
+                    return sdo.cartItemsTotalPrice(invoice).then(function (data) {
+                        console.log("cartItemsTotalPrice");
                          value = {
                             "result": "product Added",
                             "currentItem": invoice[invoice.length - 1],
@@ -110,6 +108,7 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
                             "invoice": invoice
                         };
 
+                        return value;
                     });
                 } else {
                      value = {

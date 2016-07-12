@@ -60,7 +60,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'gul
 	 */
 	$scope.submitPayment = function () {
 
-		cartServices.submitPayment().then(function(data){
+		cartServices.submitPayment($scope.totalPrice,paypalPayload).then(function(data){
 			console.log(data);
 		});
 	};

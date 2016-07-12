@@ -1,0 +1,24 @@
+{
+  "intent": "sale",
+  "redirect_urls": {
+    "return_url":"http://localhost:9000/#/thanku",
+    "cancel_url":"http://localhost:9000/#/cancel"
+  },
+  "payer": {
+    "payment_method": "paypal"
+  },
+  "transactions": [
+    {
+      "amount": {
+        "total": "20",
+        "currency": "USD",
+        "details": {
+          "subtotal": "20",
+          "tax": "0.00",
+          "shipping": "0.00"
+        }
+      },
+      "description": "Toatal Transaction Payment is 20"
+    }
+  ]
+}

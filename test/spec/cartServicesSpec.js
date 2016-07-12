@@ -36,6 +36,10 @@ describe('cartServicesSpec', function() {
             return [200, data, {}];
         });
 
+        $httpBackend.whenPOST(getJSONFixture('gulgs.json').paypalToken).respond(function(method, url, data, headers){
+            //  return [400, "Error", {}];
+            return [200, data, {}];
+        });
 
      }));
 
@@ -52,8 +56,9 @@ describe('cartServicesSpec', function() {
             });
             $httpBackend.flush();
         });
+
         it("should return false because cart is not empty", function() {
-            factory.isCartEmpty(undefined,0).then(function(result){
+            factory.isCartEmpty(0,1).then(function(result){
                 expect(result).toBe(false);
             });
             $httpBackend.flush();
@@ -70,6 +75,7 @@ describe('cartServicesSpec', function() {
             });
             $httpBackend.flush();
         });
+
         it("should say stock not available", function() {
             factory.storeProductsInCookie(getJSONFixture('prodcut.json').product2,"s",3).then(function(result){
                 console.log(result.result);
@@ -77,6 +83,7 @@ describe('cartServicesSpec', function() {
             });
             $httpBackend.flush();
         });
+
         it("should say stock not available", function() {
             factory.storeProductsInCookie(getJSONFixture('prodcut.json').product1,"s",5).then(function(result){
                 console.log(result.result);
@@ -145,11 +152,28 @@ describe('cartServicesSpec', function() {
                     console.log("submitOrder",$cookies.get("username"));
                     expect(result).toBe("success");
                 },function(result) {
-                    console.log($cookies.get("username"));
                     expect(result.data).toBe("Error");
                 });
             $httpBackend.flush();
         });
+
+        /**
+         * SubmitPayment Test cases
+         */
+
+        it("should return success result because payment is submited ", function() {
+            factory.submitPayment(20,getJSONFixture('paymentPayload.json')).then(
+                function(result){
+                    console.log("submitOrder",$cookies.get("username"));
+                    expect(result).toBe("success");
+                },function(result) {
+                    expect(result.data).toBe("Error");
+                });
+            $httpBackend.flush();
+        });
+
+
+
     });
 
 });
