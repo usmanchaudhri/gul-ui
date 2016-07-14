@@ -11,7 +11,7 @@ app.factory('accountServices', [ 'restServices', function ( restServices) {
          * @returns {*}
          */
         getAccount: function () {
-            return gulServiceCall.getUrls()
+            return restServices.getUrls()
                 .then(function (response) {
                     var url = response.data.loginUrl;
                     return restServices.getApiAuthData(url)

@@ -1,11 +1,11 @@
-app.controller('shipCtrl', ['$scope', '$cookies', '$location', '$http', 'Base64', 'shippingList', '$uibModal', '$q', 'gulServiceCall', function ($scope, $cookies, $location, $http, Base64, shippingList, $uibModal, $q, gulServiceCall) {
+app.controller('shipCtrl', ['$scope', '$cookies', '$location', '$http', 'Base64', 'shippingList', '$uibModal', '$q', 'restServices', function ($scope, $cookies, $location, $http, Base64, shippingList, $uibModal, $q, restServices) {
 
 	if ($cookies.get("username") != null) {
 		$scope.getShippingDetails = shippingList;
 	} else {
 		$location.path("#/");
 	}
-	gulServiceCall.getUrls()
+	restServices.getUrls()
 			.then(function (response) {
 				$scope.shippingUrl = response.data.shippingUrl;
 				$scope.customerUrl = response.data.customerUrl;

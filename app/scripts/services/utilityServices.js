@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('sharedServices', ['$q', function ($q) {
+app.factory('utilityServices', ['$q', function ($q) {
     var sdo = {
         isImage: function (src) {
             var deferred = $q.defer();

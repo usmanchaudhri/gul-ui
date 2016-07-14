@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 7/13/2016.
  */
-app.factory('orderServices', [ 'restServices', function ( restServices) {
+app.factory('orderServices', [ 'restServices','$cookies', function ( restServices,$cookies) {
 
     var sdo = {
 
@@ -11,7 +11,7 @@ app.factory('orderServices', [ 'restServices', function ( restServices) {
          * @returns {*}
          */
         getOrder: function () {
-            return gulServiceCall.getUrls()
+            return restServices.getUrls()
                 .then(function (response) {
                     var url = response.data.customerUrl + '/' + $cookies.get("userId") + "/orders";
                     return restServices.getApiAuthData(url)

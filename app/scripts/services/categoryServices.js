@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 7/13/2016.
  */
-app.factory('categoryServices', [ 'restServices','sharedServices', function ( restServices,sharedServices) {
+app.factory('categoryServices', [ 'restServices','utilityServices', function ( restServices,utilityServices) {
 
     var sdo = {
 
@@ -14,7 +14,7 @@ app.factory('categoryServices', [ 'restServices','sharedServices', function ( re
                         .then(function (data) {
                             console.log("SINGLE CAT before: ",data);
 
-                            return sharedServices.isImage(response.data.fixImagePath + 'category/banner_' + cat_id + '.jpg' + response.data.token).then(function (result) {
+                            return utilityServices.isImage(response.data.fixImagePath + 'category/banner_' + cat_id + '.jpg' + response.data.token).then(function (result) {
                                 console.log("SINGLE CAT CTRL: ",result);
                                 value = {
                                     urls: response.data,
@@ -79,7 +79,7 @@ app.factory('categoryServices', [ 'restServices','sharedServices', function ( re
                                 categoryProDetail.push(value);
                                 data = data[i].category.products;
                             }
-                            return sharedServices.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
+                            return utilityServices.isImage(mFixPath + 'category/banner_' + cat_id + '.jpg' + mToken).then(function (result) {
                                 value = {
                                     banner: result,
                                     urls: response.data,

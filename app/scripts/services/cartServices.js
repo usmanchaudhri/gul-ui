@@ -4,33 +4,6 @@
 app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', function ($cookies, $rootScope, restServices, $q) {
     var sdo = {
 
-        submitPayment: function (totalPrice, payload) {
-
-            if ($cookies.get("username") != null) {
-                var invoice = JSON.parse($cookies.get("invoices"));
-                return sdo.cartItemsTotalPrice(invoice).then(function(data){
-                    if (data > 0) {
-                        return restServices.getToken().then(function (data) {
-                            console.log("Paypal Data",data.access_token);
-                            $cookies.put("tokenID", data.access_token);
-                            var tokenID = $cookies.get("tokenID");
-                            return restServices.submitPayment(data,payload,tokenID).then(function (data) {
-                                console.log("response data"+data);
-                                return data;
-                            });
-                        });
-
-                    } else {
-                        alert("Cart is Empty");
-                        return "";
-                    }
-                });
-            } else {
-                $rootScope.$emit("signin", {});
-                return "";
-            }
-        },
-
         cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
             var totalPrice = 0;

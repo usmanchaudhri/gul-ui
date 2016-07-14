@@ -1,4 +1,4 @@
-app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'restServices','cartServices', function ($scope, $cookies, $rootScope, $timeout, restServices,cartServices) {
+app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'restServices','cartServices','paymentServices', function ($scope, $cookies, $rootScope, $timeout, restServices,cartServices,paymentServices) {
 	$scope.isNumber = angular.isNumber;
 	$scope.totalPrice = 0;
 	$scope.qty = 0;
@@ -60,7 +60,7 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'res
 	 */
 	$scope.submitPayment = function () {
 
-		cartServices.submitPayment($scope.totalPrice,paypalPayload()).then(function(data){
+		paymentServices.submitPayment($scope.totalPrice,paypalPayload()).then(function(data){
 			console.log(data);
 		});
 	};
