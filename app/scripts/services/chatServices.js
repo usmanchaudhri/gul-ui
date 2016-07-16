@@ -3,11 +3,18 @@
  */
 app.factory('chatServices', [ '$rootScope', 'restServices','$cookies', function ( $rootScope, restServices,$cookies) {
 
+    /**
+     * In this service we deal with chat. we get chatlist and conversation in this service.
+     * @type {{getChatList: sdo.getChatList, getConversationList: sdo.getConversationList, getConversationCustom: sdo.getConversationCustom}}
+     */
     var sdo = {
+
+
+        /**
+         * This method return us list of person with which he communicate
+         * @returns {*|{get}}
+         */
         getChatList: function() {
-
-
-
             return restServices.getUrls()
                 .then(function(one) {
 
@@ -47,7 +54,14 @@ app.factory('chatServices', [ '$rootScope', 'restServices','$cookies', function 
 
                 });
         },
-        /*List of Conversation*/
+
+
+        /**
+         * This method take chat name as a parameter and fetch complete
+         * conversation of this chat
+         * @param chatNames
+         * @returns {*|{get}}
+         */
         getConversationList: function(chatNames) {
             var chatTitle = '';
 
@@ -109,6 +123,12 @@ app.factory('chatServices', [ '$rootScope', 'restServices','$cookies', function 
 
                 });
         },
+
+        /**
+         * This Method return last message of chat to show on chat list screen
+         * @param obj
+         * @returns {*|{get}}
+         */
         getConversationCustom: function(obj){
 
         //return function() {

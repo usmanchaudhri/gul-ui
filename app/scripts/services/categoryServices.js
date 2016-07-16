@@ -3,9 +3,20 @@
  */
 app.factory('categoryServices', [ 'restServices','utilityServices', function ( restServices,utilityServices) {
 
+    /**
+     * this service has two method. one give us categories of a category and
+     * other give us category products of category
+     * @type {{getCategory: sdo.getCategory, getCategoryProduct: sdo.getCategoryProduct}}
+     */
     var sdo = {
 
 
+        /**
+         * we pass category id to this method and it return us sub categories
+         * of this specific category
+         * @param cat_id
+         * @returns {*|{get}}
+         */
         getCategory: function (cat_id) {
             return restServices.getUrls()
                 .then(function (response) {
@@ -31,6 +42,12 @@ app.factory('categoryServices', [ 'restServices','utilityServices', function ( r
                 });
         },
 
+        /**
+         * we pass category id to this method and it return us product
+         * of this specific category
+         * @param cat_id
+         * @returns {*|{get}}
+         */
         getCategoryProduct: function (cat_id) {
 
             return restServices.getUrls()
@@ -97,8 +114,6 @@ app.factory('categoryServices', [ 'restServices','utilityServices', function ( r
 
 
                 });
-
-
         }
     }
     return sdo;

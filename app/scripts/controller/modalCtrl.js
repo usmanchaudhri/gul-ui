@@ -82,7 +82,7 @@ app.controller('modalShipCtrl', ['$scope', '$uibModalInstance', 'updateDetail', 
 	}
 
 	$scope.shippingData = function (isActiveValue) {
-		return allShippingData = {
+		return  {
 			"firstName": $scope.firstName,
 			"lastName": $scope.lastName,
 			"address": $scope.streetAddress1,

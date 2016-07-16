@@ -5,23 +5,10 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
 
     var sdo = {
 
-        regUserTwilio: function (user) {
-            var data = $.param({
-                Identity: user
-            });
-            restServices.getUrls().then(function (response) {
-                var url = response.data.twilioUser;
-                restServices.postTwilioData(url, data)
-                    .then(function (data) {
-                        return data;
-                    });
-            });
-        },
-        getUrls: function () {
-            return restServices.getUrls().then(function (data) {
-                return data;
-            });
-        },
+        /**
+         * this api clear user login information and logout user
+         * @returns {*}
+         */
         userLogout: function () {
             var defferred = $q.defer();
             if ($cookies.get("username") != null) {
@@ -33,31 +20,15 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
             return defferred.promise;
 
         },
-        signIn: function (loginEmail,loginPass) {
 
-
-            return restServices.getUrls().then(function (data) {
-                var url = data.data.loginUrl;
-                return restServices.getApiAuthDataHeroku(url,loginEmail,loginPass)
-                    .then(function (data) {
-                        if ($cookies.get("username") != loginEmail) {
-                            var value = {
-                                "username": data.data.username,
-                                "password": loginPass,
-                                "id": data.data.id,
-                                "shopId": JSON.stringify(data.data.shop)
-                            };
-                            $cookies.put("username", JSON.stringify(value));
-                            $cookies.put("userId", data.data.id);
-                            return 0;
-                        } else {
-                            return 1;
-                        }
-
-                    });
-            });
-        },
-        regUser: function (user,email,pass) {
+        /**
+         *This
+         * @param user
+         * @param email
+         * @param pass
+         * @returns {*|{get}}
+         */
+        registerUser: function (user) {
             var postData = $.param({
                 Identity: user
             });
@@ -67,7 +38,7 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
                 });
             });
         },
-        regHeroku: function(email,pass){
+        registerUserOnServer: function(email,pass){
 
             var data = {
                 "username": email ,
@@ -75,7 +46,7 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
             }
             return restServices.getUrls().then(function(response){
                return restServices.postApiData(response.data.signupUrl,data).then(function(responseData){
-                   return sdo.regUser(email,email,pass).then(function(){
+                   return sdo.registerUser(email,email,pass).then(function(){
                        var shopId;
                        if (angular.isDefined(responseData.shop)) {
                            shopId = data.shop.id;

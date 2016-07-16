@@ -7,13 +7,10 @@ app.controller('categoryProCtrl', ['$scope','$routeParams', 'categoryPro','utili
 	$scope.bannerFlag = categoryPro.banner;
 
 	$scope.getShop = function(mName){
-		//	console.log(mName);
 		for(var i = 0;i < $scope.categoryIDs.length;i++){
 			if(mName == $scope.categoryIDs[i].name){
-				//	console.log("called");
 				return $scope.categoryIDs[i].id;
 			}
 		}
-
 	}
 }]);

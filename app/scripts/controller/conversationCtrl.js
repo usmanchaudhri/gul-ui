@@ -7,8 +7,8 @@ app.controller('conversationCtrl', ['$scope', '$routeParams', '$cookies' , 'conL
 	var mSender = JSON.parse($cookies.get("username")).username.split('@');
 	$scope.sender = mSender[0];
 
-	$scope.regUser = function (user) {
-		gulServiceCall.regUserTwilio(user).then(function (response) {
+	$scope.registerUser = function (user) {
+		gulServiceCall.registerUserOnTwilio(user).then(function (response) {
 
 		});
 	};

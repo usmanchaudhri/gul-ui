@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 7/13/2016.
  */
-app.factory('productServices', [ 'restServices', function ( restServices) {
+app.factory('productServices', ['restServices', 'twilioServices', function (restServices, twilioServices) {
 
     var sdo = {
 
@@ -16,7 +16,7 @@ app.factory('productServices', [ 'restServices', function ( restServices) {
                     var url = response.data.productUrl + '/' + pro_id;
                     return restServices.getApiData(url)
                         .then(function (data) {
-                            var	value = {
+                            var value = {
                                 urls: response.data,
                                 fixPath: response.data.fixImagePath,
                                 fixPathShop: response.data.fixImagePathShop,
@@ -28,6 +28,11 @@ app.factory('productServices', [ 'restServices', function ( restServices) {
                             return value;
                         });
                 });
+        },
+        sendMessage: function () {
+            twilioServices.createChannel().then(function () {
+
+            });
         }
 
     }

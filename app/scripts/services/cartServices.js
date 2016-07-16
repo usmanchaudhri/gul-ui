@@ -4,6 +4,11 @@
 app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', function ($cookies, $rootScope, restServices, $q) {
     var sdo = {
 
+        /**
+         * we pass total items in cart as a paramter to this method and it calculate total price of items
+         * @param items
+         * @returns {*}
+         */
         cartItemsTotalPrice: function (items) {
             var deferred = $q.defer();
             var totalPrice = 0;
@@ -18,6 +23,16 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
             return deferred.promise;
         },
 
+        /**
+         * we pass product information, size and quantity to this method as parameter,
+         * it check if product quantity and size is same and product already exist in
+         * list just increase already exist product quantity otherwise add product in
+         * cookies and cart.
+         * @param prod
+         * @param size
+         * @param qty
+         * @returns {*}
+         */
         storeProductsInCookie: function (prod, size, qty) {
             var deferred = $q.defer();
             var value;
@@ -94,6 +109,11 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
             return deferred.promise;
         },
 
+        /**
+         * This method give us all information related to cart. it fetch data from
+         * cookies and complete items data, totla no of items and price.
+         * @returns {*}
+         */
         getCartInfo: function () {
             var deferred = $q.defer();
             var noOfCartItems;
@@ -117,6 +137,13 @@ app.factory('cartServices', ['$cookies', '$rootScope', 'restServices', '$q', fun
             });
         },
 
+        /**
+         * this method take cart items and total number of cart items and tell us
+         * there is any product in cart or not .
+         * @param items
+         * @param noOfCartItems
+         * @returns {*}
+         */
         isCartEmpty: function(items,noOfCartItems){
             var deferred = $q.defer();
             if(angular.isDefined(items)){

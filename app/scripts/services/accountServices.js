@@ -3,11 +3,15 @@
  */
 app.factory('accountServices', [ 'restServices','Base64','$http','$cookies', function ( restServices,Base64,$http,$cookies) {
 
+    /**
+     * This Factory is for all methods relted to user information
+     * @type {{getAccount: sdo.getAccount, signIn: sdo.signIn}}
+     */
     var sdo = {
 
 
         /**
-         * Get Account Detail of user
+         * This method return all information of loged in user
          * @returns {*}
          */
         getAccount: function () {
@@ -20,6 +24,13 @@ app.factory('accountServices', [ 'restServices','Base64','$http','$cookies', fun
                         });
                 });
         },
+
+        /**
+         * This method take loginEmail and password as a parameter. call webservice to authanticate user and get its information
+         * @param loginEmail
+         * @param loginPass
+         * @returns {*|{get}}
+         */
         signIn: function (loginEmail, loginPass) {
             var base64 = Base64.encode(loginEmail + ':' + loginPass);
 
@@ -53,7 +64,7 @@ app.factory('accountServices', [ 'restServices','Base64','$http','$cookies', fun
                     }
                 });
             });
-        },
+        }
     }
     return sdo;
 

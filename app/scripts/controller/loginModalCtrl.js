@@ -27,7 +27,7 @@ app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base6
 
     $scope.registerUser = function (regEmail, regPass) {
         if (regEmail != null && regPass != null) {
-            $scope.regHeroku(regEmail, regPass);
+            $scope.registerUserOnServer(regEmail, regPass);
         }
 
 
@@ -58,8 +58,8 @@ app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base6
 
 
     /*User Signup*/
-    $scope.regHeroku = function (regEmail, regPass) {
-        loginServices.regHeroku(regEmail, regPass).then(function (data) {
+    $scope.registerUserOnServer = function (regEmail, regPass) {
+        loginServices.registerUserOnServer(regEmail, regPass).then(function (data) {
             if (data)
                 $uibModalInstance.close(data);
         });
