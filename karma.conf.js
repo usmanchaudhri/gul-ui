@@ -35,16 +35,17 @@ module.exports = function(config) {
         'app/scripts/services/restServices.js',
         'app/scripts/services/cartServices.js',
        //  'app/controller/services-test.js',
-         'app/scripts/services/services.js',
-       //  'app/controller/services.js',
+        'app/scripts/services/utilityServices.js',
+        'app/scripts/services/orderServices.js',
+        'app/scripts/services/paymentServices.js',
+        'app/scripts/services/paypalPaymentServices.js',
+        'app/scripts/services/accountServices.js',
 
 
-        //'app/controller/restServices.js',
-
-        // 'test/**/cartServicesSpec.js',
-        //'test/**/testPromiseSpec.js',
-        //'test/**/cartPromiseSpec.js',
-        'test/**/cartServicesSpec.js',
+        //'test/**/cartServicesSpec.js',
+        //'test/**/orderServicesSpec.js',
+        //'test/**/paymentServicesSpec.js',
+        'test/**/accountServicesSpec.js',
         {pattern: 'test/mock/*.json', watched: true, served: true, included: false}
     ],
 

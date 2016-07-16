@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 7/13/2016.
  */
-app.factory('accountServices', [ 'restServices', function ( restServices) {
+app.factory('accountServices', [ 'restServices','Base64','$http','$cookies', function ( restServices,Base64,$http,$cookies) {
 
     var sdo = {
 
@@ -32,12 +32,12 @@ app.factory('accountServices', [ 'restServices', function ( restServices) {
                 }
             }
 
-            return sdo.getUrls().then(function (data) {
+            return restServices.getUrls().then(function (data) {
                 return $http.get(
                     data.data.loginUrl, config
                 ).then(function (data) {
-                    console.log(data);
-                    if ($cookies.get("username") != loginEmail) {
+                    console.log("USERNAME",data.data.username);
+                    if (data.data.username == loginEmail) {
                         var value = {
                             "username": data.data.username,
                             "password": loginPass,
@@ -51,12 +51,9 @@ app.factory('accountServices', [ 'restServices', function ( restServices) {
                     } else {
                         return 1;
                     }
-
                 });
             });
-
         },
-
     }
     return sdo;
 

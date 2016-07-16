@@ -1,0 +1,8 @@
+{
+"access_token": "A101.b7SV40mRGI_0eY-0eMM1pIpXBLEft-jUhUtrgT4sXBAJ3Vrvw7CXH_fDb9bUDxdM.KOjZfERsLf3_D27upnSsrg044pu",
+"app_id": "APP-80W284485P519543T",
+"expires_in": 32399,
+"nonce": "2016-07-14T15:03:03ZQJ0B2mpLVilVeLg0yNk0PS6BCg9g41AYSknBAV5voBk",
+"scope": "https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*",
+"token_type": "Bearer"
+}

@@ -41,10 +41,10 @@ describe('cartServicesSpec', function() {
             return [200, data, {}];
         });
 
-        $httpBackend.whenPOST(getJSONFixture('gulgs.json').submitPayment).respond(function(method, url, data, headers){
+       /* $httpBackend.whenPOST(getJSONFixture('gulgs.json').submitPaymentUrl).respond(function(method, url, data, headers){
             //  return [400, "Error", {}];
             return [200, data, {}];
-        });
+        });*/
      }));
 
     describe('get test url', function() {
@@ -139,7 +139,7 @@ describe('cartServicesSpec', function() {
          * submitOrder Test cases
          */
 
-        it("should return Success when HTTP response is 200 ", function() {
+       /* it("should return Success when HTTP response is 200 ", function() {
             factory.submitOrder(getJSONFixture('order.json')).then(
                 function(result){
                     console.log("submitOrder",result);
@@ -159,13 +159,13 @@ describe('cartServicesSpec', function() {
                     expect(result.data).toBe("Error");
                 });
             $httpBackend.flush();
-        });
+        });*/
 
         /**
          * SubmitPayment Test cases
          */
 
-        it("should return success result because payment is submited ", function() {
+       /* it("should return success result because payment is submited ", function() {
             factory.submitPayment(20,getJSONFixture('paymentPayload.json')).then(
                 function(result){
                     console.log("submitOrder",$cookies.get("username"));
@@ -175,7 +175,7 @@ describe('cartServicesSpec', function() {
                 });
             $httpBackend.flush();
         });
-
+*/
 
 
     });

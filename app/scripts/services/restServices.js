@@ -109,7 +109,7 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                 });
                 return $http.post(response.data.getToken,data,config).then(
                     function (data) {
-                      //  console.log("0000",data.data);
+                        console.log("0000",data.data);
                     return data.data;
                 },function(data) {
                     console.log("Error");
@@ -128,37 +128,7 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
             });
         },
 
-        submitPayment: function (data,payload,tokenID) {
-            return sdo.getUrls().then(function (mUrls) {
 
-                var obj = {};
-            //    var tokenID = "0asd";
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': data.token_type + ' ' + tokenID
-                    }
-                }
-                console.log("DATA", payload);
-                return $http.post(
-                    mUrls.data.submitPaymentUrl, payload, config
-                ).success(function (data, status) {
-                    $window.location.href = data.links[1].href;
-                }).error(function (data, status) {
-                    if (data != null) {
-                        return  {
-                            loadingData: false,
-                            dataError: data
-                        };
-                    } else {
-                        return  {
-                            loadingData: false,
-                            dataError: "Check Your Internet Connection And Try Again! "
-                        };
-                    }
-                })
-            });
-        },
 
         getShop: function (shop_id) {
             return sdo.getUrls().
