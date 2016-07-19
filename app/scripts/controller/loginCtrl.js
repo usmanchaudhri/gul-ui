@@ -1,4 +1,4 @@
-app.controller('loginCtrl', ['$scope', '$cookies', '$location', '$uibModal', '$rootScope','loginServices', function ($scope, $cookies, $location, $uibModal, $rootScope,loginServices) {
+app.controller('loginCtrl', ['$scope', '$cookies', '$location', '$uibModal', '$rootScope','loginServices','restServices', function ($scope, $cookies, $location, $uibModal, $rootScope,loginServices,restServices) {
 
 	$scope.menuClass = true;
 	$scope.showSignupError = false;
@@ -28,7 +28,7 @@ app.controller('loginCtrl', ['$scope', '$cookies', '$location', '$uibModal', '$r
 		$scope.signin();
 	});
 
-	loginServices.getUrls().then(function(response){
+	restServices.getUrls().then(function(response){
 		$scope.twilioUser = response.data.twilioUser;
 		$scope.customerUrl = response.data.customerUrl;
 		$scope.signupUrl = response.data.signupUrl;
