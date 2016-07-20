@@ -1,8 +1,8 @@
-app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base64', '$cookies', 'loginServices', function ($scope, $uibModalInstance, $http, Base64, $cookies, loginServices) {
+app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base64', '$cookies', 'loginServices','restServices', 'accountServices', function ($scope, $uibModalInstance, $http, Base64, $cookies, loginServices, restServices, accountServices) {
 
     $scope.signingin = true;
 
-    loginServices.getUrls()
+    restServices.getUrls()
         .then(function (response) {
             $scope.twilioUser = response.data.twilioUser;
             $scope.customerUrl = response.data.customerUrl;
@@ -44,7 +44,7 @@ app.controller('loginModalCtrl', ['$scope', '$uibModalInstance', '$http', 'Base6
         $scope.loginEmail = loginEmail;
         $scope.loginPass = loginPass;
 
-        loginServices.signIn($scope.loginEmail, $scope.loginPass).then(function (data) {
+        accountServices.signIn($scope.loginEmail, $scope.loginPass).then(function (data) {
             if (data == 0) {
                 var userFlag = true;
                 $uibModalInstance.close(userFlag);

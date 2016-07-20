@@ -213,7 +213,7 @@ $('.lightbox_trigger').click(function(e) {
 		</div>
 		<div class="col-sm-4 col-xs-12" id="indisize2">
 				  
-			<p style="font-size: 16px;margin-bottom: 10px; line-height: 20px;">
+			<p class="designer-description">
 				<strong>Designer's Name</strong>- Designer's Short Description</p>
 			<font size="3" class="clr1" style="color: #D25E00;">by <a ng-href="#shop/{{productDetail.shop.id}}">Shop Name</a><br /><br /> <b>Price</b></font><br><br><br><br>
 				
@@ -243,7 +243,7 @@ $('.lightbox_trigger').click(function(e) {
 						<label class="col-sm-3 col-xs-3 clr"><h3>Quantity</h3></label>
 						<div class="col-sm-3 col-xs-4" style="margin-top: 10px;">
 							<div class="input-group spinner" id="two">
-								<input type="text" class="form-control quantity-dropdown" ng-model="productQty"  value="0" min="0" style="background-color: transparent;height: 38px;width: 160%;padding-top: 0;text-align: left;">
+								<input type="text" class="form-control quantity-dropdown product-qty" ng-model="productQty"  value="0" min="0">
 								<span class="input-group-btn-vertical">
 									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
 									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
@@ -254,9 +254,9 @@ $('.lightbox_trigger').click(function(e) {
 				</div >
 				
 				
-				<a><button type="button" class="btn btn-primary individual-bag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)" style="height: 25px; text-align: center;">ADD TO BAG</button></a>
+				<a><button type="button" class="btn btn-primary individual-bag-btn btn-add-to-bag" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)">ADD TO BAG</button></a>
 				<button type="button" class="btn btn-primary individual-bag-btn" data-toggle="modal" data-target="#chatModel" style="height: 25px;">ASK DESIGNER</button>
-				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" style="height: 25px; text-align: center;margin-bottom: 5%;">CUSTOMIZE</button>
+				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger btn-customize">CUSTOMIZE</button>
 				<div class="col-sm-12 col-xs-12 ind-pro-thumbnail thumbs-container" id="marg" style="margin-bottom: 0px !important;">
 				<div class="row text-center" style="bottom: 0px;">
 					<div class="col-sm-2 col-xs-2" >
@@ -311,13 +311,13 @@ $('.lightbox_trigger').click(function(e) {
 </div><!-- /container -->
 
 <div class="container">
-	<div class="row" style="border-bottom: 1px solid #c1c1c1;padding:20px;">
+	<div class="row item-detail-container">
 		<div class="col-sm-12 text-center">
-			<label style="font-size: 18px;padding:10px;">Item Details</label>
-			<p style="text-align: center;font-size: 15px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<label class="item-label">Item Details</label>
+			<p class="item-detail-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		</div>
 	</div>
-	<div class="row" style="padding: 20px;border-bottom: 1px solid #c1c1c1;">
+	<div class="row item-designer-container">
 		<div class="col-sm-12 text-center" style="padding-bottom: 25px;">
 			<h1>Designed By <strong>Ayesha Mumtaz</strong></h1>
 		</div>
@@ -328,17 +328,17 @@ $('.lightbox_trigger').click(function(e) {
 					<img src="images/Sania.jpg" width="175" height="200"/>
 				</div>
 				<div class="col-sm-8">
-					<p style="text-align: left;font-size: 15px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p class="item-designer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					<button type="button" class="btn btn-primary individual-bag-btn" style="height: 25px;">Read More</button>
 				</div>
 			</div>	
 		</div>
 	</div>
 	
-	<div class="row" style="padding: 20px;margin-bottom: 20px;">
+	<div class="row ship-payment-container">
 		<div class="col-sm-12 text-center">
 			<h1 style="margin-bottom: 35px;"><u>Shipping & Payment Policies</u></h1>
-			<p style="text-align: left;font-size: 15px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p class="ship-payment-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			
 		</div>
 	</div>
