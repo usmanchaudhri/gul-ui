@@ -34,6 +34,42 @@ app.factory('paypalPaymentServices', ['$http', '$q', '$cookies', 'Base64', '$win
                     }
                 })
             });
+        },
+        getToken: function () {
+            //console.log("REQUEST");
+            return sdo.getUrls().then(function (response) {
+                //console.log("REQUEST",response);
+                var base64 = Base64.encode(response.data.paypalClientID + ':' +
+                    response.data.paypalSecretKey);
+                var obj = {};
+                var config = {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
+                        'Authorization': 'Basic ' + base64
+                    }
+                }
+                var data = $.param({
+                    grant_type: "client_credentials"
+                });
+                return $http.post(response.data.getToken,data,config).then(
+                    function (data) {
+                        console.log("0000",data.data);
+                        return data.data;
+                    },function(data) {
+                        console.log("Error");
+                        if (data != null) {
+                            return obj = {
+                                loadingData: false,
+                                dataError: data
+                            };
+                        } else {
+                            return obj = {
+                                loadingData: false,
+                                dataError: "Check Your Internet Connection And Try Again! "
+                            };
+                        }
+                    });
+            });
         }
     }
 

@@ -79,68 +79,18 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
             });
         },
 
-        postTwilioData: function (url, data) {
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            }
-            return $http.post(url, data, config
-            ).then(function (data) {
-                return data;
-            });
-        },
 
-        getToken: function () {
-            //console.log("REQUEST");
-            return sdo.getUrls().then(function (response) {
-                //console.log("REQUEST",response);
-                var base64 = Base64.encode(response.data.paypalClientID + ':' +
-                    response.data.paypalSecretKey);
-                var obj = {};
-                var config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-                        'Authorization': 'Basic ' + base64
-                    }
-                }
-                var data = $.param({
-                    grant_type: "client_credentials"
-                });
-                return $http.post(response.data.getToken,data,config).then(
-                    function (data) {
-                        console.log("0000",data.data);
-                    return data.data;
-                },function(data) {
-                    console.log("Error");
-                    if (data != null) {
-                        return obj = {
-                            loadingData: false,
-                            dataError: data
-                        };
-                    } else {
-                        return obj = {
-                            loadingData: false,
-                            dataError: "Check Your Internet Connection And Try Again! "
-                        };
-                    }
-                });
-            });
-        },
-
-
-
-        getShop: function (shop_id) {
+        getPromiseData: function (shop_id,url1,url2) {
             return sdo.getUrls().
             then(function (response) {
                 var promise1 = $http({
                     method: 'GET',
-                    url: response.data.shopUrl + '/' + shop_id + '/products',
+                    url: url1, //response.data.shopUrl + '/' + shop_id + '/products',
                     cache: 'true'
                 });
                 var promise2 = $http({
                     method: 'GET',
-                    url: response.data.shopUrl + '/' + shop_id + '/designers',
+                    url: url2,//response.data.shopUrl + '/' + shop_id + '/designers',
                     cache: 'true'
                 });
                 return $q.all([promise1, promise2]).then(function (data) {

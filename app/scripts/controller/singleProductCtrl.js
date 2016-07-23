@@ -29,252 +29,25 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 		}
 	}
 
-	/**
-	 CREATE CHANNEL
-	 **/
-
-	var createChannel = function(){
-		var data1 = $.param({
-			FriendlyName: $scope.productDetail.name,
-			Type: 'private'
-		});
-		console.log("Product Name : "+$scope.productDetail.name);
-		$http.post(
-				$scope.twilioChannel,  data1,config
-		).success(function(data, status) {
-			console.log("create channel",data);
-			if(data == ''){
-				retrieveChannel();
-			}else{
-				$scope.data = data;
-				$scope.channelSid = data.sid;
-				$scope.channelFriendlyName = data.friendly_name;
-
-				addMembers();
-
-			}
-
-		}).error(function (data, status) {
-
-			retrieveChannel();
-
-			console.log("RET Channel");
-		});
-	}
-
-
-	/**
-	 Retrieve Channel
-	 **/
-
-	var retrieveChannel = function(){
-		console.log("Check");
-		var config = {
-			headers : {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
-			}
-		}
-
-
-		var shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
-		$http.get(
-				$scope.twilioChannel+'/'+ shopName,config
-		).success(function(data, status) {
-
-			$scope.channelSid = data.entity.sid;
-
-			var flag = true;
-			for(var i = 0; i < cChatNames.length ; i++){
-				if($scope.shopCustomer.username == cChatNames[i].name){
-					flag = false;
-				}
-			}
-			console.log("Retrive: "+flag);
-			if(flag){
-				updateCustomer();
-			}else{
-				composeMsg();
-			}
-		}).error(function (data, status) {
-			console.log(data);
-			console.log("3rd");
-		});
-
-	}
-
-	/**
-	 Add Members
-	 **/
-
-	var addMembers = function(){
-		console.log("cookie username",$scope.shopCustomer);
-		var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
-
-		var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
-		var data2 = $.param({
-			Identity : mDesigner
-		});
-
-		var data1 = $.param({
-			Identity : mName
-		});
-		var promise1 = $http({
-			method: 'POST',
-			url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
-			data: data2,
-			headers : {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-			},
-			cache: 'true'});
-		var promise2 = $http({
-			method: 'POST',
-			url: $scope.twilioChannel+'/'+$scope.channelSid+'/Members',
-			data: data1,
-			headers : {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-			},
-			cache: 'true'});
-
-		$q.all([promise1,promise2]).then(function(data){
-			console.log(data[0],data[1]);
-
-			//getShopOwner();
-			//	composeMsg();
-			var flag = true;
-			for(var i = 0; i < cChatNames.length ; i++){
-				if($scope.shopCustomer.username == cChatNames[i].name){
-					flag = false;
-				}
-			}
-			if(flag){
-				updateCustomer();
-			}else{
-				composeMsg();
-			}
-
-
-		}, function onError(response) {
-			console.log(response);
-
-		});
-	}
-
-	/**
-	 Send Message
-	 **/
-
-	$scope.sendMessage = function(msg){
-		$scope.msgBody = msg;
-		createChannel();
-
-	}
 
 
 	/**
 	 Compose Message
 	 **/
 
-	var composeMsg = function(){
-		console.log("mFrom: "+JSON.parse($cookies.get("username")).username);
-		var	mFrom = JSON.parse($cookies.get("username")).username;
-		var data1 = $.param({
-			Body : $scope.msgBody,
-			From : mFrom
-		});
-		$scope.msgBody = "";
-		$http.post(
-				$scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
-		).success(function(data, status) {
-			console.log(data);
-
-		}).error(function (data, status) {
-			console.log(data);
-		});
-
-	}
-
-
-	/**
-	 Add Cchat in customer
-	 **/
-
-	var updateCustomer = function(){
-		var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
-		var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
-		console.log("MNAME: "+mName);
-		var data1 = {
-			"uniqueName":  $scope.channelSid,
-			"customerUsername": $scope.channelFriendlyName,
-			"shopOwnerUsername": mDesigner
-		};
-
-		var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
-		var loginAuth =  base64;
-
-		var promise1 = $http({
-			method: 'POST',
-			url: $scope.customerUrl+'/'+$scope.shopCustomer.id+'/cchat',
-			data: data1,
-			headers : {
-				'Content-Type': 'application/json'
-			},
-			cache: 'false'});
-		var promise2 = $http({
-			method: 'POST',
-			url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',
-			data: data1,
-			headers : {
-				'Content-Type': 'application/json'
-			},
-			cache: 'false'});
-
-		$q.all([promise1,promise2]).then(function(data){
-			console.log(data[0],data[1]);
-
-			composeMsg();
-		}, function onError(response) {
-			console.log(response);
-
-		});
-	}
 
 
 
-	$scope.setReadMore = function () {
-		if($scope.readMore == 180){
-			$scope.readMore = 1500;
-			$scope.readBtn = "READ LESS";
-		}else{
-			$scope.readMore = 180;
-			$scope.readBtn = "READ MORE";
-		}
 
-	}
+
+
+
 
 	/**
 	 Get Customer id to update CCHAT
 	 **/
 
-	var getShopOwner = function(){
 
-		var config = {
-			headers : {
-				'Content-Type': 'application/json'
-			}
-		}
-		console.log(productDetail.urls.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner");
-		$http.get(
-				productDetail.urls.shopUrl+"/"+$scope.productDetail.shop.id+"/shopOwner",config
-		).success(function(data, status) {
-			console.log(data);
-			$scope.shopCustomer = data;
-		}).error(function (data, status) {
-			console.log(data);
-			console.log(status);
-		});
-
-
-	}
 
 	/**
 	 get chat list and search channel if already exist;
@@ -417,5 +190,5 @@ app.controller('singleProCtrl',['$scope','$http','$q','$timeout','$location','$r
 
 	$scope.load();
 	//getChatList();
-	getShopOwner();
+	getProductShopDetail();
 }]);

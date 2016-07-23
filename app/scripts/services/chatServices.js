@@ -177,7 +177,13 @@ app.factory('chatServices', [ '$rootScope', 'restServices','$cookies', function 
                 });
 
             });
-        }
+        },
+
+        sendMessage: function () {
+            twilioServices.createChannel().then(function () {
+
+            });
+    }
     }
     return sdo;
 }]);

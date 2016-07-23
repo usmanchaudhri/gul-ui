@@ -38,6 +38,7 @@ app.factory('shippingServices', [ 'restServices', function ( restServices) {
                     });
                 });
         },
+
         updateShippingAddress: function () {
 
             sdo.getUrls().then(function (data) {
@@ -61,6 +62,7 @@ app.factory('shippingServices', [ 'restServices', function ( restServices) {
             });
 
         },
+
         updateDefaultShippingAddress: function (shippingId1, isActive1, shippingId2, isActive2, customerUrl) {
             var data1 = {
                 "isActive": isActive1

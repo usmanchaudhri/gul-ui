@@ -51,6 +51,24 @@ app.factory('twilioServices', ['twilioWebServices', function (twilioWebServices)
                     });
             });
         },
+        composeMsg : function(){
+            console.log("mFrom: "+JSON.parse($cookies.get("username")).username);
+            var	mFrom = JSON.parse($cookies.get("username")).username;
+            var data1 = $.param({
+                Body : $scope.msgBody,
+                From : mFrom
+            });
+            $scope.msgBody = "";
+            $http.post(
+                $scope.twilioChannel+'/'+$scope.channelSid+'/Messages',  data1,config
+            ).success(function(data, status) {
+                console.log(data);
+
+            }).error(function (data, status) {
+                console.log(data);
+            });
+
+        }
     }
     return sdo;
 

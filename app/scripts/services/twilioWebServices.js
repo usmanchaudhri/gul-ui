@@ -51,7 +51,6 @@ app.factory('twilioWebServices', ['$http', '$q', '$cookies', 'Base64', '$window'
 
             });
         },
-
         addMember: function(mDesigner,mName){
             var data2 = $.param({
                 Identity : mDesigner
@@ -90,6 +89,17 @@ app.factory('twilioWebServices', ['$http', '$q', '$cookies', 'Base64', '$window'
             }, function onError(response) {
                 console.log(response);
 
+            });
+        },
+        postTwilioData: function (url, data) {
+            var config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+            return $http.post(url, data, config
+            ).then(function (data) {
+                return data;
             });
         }
 

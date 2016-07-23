@@ -64,6 +64,50 @@ app.factory('accountServices', [ 'restServices','Base64','$http','$cookies', fun
                     }
                 });
             });
+        },
+
+        /**
+         Add Cchat in customer
+         **/
+
+         updateCustomer : function(){
+            var mName = JSON.parse($cookies.get("username")).username.replace(/ /g, '');
+            var mDesigner = $scope.shopCustomer.username.replace(/ /g, '');
+            console.log("MNAME: "+mName);
+            var data1 = {
+                "uniqueName":  $scope.channelSid,
+                "customerUsername": $scope.channelFriendlyName,
+                "shopOwnerUsername": mDesigner
+            };
+
+            var base64 = Base64.encode( JSON.parse($cookies.get("username")).username + ':' + JSON.parse($cookies.get("username")).password);
+            var loginAuth =  base64;
+
+            var promise1 = $http({
+                method: 'POST',
+                url: $scope.customerUrl+'/'+$scope.shopCustomer.id+'/cchat',
+                data: data1,
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                cache: 'false'});
+            var promise2 = $http({
+                method: 'POST',
+                url: $scope.customerUrl+'/'+JSON.parse($cookies.get("username")).id+'/cchat',
+                data: data1,
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                cache: 'false'});
+
+            $q.all([promise1,promise2]).then(function(data){
+                console.log(data[0],data[1]);
+
+                composeMsg();
+            }, function onError(response) {
+                console.log(response);
+
+            });
         }
     }
     return sdo;
