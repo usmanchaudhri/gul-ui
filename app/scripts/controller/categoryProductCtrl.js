@@ -1,6 +1,10 @@
 app.controller('categoryProductCtrl', ['$scope','$routeParams', 'categoryPro','utilityServices', function ($scope, $routeParams, categoryPro , utilityServices) {
 
 
+	/**
+	 * This controller
+	 */
+
 	$scope.cat_id = $routeParams.catId;
 	$scope.categoryProDetail = categoryPro.categoryProDetail;
 	$scope.categoryIDs = categoryPro.categoryIDs;

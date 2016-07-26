@@ -181,7 +181,13 @@ app.factory('chatServices', ['$rootScope', 'restServices', '$cookies', 'twilioSe
             twilioServices.createChannel().then(function () {
 
             });
-        }
+        },
+
+        sendMessage: function () {
+            twilioServices.createChannel().then(function () {
+
+            });
+    }
     }
     return sdo;
 }]);

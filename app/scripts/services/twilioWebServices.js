@@ -117,10 +117,10 @@ app.factory('twilioWebServices', ['$http', '$q', '$cookies', 'Base64', '$window'
                     Body: msgBody,
                     From: mFrom
                 });
-               return $http.post(
+                return $http.post(
                     data.data.twilioChannel + '/' + channelSid + '/Messages', data1, config
                 ).then(function (data) {
-                   console.log("Twilio webservices sendMessageTwilio",data);
+                    console.log("Twilio webservices sendMessageTwilio",data);
                     return data;
 
                 });

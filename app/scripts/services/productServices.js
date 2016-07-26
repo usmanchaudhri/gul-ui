@@ -133,10 +133,10 @@ app.factory('productServices', ['$cookies','restServices', 'twilioServices','pro
 
         composeMsg: function (msg,data) {
 
-         return twilioWebServices.sendMessageTwilio(msg,data).then(function(data){
-             console.log("product Services composeMsg",data);
-            return data;
-         });
+            return twilioWebServices.sendMessageTwilio(msg,data).then(function(data){
+                console.log("product Services composeMsg",data);
+                return data;
+            });
         }
 
     }

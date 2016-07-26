@@ -58,16 +58,16 @@ app.factory('twilioServices', ['$cookies','twilioWebServices', function ($cookie
         retrieveChannel: function () {
             var shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
             twilioWebServices.retrieveChannel(shopName)
-            .then(function (data) {
-                $scope.channelSid = data.entity.sid;
-                var flag = true;
-                for (var i = 0; i < cChatNames.length; i++) {
-                    if ($scope.shopCustomer.username == cChatNames[i].name) {
-                        flag = false;
+                .then(function (data) {
+                    $scope.channelSid = data.entity.sid;
+                    var flag = true;
+                    for (var i = 0; i < cChatNames.length; i++) {
+                        if ($scope.shopCustomer.username == cChatNames[i].name) {
+                            flag = false;
+                        }
                     }
-                }
 
-            });
+                });
 
         },
 

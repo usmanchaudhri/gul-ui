@@ -36,41 +36,41 @@ app.controller('singleProductCtrl',['$scope','$http','$q','$timeout','$location'
 	 **/
 
 	/*var retrieveChannel = function(){
-		console.log("Check");
-		var config = {
-			headers : {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-			}
-		}
+	 console.log("Check");
+	 var config = {
+	 headers : {
+	 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+	 }
+	 }
 
 
-		var shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
-		$http.get(
-				$scope.twilioChannel+'/'+ shopName,config
-		).success(function(data, status) {
+	 var shopName = JSON.parse($cookies.get("username")).username + "-" + $scope.shopCustomer.username.replace(/ /g, '');
+	 $http.get(
+	 $scope.twilioChannel+'/'+ shopName,config
+	 ).success(function(data, status) {
 
-			$scope.channelSid = data.entity.sid;
+	 $scope.channelSid = data.entity.sid;
 
-			var flag = true;
-			for(var i = 0; i < cChatNames.length ; i++){
-				if($scope.shopCustomer.username == cChatNames[i].name){
-					flag = false;
-				}
-			}
-			console.log("Retrive: "+flag);
-			if(flag){
-				updateCustomerChannelName();
-			}else{
-				composeMsg();
-			}
-		}).error(function (data, status) {
-			console.log(data);
-			console.log("3rd");
-		});
+	 var flag = true;
+	 for(var i = 0; i < cChatNames.length ; i++){
+	 if($scope.shopCustomer.username == cChatNames[i].name){
+	 flag = false;
+	 }
+	 }
+	 console.log("Retrive: "+flag);
+	 if(flag){
+	 updateCustomerChannelName();
+	 }else{
+	 composeMsg();
+	 }
+	 }).error(function (data, status) {
+	 console.log(data);
+	 console.log("3rd");
+	 });
 
-	}
+	 }
 
-*/
+	 */
 	/**
 	 Send Message
 	 **/
@@ -189,4 +189,4 @@ app.controller('singleProductCtrl',['$scope','$http','$q','$timeout','$location'
 		$rootScope.$emit("addToBag",{"data":data});
 	}
 	$scope.load();
-	}]);
+}]);
