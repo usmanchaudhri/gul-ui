@@ -1,3 +1,9 @@
+/**
+ * This controller control all functionlaity of cart.
+ * Adding Product in cart,removing product from cart,
+ * Total price of cart items,checking cart empty or
+ * not
+ */
 app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'restServices','cartServices','paymentServices', function ($scope, $cookies, $rootScope, $timeout, restServices,cartServices,paymentServices) {
 	$scope.isNumber = angular.isNumber;
 	$scope.totalPrice = 0;
@@ -7,7 +13,8 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'res
 
 
 	/**
-	 * getting Cart Item From Cookies
+	 * Getting cart items from cookies if already exist
+	 * in cookies
 	 */
 
 	if($cookies.get("invoices")!= null){
@@ -56,7 +63,8 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'res
 	}
 
 	/**
-	 * Paypal Payment Api calling
+	 * This method submit total price of the cart items
+	 * to paypal.
 	 */
 	$scope.submitPayment = function () {
 
@@ -66,7 +74,8 @@ app.controller('cartCtrl', ['$scope', '$cookies', '$rootScope', '$timeout', 'res
 	};
 
 	/**
-	 * Checking for total Items in Cart
+	 * This method get Cart information and show on hover
+	 * to cart
 	 */
 	var getCartInfo = function () {
 		cartServices.getCartInfo().then(function(data){

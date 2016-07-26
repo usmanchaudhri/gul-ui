@@ -1,7 +1,7 @@
 /**
  * Created by Khan on 6/2/2016.
  */
-app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', function ($rootScope, restServices,$cookies,$q) {
+app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q','twilioWebServices', function ($rootScope, restServices,$cookies,$q,twilioWebServices) {
 
     var sdo = {
 
@@ -22,23 +22,15 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
         },
 
         /**
-         *This
+         *This Method  register user on server and then
+         * on twilio for sending and receiving msgs
          * @param user
          * @param email
          * @param pass
          * @returns {*|{get}}
          */
-        registerUser: function (user) {
-            var postData = $.param({
-                Identity: user
-            });
-            return restServices.getUrls().then(function (data) {
-                restServices.postTwilioData(data.data.twilioUser, postData).then(function (data) {
-                    return data;
-                });
-            });
-        },
-        registerUserOnServer: function(email,pass){
+
+        registerUser: function(email,pass){
 
             var data = {
                 "username": email ,
@@ -46,20 +38,25 @@ app.factory('loginServices', ['$rootScope', 'restServices','$cookies','$q', func
             }
             return restServices.getUrls().then(function(response){
                return restServices.postApiData(response.data.signupUrl,data).then(function(responseData){
-                   return sdo.registerUser(email,email,pass).then(function(){
+                   var postData = $.param({
+                       Identity: email
+                   });
+                   return twilioWebServices.registerUserOnTwilio(response.data.twilioUser, postData).then(function (data) {
                        var shopId;
                        if (angular.isDefined(responseData.shop)) {
-                           shopId = data.shop.id;
+                           shopId = responseData.shop.id;
                        } else {
                            shopId = 0;
                        }
                        var value = {
-                           "username": data.username,
+                           "username": responseData.data.username,
                            "password": pass,
-                           "id": data.id,
+                           "id": responseData.data.id,
                            "shopId": shopId
                        };
                        $cookies.put("username", JSON.stringify(value));
+                      // console.log("DATA COMPLETE",responseData);
+
                        return true;
 
                    });

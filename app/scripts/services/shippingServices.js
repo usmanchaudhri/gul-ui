@@ -38,6 +38,11 @@ app.factory('shippingServices', [ 'restServices', function ( restServices) {
                     });
                 });
         },
+
+        /**
+         * This method update Shipping Address
+         * of user
+         */
         updateShippingAddress: function () {
 
             sdo.getUrls().then(function (data) {
@@ -61,6 +66,17 @@ app.factory('shippingServices', [ 'restServices', function ( restServices) {
             });
 
         },
+
+
+        /**
+         * This method change Default Shipping address
+         * @param shippingId1
+         * @param isActive1
+         * @param shippingId2
+         * @param isActive2
+         * @param customerUrl
+         * @returns {*}
+         */
         updateDefaultShippingAddress: function (shippingId1, isActive1, shippingId2, isActive2, customerUrl) {
             var data1 = {
                 "isActive": isActive1

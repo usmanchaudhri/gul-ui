@@ -4,6 +4,14 @@
 app.factory('paypalPaymentServices', ['$http', '$q', '$cookies', 'Base64', '$window','restServices', function ($http, $q, $cookies, Base64, $window,restServices) {
     var sdo = {
 
+
+        /**
+         * This method hit paypal web service
+         * @param data
+         * @param payload
+         * @param tokenID
+         * @returns {*|{get}}
+         */
         submitPayment: function (data,payload,tokenID) {
             return restServices.getUrls().then(function (mUrls) {
 

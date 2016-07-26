@@ -1,12 +1,13 @@
 /**
  * Created by Khan on 7/13/2016.
  */
-app.factory('shopServices', [ 'restServices', function ( restServices) {
+app.factory('shopServices', ['restServices', function (restServices) {
 
     var sdo = {
 
         /**
-         * Get All shop exist
+         * This method will get All shops information from
+         * web and show on All shop page
          * @returns {*}
          */
         getallShops: function () {
@@ -27,9 +28,11 @@ app.factory('shopServices', [ 'restServices', function ( restServices) {
         },
 
         /**
-         GET SPECIFIC SHOP on which user click
-         **/
-
+         * This method take shopID as parameter and
+         * fetch all shop data from web
+         * @param shop_id
+         * @returns {*|{get}}
+         */
         getShop: function (shop_id) {
             return restServices.getUrls()
                 .then(function (response) {

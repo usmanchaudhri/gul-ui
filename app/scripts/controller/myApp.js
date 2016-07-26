@@ -41,7 +41,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		label: 'SHOP'
 	}).when('/productDetailPage/:proId', {
 		templateUrl: 'view/products/individual.html',
-		controller: 'singleProCtrl',
+		controller: 'singleProductCtrl',
 		label: 'PRODUCT',
 		resolve: {
 			productDetail: function (productServices, $route) {
@@ -51,7 +51,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 		}
 	}).when('/categoryProducts/:catId', {
 		templateUrl: 'view/categories/categoryProducts.html',
-		controller: 'categoryProCtrl',
+		controller: 'categoryProductCtrl',
 		label: 'CATEGORY',
 		resolve: {
 			categoryPro: function (categoryServices, $route) {

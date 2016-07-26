@@ -24,6 +24,12 @@ app.factory('orderServices', [ 'restServices','$cookies', function ( restService
                 });
         },
 
+        /**
+         * This method Submit all cart items to server
+         * as a Order 
+         * @param orderPayload
+         * @returns {*|{get}}
+         */
         submitOrder: function (orderPayload) {
             return restServices.getUrls().then(function (response) {
                 return restServices.postApiAuthData(

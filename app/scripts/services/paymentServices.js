@@ -5,7 +5,13 @@ app.factory('paymentServices', [ 'restServices','cartServices','paypalPaymentSer
 
     var sdo = {
 
-
+        /**
+         * This method redirect to Paypal page
+         * to charge order payment
+         * @param totalPrice
+         * @param payload
+         * @returns {*}
+         */
         submitPayment: function (totalPrice, payload) {
 
             if ($cookies.get("username") != null) {

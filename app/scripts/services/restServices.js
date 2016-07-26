@@ -12,7 +12,6 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
         },
 
         getApiData: function (url) {
-
             return sdo.getUrls()
                 .then(function (response) {
                     return $http.get(url)
@@ -38,7 +37,7 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
 
         },
 
-        getApiAuthDataHeroku: function (url,username,pass) {
+        getApiAuthDataHeroku: function (url, username, pass) {
             var loginAuth = Base64.encode(username + ':' + pass);
             var config = {
                 headers: {
@@ -50,13 +49,13 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                 .then(function (data) {
                     return data;
                 });
-
         },
 
-        postApiData: function(url,data){
+        postApiData: function (url, data) {
             var config = {
                 headers: {
-                    'Content-Type': 'application/json'}
+                    'Content-Type': 'application/json'
+                }
             }
             return $http.post(url, data, config
             ).then(function (data) {
@@ -79,20 +78,8 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
             });
         },
 
-        postTwilioData: function (url, data) {
-            var config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            }
-            return $http.post(url, data, config
-            ).then(function (data) {
-                return data;
-            });
-        },
 
         getToken: function () {
-            //console.log("REQUEST");
             return sdo.getUrls().then(function (response) {
                 //console.log("REQUEST",response);
                 var base64 = Base64.encode(response.data.paypalClientID + ':' +
@@ -107,27 +94,26 @@ app.factory('restServices', ['$http', '$q', '$cookies', 'Base64', '$window', fun
                 var data = $.param({
                     grant_type: "client_credentials"
                 });
-                return $http.post(response.data.getToken,data,config).then(
+                return $http.post(response.data.getToken, data, config).then(
                     function (data) {
-                        console.log("0000",data.data);
-                    return data.data;
-                },function(data) {
-                    console.log("Error");
-                    if (data != null) {
-                        return obj = {
-                            loadingData: false,
-                            dataError: data
-                        };
-                    } else {
-                        return obj = {
-                            loadingData: false,
-                            dataError: "Check Your Internet Connection And Try Again! "
-                        };
-                    }
-                });
+                        console.log("0000", data.data);
+                        return data.data;
+                    }, function (data) {
+                        console.log("Error");
+                        if (data != null) {
+                            return obj = {
+                                loadingData: false,
+                                dataError: data
+                            };
+                        } else {
+                            return obj = {
+                                loadingData: false,
+                                dataError: "Check Your Internet Connection And Try Again! "
+                            };
+                        }
+                    });
             });
         },
-
 
 
         getShop: function (shop_id) {
