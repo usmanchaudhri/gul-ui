@@ -80,7 +80,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 					controller: 'payCtrl',
 					label:'PAYMENT'
 				}).when('/upload', {
-					templateUrl: 'view/upload/uploadImages.html', 
+					templateUrl: 'view/upload/uploadImages.html',
 					controller: 'uploadCtrl',
 					label:'UPLOAD'
 				}).when('/cart/payment/shipping', {
