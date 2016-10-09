@@ -128,7 +128,6 @@ h2 span {
 	color: #e86903;
 	opacity: .8;
 	outline: none;
-
 	background: white !important;
 	background: -moz-linear-gradient(top,  #e1e1e1 0%, #d0d0d0 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1e1e1), color-stop(100%,#d0d0d0));
@@ -331,7 +330,7 @@ h2 span {
 /* carousel */
 .carousel {
 	margin: 0 0 20px;
-	
+
 	}
 .carousel .item {
 	max-height: 725px;
@@ -769,34 +768,34 @@ body {
 	font-size: 18px;
 }
 @media (max-width: 768px) {
-	
+
 	.email-box{
 	margin-left: 0px !important;
 }
-	
+
 	.slider-img{
 	 margin-left: 0px !important;
     width: 50% !important;
 	}
-	
+
 	.cart-elements{
-	
+
 	margin-left:0px !Important;
-	
+
 }
-	
+
 	#respon2{
 		margin-top: 30px !important;
 	}
-	
+
 	.card-container{
 	width: 350px !important;
 	height: auto !important;
 }
-	
+
 	.lightbox-ul{
 	display:block !important;
-	list-style-type:none;	
+	list-style-type:none;
 	padding-left: 15%;
 	}
 
@@ -808,20 +807,20 @@ body {
 	.shop-desc{
 		padding-left: 10px !important;
 	}
-	
+
 	.footer-list{
 		margin-top: 0px !important;
 	}
-	
+
 
 	.cart-label{
 		margin-left: 7px;
 	}
-	
+
 	.inspirational-title{
 		font-size: 18px !important;
 	}
-	
+
 	#respone1{
 		font-size:13px !important;
 	}
@@ -874,7 +873,7 @@ body {
 	.navbar-nav.navbar-center:last-child{
 
 	}
-	
+
 
 	.mob-logo{
 		margin-top: 11px;
@@ -2197,7 +2196,7 @@ select{
 	padding-top: 7px;
 	color: white;
 	width: 67px;
-	
+
 	font-family: 'Quicksand';
 }
 .cart-label:hover{
@@ -2231,7 +2230,7 @@ select{
 	padding:5px;
 	padding-top: 15px;
 	border: none !important;
-	
+
 
 }
 /*End of Homepage*/
@@ -2525,9 +2524,9 @@ select{
 
 
 @media (max-width: 768px) {
-	
+
 	.personalize-section{
-		
+
 	}
 	.btn,.btn-group {
 		width:100%;
@@ -2611,7 +2610,7 @@ select{
 
 	#respone1{
 		text-align: center;
-		
+
 		color: #bcbcbc;
 		font-family:lato-light;
 	}
@@ -2628,7 +2627,7 @@ select{
 		width: 100%;
 		text-align: center;
 	}
-	
+
 	.designer-name{
 		margin-top:0px !important;
 	}
@@ -2736,7 +2735,7 @@ select{
 	.home-slider-shop-desc{
 		margin-top: 0px !important;
 		text-align: center !important;
-		
+
 	}
 
 	.home-menu .cart-label a{
@@ -3238,9 +3237,9 @@ select{
 }
 
 .homepage-slider-img{
-	background-size: contain; 
+	background-size: contain;
 	background-attachment: fixed;
-	background: no-repeat; 
+	background: no-repeat;
 	width: 100%;
 	min-height: 725px;
 }
@@ -3260,7 +3259,7 @@ select{
 }
 
 .home-slider-shop-desc{
-	font-family: lato-hairline !important; 
+	font-family: lato-hairline !important;
 		text-align: left;
 		 color:#cbc9c6;
 }
@@ -3280,9 +3279,9 @@ select{
 
 #respon2{
 	font-size: 42px;
-	color: rgba(238, 105, 0, 0.48); 
-	margin-top:3px ; 
-	font-family:lato-hairline !important; 
+	color: rgba(238, 105, 0, 0.48);
+	margin-top:3px ;
+	font-family:lato-hairline !important;
 	margin-bottom: 24px;
 	margin-left:40px;
 	font-weight: 600;
@@ -3295,9 +3294,9 @@ select{
 
 .designer-name{
 	padding: 20px;
-	font-size: 16px; 
+	font-size: 16px;
 	font-family: lato-regular;
-	margin-left: 6px; 
+	margin-left: 6px;
 	margin-top: 38px;
 }
 
