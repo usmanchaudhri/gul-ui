@@ -43,7 +43,7 @@
 	src: url(../assets/fonts/Lato-LightItalic.ttf);
 }
 body{
-	font: 9px/9px 'Julius Sans One', sans-serif;
+	font-family: lato-light;
 	color: #050505;
 	min-width: 300px;
 }
@@ -122,13 +122,11 @@ h2 span {
 		width: 1100px;
 		margin:0 auto;
 }
-
 .btn-primary:hover,
 .btn-primary:active {
 	color: #e86903;
 	opacity: .8;
 	outline: none;
-
 	background: white !important;
 	background: -moz-linear-gradient(top,  #e1e1e1 0%, #d0d0d0 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1e1e1), color-stop(100%,#d0d0d0));
@@ -195,17 +193,45 @@ h2 span {
 	right: 72px;
 	top: -3px;
 }
+.marginTopCart{
+	margin-top: 10px;
+}
 .navbar .cart img {
 	vertical-align: top;}
 /* main-nav */
+/* Slider Setting -- */
+.home-slider-shop-desc{
+	text-transform: uppercase;
+	position:absolute;
+	top:40%;
+}
+.home-slider-shop-desc h1{
+	font-weight: 100;
+	font-size: 30px;
+	color:#fff;
+}
+.home-slider-shop-desc span{
+	font-weight: 100;
+	display: block;
+	font-size: 20px;
+}
+.orngBtn{
+	background-color: #e96a24 !important;
+	display: inline-block;
+	font-weight: 300;
+	padding:8px 15px;
+	margin-top:10px;
+	font-size: 19px;
+	color:#fff;
+}
+.orngBtn:hover{
+	background-color: #fff !important;
+	color:#e96a24;
+}
+/* Slider Setting -- */
 .main-nav > ul {
-	list-style: none;
-	margin: 0 -38px;
-	padding: 0;
-	font-size: 0;
-	line-height: 0;
 	text-align: center;
-	/*text-transform: uppercase;*/
+	margin-top: 8px;
 }
 .main-nav > ul > li {
 	display: inline-block;
@@ -279,18 +305,12 @@ h2 span {
 .main-nav .opener {
 	display: none;}
 /* carousel */
-.carousel {
-	margin: 0 0 20px;
-
-	}
 .carousel .item {
 	max-height: 725px;
 	background-position: 50% 50%;
 	background-size: cover;
 	background-color: #6a6a6c;
 }
-
-
 .carousel-nav {
 	position: absolute;
 	left: 0;
@@ -616,43 +636,15 @@ body {
 	font-weight:500;
 	color:#000 !important;
 }
-.carousel-content {
-	position: absolute;
-	bottom: 51%;
-	left: 5%;
-	width: 100%;
-	z-index: 20;
-	color: white;
-	text-shadow: 0 1px 2px rgba(0,0,0,.6);
-	font-family: 'Century Schoolbook' !important;
-	font-size: 38px !important;
-	line-height: 46;
-}
-
-.carousel-content h1{
-	font-size: 55.56px !important;
-}
-
-.carousel-content h3{
-	font-size: 17px;
-	padding: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-
-}
-
-
 .navbar .nav > li > a:hover{
 	color: black;
 }
-
 /* END IBRISM css */
 /* 21 NOV 201 */
 .navbar-default{
 	color: #fff;
 	background-color: #ccc6c6;
 	border-color: #aca1a2;
-
 }
 .navbar-default .navbar-nav > li > a{
 	color: #fff;
@@ -2286,51 +2278,32 @@ select{
 		margin-top: -2px !important;
 		margin-left: -34.8em !important;
 	}
-
-	.carousel-content{
-		bottom: 0px;
-		top: 73%;
-		color: black;
-		font-size: 15px;
-
-	}
-
 	.responsive-carousel-btn{
 		top:86%;
 	}
-
 	.home-slider-shop-btn{
 		padding:5px !important;
 		width:33% !important;
 		margin-top: 105px !important;
 	}
-
 	.home-slider-shop-btn a , .home-slider-shop-btn-two a, .home-slider-shop-btn-three a{
 		color: black !important;
 		font-weight: 400;
 		font-size: 14px;
 	}
-
 	.home-slider-shop-btn-three{
 		border: 1px solid black;
 		padding: 5px !important;
 		width: 33% !important;
 		margin-top: 50px;
 	}
-
-	.carousel-content h1 {
-		font-size: 14px !important;
-	}
-
 	.carousel .item{
 		background-color: white;
 	}
-
 	.custom-padding-top{
 		padding-top: 0px !important;
 		max-height: 290px !important;
 	}
-
 	.shop-img{
 		width: 98% !important;
 	}
@@ -2444,43 +2417,21 @@ select{
 	height: 30px;
 	font-size: 15px;
 }
-.home-slider-shop-btn{
-	border: 1px solid black;
-	padding:10px;
-	font-family: Helvetica,Arial,sans-serif;
-	width:9%;
-	margin-top: 10px;
-}
-
-
-
-
 @media (max-width: 768px) {
-
-	.personalize-section{
-
-	}
 	.btn,.btn-group {
 		width:100%;
 	}
-
 	.keep-shopping-button{
 		width:auto !Important;
 	}
-
 	.ind-desc{
 		margin-left: 0px !important;
 	}
-
 	.cart-block{
 		margin-left: -34.8em !important;
 	}
-
 	.footer-list li{
-
 		font-size: 8px;
-
-
 	}
 	#mob-margin{
 		margin-top:-57px !important;
@@ -2525,11 +2476,9 @@ select{
 		width:33% !important;
 		margin-top: 5px;
 	}
-
 	.home-menu ul > li > a{
 		color:black !important;
 	}
-
 	.social {
 		float: right;
 		list-style: none;
@@ -2539,7 +2488,6 @@ select{
 		line-height: 15px;
 		bottom: 0;
 	}
-
 	#respone1{
 		text-align: center;
 
@@ -2559,24 +2507,19 @@ select{
 		width: 100%;
 		text-align: center;
 	}
-
 	.designer-name{
 		margin-top:0px !important;
 	}
-
 	#control-nav  {
 		display: none;
 	}
 	#menu-account{
-
 		margin-right: 140px;
 		display: block;
 		border: 0px;
 		box-shadow: none;
-
 		width: 100%;
 		color:#000000;
-
 	}
 	#menu-display{
 		display:inline !important;
@@ -2588,47 +2531,30 @@ select{
 
 		width: 100%;
 	}
-
-
-
 	#men-dropdown-menu{
 		display: block;
 		border: 0px;
 		box-shadow: none;
-
 		width: 100%;
 	}
 	#women-dropdown-menu{
 		display: block;
 		border: 0px;
 		box-shadow: none;
-
 		width: 100%;
 	}
 	.signin-label{
 		display: none;
 	}
-	.carousel-content{
-		bottom: 0px;
-		top: 90%;
-		color: black;
-		font-size: 15px;
-	}
-	.carousel-content h1 {
-		font-size: 18px !important;
-	}
-
 	.carousel .item{
 		background-color: white;
 	}
-
 	#indisize{
 		height: 300px !important;
 	}
 	.ind-pro-thumbnail{
 		padding-left: 10px !important;
 	}
-
 	.acc-menu{
 		padding: 12px 10px !important;
 		border: 1px solid rgba(160, 155, 155, 0.48);
@@ -2636,46 +2562,16 @@ select{
 		border-right: none;
 		background-color: rgba(238, 238, 238, 0.6) !important;
 	}
-
-	.home-slider-shop-btn-two{
-		border: 1px solid black;
-		padding: 5px;
-		font-family: Helvetica,Arial,sans-serif;
-		width: 33% !important;
-		margin-top: 40px;
-		margin-left: 19px;
-	}
-
 	.cart-label{
 		color: black;
 	}
-
-	.home-slider-shop-btn-three{
-		border: 1px solid black;
-		padding: 5px !important;
-		width: 33% !important;
-		margin-top: 50px;
-	}
-
 	.third-slider-desc{
 		margin-top:14px;
 	}
-
-	.carousel-content h1 {
-		font-size: 14px !important;
-	}
-	.home-slider-shop-desc{
-		margin-top: 0px !important;
-		text-align: center !important;
-
-	}
-
 	.home-menu .cart-label a{
 		color: black !important;
 	}
 }
-
-
 .social label{
 	font-size: 13px;
 	padding-top: 17px;
@@ -3063,17 +2959,11 @@ select{
 	border-bottom: 1px solid #e1e1e1;
 	font-family: lato-regular;
 }
-.mob-logo{
-	margin-top: 8px;
-	margin-bottom: 3px;
-}
-
 .menu-logo{
 	font-weight: 500;
 	color: #e86903;
 	font-size: 54.46px;
 }
-
 .secondary-nav{
 	font-family: lato-light;
 	font-size: 18px !Important;
@@ -3168,40 +3058,25 @@ select{
 	width: 100%;
 	min-height: 725px;
 }
-
 .inspirational-title{
 	font-size: 26.2px;
 	color: #bcbcbc ;
 	font-family: lato-light !important;
 	color:#9a9a9a;
 }
-
 .footer-list{
 	list-style-type: none;
 	padding-left: 5px;
 	margin-top: 6.9em;
 	font-family: lato-regular !important;
 }
-
-.home-slider-shop-desc{
-	font-family: lato-hairline !important;
-		text-align: left;
-		 color:#cbc9c6;
-}
-
-.shop-desc{
-	padding-left: 0px;
-}
-
 .lightbox-ul{
 	display:inline-flex;
 }
-
 .card-container{
 	width: 445px;
 	height: 515px;
 }
-
 #respon2{
 	font-size: 42px;
 	color: rgba(238, 105, 0, 0.48);
