@@ -28,66 +28,30 @@
 </head>
 <body ng-app="myApp" ng-controller="cartCtrl" >
    <div class="wrapper" ng-controller="loginCtrl">
-       <!--Navigation Bar-->
-   <div ng-show="showContent">
-       <div ng-controller="BreadcrumbCtrl">
-           {{breadcrumbsCalling()}}
-           <div ng-include src="'view/menu/index-header.html'" class="navbar"></div>
-           <div ng-include src="'view/login/loginModal.html'"></div>
-           <div ng-view ng-style="{'padding-top': menuMargin }"></div><!-- main slider-->
-       </div>
-       <!--Footer-->
-       <footer id="footer" style="background-color: #707070 ;margin-top: 23px; ">
-           <div class="row">
-               <div class="col-sm-2"></div>
-               <div class="col-sm-6 col-xs-12">
-                   <ul class="footer-list list-inline">
-                       <li><a href="#a"><label
-                               style="margin-left: -65px;font-weight: 400; font-family: lato-regular !important;color:#e1e1e1;"
-                               id="lab1"> SUPPORT </label></a></li>
+      <div ng-show="showContent">
 
-                       <li style="color: white;">|</li>
-                       <li><a href="#a"><label style=" font-family: lato-regular;"> ABOUT&nbsp; </label></a></li>
-                       <li style="color: white;">|</li>
-                       <li><a href="#a"><label style=" font-family: lato-regular;"> TERMS &amp; PRIVACY</label></a></li>
-                       <li style="color: white;">|</li>
-                       <li><a href="#a"><label style=" font-family: lato-regular;">PRIVACY POLICY</label></a></li>
-                       <li style="color: white;">|</li>
-                       <li><a href="#a"><label style=" font-family: lato-regular;"> CONTACT US</label></a></li>
-                   </ul>
-               </div>
-               <div class="col-sm-4 col-xs-12">
+          <div ng-controller="BreadcrumbCtrl">
+              {{breadcrumbsCalling()}}
+              <div ng-include src="'view/menu/index-header.html'" class="navbar"></div>
+              <div ng-include src="'view/login/loginModal.html'"></div>
+              <div ng-view ng-style="{'padding-top': menuMargin }"></div><!-- main slider-->
+          </div>
 
-                   <ul class="footer-list list-inline"
-                       style="list-style-type: none;padding-left: 5px; margin-top: 18px;text-align:center;     margin-bottom: -4px;"
-                       id="boot-margin">
-                       <li><label style="color: white; font-family: lato-bold !important;" id="lab1"> FOLLOW US </label>
-                       </li>
-                       <li><a href="#a"><img src="assets/images/ins_34.jpg"/></a></li>
-                       <li style="color: #e1e1e1;margin-left: -13px;font-size: 18px;font-family: lato-light; ">|</li>
-                       <li><a href="#a"><img src="assets/images/facebook.jpg" style="margin-left: -13px;"/></a></li>
-                       <li style="color: #e1e1e1;margin-left: -13px;font-size: 18px;font-family: lato-light;">|</li>
-                       <li><a href="#a"><img src="assets/images/t.jpg" style="margin-left: -12px;"/></a></li>
-
-                   </ul>
-
-                   <ul class="list-inline text-center" style="list-style-type: none;padding-left: 5px;">
-                       <li><label style="color: #e1e1e1; font-family: lato-light;font-size: 12px;" id="lab1">&copy;2016GULS.COM
-                           ALL RIGHTS RESERVED</label></li>
-
-
-                   </ul>
-
-
-               </div>
-
-
-           </div>
-       </footer>
+          <!--Footer-->
+          <footer id="footer">
+              <div class="row socialIconsFotter">
+                 <div class="col-md-12">
+                    <ul class="list-inline text-center">
+                       <li class="insta"><a href="javascript:;">Instagram</a></li>
+                       <li class="fb"><a href="javascript:;">Facebook</a></li>
+                       <li class="tw"><a href="javascript:;">twitter</a></li>
+                    </ul>
+                 </div>
+              </div>
+          </footer>
+          <!--End of Footer-->
+      </div>
    </div>
-       <!--End of Footer-->
-   </div>
-
 
    <!--Angular Components-->
    <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -169,6 +133,5 @@
    <script src="scripts/js/angular-bootstrap-lightbox.js"></script>
    <script src="scripts/js/imageupload.js"></script>
    <!--End All Javascripts-->
-
 </body>
 </html>
