@@ -18,12 +18,10 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
 @font-face {
 	font-family: lato-light;
 	src: url(../assets/fonts/Lato-Light.ttf);
 }
-
 @font-face {
 	font-family: lato-hairline;
 	src: url(../assets/fonts/Lato-Hairline.ttf);
@@ -44,10 +42,7 @@
 	font-family: lato-lightitalic;
 	src: url(../assets/fonts/Lato-LightItalic.ttf);
 }
-
-
 body{
-
 	font: 9px/9px 'Julius Sans One', sans-serif;
 	color: #050505;
 	min-width: 300px;
@@ -123,6 +118,11 @@ h2 span {
 	background: linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);;*/
 
 }
+.pgSize{
+		width: 1100px;
+		margin:0 auto;
+}
+
 .btn-primary:hover,
 .btn-primary:active {
 	color: #e86903;
@@ -146,90 +146,34 @@ h2 span {
 /* navbar */
 .navbar {
 	position: absolute;
-	left: 0;
-	right: 0;
-	/*top: 24px;*/
-	margin: 0;
-	padding-top: 15px;
-	border: 0;
 	z-index: 100;
+	margin: 0;
+	border: 0;
+	right: 0;
+	left: 0;
 }
-
 .home-menu{
-	background: transparent;
-	color: white;
+	border-bottom: 3px solid #e96a24;
+	background-color: #fff;
+	padding: 1.5% 0;
+	color: #000;
 }
-
-.header-main-nav ul > li{
-	color: black !important;
+.home-menu .cart-label a,.home-menu:hover .cart-label a
+,.home-menu:hover .cart-label ,.home-menu:hover .signin-label{
+	color: #000 !important;
 }
-
-.header-main-nav ul > li > a{
-	background: white;
-	color: black !important;
+.home-menu .signin-label{
+	color: #bcbcbc !important;
 }
-
-.header-main-nav:hover ul > li > label{
-	color: black;
-}
-.home-menu:hover{
-	background-color: rgba(255, 255, 255, 0.5);
-	color: black;
-}
-
-.home-menu ul > li > a{
-	color:black ;
-}
-
-.home-menu:hover ul > li > a{
-
-	color:black !important;
-}
-
-.home-menu:hover .signin-label{
-	color: black !important;
-}
-
-.home-menu .cart-label a{
-	color: white ;
-}
-
-.home-menu:hover .cart-label a {
-	color: black !important;
-}
-
-.home-menu:hover .cart-label {
-	color: black !important;
-}
-
-.home-menu  .cart-label:hover{
-	/*border: 1px solid #A09D93;*/
-	background-color: white;
-}
-
 .navbar.scroll {
 	position: fixed;
 	top: 0;
 	border-radius: 0px;
 	background-color: white;
 }
-
-.navbar.scroll a{
-	color: black!important;
-}
-
-.navbar.scroll .cart-label {
-	color: black !important;
-}
-
-.scroll .signin-label {
-	color: black !important;
-}
-
-
-
 .navbar .container {
-	position: relative;}
+	position: relative;
+}
 .navbar .navbar-brand {
 	float: none;
 	display: block;
@@ -267,11 +211,17 @@ h2 span {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-	margin: 0 38px;
+	padding: 0 38px;
 	font: 18px/26px 'Quicksand', sans-serif;
 	text-transform: uppercase;
+	background-image:url(../assets/images/border-right.png);
+	background-repeat: no-repeat;;
+	background-position: right center;;
 }
-
+.main-nav li.lastChild{
+	background-image: none;
+	padding-right: 0;
+}
 .main-nav > ul > li:hover > ul {
 	display: block;}
 .main-nav > ul > li > a {
@@ -286,7 +236,7 @@ h2 span {
 .main-nav > ul > li:hover > a {
 	text-decoration: none;
 	border-bottom-color: #d25e00;
-	background-color: #ffffff;
+	background-color: #000;
 }
 .main-nav > ul > li > a:focus {
 	text-decoration: none;}
@@ -331,7 +281,7 @@ h2 span {
 /* carousel */
 .carousel {
 	margin: 0 0 20px;
-	
+
 	}
 .carousel .item {
 	max-height: 725px;
@@ -654,24 +604,18 @@ body {
 
 /* Hover style
 ********************************/
-.navbar .nav > li > a, .mega-menu a
-{
+.navbar .nav > li > a, .mega-menu a{
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
-
 	/* -webkit-transform: translate3d(0, 0, 0); Webkit Hardware Acceleration*/
 	-webkit-backface-visibility: hidden; /* Safari Flicker Fix #2 */
-	-webkit-transform: translateZ(0);
-	font-weight: 500;
-	color: white;
+	-webkit-transform:translateZ(0);
+	font-weight:500;
+	color:#000 !important;
 }
-.navbar{
-	padding-top: 24px;
-}
-
 .carousel-content {
 	position: absolute;
 	bottom: 51%;
@@ -687,7 +631,6 @@ body {
 
 .carousel-content h1{
 	font-size: 55.56px !important;
-
 }
 
 .carousel-content h3{
@@ -769,34 +712,34 @@ body {
 	font-size: 18px;
 }
 @media (max-width: 768px) {
-	
+
 	.email-box{
 	margin-left: 0px !important;
 }
-	
+
 	.slider-img{
 	 margin-left: 0px !important;
     width: 50% !important;
 	}
-	
+
 	.cart-elements{
-	
+
 	margin-left:0px !Important;
-	
+
 }
-	
+
 	#respon2{
 		margin-top: 30px !important;
 	}
-	
+
 	.card-container{
 	width: 350px !important;
 	height: auto !important;
 }
-	
+
 	.lightbox-ul{
 	display:block !important;
-	list-style-type:none;	
+	list-style-type:none;
 	padding-left: 15%;
 	}
 
@@ -808,20 +751,20 @@ body {
 	.shop-desc{
 		padding-left: 10px !important;
 	}
-	
+
 	.footer-list{
 		margin-top: 0px !important;
 	}
-	
+
 
 	.cart-label{
 		margin-left: 7px;
 	}
-	
+
 	.inspirational-title{
 		font-size: 18px !important;
 	}
-	
+
 	#respone1{
 		font-size:13px !important;
 	}
@@ -874,7 +817,7 @@ body {
 	.navbar-nav.navbar-center:last-child{
 
 	}
-	
+
 
 	.mob-logo{
 		margin-top: 11px;
@@ -1689,18 +1632,13 @@ html{
 	border-color: #D25E00 !important;
 	color: white !important;
 }
-
 .pagination > li > a{
 	color: #D25E00 !important;
 }
-
 /*End Of Pagination*/
 .nav > li > a{
-
 	padding: 0px;
-	padding-top: 10px;
 }
-
 .individual-desc{
 	font-size: 16px;
 	margin-top: 3px;
@@ -2186,17 +2124,11 @@ select{
 .acc-nav {
 	font-size: 10px;
 }
-
 .cart-label{
-
-	/*border-radius: 4px;*/
 	padding: 10px;
 	padding-bottom: 3px;
 	text-align:right;
-	padding-top: 7px;
-	color: white;
-	width: 67px;
-	
+	padding-top: 7px;	width: 67px;
 	font-family: 'Quicksand';
 }
 .cart-label:hover{
@@ -2230,7 +2162,7 @@ select{
 	padding:5px;
 	padding-top: 15px;
 	border: none !important;
-	
+
 
 }
 /*End of Homepage*/
@@ -2524,9 +2456,9 @@ select{
 
 
 @media (max-width: 768px) {
-	
+
 	.personalize-section{
-		
+
 	}
 	.btn,.btn-group {
 		width:100%;
@@ -2610,7 +2542,7 @@ select{
 
 	#respone1{
 		text-align: center;
-		
+
 		color: #bcbcbc;
 		font-family:lato-light;
 	}
@@ -2627,7 +2559,7 @@ select{
 		width: 100%;
 		text-align: center;
 	}
-	
+
 	.designer-name{
 		margin-top:0px !important;
 	}
@@ -2735,7 +2667,7 @@ select{
 	.home-slider-shop-desc{
 		margin-top: 0px !important;
 		text-align: center !important;
-		
+
 	}
 
 	.home-menu .cart-label a{
@@ -2813,12 +2745,6 @@ select{
 .header-main-nav .signin-label{
 	font-family:'Quicksand' !important;
 }
-
-.home-menu .signin-label{
-	font-family:lato-light !important;
-	color:white;
-}
-
 .signin-label a{
 	color: white !important;
 }
@@ -3156,9 +3082,8 @@ select{
 
 .primary-nav{
 	font-family: lato-light;
-	font-size: 18px !Important;
+	font-size: 15px !Important;
 	color:#cbc9c6;
-
 }
 
 .create-heading{
@@ -3237,9 +3162,9 @@ select{
 }
 
 .homepage-slider-img{
-	background-size: contain; 
+	background-size: contain;
 	background-attachment: fixed;
-	background: no-repeat; 
+	background: no-repeat;
 	width: 100%;
 	min-height: 725px;
 }
@@ -3259,7 +3184,7 @@ select{
 }
 
 .home-slider-shop-desc{
-	font-family: lato-hairline !important; 
+	font-family: lato-hairline !important;
 		text-align: left;
 		 color:#cbc9c6;
 }
@@ -3279,9 +3204,9 @@ select{
 
 #respon2{
 	font-size: 42px;
-	color: rgba(238, 105, 0, 0.48); 
-	margin-top:3px ; 
-	font-family:lato-hairline !important; 
+	color: rgba(238, 105, 0, 0.48);
+	margin-top:3px ;
+	font-family:lato-hairline !important;
 	margin-bottom: 24px;
 	margin-left:40px;
 	font-weight: 600;
@@ -3294,9 +3219,9 @@ select{
 
 .designer-name{
 	padding: 20px;
-	font-size: 16px; 
+	font-size: 16px;
 	font-family: lato-regular;
-	margin-left: 6px; 
+	margin-left: 6px;
 	margin-top: 38px;
 }
 
@@ -3315,5 +3240,5 @@ select{
 
 .scroll .header-account-label a label{
 	color: black !important;
-	
+
 }

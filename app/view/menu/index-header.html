@@ -1,249 +1,134 @@
-<nav style="padding-top: 24px;" class="home-menu">
-    <div class="container-fluid">
+<nav class="home-menu">
+    <div class="container-fluid pgSize">
         <div class="row">
-            <div class="col-sm-4"></div>
+            <div class="col-md-3 col-xs-5 text-left mob-logo ind-logo"><!--Logo-->
+              <a ng-href="#a">Gul Fashion</a>
+            </div><!--End Logo-->
 
-            <!--Logo-->
-            <div class="col-sm-4 col-xs-5 text-center mob-logo">
-                <strong class="ind-logo"><a ng-href="#a"
-                                            style="color: #e86903;"><span
-                        class="menu-logo">G</span><span class="menu-logo">U</span><span
-                        class="menu-logo">L</span></a></strong>
+            <!--Menu Bar-->
+            <div ng-controller="MenuCtrl">
+                <div class="col-md-6">
+                  <div class="main-nav">
+                      <ul class="nav ">
+                          <li class="has-drop dropdown menu-large hide-menu">
+                              <a href="#allShops" class="dropdown-toggle primary-nav" ng-style="{'color': menuColor }">Shop</a>
+                              <ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
+                                  <li class="col-sm-4 hide-menu" ng-repeat="x in shop" >
+                                      <ul>
+                                        <li class="hide-menu"><a style="font-family: lato-light; color:black;" href="#shop/{{x.id}}">{{x.name}}</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categoryProducts/14" class="primary-nav" ng-style="{'color': menuColor }">BRIDALS</a></li>
+                          <li class="dropdown hide-menu lastChild">
+                              <a href="#inspiration" class="primary-nav" ng-style="{'color': menuColor }">Customize</a>
+                          </li>
+                          <li style="display: none;" id="menu-display" >
+                              <a class="acc-menu primary-nav" style="font-family: lato-light;" ng-style="{'color': menuColor }" href="#">ACCOUNT</a>
+                              <ul class="dropdown-menu row dropdown-menu"  id="menu-account" style="font-family: lato-light;">
+                                  <li><a href="#acc" style="font-family: lato-light; ">Settings</a></li>
+                                  <li><a href="#fav">Order Status</a></li>
+                                  <li><a href="#status">Chat</a></li>
+                                  <li><a href="" ng-click="userLogout()">Logout</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
             </div>
-            <!--End Logo-->
-
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3" style="margin-top: -11px;">
-
-								<span>
-									<div class="col-sm-2"></div>
-									<div class="col-sm-10 col-xs-7">
-                                        <!--Cart Popup-->
-                                        <div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-10 cart-label">
-                                            <ul class="ind-cart">
-                                                <li style="float: left;">
-                                                    <label class="ind-cart-item ind-white">{{noOfCartItems}}</label>
-                                                    <label class="ind-cart-text ind-white"><a
-                                                            href="#cart"
-                                                            ng-style="{'color': menuColor }">CART</a></label>
-                                                    <ul class="row dropdown-menu cart-block single-cartproduct"
-                                                        id="acc-dropdown" style="overflow: hidden;display:none;">
-                                                        <li>
-                                                            <div class="row" ng-if="popFlag">
-                                                                <div class="col-sm-4 col-xs-4"
-                                                                     style="text-align: center;">
-                                                                    <img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}"
-                                                                         width="76" height="74">
-                                                                </div>
-                                                                <div class="col-sm-6 col-xs-5">
-                                                                    <label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
-                                                                    <span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
-                                                                </div>
-                                                                <div class="col-sm-2 col-xs-2"
-                                                                     style="padding-left: 0px;">
-                                                                    <label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-
-                                                    <ul class="row dropdown-menu cart-block" id="acc-dropdown"
-                                                        ng-if="itemSize" style="overflow: hidden;">
-                                                        <li class="text-center"
-                                                            style="height:35px; border-bottom: none;"><label
-                                                                style="font-size: 14px;color:#e86903;">The Bag is
-                                                            empty!</label>
-                                                        </li>
-                                                    </ul>
-                                                    <ul ng-if="!itemSize" class="row dropdown-menu cart-block"
-                                                        id="acc-dropdown" style="border-radius: 0px;">
-                                                        <li ng-repeat="a in items track by $index">
-                                                            <div class="row">
-                                                                <div class="col-sm-4 col-xs-4"
-                                                                     style="text-align: center;">
-                                                                    <img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}"
-                                                                         width="76" height="74">
-                                                                </div>
-                                                                <div class="col-sm-6 col-xs-5"
-                                                                     style="padding-left: 0px;">
-                                                                    <label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
-                                                                    <span style="font-size: 12px;">Quantity: {{a.qty}}</span>
-                                                                </div>
-                                                                <div class="col-sm-2 col-xs-2"
-                                                                     style="padding-left: 0px;">
-                                                                    <label style="font-size: 12px;">${{a.cost*a.qty}}</label>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <div class="text-center">
-                                                            <li style="height: 20px;">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6 col-xs-5"
-                                                                         style="text-align: left;">
-                                                                        <label style="font-size: 12px;">Order
-                                                                            Subtotal</label>
-                                                                    </div>
-                                                                    <div class="col-sm-4 col-xs-5">
-                                                                    </div>
-                                                                    <div class="col-sm-2 col-xs-2"
-                                                                         style="padding-left: 0px;">
-                                                                        <label style="font-size: 12px;">${{totalPrice}}</label>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li style="border-bottom: none;">
-                                                                <a href="#cart">
-                                                                    <button type="button"
-                                                                            class="btn btn-primary individual-bag-btn"
-                                                                            style="width: 100%;margin-left: 0px;padding-left: 0px;">
-                                                                        Proceed to checkout
-                                                                    </button>
-                                                                </a>
-                                                            </li>
-                                                        </div>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+            <!--End Menu Bar-->
+            <!--Add responsive Menubar -->
+            <span class="btn-menu visible-xs">menu</span>
+            <!--log IN-->
+            <div class="col-md-3">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10 col-xs-7">
+                    <!--Cart Popup-->
+                    <div class="col-sm-6 col-xs-1 col-sm-push-6 col-xs-push-10 cart-label">
+                        <ul class="ind-cart">
+                            <li class="cartNav">
+                                <label class="ind-cart-item ind-white">{{noOfCartItems}}</label>
+                                <label class="ind-cart-text ind-white"><a href="#cart" ng-style="{'color': menuColor }">CART</a></label>
+                                <ul class="row dropdown-menu cart-block single-cartproduct" id="acc-dropdown" style="overflow: hidden;display:none;">
+                                    <li>
+                                        <div class="row" ng-if="popFlag">
+                                            <div class="col-sm-4 col-xs-4" style="text-align: center;">
+                                                <img ng-src="{{fixPath + '300x300-1-img-'+currentItem.id+'.jpg' + token}}" width="76" height="74">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-5">
+                                                <label style="font-size: 13px;line-height: 15px;">{{currentItem.name}}</label><br>
+                                                <span style="font-size: 12px;">Quantity: {{currentItem.qty}}</span>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2"
+                                                 style="padding-left: 0px;">
+                                                <label style="font-size: 12px;">${{currentItem.cost*currentItem.qty}}</label>
+                                            </div>
                                         </div>
-                                        <!--End Cart Popup-->
-
-                                        <!--SignIn & Account Nav-->
-                                        <span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label" ng-style="{'color': menuColor }"><b>SIGN
-                                            IN</b></h3></span>
-
-                                        <div class="main-nav" ng-show="userFlag == true">
-                                            <ul class="nav account-navbar">
-                                                <li class="header-account-label" style="margin:0px;float: right;"><a href="#account"
-                                                                                        style="padding:0px;margin-top: -4px;"><label
-                                                        style="padding: 0px;font-size: 10px;font-family:'lato-light';"
-                                                        id="control-nav" ng-style="{'color': menuColor }">ACCOUNT</label></a>
-                                                    <ul class="row dropdown-menu"
-                                                        style="margin-left: -202%;width: 120px;">
-                                                        <li>
-                                                            <a href="#account">My Account</a>
-                                                        </li>
-                                                        <li>
-                                                            <a ng-href="#myorder">My Orders</a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#shipping">Shipping</a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#allchats">Chat</a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="" ng-click="userLogout()">Logout</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-                                            </ul>
+                                    </li>
+                                </ul>
+                                <ul class="row dropdown-menu cart-block" id="acc-dropdown" ng-if="itemSize" style="overflow: hidden;">
+                                    <li class="text-center" style="height:35px; border-bottom: none;"><label style="font-size: 14px;color:#e86903;">The Bag is empty!</label></li>
+                                </ul>
+                                <ul ng-if="!itemSize" class="row dropdown-menu cart-block" id="acc-dropdown" style="border-radius: 0px;">
+                                    <li ng-repeat="a in items track by $index">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-xs-4" style="text-align: center;">
+                                                <img ng-src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="76" height="74">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-5" style="padding-left: 0px;">
+                                                <label style="font-size: 13px;line-height: 15px;">{{a.name}}</label><br>
+                                                <span style="font-size: 12px;">Quantity: {{a.qty}}</span>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+                                                <label style="font-size: 12px;">${{a.cost*a.qty}}</label>
+                                            </div>
                                         </div>
-                                        <!--End SignIn & Account Nav-->
+                                    </li>
+                                    <div class="text-center">
+                                        <li style="height: 20px;">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-5" style="text-align: left;">
+                                                    <label style="font-size: 12px;">Order Subtotal</label>
+                                                </div>
+                                                <div class="col-sm-4 col-xs-5"></div>
+                                                <div class="col-sm-2 col-xs-2" style="padding-left: 0px;">
+                                                    <label style="font-size: 12px;">${{totalPrice}}</label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="border-bottom: none;">
+                                            <a href="#cart">
+                                                <button type="button" class="btn btn-primary individual-bag-btn" style="width: 100%;margin-left: 0px;padding-left: 0px;">Proceed to checkout</button>
+                                            </a>
+                                        </li>
                                     </div>
-								</span>
-            </div>
-        </div>
-
-        <!--Add responsive Menubar -->
-        <span class="btn-menu visible-xs">menu</span>
-        <!--End responsive Menubar -->
-    </div><!--/ End of container -->
-
-    <!--Add Menubar-->
-    <div class="container">
-        <div ng-controller="MenuCtrl">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                    <div class="main-nav">
-                        <ul class="nav ">
-                            <li class="has-drop dropdown menu-large hide-menu">
-                                <a href="#allShops" class="dropdown-toggle primary-nav" ng-style="{'color': menuColor }">Shop</a>
-
-                                <ul class="dropdown-menu megamenu row " id="dropdown-menubar"  >
-                                    <li class="col-sm-4 hide-menu" ng-repeat="x in shop" >
-                                        <ul>
-                                            <li class="hide-menu">
-										<span>
-											<a style="font-family: lato-light; color:black;" href="#shop/{{x.id}}">{{x.name}}</a>
-										</span>
-
-                                            </li>
-                                        </ul>
-
-                                    </li>
                                 </ul>
                             </li>
-                            <li class="dropdown menu-large dropdown-toggle hide-menu"><a href="#categoryProducts/14" class="primary-nav" ng-style="{'color': menuColor }">BRIDALS</a>
-                               <!-- <ul class="dropdown-menu megamenu  " id="women-dropdown-menu" >
-							<span ng-repeat="x in cat"><span ng-if="x.name == 'Women'">
-									<li ng-repeat = "a in x.subCategories" class="hide-menu">
-										<span ng-if="checkLength(a.subCategories) == '0'">
-											<a style="font-family: lato-light;color:black;" href="#categoryProducts/{{a.id}}">{{a.name}}</a>
-										</span>
-										<span ng-if="checkLength(a.subCategories) != '0'">
-											<a style="font-family:lato-light;color:black;" href="#categories/{{a.id}}">{{a.name}}</a>
-										</span>
-
-                                    </li>
-								</span>
-							</span>
-                                </ul>-->
-                            </li>
-                            <li class="dropdown menu-large hide-menu">
-                                <a href="#a" class="primary-nav" ng-style="{'color': menuColor }">Featured</a>
-                                <ul class="dropdown-menu megamenu  " id="men-dropdown-menu" >
-
-                                </ul>
-                            </li>
-                            <li class="dropdown menu-large hide-menu"><a href="#inspiration" class="primary-nav" ng-style="{'color': menuColor }">Inspiration</a>
-                                <ul class="dropdown-menu megamenu  " id="inspiration-dropdown-menu" >
-
-                                </ul>
-                            </li>
-
-
-
-                            <li style="display: none;" id="menu-display" ><a class="acc-menu primary-nav" style="font-family: lato-light;" ng-style="{'color': menuColor }" href="#">ACCOUNT</a>
-
-
-                                <ul class="dropdown-menu row dropdown-menu"  id="menu-account" style="font-family: lato-light;">
-                                    <li>
-                                        <a href="#acc" style="font-family: lato-light; ">Settings</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#fav">Order Status</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#status">Chat</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="" ng-click="userLogout()">Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-
-
-
-
                         </ul>
                     </div>
+                    <!--End Cart Popup-->
+
+                    <!--SignIn & Account Nav-->
+                    <span ng-show="!userFlag" ng-click="signin()"><h3 class="signin-label" ng-style="{'color': menuColor }"><b>SIGN IN</b></h3></span>
+                    <div class="main-nav" ng-show="userFlag == true">
+                        <ul class="nav account-navbar">
+                            <li class="header-account-label" style="margin:0px;float: right;">
+                              <a href="#account" style="padding:0px;margin-top: -4px;"><label style="padding: 0px;font-size: 10px;font-family:'lato-light';" id="control-nav" ng-style="{'color': menuColor }">ACCOUNT</label></a>
+                                <ul class="row dropdown-menu" style="margin-left: -202%;width: 120px;">
+                                    <li><a href="#account">My Account</a></li>
+                                    <li><a ng-href="#myorder">My Orders</a></li>
+                                    <li><a href="#shipping">Shipping</a></li>
+                                    <li><a href="#allchats">Chat</a></li>
+                                    <li><a href="" ng-click="userLogout()">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--End SignIn & Account Nav-->
                 </div>
-
-                <div class="col-sm-1"></div>
             </div>
-
         </div>
-    </div>
-    </div>
-    <!--End Menubar-->
+        <!-- end log IN-->
+    </div><!--/ End of container -->
 </nav>
