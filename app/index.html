@@ -34,48 +34,8 @@
            {{breadcrumbsCalling()}}
            <div ng-include src="'view/menu/index-header.html'" class="navbar"></div>
            <div ng-include src="'view/login/loginModal.html'"></div>
-           <div ng-view autoscroll="true" style="min-height: 780px;" ng-style="{'padding-top': menuMargin }"></div><!-- main slider-->
+           <div ng-view ng-style="{'padding-top': menuMargin }"></div><!-- main slider-->
        </div>
-       <!--Add Views-->
-       <!--End Views-->
-       <!--Personalize Section --->
-       <div>
-           <div ng-controller="BreadcrumbCtrl" class="personalize-section">
-               <div class=" showFooterBorder" ng-style="{'border-top': enableBorder }">
-                   <div class="row text-center">
-                       <div class="col-sm-12 col-xs-12">
-                           <h1 id="respon2" id="lab4">PERSONALIZE YOUR DESIGN</h1>
-                       </div>
-                   </div>
-                   <div class="row">
-                       <div class="col-sm-3"></div>
-                       <div class="col-sm-6 col-col-xs-10 email-box">
-                           <div class="subscribe">
-                               <form action="#a" style="width: auto;" id="input-lab">
-                                   <div class="form-group">
-                                       <div class="input-group">
-                                           <input type="text" class="form-control " placeholder="Email"
-                                                  aria-describedby="basic-addon2"
-                                                  style="background-color: white;border:1px solid gray;font-size: 14px;color:gray;height: 40px;border-radius:0px; ">
-                                           <span class="input-group-addon" id="basic-addon2"
-                                                 style="background-color: #707070; border-radius: 0;box-shadow: none;border: 1px solid #707070;padding-top: 2px;font-weight: 600;font-size: 12px;"><button
-                                                   type="button "
-                                                   style="background-color:#707070; border: 0px;color: #e1e1e1;margin-top: 6px;    font-weight: 500;font-family: lato-regular;">
-                                               SUBSCRIBE
-                                           </button></span>
-                                       </div>
-                                   </div>
-
-                               </form>
-                           </div>
-                       </div>
-                       <div class="col-sm-1"></div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <!--End Personalize Section-->
-
        <!--Footer-->
        <footer id="footer" style="background-color: #707070 ;margin-top: 23px; ">
            <div class="row">

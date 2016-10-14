@@ -199,7 +199,7 @@ h2 span {
 .navbar .cart img {
 	vertical-align: top;}
 /* main-nav */
-/* Slider Setting -- */
+/* ------------------------------------------------------start Slider Setting -- */
 .home-slider-shop-desc{
 	text-transform: uppercase;
 	position:absolute;
@@ -221,14 +221,76 @@ h2 span {
 	font-weight: 300;
 	padding:8px 15px;
 	margin-top:10px;
-	font-size: 19px;
+	font-size: 23px;
+	line-height: 1;
 	color:#fff;
 }
 .orngBtn:hover{
 	background-color: #fff !important;
 	color:#e96a24;
 }
-/* Slider Setting -- */
+/* ------------------------------------------------------End Slider Setting -- */
+/* ------------------------------------------------------Start homepage products -- */
+.leftPnlProd,.rightPnlProd,.bridalDress{
+	padding: 0;
+}
+.leftPnlProd img,.rightPnlProd img,.bridalDress img{
+	height: auto;
+	width: 100%;
+}
+.leftPnlProd{
+	padding-right:.3%;
+}
+.homePageProdImgs{
+	margin: 0.3% 0;
+}
+.homePageProdImgs .productImages{
+	margin-bottom: 0.9%;
+}
+.homePageProdImgs .productImages,.homePageProdImgs .bridalDress{
+	position: relative;
+}
+.homePageProdImgs .productImages h3{
+	background-color: rgba(0,0,0, .5);
+	-webkit-transition: height .90s;
+   -moz-transition: height .90s;
+   -o-transition: height .90s;
+	-ms-transition: height .90s;
+   transition: height .90s;
+	text-align: center;
+	position: absolute;
+	line-height: 3.4;
+	font-size: 17px;
+	width: 100%;
+	color:#fff;
+	padding: 0;
+	margin: 0;
+	height: 0;
+	bottom: 0;
+}
+.homePageProdImgs .productImages:hover h3{
+	height: 51px;
+}
+.bridalDress h3{
+	background-image: url(../assets/images/black-shadow.png);
+	text-shadow: -1px -1px 4px #000;
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	position: absolute;
+	font-weight: 100;
+	font-size: 34px;
+	padding: 2% 0;
+	height: 88px;
+	margin: auto;
+	color: #fff;
+	width: 70%;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+/* ------------------------------------------------------End homepage products -- */
 .main-nav > ul {
 	text-align: center;
 	margin-top: 8px;
@@ -473,17 +535,6 @@ h2 span {
 	overflow: hidden;
 	margin: 0;
 }
-/*.form-control {
-
-	padding: 1px 10px;
-	border: 0;
-	border-radius: 0;
-	background: #dfdede;
-	color: #050505;
-	font: 18px/24px 'corbel-regular', sans-serif;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}*/
 .form-control:focus {
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -536,11 +587,6 @@ body {
 	background: #fff none repeat scroll 0 0;}
 .brand {
 	padding: 10px 40px !important;}
-.navbar {
-	/*border-bottom: 4px solid #888;*/}
-
-
-
 /* MEGA MENU STYLE
 ********************************/
 .mega-menu {
@@ -2946,13 +2992,6 @@ select{
 	font-family: lato-light;
 	font-size:15px;
 }
-#respone1{
-	text-align: center;
-	font-size: 18.32px;
-	color: gray;
-	margin-top: 17px;
-	font-family: lato-light;
-}
 #item-heading{
 	font-size: 16px;
 	line-height: 42px;
@@ -2974,15 +3013,6 @@ select{
 	font-family: lato-light;
 	font-size: 15px !Important;
 	color:#cbc9c6;
-}
-
-.create-heading{
-	font-size: 35px;
-	font-weight:500;
-	margin-bottom: 16px;
-	font-family: lato-hairline !important;
-	color: #EE6900;
-	font-smooth: auto;
 }
 
 .footer-title{
@@ -3058,12 +3088,6 @@ select{
 	width: 100%;
 	min-height: 725px;
 }
-.inspirational-title{
-	font-size: 26.2px;
-	color: #bcbcbc ;
-	font-family: lato-light !important;
-	color:#9a9a9a;
-}
 .footer-list{
 	list-style-type: none;
 	padding-left: 5px;
@@ -3077,21 +3101,9 @@ select{
 	width: 445px;
 	height: 515px;
 }
-#respon2{
-	font-size: 42px;
-	color: rgba(238, 105, 0, 0.48);
-	margin-top:3px ;
-	font-family:lato-hairline !important;
-	margin-bottom: 24px;
-	margin-left:40px;
-	font-weight: 600;
-}
-
-
 .email-box{
 	margin-left: 1%;
 }
-
 .designer-name{
 	padding: 20px;
 	font-size: 16px;
@@ -3099,7 +3111,6 @@ select{
 	margin-left: 6px;
 	margin-top: 38px;
 }
-
 .shipping-title h2{
 	margin-bottom: 8px;
 	font-family: lato-regular;
@@ -3108,12 +3119,6 @@ select{
 	color: #464646;
 	font-weight: normal;
 }
-
 .home-menu:hover .header-account-label a label{
 	color: black !important;
-}
-
-.scroll .header-account-label a label{
-	color: black !important;
-
 }
