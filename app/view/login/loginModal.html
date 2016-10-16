@@ -1,77 +1,53 @@
-<div class="text-center">
 <script type="text/ng-template" id="loginModal.html">
-	<div class="card card-container" style="width: 445px;height: 515px;">
-												
-	<div class="modal-header">
-	<div ng-show="signingin" class="col-sm-12 gul-name" style=""><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div>
-							
-	<div ng-show="!signingin" class="col-sm-12" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
-	<div class="col-sm-4 col-sm-push-1" style="padding-left: 25px;"><strong style="font-size: 35px;color: black;"><span style=" font-weight: 700;">Signup</span></strong></div>
-	<div class="col-sm-8" style="text-align: left;padding-left: 70px;"><strong style="font-size:45px; color: #e86903; "><a href="#thanku" style="color: #e86903;"><span style=" font-weight: 700;color: #e86903; ">G</span><span style="color: #e86903;">u</span><span style="font-weight: 700;color: #e86903;">l</span></a></strong></div><br>
-	<label style="font-size: 17px;color: rgba(128, 128, 128, 0.54);padding-top: 15px;">Personalize your favourite designer</label>
-	</div>	
-							
-							
-											
+	<div class="card card-container">
+	<div ng-show="signingin" class="col-sm-12 gul-name ind-logo">
+		<a href="#thanku" >Gul Fashions</a>
+		<p class="slogan text-uppercase">Personalize your favourite designer</p>
+	</div>
+	<div ng-show="!signingin" class="col-sm-12">
+		<div class="col-sm-12 ind-logo gul-name">
+			<a href="#thanku">Gul Fashions</a>
+			<p class="slogan text-uppercase">Personalize your favourite designer</p>
+		</div>
 	</div>
 	<div class="modal-body" ng-show="!signingin">
-	<form class="form-signin">
-	<span id="reauth-email" class="reauth-email"></span>
-	<div class="col-sm-12 email-address">
-	<label class="mail-label">Email Adress</label>
-	<input type="email" id="inputEmail" class="form-control input-mail-field" required autofocus ng-model="regEmail"/>
+		<form class="form-signin">
+			<span id="reauth-email" class="reauth-email"></span>
+			<div class="col-sm-12 email-address form-group">
+				<input type="email" id="inputEmail" class="form-control input-mail-field" required autofocus ng-model="regEmail" placeholder="Email" />
+			</div>
+			<div class="col-sm-12 col-pass form-group">
+				<input type="password" id="inputPassword" class="form-control pass-field" required ng-model="regPass" placeholder="Password" />
+			</div>
+			<label ng-show="showSignupError">"User Already Exist!"</label>
+			<div class="col-sm-push-2">
+				<button class="btn btn-primary btn-logIn individual-bag-btn" ng-click="registerUser(regEmail,regPass)">Create Account</button>
+			</div>
+		</form>
 	</div>
-	<div class="col-sm-12 col-pass">
-	<label class="pass-label">Password</label>
-	<input type="password" id="inputPassword" class="form-control pass-field" required ng-model="regPass" />
-	</div>
-											
 
-	<label ng-show="showSignupError" style="color: red;font-size: 12px;">"User Already Exist!"</label>
-	<div class="col-sm-push-2"><button class="btn btn-primary individual-bag-btn" ng-click="registerUser(regEmail,regPass)" style="margin-left: 0px;width: 100%;" >Create Account</button></div>
-										
-	</form>
-	</div>
-							
 	<div class="modal-body" ng-show="signingin">
-	<form class="form-signin">
-	<span id="reauth-email" class="reauth-email"></span>
-	<div class="col-sm-12 login-email">
-	<label class="login-email-address">Email Adress</label>
-	<input type="email" id="inputEmail" class="form-control input-login-email-address" required autofocus ng-model="loginEmail"/>
+		<form class="form-signin">
+			<span id="reauth-email" class="reauth-email"></span>
+			<div class="col-sm-12 login-email form-group">
+				<input type="email" id="inputEmail" class="form-control input-login-email-address" required autofocus ng-model="loginEmail" placeholder="Email" />
+			</div>
+			<div class="col-sm-12 login-pass form-group">
+				<input type="password" id="inputPassword" class="form-control login-pass-incorrect" required ng-model="loginPass" placeholder="Password" />
+				<label ng-show="showError">"Incorrect Username or Password"</label>
+				<label ng-show="showEmptyFieldError">"Please Fill All Fields"</label>
+			</div>
+			<div class="col-sm-push-2">
+		        <button class="btn btn-primary individual-bag-btn btn-logIn" ng-click="checkLogin(loginEmail,loginPass)">LOG IN</button>
+		    </div>
+			<div class="col-sm-12 text-center"><p class="forgotPw">Forget Password?<a href="javascript:;">Click Here!</a></p></div>
+		</form>
 	</div>
-	<div class="col-sm-12 login-pass">
-	<label>Password</label>
 
-	<input type="password" id="inputPassword" class="form-control login-pass-incorrect" required ng-model="loginPass" style="" />
-	<label ng-show="showError">"Incorrect Username or Password"</label>
-	<label ng-show="showEmptyFieldError">"Please Fill All Fields"</label>
-	</div>
-											
-
-											
-	<div class="col-sm-push-2">
-        <button class="btn btn-primary individual-bag-btn btn-logIn" ng-click="checkLogin(loginEmail,loginPass)">LOG IN</button>
-    </div>
-	<div class="col-sm-12 text-center" style="padding-left: 0px;">
-        <label style="font-size: 12px;">Forget Password? <a>Click Here!</a></label>
-    </div>
-	</form>
-	</div>
-							
-							
-							
-							
-							
-							
-	</div>
 	<div ng-show="signingin" class="col-sm-12 text-center join-gulgs">
-        <button type="button" class="btn join-btn" ng-click="showSignUp()"><label style="cursor:poitner;"><i>JOIN GULGS</i></label></button>
+        <button type="button" class="btn join-btn" ng-click="showSignUp()">Join Gulgs</button>
     </div>
-							
 	<div ng-show="!signingin" class="col-sm-12 text-center already-member">
-        <button type="button" class="btn join-btn" ng-click="showSignIn()"><label style="cursor:poitner;"><i>Already a Member?<a>Log In</a></i></label></button>
-    </div>
-							
+      <button type="button" class="btn join-btn" ng-click="showSignIn()">Already a Member?<a href="javascript:;">Log In</a></button>
+   </div>
 </script>
-</div>

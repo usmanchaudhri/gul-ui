@@ -12,7 +12,7 @@ app.controller('BreadcrumbCtrl', ['$scope', 'breadcrumbs', function ($scope, bre
 		if ($scope.breadcrumbLength > 1) {
 			$scope.enableBorder = "1px solid #E2E2E2";
 			$scope.menuColor = "black";
-			$scope.menuMargin = "125px";
+			$scope.menuMargin = "100px";
 		} else {
 			$scope.menuColor = "white";
 			$scope.enableBorder = "none";

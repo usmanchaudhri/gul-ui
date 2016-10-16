@@ -1,4 +1,9 @@
-.ind-display-none{display: none;}
+.ind-display-none{
+   display: none;
+}
+.ind-logo{
+   padding-left:0;
+}
 .ind-logo a{
   text-transform: uppercase;
   font-family:lato-light;

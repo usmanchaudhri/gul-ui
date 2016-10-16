@@ -5,35 +5,23 @@
 		</div>
 	</div>
 </div>
-
 <!--<div ng-controller="BreadcrumbCtrl" >
 	<div ng-if="breadcrumbs.get().length > 1">
 		<div  ng-include src="'view/header/breadCrumb.html'" ></div>
 	</div>
 </div>-->
-
-<div class="container">
+<div class="pgSize">
 	<div class="row">
-		<div class="col-sm-2">
-			<h2 style="margin: 0px;" class="product-title">Wedding <span style="color:black;">Dress</span></h2>		
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<h1 class="product-title text-uppercase">Bridals</h1>
 		</div>
 	</div>
 	<div class="row info-boxes show-image">
-		<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in categoryProDetail">
-
-			<a ng-href="#productDetailPage/{{a.id}}">		
-				<img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}">
-			</a>
-
+		<div class="col-sm-3 col-md-3 col-xs-6 listingImg" id="imagediv" ng-repeat="a in categoryProDetail">
+			<a ng-href="#productDetailPage/{{a.id}}"><img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}"></a>
 			<div class="imageText">
-				<span class="proDes">
-					<p>
-						{{a.name}}
-					</p>
-				</span>
-				<span class="proDes">
-					<small>	 <a ng-href="#shop/{{getShop(a.shop)}}" style="color: black;" >{{a.shop}}</a></small>
-				</span>
+				<div class="proDes text-uppercase"><p>{{a.name}}</p></div>
+				<div class="designName"><a ng-href="#shop/{{getShop(a.shop)}}" >{{a.shop}}</a></div>
 			</div>
 		</div>
 	</div>

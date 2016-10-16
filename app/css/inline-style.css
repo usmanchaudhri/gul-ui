@@ -11,104 +11,35 @@
     margin-bottom: 12px;
     border-bottom: 1px solid #dfdfdf;
 }
-
 .img1{
     margin-top: 20px;
     margin-bottom: 17px;
 }
-
 /*============================
     Login Modal Page CSS
  =============================*/
-
 .gul-name{
-    padding-bottom: 30px;
-    padding-top: 30px;
-    text-align: center;
+   border-bottom: 1px solid #c4c4c4;
+   margin-bottom: 20px;
+   padding-bottom: 15px;
+   text-align: center;
+   padding-top: 30px;
 }
-
-.email-address{
-    padding-left: 0px;
-    margin: 25px 0px;
-    padding-right: 0px;
-}
-
-.mail-label{
-    font-size: 13px;
-    color: gray;
-}
-
-.input-mail-field{
-    border: 1px solid rgba(128, 128, 128, 0.44);
-    border-radius: 4px;
-    text-transform: lowercase;
-}
-
-.col-pass{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.pass-label{
-    font-size: 13px;
-    color: gray;
-}
-
-.pass-field{
-    border: 1px solid rgba(128, 128, 128, 0.44);
-    border-radius: 4px;
-}
-
-.login-email{
-    padding-left: 0px;
-    margin: 25px 0px;
-    padding-right: 0px;
-}
-
-.login-email-address{
-    font-size: 13px;
-    color: gray;
-}
-
-.input-login-email-address{
-    border: 1px solid rgba(128, 128, 128, 0.44);
-    border-radius: 4px;
-    text-transform: lowercase;
-}
-
-.login-pass{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.login-pass label{
-    font-size: 13px;
-    color: gray;
-}
-
 .login-pass-incorrect{
     border: 1px solid rgba(128, 128, 128, 0.44);
     border-radius: 4px;
 }
-
 .login-pass-incorrect label{
     color: red;
     font-size: 12px;
 }
-
 .btn-logIn{
     margin-left: 0px;
     width: 100%;
 }
-
-
-
 /*============================
     Shop Prodcut Page CSS
  =============================*/
-
-
-
 .shop-pro-title > h4{
     border-bottom: 1px solid #e1e1e1;
     width: 277px;

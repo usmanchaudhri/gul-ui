@@ -1,41 +1,3 @@
-.imageText{
-	position: relative;
-	bottom: 0px;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	/*background-color: #727272; */
-	padding-top: 10px;
-	text-align: center;
-
-}
-.imageText a{
-	color: #000000;
-	text-decoration: none;
-
-}
-.imageText a:hover{
-	color: #000000;
-	text-decoration: none;
-}
-.proDes{
-	line-height: 10px;
-	color: black;
-    font-family: lato-regular;
-
-	font-size: 16px;
-	margin-left: 0px;
-}
-
-/*.proDes a{
-	line-height: 10px;
-	color: black;
-    font-family: lato-regular;
-
-	font-size: 16px;
-	margin-left: 0px;
-}*/
-
 .proAuth{
 	line-height: 10px;
 	color: #fff;
@@ -67,7 +29,6 @@ img[ bn-lazy-src ] {
 	background-image: url('../assets/images/ajax-loader.gif') ;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 300px;
 }
 #desDetail{
 	width: 954px;
@@ -97,20 +58,10 @@ img[ bn-lazy-src ] {
 	float: right !important;
 	text-align: right !important;
 }
-
 .navbar-nav.navbar-center:last-child {
 	margin-right: -15px !important;
 }
 #designerContainer{
 	margin-bottom: 100px;
 	margin-top: 50px;
-}
-
-.nav ul{
-	border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-}
-.proDes p {
-    margin: 0px 15px 7px;
-    line-height: 15px;
 }

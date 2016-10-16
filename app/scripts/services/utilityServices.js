@@ -132,10 +132,9 @@ app.factory('utilityServices', ['$q', function ($q) {
                 var value = {
                     "enableBorder": "1px solid #E2E2E2",
                     "menuColor": "black",
-                    "menuMargin": "125px"
+                    "menuMargin": "100px"
                 }
                 deferred.resolve(value);
-
             } else {
                 var value = {
                     "enableBorder": "none",
@@ -162,4 +161,3 @@ app.factory('utilityServices', ['$q', function ($q) {
     }
     return sdo;
 }]);
-
