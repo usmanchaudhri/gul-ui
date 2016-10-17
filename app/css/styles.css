@@ -47,6 +47,9 @@ body{
 	color: #050505;
 	min-width: 300px;
 }
+hr{
+	border-top: 1px solid #bfbfbf;
+}
 button,
 input[type="button"],
 input[type="reset"],
@@ -594,6 +597,9 @@ h1.product-title{
 	font-size: 13px;
 	color: #bfbfbf;
 }
+.shipping-title h3{
+	color: #e96a24;
+}
 .shopBtns .btn:hover{
 	background-color: #e96a24 !important;
 	border: 1px solid #e96a24;
@@ -601,6 +607,48 @@ h1.product-title{
 }
 .shopBtns .addtobag-btn,.shopBtns .add-designer{
 	margin-right:2%;
+}
+.image-wrapper{
+	padding: 10px;
+	display: inline-flex;
+}
+.image-wrapper .thumbItem{
+	padding-right:10px;
+}
+.image-wrapper .thumbItem:last-child{
+	padding-right: 0;
+}
+.itemDetail{
+	margin-top: 4%;
+}
+.itemDetail h3{
+	font-size: 24px;
+	color: #e96a24;
+}
+hr.greyBorder{
+	margin: 3% 0;
+	clear: both;
+}
+.designer-name h3{
+	color: #707070;
+}
+.designer-name .shopBtns{
+	padding-left: 0;
+}
+/* ---------------------------------------------------------------- End Detail apge --- */
+/* ---------------------------------------------------------------- End Detail apge --- */
+.shopItem img{
+	width: 100%;
+}
+.shopItem{
+	margin: 1% 0 2% 0;
+}
+.shopDes{
+	margin-top: 10px;
+}
+.shopDes a{
+	font-weight: 100;
+	font-size:20px;
 }
 /* ---------------------------------------------------------------- End Detail apge --- */
 
@@ -2657,11 +2705,6 @@ input[type="text"],input[type="password"],input[type="email"]{
 .showFooterBorder{
 	width: 100%;
 }
-
-.image-wrapper{
-	display: inline-flex;
-}
-
 .item-detail-desc{
 	font-size: 16px;
     font-family: lato-light;
@@ -2685,14 +2728,6 @@ input[type="text"],input[type="password"],input[type="email"]{
 	font-family: lato-regular;
 	margin-left: 6px;
 	margin-top: 38px;
-}
-.shipping-title h2{
-	margin-bottom: 8px;
-	font-family: lato-regular;
-	margin-top: 0px;
-	letter-spacing: 1px;
-	color: #464646;
-	font-weight: normal;
 }
 .home-menu:hover .header-account-label a label{
 	color: black !important;

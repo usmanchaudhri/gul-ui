@@ -1,27 +1,11 @@
-<div class="content-container">
-<div class="container">
-	<div class="row info-boxes" style="margin-top: 28px;text-align: center;">
-		<div class="col-sm-4 col-xs-6" id="imagediv" ng-repeat="a in allShopDetail" style="margin-top:26px;">
-		
-		<br/>
-			
-			<a ng-href="#shop/{{a.id}}">		
-
-			<img bn-lazy-src= "{{fixPath + 'shop-'+ a.id +'.png'+ token }}" width="300" height="300" style="margin-top: -20px;">
-
-
-			</a>
-		
-			<div class="imageText">
-				<span class="proDes">
-					<p style="margin-top:23px;">
-					<a ng-href="#shop/{{a.id}}" style="font-family: lato-regular;">
-						{{a.name}}
-					</a>
-					</p>
-				</span>
+<div class="content-container pgSize">
+	<h1 class="text-uppercase">Shop</h1>
+	<div class="row text-center">
+		<div class="col-sm-3 col-md-3 col-xs-6 shopItem" id="imagediv" ng-repeat="a in allShopDetail">
+			<a ng-href="#shop/{{a.id}}"><img bn-lazy-src= "{{fixPath + 'shop-'+ a.id +'.png'+ token }}" width="300" height="300"></a>
+			<div class="shopDes text-uppercase">
+				<a ng-href="#shop/{{a.id}}">{{a.name}}</a>
 			</div>
 		</div>
 	</div>
-</div>
 </div>

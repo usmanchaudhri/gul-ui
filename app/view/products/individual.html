@@ -234,7 +234,7 @@
 		</div>
 		<div class="row">
 			<div class="image-wrapper">
-				<div ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index">
+				<div ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" class="thumbItem">
 					<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" />
 				</div>
 			</div>
@@ -319,39 +319,40 @@
 <div class="row text-center"></div>
 <!--items list -->
 	<div class="container">
-		<div class="col-sm-12 text-center" id="mob-left">
-			<h3>Item Details</h3>
+		<div class="col-sm-12 text-center itemDetail" id="mob-left">
+			<h3 class="text-uppercase">Item Details</h3>
 			<p class="item-detail-desc">{{productDetail.longDesc}}</p>
 		</div>
 	</div>
 	</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12" >
-			<div class="col-sm-10 col-sm-push-1 designer-img">
-				<div class="col-sm-3 col-xs-12">
-					<img src="{{fixPathShop + 'shop-'+ productDetail.shop.id +'.png'+ token }}" width="175" height="200"/>
-				</div>
-				<div class="col-sm-8 col-xs-12 designer-name">
-					<div class="col-sm-12">
-						<h3>Designed By</h3>
-						<p>{{productDetail.shop.name}}</p>
-						<div>{{productDetail.shop.details | limitTo:readMore}}</div>
-						<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">{{readBtn}}</button>
+	<hr class="greyBorder" />
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" >
+				<div class="col-sm-10 col-sm-push-1 designer-img">
+					<div class="col-sm-3 col-xs-12">
+						<img src="{{fixPathShop + 'shop-'+ productDetail.shop.id +'.png'+ token }}" width="175" height="200"/>
+					</div>
+					<div class="col-sm-8 col-xs-12 designer-name">
+						<div class="col-sm-12">
+							<h3 claccesskey="text-uppercase">Designed By</h3>
+							<a href="javscript:;">{{productDetail.shop.name}}</a>
+							<div>{{productDetail.shop.details | limitTo:readMore}}</div>
+							<div class="shopBtns"><button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()">{{readBtn}}</button></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12 text-center shipping-title" >
-			<h2>Shipping &amp; Payment Policies</h2>
+	<hr class="greyBorder" />
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center shipping-title" >
+				<h3>Shipping &amp; Payment Policies</h3>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 <script>
 	$(document).ready(function() {
