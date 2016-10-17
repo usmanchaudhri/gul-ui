@@ -1,39 +1,31 @@
 <script>
 	jQuery(function ($) {
-    var $blowup = $('.blowup img');
-    $('.thumbs-container img').click(function () {
-        $blowup.attr('src', this.src);
-    });
-    $('.size-dropdown :selected').html();
-    
-    
-   
-});
-
-$('.lightbox_trigger').click(function(e) {
-		
+	   var $blowup = $('.blowup img');
+	   $('.thumbs-container img').click(function () {
+	        $blowup.attr('src', this.src);
+	   });
+	   $('.size-dropdown :selected').html();
+	});
+	$('.lightbox_trigger').click(function(e) {
 			var currentIndex = 0;
-	
 			e.preventDefault();
-		
 			var image_href = $('.img-responsive').attr("src");
 			if ($('#lightbox').length > 0) { // #lightbox exists
 				$('#lightbox').css("display","block");
-			}
-		
-			else { //#lightbox does not exist - create and insert (runs 1st time only)
+			}else { //#lightbox does not exist - create and insert (runs 1st time only)
 				$('#lightbox').css("display","block");
 				//create HTML markup for lightbox window
 				firstLightbox();
 			}
-			var lightbox = "";	
-			var lightbox2 = "";	
-			var lightbox3 = "";	
+
+			var lightbox = "";
+			var lightbox2 = "";
+			var lightbox3 = "";
 			function firstLightbox(){
-				lightbox = 
+				lightbox =
 				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it"><img src="images/back-arrow.jpg" width="auto"  style="padding:5px;" /></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
 				'<div class="col-sm-12 col-xs-12" style="text-align:center;"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1 style="border:none;font-size:25px;margin-left:20px;">JACKETS'+'</h1></div></div>'+'</div>'+
-				'<div id="content">' + 
+				'<div id="content">' +
 				'<ul class="lightbox-ul">' +
 				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');background-size:cover;background-repeat:no-repeat;">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
 				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
@@ -49,56 +41,41 @@ $('.lightbox_trigger').click(function(e) {
 				'</tr>'+'</table>'+'</a>' + '</li>'+
 				'</ul><div class="row"><img class="slider-img" src="images/slider.jpg" /></div>' +
 				'<div style="text-align:center;margin-top:10px;margin-left:2%;">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn" style="margin-right:5px;">PREVIOUS</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">NEXT</button>'+'</div></div><div class="row" style="padding-top:20px;"><div class="col-sm-12 text-center description"><div class="col-sm-6 col-sm-offset-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.18);padding-bottom: 15px;">DESCRIPTION</div><div class="col-sm-12"><div class="col-sm-6 col-sm-offset-3 description-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p></div></div></div></div>'+
-				'</div>';		
+				'</div>';
 				$('body').append(lightbox);
-		
+
 				$('.hover11').click(function(){
 						$('.tick-img').css("display","block");
 					});
-		
+
 				$('#next-btn').click(function(){
 						secondLightbox();
-							
+
 					});
 				$('#pre-btn').click(function(){
 						alert("NO More Screen");
 					});
 				$('#close-it').click(function(){
 						$('#lightbox').css("display","none");
-					});	
-		
+					});
+
 			};
-	
-	
-		
 			$('#close-it').click(function(){
-					$('#lightbox').css("display","none");
-				});
-	
-	
+				$('#lightbox').css("display","none");
+			});
 		});
-
- $('.addtobag-btn').click(function(){
-	$('.single-cartproduct').css("display","block");
-	$('.single-cartproduct').css("color","black");
-	 $('.single-cartproduct').delay(1000).fadeOut();
-	 
-	
-    
-
-   
-	 
-}); 
- 
-
-
+		$('.addtobag-btn').click(function(){
+		$('.single-cartproduct').css("display","block");
+		$('.single-cartproduct').css("color","black");
+		$('.single-cartproduct').delay(1000).fadeOut();
+	});
 </script>
 
 <style>
 	table{
 		width: 100%;
 	}
-	
+
 	.slider-img{
 	 margin-left: 35px;
     margin-top: -6px;
@@ -106,44 +83,28 @@ $('.lightbox_trigger').click(function(e) {
 	}
 	#lightbox {
 		position: fixed; /* keeps the lightbox window in the current viewport */
-		top: 0; 
-		left: 0; 
-		width: 100%; 
-		height: 100%; 
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		background: #898989;
 		z-index: 900;
 	}
-
-	#lightbox ul {
-		
-	}
-
-	#lightbox ul > li{
-		
-		
-	}
-	
 	.customization-img{
-		
 		width:265px;
 		height:225px;
 	}
-	
 	.customization-img-title{
 		margin-top: -27px;
 	}
-	
 	.customization-img-title td label{
-		    font-size: 15.75px;
-    font-family: lato-light;
-    padding-top: 3px;
+		font-size: 15.75px;
+		font-family: lato-light;
+		padding-top: 3px;
 	}
-	
 	.back-button{
 		width:9%;
-		
 	}
-
 	#lightbox ul > li > img {
 		box-shadow: 0 0 25px #111;
 		-webkit-box-shadow: 0 0 25px #111;
@@ -153,14 +114,10 @@ $('.lightbox_trigger').click(function(e) {
 		width: 330px;
 		margin-top: 10%;
 	}
-
 	#lightbox ul > li > a >img:hover{
 		cursor: pointer;
 		background-color: #e1e1e1;
-	
 	}
-	
-	
 	.hover11 img {
 		opacity: 1;
 		-webkit-transition: .3s ease-in-out;
@@ -170,17 +127,14 @@ $('.lightbox_trigger').click(function(e) {
 	.hover11 img:hover {
 		opacity: .9;
 	}
-	
 	.hover11:hover .radio-btn-div{
 		background-color: rgba(255, 165, 0, 0.46) !important;
 		cursor: pointer;
-	} 
-	
+	}
 	.radio-btn-div:hover {
 		background-color: orange !important;
 		cursor: pointer;
 	}
-
 	.radio-btn-div {
 		display: block;
 		font-size: 20px;
@@ -191,40 +145,34 @@ $('.lightbox_trigger').click(function(e) {
 		background-color: rgba(255, 255, 255, 0.49);
 		cursor: pointer;
 	}
-	
 	.description{
 		font-family: 'lato-light' !important;
 		font-size: 18px;
 		color: white;
 		margin-left: 1%;
 	}
-	
 	.description-text{
-		    line-height: 25px;
-    text-align: center;
-    font-size: 14px;
-    font-family: 'lato-light' !important;;
-    padding-top: 5px;
+		line-height: 25px;
+		text-align: center;
+		font-size: 14px;
+		font-family: 'lato-light' !important;;
+		padding-top: 5px;
 	}
-	
 	.hover11{
 		width:265px;
 		margin-right: 5px;
 	}
-
 	#content{
 		text-align: center;
 	}
-
 	#lightbox h1{
-		font-size: 30px; 
+		font-size: 30px;
 		font-family: 'lato-light' !important;
 		color: white !Important;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 		padding-bottom: 15px;
 		margin-top:0px;
 	}
-
 	#next-btn,#next-btn2,#next-btn3{
 		width: 80px;
     height: 20px;
@@ -234,16 +182,16 @@ $('.lightbox_trigger').click(function(e) {
      padding: 0px;
      border:none;
 	}
-	
+
 	#next-btn:hover,#pre-btn:hover{
 		background-color: #ffa500 !important;
 		color:gray;
-		
+
 	}
 
 	#pre-btn,#pre-btn2,#pre-btn3{
-		
-		
+
+
 		width: 80px;
     height: 20px;
     font-family: 'lato-light' !important;
@@ -251,9 +199,9 @@ $('.lightbox_trigger').click(function(e) {
     margin: 0px;
     padding: 0px;
     border:none;
-		
+
 	}
-	
+
 	#close-it{
 		font-size: 14px;
 		color: white;
@@ -274,226 +222,174 @@ $('.lightbox_trigger').click(function(e) {
 
 	input[type="radio"]{
 		display: none;
-	}	
+	}
 
 </style>
 
-<div class="container-fluid" id="marg" style="margin-top: 10px;">
-	<div class="row" >
-		<div class="col-sm-5 col-xs-12 col-sm-offset-1" style="width: auto;">
+<div class="pgSize" id="marg">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-xs-12">
 		<div class="blowup">
 			<img  class="img-responsive " src="{{fixPath+'600x600-'+imgNumber+'-img-'+productDetail.id+'.jpg'+ token}}" alt="img" id="indisize" />
 		</div>
-		<div class="row" style="padding: 20px;width:100%;text-align: center;">
-				<div class="image-wrapper">
-					<div ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index" style="padding: 0px 5px;">
-						<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" /> 
-					</div>
+		<div class="row">
+			<div class="image-wrapper">
+				<div ng-repeat="x in getNumber(productDetail.imageInfo.imageCount) track by $index">
+					<img  class="img-responsive custom-thummb" ng-src="{{fixPath+'600x600-'+(1+$index)+'-img-'+productDetail.id+'.jpg'+ token}}" width="76" height="74" alt="img" ng-click="setImage($index)" />
 				</div>
-		</div>
-		</div>
-		
-		<div class="col-sm-4 col-xs-12" id="indisize1">
-			<div class="ind-desc" >	 
-			<div style="bottom: 0;margin-left: 1px;">
-			<p>
-				<strong  style=" font-family: lato-light; color: #D25E00;text-transform: uppercase;font-size:20px;">{{productDetail.name}}</strong>
-				<p style="font-family: lato-lightitalic; text-transform: capitalize;  font-size: 20px;color:#838383;line-height: 20px;"> {{productDetail.shortDesc | limitTo:400}}</p>
-			
 			</div>
-			
-            <div class="row mainBox buttonBox" style="height: 400px;bottom:0;">
-            <span style="color:#838383;font-family: lato-light;font-size:20px;">BY</span> <a style="color:#838383;font-family: lato-light;text-transform: uppercase;font-size: 20px;" ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a>
-			 <p style=" line-height: 49px; font-family: lato-light;font-size: 20px; color:#838383;margin-top:10px;">$ {{productDetail.pricingProduct.storedValue}}</p>
-				<!--<a ng-href="" ng-click="storeProductsInCookie(productDetail,prodSize,prodQty)"><img src="images/button copy.PNG"/></a>-->
+		</div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-xs-12" id="indisize1">
+			<div class="ind-desc">
+			<div>
+				<h3>{{productDetail.name}}</h3>
+				<p> {{productDetail.shortDesc | limitTo:400}}</p>
+			</div>
+         <div class="row mainBox buttonBox">
+         	<p>By <a ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></p>
+			 	<p>$ {{productDetail.pricingProduct.storedValue}}</p>
 				<div class="row" id="margi">
 					<div class="col-sm-12">
-						<label class="col-sm-2 col-xs-3 clr"><h3 style="font-family: lato-regular;margin-top: 0px;padding:0px;"> SIZE</h3></label>
-						<div class="col-sm-5 col-xs-4" style="margin-top: 2px;" >
-							<div class="input-group spinner" id="one" style="width: 100%">
+						<h3 class="col-sm-2 col-xs-3 clr">Size</h3>
+						<div class="col-sm-5 col-xs-4">
+							<div class="input-group spinner" id="one">
 								<select ng-model="selectedItem" class="size-dropdown">
-									<option style="font-family: lato-regular; color: #D25E00;" ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
+									<option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
 								</select>
 							</div>
 						</div>
 					</div>
 				</div>
-        <script>
-            $("input[name='demo3_21']").TouchSpin({
-                initval: 40
-            });
-        </script>
-          
-				<div class="row" id="margi" style="margin-bottom: 35px;">
-					<div class="col-sm-12">
-						<label class="col-sm-3 col-xs-3 clr"><h3 style="font-family: lato-regular; margin-top: 14px;">QUANTITY</h3></label>
-						<div class="col-sm-7 col-xs-4">
-							<div class="input-group spinner" id="two" style="   margin-top: 10px;">
-								<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
-								<!--<span class="input-group-btn-vertical">
-									<button id="up" class="btn cus-caret" type="button" ><i class="fa fa-caret-up"></i></button>
-									<button id="down" class="btn cus-caret" type="button"><i class="fa fa-caret-down"></i></button>
-								</span>-->
-							</div>
-							
+			</div>
+			<script>
+			   $("input[name='demo3_21']").TouchSpin({
+			       initval: 40
+			   });
+			</script>
+
+			<div class="row" id="margi">
+				<div class="col-sm-12">
+					<h3 class="col-sm-3 col-xs-3 clr">Quantity</h3>
+					<div class="col-sm-7 col-xs-4">
+						<div class="input-group spinner" id="two">
+							<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
 						</div>
-						
 					</div>
-					<!--<h2>Out of Stock</h2> -->
-				</div >
-				
-				
+				</div>
+			</div >
+			<button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn">Add To Bag</button>
+			<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" ng-click="open(productDetail.name)">Ask Designer</button>
+			<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn">Customize</button>
+			<!-- Modal -->
+	      <script type="text/ng-template" id="myModalContent.html">
+				<div class="card card-container">
+					<div class="modal-header">
+						<button type="button" class="close" ng-click="cancel()">&times;</button>
+					<h4 class="modal-title">{{productDetailName}}</h4>
+					</div>
+					<div class="modal-body">
+						<textarea ng-model="msgBody">Type Here!</textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" ng-click="send(msgBody)">Send</button>
+					</div>
+				</div>
+	    	</script>
 
-				<a><button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn" style="height: 27px; text-align: center;  font-family: lato-light;font-size:14px;font-weight:400;padding-top: 0px;margin-left:0px;">ADD TO BAG</button></a>
-				<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" style="height: 27px; font-family: lato-light;font-size:14px;font-weight:400;padding-top: 0px;margin-left:0px;" ng-click="open(productDetail.name)">ASK DESIGNER</button>
-				<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn" style="height: 27px; text-align: center;margin-bottom: 7%; font-family: lato-light;font-size:14px;font-weight:400;padding-top: 0px;margin-left:0px;">CUSTOMIZE</button>
-
-			
-
-				<!-- Modal -->
-				
-           <script type="text/ng-template" id="myModalContent.html">
-        <div class="card card-container" style="background-color:white;">
-        <div class="modal-header">
-            <button type="button" class="close" ng-click="cancel()">&times;</button>
-								<h4 class="modal-title">{{productDetailName}}</h4>
-        </div>
-        <div class="modal-body">
-            <textarea ng-model="msgBody" style="width: 90%; height: 50%;height: 200px;font-size: 16px;padding: 20px;">Type Here!</textarea>
-        </div>
-        <div class="modal-footer">
-        
-           <button type="button" class="btn btn-default" ng-click="send(msgBody)">Send</button>
-        </div>
-        </div>
-    </script>
-         		
          <script type="text/ng-template" id="errorModal.html">
 				<div id="chatModel" close-modal class="modal" role="dialog" >
-					 <div class="modal-header">
-            <h3 class="modal-title">Im a modal!</h3>
-        </div>
-        <div class="modal-body">
-            Error!
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>	
+					<div class="modal-header">
+	            	<h3 class="modal-title">Im a modal!</h3>
+	        		</div>
+	        		<div class="modal-body">Error!</div>
+					<div class="modal-footer">
+					   <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+					   <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+					</div>
 				</div>
-          </script>			
-		</div><!-- /.col-lg-6 --><br>
-         	</div>
+         </script>
 	</div><!-- /row -->
-     </div><!-- /container -->
-    <div class="row text-center" style="bottom: 0px;margin-left: 3px;" >
-					
-				</div>
-</div>
-<!-items list -->
-	<div class="container" style="border-bottom: 1px solid #e1e1e1;padding:20px;">
+</div><!-- /container -->
+<div class="row text-center"></div>
+<!--items list -->
+	<div class="container">
 		<div class="col-sm-12 text-center" id="mob-left">
-			<label style="font-size: 18px;letter-spacing: 1px;padding: 1px;font-family: lato-regular;font-weight: normal;color: #464646;">ITEM DETAILS</label><br>
+			<h3>Item Details</h3>
 			<p class="item-detail-desc">{{productDetail.longDesc}}</p>
 		</div>
-		</div>
 	</div>
-	
-	<div class="container">	
+	</div>
+
+<div class="container">
 	<div class="row">
 		<div class="col-sm-12" >
 			<div class="col-sm-10 col-sm-push-1 designer-img">
 				<div class="col-sm-3 col-xs-12">
-					<img src="{{fixPathShop + 'shop-'+ productDetail.shop.id +'.png'+ token }}" width="175" height="200" style="margin-top: 34px; margin-bottom :34px;"/>
+					<img src="{{fixPathShop + 'shop-'+ productDetail.shop.id +'.png'+ token }}" width="175" height="200"/>
 				</div>
 				<div class="col-sm-8 col-xs-12 designer-name">
-		    <div class="col-sm-12 " style="padding-bottom: 25px; font-family: lato-regular;">
-			<p style="color:#464646;letter-spacing: 1px;">DESIGNED BY</p><br/>
-			 <p  style="letter-spacing: 1px;color: #D25E00;margin-top: 2px;margin-bottom: 10px;text-transform: uppercase;">{{productDetail.shop.name}}</p>
-			 
-		      <span  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;" >
-						{{productDetail.shop.details | limitTo:readMore}}
-						
-					</span>
-					<p  style="line-height: 20px; font-family: lato-light;color: #9c9c9c;">
-
-			</p>
-					<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">{{readBtn}}</button>
+					<div class="col-sm-12">
+						<h3>Designed By</h3>
+						<p>{{productDetail.shop.name}}</p>
+						<div>{{productDetail.shop.details | limitTo:readMore}}</div>
+						<button type="button" class="btn btn-primary individual-bag-btn" ng-click="setReadMore()" style="height: 25px; width: 102px; font-family: lato-light;color: #ee9768; margin-left: 0px;">{{readBtn}}</button>
+					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	</div>
-  </div>
-<div  class="container" style="border-bottom: 1px solid #e1e1e1;margin-bottom: 4px;"></div>
-	<div class="container">
-	<div class="row" style="padding: 20px;margin-bottom: 20px;width: 100%;text-align: center;margin:0px;">
+</div>
+<div class="container">
+	<div class="row">
 		<div class="col-sm-12 text-center shipping-title" >
-			<h2>SHIPPING & PAYMENT POLICIES</h2>
-			
-			
+			<h2>Shipping &amp; Payment Policies</h2>
 		</div>
 	</div>
 </div>
 </div>
 <script>
-	
 	$(document).ready(function() {
 			$('.itemdetail-border').click(function() {
-					$(".two2").hide();
-					$(".three3").hide()
-					$('.one1').toggle();
-            
-				});
-    
+				$(".two2").hide();
+				$(".three3").hide()
+				$('.one1').toggle();
+			});
 			$('.customization-border').click(function() {
-					$('.one1').hide();
-					$('.three3').hide();
-					$('.two2').toggle();
-        
-				});
-    
+				$('.one1').hide();
+				$('.three3').hide();
+				$('.two2').toggle();
+			});
 			$('.shipping-border').click(function() {
-					$('.one1').hide();
-					$('.two2').hide();
-					$('.three3').toggle();
-        
-				});
-				
-				
-				 var showChar = 100;  // How many characters are shown by default
-    var ellipsestext = "...";
-    var moretext = "Read More more >";
-    var lesstext = "Read less";
-    
-    $('.more').each(function() {
-        var content = $(this).html();
- 
-        if(content.length > showChar) {
- 
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
- 
-            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
- 
-            $(this).html(html);
-        }
- 
-    });
- 
-    $(".morelink").click(function(){
-        if($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-    });
-    
-		});
-</script>
+				$('.one1').hide();
+				$('.two2').hide();
+				$('.three3').toggle();
+			});
+			var showChar = 100;  // How many characters are shown by default
+			var ellipsestext = "...";
+			var moretext = "Read More more >";
+			var lesstext = "Read less";
 
+	    $('.more').each(function() {
+	        var content = $(this).html();
+	        if(content.length > showChar) {
+	            var c = content.substr(0, showChar);
+	            var h = content.substr(showChar, content.length - showChar);
+	            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+	            $(this).html(html);
+	        }// end if
+	    });
+	    $(".morelink").click(function(){
+	        if($(this).hasClass("less")) {
+	            $(this).removeClass("less");
+	            $(this).html(moretext);
+	        } else {
+	            $(this).addClass("less");
+	            $(this).html(lesstext);
+	        }
+	        $(this).parent().prev().toggle();
+	        $(this).prev().toggle();
+	        return false;
+	    });
+	});
+</script>
