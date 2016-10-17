@@ -542,6 +542,68 @@ h1.product-title{
 	color: #e96a24;
 }
 /* ---------------------------------------------------------------- Listing apge --- */
+/* ---------------------------------------------------------------- Detail apge --- */
+.ind-desc .prod-title,.mainBox .prod-price{
+	border-bottom: 1px solid #bfbfbf;
+	padding-bottom: 3%;
+	margin-bottom: 5%;
+	font-size: 20px;
+	font-weight:100;
+	color: #e96a24;
+}
+.ind-desc .prod-desc,.ind-desc .prod-by{
+	font-weight: 100;
+	font-size: 16px;
+	color: #bfbfbf;
+}
+.ind-desc .prod-by{
+	font-style: italic;
+	color: #8b8b8b;
+}
+.prodAttrs h3.clr{
+	padding-left: 0;
+	color: #bfbfbf;
+	margin-top:7px;
+}
+.prodAttrs select,.prodAttrs input{
+	border-color:#bfbfbf !important;
+	border-width:1px;
+	font-size: 13px;
+	padding: 5px;
+	width: 75px;
+}
+.prodAttrs input{
+	height: auto !important;
+	width: 40px !important;
+	text-align: center;
+}
+.prodAttrs .input-group-btn button.btn{
+	background-color: #fff !important;
+	font-weight: bold;
+	color: #000;
+	margin: 0;
+}
+.shopBtns{
+	padding: 5% 0 0 2%;
+}
+.shopBtns .btn{
+	background-color: inherit !important;
+	border: 1px solid #bfbfbf;
+	text-transform: uppercase;
+	padding:9px 36px;
+	font-size: 13px;
+	color: #bfbfbf;
+}
+.shopBtns .btn:hover{
+	background-color: #e96a24 !important;
+	border: 1px solid #e96a24;
+	color: #fff;
+}
+.shopBtns .addtobag-btn,.shopBtns .add-designer{
+	margin-right:2%;
+}
+/* ---------------------------------------------------------------- End Detail apge --- */
+
 /* subscribe */
 .subscribe {
 	position: relative;
@@ -643,14 +705,8 @@ body {
 	border-bottom: 1px solid #ddd;
 }
 .mega-menu img {
-	padding-bottom: 10px;}
-
-
-
-
-
-
-
+	padding-bottom: 10px;
+}
 /* Disable Toggle style
 ********************************/
 
@@ -1240,21 +1296,11 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 
 .fa {
 	display: inline-block;
-
-
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	color: #D25E00;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-
-
-
-.spinner input {
-	text-align: right;
-}
-
 .input-group-btn-vertical {
 	position: relative;
 	white-space: nowrap;
@@ -1278,33 +1324,18 @@ screen and (orientation: portrait ) and (max-width: 479px) {
 .input-group-btn-vertical > .btn:first-child {
 	border-top-right-radius: 4px;
 }
-
 .input-group-btn-vertical > .btn:last-child {
 	margin-top: -2px;
 	border-bottom-right-radius: 4px;
 }
-
 .input-group-btn-vertical i {
 	position: absolute;
 	top: 0;
 	left: 4px;
 }
-.clr{
-
-	color: #aeafad;
-
-
-}
-
-
-img {
-	border: 0;
-}
 #marg{
-
 	margin-bottom: 20px;
 }
-
 .btn-group-sm>.btn, .btn-sm {
 	padding: 2px 20px 2px 20px;
 	font-size: 15px;
@@ -1321,14 +1352,9 @@ img {
 	width: auto;
 	background-color: rgba(238, 238, 238, 0.08);
 }
-
-.active{
-
-}
 button.btn:active,button.btn.active{
 	background: #D25E00;
 }
-
 .margtop{
 	margin-top: 20px;
 }
@@ -1340,33 +1366,17 @@ button.btn:active,button.btn.active{
 	margin-bottom: 0;
 }
 #indisize1{
-	max-height: 600px;
 	margin-top: 9em;
-}
-#indisize2{
-	height: 496px;
-}
-.clr{
-	padding-top: 8px;
-	padding-left: 0px;
-}
-#btm{
-	text-align-last: 100px;
-}
-#margi{
-	margin-bottom: 5px;
-	width: 400px;
+	padding-left: 2%;
 }
 .buttonBox {
 	bottom: 0;
 	left: -12px;
 	padding: 11px;
-
 }
 .buttonBox img{
 	margin-bottom: 0px;
 }
-
 .spinner{
 	width: 55px;
 }
@@ -1875,7 +1885,6 @@ input[type="text"],input[type="password"],input[type="email"]{
 	padding-right: 12px;
 
 }
-
 .select-custom{
 	border-radius: 3px;
 	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
@@ -1919,64 +1928,9 @@ input[type="text"],input[type="password"],input[type="email"]{
 .upload-form-col{
 	width: 100%;
 }
-
 .show{
 	display: inline;
 }
-
-.sorting select{
-	border-radius: 3px;
-	-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
-	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) 0 inset;
-	-webkit-transition: opacity 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out;
-	-ms-transition: opacity 0.3s ease-out;
-	border-color: #E1E3DF;
-	border-color: rgba(0, 0, 0, 0.15);
-	border-style: solid;
-	color: #222;
-	background-color: white;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	height: 30px;
-	outline: none;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 5px;
-	line-height: 10px;
-	padding-right: 7px;
-}
-
-
-select{
-	border-radius: 3px;
-	-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
-	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) inset;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) 0 inset;
-	-webkit-transition: opacity 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out;
-	-ms-transition: opacity 0.3s ease-out;
-	border-color: #E1E3DF;
-	border-color: rgba(0, 0, 0, 0.15);
-	border-style: solid;
-	color: #222;
-	background-color: white;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	height: 29px;
-	outline: none;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 12px;
-	line-height: 17px;
-	padding-right: 12px;
-}
-
 #formLogin input{
 	padding: 3px;
 	margin-bottom: 10px;
@@ -1984,28 +1938,6 @@ select{
 	border-radius: 3px;
 }
 /*Individual Page*/
-.quantity-wrapper{
-	margin-top: 156px;
-}
-
-.size-dropdown{
-	font-weight: 600;
-	width: 96%;
-
-	border-radius: 0;}
-
-.quantity-dropdown{
-	border-radius: 0px;
-	border: 1px solid #ababab;
-	font-weight: 600;
-}
-.size-dropdown option{
-	font-weight: 600;
-}
-
-.customise-sec{
-	/*border: 2px solid black;*/
-}
 .customise-sec label{
 	padding: 1px;
 	margin: 10px;
@@ -2013,19 +1945,15 @@ select{
 	color: gray !important;
 	cursor: pointer;
 }
-
 .itemdetail-border{
 	border-bottom: 2px solid #D25E00;
-
 }
 .customization-border,.shipping-border{
 	border-bottom: none;
 }
-
 .fa-caret-up,.fa-caret-down{
 	color:black;
 }
-
 .cus-caret{
 	width: auto !important;
 	height: auto !important;
@@ -2041,9 +1969,7 @@ select{
 }
 .cart-products{
 	padding-bottom: 0px;
-	/*background-color: rgba(241, 241, 241, 0.28);;*/
 	margin-bottom: 10px;
-
 }
 .cart-details{
 	font-size: 14px;
@@ -2668,24 +2594,6 @@ select{
 }
 .footer-list li label{
 	font-weight: 400;
-}
-
-#demo3_21{
-	background-color: white;
-	height: 37px;
-	width: 40px;
-	padding-top: 0;
-	text-align: center;
-	border-color: gainsboro;
-	color: #D25E00;
-	font-family: lato-light;
-	font-size:15px;
-}
-#item-heading{
-	font-size: 16px;
-	line-height: 42px;
-	border-bottom: 1px solid #e1e1e1;
-	font-family: lato-regular;
 }
 .menu-logo{
 	font-weight: 500;

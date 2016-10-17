@@ -241,22 +241,24 @@
 		</div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-xs-12" id="indisize1">
-			<div class="ind-desc">
-			<div>
-				<h3>{{productDetail.name}}</h3>
-				<p> {{productDetail.shortDesc | limitTo:400}}</p>
+			<div class="ind-desc text-uppercase">
+			<div class="productDesc">
+				<h3 class="prod-title">{{productDetail.name}}</h3>
+				<p class="prod-desc"> {{productDetail.shortDesc | limitTo:400}}</p>
+				<p class="prod-by">By <a ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></p>
 			</div>
-         <div class="row mainBox buttonBox">
-         	<p>By <a ng-href="#shop/{{productDetail.shop.id}}">{{productDetail.shop.name}}</a></p>
-			 	<p>$ {{productDetail.pricingProduct.storedValue}}</p>
-				<div class="row" id="margi">
-					<div class="col-sm-12">
-						<h3 class="col-sm-2 col-xs-3 clr">Size</h3>
-						<div class="col-sm-5 col-xs-4">
+         <div class="row mainBox buttonBox text-uppercase">
+			 	<h3 class="prod-price">$ {{productDetail.pricingProduct.storedValue}}</h3>
+				<div class="row prodAttrs">
+					<div class="col-sm-12 col-md-12">
+						<h3 class="col-sm-3 col-xs-3 clr">Size</h3>
+						<div class="col-sm-7 col-xs-4">
 							<div class="input-group spinner" id="one">
-								<select ng-model="selectedItem" class="size-dropdown">
-									<option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
-								</select>
+								<form>
+									<select ng-model="selectedItem" class="size-dropdown">
+										<option ng-repeat="item in productDetail.productVariation" value="{{item.size}}">{{item.size}}</option>
+									</select>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -267,20 +269,23 @@
 			       initval: 40
 			   });
 			</script>
-
-			<div class="row" id="margi">
+			<div class="row prodAttrs">
 				<div class="col-sm-12">
 					<h3 class="col-sm-3 col-xs-3 clr">Quantity</h3>
 					<div class="col-sm-7 col-xs-4">
 						<div class="input-group spinner" id="two">
-							<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
+							<form>
+								<input type="text" id="demo3_21" name="demo3_21" class="form-control quantity-dropdown" ng-model="productQty" ng-init="productQty = 1"  value="" min="1" >
+							</form>
 						</div>
 					</div>
 				</div>
-			</div >
-			<button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn">Add To Bag</button>
-			<button type="button" class="btn btn-primary individual-bag-btn"id="mob-btn" ng-click="open(productDetail.name)">Ask Designer</button>
-			<button type="button" class="btn btn-primary individual-bag-btn lightbox_trigger"id="mob-btn">Customize</button>
+			</div>
+			<div class="row shopBtns">
+				<button type="button" class="btn btn-primary individual-bag-btn addtobag-btn" ng-click="storeProductsInCookie(productDetail,selectedItem,productQty)"id="mob-btn">Add To Bag</button>
+				<button type="button" class="btn btn-primary individual-bag-btn add-designer" id="mob-btn" ng-click="open(productDetail.name)">Ask Designer</button>
+				<butt/on type="button" class="btn btn-primary individual-bag-btn lightbox_trigger" id="mob-btn">Customize</button>
+			</div>
 			<!-- Modal -->
 	      <script type="text/ng-template" id="myModalContent.html">
 				<div class="card card-container">
