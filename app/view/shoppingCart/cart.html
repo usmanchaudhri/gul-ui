@@ -1,85 +1,80 @@
-<div class="container">
-<div class="row" style="padding-left: 0px;margin-bottom: 40px;">
-	<div class="col-sm-12">
-		<div class="col-sm-3 col-xs-7 items-title" style="padding-left:0px;width: auto;">
-			<h1 id ="item-heading"  >{{noOfCartItems}} ITEMS IN YOUR CART</h1>
-			
+<div class="pgSize">
+	<!--head-->
+	<div class="row">
+		<div class="col-sm-9 col-md-9 col-xs-7 items-title">
+			<h1 id ="item-heading">{{noOfCartItems}} Items In Your Cart</h1>
 		</div>
-		<div class="col-sm-3"></div>
-		<div class="col-sm-3 col-xs-5 keep-shopping-button">
-			<button type="button" class="btn btn-primary keep-shopping-btn" id="item-buttton1">KEEP SHOPPING</button>
+		<div class="col-sm-3 col-md-3 col-xs-5 keep-shopping-button text-center">
+			<button type="button" class="btn btn-primary keep-shopping-btn" id="item-buttton1">Keep Shopping</button>
 		</div>
-		<div class="col-sm-2"></div>
 	</div>
-</div>
-<div class="row">
-	<div class="col-sm-12">
-		<div class="col-sm-8">
+	<!--head-->
+	<div class="row"><!--2nd Row-->
+		<div class="col-sm-9">
+			<!--Cart Repeater-->
 			<div class="row cart-products" ng-repeat="a in items track by $index" >
-				
-				<div class="col-sm-1 col-xs-12 cart-img">
-					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" width="160" height="140"/>
+				<!--Cart Main items-->
+				<div class="col-sm-2 col-md-2 col-xs-12 cart-img">
+					<img  src="{{fixPath + '300x300-1-img-'+a.id+'.jpg' + token}}" />
 				</div>
-				
-				<div class="col-sm-8 col-xs-10 cart-elements">
-					<a ng-href="#productDetailPage/{{a.id}}"><p class="cart-title cart-pro-title" id="item-bar2">{{a.name}}</p></a>
-					<a ng-href="#shop/{{a.shopID}}"><p class="cart-title"><span style="color: black; font-family: lato-light;font-size:14px; text-transform: uppercase;"><span id="item-shop-size">{{a.shop}}</span></span></p></a>
-					<hr class="cart-hr">
-					<div>
-						<div class="col-sm-2 col-xs-2" style="padding-left: 0px;margin-top: 15px;margin-bottom: 12px;">
-							<p style="font-size: 14px;font-family: lato-light !important;">SIZE</p>
-							<p style="margin-top: 16px;font-family: lato-light !important;" class="cart-details">{{a.size}}</p>
+				<div class="col-sm-10 col-md-10 col-xs-10 cart-elements">
+					<a ng-href="#productDetailPage/{{a.id}}" class="cart-title cart-pro-title" id="item-bar2">{{a.name}}</a>
+					<p class="cart-title" id="item-shop-size"><a ng-href="#shop/{{a.shopID}}">{{a.shop}}</a></p>
+					<div class="row text-center">
+						<div class="col-sm-3 col-md-3">
+							<p>Size</p>
+							<p class="cart-details">{{a.size}}</p>
 						</div>
-						<div class="col-sm-3 col-xs-5 text-center" style="margin-top: 15px;margin-bottom: 12px;">
-							<p style="font-size: 14px;font-family: lato-light !important;">QUANTITY</p>
-							<input type="text" maxlength="2" value="{{a.qty}}" style="width: 25px;height: 22px;font-size: 12px; border: 1px solid #e1e1e1e;text-align: center;margin-top: 7px;font-family: lato-light !important;" readonly/>
+						<div class="col-sm-3 col-md-3 cartQunatity">
+							<p>Quantity</p>
+							<form>
+								<input type="text" maxlength="2" class="text-center" value="{{a.qty}}" readonly/>
+							</form>
 						</div>
-						<div class="col-sm-3 col-xs-3 text-center " style="margin-top: 15px;margin-bottom: 12px;">
-							<p style="font-size: 14px;font-family: lato-light !important;">PRICE</p>
-							<p  style="    margin-top: 16px;font-family: lato-light !important;" class="cart-details">${{a.cost*a.qty}}</p>
+						<div class="col-sm-3 col-md-3">
+							<p>Price</p>
+							<p class="cart-details">${{a.cost*a.qty}}</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-1 col-xs-1" style="padding-left: 0px;width: auto;">
-					<img src="assets/images/closebtn.png" ng-click="removeItem($index)" style="float: right"/>
+				<!--Cart Main items-->
+				<div class="crossCartItem">
+					<img src="assets/images/closebtn.png" ng-click="removeItem($index)" />
 				</div>
-				
-				
+			</div>
+			<!--Cart Repeater-->
+		</div>
+		<!--Right Contents-->
+		<div class="col-sm-3 col-md-3 cart-right-table">
+			<div class="row">
+				<table class="order-right-table col-md-12 col-sm-12">
+					<tr>
+						<td>Number of Items</td>
+						<td>{{noOfCartItems}}</td>
+					</tr>
+					<tr>
+						<td>Subtotal</td>
+						<td>${{totalPrice}}</td>
+					</tr>
+					<tr>
+						<td><input  type="radio" value="paypal" name="pay" checked/><img src="assets/images/Paypal-Logo-PNG.png" /></td>
+					</tr>
+					<tr>
+						<td><input type="radio" value="visa" name="pay" /><img src="assets/images/payment-methods.png" /></td>
+					</tr>
+				</table>
+				<div class="col-md-12 col-sm-12">
+					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="submitPayment()" >Proceed to Checkout</button>
+				</div>
+
+				<div class="col-sm-12 text-center">
+					<img ng-show="loadingData" src="assets/images/cartloading.gif" width="25" height="25"/>
+				</div>
+				<label ng-if="!loadingData">
+					{{dataError.details[0].issue}}
+				</label>
 			</div>
 		</div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-3 col-xs-12 cart-right-table" style="margin-left: 12px;float: right;">
-				<div class="row">
-			
-					<table width="100%" class="order-right-table" >
-						<tr style="border-bottom: 1px grey solid;">
-							<td style="padding-left: 10px; font-family: lato-regular;">Number of Items</td>
-							<td style="text-align: right;padding-right: 15px;">{{noOfCartItems}}</td>
-						</tr>
-				
-						<tr style="padding: 10px;background-color: #f5f5f5;">
-							<td style="padding: 20px;padding-left: 10px; font-family: lato-regular;">Subtotal</td>
-							<td style="text-align: right;padding-right: 15px;font-family: lato-regular;">${{totalPrice}}</td>
-						</tr>
-						<tr>
-							<td style="padding: 10px;">
-								<input  type="radio" value="paypal" name="pay" checked/><img src="assets/images/Paypal-Logo-PNG.png" style="vertical-align: middle;"/><br />
-							</td>
-						</tr>
-						<tr>
-							<td style="padding: 10px;"><input  type="radio" value="visa" name="pay" /><img src="assets/images/payment-methods.png" style="vertical-align: middle;"/></td>
-						</tr>
-					</table>
-					<button type="button" class="btn btn-primary proceed-checkout-btn" ng-click="submitPayment()" style="font-family: lato-regular;font-size: 14px;font-weight: 400;" >Proceed to Checkout</button>
-					<div class="col-sm-12 text-center"><img ng-show="loadingData" src="assets/images/cartloading.gif" width="25" height="25"/></div>
-					<label ng-if="!loadingData" style="font-size: 11px;line-height: 16px;color: red;">
-						{{dataError.details[0].issue}}
-					</label>
-					<!--<p class="cart-details"><span style="text-align: right;"> </span></p>
-					<p class="cart-details"><b>Subtotal</b> $1400</p>
-					-->
-				</div>
-			</div>
-	</div>
-</div>
+		<!--Right Contents-->
+	</div><!--2nd Row-->
 </div>
