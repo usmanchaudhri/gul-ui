@@ -1,60 +1,37 @@
-<div class="container" ng-cloak>
-
+<div class="pgSize container" ng-cloak>
 	<div class="row info-boxes">
-		<div class="row" style="margin-top: 37px;">
-			<div class="col-sm-4 designerpage-image" >
-					<img  class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img" width="300" height="300"  />
+		<div class="row">
+			<div class="col-sm-3 designerpage-image" >
+				<img class="img-responsive shop-img" bn-lazy-src="{{fixPathShop + 'shop-'+ shop.id +'.jpg'+ token }}" alt="img" />
+			</div>
+			<div class="col-sm-9 shop-desc" >
+		 		<div class="col-sm-12 shop-pro-title">
+					<h3>{{shop.name}}</h3>
 				</div>
-				<div class="col-sm-8 shop-desc" >
-			 		<div class="col-sm-12 shop-pro-title">
-						<h4>
-							<p>{{shop.name}}</p>
-						</h4>
-						<br>
-					</div>
-					<div class="col-sm-12 shop-pro-detail">
-						<h4>
-							<p>
-								{{shop.details}}
-							</p>
-						</h4>
+				<div class="col-sm-12 shop-pro-detail">
+					<p>{{shop.details}}</p>
 				</div>
+			</div>
 		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="col-sm-4 shop-product">
-				<h2  class="product-title latestDiv">
-					<p style=";color: #e86701;">{{designer[0].name}}'S <span style="color:black;">PRODUCT</span></P>
-				</h2>
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<h3 class="product-title latestDiv text-uppercase">{{designer[0].name}}'s Products</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-xs-12 listingImg shopProds" id="imagediv" ng-repeat="a in shop.products">
+				<!--code review-->
+				<!--ID should remain unique in whole page imagediv will create ambiguity-->
+				<a ng-href="#productDetailPage/{{a.id}}"><img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}"></a>
+				<div class="imageText">
+					<p class="text-uppercase">{{a.name}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="other-controller">
+			<div class="text-center">
+				<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html"></dir-pagination-controls>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-	<div class="col-sm-12">
-	<div style="width: 100%;text-align: center;">
-	<div class="col-sm-4 col-xs-12" id="imagediv" ng-repeat="a in shop.products" style="margin-bottom: 30px !important;">
-		<a ng-href="#productDetailPage/{{a.id}}">		
-			<img bn-lazy-src= "{{fixPath +'300x300-1-img-'+a.id+'.jpg'+token}}"  width="300" height="300" ></a>
-		<div class="imageText">
-			<span class="proDes">
-				<p style="font-family: lato-regular;margin-top: 10px;">
-					{{a.name}}
-				</p>
-			</span>
-			
-		</div>
-    		
-	</div>
-	</div>
-	</div>
-	</div>
-	<div class="other-controller">
-		<div class="text-center">
-			<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/products/dirPagination.tpl.html"></dir-pagination-controls>
-		</div>
-	</div>
-	
-</div>
 </div>

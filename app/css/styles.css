@@ -123,12 +123,15 @@ h1.product-title{
 	background: -webkit-linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);
 	background: -o-linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);
 	background: -ms-linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);
-	background: linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);;*/
-
+	background: linear-gradient(to bottom, rgba(225, 225, 225, 0.37) 0%,rgba(153, 153, 153, 0.52) 100%);*/
 }
 .pgSize{
 		width: 1100px;
 		margin:0 auto;
+}
+p{
+	font-size: 14px;
+	color: #9c9c9c;
 }
 /* navbar */
 .navbar {
@@ -546,7 +549,8 @@ h1.product-title{
 }
 /* ---------------------------------------------------------------- Listing apge --- */
 /* ---------------------------------------------------------------- Detail apge --- */
-.ind-desc .prod-title,.mainBox .prod-price{
+.ind-desc .prod-title,.mainBox .prod-price,
+.shop-pro-title h3, h3.product-title{
 	border-bottom: 1px solid #bfbfbf;
 	padding-bottom: 3%;
 	margin-bottom: 5%;
@@ -636,7 +640,7 @@ hr.greyBorder{
 	padding-left: 0;
 }
 /* ---------------------------------------------------------------- End Detail apge --- */
-/* ---------------------------------------------------------------- End Detail apge --- */
+/* ---------------------------------------------------------------- Shop apge --- */
 .shopItem img{
 	width: 100%;
 }
@@ -650,8 +654,25 @@ hr.greyBorder{
 	font-weight: 100;
 	font-size:20px;
 }
-/* ---------------------------------------------------------------- End Detail apge --- */
-
+.shop-desc{
+	margin-top: 1%;
+}
+.shop-pro-title h3{
+	padding-bottom: 1%;
+   margin-bottom: 3%;
+}
+h3.product-title{
+	padding-bottom: 1%;
+	margin: 3% 0;
+}
+.shopProds.listingImg{
+	margin-bottom: 1%;
+}
+.shopProds.listingImg .imageText{
+	padding-top: 13px;
+	min-height: 55px;
+}
+/* ---------------------------------------------------------------- End Shop apge --- */
 /* subscribe */
 .subscribe {
 	position: relative;
@@ -1881,9 +1902,6 @@ input[type="text"],input[type="password"],input[type="email"]{
 		margin: 0px;
 		bottom: 0;
 	}
-}
-.designerpage-image{
-	padding-left: 31lpx;
 }
 .upload-btn{
 	padding: 5px;
