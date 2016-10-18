@@ -17,29 +17,28 @@
 				//create HTML markup for lightbox window
 				firstLightbox();
 			}
-
 			var lightbox = "";
 			var lightbox2 = "";
 			var lightbox3 = "";
 			function firstLightbox(){
 				lightbox =
-				'<div id="lightbox">' +'<div class="row" style="width:auto;text-align:center;margin-top:30px;"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it"><img src="images/back-arrow.jpg" width="auto"  style="padding:5px;" /></span></div><div class="col-sm-6 col-xs-12 col-sm-offset-2"><h1>CUSTOMIZE</h1></div></div>'+
-				'<div class="col-sm-12 col-xs-12" style="text-align:center;"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1 style="border:none;font-size:25px;margin-left:20px;">JACKETS'+'</h1></div></div>'+'</div>'+
+				'<div id="lightbox">'+'<div class="row"><div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-6 back-button">'+'<span id="close-it"><img src="/assets/images/back-arrow.jpg" /></span></div><div class="col-sm-6 col-xs-12"><h1>Customize</h1></div></div>'+
+				'<div class="col-sm-12 col-xs-12"><div class="col-sm-6 col-xs-12 col-sm-offset-3"><h1>Jackets'+'</h1></div></div>'+'</div>'+
 				'<div id="content">' +
 				'<ul class="lightbox-ul">' +
-				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');background-size:cover;background-repeat:no-repeat;">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td>'+'</td>'+
+				'<td>'+'<img class="tick-img" src="/assests/images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'+
 				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');background-size:cover;background-repeat:no-repeat;">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'<td>'+'<img class="tick-img" src="/assets/images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'+
 				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');background-size:cover;background-repeat:no-repeat;">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'<td>'+'<img class="tick-img" src="/assets/images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'+
 				'<li class="hover11">' + '<div class="customization-img" style="background:url('+image_href+');background-size:cover;background-repeat:no-repeat;">'+'</div><a><table class="customization-img-title">'+'<tr class="radio-btn-div">'+'<td >'+'<input type="radio" name="jacket" value="1">'+'<label>Jacket1</label>'+'</input>'+'</td>'+'<td style="width:100%;">'+'</td>'+
-				'<td>'+'<img class="tick-img" src="images/tick.png"'+'/>'+'</td>'+
+				'<td>'+'<img class="tick-img" src="/assets/images/tick.png"'+'/>'+'</td>'+
 				'</tr>'+'</table>'+'</a>' + '</li>'+
-				'</ul><div class="row"><img class="slider-img" src="images/slider.jpg" /></div>' +
+				'</ul><div class="row"><img class="slider-img" src="/assets/images/slider.jpg" /></div>' +
 				'<div style="text-align:center;margin-top:10px;margin-left:2%;">'+'<button type="button" class="btn btn-primary individual-bag-btn" id="pre-btn" style="margin-right:5px;">PREVIOUS</button>' + '<button type="button" class="btn btn-primary individual-bag-btn" id="next-btn">NEXT</button>'+'</div></div><div class="row" style="padding-top:20px;"><div class="col-sm-12 text-center description"><div class="col-sm-6 col-sm-offset-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.18);padding-bottom: 15px;">DESCRIPTION</div><div class="col-sm-12"><div class="col-sm-6 col-sm-offset-3 description-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p></div></div></div></div>'+
 				'</div>';
 				$('body').append(lightbox);
@@ -75,11 +74,10 @@
 	table{
 		width: 100%;
 	}
-
 	.slider-img{
 	 margin-left: 35px;
     margin-top: -6px;
-    width: 71%;
+    width:71%;
 	}
 	#lightbox {
 		position: fixed; /* keeps the lightbox window in the current viewport */
