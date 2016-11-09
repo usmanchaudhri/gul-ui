@@ -358,6 +358,22 @@ p{
 	background-repeat: no-repeat;
 	background-position: right 6px;
 }
+.main-nav > ul > li.header-account-label a{
+	
+}
+.main-nav > ul > li.header-account-label{
+	background-image: none;
+	padding: 0;
+    float: right;
+    font-size: 13px;
+}
+.main-nav > ul.account-navbar{
+	margin-top:0;
+}
+.main-nav .header-account-label .dropdown-menu{
+	left:auto;
+	right:0;
+}
 .main-nav li.lastChild{
 	background-image: none;
 	padding-right: 0;
@@ -394,10 +410,16 @@ p{
 	content: "";
 }
 .main-nav > ul > li > ul a {
+	font-family: 'Lato', sans-serif;
+	font-weight:100;
 	display: block;
-	padding: 12px 10px 0;
-	color: #c3c1c1 ;
-	font-size: 15px;
+	padding:5px 10px 5px 10px;
+	color: #a4a4a4;
+	font-size:14px;
+}
+.dropdown-menu > li > a:hover{
+	background-color:#e96a24;
+	color:#fff;
 }
 .main-nav > ul > li > ul ul {
 	list-style: none;

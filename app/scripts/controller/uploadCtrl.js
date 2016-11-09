@@ -1,4 +1,4 @@
-app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$cookies', '$location', '$rootScope', 'gulApis', function ($scope, Upload, $timeout, $q, $http, $cookies, $location, $rootScope, gulApis) {
+app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$cookies', '$location', '$rootScope', 'gulApis', function($scope, Upload, $timeout, $q, $http, $cookies, $location, $rootScope, gulApis) {
     $scope.allFiles = [];
     $scope.progressArr = [];
 
@@ -16,24 +16,24 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     var imgSize = 0;
     //var imageResizeFlag = true;
     $scope.shopImage = [];
-    if (angular.isDefined($cookies.get("username"))) {
-        if (angular.isDefined(JSON.parse($cookies.get("username")).shopId)) {
-            console.log("upload page shop id", JSON.parse($cookies.get("username")).shopId);
-            shopId = JSON.parse($cookies.get("username")).shopId;
-        } else {
-            $location.path("/newShop");
-        }
-    } else {
-        $location.path("#a");
-        $rootScope.$emit("signin", {});
-    }
+    // if (angular.isDefined($cookies.get("username"))) {
+    //     if (angular.isDefined(JSON.parse($cookies.get("username")).shopId)) {
+    //         console.log("upload page shop id", JSON.parse($cookies.get("username")).shopId);
+    //         shopId = JSON.parse($cookies.get("username")).shopId;
+    //     } else {
+    //         $location.path("/newShop");
+    //     }
+    // } else {
+    //     $location.path("#a");
+    //     $rootScope.$emit("signin", {});
+    // }
     gulApis.getUrls()
-        .then(function (response) {
+        .then(function(response) {
             $scope.productUrl = response.data.productUrl;
             $scope.categoryUrl = response.data.categoryUrl;
             $scope.shopUrl = response.data.shopUrl;
             gulApis.getCategoryData($scope.categoryUrl)
-                .then(function (response1) {
+                .then(function(response1) {
                     $scope.categoryDetail = response1.categoryDetail;
                     $scope.categoryList = response1.categoryList;
                 });
@@ -45,7 +45,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.addImages = function (files) {
+    $scope.addImages = function(files) {
         var value = {
             // File Name
             name: files.name,
@@ -66,7 +66,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      Total Images Number
      *
      */
-    $scope.getNumber = function (num) {
+    $scope.getNumber = function(num) {
         num = num - $scope.allFiles.length;
         return new Array(num);
     }
@@ -78,12 +78,12 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      */
 
 
-    $scope.upload = function () {
+    $scope.upload = function() {
         if ($scope.allFiles.length > 0) {
             $scope.showProgress = true;
 
 
-            gulApis.uploadProduct($scope.productUrl, $scope.proUpload()).then(function (data) {
+            gulApis.uploadProduct($scope.productUrl, $scope.proUpload()).then(function(data) {
                 console.log("UPLOAD DATA: ", data);
                 $scope.newProId = data.id;
                 $scope.uploadProduct();
@@ -100,7 +100,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *Get SubCategories
      **/
 
-    $scope.getSubCat = function () {
+    $scope.getSubCat = function() {
         $scope.subCategoryDetail = [];
         for (var i = 0; i < $scope.categoryDetail.length; i++) {
             if ($scope.categoryDetail[i].id == $scope.cat.id && $scope.categoryDetail[i].subCategories.length > 0) {
@@ -114,27 +114,27 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     }
 
-    $scope.uploadProduct = function () {
+    $scope.uploadProduct = function() {
         console.log("cropImageArr at Line 132:", cropImageArr);
         $scope.uriToFile(cropImageArr);
         console.log("Temp Files at Line 134:", tempFiles);
         $scope.resizeUpload(tempFiles);
     }
-    $scope.uploadShop = function () {
+    $scope.uploadShop = function() {
         $scope.uriToFileShop(cropImageArr);
         $scope.resizeUploadShop(tempFiles);
     }
 
-    $scope.resizeUpload = function (tmpFiles) {
+    $scope.resizeUpload = function(tmpFiles) {
         console.log(tmpFiles);
         imgSize++;
-        angular.forEach(tmpFiles, function (myItem) {
+        angular.forEach(tmpFiles, function(myItem) {
             var deferred = $q.defer();
             promises.push(deferred.promise);
             resizeImg(myItem, deferred);
             //console.log("in foreach loop at line 149");
         });
-        $q.all(promises).then(function () {
+        $q.all(promises).then(function() {
             console.log("resImage at Line 151:", resImage);
             //if(imageResizeFlag==false){
             $scope.uploadImages();
@@ -142,14 +142,14 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         });
     }
 
-    $scope.resizeUploadShop = function (tmpFiles) {
+    $scope.resizeUploadShop = function(tmpFiles) {
         imgSize++;
-        angular.forEach(tmpFiles, function (myItem) {
+        angular.forEach(tmpFiles, function(myItem) {
             var deferred = $q.defer();
             promises.push(deferred.promise);
             resizeImg(myItem, deferred);
         });
-        $q.all(promises).then(function () {
+        $q.all(promises).then(function() {
             uploadShopImg();
         });
     }
@@ -160,14 +160,14 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.uploadImages = function () {
+    $scope.uploadImages = function() {
         var count = -1;
         var uploadImgs = [];
         //	angular.forEach(resImage, function (myItem) {
         uploadImgs.push(resImage[0].resized.dataURL);
         //		});
         $scope.uriToFile(uploadImgs);
-        angular.forEach(tempFiles, function (value, key) {
+        angular.forEach(tempFiles, function(value, key) {
             //		console.log("Imagasdfdsfas: ");
             count++;
             $scope.one = value;
@@ -180,20 +180,20 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             // alert($scope.files[0]+" files selected ... Write your Upload Code");
             $scope.upload = Upload.upload({
                 url: 'https://content.dropboxapi.com/1/files/auto/gul/product/images?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
-                data: {file: $scope.one._file}
+                data: { file: $scope.one._file }
             });
-            $scope.upload.then(function (response) {
-                $timeout(function () {
+            $scope.upload.then(function(response) {
+                $timeout(function() {
                     $scope.result = response.data;
                     //	console.log($scope.result);
                 });
-            }, function (response) {
+            }, function(response) {
                 if (response.status > 0)
                     $scope.errorMsg = response.status + ': ' + response.data;
-            }, function (evt) {
+            }, function(evt) {
                 // Math.min is to fix IE which reports 200% sometimes
                 //	console.log(evt);
-                angular.forEach($scope.progressArr, function (value, key) {
+                angular.forEach($scope.progressArr, function(value, key) {
                     if (evt.config._file.name == value.imgName) {
                         $scope.progressArr[value.imgIndex].imgProgress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                         //console.log($scope.progressArr[value.imgIndex].imgProgress);
@@ -209,7 +209,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.proUpload = function () {
+    $scope.proUpload = function() {
 
         return proPayload = {
             "sku": $scope.proName,
@@ -248,7 +248,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.removeImage = function (index) {
+    $scope.removeImage = function(index) {
         console.log("REMOVE:" + index);
         $scope.allFiles.splice(index, 1);
         cropImageArr.splice(index, 1);
@@ -261,14 +261,14 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.dataURItoBlob = function (dataURI) {
+    $scope.dataURItoBlob = function(dataURI) {
         var binary = atob(dataURI.split(',')[1]);
         var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
         var array = [];
         for (var i = 0; i < binary.length; i++) {
             array.push(binary.charCodeAt(i));
         }
-        return new Blob([new Uint8Array(array)], {type: mimeString});
+        return new Blob([new Uint8Array(array)], { type: mimeString });
     };
 
     /*
@@ -277,7 +277,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    $scope.$on('cropImage', function (event, arg) {
+    $scope.$on('cropImage', function(event, arg) {
         $scope.imageUrl = arg.img;
 
         if ($scope.imageUrl != '') {
@@ -311,21 +311,21 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      *
      */
 
-    var createShop = function () {
-        shopPayload = {
-            "name": $scope.proName,
-            "designers": {
-                "name": "HUMA MANZOOR"
+    var createShop = function() {
+            shopPayload = {
+                "name": $scope.proName,
+                "designers": {
+                    "name": "HUMA MANZOOR"
+                }
             }
         }
-    }
-    /*
-     *
-     Creating file from URI
-     *
-     */
+        /*
+         *
+         Creating file from URI
+         *
+         */
 
-    $scope.uriToFile = function (uriArray) {
+    $scope.uriToFile = function(uriArray) {
         var countIndex = 0;
         var count = tempFiles.length;
         console.log(count);
@@ -336,7 +336,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             resolution = '300x300';
         }
         count = 0;
-        angular.forEach(uriArray, function (item) {
+        angular.forEach(uriArray, function(item) {
             count++;
             countIndex++;
             var flag = false;
@@ -362,11 +362,11 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     }
 
-    $scope.uriToFileShop = function (uriArray) {
+    $scope.uriToFileShop = function(uriArray) {
         var countIndex = 0;
         var count = tempFiles.length;
         count = 0;
-        angular.forEach(uriArray, function (item) {
+        angular.forEach(uriArray, function(item) {
             count++;
             countIndex++;
             var flag = false;
@@ -391,7 +391,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     }
 
 
-    $scope.cropImageArray = function (crop, indexNum) {
+    $scope.cropImageArray = function(crop, indexNum) {
         if (angular.isDefined(crop)) {
 
             if (cropImageArr.length > indexNum) {
@@ -412,7 +412,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
     /********************** IMAGE UPLOAD RESIZE DEIRECTIVE **********************************/
 
 
-    var getResizeArea = function () {
+    var getResizeArea = function() {
         var resizeAreaId = 'fileupload-resize-area';
 
         var resizeArea = document.getElementById(resizeAreaId);
@@ -429,7 +429,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         return resizeArea;
     }
 
-    var resizeImage = function (origImage, options) {
+    var resizeImage = function(origImage, options) {
         //var canvas = createHiDPICanvas(500, 600, 4);
 
         var canvas = document.createElement("canvas");
@@ -452,20 +452,20 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         return canvas.toDataURL('image/jpeg', 1);
     };
 
-    var createImage = function (url, callback) {
+    var createImage = function(url, callback) {
         var image = new Image();
-        image.onload = function () {
+        image.onload = function() {
             callback(image);
         };
         image.src = url;
     };
 
-    var fileToDataURL = function (file) {
+    var fileToDataURL = function(file) {
         /*console.log("FILE:");
          console.log(file);*/
         var deferred = $q.defer();
         var reader = new FileReader();
-        reader.onload = function (e) {
+        reader.onload = function(e) {
             deferred.resolve(e.target.result);
         };
         reader.readAsDataURL(file);
@@ -473,10 +473,10 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         return deferred.promise;
     };
 
-    var doResizing = function (imageResult, callback) {
+    var doResizing = function(imageResult, callback) {
         /*console.log("DORESIZING");
          console.log(imageResult);*/
-        createImage(imageResult.url, function (image) {
+        createImage(imageResult.url, function(image) {
             /*console.log("createImage");
              console.log(image);*/
             var dataURL = resizeImage(image, $scope);
@@ -490,7 +490,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         });
     };
 
-    var applyScope = function (imageResult, deferred) {
+    var applyScope = function(imageResult, deferred) {
 
         if (resImage.length < 5)
             resImage.push(imageResult);
@@ -500,7 +500,7 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         //	console.log(scope.resImage.length);*/
     };
 
-    var resizeImg = function (files, deferred) {
+    var resizeImg = function(files, deferred) {
         //create a result object for each file in files
         var imageResult = {
             file: files._file,
@@ -510,18 +510,17 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
         //console.log(imageResult);
 
 
-        fileToDataURL(files._file).then(function (dataURL) {
+        fileToDataURL(files._file).then(function(dataURL) {
             //console.log("before");
             imageResult.dataURL = dataURL;
             //console.log("dataURL");
 
 
             if (resizeMaxHeight || resizeMaxWidth) { //resize image
-                doResizing(imageResult, function (imageResult) {
+                doResizing(imageResult, function(imageResult) {
                     applyScope(imageResult, deferred);
                 });
-            }
-            else { //no resizing
+            } else { //no resizing
                 //console.log("NO RESIZE");
                 applyScope(imageResult, deferred);
             }
@@ -531,19 +530,19 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
 
     };
 
-    var PIXEL_RATIO = (function () {
+    var PIXEL_RATIO = (function() {
         var ctx = document.createElement("canvas").getContext("2d"),
             dpr = window.devicePixelRatio || 1,
             bsr = ctx.webkitBackingStorePixelRatio ||
-                ctx.mozBackingStorePixelRatio ||
-                ctx.msBackingStorePixelRatio ||
-                ctx.oBackingStorePixelRatio ||
-                ctx.backingStorePixelRatio || 1;
+            ctx.mozBackingStorePixelRatio ||
+            ctx.msBackingStorePixelRatio ||
+            ctx.oBackingStorePixelRatio ||
+            ctx.backingStorePixelRatio || 1;
 
         return dpr / bsr;
     })();
 
-    createHiDPICanvas = function (w, h, ratio) {
+    createHiDPICanvas = function(w, h, ratio) {
         if (!ratio) {
             ratio = PIXEL_RATIO;
         }
@@ -574,18 +573,18 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
      $scope.shopImage.push(value);
      };*/
 
-    $scope.getShopDecision = function () {
+    $scope.getShopDecision = function() {
         if ($scope.shopImage.length > 0) {
             return true;
         }
         return false;
     }
 
-    $scope.createShop = function () {
+    $scope.createShop = function() {
         if ($scope.getShopDecision) {
             $scope.showProgress = true;
 
-            gulApis.createShop($scope.shopUrl,$scope.shopUpload()).then(function(data){
+            gulApis.createShop($scope.shopUrl, $scope.shopUpload()).then(function(data) {
                 $scope.shopId = data;
                 $scope.uploadShop();
             });
@@ -595,28 +594,28 @@ app.controller('uploadCtrl', ['$scope', 'Upload', '$timeout', '$q', '$http', '$c
             alert("Upload atleast one Image");
         }
     };
-    $scope.shopUpload = function () {
+    $scope.shopUpload = function() {
 
         return shopPayload = {
             "name": $scope.shopName,
-            "designers": [{"name": $scope.designerName, "imagePath": "/shop/"}],
-            "shopOwner": {"id": JSON.parse($cookies.get("username")).id}
+            "designers": [{ "name": $scope.designerName, "imagePath": "/shop/" }],
+            "shopOwner": { "id": JSON.parse($cookies.get("username")).id }
         }
     };
-    var uploadShopImg = function () {
+    var uploadShopImg = function() {
         //	$scope.uriToFile(uploadImgs);
         $scope.upload = Upload.upload({
             url: 'https://content.dropboxapi.com/1/files/auto/gul/product/shop?access_token=UQkhjQYKpOEAAAAAAAAAsEi5Y5enzU4nIHL9SvyRU0oiIo5dUXAoolRn-Py3e0Ne',
-            data: {file: tempFiles[0]._file}
+            data: { file: tempFiles[0]._file }
         });
-        $scope.upload.then(function (response) {
-            $timeout(function () {
+        $scope.upload.then(function(response) {
+            $timeout(function() {
                 $scope.result = response.data;
             });
-        }, function (response) {
+        }, function(response) {
             if (response.status > 0)
                 $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
+        }, function(evt) {
             // Math.min is to fix IE which reports 200% sometimes
             $scope.progressShop = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             if ($scope.progressShop == 100) {
