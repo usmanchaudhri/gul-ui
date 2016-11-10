@@ -507,7 +507,7 @@ p {
 .main-nav > ul > li > ul a {
     cursor: pointer;
     font-family: 'Lato', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     display: block;
     padding: 5px 10px 5px 10px;
     color: #000;
@@ -939,7 +939,7 @@ p.cart-title {
 }
 .pageNav{
     overflow:hidden;
-    padding-bottom:10px;
+    padding-bottom:2%;
     font-size:13px;
     color:#ccc;
 }
@@ -1055,6 +1055,46 @@ p.cart-title {
     text-align:center;
     background-color: #fdfdfd;
     display: inline-block;
+}
+.headingBar{
+    overflow: hidden;
+    width: 97%;
+    margin: 0 auto;
+    position:relative;
+    float: none;
+    height:10px;
+}
+.headingBar span{
+    width:10px;
+    height:10px;
+    background-color:#ccc;
+}
+.headingBar span.leftBox,.headingBar span.rightBox{
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    position: absolute;
+    top:0;
+}
+.headingBar span.leftBox{
+    left:9px;
+}
+.headingBar span.rightBox{
+    right:9px;
+}
+.headingBar span.active{
+    background-color:#636363;
+}
+.headingBar span.centerBar{
+    display:block;
+    height:1px;
+    margin-top:4px;
+    width:100%;
+    background-color: #e96d28;
+}
+.headingBarPadding{
+    clear: both;
+    padding-top: 2%;
 }
 .headTab li.newTab{
     background-image:url(../assets/images/add-icon.png);
